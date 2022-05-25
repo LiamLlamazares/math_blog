@@ -6,7 +6,7 @@ bibliography:
 date: 23-05-2022
 title: Malliavin Calculus
 ---
-
+Taking out (
 Based on the book by el pringado [@nunno2008malliavin].
 
 # Wiener Itô chaos expansion
