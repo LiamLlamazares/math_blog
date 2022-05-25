@@ -36,3 +36,20 @@ notation
 $$
 \mathcal{M}_t^2:=\{f\in L^2([0,t]\times\Omega)\text{ that are continuous martingales}\}.
 $$
+We will work with the spaces $L^2(I^n), L^2_S(I^n),L^2(S_n)$ of
+respectively square integrable functions, symmetric square integrable
+functions and square integrable functions on
+$$S_n:=\{0\leq t_0\leq\ldots\leq t_n\leq T\}.$$ 
+ Since these functions
+don't involve a random variable we call them *deterministic*. Given
+$f\in L^2(I^n)$ we denote its symmetrization by
+$$f_S:=\frac{1}{n!}\sum_{\sigma} f(t_{\sigma_1},\ldots,t_{\sigma_n}).$$
+Where $\sigma$ is summed over all the permutations of $\{1,\ldots,n\}$.
+Note that if $f$ is already symmetric then $f=f_S$. Given a
+*deterministic* function we can transform it into a *random* one by
+taking its Itô integral. By integrating multiple times we obtain the
+following definition
+
+**Definition 1**. Let $f\in L^2(S_n)$, then we define the *n-fold Itô
+integral* as
+$$J_n(f):=\int_I\cdots \int_{0}^{t_3}\int_{0}^{t_2} f(t_1,\ldots,t_n)dW(t_1) dW(t_2)\ldots dW(t_n).$$
