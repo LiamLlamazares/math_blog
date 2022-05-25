@@ -41,5 +41,5 @@ Will this work?
 $\begin{definition}
 Will this work?
 \end{definition}$
-Seems not
+Seems not but maybe numbers
 
