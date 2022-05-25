@@ -26,3 +26,10 @@ integral* as
 $$J_n(f):=\int_I\cdots \int_{0}^{t_3}\int_{0}^{t_2} f(t_1,\ldots,t_n)dW(t_1) dW(t_2)\ldots dW(t_n).$$
 </div>
 hiya
+In equation \eqref{eq:sample}, we find the value of an
+interesting integral:
+
+\begin{equation}
+  \int_0^\infty \frac{x^3}{e^x-1}\,dx = \frac{\pi^4}{15}
+  \label{eq:sample}
+\end{equation}
