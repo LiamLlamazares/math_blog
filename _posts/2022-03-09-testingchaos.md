@@ -59,11 +59,11 @@ appearing in the upper bounds of the integration domain are the same as
 those appearing as integration variables. To better understand the
 definition, first note that, by the properties of the Itô integral, for
 each $t_2\leq\cdots\leq t_n$,
-$$F_2(t_2\ldots,t_n):=    \int_{0}^{t_2} f(t_1,\ldots,t_n)dW(t_1) \in \mathcal{M}_{t_3}^2.$$
-Where $F_2(\cdot,t_3,\ldots,t_n)\in \mathcal{M}_{t_3}^2$ is viewed as a
+$$F_2(t_2\ldots,t_n):=    \int_{0}^{t_2} f(t_1,\ldots,t_n)dW(t_1) \in \mathcal{M}_{t3}^2.$$
+Where $F_2(\cdot,t_3,\ldots,t_n)\in \mathcal{M}_{t3}^2$ is viewed as a
 function of $t_2$. Due to the above inclusion
 $F_2(\cdot,t_3,\ldots,t_n)$ is Itô integrable and
-$$F_3(t_3\ldots,t_n):=    \int_{0}^{t_3} F_2(t_2,\ldots,t_n)dW(t_2) \in \mathcal{M}_{t_4}^2  .$$
+$$F_3(t_3\ldots,t_n):=    \int_{0}^{t_3} F_2(t_2,\ldots,t_n)dW(t_2) \in \mathcal{M}_{t4}^2  .$$
 Where the above is viewed as a function of $t_3$. Iterating this process
 we get that $F_n \in \mathcal{M}_T^2$ and
 $$J_n(f)=\int_I F_n(t_n)dW(t_2) \in L^2(\Omega).$$
