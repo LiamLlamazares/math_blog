@@ -22,4 +22,6 @@ following definition
 
 **Definition 1**. Let $f\in L^2(S_n)$, then we define the *n-fold Itô
 integral* as
+<div>
 $$J_n(f):=\int_I\cdots \int_{0}^{t_3}\int_{0}^{t_2} f(t_1,\ldots,t_n)dW(t_1) dW(t_2)\ldots dW(t_n).$$
+</div>
