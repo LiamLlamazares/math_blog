@@ -43,6 +43,6 @@ Will this work?
 \end{definition}$
 Seems not but maybe numbers, testing ams
 testing $/(x/)$ but now displayed
-Tsting base macros $\calA, \R$.
+Tsting base macros
 Now testing all macros  $\N, \Ll$, plz
 
