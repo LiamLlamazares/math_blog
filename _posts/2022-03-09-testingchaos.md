@@ -53,3 +53,11 @@ following definition
 **Definition 1**. Let $f\in L^2(S_n)$, then we define the *n-fold Itô
 integral* as
 $$J_n(f):=\int_I\cdots \int_{0}^{t_3}\int_{0}^{t_2} f(t_1,\ldots,t_n)dW(t_1) dW(t_2)\ldots dW(t_n).$$
+The definition requires some care to verify to make sense of sense of
+and to make sure it is well defined. For example note that the variables
+appearing in the upper bounds of the integration domain are the same as
+those appearing as integration variables. To better understand the
+definition, first note that, by the properties of the Itô integral, for
+each $t_2\leq\cdots\leq t_n$,
+$$F_2(t_2\ldots,t_n):=    \int_{0}^{t_2} f(t_1,\ldots,t_n)dW(t_1) \in \mathcal{M}_{t_3}^2.$$
+Where $F_2(\cdot,t_3,\ldots,t_n)\in \mathcal{M}_{t_3}^2$ is viewed as a
