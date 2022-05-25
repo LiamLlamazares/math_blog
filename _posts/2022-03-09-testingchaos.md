@@ -64,3 +64,10 @@ Where $F_2(\cdot,t_3,\ldots,t_n)\in \mathcal{M}_{t_3}^2$ is viewed as a
 function of $t_2$. Due to the above inclusion
 $F_2(\cdot,t_3,\ldots,t_n)$ is Itô integrable and
 $$F_3(t_3\ldots,t_n):=    \int_{0}^{t_3} F_2(t_2,\ldots,t_n)dW(t_2) \in \mathcal{M}_{t_4}^2  .$$
+Where the above is viewed as a function of $t_3$. Iterating this process
+we get that $F_n \in \mathcal{M}_T^2$ and
+$$J_n(f)=\int_I F_n(t_n)dW(t_2) \in L^2(\Omega).$$
+To notice the
+subtleties involved, we note that one example of an integral that would
+be ill-defined however is if for $f\in L^2(I^n)$ we defined
+
