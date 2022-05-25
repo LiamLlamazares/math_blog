@@ -44,5 +44,5 @@ Will this work?
 Seems not but maybe numbers, testing ams
 testing $/(x/)$ but now displayed
 Tsting base macros $\calA, \R$.
-Now testing all macros and environments $\N, \Ll$, plz
+Now testing all macros  $\N, \Ll$, plz
 
