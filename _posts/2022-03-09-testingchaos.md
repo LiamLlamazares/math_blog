@@ -7,7 +7,7 @@ date: 23-05-2022
 title: Malliavin Calculus
 ---
 
-Based on the book by el pringado [@nunno2008malliavin].
+Based on the book Nunno, G. D., Øksendal, B., & Proske, F. (Eds.). (2008). Malliavin calculus for Lévy processes with applications to finance. Berlin, Heidelberg: Springer Berlin Heidelberg.
 
 # Wiener Itô chaos expansion
 
