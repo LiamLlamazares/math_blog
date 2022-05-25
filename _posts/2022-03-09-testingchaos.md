@@ -42,5 +42,5 @@ $\begin{definition}
 Will this work?
 \end{definition}$
 Seems not but maybe numbers, testing ams
-testing $/(x/)$
+testing $/(x/)$ but now displayed
 
