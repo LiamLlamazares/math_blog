@@ -71,8 +71,5 @@ To notice the
 subtleties involved, we note that one example of an integral that would
 be ill-defined however is if for $f\in L^2(I^n)$ we defined
 $$J_n(f):=\int_I\cdots \int_I\int_I f(t_1,\ldots,t_n)dW(t_1) dW(t_2)\ldots dW(t_n).$$
-In this case we have that the first integral is $\mathcal{F}_T$ adapted
-and not $\mathcal{F}_{t_2}$ adapted so we cannot continue integrating!
-As a result we instead give the following definition for symmetric
-functions.
+
 
