@@ -6,11 +6,10 @@ bibliography:
 date: 23-05-2022
 title: Malliavin Calculus
 ---
-<object data="{{ post.file_document_path }}" width="1000" height="1000" type='application/pdf'/>
 Based on the book Nunno, G. D., Øksendal, B., & Proske, F. (Eds.). (2008). Malliavin calculus for Lévy processes with applications to finance. Berlin, Heidelberg: Springer Berlin Heidelberg.
 
 # Wiener Itô chaos expansion
-Plz god
+Plz gods
 
 ## Three line summary
 
