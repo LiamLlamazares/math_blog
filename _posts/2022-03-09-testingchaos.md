@@ -10,7 +10,7 @@ Based on the book Nunno, G. D., Øksendal, B., & Proske, F. (Eds.). (2008). Mall
 
 # Wiener Itô chaos expansion
 Plz godss
-<object data="assets/Malliavin_Oksendal_Chapter_1.pdf" width="1000" height="1000" type='application/pdf'></object>
+<object data="LiamLlamazares.github.io/assets/Malliavin_Oksendal_Chapter_1.pdf" width="1000" height="1000" type='application/pdf'></object>
 
 ## Three line summary
 
