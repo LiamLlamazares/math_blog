@@ -2,9 +2,6 @@
 layout: post
 title: The Chaos Expansion
 subtitle: Iterated integrals, and their consequences.
-cover-img: /assets/img/path.jpg
-thumbnail-img: /assets/img/thumb.png
-share-img: /assets/img/path.jpg
 tags: [Malliavin,Stochastic Calculus]
 ---
 
