@@ -171,5 +171,6 @@ obtain $\phi\U \infty=0$. This proves the first sum of the theorem.\
 It remains to prove the second part, but this follows by extending the
 $f\U n$ by $0$ on $I^n\setminus S\U n$ and taking $g\U n$ to be the
 symmetrization of this extension.  ◻
+
 A pdf of version of this page is provided below:
 <object data="/assets/Malliavin_Oksendal_Chapter_1.pdf" width="1000" height="1000" type='application/pdf'></object>
