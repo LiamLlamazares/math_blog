@@ -15,6 +15,7 @@ author: Liam Llamazares
 
 navbar-links:
   About Me: "aboutme"
+  About this blog: "aboutblog"
   Resources:
     - A much better blog: "https://terrytao.wordpress.com/"
     - My supervisor: "https://scholar.google.com/citations?user=oYSH-mwAAAAJ&hl=fr&oi=ao"
