@@ -7,7 +7,7 @@ Welcome traveler! It's pouring outside would you please step inside? Take a chai
 This blog will focus on these fields. If you're still interested, welcome to the team!
 
 I'm a firm believer that to understand anything you have to make it your own, distill it to its essence and be capable of [re-explaining](https://fs.blog/feynman-technique/) it in your own words and this blog will provide such a framework.
-- Posts will cover topics mostly in stochastics, analysis, and spatial statistics.
+-  My posts will cover topics mostly in stochastics, analysis, and spatial statistics.
 - Every post will contain a three-sentence summary where I hope to reduce the topic of the post to its essence.
 - Furthermore, posts will have a *why should I care section?* (always a good question to ask) to place the information in context. 
 - Finally, the finer workings of the topic (definitions, propositions, theorems, and examples) will be discussed in a way that focuses on the main ideas that make everything fit together and work. When proofs become very technical only the idea and some moderate details will be presented with references to primary sources cited.
