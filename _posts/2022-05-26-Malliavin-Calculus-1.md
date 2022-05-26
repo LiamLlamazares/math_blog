@@ -6,8 +6,8 @@ thumbnail-img: /assets/img/Malliavin.jpg
 share-img: /assets/img/Malliavin.jpg
 tags: [Stochastic calculus, Malliavin Calculus]
 ---
-
-Based on the book [1](https://link.springer.com/book/10.1007/978-3-540-78572-9).
+This is the first post of many to come on this blog, thanks for joining! This is also the first in a series on Malliavin calculus. This chain is
+based on the book by Oksendal and Nunno [1](https://link.springer.com/book/10.1007/978-3-540-78572-9), and inspired by a reading group on the topic. 
 
 # Wiener Itô chaos expansion
 
