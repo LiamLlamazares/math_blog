@@ -1,10 +1,12 @@
 ---
 layout: page
-title: About me
+title: About this blog
 subtitle: Who's the wacko in charge of this blog?
 ---
-Welcome traveler! It's pouring outside would you please step inside? Take a chair by the fire and make yourself comfortable. Ah where are my manners, let me introduce myself. My name is Liam, I am a first year Ph.D. student at the University of Edinburgh. My undergraduate and masters studies were iin Mathematics at the University of Salamanca. I had various great professors in these years who shaped and grew my interest in analysis, PDE's and more recently Stochasatic Analysis. 
-This blog will focus on these fields. I'm a firm believer that to understand anything you have to make it your own, distill it to its essence and be capable of re-explaining it in you own words and this blog will provide such a framework.
+Welcome traveler! It's pouring outside would you please step inside? Take a chair by the fire and make yourself comfortable. Ah! Where are my manners? Let me introduce myself. My name is Liam, I am a first year Ph.D. student at the University of Edinburgh. My undergraduate and masters studies were iin Mathematics at the University of Salamanca. I had various great professors in these years who shaped and grew my interest in analysis, PDE's and more recently Stochasatic Analysis. 
+This blog will focus on these fields. If you're still interested, welcome to the team!
+
+I'm a firm believer that to understand anything you have to make it your own, distill it to its essence and be capable of re-explaining it in you own words and this blog will provide such a framework.
 - Posts will cover topics mostly in stochastics, analysis and spatial statistics.
 - Every post will containa three sentence summary where I hope to reduce the topic of the post to it's essence.
 - Furthermore posts will have a why should I care section to place the information in context. 
