@@ -58,7 +58,7 @@ taking it's Itô integral. By integrating multiple times we obtain the
 following definition
 
 
-**Definition** 1. Let $f\in L^2(S\U n)$, then we define the n-fold Itô
+**Definition 1**. Let $f\in L^2(S\U n)$, then we define the n-fold Itô
 integral as
 <div>
  $$J\U n(f):=\int\U I\cdots \int\U {0}^{t\U 3}\int\U {0}^{t\U 2} f(t\U 1,\ldots,t\U n)dW(t\U 1) dW(t\U 2)\ldots dW(t\U n).$$
@@ -96,7 +96,7 @@ As a result we instead give the following definition for symmetric
 functions.
 
 
-**Definition** 2. Let $f\in L^2\U S(I^n)$, then we define
+**Definition 2**. Let $f\in L^2\U S(I^n)$, then we define
 <div>
  $$I\U n(f):=\int\U I\cdots \int\U I\int\U I f(t\U 1,\ldots,t\U n)dW(t\U 1) dW(t\U 2)\ldots dW(t\U n):=n! J\U n(f).$$
 </div> 
@@ -107,7 +107,7 @@ and where the rescaling factor is motivated by the fact that, by
 counting permutations, if $I$ is finite then $\mu(I^n)=n! \mu(S\U n)$.
 
 
-**Proposition** 1 (Itô's n-th isometry). Let $f,g\in L^2(S^n)$ then
+**Proposition 1** (Itô's n-th isometry). Let $f,g\in L^2(S^n)$ then
 <div>
  $$\left\langle J\U n(f),J\U m(g)\right\rangle\U {L^2(\Omega)}=\left\langle f,g\right\rangle\U {L^2(S\U n)}\delta\U {nm}$$
 </div> 
@@ -128,7 +128,7 @@ As a result we also get by a calculation that if $f,g\in L^2(I^n)$ then
 ## The chaos expansion
 
 
-**Lemma** 1 (Itô's representation theorem). Let
+**Lemma 1** (Itô's representation theorem). Let
 $\xi\in L^2(\Omega,\mathcal{F}\U \infty)$, then there exists a unique
 $X(t)\in \mathbb{L}^2(I)$ such that
 <div>
@@ -138,7 +138,7 @@ $\norm{X}\U {L^2(I\times\Omega)}\leq \norm{\xi}\U {L^2(\Omega)}$.
 
 
 
-**Theorem** 1 (Chaos expansion). Let
+**Theorem 1** (Chaos expansion). Let
 $\xi\in L^2(\Omega,\mathcal{F}\U \infty)$, then there exists a unique
 sequence of functions $f\U n \in L^2(S\U n),g\U n \in L^2(I^n)$ such that
 <div>
