@@ -153,7 +153,7 @@ is to iteratively apply Itô's representation theorem to get
             \xi=\mathbb{E}\zl \xi\zr +\int\U I X\U 1(t)dW(t\U 1)=\mathbb{E}\zl \xi\zr +\int\U {I} \mathbb{E}\zl X\U 1(t\U 1)\zr  dW(t\U 1)\\+ \int\U {I}\int\U {0}^{t\U 2} X\U 2(t\U 1,t\U 2) dW(t\U 1)dW(t\U 2)= \ldots=\sum\U {n=0}^{N}  J\U n(g\U n)+ \int\U {S\U {N+1}} X\U {N+1} dW^{\otimes(N+1)}.
         \end{gathered}$$
 </div>  Where
-$g\U 0=\mathcal{E}\zl \xi\zr , g\U 1(t\U 1) =\mathcal{E}\zl X\U 1\zr (t\U 1)$ and so on. By an
+$g\U 0=\mathbb{E}\zl \xi\zr , g\U 1(t\U 1) =\mathbb{E}\zl X\U 1\zr (t\U 1)$ and so on. By an
 iteration we deduce that if we write $\phi\U {N+1}$ for the last integral
 term, then <div>
  $$\mathbb{E}\zl \phi\U {N+1}\zr \leq\ldots\leq \mathbb{E}\zl \xi^2\zr .$$
