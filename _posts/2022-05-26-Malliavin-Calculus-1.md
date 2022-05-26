@@ -200,41 +200,47 @@ A pdf of version of this page is provided below:
 The Itô integral forms the basis of the whole of stochastic calculus.
 This comprises SDEs, SPDEs. Knowledge of what functions can be
 integrated and what properties the integrated function has is
-instrumental.
+instrumental. In this post we construct the integral and address both of
+the preceding issues.
 
 # Notation
 
 Given two measure spaces $(\Omega,\mathcal{F}),(\Omega',\mathcal{F}')$
 we abbreviate that $f:\Omega\to\Omega'$ is measurable between
-$\mathcal{F}$ and $\mathcal{F}'$ as <div>
- $$f:\mathcal{F}\to\mathcal{F}'.$$
-</div> 
+$\mathcal{F}$ and $\mathcal{F}'$ as $f:\mathcal{F}\to\mathcal{F}'.$
+Furthermore we will take $I=\zl 0,T\zr $ or $I=\zl 0,+\infty)$ to be the index
+set of our stochastic processes and by abuse of notation write
+$\mathcal{F}\U \infty$ to mean $\mathcal{F}\U T$ in the former case and
+$\mathcal{F}\U \infty$ in the latter.
 
 # Integrable functions: progressive measurability
 
-The only stochastic process that can be integrated are the square
-integrable and, up to a representative, progressively measurable ones we
-now define this
+As we will soon see the only stochastic process that can be integrated
+are the square integrable and progressively measurable. But what does
+this mysterious term mean?
 
 
-**Definition 1**. A stochastic process $\{X\U t\}\U {t\in I}$ on an index
-set $I$ is progressively measurable if
+**Definition 1**. A stochastic process $\{X\U t\}\U {t\in I}$ is
+progressively measurable if
 <div>
  $$X:\mathcal{B}(\zl 0,t\zr )\otimes\mathcal{F}\U t\to \mathcal{H}$$
 </div>  is
 measurable for all $t\in I$.
 
 
-Since $\omega\to(t,\omega)$ is
+Whenever we're given a stochastic process and a filtration the first
+thing to check is that it is adapted. In fact, since
+$\omega\to(t,\omega)$ is
 $\mathcal{F}\U t\to \mathcal{B}(\zl 0,t\zr )\otimes \mathcal{F}\U t$ measurable
-for all $t$ we have that
+for all $t$ we have that the following holds.
 
 
 **Lemma 1**. Progressively measurable processes are adapted.
 
 
-Stochastic processes can be viewed path-wise but also be seen as
-functions of a product space, this leads to the following definition.
+Additionally, stochastic processes can be viewed path-wise but also be
+seen as functions of a product space, this leads to the following
+definition.
 
 
 **Definition 2**. We say that a stochastic process $\{X\U t\}\U {t\in I}$
@@ -245,6 +251,9 @@ is jointly measurable if
 $\mathcal{F}\U \infty:=\vee\U {t\in I}\mathcal{F}\U t$.
 
 
+In the definition of progressive measurability we imposed some kind of
+measurability, in fact the condition leads to the following
+
 
 **Proposition 1** (Progressive implies jointly measurable). Let
 $I\subset{\mathbb R}$, and $\{X\U t\}\U {t\in I}$ be progressively
@@ -252,11 +261,9 @@ measurable. Then it is also jointly measurable.
 
 
 
-Proof. Given $A\in\mathcal{H}$ we have that
-${\left.\kern-\nulldelimiterspace X^{-1}\vphantom{\big|} \right|\U {\zl 0,t\zr \times\Omega}}$
-is in $\mathcal{B}(\zl 0,t\zr )$ for all $t$ if <div>
+Proof. Given $A\in\mathcal{H}$ we have that <div>
  $$\begin{gathered}
-        {\left.\kern-\nulldelimiterspace X^{-1}\vphantom{\big|} \right|\U {\zl 0,t\zr \times\Omega}}(A)\in\mathcal{B}(\zl 0,t\zr )\otimes\mathcal{F}\U t\quad\forall t\in I \iff X^{-1}(A)\cap(\zl 0,t\zr \times\Omega)\in\mathcal{B}(\zl 0,t\zr )\otimes\mathcal{F}\U t\quad\forall t\in I\\\implies X^{-1}(A)=\bigcup\U {n \in  \mathbb{N}}X^{-1}(A)\cap(\zl 0,t\U n\zr \times\Omega) \in\mathcal{B}(I)\otimes\mathcal{F}\U \infty
+        \left.{X^{-1}}\right|\U {\zl 0,t\zr \times\Omega}(A)\in\mathcal{B}(\zl 0,t\zr )\otimes\mathcal{F}\U t\quad\forall t\in I\\ \iff X^{-1}(A)\cap(\zl 0,t\zr \times\Omega)\in\mathcal{B}(\zl 0,t\zr )\otimes\mathcal{F}\U t\quad\forall t\in I\\\implies X^{-1}(A)=\bigcup\U {n \in  \mathbb{N}}X^{-1}(A)\cap(\zl 0,t\U n\zr \times\Omega) \in\mathcal{B}(I)\otimes\mathcal{F}\U \infty
     \end{gathered}$$
 </div>  Where $t\U n\in I$ is a sequence converging to the
 endpoint of $I$. ◻
@@ -265,7 +272,7 @@ endpoint of $I$. ◻
 Note however that the converse isn't true, for example if $X$ is
 constant in $t$ then, for some $B\subset \Omega$
 <div>
- $$X^{-1}(A)=I\times B;\quad {\left.\kern-\nulldelimiterspace X^{-1}\vphantom{\big|} \right|\U {\zl 0,t\zr \times\Omega}}(A)= \zl 0,t\zr \times B$$
+ $$X^{-1}(A)=I\times B;\quad {X^{-1}}|\U {\zl 0,t\zr \times\Omega}(A)= \zl 0,t\zr \times B$$
 </div> 
 So it suffices to consider some Construction where
 $B\in\mathcal{F}\U \infty$ but $B\not\in\mathcal{F}\U t$. It is also
