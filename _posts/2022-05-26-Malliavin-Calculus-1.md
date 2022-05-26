@@ -7,7 +7,7 @@ share-img: /assets/img/Malliavin.jpg
 tags: [Stochastic calculus, Malliavin Calculus]
 ---
 
-This, is the first post of many to come on this blog, thanks for joining!
+This is the first post of many to come on this blog, thanks for joining!
 This is also the first in a series on Malliavin calculus. This chain is
 based on the book by Oksendal and Nunno [1](https://link.springer.com/book/10.1007/978-3-540-78572-9).
 
