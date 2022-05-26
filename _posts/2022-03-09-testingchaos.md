@@ -6,11 +6,12 @@ bibliography:
 date: 23-05-2022
 title: Malliavin Calculus
 ---
-
+<object data="{{ post.file_document_path }}" width="1000" height="1000" type='application/pdf'/>
 Based on the book Nunno, G. D., Øksendal, B., & Proske, F. (Eds.). (2008). Malliavin calculus for Lévy processes with applications to finance. Berlin, Heidelberg: Springer Berlin Heidelberg.
 
 # Wiener Itô chaos expansion
-Plz
+Plz god
+<object data="Malliavin_Oksendal_Chapter_1.pdf" width="1000" height="1000" type='application/pdf'/>
 ## Three line summary
 
 -   Square integrable *deterministic* functions of multiple variables
