@@ -14,7 +14,7 @@ I'm a firm believer that to understand anything you have to make it your own, di
 
 ## Ok but where do I as the reader fit in?
 Good question! 
-1. First of all I hope the presentation of the material is such that it provides a quick overview of topics while preserving the crucial information. Almost as if you had an ally through the jungle, helping you cut the vines, brambles, and snares that you may encounter.
-2. Secondly and perhaps most importantly I hope that, if this proposition has sparked your attention, you can engage in the topics and even contribute to the blog. Be it through comments on posts (which are extremely welcome!) and if you want you can contribute your own posts on any topic that catches your interest (manifolds, machine learning, algebraic geometry,...), who am I to judge? If you have something to teach we all have something to learn.
+1. First of all I hope the presentation of the material is such that it provides a quick overview of topics while preserving the crucial information. As if you had an ally for an expedition through the jungle, helping you cut any vines, brambles, and snares that you may encounter.
+2. Secondly, and perhaps most importantly, I hope that, if this proposition has sparked your attention, you can engage in the topics and even contribute to the blog. Be it through comments on posts (which are extremely welcome!) and if you want you can contribute your own posts on any topic that catches your interest (manifolds, machine learning, algebraic geometry,...), who am I to judge? If you have something to teach we all have something to learn.
 
 Please feel free to contact me through the comments or [email](L.S.Llamazares-Elias@sms.ed.ac.uk), I'm very friendly and don't bite :)
