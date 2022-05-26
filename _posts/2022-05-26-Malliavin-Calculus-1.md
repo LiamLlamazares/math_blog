@@ -336,7 +336,7 @@ $L^p(\mathcal{B}(I)\otimes\mathcal{F}\U \infty)$. That is, for any
 $Y \in \mathbb{L}^{p}$ there is a sequence $V\U {n}$ of elementary
 functions such that
 <div>
- $$\mathbb{E}\left\zl \int\U {I}\left|Y(t)-V\U {n}(t)\right|^{p} dt\right\zr  \longrightarrow 0.$$
+ $$\mathbb{E}\zl \int\U {I}|Y(t)-V\U {n}(t)|^{p} dt\zr  \longrightarrow 0.$$
 </div> 
 
 
@@ -372,7 +372,7 @@ $f\in\mathcal{E}$
 Then the above defines an isometry to the space of continuous square
 integrable martingales $\mathcal{M}\U I^2$ as <div>
  $$\begin{aligned}
-        int: \qty(\mathcal{E},\|\cdot\|\U {L^2(I\times\Omega)}) & \longrightarrow  \qty(\mathcal{M}\U I^2,\|\cdot\|\U {L^2(I\times\Omega)}) \\
+        int: \left(\mathcal{E},\|\cdot\|\U {L^2(I\times\Omega)}\right) & \longrightarrow  \left(\mathcal{M}\U I^2,\|\cdot\|\U {L^2(I\times\Omega)}\right) \\
         X(t)                                          & \longmapsto \int\U {0}^t X dW
         .\end{aligned}$$
 </div>  Thus, it extends uniquely to the closure
