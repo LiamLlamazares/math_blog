@@ -9,8 +9,8 @@ title: Malliavin Calculus
 Based on the book Nunno, G. D., Øksendal, B., & Proske, F. (Eds.). (2008). Malliavin calculus for Lévy processes with applications to finance. Berlin, Heidelberg: Springer Berlin Heidelberg.
 
 # Wiener Itô chaos expansion
-Plz godsses
-<object data="LiamLlamazares.github.io/assets/Malliavin_Oksendal_Chapter_1.pdf" width="1000" height="1000" type='application/pdf'></object>
+Help
+<object data="/assets/Malliavin_Oksendal_Chapter_1.pdf" width="1000" height="1000" type='application/pdf'></object>
 
 ## Three line summary
 
