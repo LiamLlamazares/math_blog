@@ -4,7 +4,7 @@ title: "GBO notes: Machine learning basics (Part 5)"
 tags: ["gbo", "ml-basics"]
 mathjax: true
 ---
-
+iiiiiiiiiiii
 In this series of notes we will review some basic concepts that are usually covered in an Intro to ML
 course. These are based on [this course](https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/) from Cornell.
 
