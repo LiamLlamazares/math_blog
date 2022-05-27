@@ -227,4 +227,4 @@ process $Y$. This process must be $X$ by $L^2$ convergence to $X$ which
 concludes the proof. ◻
 
 A pdf of version of this page is provided below:
-<object data="/assets/The Itô integral.pdf" width="1000" height="1000" type='application/pdf'></object>
+<object data="/assets/The Ito integral.pdf" width="1000" height="1000" type='application/pdf'></object>
