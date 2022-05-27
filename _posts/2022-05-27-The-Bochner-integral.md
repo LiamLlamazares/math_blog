@@ -54,7 +54,7 @@ $\mu$ almost everywhere, we can define the norm
 </div>  Then we get that
 integration is a linear and absolutely continuous function
 <div>
- $$\int\U \Omega \cdot d\mu : \qty(\mathcal{A},\norm{\cdot}\U A)\to (E,\norm{\cdot}).$$
+ $$\int\U \Omega \cdot d\mu : \left(\mathcal{A},\norm{\cdot}\U A)\to (E,\norm{\cdot}\right).$$
 </div> 
 As, by a calculation, for all $f\in\mathcal{A}$.
 <div>
@@ -81,8 +81,8 @@ $f$ is measurable $f(\Omega)$ is separable.
     \end{aligned}$$
 </div>  We also define the semi-norms <div>
  $$\begin{aligned}
-        \norm{f}\U {L^p(\Omega\to E)}       & :=\qty(\int \norm{f}^p d\mu)^{1/p},\quad f\in\mathcal{L}^p(\Omega,\mathcal{F},\mu,E).       \\
-        \norm{f}\U {\hat{L}^p(\Omega\to E)} & :=\qty(\int \norm{f}^p d\mu)^{1/p},\quad f\in\hat{\mathcal{L}}^p(\Omega,\mathcal{F},\mu,E).
+        \norm{f}\U {L^p(\Omega\to E)}       & :=\left(\int \norm{f}^p d\mu)^{1/p},\quad f\in\mathcal{L}^p(\Omega,\mathcal{F},\mu,E\right).       \\
+        \norm{f}\U {\hat{L}^p(\Omega\to E)} & :=\left(\int \norm{f}^p d\mu)^{1/p},\quad f\in\hat{\mathcal{L}}^p(\Omega,\mathcal{F},\mu,E\right).
     \end{aligned}$$
 </div>  Finally we take equivalence classes by the above
 semi-norms to obtain the metric spaces $L^p(\Omega\to E)$ and
