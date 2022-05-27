@@ -24,6 +24,9 @@ extension of the Lebesgue integral to functions valued in Banach spaces.
     space of functions with separable image and with finite $L^1$ norm.
     This naturally leads to the definition of $L^p$ spaces.
 
+# Why is this important?
+Often functions will not take values in finite dimensional spaces, but in infinite dimensional Banach spaces. For example, this occurs often when considering a functino of multipe variables $f(t,x)$ and viewing $f(t)$ as taking values in a function space of the second coordinate. This situation commonly arises in [PDEs](https://terrytao.wordpress.com/2018/09/16/254a-notes-1-local-well-posedness-of-the-navier-stokes-equations/) and [SPDEs](https://www.hairer.org/SPDEs.pdf)
+
 # Notation
 
 We consider a measure space $(\Omega,\mathcal{F},\mu )$ and a Banach
@@ -204,7 +207,7 @@ As a corollary we obtain the following
 
 
 **Corollary 1**. $\mathcal{A}$ is a dense subset of
-$\qty(L^1(\Omega\to E),\norm{\cdot}\U {L^1(\Omega\to E)})$.
+$\left(L^1(\Omega\to E),\norm{\cdot}\U {L^1(\Omega\to E)}\right)$.
 
 
 In consequence, since we already saw that $L^1(\Omega\to E)$ is
@@ -234,7 +237,7 @@ then
 
 2.  Let $Y$ be another Banach space and $L\in L(E,Y)$. Then
     <div>
- $$\int\U \Omega (L\circ f) d\mu=L\qty(\int\U \Omega f d\mu).$$
+ $$\int\U \Omega (L\circ f) d\mu=L\left(\int\U \Omega f d\mu\right).$$
 </div> 
 
 
