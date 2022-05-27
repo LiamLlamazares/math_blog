@@ -1,9 +1,10 @@
 ---
-author:
-- Liam Llamazares
-bibliography:
-- biblio.bib
-title: This is a title
+layout: post
+title: Will this work?
+subtitle: Please
+thumbnail-img: /assets/img/Malliavin.jpg
+share-img: /assets/img/Malliavin.jpg
+tags: [Stochastic calculus, Malliavin Calculus]
 ---
 Please work
 # Three line summary
