@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Martingales to Banach space
-subtitle: Subtitle
+title: Martingales to Banach spaces
+subtitle: Doob's Martingale inequality is cool
 thumbnail-img: /assets/img/Liu-SPDE.jpg
 share-img: /assets/img/Liu-SPDE.jpg
 tags: [Integration, Banach spaces, Lp spaces]
