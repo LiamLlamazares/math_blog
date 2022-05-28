@@ -134,11 +134,11 @@ Let us recall the following result for real valued martingales
 $\{X\U k\}\U {k=1}^\infty$ be a real valued sub-martingale. Then it holds
 that
 <div>
- $$\left\Vert\max\U {k\in\{1,...,n\}}X\U k}\U {L^p(\Omega)\right\Vert\leq \frac{p}{p-1}\norm{X\U n}\U {L^p(\Omega)}$$
+ $$\norm{\max\U {k\in\{1,...,n\}}X\U k}\U {L^p(\Omega)}\leq \frac{p}{p-1}\norm{X\U n}\U {L^p(\Omega)}$$
 </div> 
 As a consequence, if $X\U t,t\in\zl 0,T\zr $ is left (or right) continuous then
 <div>
- $$\left\Vert\max\U {t\in\zl 0,T\zr }X\U k}\U {L^p(\Omega)\right\Vert\leq \frac{p}{p-1}\norm{X\U T}\U {L^p(\Omega)}.$$
+ $$\norm{\max\U {t\in\zl 0,T\zr }X\U k}\U {L^p(\Omega)}\leq \frac{p}{p-1}\norm{X\U T}\U {L^p(\Omega)}.$$
 </div> 
 
 
