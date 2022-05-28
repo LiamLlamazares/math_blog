@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Martingales to Banach spaces
-subtitle: These are really cool
+subtitle: These, are really cool
 thumbnail-img: /assets/img/Liu-SPDE.jpg
 share-img: /assets/img/Liu-SPDE.jpg
 tags: [Banach spaces, Lp spaces, Martingales]
