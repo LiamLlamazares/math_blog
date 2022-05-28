@@ -52,7 +52,7 @@ $\mathbb{E}\U \mathcal{F}$ is a linear, and pointwise continuous operator
 with
 <div>
  $$
-    \left\|\mathbb{E}\U {\mathcal{G}}\zl X\zr \right\|\leq \sum\U {k=1}^n \|x\U k\| \mathbb{E}\U {\mathcal{G}}\zl 1\U {A\U k}\zr =\mathbb{E}\U {\mathcal{G}}\left\zl \sum\U {k=1}^n \|x\U k\|1\U {A\U k}\right\zr =\mathbb{E}\U {\mathcal{G}}\left\zl \|X\|\right\zr .
+    \left \|\mathbb{E}\U {\mathcal{G}}\zl X\zr \right \|\leq \sum\U {k=1}^n \|x\U k\| \mathbb{E}\U {\mathcal{G}}\zl 1\U {A\U k}\zr =\mathbb{E}\U {\mathcal{G}}\left \zl \sum\U {k=1}^n \|x\U k\|1\U {A\U k}\right \zr =\mathbb{E}\U {\mathcal{G}}\left \zl \|X\|\right \zr .
     $$
 </div> 
 This allows us to show the following
@@ -62,7 +62,7 @@ This allows us to show the following
 Let $X\in L^1(\Omega\to E)$ for some Banach space $E$. Then $X$ has a
 conditional expectation satisfying
 <div>
- $$\left\|\mathbb{E}\U {\mathcal{G}}\zl X\zr \right\|\leq\mathbb{E}\U {\mathcal{G}}\left\zl \|X\|\right\zr .$$
+ $$\left \|\mathbb{E}\U {\mathcal{G}}\zl X\zr \right \|\leq\mathbb{E}\U {\mathcal{G}}\left \zl \|X\|\right \zr .$$
 </div> 
 
 
@@ -71,7 +71,7 @@ Proof. We have already proved the above inequality for simple
 processes. By the previous post [1](https://liamllamazares.github.io/2022-05-27-The-Bochner-integral/) we can take $X\U n$ converging
 to $X$ in $L^1(\Omega\to E)$ to obtain that <div>
  $$\begin{gathered}
-        \left\|\mathbb{E}\U {\mathcal{G}}\zl X\U n-X\U m\zr \right\|\leq\mathbb{E}\U {\mathcal{G}}\left\zl \|X\U n-X\U m\|\right\zr \\\implies \mathbb{E}\zl \left\|\mathbb{E}\U {\mathcal{G}}\zl X\U n\zr -\mathbb{E}\U {\mathcal{G}}\zl X\U m\zr \right\|\zr \leq \mathbb{E}\left\zl \|X\U n-X\U m\|\right\zr \to 0
+        \left \|\mathbb{E}\U {\mathcal{G}}\zl X\U n-X\U m\zr \right \|\leq\mathbb{E}\U {\mathcal{G}}\left \zl \|X\U n-X\U m\|\right \zr \\\implies \mathbb{E}\zl \left\|\mathbb{E}\U {\mathcal{G}}\zl X\U n\zr -\mathbb{E}\U {\mathcal{G}}\zl X\U m\zr \right\|\zr \leq \mathbb{E}\left \zl \|X\U n-X\U m\|\right \zr \to 0
     \end{gathered}$$
 </div>  As a result $\mathbb{E}\U {\mathcal{G}}\zl X\U n\zr $ is a
 Cauchy sequence in $L^1(\Omega\to E)$ and converges to some function
@@ -121,15 +121,14 @@ metric space that given $y\in E$
  $$\norm{z}=\sup\U {\ell\in E^:\|\ell\|=1}\ell(z)$$
 </div>  As a result, by the
 linearity of the integral and abbreviating the supremum to just
-$\sup\U \ell$, <div>
- 
-    $$
+$\sup\U \ell$, 
+<div>
+     $$
     \begin{gathered}
-        \|M(s)\|=\|\mathbb{E}\U {s}\zl M(t)\zr \|= \sup\U \ell \ell\left(\mathbb{E}\U {s}\zl M(t)\zr \right)=\sup\U \ell\|{\mathbb{E}\U {s}\left\zl \ell(M(t))\right\zr \|}\\
-        \leq \mathbb{E}\U {s}\left\zl \sup\U \ell\ell(M(t))\right\zr =\mathbb{E}\U {s}\left\zl \|M(t)\|\right\zr 
+        \|M(s)\|=\|\mathbb{E}\U {s}\zl M(t)\zr \|= \sup\U \ell \ell\left (\mathbb{E}\U {s}\zl M(t)\zr \right)=\sup\U \ell\|{\mathbb{E}\U {s}\left \zl \ell(M(t))\right \zr \|}\\
+        \leq \mathbb{E}\U {s}\left \zl \sup\U \ell\ell(M(t))\right \zr =\mathbb{E}\U {s}\left \zl \|M(t)\|\right \zr 
     \end{gathered}
-    $$
-    
+    $$ 
 </div>  ◻
 
 
