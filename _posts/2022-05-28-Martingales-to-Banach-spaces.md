@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Martingales to Banach spacest
+title: Martingales to Banach space
 subtitle: These, are really cool
 thumbnail-img: /assets/img/Liu-SPDE.jpg
 share-img: /assets/img/Liu-SPDE.jpg
