@@ -258,4 +258,4 @@ Finally, we have that $\mathbb{E}\zl W(t)^2\zr =t<\infty$ for all $t$ and $W$
 is continuous by construction. This concludes the proof. ◻
 
 A pdf of version of this page is provided below:
-<object data="/assets/The-Bochner integral.pdf" width="1000" height="1000" type='application/pdf'></object>
+<object data="/assets/Martingales.pdf" width="1000" height="1000" type='application/pdf'></object>
