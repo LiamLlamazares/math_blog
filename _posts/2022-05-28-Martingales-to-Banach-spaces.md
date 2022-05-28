@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Martingales to Banach spaces
-subtitle: These, are really cool
+title: Martingales to Banach space
+subtitle: Subtitle
 thumbnail-img: /assets/img/Liu-SPDE.jpg
 share-img: /assets/img/Liu-SPDE.jpg
-tags: [Banach spaces, Lp spaces, Martingales]
+tags: [Integration, Banach spaces, Lp spaces]
 ---
 
 # Three line summary
@@ -51,9 +51,7 @@ verifies the desired formula. Furthermore, we have that
 $\mathbb{E}\U \mathcal{F}$ is a linear, and pointwise continuous operator
 with
 <div>
- $$
-    \left \|\mathbb{E}\U {\mathcal{G}}\zl X\zr \right \|\leq \sum\U {k=1}^n \|x\U k\| \mathbb{E}\U {\mathcal{G}}\zl 1\U {A\U k}\zr =\mathbb{E}\U {\mathcal{G}}\left \zl \sum\U {k=1}^n \|x\U k\|1\U {A\U k}\right \zr =\mathbb{E}\U {\mathcal{G}}\left \zl \|X\|\right \zr .
-    $$
+ $$\|\mathbb{E}\U {\mathcal{G}}\zl X\zr \|\leq \sum\U {k=1}^n \|x\U k\| \mathbb{E}\U {\mathcal{G}}\zl 1\U {A\U k}\zr =\mathbb{E}\U {\mathcal{G}}\left[ \sum\U {k=1}^n \|x\U k\|1\U {A\U k}\right] =\mathbb{E}\U {\mathcal{G}}\left[ \|X\|\right] .$$
 </div> 
 This allows us to show the following
 
@@ -62,7 +60,7 @@ This allows us to show the following
 Let $X\in L^1(\Omega\to E)$ for some Banach space $E$. Then $X$ has a
 conditional expectation satisfying
 <div>
- $$\left \|\mathbb{E}\U {\mathcal{G}}\zl X\zr \right \|\leq\mathbb{E}\U {\mathcal{G}}\left \zl \|X\|\right \zr .$$
+ $$\|\mathbb{E}\U {\mathcal{G}}\zl X\zr \|\leq\mathbb{E}\U {\mathcal{G}}\left[ \|X\|\right] .$$
 </div> 
 
 
@@ -70,10 +68,9 @@ conditional expectation satisfying
 Proof. We have already proved the above inequality for simple
 processes. By the previous post [1](https://liamllamazares.github.io/2022-05-27-The-Bochner-integral/) we can take $X\U n$ converging
 to $X$ in $L^1(\Omega\to E)$ to obtain that <div>
- $$\begin{aligned}
-        &\left \|\mathbb{E}\U {\mathcal{G}}\zl X\U n-X\U m\zr \right \|\leq\mathbb{E}\U {\mathcal{G}}\left \zl \|X\U n-X\U m\|\right \zr \\
-    &\implies \mathbb{E}\zl \left\|\mathbb{E}\U {\mathcal{G}}\zl X\U n\zr -\mathbb{E}\U {\mathcal{G}}\zl X\U m\zr \right\|\zr \leq \mathbb{E}\left \zl \|X\U n-X\U m\|\right \zr \to 0
-    \end{aligned}$$
+ $$\begin{gathered}
+        \|\mathbb{E}\U {\mathcal{G}}\zl X\U n-X\U m\zr \|\leq\mathbb{E}\U {\mathcal{G}}\left[ \|X\U n-X\U m\|\right] \\\implies \mathbb{E}\zl \|\mathbb{E}\U {\mathcal{G}}\zl X\U n\zr -\mathbb{E}\U {\mathcal{G}}\zl X\U m\zr \|\zr \leq \mathbb{E}\left[ \|X\U n-X\U m\|\right] \to 0
+    \end{gathered}$$
 </div>  As a result $\mathbb{E}\U {\mathcal{G}}\zl X\U n\zr $ is a
 Cauchy sequence in $L^1(\Omega\to E)$ and converges to some function
 $Y$, passing to the limit in the defining equation for the conditional
@@ -102,7 +99,7 @@ $\mathcal{F}\U {t}$-martingale, if:
 
 2.  $M(t):\mathcal{F}\U {t} \to \mathcal{B}(E)$ for all $t\in I$,
 
-3.  $\mathbb{E}\U {\mathcal{F}\U {s}}\zl M(t)\zr =M(s)$ for all
+3.  $\mathbb{E}\U {\mathcal{F}\U {s}}\left[ M(t)\right] =M(s)$ for all
     $s \leq t$.
 
 
@@ -122,14 +119,11 @@ metric space that given $y\in E$
  $$\norm{z}=\sup\U {\ell\in E^:\|\ell\|=1}\ell(z)$$
 </div>  As a result, by the
 linearity of the integral and abbreviating the supremum to just
-$\sup\U \ell$, 
-<div>
-     $$
-    \begin{aligned}
-        &\|M(s)\|=\|\mathbb{E}\U {s}\zl M(t)\zr \|= \sup\U \ell \ell\left (\mathbb{E}\U {s}\zl M(t)\zr \right)=&\sup\U \ell\|{\mathbb{E}\U {s}\left \zl \ell(M(t))\right \zr \|}\\
-        &\leq \mathbb{E}\U {s}\left \zl \sup\U \ell\ell(M(t))\right \zr =\mathbb{E}\U {s}\left \zl \|M(t)\|\right \zr 
-    \end{aligned}
-    $$ 
+$\sup\U \ell$, <div>
+ $$\begin{gathered}
+        \|M(s)\|=\|\mathbb{E}\U {s}\zl M(t)\zr \|= \sup\U \ell \ell\left(\mathbb{E}\U {s}\zl M(t)\zr \right)=\sup\U \ell\|{\mathbb{E}\U {s}\left[ \ell(M(t))\right] \|}\\
+        \leq \mathbb{E}\U {s}\left[ \sup\U \ell\ell(M(t))\right] =\mathbb{E}\U {s}\left[ \|M(t)\|\right] 
+    \end{gathered}$$
 </div>  ◻
 
 
@@ -266,4 +260,4 @@ Finally, we have that $\mathbb{E}\zl W(t)^2\zr =t<\infty$ for all $t$ and $W$
 is continuous by construction. This concludes the proof. ◻
 
 A pdf of version of this page is provided below:
-<object data="/assets/Martingales.pdf" width="1000" height="1000" type='application/pdf'></object>
+<object data="/assets/The-Bochner integral.pdf" width="1000" height="1000" type='application/pdf'></object>
