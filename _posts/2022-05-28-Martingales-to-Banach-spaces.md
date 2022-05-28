@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Martingales to Banach spaces
+title: Martingales to Banach spacest
 subtitle: These, are really cool
 thumbnail-img: /assets/img/Liu-SPDE.jpg
 share-img: /assets/img/Liu-SPDE.jpg
@@ -51,7 +51,9 @@ verifies the desired formula. Furthermore, we have that
 $\mathbb{E}\U \mathcal{F}$ is a linear, and pointwise continuous operator
 with
 <div>
- $$\left\|\mathbb{E}\U {\mathcal{G}}\zl X\zr \right\|\leq \sum\U {k=1}^n \|x\U k\| \mathbb{E}\U {\mathcal{G}}\zl 1\U {A\U k}\zr =\mathbb{E}\U {\mathcal{G}}\left\zl \sum\U {k=1}^n \|x\U k\|1\U {A\U k}\right\zr =\mathbb{E}\U {\mathcal{G}}\left\zl \|X\|\right\zr .$$
+ $$
+    \left\|\mathbb{E}\U {\mathcal{G}}\zl X\zr \right\|\leq \sum\U {k=1}^n \|x\U k\| \mathbb{E}\U {\mathcal{G}}\zl 1\U {A\U k}\zr =\mathbb{E}\U {\mathcal{G}}\left\zl \sum\U {k=1}^n \|x\U k\|1\U {A\U k}\right\zr =\mathbb{E}\U {\mathcal{G}}\left\zl \|X\|\right\zr .
+    $$
 </div> 
 This allows us to show the following
 
@@ -99,7 +101,7 @@ $\mathcal{F}\U {t}$-martingale, if:
 
 2.  $M(t):\mathcal{F}\U {t} \to \mathcal{B}(E)$ for all $t\in I$,
 
-3.  $\mathbb{E}\U {\mathcal{F}\U {s}}\left\zl M(t)\right\zr =M(s)$ for all
+3.  $\mathbb{E}\U {\mathcal{F}\U {s}}\zl M(t)\zr =M(s)$ for all
     $s \leq t$.
 
 
@@ -120,10 +122,14 @@ metric space that given $y\in E$
 </div>  As a result, by the
 linearity of the integral and abbreviating the supremum to just
 $\sup\U \ell$, <div>
- $$\begin{gathered}
+ 
+    $$
+    \begin{gathered}
         \|M(s)\|=\|\mathbb{E}\U {s}\zl M(t)\zr \|= \sup\U \ell \ell\left(\mathbb{E}\U {s}\zl M(t)\zr \right)=\sup\U \ell\|{\mathbb{E}\U {s}\left\zl \ell(M(t))\right\zr \|}\\
         \leq \mathbb{E}\U {s}\left\zl \sup\U \ell\ell(M(t))\right\zr =\mathbb{E}\U {s}\left\zl \|M(t)\|\right\zr 
-    \end{gathered}$$
+    \end{gathered}
+    $$
+    
 </div>  ◻
 
 
