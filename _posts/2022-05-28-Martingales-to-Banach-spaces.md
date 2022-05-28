@@ -4,7 +4,7 @@ title: Martingales to Banach spaces
 subtitle: These are really cool
 thumbnail-img: /assets/img/Liu-SPDE.jpg
 share-img: /assets/img/Liu-SPDE.jpg
-tags: [Integration, Banach spaces, Lp spaces]
+tags: [Banach spaces, Lp spaces, Martingales]
 ---
 
 # Three line summary
