@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Martingales to Banach spaces
+title: Martingales to Banach spacess
 subtitle: These, are really cool
 thumbnail-img: /assets/img/Liu-SPDE.jpg
 share-img: /assets/img/Liu-SPDE.jpg
@@ -50,27 +50,35 @@ thus $\mathbb{E}\U {\mathcal{G}}\zl 1\U {A\U k}\zr $ are well defined, then
 verifies the desired formula. Furthermore, we have that
 $\mathbb{E}\U \mathcal{F}$ is a linear, and pointwise continuous operator
 with
-<div>
- $$\left\|\mathbb{E}\U {\mathcal{G}}\zl X\zr \right\|\leq \sum\U {k=1}^n \|x\U k\| \mathbb{E}\U {\mathcal{G}}\zl 1\U {A\U k}\zr =\mathbb{E}\U {\mathcal{G}}\left\zl \sum\U {k=1}^n \|x\U k\|1\U {A\U k}\right\zr =\mathbb{E}\U {\mathcal{G}}\left\zl \|X\|\right\zr .$$
-</div> 
+
+ $$
+ \left\|\mathbb{E}\U {\mathcal{G}}\zl X\zr \right\|\leq \sum\U {k=1}^n \|x\U k\| \mathbb{E}\U {\mathcal{G}}\zl 1\U {A\U k}\zr =\mathbb{E}\U {\mathcal{G}}\left\zl \sum\U {k=1}^n \|x\U k\|1\U {A\U k}\right\zr =\mathbb{E}\U {\mathcal{G}}\left\zl \|X\|\right\zr .
+ $$
+
 This allows us to show the following
 
 
 **Theorem 1** (Existence and uniqueness of conditional expectation).
 Let $X\in L^1(\Omega\to E)$ for some Banach space $E$. Then $X$ has a
 conditional expectation satisfying
-<div>
- $$\left\|\mathbb{E}\U {\mathcal{G}}\zl X\zr \right\|\leq\mathbb{E}\U {\mathcal{G}}\left\zl \|X\|\right\zr .$$
-</div> 
+
+ $$
+ \left\|\mathbb{E}\U {\mathcal{G}}\zl X\zr \right\|\leq\mathbb{E}\U {\mathcal{G}}\left\zl \|X\|\right\zr .
+ $$
+
 
 
 
 Proof. We have already proved the above inequality for simple
 processes. By the previous post [1](https://liamllamazares.github.io/2022-05-27-The-Bochner-integral/) we can take $X\U n$ converging
 to $X$ in $L^1(\Omega\to E)$ to obtain that <div>
- $$\begin{gathered}
+ 
+    $$
+    \begin{gathered}
         \left\|\mathbb{E}\U {\mathcal{G}}\zl X\U n-X\U m\zr \right\|\leq\mathbb{E}\U {\mathcal{G}}\left\zl \|X\U n-X\U m\|\right\zr \\\implies \mathbb{E}\zl \left\|\mathbb{E}\U {\mathcal{G}}\zl X\U n\zr -\mathbb{E}\U {\mathcal{G}}\zl X\U m\zr \right\|\zr \leq \mathbb{E}\left\zl \|X\U n-X\U m\|\right\zr \to 0
-    \end{gathered}$$
+    \end{gathered}
+    $$
+    
 </div>  As a result $\mathbb{E}\U {\mathcal{G}}\zl X\U n\zr $ is a
 Cauchy sequence in $L^1(\Omega\to E)$ and converges to some function
 $Y$, passing to the limit in the defining equation for the conditional
