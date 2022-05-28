@@ -147,8 +147,7 @@ $X\U k\lesssim X\U {k+1}\lesssim...\lesssim X\U n$. Getting from the
 continuous to the discrete case is possible by using the continuity of
 $X$ and approximating it on some finer and finer mesh $t\U 0,...,t\U n$.
 This said, applying Doob's maximal martingale inequality together with
-the Lemma \zl 1\zr (#norm is submart){reference-type="ref"
-reference="norm is submart"} gives that
+the Lemma $\zl 1 \zr$ gives that
 
 
 **Theorem 2** (Maximal Inequality). Let $p>1$ and let $E$ be a
@@ -200,8 +199,7 @@ and give it the norm
 </div> 
 
 
-By Theorem \zl 2\zr (#doobs Hilbert){reference-type="ref"
-reference="doobs Hilbert"} we have that
+By Theorem $\zl 2\zr$ we have that
 <div>
  $$\mathcal{M}\U T^2(E)\subset \hat{L}^\infty(\zl 0,T\zr \to \hat{L}^2(\Omega\to E))\cap \hat{L}^2(\Omega\to \hat{L}^\infty(\zl 0,T\zr \to E)).$$
 </div> 
