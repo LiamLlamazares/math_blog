@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Martingales to Banach space
+title: Martingales to Banach spaces
 subtitle: These, are really cool
 thumbnail-img: /assets/img/Liu-SPDE.jpg
 share-img: /assets/img/Liu-SPDE.jpg
@@ -70,9 +70,10 @@ conditional expectation satisfying
 Proof. We have already proved the above inequality for simple
 processes. By the previous post [1](https://liamllamazares.github.io/2022-05-27-The-Bochner-integral/) we can take $X\U n$ converging
 to $X$ in $L^1(\Omega\to E)$ to obtain that <div>
- $$\begin{gathered}
-        \left \|\mathbb{E}\U {\mathcal{G}}\zl X\U n-X\U m\zr \right \|\leq\mathbb{E}\U {\mathcal{G}}\left \zl \|X\U n-X\U m\|\right \zr \\\implies \mathbb{E}\zl \left\|\mathbb{E}\U {\mathcal{G}}\zl X\U n\zr -\mathbb{E}\U {\mathcal{G}}\zl X\U m\zr \right\|\zr \leq \mathbb{E}\left \zl \|X\U n-X\U m\|\right \zr \to 0
-    \end{gathered}$$
+ $$\begin{aligned}
+        &\left \|\mathbb{E}\U {\mathcal{G}}\zl X\U n-X\U m\zr \right \|\leq\mathbb{E}\U {\mathcal{G}}\left \zl \|X\U n-X\U m\|\right \zr \\
+    &\implies \mathbb{E}\zl \left\|\mathbb{E}\U {\mathcal{G}}\zl X\U n\zr -\mathbb{E}\U {\mathcal{G}}\zl X\U m\zr \right\|\zr \leq \mathbb{E}\left \zl \|X\U n-X\U m\|\right \zr \to 0
+    \end{aligned}$$
 </div>  As a result $\mathbb{E}\U {\mathcal{G}}\zl X\U n\zr $ is a
 Cauchy sequence in $L^1(\Omega\to E)$ and converges to some function
 $Y$, passing to the limit in the defining equation for the conditional
@@ -124,10 +125,10 @@ linearity of the integral and abbreviating the supremum to just
 $\sup\U \ell$, 
 <div>
      $$
-    \begin{gathered}
-        \|M(s)\|=\|\mathbb{E}\U {s}\zl M(t)\zr \|= \sup\U \ell \ell\left (\mathbb{E}\U {s}\zl M(t)\zr \right)=\sup\U \ell\|{\mathbb{E}\U {s}\left \zl \ell(M(t))\right \zr \|}\\
-        \leq \mathbb{E}\U {s}\left \zl \sup\U \ell\ell(M(t))\right \zr =\mathbb{E}\U {s}\left \zl \|M(t)\|\right \zr 
-    \end{gathered}
+    \begin{aligned}
+        &\|M(s)\|=\|\mathbb{E}\U {s}\zl M(t)\zr \|= \sup\U \ell \ell\left (\mathbb{E}\U {s}\zl M(t)\zr \right)=&\sup\U \ell\|{\mathbb{E}\U {s}\left \zl \ell(M(t))\right \zr \|}\\
+        &\leq \mathbb{E}\U {s}\left \zl \sup\U \ell\ell(M(t))\right \zr =\mathbb{E}\U {s}\left \zl \|M(t)\|\right \zr 
+    \end{aligned}
     $$ 
 </div>  ◻
 
