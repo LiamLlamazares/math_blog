@@ -63,12 +63,14 @@ Proof. Firstly, we note that a stochastic process $X$ is adapted iff
 </div>  Since the
 Itô integral is a martingale, we obtain that, by commuting the sum and
 using the uniqueness of the chaos expansion this is equivalent to
-requiring that, for all $t$ <div>
+requiring that, for all $t$ 
+<div>
  $$\begin{gathered}
         I\U n(f\U n(\cdot,t))\\=    n!\mathbb{E}\U {\mathcal{F}\U t} \left[ \int\U {I} \left( \int\U {0}^{t\U n}\cdots \int\U {0}^{t\U 2}f(t\U 1\ldots t\U n,t) dW(t\U 1) \cdots dW(t\U {n-1}) \right)dW(t\U n)\right] \\
         =n!\int\U {0}^t \int\U {0}^{t\U n}\cdots \int\U {0}^{t\U 2}f(t\U 1\ldots t\U n,t) dW(t\U 1) \cdots dW(t\U {n-1})dW(t\U n)\\= I\U n(f\U n(\cdot,t) 1\U {\max\U {t\U i\leq t}})
     \end{gathered}$$
-</div>  Where the commutation of the sum and the integral
+</div>  
+Where the commutation of the sum and the integral
 is justified by the $L^2(\Omega)$ convergence of the chaos expansion
 ($L^1(\Omega)$ convergence would have been enough). ◻
 
@@ -140,9 +142,11 @@ Of course, a priori the above condition is not that easy to check for a
 given function as it involves calculating the chaos expansion for the
 given process $X$. In some cases however it is possible, to consider for
 example the stochastic process defined by $X(t)=W(T)$ on the interval
-$I=\zl 0,T\zr $. Then we have that <div>
+$I=\zl 0,T\zr $. Then we have that 
+    <div>
  $$X(t)=\int\U {0}^T dW(t)=I\U 1(1).$$
-</div>  Thus, for
+</div>  
+  Thus, for
 all $t\in I$ we have that
 <div>
  $$f\U 1=1;\quad f\U n=0\quad\forall n \in \mathbb{N}\setminus \{1\}  .$$
@@ -178,6 +182,7 @@ $\lambda \in {\mathbb R}$. Then it holds that
 
 -   $X\cdot 1\U A \in dom(\delta)$ for any measurable subset
     $A \subset I$. Furthermore, if $A \cup B =I$ then
+    
     <div>
  $$\int\U {A}X(t) \delta(t)+ \int\U {B}X(t)\delta W(t):=\delta(X\cdot 1\U A)+\delta(X\cdot 1\U B)=\delta(X).$$
 </div> 
