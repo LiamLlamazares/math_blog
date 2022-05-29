@@ -135,7 +135,7 @@ The concept of submartingale is defined by replacing the equality in 3.
 with a $\geq$. Let us abbreviate $\mathbb{E}\U {\mathcal{F}\U t}$ by
 $\mathbb{E}\U t$. Then, as in the real case, we have the following.
 
- {#norm is submart .lemma}
+
 **Lemma 1** (Norm is submartingale). Let $M(t)$ be a martingale, then
 $\norm{M(t)}$ is a martingale
 
@@ -191,10 +191,9 @@ $X\U k\lesssim X\U {k+1}\lesssim...\lesssim X\U n$. Getting from the
 continuous to the discrete case is possible by using the continuity of
 $X$ and approximating it on some finer and finer mesh $t\U 0,...,t\U n$.
 This said, applying Doob's maximal martingale inequality together with
-the Lemma \zl 1\zr (#norm is submart){reference-type="ref"
-reference="norm is submart"} gives that
+the Lemma $1$ gives that
 
- {#doobs Hilbert .theorem}
+
 **Theorem 2** (Maximal Inequality). Let $p>1$ and let $E$ be a
 separable Banach space. If $M(t)$, is a right-continuous $E$-valued
 $\mathcal{F}\U {t}$-martingale, then 
@@ -256,8 +255,7 @@ and give it the norm
  
 
 
-By Theorem \zl 2\zr (#doobs Hilbert){reference-type="ref"
-reference="doobs Hilbert"} we have that
+By Theorem $2$ we have that
 
 
 <div>
