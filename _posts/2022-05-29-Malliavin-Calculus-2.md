@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The Skorohod integral
-subtitle: How many integrals even are there?
+subtitle: How many integrals even are there?!?
 thumbnail-img: /assets/img/Malliavin.jpg
 share-img: /assets/img/Malliavin.jpg
 tags: [Integration, Malliavin calculus, Skorohod integral, Chaos expansion, Itô integral, Stochastic Calculus]
@@ -201,4 +201,4 @@ We now know what the Skorohod expansion is, how to characterize it, and
 its main properties, in the next post we will construct the Malliavin
 derivative as its adjoint.
 A pdf of version of this page is provided below:
-<object data="/assets/Skohorod.pdf" width="1000" height="1000" type='application/pdf'></object>
+<object data="/assets/Skorohod.pdf" width="1000" height="1000" type='application/pdf'></object>
