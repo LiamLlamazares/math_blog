@@ -28,7 +28,7 @@ integral.
 
 The same as in the previous post [1](https://liamllamazares.github.io/2022-05-26-Malliavin-Calculus-1/) on the chaos expansion. We
 will also write $\mathbb{L}^2(I\times \Omega)$ for the space of Itô
-integrable functions (this was defined in [2](https://liamllamazares.github.io/2022-05-26-Malliavin-Calculus-1/)).
+integrable functions (this was defined in [2](https://liamllamazares.github.io/2022-05-26-The-Ito-integral/)).
 
 # The chaos expansion of an Itô integral
 
