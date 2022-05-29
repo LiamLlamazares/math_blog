@@ -120,7 +120,7 @@ Proof. This is a direct calculation using the previous result as
 
 <div>
  $$\begin{gathered}
-        \int\U {I} X(t) dW(t)=\sum\U {n=0}^{\infty}\int\U {I} I\U n(f\U {n,t})dW(t)\\=\sum\U {n=0}^{\infty}n! \int\U {I}\int\U {S\U n}f\U {n,t}(t\U 1,\ldots,t\U n) dW(t\U 1)\ldots dW(t\U n) dW(t)\\=\sum\U {n=0}^{\infty}(n+1)! \int\U {I}\int\U {S\U n}f\U {n,S}(t\U 1,\ldots,t\U n,t) dW(t\U 1)\ldots dW(t\U n) dW(t)\\=\sum\U {n=0}^{\infty}(n+1)! J\U {n+1}(f\U {n,S}) =\sum\U {n=0}^{\infty}  I\U {n+1}(f\U {n,S}).
+        \int\U {I} X(t) dW(t)=\sum\U {n=0}^{\infty}\int\U {I} I\U n(f\U {n,t})dW(t)\\=\sum\U {n=0}^{\infty}n! \int\U {I}\int\U {S\U n}f\U {n,t}(t\U 1,\ldots,t\U n) dW(t\U 1)\ldots dW(t\U n) dW(t)\\=\sum\U {n=0}^{\infty}(n+1)! \int\U {I}\int\U {t\U 2\leq\cdots\leqt\U n\leq t}f\U {n,S}(t\U 1,\ldots,t\U n,t) dW(t\U 1)\ldots dW(t\U n) dW(t)\\=\sum\U {n=0}^{\infty}(n+1)! J\U {n+1}(f\U {n,S}) =\sum\U {n=0}^{\infty}  I\U {n+1}(f\U {n,S}).
     \end{gathered}$$
 </div>
 
