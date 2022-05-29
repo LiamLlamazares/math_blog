@@ -77,17 +77,24 @@ $f$ is measurable $f(\Omega)$ is separable.
 
 
 
-**Definition 2**. For $1\leq p<\infty$ we define <div>
+**Definition 2**. For $1\leq p<\infty$ we define 
+
+<div>
  $$\begin{aligned}
         \mathcal{L}^p(\Omega,\mathcal{F},\mu,E)       & =\left\{f:\Omega\to X: f \text{ is strongly measurable and } \int \norm{f}^p d\mu<\infty\right\}. \\
         \hat{\mathcal{L}}^p(\Omega,\mathcal{F},\mu,E) & =\left\{f:\Omega\to X: \int \norm{f}^p d\mu<\infty\right\}.
     \end{aligned}$$
-</div>  We also define the semi-norms <div>
+</div> 
+We also define the semi-norms
+
+<div>
  $$\begin{aligned}
         \norm{f}\U {L^p(\Omega\to E)}       & :=\left(\int \norm{f}^p d\mu)^{1/p},\quad f\in\mathcal{L}^p(\Omega,\mathcal{F},\mu,E\right).       \\
         \norm{f}\U {\hat{L}^p(\Omega\to E)} & :=\left(\int \norm{f}^p d\mu)^{1/p},\quad f\in\hat{\mathcal{L}}^p(\Omega,\mathcal{F},\mu,E\right).
     \end{aligned}$$
-</div>  Finally we take equivalence classes by the above
+</div>  
+
+Finally we take equivalence classes by the above
 semi-norms to obtain the metric spaces $L^p(\Omega\to E)$ and
 $\hat{L}^p(\Omega\to E).$
 
@@ -110,24 +117,30 @@ $f\in L^p(\Omega\to E)$ It suffices to show that if $f\U n$ is such that
 exists $f\in L^p(\Omega\to E)$ such that
 <div>
  $$f=\sum\U {n=1}^\infty f\U n\in L^p(\Omega\to E).$$
-</div>  To do so one first
+</div>
+    To do so one first
 applies \\zl Minkowski's\\zr  inequality for real valued functions to show
 that <div>
  $$\sum\U {n=1}^\infty \norm{f\U n}\U X\in L^p(\Omega\to{\mathbb R}).$$
 </div> 
 Thus, the sum is finite almost everywhere. Since $E$ is complete we have
 that the above sum converges pointwise almost everywhere to some
-function <div>
+function 
+    
+    <div>
  $$f(\omega):=\sum\U {n=1}^\infty f\U n(\omega)\in E.$$
-</div>  Furthermore
+</div> 
+    Furthermore
 we have that $f$ is strongly measurable as it is the limit of strongly
 measurable functions (this is a small exercise). Finally, by Fatou's
 lemma for real valued functions and the triangle inequality for norms
+    
 <div>
  $$\begin{gathered}
         \norm{f-\sum\U {n=1}^N f\U n}\U {L^p(\Omega\to E)}=\norm{\sum\U {n=N}^\infty f\U n}\U {L^p(\Omega\to E)}\leq \liminf\U {M\to \infty}\norm{\sum\U {n=N}^M f\U n}\U {L^p(\Omega\to E)}\\\leq \liminf\U {M\to \infty}\sum\U {n=N}^M \norm{f\U n}\U {L^p(\Omega\to X)}=\sum\U {n=N}^\infty \norm{f\U n}\U {L^p(\Omega\to X)}\xrightarrow{N\to\infty} 0.
     \end{gathered}$$
-</div>  Which shows convergence in $L^p(\Omega\to E)$. ◻
+</div>  
+    Which shows convergence in $L^p(\Omega\to E)$. ◻
 
 
 Just as in the case of Lebesgue integrals the proof of the completeness
@@ -148,7 +161,8 @@ Further, since $f\U n$ is Cauchy, we can extract a subsequence $f\U {n\U k}$
 with $\|f\U {n\U k}-f\U {n\U {k-1}}\|\leq 2^{-k}$. By construction the sequence
 <div>
  $$\sum\U {k=0}^{\infty} f\U {n\U k}-f\U {n\U {k-1}},$$
-</div>  is normally convergent and
+</div> 
+    is normally convergent and
 converges in $f$. By the above discussion we conclude the proof. ◻
 
 
@@ -221,7 +235,8 @@ $\norm{\cdot}\U {L^1(\Omega\to E)}$ of the integral on $\mathcal{A}$. That
 is, given $f\in L^1(\Omega\to E)$ we define
 <div>
  $$\int\U \Omega f d\mu:=\lim\U {n\to\infty} \int\U \Omega f\U n d\mu.$$
-</div>  Where
+</div> 
+    Where
 $f\U n\in \mathcal{A}$ is any sequence such that
 $\norm{f-f\U n}\U {L^1(\Omega\to E)}\to 0$.
 
@@ -248,5 +263,6 @@ the extra requirement that appears over the Lebesgue case is that the
 function $f$ is separately valued and justifies why, as we will see in
 future posts on SPDEs, the image of $f$ is often taken to be some
 separable Hilbert space. Until the next time!
+    
 A pdf of version of this page is provided below:
 <object data="/assets/The-Bochner-integral.pdf" width="1000" height="1000" type='application/pdf'></object>
