@@ -9,13 +9,9 @@ tags: [Stochastic calculus, Malliavin Calculus]
 
 This is the first post of many to come on this blog, thanks for joining!
 This is also the first in a series on Malliavin calculus. This chain is
-based on the book by Oksendal and Nunno [1](https://link.springer.com/book/10.1007/978-3-540-78572-9).
+based on the book by Oksendal and Nunno [1](https://link.springer.com/book/10.1007/978-3-540-78572-9), and inspired by a reading group on the topic.
 
-# Wiener Itô chaos expansion
-
-, and inspired by a reading group on the topic.
-
-## Three line summary
+# Three line summary
 
 -   Square integrable deterministic functions of multiple variables
     can be repeatedly Itô integrated to get a square integrable random
@@ -26,7 +22,7 @@ based on the book by Oksendal and Nunno [1](https://link.springer.com/book/10.10
 -   Every square integrable function can be uniquely written as the
     sum of repeated integrals.
 
-## Why this is important
+# Why this is important
 
 The chaos expansion gives us a way to represent random variables as a sum of functions in $L^2$. This representation can be used to define the [Skorohod integral](https://liamllamazares.github.io/2022-05-29-Malliavin-Calculus-2/) and later on the Malliavin derivative.
 
