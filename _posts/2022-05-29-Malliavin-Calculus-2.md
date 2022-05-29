@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Skorohod
+title: The Skorohod integral
 subtitle: How many integrals even are there?
 thumbnail-img: /assets/img/Malliavin.jpg
 share-img: /assets/img/Malliavin.jpg
