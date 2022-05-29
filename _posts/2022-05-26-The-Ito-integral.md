@@ -87,11 +87,13 @@ measurable. Then it is also jointly measurable.
 
 
 
-Proof. Given $A\in\mathcal{H}$ we have that <div>
+Proof. Given $A\in\mathcal{H}$ we have that 
+<div>
  $$\begin{gathered}
         \left.{X^{-1}}\right|\U {\zl 0,t\zr \times\Omega}(A)\in\mathcal{B}(\zl 0,t\zr )\otimes\mathcal{F}\U t\quad\forall t\in I\\ \iff X^{-1}(A)\cap(\zl 0,t\zr \times\Omega)\in\mathcal{B}(\zl 0,t\zr )\otimes\mathcal{F}\U t\quad\forall t\in I\\\implies X^{-1}(A)=\bigcup\U {n \in  \mathbb{N}}X^{-1}(A)\cap(\zl 0,t\U n\zr \times\Omega) \in\mathcal{B}(I)\otimes\mathcal{F}\U \infty
     \end{gathered}$$
-</div>  Where $t\U n\in I$ is a sequence converging to the
+</div> 
+Where $t\U n\in I$ is a sequence converging to the
 endpoint of $I$. ◻
 
 
@@ -196,12 +198,14 @@ $f\in\mathcal{E}$
  $$\int\U {0}^t X dW=\sum\U {n=0}^{N-1} X(t\U n)(W(t\cap t\U {n+1})-W(t\U n)).$$
 </div> 
 Then the above defines an isometry to the space of continuous square
-integrable martingales $\mathcal{M}\U I^2$ as <div>
+integrable martingales $\mathcal{M}\U I^2$ as 
+    <div>
  $$\begin{aligned}
         int: \left(\mathcal{E},\|\cdot\|\U {L^2(I\times\Omega)}\right) & \longrightarrow  \left(\mathcal{M}\U I^2,\|\cdot\|\U {L^2(I\times\Omega)}\right) \\
         X(t)                                          & \longmapsto \int\U {0}^t X dW
         .\end{aligned}$$
-</div>  Thus, it extends uniquely to the closure
+</div> 
+    Thus, it extends uniquely to the closure
 $\overline{\mathcal{E}}=\mathbb{L}^2(I\times\Omega)$. Furthermore the
 extension also has image in $\mathcal{M}\U I^2.$
 
@@ -227,4 +231,4 @@ process $Y$. This process must be $X$ by $L^2$ convergence to $X$ which
 concludes the proof. ◻
 
 A pdf of version of this page is provided below:
-<object data="/assets/The Ito integral.pdf" width="1000" height="1000" type='application/pdf'></object>
+<object data="/assets/ItoInt.pdf" width="1000" height="1000" type='application/pdf'></object>
