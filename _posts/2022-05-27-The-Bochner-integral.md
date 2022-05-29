@@ -120,27 +120,25 @@ exists $f\in L^p(\Omega\to E)$ such that
 </div>
     To do so one first
 applies \\zl Minkowski's\\zr  inequality for real valued functions to show
-that <div>
+that 
+ <div>
  $$\sum\U {n=1}^\infty \norm{f\U n}\U X\in L^p(\Omega\to{\mathbb R}).$$
 </div> 
 Thus, the sum is finite almost everywhere. Since $E$ is complete we have
 that the above sum converges pointwise almost everywhere to some
 function 
-    
     <div>
  $$f(\omega):=\sum\U {n=1}^\infty f\U n(\omega)\in E.$$
 </div> 
-    Furthermore
-we have that $f$ is strongly measurable as it is the limit of strongly
+Furthermore, we have that $f$ is strongly measurable as it is the limit of strongly
 measurable functions (this is a small exercise). Finally, by Fatou's
 lemma for real valued functions and the triangle inequality for norms
-    
 <div>
  $$\begin{gathered}
         \norm{f-\sum\U {n=1}^N f\U n}\U {L^p(\Omega\to E)}=\norm{\sum\U {n=N}^\infty f\U n}\U {L^p(\Omega\to E)}\leq \liminf\U {M\to \infty}\norm{\sum\U {n=N}^M f\U n}\U {L^p(\Omega\to E)}\\\leq \liminf\U {M\to \infty}\sum\U {n=N}^M \norm{f\U n}\U {L^p(\Omega\to X)}=\sum\U {n=N}^\infty \norm{f\U n}\U {L^p(\Omega\to X)}\xrightarrow{N\to\infty} 0.
     \end{gathered}$$
 </div>  
-    Which shows convergence in $L^p(\Omega\to E)$. ◻
+Which shows convergence in $L^p(\Omega\to E)$. ◻
 
 
 Just as in the case of Lebesgue integrals the proof of the completeness
@@ -162,8 +160,7 @@ with $\|f\U {n\U k}-f\U {n\U {k-1}}\|\leq 2^{-k}$. By construction the sequence
 <div>
  $$\sum\U {k=0}^{\infty} f\U {n\U k}-f\U {n\U {k-1}},$$
 </div> 
-    is normally convergent and
-converges in $f$. By the above discussion we conclude the proof. ◻
+is normally convergent and converges in $f$. By the above discussion we conclude the proof. ◻
 
 
 Ok, so we've constructed some spaces of $p$-integrable functions, and
@@ -236,8 +233,7 @@ is, given $f\in L^1(\Omega\to E)$ we define
 <div>
  $$\int\U \Omega f d\mu:=\lim\U {n\to\infty} \int\U \Omega f\U n d\mu.$$
 </div> 
-    Where
-$f\U n\in \mathcal{A}$ is any sequence such that
+Where $f\U n\in \mathcal{A}$ is any sequence such that
 $\norm{f-f\U n}\U {L^1(\Omega\to E)}\to 0$.
 
 
@@ -265,4 +261,4 @@ future posts on SPDEs, the image of $f$ is often taken to be some
 separable Hilbert space. Until the next time!
     
 A pdf of version of this page is provided below:
-<object data="/assets/The-Bochner-integral.pdf" width="1000" height="1000" type='application/pdf'></object>
+<object data="/assets/Bochner.pdf" width="1000" height="1000" type='application/pdf'></object>
