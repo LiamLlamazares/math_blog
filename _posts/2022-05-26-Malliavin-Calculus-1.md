@@ -149,8 +149,9 @@ is to iteratively apply Itô's representation theorem to get
         \end{gathered}$$
 </div>  Where
 $g\U 0=\mathbb{E}\zl \xi\zr , g\U 1(t\U 1) =\mathbb{E}\zl X\U 1\zr (t\U 1)$ and so on. By an
-iteration we deduce that if we write $\phi\U {N+1}$ for the last integral
-term, then <div>
+iteration we deduce that, if we write $\phi\U {N+1}$ for the last integral
+term, then 
+<div>
  $$\mathbb{E}\zl \phi\U {N+1}\zr \leq\ldots\leq \mathbb{E}\zl \xi^2\zr .$$
 </div> 
 Furthermore, by Itô's $n$-th isometry we have that the terms in the
