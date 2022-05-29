@@ -118,8 +118,7 @@ exists $f\in L^p(\Omega\to E)$ such that
 <div>
  $$f=\sum\U {n=1}^\infty f\U n\in L^p(\Omega\to E).$$
 </div>
-    To do so one first
-applies \\zl Minkowski's\\zr  inequality for real valued functions to show
+To do so one first applies \\zl Minkowski's\\zr  inequality for real valued functions to show
 that 
  <div>
  $$\sum\U {n=1}^\infty \norm{f\U n}\U X\in L^p(\Omega\to{\mathbb R}).$$
@@ -127,9 +126,10 @@ that
 Thus, the sum is finite almost everywhere. Since $E$ is complete we have
 that the above sum converges pointwise almost everywhere to some
 function 
-    <div>
+<div>
  $$f(\omega):=\sum\U {n=1}^\infty f\U n(\omega)\in E.$$
 </div> 
+    
 Furthermore, we have that $f$ is strongly measurable as it is the limit of strongly
 measurable functions (this is a small exercise). Finally, by Fatou's
 lemma for real valued functions and the triangle inequality for norms
@@ -247,7 +247,8 @@ then
 1.  $\norm{\int\U \Omega f d\mu}\leq\int\U \Omega{\norm{f}d\mu}$
 
 2.  Let $Y$ be another Banach space and $L\in L(E,Y)$. Then
-    <div>
+
+ <div>
  $$\int\U \Omega (L\circ f) d\mu=L\left(\int\U \Omega f d\mu\right).$$
 </div> 
 
