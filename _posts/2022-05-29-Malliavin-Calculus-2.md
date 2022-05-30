@@ -158,7 +158,7 @@ $X(t)\in L^2(\Omega,\mathcal{F}\U \infty)$ has a Skorohod integral iff
 
 
 <div>
- $$\sum\U {n=0}^{\infty} (n+1)!\|f\U {n,S}\|\U {L^2(\zl 0,T\zr ^n)}<\infty.$$
+ $$\sum\U {n=0}^{\infty} (n+1)!\|f\U {n,S}\|^2\U {L^2(\zl 0,T\zr ^n)}<\infty.$$
 </div>
 
 
