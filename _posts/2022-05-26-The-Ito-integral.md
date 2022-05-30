@@ -101,19 +101,8 @@ constant in $t$ then, for some $B\subset \Omega$ it holds that
  $$X^{-1}(A)=I\times B;\quad {X^{-1}}|\U {\zl 0,t\zr \times\Omega}(A)= \zl 0,t\zr \times B$$
 </div>
 So it suffices to consider some construction where
-$B\in\mathcal{F}\U \infty$ but $B\not\in\mathcal{F}\U t$. Later on we will see that the solutions to an SDE are progressively measurable (in fact, they are continuous which we will show to be even stronger!) This motivates the title of the following lemma.
-
-
-**Lemma 2** (SDE coefficients are progressive). Let $X\U t$ be a
-progressively measurable stochastic process and let
-$f:\mathcal{H}\to\mathcal{G}$ be measurable, then $f(t,X\U t)$ is
-progressively measurable.
-
-
-
-Proof. This follows from considering $(t,\omega)\to (t,X(t,w))$. Where
-the arrow is measurable as, due to the progressive measurability of $X$,
-each component is adapted. ◻
+$B\in\mathcal{F}\U \infty$ but $B\not\in\mathcal{F}\U t$. \\
+\\
 
 
 The difference between progressively measurable and adapted is quite
@@ -147,11 +136,24 @@ Since $X^{(n)}$ is piecewise constant in time, the pre-image of any set $A\in\ma
 </div>
 for some $t_i \in I$. So $X^{(n)}$ is progressively measurable. We conclude as by right
 continuity $\lim\U {n \to \infty}X^{(n)}=X$. ◻
-
-
 Also we used that the pointwise limit of progressively measurable
 functions is progressively measurable. This is because the pointwise
-limit of measurable functions is measurable.
+limit of measurable functions is measurable.\\
+\\
+Later on we will see that the solutions to an SDE arecontinuous, and thus progressively measurable. This motivates the title of the following lemma.
+
+
+**Lemma 2** (SDE coefficients are progressive). Let $X\U t$ be a
+progressively measurable stochastic process and let
+$f:\mathcal{H}\to\mathcal{G}$ be measurable, then $f(t,X\U t)$ is
+progressively measurable.
+
+
+
+Proof. This follows from considering $(t,\omega)\to (t,X(t,w))$. Where
+the arrow is measurable as, due to the progressive measurability of $X$,
+each component is adapted. ◻
+
 
 
 **Lemma 4**. For any $p \in\zl 1, \infty)$, the elementary processes are
