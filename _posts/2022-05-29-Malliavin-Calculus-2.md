@@ -83,7 +83,7 @@ requiring that, for all $t$
     \end{gathered}$$
 </div>
 Where in the second equality we used that the
-Itô integral is a martingaleand where the commutation of the sum and the integral
+Itô integral is a martingale and where the commutation of the sum and the integral
 is justified by the $L^2(\Omega)$ convergence of the chaos expansion
 ($L^1(\Omega)$ convergence would have been enough). ◻
 
