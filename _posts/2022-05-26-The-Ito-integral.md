@@ -132,10 +132,13 @@ Proof. Suppose for example that $X$ is right continuous. Let us fix $t \in I$ an
 </div>
 Since $X^{(n)}$ is piecewise constant in time, the pre-image of any set $A\in\mathcal{H}$ is of the form
 <div>
- $$(X^{(n)})^{-1}(A)=\bigcup\U {i}(t\U i,t^n\U {i+1}\zr \times X\U {t^n\U {i+1}}^{-1}(A),$$
+ $$(X^{(n)})^{-1}(A)=\bigcup\U {i}(t^n\U i,t^n\U {i+1}\zr \times X\U {t^n\U {i+1}}^{-1}(A),$$
 </div>
 for some $t_i^n \in [0,t]$. So $X^{(n)}$ is $\mathcal{B}(\zl 0, t \zr\times \Omega)$ measurable. Furthermore by right
 continuity $\lim\U {n \to \infty}X^{(n)}=X$. So $X$ is also $\mathcal{B}(\zl 0, t \zr\times \Omega)$ measurable. Since $t$ was any we conclude. ◻
+
+
+
 Later on we will see that the solutions to an SDE (which are defined by Itô integration) are continuous, and thus progressively measurable. This motivates the title of the following lemma.
 
 
