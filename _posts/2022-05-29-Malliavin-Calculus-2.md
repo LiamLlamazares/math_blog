@@ -169,7 +169,7 @@ Proof. By Itô's $n$-th isometry we have that
 
 
 <div>
- $$\norm{\delta(X)}\U {L^2(\Omega)}=\sum\U {n=0}^{\infty}  \norm{I\U {n+1}(f\U {n,S})}=\sum\U {n=0}^{\infty} (n+1)!\norm{f\U {n,S}}\U {L^2(I^{n+1})}.$$
+ $$\norm{\delta(X)}\U {L^2(\Omega)}=\sum\U {n=0}^{\infty}  \norm{I\U {n+1}(f\U {n,S})}\U {L^2(\Omega)}=\sum\U {n=0}^{\infty} (n+1)!\norm{f\U {n,S}}\U {L^2(I^{n+1})}.$$
 </div>
 
   ◻
@@ -258,14 +258,14 @@ the chaos expansion of $X\cdot 1\U A$ is
  $$X\cdot 1\U A=\sum\U {n=0}^{\infty} I\U {n}(\zl f\U n 1\U A\zr \U S).$$
 </div>
 
-  Which shown by
+  Which shows by
 the equivalent characterization of Skorohod functions that
 $X\cdot 1\U A\in dom(\delta)$. The final property is a consequence of the
 previously proved linearity. ◻
 
 
 We now know what the Skorohod expansion is, how to characterize it, and
-its main properties, in the next post we will construct the Malliavin
+its main properties. In the next post we will construct the Malliavin
 derivative as its adjoint.
 A pdf of version of this page is provided below:
 <object data="/assets/Skorohod.pdf" width="1000" height="1000" type='application/pdf'></object>
