@@ -169,7 +169,7 @@ Proof. By Itô's $n$-th isometry we have that
 
 
 <div>
- $$\norm{\delta(X)}\U {L^2(\Omega)}=\sum\U {n=0}^{\infty}  \norm{I\U {n+1}(f\U {n,S})}\U {L^2(\Omega)}=\sum\U {n=0}^{\infty} (n+1)!\norm{f\U {n,S}}\U {L^2(I^{n+1})}.$$
+ $$\norm{\delta(X)}^2\U {L^2(\Omega)}=\sum\U {n=0}^{\infty}  \norm{I\U {n+1}(f\U {n,S})}^2\U {L^2(\Omega)}=\sum\U {n=0}^{\infty} (n+1)!\norm{f\U {n,S}}^2\U {L^2(I^{n+1})}.$$
 </div>
 
   ◻
