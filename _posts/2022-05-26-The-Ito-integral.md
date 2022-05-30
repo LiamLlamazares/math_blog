@@ -191,7 +191,7 @@ the fact that the Ito integral of simple processes is an isometry and
 the fact that $\mathbb{L}^2(I\times\Omega)$ is complete. This last
 property follows from the completeness of the $L^p$ spaces and the fact
 that pointwise limits of progressively measurable functions are
-progressively measurable (and from every convergent sequence in $L^p$ we
+progressively measurable (which we can use as from every convergent sequence in $L^p$ we
 can extract a convergent sub-sequence which must also converge to the
 $L^p$ limit). This finally leads us to be able to define the stochastic
 integral.
@@ -204,13 +204,13 @@ $f\in\mathcal{E}$
 </div>
 Then the above defines an isometry to the space of continuous square
 integrable martingales $\mathcal{M}\U I^2$ as
-
-    <div>
+<div>
  $$\begin{aligned}
         int: \left(\mathcal{E},\norm{\cdot}\U {L^2(I\times\Omega)}\right) & \longrightarrow  \left(\mathcal{M}\U I^2,\norm{\cdot}\U {L^2(I\times\Omega)}\right) \\
         X(t)                                          & \longmapsto \int\U {0}^t X dW
         .\end{aligned}$$
 </div>
+
 Thus, it extends uniquely to the closure
 $\overline{\mathcal{E}}=\mathbb{L}^2(I\times\Omega)$. Furthermore the
 extension also has image in $\mathcal{M}\U I^2.$
