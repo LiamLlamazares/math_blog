@@ -31,22 +31,21 @@ the preceding issues.
 
 # Notation
 
-Given two measure spaces $(\Omega,\mathcal{F}),(\Omega',\mathcal{F}')$
+Given two measure spaces $(\Omega,\mathcal{F}),(\Omega',\mathcal{H})$
 we abbreviate that $f:\Omega\to\Omega'$ is measurable between
 $\mathcal{F}$ and $\mathcal{F}'$ as $f:\mathcal{F}\to\mathcal{F}'.$
 Furthermore we will take $I=\zl 0,T\zr $ or $I=\zl 0,+\infty)$ to be the index
-set of our stochastic processes and by abuse of notation write
-$\mathcal{F}\U \infty$ to mean $\mathcal{F}\U T$ in the former case and
-$\mathcal{F}\U \infty$ in the latter.
+set of our stochastic processes and write
+$\mathcal{F}\U \infty:=\vee\U {t\in I}\mathcal{F}\U t$. Finally, we will denote the Borel $\sigma$-algebra on some interval $J$ by $\mathcal{B}(J)$.
 
 # Integrable functions: progressive measurability
 
 As we will soon see the only stochastic process that can be integrated
-are the square integrable and progressively measurable. But what does
+are the square integrable and progressively measurable ones. But what does
 this mysterious term mean?
 
 
-**Definition 1**. A stochastic process $\{X\U t\}\U {t\in I}$ is
+**Definition 1**. A stochastic process $\{ X\U t \}\U {t\in I}$ is
 progressively measurable if
 <div>
  $$X:\mathcal{B}(\zl 0,t\zr )\otimes\mathcal{F}\U t\to \mathcal{H}$$
@@ -73,8 +72,7 @@ definition.
 is jointly measurable if
 <div>
  $$X:\mathcal{B}(I)\otimes\mathcal{F}\U \infty\to \mathcal{H}$$
-</div>  where
-$\mathcal{F}\U \infty:=\vee\U {t\in I}\mathcal{F}\U t$.
+</div>
 
 
 In the definition of progressive measurability we imposed some kind of
@@ -87,12 +85,12 @@ measurable. Then it is also jointly measurable.
 
 
 
-Proof. Given $A\in\mathcal{H}$ we have that 
+Proof. Given $A\in\mathcal{H}$ we have that
 <div>
  $$\begin{gathered}
         \left.{X^{-1}}\right|\U {\zl 0,t\zr \times\Omega}(A)\in\mathcal{B}(\zl 0,t\zr )\otimes\mathcal{F}\U t\quad\forall t\in I\\ \iff X^{-1}(A)\cap(\zl 0,t\zr \times\Omega)\in\mathcal{B}(\zl 0,t\zr )\otimes\mathcal{F}\U t\quad\forall t\in I\\\implies X^{-1}(A)=\bigcup\U {n \in  \mathbb{N}}X^{-1}(A)\cap(\zl 0,t\U n\zr \times\Omega) \in\mathcal{B}(I)\otimes\mathcal{F}\U \infty
     \end{gathered}$$
-</div> 
+</div>
 Where $t\U n\in I$ is a sequence converging to the
 endpoint of $I$. ◻
 
@@ -101,7 +99,7 @@ Note however that the converse isn't true, for example if $X$ is
 constant in $t$ then, for some $B\subset \Omega$
 <div>
  $$X^{-1}(A)=I\times B;\quad {X^{-1}}|\U {\zl 0,t\zr \times\Omega}(A)= \zl 0,t\zr \times B$$
-</div> 
+</div>
 So it suffices to consider some Construction where
 $B\in\mathcal{F}\U \infty$ but $B\not\in\mathcal{F}\U t$. It is also
 important to note the following.
@@ -143,11 +141,11 @@ Proof. Suppose for example that $X$ is right continuous, then we
 consider
 <div>
  $$X\U {s}^{(n)}(\omega)=X\U {(k+1) ! / 2^{n}}(\omega) \text { for } \frac{k t}{2^{n}}<s \leq \frac{k+1}{2^{n}} t$$
-</div> 
+</div>
 The pre-image of any set $A\in\mathcal{H}$ is of the form
 <div>
  $$X^{-1}(A)=\bigcup\U {i\in \mathbb{N}}(t\U i,t\U {i+1}\zr \times X\U {t\U i}^{-1}(A).$$
-</div> 
+</div>
 So $X^{(n)}$ is progressively measurable. We conclude as by right
 continuity $\lim\U {n \to \infty}X^{(n)}=X$. ◻
 
@@ -165,7 +163,7 @@ $Y \in \mathbb{L}^{p}$ there is a sequence $V\U {n}$ of elementary
 functions such that
 <div>
  $$\mathbb{E}\zl \int\U {I}|Y(t)-V\U {n}(t)|^{p} dt\zr  \longrightarrow 0.$$
-</div> 
+</div>
 
 
 The proof of this fact is also rather technical and long. See Chapter
@@ -178,7 +176,7 @@ of simple stochastic processes adapted to $\{\mathcal{F}\U t\}\U {t\in I}$
 with the $L^2$ norm. Then it's completion is
 <div>
  $$\mathbb{L}^2(I\times\Omega):=\{X\in L^2(\zl 0,T\zr \times\Omega)\text{ progressively measurable }\}.$$
-</div> 
+</div>
 
 
 The proof of this is by the previous approximation result together with
@@ -196,15 +194,15 @@ integral.
 $f\in\mathcal{E}$
 <div>
  $$\int\U {0}^t X dW=\sum\U {n=0}^{N-1} X(t\U n)(W(t\cap t\U {n+1})-W(t\U n)).$$
-</div> 
+</div>
 Then the above defines an isometry to the space of continuous square
-integrable martingales $\mathcal{M}\U I^2$ as 
+integrable martingales $\mathcal{M}\U I^2$ as
     <div>
  $$\begin{aligned}
         int: \left(\mathcal{E},\|\cdot\|\U {L^2(I\times\Omega)}\right) & \longrightarrow  \left(\mathcal{M}\U I^2,\|\cdot\|\U {L^2(I\times\Omega)}\right) \\
         X(t)                                          & \longmapsto \int\U {0}^t X dW
         .\end{aligned}$$
-</div> 
+</div>
     Thus, it extends uniquely to the closure
 $\overline{\mathcal{E}}=\mathbb{L}^2(I\times\Omega)$. Furthermore the
 extension also has image in $\mathcal{M}\U I^2.$
