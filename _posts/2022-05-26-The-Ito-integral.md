@@ -120,8 +120,8 @@ The difference between progressively measurable and adapted is quite
 subtle. In fact every adapted and jointly measurable stochastic process
 has a progressively measurable modification (see
 [1](https://link.springer.com/book/10.1007/978-1-4612-0949-2) page $5$). The proof of this fact is very
-lengthy and technical. Thus, if
-$X\in L^2(\mathcal{B}(I)\otimes\mathcal{F}\U \infty)$ (and in particular
+lengthy and technical so we ommit. However, this shows that if
+$X\in L^2(I\times\Omega,\mathcal{B}(I)\otimes\mathcal{F}\U \infty)$ (and in particular $X$
 is jointly measurable), we may always choose a representative that is
 progressively measurable. This leads to some authors giving the
 defintion of the class of Itô integrable functions in terms of joint
