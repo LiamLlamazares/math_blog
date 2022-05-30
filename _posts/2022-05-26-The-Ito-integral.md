@@ -136,10 +136,6 @@ Since $X^{(n)}$ is piecewise constant in time, the pre-image of any set $A\in\ma
 </div>
 for some $t_i^n \in [0,t]$. So $X^{(n)}$ is $\mathcal{B}(\zl 0, t \zr\times \Omega)$ measurable. Furthermore by right
 continuity $\lim\U {n \to \infty}X^{(n)}=X$. So $X$ is also $\mathcal{B}(\zl 0, t \zr\times \Omega)$ measurable. Since $t$ was any we conclude. ◻
-Also we used that the pointwise limit of progressively measurable
-functions is progressively measurable. This is because the pointwise
-limit of measurable functions is measurable.\\
-\\
 Later on we will see that the solutions to an SDE are continuous, and thus progressively measurable. This motivates the title of the following lemma.
 
 
