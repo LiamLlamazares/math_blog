@@ -153,10 +153,15 @@ progressively measurable.
 Proof. This follows from considering $(t,\omega)\to (t,X(t,w))$. Where
 the arrow is measurable as, due to the progressive measurability of $X$,
 each component is adapted. ◻
+We now move to defining the Itô integral. We will first define it on step processes of the form
+
+$$
+X(t)=X\U 0 1\U 0(t)+\sum\U {n=0}^{N-1} X(t\U n)1\U{ [t\U n,t\U{n+1})}
+$$
 
 
 
-**Lemma 4**. For any $p \in\zl 1, \infty)$, the elementary processes are
+**Lemma 4**. For any $p \in\zl 1, \infty)$, the simple processes are
 $L^{p}$-dense in the space $\mathbb{L}^{p}(I\times\Omega)$ of
 progressively measurable processes in
 $L^p(\mathcal{B}(I)\otimes\mathcal{F}\U \infty)$. That is, for any
