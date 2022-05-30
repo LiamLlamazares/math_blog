@@ -120,11 +120,11 @@ The difference between progressively measurable and adapted is quite
 subtle. In fact every adapted and jointly measurable stochastic process
 has a progressively measurable modification (see
 [1](https://link.springer.com/book/10.1007/978-1-4612-0949-2) page $5$). The proof of this fact is very
-lengthy and technical so we ommit. However, this shows that if
+lengthy and technical so we ommit it. However, this shows that if
 $X\in L^2(I\times\Omega,\mathcal{B}(I)\otimes\mathcal{F}\U \infty)$ (and in particular $X$
 is jointly measurable), we may always choose a representative that is
 progressively measurable. This leads to some authors giving the
-defintion of the class of Itô integrable functions in terms of joint
+definition of the class of Itô integrable functions in terms of joint
 measurability instead of progressive measurability. In the end both lead
 to equivalent definition. That said, this technicality is usually of
 little importance due to the following result.
@@ -141,11 +141,11 @@ consider
 <div>
  $$X\U {s}^{(n)}(\omega)=X\U {(k+1) ! / 2^{n}}(\omega) \text { for } \frac{k t}{2^{n}}<s \leq \frac{k+1}{2^{n}} t$$
 </div>
-The pre-image of any set $A\in\mathcal{H}$ is of the form
+Since $X^{(n)}$ is piecewise constant in time, the pre-image of any set $A\in\mathcal{H}$ is of the form
 <div>
- $$X^{-1}(A)=\bigcup\U {i\in \mathbb{N}}(t\U i,t\U {i+1}\zr \times X\U {t\U i}^{-1}(A).$$
+ $$X^{-1}(A)=\bigcup\U {i\in \mathbb{N}}(t\U i,t\U {i+1}\zr \times X\U {t\U {i+1}}^{-1}(A),$$
 </div>
-So $X^{(n)}$ is progressively measurable. We conclude as by right
+for some $t_i \in I$. So $X^{(n)}$ is progressively measurable. We conclude as by right
 continuity $\lim\U {n \to \infty}X^{(n)}=X$. ◻
 
 
