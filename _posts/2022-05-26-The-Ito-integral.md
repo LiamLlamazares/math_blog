@@ -143,7 +143,7 @@ consider
 </div>
 Since $X^{(n)}$ is piecewise constant in time, the pre-image of any set $A\in\mathcal{H}$ is of the form
 <div>
- $$X^{-1}(A)=\bigcup\U {i\in \mathbb{N}}(t\U i,t\U {i+1}\zr \times X\U {t\U {i+1}}^{-1}(A),$$
+ $$(X^(n)){-1}(A)=\bigcup\U {i\in \mathbb{N}}(t\U i,t\U {i+1}\zr \times X\U {t\U {i+1}}^{-1}(A),$$
 </div>
 for some $t_i \in I$. So $X^{(n)}$ is progressively measurable. We conclude as by right
 continuity $\lim\U {n \to \infty}X^{(n)}=X$. ◻
