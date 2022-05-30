@@ -38,7 +38,7 @@ conditional expectation $\mathbb{E}\U {\mathcal{G}}\zl X\zr $ verifying that
  $$\int\U A \mathbb{E}\U {\mathcal{G}}\zl X\zr =\int\U A X,\quad \forall A\in\mathcal{G}.$$
 </div>
 
- 
+
 Of course, now that we have created an integral for integral random
 variables to a Banach space $L^1(\Omega\to X)$ we would like to see
 whether such a conditional expectation also exists for these functions.
@@ -58,7 +58,7 @@ thus $\mathbb{E}\U {\mathcal{G}}\zl 1\U {A\U k}\zr $ are well defined, then
  $$\mathbb{E}\U {\mathcal{G}}\zl X\zr =\sum\U {k=1}^n x\U k \mathbb{E}\U {\mathcal{G}}\zl 1\U {A\U k}\zr ,$$
 </div>
 
- 
+
 verifies the desired formula. Furthermore, we have that
 $\mathbb{E}\U \mathcal{F}$ is a linear, and pointwise continuous operator
 with
@@ -68,7 +68,7 @@ with
  $$\|\mathbb{E}\U {\mathcal{G}}\zl X\zr \|\leq \sum\U {k=1}^n \|x\U k\| \mathbb{E}\U {\mathcal{G}}\zl 1\U {A\U k}\zr =\mathbb{E}\U {\mathcal{G}}\left[ \sum\U {k=1}^n \|x\U k\|1\U {A\U k}\right] =\mathbb{E}\U {\mathcal{G}}\left[ \|X\|\right] .$$
 </div>
 
- 
+
 This allows us to show the following
 
 
@@ -81,13 +81,13 @@ conditional expectation satisfying
  $$\|\mathbb{E}\U {\mathcal{G}}\zl X\zr \|\leq\mathbb{E}\U {\mathcal{G}}\left[ \|X\|\right] .$$
 </div>
 
- 
+
 
 
 
 Proof. We have already proved the above inequality for simple
 processes. By the previous post, [1](https://liamllamazares.github.io/2022-05-27-The-Bochner-integral/) we can take $X\U n$ converging
-to $X$ in $L^1(\Omega\to E)$ to obtain that 
+to $X$ in $L^1(\Omega\to E)$ to obtain that
 
 <div>
  $$\begin{gathered}
@@ -151,12 +151,12 @@ metric space that given $y\in E$
 
   As a result, by the
 linearity of the integral and abbreviating the supremum to just
-$\sup\U \ell$, 
+$\sup\U \ell$,
 
 <div>
  $$\begin{gathered}
         \|M(s)\|=\|\mathbb{E}\U {s}\zl M(t)\zr \|= \sup\U \ell \ell\left(\mathbb{E}\U {s}\zl M(t)\zr \right)=\sup\U \ell\|{\mathbb{E}\U {s}\left[ \ell(M(t))\right] \|}\\
-        \leq \mathbb{E}\U {s}\left[ \sup\U \ell\ell(M(t))\right] =\mathbb{E}\U {s}\left[ \|M(t)\|\right] 
+        \leq \mathbb{E}\U {s}\left[ \sup\U \ell\ell(M(t))\right] =\mathbb{E}\U {s}\left[ \|M(t)\|\right]
     \end{gathered}$$
 </div>
 
@@ -175,7 +175,7 @@ that
  $$\norm{\max\U {k\in\{1,...,n\}}X\U k}\U {L^p(\Omega)}\leq \frac{p}{p-1}\norm{X\U n}\U {L^p(\Omega)}$$
 </div>
 
- 
+
 As a consequence, if $X\U t,t\in\zl 0,T\zr $ is left (or right) continuous then
 
 
@@ -183,7 +183,7 @@ As a consequence, if $X\U t,t\in\zl 0,T\zr $ is left (or right) continuous then
  $$\norm{\max\U {t\in\zl 0,T\zr }X\U k}\U {L^p(\Omega)}\leq \frac{p}{p-1}\norm{X\U T}\U {L^p(\Omega)}.$$
 </div>
 
- 
+
 
 
 The idea of the above result is that, since $X\U k$ is a submartingale,
@@ -196,7 +196,7 @@ the Lemma $1$ gives that
 
 **Theorem 2** (Maximal Inequality). Let $p>1$ and let $E$ be a
 separable Banach space. If $M(t)$, is a right-continuous $E$-valued
-$\mathcal{F}\U {t}$-martingale, then 
+$\mathcal{F}\U {t}$-martingale, then
 
 <div>
  $$\begin{gathered}
@@ -205,7 +205,7 @@ $\mathcal{F}\U {t}$-martingale, then
     \end{gathered}$$
 </div>
 
- 
+
 
 
 
@@ -244,7 +244,7 @@ $I=\zl 0,T\zr $, then we define
  $$\mathcal{M}\U T^2(E):=\left\{\text{continuous martingales } M:\mathbb{E}\zl \norm{M(T)}^2\zr <\infty\right\}$$
 </div>
 
- 
+
 and give it the norm
 
 
@@ -252,7 +252,7 @@ and give it the norm
  $$\norm{M}\U {\mathcal{M}\U T^2(E)}:=\mathbb{E}\zl \norm{M(T)}^2\zr .$$
 </div>
 
- 
+
 
 
 By Theorem $2$ we have that
@@ -262,13 +262,13 @@ By Theorem $2$ we have that
  $$\mathcal{M}\U T^2(E)\subset \hat{L}^\infty(\zl 0,T\zr \to \hat{L}^2(\Omega\to E))\cap \hat{L}^2(\Omega\to \hat{L}^\infty(\zl 0,T\zr \to E)).$$
 </div>
 
- 
+
 and that any of the norms of these spaces is equivalent to the one set
 on $\mathcal{M}\U T^2(E)$. This is useful in the following result
 
 
 **Proposition 1**. Let $E$ be a separable Banach space, then
-$\mathcal{M}\U T^2(E)$ is a Banach space.
+$\mathcal{M}\U T^2(E)$ is a Hilbert space.
 
 
 
@@ -285,7 +285,7 @@ so that for all $A\in\mathcal{F}\U s$
  $$\int\U A M(s)d\mathbb{P}=\lim\U {n\to\infty}\int\U A M\U n(s)d\mathbb{P}=\lim\U {n\to\infty}\int\U A M\U n(t)d\mathbb{P}=\int\U A M(t)d\mathbb{P}.$$
 </div>
 
- 
+
 This shows that $M$ is a martingale. Furthermore, as was seen in the
 previous post, there exists a subsequence $M\U {n\U k}$ such that
 
@@ -294,7 +294,7 @@ previous post, there exists a subsequence $M\U {n\U k}$ such that
  $$\lim\U {n\to\infty}{M\U {n\U k}}(\cdot,\omega)=M(\cdot,\omega)\in \hat{L}^\infty(\zl 0,T\zr \to E)\quad a.e.\quad \omega\in\Omega$$
 </div>
 
- 
+
 Since $M\U {n\U k}(\cdot,\omega)$ are continuous and continuity is preserved
 by uniform limits this proves that $M$ is continuous almost everywhere.
 This concludes the proof. ◻
@@ -313,7 +313,7 @@ $W(t)\in \mathcal{M}\U T^2(E)$.
 
 Proof. It is a martingale as it is adapted and, given
 $A\in\mathcal{G}\U S$ and $u\in E$, by the linearity of the integral and
-Independence of $W(t)-W(s)$ with $\mathcal{G}\U s$ 
+Independence of $W(t)-W(s)$ with $\mathcal{G}\U s$
 
 <div>
  $$\begin{gathered}
@@ -329,7 +329,7 @@ Independence of $W(t)-W(s)$ with $\mathcal{G}\U s$
  $$\int\U A W(t)d\mathbb{P}=\int\U A W(s)d\mathbb{P}=0\quad \forall A\in\mathcal{G}\U s\implies \mathbb{E}\U s\zl W(t)\zr =W(s).$$
 </div>
 
- 
+
 Finally, we have that $\mathbb{E}\zl W(t)^2\zr =t<\infty$ for all $t$ and $W$
 is continuous by construction. This concludes the proof. ◻
 
