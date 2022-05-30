@@ -72,8 +72,7 @@ Proof. Firstly, we note that a stochastic process $X$ is adapted iff
  $$X(t)=\mathbb{E}\U {\mathcal{F}\U t}\zl X(t)\zr \quad\forall t\in I.$$
 </div>
 
-  Since the
-Itô integral is a martingale, we obtain that, by commuting the sum and
+  By commuting the sum and
 using the uniqueness of the chaos expansion this is equivalent to
 requiring that, for all $t$ 
 
@@ -83,8 +82,8 @@ requiring that, for all $t$
         =n!\int\U {0}^t \int\U {0}^{t\U n}\cdots \int\U {0}^{t\U 2}f(t\U 1\ldots t\U n,t) dW(t\U 1) \cdots dW(t\U {n-1})dW(t\U n)\\= I\U n(f\U n(\cdot,t) 1\U {\max\U {t\U i\leq t}})
     \end{gathered}$$
 </div>
-
-  Where the commutation of the sum and the integral
+Where in the second equality we used that the
+Itô integral is a martingaleand where the commutation of the sum and the integral
 is justified by the $L^2(\Omega)$ convergence of the chaos expansion
 ($L^1(\Omega)$ convergence would have been enough). ◻
 
