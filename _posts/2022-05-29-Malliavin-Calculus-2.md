@@ -42,7 +42,7 @@ there exists $f\U {n,t}\in L^2(S\U n)$ such that
 
 
 <div>
- $$X=\sum\U {n=0}^{\infty} I\U n(f\U {n,t}).$$
+ $$X(t)=\sum\U {n=0}^{\infty} I\U n(f\U {n,t}).$$
 </div>
 
   Let us write
