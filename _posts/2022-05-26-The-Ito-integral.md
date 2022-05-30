@@ -215,28 +215,9 @@ Thus, it extends uniquely to the closure
 $\overline{\mathcal{E}}=\mathbb{L}^2(I\times\Omega)$. Furthermore the
 extension also has image in $\mathcal{M}\U I^2.$
 
-
-
-Proof. The first part of the proof is a calculation using the
-definition of integral of simple process, the adaptedness of $X$ and the
-definition of $W$. The second part is slightly more tricky. The fact
-that $X$ is a martingale is due to $L^2$ convergence ($L^1$ would
-suffice).\
-\
-Then, one takes a sequence of elementary processes $X\U n$ converging to
-$X$. By the first part one may apply Doob's martingale inequality and
-$L^2$ convergence to get a measure of the set where the supremum
-
-<div>
- $$\sup\U {t\in I}  |X\U n(t)-X\U m(t)|>2^{-k},$$
-</div>
- which can be made small for
-$n,m \to\infty$. One can then extract a subsequence and apply
-Borel-Cantelli to deduce that the above supremum goes to $0$ almost
-everywhere. This shows that $X\U n$ is almost everywhere Cauchy in
-$L^\infty$ and thus converges almost everywhere to some continuous
-process $Y$. This process must be $X$ by $L^2$ convergence to $X$ which
-concludes the proof. ◻
+Proof. Proving this holds for simple processes is a calculation using: the
+definition of the Itô integral of a simple process, the adaptedness of $X$ and the
+definition of $W$. The fact that the extension of the integral is also in $\mathcal{M}\U I^2$ is due to the fact that, by Doob's maximal inequality and the completeness of $L^p$ spaces, $\mathcal{M}\U I^2$ is a Hilbert space (and thus complete). In fact, this holds even for processes valued in other Hilbert spaces (and not just $\mathbb{R}$), but this is a matter for another [post](https://nowheredifferentiable.com/2022-05-27-The-Bochner-integral/)  ◻
 
 A pdf of version of this page is provided below:
 <object data="/assets/ItoInt.pdf" width="1000" height="1000" type='application/pdf'></object>
