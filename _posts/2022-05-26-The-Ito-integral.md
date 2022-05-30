@@ -168,7 +168,7 @@ $L^p(\mathcal{B}(I)\otimes\mathcal{F}\U \infty)$. That is, for any
 $Y \in \mathbb{L}^{p}$ there is a sequence $V\U {n}$ of elementary
 functions such that
 <div>
- $$\mathbb{E}\left \zl \int\U {I}|Y(t)-V\U {n}(t)|^{p} dt\right \zr  \longrightarrow 0.$$
+ $$\mathbb{E}\left [ \int\U {I}|Y(t)-V\U {n}(t)|^{p} dt\right ]  \longrightarrow 0.$$
 </div>
 
 
