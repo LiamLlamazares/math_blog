@@ -125,14 +125,14 @@ measurable.
 
 
 
-Proof. Suppose for example that $X$ is right continuous, then we
-consider
+Proof. Suppose for example that $X$ is right continuous. Let us fix $t \in I$ and set
+ $X^{(n)}_0=X_0$ and for $k=1,...,2^{n}-1$
 <div>
- $$X\U {s}^{(n)}(\omega)=X\U {kt / 2^{n}}(\omega) \text { for } \frac{k t}{2^{n}}<s \leq \frac{k+1}{2^{n}} t$$
+ $$X\U {s}^{(n)}(\omega)=X\U {(k+1)t / 2^{n}}(\omega) \text { for } \frac{k t}{2^{n}}<s \leq \frac{k+1}{2^{n}} t$$
 </div>
 Since $X^{(n)}$ is piecewise constant in time, the pre-image of any set $A\in\mathcal{H}$ is of the form
 <div>
- $$(X^{(n)})^{-1}(A)=\bigcup\U {i\in \mathbb{N}}(t\U i,t\U {i+1}\zr \times X\U {t\U i}^{-1}(A),$$
+ $$(X^{(n)})^{-1}(A)=\bigcup\U {i}(t\U i,t^n\U {i+1}\zr \times X\U {t^n\U {i+1}}^{-1}(A),$$
 </div>
 for some $t_i \in I$. So $X^{(n)}$ is progressively measurable. We conclude as by right
 continuity $\lim\U {n \to \infty}X^{(n)}=X$. ◻
