@@ -136,7 +136,7 @@ Since $X^{(n)}$ is piecewise constant in time, the pre-image of any set $A\in\ma
 </div>
 for some $t_i^n \in [0,t]$. So $X^{(n)}$ is $\mathcal{B}(\zl 0, t \zr\times \Omega)$ measurable. Furthermore by right
 continuity $\lim\U {n \to \infty}X^{(n)}=X$. So $X$ is also $\mathcal{B}(\zl 0, t \zr\times \Omega)$ measurable. Since $t$ was any we conclude. ◻
-Later on we will see that the solutions to an SDE are continuous, and thus progressively measurable. This motivates the title of the following lemma.
+Later on we will see that the solutions to an SDE (which are defined by Itô integration) are continuous, and thus progressively measurable. This motivates the title of the following lemma.
 
 
 **Lemma 2** (SDE coefficients are progressive). Let $X\U t$ be a
