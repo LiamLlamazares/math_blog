@@ -156,8 +156,9 @@ each component is adapted. ◻
 We now move to defining the Itô integral. We will first define it on step processes of the form
 
 $$
-X(t)=X\U 0 1\U 0(t)+\sum\U {n=0}^{N-1} X(t\U n)1\U{ [t\U n,t\U{n+1})}
+S(t)=X\U 0 1\U 0(t)+\sum\U {n=0}^{N-1} S(t\U n)1\U{ [t\U n,t\U{n+1})}
 $$
+where $S \U n$ are $\mathcal{F}\U {t \U n}$ measurable.
 
 
 
@@ -165,10 +166,10 @@ $$
 $L^{p}$-dense in the space $\mathbb{L}^{p}(I\times\Omega)$ of
 progressively measurable processes in
 $L^p(\mathcal{B}(I)\otimes\mathcal{F}\U \infty)$. That is, for any
-$Y \in \mathbb{L}^{p}$ there is a sequence $V\U {n}$ of elementary
+$Y \in \mathbb{L}^{p}$ there is a sequence $S\U {n}$ of elementary
 functions such that
 <div>
- $$\mathbb{E}\left [ \int\U {I}|Y(t)-V\U {n}(t)|^{p} dt\right ]  \longrightarrow 0.$$
+ $$\mathbb{E}\left [ \int\U {I}|Y(t)-S\U {n}(t)|^{p} dt\right ]  \longrightarrow 0.$$
 </div>
 
 
@@ -177,7 +178,7 @@ $2$ of [2](http://galton.uchicago.edu/~lalley/Courses/385/Old/ItoIntegral-2012.p
 
 
 **Theorem 1**. Let
-$(\mathcal{E},\|\cdot\|\U {L^2(I\times\Omega)},\mathcal{F}\U t)$ be the set
+$(\mathcal{E},\| \cdot \|\U {L^2(I\times\Omega)},\mathcal{F}\U t)$ be the set
 of simple stochastic processes adapted to $\{\mathcal{F}\U t\}\U {t\in I}$
 with the $L^2$ norm. Then it's completion is
 <div>
@@ -203,13 +204,14 @@ $f\in\mathcal{E}$
 </div>
 Then the above defines an isometry to the space of continuous square
 integrable martingales $\mathcal{M}\U I^2$ as
+
     <div>
  $$\begin{aligned}
-        int: \left(\mathcal{E},\|\cdot\|\U {L^2(I\times\Omega)}\right) & \longrightarrow  \left(\mathcal{M}\U I^2,\|\cdot\|\U {L^2(I\times\Omega)}\right) \\
+        int: \left(\mathcal{E},\norm{\cdot}\U {L^2(I\times\Omega)}\right) & \longrightarrow  \left(\mathcal{M}\U I^2,\norm{\cdot}\U {L^2(I\times\Omega)}\right) \\
         X(t)                                          & \longmapsto \int\U {0}^t X dW
         .\end{aligned}$$
 </div>
-    Thus, it extends uniquely to the closure
+Thus, it extends uniquely to the closure
 $\overline{\mathcal{E}}=\mathbb{L}^2(I\times\Omega)$. Furthermore the
 extension also has image in $\mathcal{M}\U I^2.$
 
@@ -224,9 +226,11 @@ suffice).\
 Then, one takes a sequence of elementary processes $X\U n$ converging to
 $X$. By the first part one may apply Doob's martingale inequality and
 $L^2$ convergence to get a measure of the set where the supremum
+
 <div>
  $$\sup\U {t\in I}  |X\U n(t)-X\U m(t)|>2^{-k},$$
-</div>  which can be made small for
+</div>
+ which can be made small for
 $n,m \to\infty$. One can then extract a subsequence and apply
 Borel-Cantelli to deduce that the above supremum goes to $0$ almost
 everywhere. This shows that $X\U n$ is almost everywhere Cauchy in
