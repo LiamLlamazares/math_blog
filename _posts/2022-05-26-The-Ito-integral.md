@@ -140,7 +140,7 @@ Also we used that the pointwise limit of progressively measurable
 functions is progressively measurable. This is because the pointwise
 limit of measurable functions is measurable.\\
 \\
-Later on we will see that the solutions to an SDE arecontinuous, and thus progressively measurable. This motivates the title of the following lemma.
+Later on we will see that the solutions to an SDE are continuous, and thus progressively measurable. This motivates the title of the following lemma.
 
 
 **Lemma 2** (SDE coefficients are progressive). Let $X\U t$ be a
@@ -163,7 +163,7 @@ $L^p(\mathcal{B}(I)\otimes\mathcal{F}\U \infty)$. That is, for any
 $Y \in \mathbb{L}^{p}$ there is a sequence $V\U {n}$ of elementary
 functions such that
 <div>
- $$\mathbb{E}\zl \int\U {I}|Y(t)-V\U {n}(t)|^{p} dt\zr  \longrightarrow 0.$$
+ $$\mathbb{E}\left \zl \int\U {I}|Y(t)-V\U {n}(t)|^{p} dt\right \zr  \longrightarrow 0.$$
 </div>
 
 
