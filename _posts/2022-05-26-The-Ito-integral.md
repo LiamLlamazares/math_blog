@@ -217,7 +217,7 @@ extension also has image in $\mathcal{M}\U I^2.$
 
 Proof. Proving this holds for simple processes is a calculation using: the
 definition of the Itô integral of a simple process, the adaptedness of $X$ and the
-definition of $W$. The fact that the extension of the integral is also in $\mathcal{M}\U I^2$ is due to the fact that, by Doob's maximal inequality and the completeness of $L^p$ spaces, $\mathcal{M}\U I^2$ is a Hilbert space (and thus complete). In fact, this holds even for processes valued in other Hilbert spaces (and not just $\mathbb{R}$), but this is a matter for another [post](https://nowheredifferentiable.com/2022-05-28-Martingales-to-Banach-spaces/)  ◻
+definition of $W$. The fact that the extension of the integral is also in $\mathcal{M}\U I^2$ is due to the fact that, by Doob's maximal inequality and the completeness of $L^p$ spaces, $\mathcal{M}\U I^2$ is a Hilbert space (and thus complete). In fact, this holds even for processes valued in other separable Banach spaces (and not just $\mathbb{R}$), but this is a matter for another [post](https://nowheredifferentiable.com/2022-05-28-Martingales-to-Banach-spaces/)  ◻
 
 A pdf of version of this page is provided below:
 <object data="/assets/ItoInt.pdf" width="1000" height="1000" type='application/pdf'></object>
