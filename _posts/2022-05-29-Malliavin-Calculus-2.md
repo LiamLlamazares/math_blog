@@ -36,7 +36,7 @@ Our goal in this post is to construct the Skorohod integral. This serves
 as a generalization of the Itô integral and the starting point for the
 definition of the Malliavin derivative. How is this done? Let us first
 consider a (not-necessarily adapted) stochastic process $X$ such that
-$X\U t\in L^2(\Omega,\mathcal{F}\U \infty)$ for each $t \in I$. Then we know
+$X(t)\in L^2(\Omega,\mathcal{F}\U \infty)$ for each $t \in I$. Then we know
 that by the chaos expansion proved in the previous post, for each $t$
 there exists $f\U {n,t}\in L^2(S\U n)$ such that
 
@@ -69,7 +69,7 @@ Proof. Firstly, we note that a stochastic process $X$ is adapted iff
 
 
 <div>
- $$X\U t=\mathbb{E}\U {\mathcal{F}\U t}\zl X(t)\zr \quad\forall t\in I.$$
+ $$X(t)=\mathbb{E}\U {\mathcal{F}\U t}\zl X(t)\zr \quad\forall t\in I.$$
 </div>
 
   Since the
