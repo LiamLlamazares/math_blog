@@ -128,7 +128,7 @@ measurable.
 Proof. Suppose for example that $X$ is right continuous, then we
 consider
 <div>
- $$X\U {s}^{(n)}(\omega)=X\U {(k+1) ! / 2^{n}}(\omega) \text { for } \frac{k t}{2^{n}}<s \leq \frac{k+1}{2^{n}} t$$
+ $$X\U {s}^{(n)}(\omega)=X\U {kt / 2^{n}}(\omega) \text { for } \frac{k t}{2^{n}}<s \leq \frac{k+1}{2^{n}} t$$
 </div>
 Since $X^{(n)}$ is piecewise constant in time, the pre-image of any set $A\in\mathcal{H}$ is of the form
 <div>
