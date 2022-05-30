@@ -119,8 +119,8 @@ to equivalent definition. That said, this technicality is usually of
 little importance due to the following result.
 
 
-**Lemma 3** (Continuity is progressive). Let $\{X\U t\}\U {t\in I}$ be a
-left or right continuous stochastic process. Then $X$ is progressively
+**Lemma 3** (Continuity, when adapated, is progressive). Let $\{X\U t\}\U {t\in I}$ be a
+left or right continuous adapted stochastic process. Then $X$ is progressively
 measurable.
 
 
