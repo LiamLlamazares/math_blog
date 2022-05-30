@@ -96,13 +96,12 @@ endpoint of $I$. ◻
 
 
 Note however that the converse isn't true, for example if $X$ is
-constant in $t$ then, for some $B\subset \Omega$
+constant in $t$ then, for some $B\subset \Omega$ it holds that
 <div>
  $$X^{-1}(A)=I\times B;\quad {X^{-1}}|\U {\zl 0,t\zr \times\Omega}(A)= \zl 0,t\zr \times B$$
 </div>
-So it suffices to consider some Construction where
-$B\in\mathcal{F}\U \infty$ but $B\not\in\mathcal{F}\U t$. It is also
-important to note the following.
+So it suffices to consider some construction where
+$B\in\mathcal{F}\U \infty$ but $B\not\in\mathcal{F}\U t$. Later on we will see that the solutions to an SDE are progressively measurable (in fact, they are continuous which we will show to be even stronger!) This motivates the title of the following lemma.
 
 
 **Lemma 2** (SDE coefficients are progressive). Let $X\U t$ be a
