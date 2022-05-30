@@ -61,7 +61,7 @@ $t \in  I$, then $X$ is adapted iff
  $$f\U n(t\U 1,\ldots,t\U n,t)=0,\quad\forall t\leq\max\U {i=1,\ldots,n} t\U i .$$
 </div>
 
- 
+
 
 
 
@@ -74,7 +74,7 @@ Proof. Firstly, we note that a stochastic process $X$ is adapted iff
 
   By commuting the sum and
 using the uniqueness of the chaos expansion this is equivalent to
-requiring that, for all $t$ 
+requiring that, for all $t$
 
 <div>
  $$\begin{gathered}
@@ -96,7 +96,7 @@ first n-coordinates, its symmetrization verifies that
  $$f\U {n,S}(t\U 1,\ldots,t\U n,t\U {n+1})=\frac{1}{n+1}f\U n(t\U 1,\ldots\hat{t\U {j}},\ldots,t\U {n+1},t\U j),\quad \text{where } j=\text{arg}\max\U i t\U i.$$
 </div>
 
- 
+
 Using this relationship we can directly calculate the Itô integral of a
 stochastic process to obtain that.
 
@@ -109,7 +109,7 @@ integral of $X$ is
  $$\int\U {I} X(t) dW(t)=\sum\U {n=0}^{\infty} I\U {n+1}(f\U {n,S}).$$
 </div>
 
- 
+
 
 
 
@@ -140,8 +140,8 @@ stochastic process such that
  $$\delta(X):=\int\U {I} X(t)\delta W(t):=\sum\U {n=0}^{\infty} I\U {n+1}(f\U {n,S})\in L^2(\Omega).$$
 </div>
 
- 
-Then we will say that $X$ has Skorohod integral $\delta(W)$ and write
+
+Then we will say that $X$ has Skorohod integral $\delta(X)$ and write
 $X\in dom(\delta)$.
 
 
@@ -161,7 +161,7 @@ $X(t)\in L^2(\Omega,\mathcal{F}\U \infty)$ has a Skorohod integral iff
  $$\sum\U {n=0}^{\infty} (n+1)!\|f\U {n,S}\|\U {L^2(\zl 0,T\zr ^n)}<\infty.$$
 </div>
 
- 
+
 
 
 
@@ -179,7 +179,7 @@ Of course, a priori the above condition is not that easy to check for a
 given function as it involves calculating the chaos expansion for the
 given process $X$. In some cases however it is possible, to consider for
 example the stochastic process defined by $X(t)=W(T)$ on the interval
-$I=\zl 0,T\zr $. Then we have that 
+$I=\zl 0,T\zr $. Then we have that
 
 <div>
  $$X(t)=\int\U {0}^T dW(t)=I\U 1(1).$$
@@ -201,7 +201,7 @@ $X\in dom(\delta)$ with
  $$\delta(X)= I\U 2(1)=\int\U {0}^T\int\U {0}^t dW(t\U 1)dW(t)=\int\U {0}^T W(t) dW(t)= W^2(T)-T.$$
 </div>
 
- 
+
 Note however that the Itô integral of $W(T)$ is undefined as it is not
 $\mathcal{F}\U t$ adapted. Since the Skorohod integral of $1$ is equal to
 $W(T)$, the above example shows how one cannot simply "pull out
@@ -213,7 +213,7 @@ independent of $t$ and $X(t)=G\cdot u(t)$, then
  $$\int\U {I} X(t) \delta W(t)=\int\U {I}G\cdot u(t)\delta W(t) \neq G\int\U {I}u(t) dW(t).$$
 </div>
 
- 
+
 Though this may seem unintuitive, it is a consequence of the fact that,
 even though $f\U i$ may not depend on $t$, the terms
 
@@ -222,7 +222,7 @@ even though $f\U i$ may not depend on $t$, the terms
  $$g(t):=\int\U {0}^t\int\U {0}^{t\U {n}}\cdots \int\U {0}^{t\U 2} f\U i dW(t\U 1)\cdots dW(t\U {n-1})dW(t\U n).$$
 </div>
 
- 
+
 Can depend on $t$. Despite this, the Skorohod integral still maintains
 some of the natural properties we associate with integration.
 
@@ -237,13 +237,13 @@ $\lambda \in {\mathbb R}$. Then it holds that
 
 -   $X\cdot 1\U A \in dom(\delta)$ for any measurable subset
     $A \subset I$. Furthermore, if $A \cup B =I$ then
-    
+
 
 <div>
  $$\int\U {A}X(t) \delta(t)+ \int\U {B}X(t)\delta W(t):=\delta(X\cdot 1\U A)+\delta(X\cdot 1\U B)=\delta(X).$$
 </div>
 
- 
+
 
 
 
