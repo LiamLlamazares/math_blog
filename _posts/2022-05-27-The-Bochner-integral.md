@@ -25,7 +25,7 @@ extension of the Lebesgue integral to functions valued in Banach spaces.
     This naturally leads to the definition of $L^p$ spaces.
 
 # Why is this important?
-Often functions will not take values in finite dimensional spaces, but in infinite dimensional Banach spaces. For example, this occurs often when considering a functino of multipe variables $f(t,x)$ and viewing $f(t)$ as taking values in a function space of the second coordinate. This situation commonly arises in [PDEs](https://terrytao.wordpress.com/2018/09/16/254a-notes-1-local-well-posedness-of-the-navier-stokes-equations/) and [SPDEs](https://www.hairer.org/SPDEs.pdf)
+Often functions will not take values in finite-dimensional spaces but in infinite-dimensional Banach spaces. For example, this occurs often when considering a function of multiple variables $f(t,x)$ and viewing $f(t)$ as taking values in a function space of the second coordinate. This situation commonly arises in [PDEs](https://terrytao.wordpress.com/2018/09/16/254a-notes-1-local-well-posedness-of-the-navier-stokes-equations/) and [SPDEs](https://www.hairer.org/SPDEs.pdf)
 
 # Notation
 
@@ -45,11 +45,11 @@ functions valued in a Banach space
 anticipated, we first consider the class of simple functions
 <div>
  $$\mathcal{A}=\left\{\sum\U {k=1}^{n} x\U k 1\U {A\U k}; x\U k\in E\quad A\U k \in \mathcal{F}\right\}.$$
-</div> 
+</div>
 We can define their integral quite naturally as
 <div>
  $$\int f d\mu=\int \sum\U {k=1}^n x\U k 1\U {A\U k} d\mu=\sum\U {k=1}^n x\U k\mu({A\U k})$$
-</div> 
+</div>
 If we take equivalence classes, identifying functions that are equal
 $\mu$ almost everywhere, we can define the norm
 <div>
@@ -58,16 +58,16 @@ $\mu$ almost everywhere, we can define the norm
 integration is a linear and absolutely continuous function
 <div>
  $$\int\U \Omega \cdot d\mu : \left(\mathcal{A},\norm{\cdot}\U A)\to (E,\norm{\cdot}\right).$$
-</div> 
+</div>
 As, by a calculation, for all $f\in\mathcal{A}$.
 <div>
  $$\norm{\int\U \Omega f}\leq\int\U \Omega \norm{f} d\mu=\norm{f}\U \mathcal{A}$$
-</div> 
+</div>
 Since $E$ is a Banach space, this shows that we can extend
 [1]("https://en.wikipedia.org/wiki/Continuous\U linear\U extension") integration in a unique way to the completion
 $\overline{\mathcal{A}}$ of $(\mathcal{A},\norm{\cdot}\U A)$. Of course,
 now the key is knowing what this space $\overline{\mathcal{A}}$ is so we
-can figure out what kind of functions we can actually integrate. Our
+can figure out what kind of functions we can integrate. Our
 next definitions are motivated by this.
 
 
@@ -77,14 +77,14 @@ $f$ is measurable $f(\Omega)$ is separable.
 
 
 
-**Definition 2**. For $1\leq p<\infty$ we define 
+**Definition 2**. For $1\leq p<\infty$ we define
 
 <div>
  $$\begin{aligned}
         \mathcal{L}^p(\Omega,\mathcal{F},\mu,E)       & =\left\{f:\Omega\to X: f \text{ is strongly measurable and } \int \norm{f}^p d\mu<\infty\right\}. \\
         \hat{\mathcal{L}}^p(\Omega,\mathcal{F},\mu,E) & =\left\{f:\Omega\to X: \int \norm{f}^p d\mu<\infty\right\}.
     \end{aligned}$$
-</div> 
+</div>
 We also define the semi-norms
 
 <div>
@@ -94,7 +94,7 @@ We also define the semi-norms
     \end{aligned}$$
 </div>  
 
-Finally we take equivalence classes by the above
+Finally, we take equivalence classes by the above
 semi-norms to obtain the metric spaces $L^p(\Omega\to E)$ and
 $\hat{L}^p(\Omega\to E).$
 
@@ -119,17 +119,17 @@ exists $f\in L^p(\Omega\to E)$ such that
  $$f=\sum\U {n=1}^\infty f\U n\in L^p(\Omega\to E).$$
 </div>
 To do so one first applies \\zl Minkowski's\\zr  inequality for real valued functions to show
-that 
+that
  <div>
  $$\sum\U {n=1}^\infty \norm{f\U n}\U X\in L^p(\Omega\to{\mathbb R}).$$
-</div> 
+</div>
 Thus, the sum is finite almost everywhere. Since $E$ is complete we have
 that the above sum converges pointwise almost everywhere to some
-function 
+function
 <div>
  $$f(\omega):=\sum\U {n=1}^\infty f\U n(\omega)\in E.$$
-</div> 
-    
+</div>
+
 Furthermore, we have that $f$ is strongly measurable as it is the limit of strongly
 measurable functions (this is a small exercise). Finally, by Fatou's
 lemma for real valued functions and the triangle inequality for norms
@@ -159,13 +159,13 @@ Further, since $f\U n$ is Cauchy, we can extract a subsequence $f\U {n\U k}$
 with $\|f\U {n\U k}-f\U {n\U {k-1}}\|\leq 2^{-k}$. By construction the sequence
 <div>
  $$\sum\U {k=0}^{\infty} f\U {n\U k}-f\U {n\U {k-1}},$$
-</div> 
+</div>
 is normally convergent and converges in $f$. By the above discussion we conclude the proof. ◻
 
 
-Ok, so we've constructed some spaces of $p$-integrable functions, and
-shown that they are complete. You know where this is going, next stop is
-density town. In the standard construction of the Lebesgue integral it
+Ok, so we've constructed some spaces of $p$-integrable functions and
+shown that they are complete. You know where this is going, the next stop is
+density town. In the standard construction of the Lebesgue integral, it
 is used that every measurable function to $\mathbb{R}$ can be pointwise
 approximated by simple functions. One can achieve the same result for
 arbitrary metric spaces if the image of $f$ is separable.
@@ -183,19 +183,19 @@ Proof. Consider a countable dense subset $\{e\U k\}\U {k=1}^\infty$ of
 $f(\Omega)$. Now define $\varphi:E\to E$
 <div>
  $$\varphi\U n(e):= e\U j \text{ where }  d(e\U j,e)=\min\U {1\leq m\leq n} d(e,e\U m).$$
-</div> 
+</div>
 And define $f\U n:=\varphi\U n \circ f$. A bit of thought shows that
 $\varphi\U n$ is continuous and thus so is $f\U n$ (remember we are
 considering the Borel $\sigma$-algebra) on $E$. Furthermore, since for
 each fixed $\omega$ the above distance goes to $0$ we have that
 <div>
  $$\lim\U {n\to\infty} f\U n(\omega)=f(\omega),\quad \forall \omega\in\Omega.$$
-</div> 
+</div>
 Finally, $f\U n$ is simple as $f\U n(\Omega)\in \{e\U 1,...,e\U n\}$ and the
 non-increasing property of $d\U n(\omega)$ is clear by construction. ◻
 
 
-In the above proof we see that the reason for requiring that the image
+In the above proof, we see that the reason for requiring that the image
 of our class of integrable functions be separable is so that we can
 approximate them by simple functions.
 
@@ -214,7 +214,7 @@ convergence theorem for integrals in $\mathbb{R}$,
 </div>  ◻
 
 
-As a corollary we obtain the following
+As a corollary, we obtain the following
 
 
 **Corollary 1**. $\mathcal{A}$ is a dense subset of
@@ -232,7 +232,7 @@ $\norm{\cdot}\U {L^1(\Omega\to E)}$ of the integral on $\mathcal{A}$. That
 is, given $f\in L^1(\Omega\to E)$ we define
 <div>
  $$\int\U \Omega f d\mu:=\lim\U {n\to\infty} \int\U \Omega f\U n d\mu.$$
-</div> 
+</div>
 Where $f\U n\in \mathcal{A}$ is any sequence such that
 $\norm{f-f\U n}\U {L^1(\Omega\to E)}\to 0$.
 
@@ -250,7 +250,7 @@ then
 
  <div>
  $$\int\U \Omega (L\circ f) d\mu=L\left(\int\U \Omega f d\mu\right).$$
-</div> 
+</div>
 
 
 Ok, that's it, this post was a bit more technical than some of the
@@ -260,6 +260,6 @@ the extra requirement that appears over the Lebesgue case is that the
 function $f$ is separately valued and justifies why, as we will see in
 future posts on SPDEs, the image of $f$ is often taken to be some
 separable Hilbert space. Until the next time!
-    
+
 A pdf of version of this page is provided below:
 <object data="/assets/Bochner.pdf" width="1000" height="1000" type='application/pdf'></object>
