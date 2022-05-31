@@ -14,13 +14,13 @@ based on the book by Oksendal and Nunno [1](https://link.springer.com/book/10.10
 # Three line summary
 
 -   Square integrable deterministic functions of multiple variables
-    can be repeatedly Itô integrated to get a square integrable random
+    can be iteratively Itô integrated to get a square integrable random
     function.
 
--   Repeated integration satisfies an isometry.
+-   Iterated integration satisfies an isometry.
 
 -   Every square integrable function can be uniquely written as the
-    sum of repeated integrals.
+    sum of iterated integrals.
 
 # Why this is important
 
@@ -34,7 +34,7 @@ consider an interval $I=\zl 0,T\zr $ or $I=\zl 0,+\infty)$. In this second case 
 notation
 <div>
  $$\mathcal{M}\U t^2:=\{f\in L^2(\zl 0,t\zr \times\Omega)\text{ that are continuous martingales}\}.$$
-</div> 
+</div>
 We will work with the spaces $L^2(I^n), L^2\U S(I^n),L^2(S\U n)$ of
 respectively square integrable functions, symmetric square integrable
 functions and square integrable functions on
@@ -45,7 +45,7 @@ don't involve a random variable we call them deterministic. Given
 $f\in L^2(I^n)$ we denote it's symmetrization by
 <div>
  $$f\U S:=\frac{1}{n!}\sum\U {\sigma} f(t\U {\sigma\U 1},\ldots,t\U {\sigma\U n}).$$
-</div> 
+</div>
 Where $\sigma$ is summed over all the permutations of $\{1,\ldots,n\}$.
 Note that if $f$ is already symmetric then $f=f\U S$. Given a
 deterministic function we can transform it into a random one by
@@ -57,7 +57,7 @@ following definition
 integral as
 <div>
  $$J\U n(f):=\int\U I\cdots \int\U {0}^{t\U 3}\int\U {0}^{t\U 2} f(t\U 1,\ldots,t\U n)dW(t\U 1) dW(t\U 2)\ldots dW(t\U n).$$
-</div> 
+</div>
 
 
 The definition requires some care to verify to make sense of sense of
@@ -68,13 +68,13 @@ definition, first note that, by the properties of the Itô integral, for
 each $t\U 2\leq\cdots\leq t\U n$,
 <div>
  $$F\U 2(t\U 2\ldots,t\U n):=    \int\U {0}^{t\U 2} f(t\U 1,\ldots,t\U n)dW(t\U 1) \in \mathcal{M}\U {t\U 3}^2.$$
-</div> 
+</div>
 Where $F\U 2(\cdot,t\U 3,\ldots,t\U n)\in \mathcal{M}\U {t\U 3}^2$ is viewed as a
 function of $t\U 2$. Due to the above inclusion
 $F\U 2(\cdot,t\U 3,\ldots,t\U n)$ is Itô integrable and
 <div>
  $$F\U 3(t\U 3\ldots,t\U n):=    \int\U {0}^{t\U 3} F\U 2(t\U 2,\ldots,t\U n)dW(t\U 2) \in \mathcal{M}\U {t\U 4}^2  .$$
-</div> 
+</div>
 Where the above is viewed as a function of $t\U 3$. Iterating this process
 we get that $F\U n \in \mathcal{M}\U T^2$ and
 <div>
@@ -84,7 +84,7 @@ subtleties involved, we note that one example of an integral that would
 be ill-defined however is if for $f\in L^2(I^n)$ we defined
 <div>
  $${\color{red}J\U n(f)}:=\int\U I\cdots \int\U I\int\U I f(t\U 1,\ldots,t\U n)dW(t\U 1) dW(t\U 2)\ldots dW(t\U n).$$
-</div> 
+</div>
 In this case we have that the first integral is $\mathcal{F}\U T$ adapted
 and not $\mathcal{F}\U {t\U 2}$ adapted so we cannot continue integrating!
 As a result we instead give the following definition for symmetric
@@ -94,7 +94,7 @@ functions.
 **Definition 2**. Let $f\in L^2\U S(I^n)$, then we define
 <div>
  $$I\U n(f):=\int\U I\cdots \int\U I\int\U I f(t\U 1,\ldots,t\U n)dW(t\U 1) dW(t\U 2)\ldots dW(t\U n):=n! J\U n(f).$$
-</div> 
+</div>
 
 
 Where it is important to note that the second equality is by definition
@@ -105,7 +105,7 @@ counting permutations, if $I$ is finite then $\mu(I^n)=n! \mu(S\U n)$.
 **Proposition 1** (Itô's n-th isometry). Let $f,g\in L^2(S^n)$ then
 <div>
  $$\left\langle J\U n(f),J\U m(g)\right\rangle\U {L^2(\Omega)}=\left\langle f,g\right\rangle\U {L^2(S\U n)}\delta\U {nm}$$
-</div> 
+</div>
 
 
 
@@ -118,7 +118,7 @@ is zero. Otherwise you just get the (deterministic) inner product. ◻
 As a result we also get by a calculation that if $f,g\in L^2(I^n)$ then
 <div>
  $$\left\langle I\U n(f),I\U m(g)\right\rangle\U {L^2(\Omega)}=n!\left\langle f,g\right\rangle\U {L^2(I^n)}\delta\U {nm}.$$
-</div> 
+</div>
 
 ## The chaos expansion
 
@@ -138,7 +138,7 @@ $\xi\in L^2(\Omega,\mathcal{F}\U \infty)$, then there exists a unique
 sequence of functions $f\U n \in L^2(S\U n),g\U n \in L^2(I^n)$ such that
 <div>
  $$\xi=\sum\U {n=0}^{\infty}  f\U n;\quad \xi=\sum\U {n=0}^{\infty} g\U n.$$
-</div> 
+</div>
 
 
 Proof. The proof is a bit technical but we sketch the main idea which
@@ -150,15 +150,15 @@ is to iteratively apply Itô's representation theorem to get
 </div>  Where
 $g\U 0=\mathbb{E}\zl \xi\zr , g\U 1(t\U 1) =\mathbb{E}\zl X\U 1\zr (t\U 1)$ and so on. By an
 iteration we deduce that, if we write $\phi\U {N+1}$ for the last integral
-term, then 
+term, then
 <div>
  $$\mathbb{E}\zl \phi\U {N+1}\zr \leq\ldots\leq \mathbb{E}\zl \xi^2\zr .$$
-</div> 
+</div>
 Furthermore, by Itô's $n$-th isometry we have that the terms in the
 above sum are orthogonal so
 <div>
  $$\norm{\xi}\U {L^2(\Omega)}=\sum\U {n=0}^{N} \norm{J\U n(f\U n)}\U {L^2(\Omega)} +\norm{\phi\U {N+1}}\U {L^2(\Omega)}.$$
-</div> 
+</div>
 Since the last term is bounded, we obtain a bound on the $L^2(\Omega)$
 norm of the sum uniform in $n$ so the sum converges. As a result so does
 $\phi\U N$ to some $\phi\U \infty$. It suffices to see that $\phi\U \infty=0$.
