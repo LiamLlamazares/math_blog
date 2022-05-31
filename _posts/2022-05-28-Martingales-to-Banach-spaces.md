@@ -267,12 +267,12 @@ and that any of the norms of these spaces is equivalent to the one set
 on $\mathcal{M}\U T^2(E)$. This is useful in the following result
 
 
-**Proposition 1**. Let $E$ be a separable Banach space, then
-$\mathcal{M}\U T^2(E)$ is a Hilbert space.
+**Proposition 1**. Let $E$ be a separable Banach (Hilbert) space, then
+$\mathcal{M}\U T^2(E)$ is a Banach (Hilbert) space.
 
 
 
-Proof. By the previous observation and the completeness of the
+Proof. Let us first consider the case when $E$ is a Banach space. By the previous observation and the completeness of the
 $\hat{L}^p$ spaces proved in the previous post, $\mathcal{M}\U T^2(E)$ is
 a subspace of a Hilbert space. As a result, it is sufficient to show
 that it is closed. Let $M\U n$ converge to $M$. Then, by the equivalence
@@ -296,7 +296,12 @@ previous post, there exists a subsequence $M\U {n\U k}$ such that
 
 
 Since $M\U {n\U k}(\cdot,\omega)$ are continuous and continuity is preserved
-by uniform limits this proves that $M$ is continuous almost everywhere.
+by uniform limits this proves that $M$ is continuous almost everywhere. This shows that $\mathcal{M}\U T^2(E)$ is closed and thus a Banach space. In the case where $E$ is a Hilbert space we can endow $\mathcal{M}\U T^2(E)$ with the inner product
+
+<div>
+ $$\br{M\U 1, M \U _2}\U {\mathcal{M}\U T^2(E)}:= \E \left[ \br{M\U 1(T), M \U _2(T)}\U E \right ]$$
+</div>
+
 This concludes the proof. ◻
 
 
