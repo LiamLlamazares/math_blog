@@ -16,7 +16,7 @@ extension of the Lebesgue integral to functions valued in Banach spaces.
 -   The Bochner integral is a way of integrating functions $f$ from a
     measure space to a Banach space.
 
--   Like the Lebesgue integral, it is first constructed for piecewise
+-   Like the Lebesgue integral, the Bochner integral is first constructed for piecewise
     constant functions $\mathcal{A}$ and extended continuously to the
     completion $\overline{\mathcal{A}}$.
 
