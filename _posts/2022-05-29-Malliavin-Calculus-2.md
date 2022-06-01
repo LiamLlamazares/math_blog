@@ -7,17 +7,17 @@ share-img: /assets/img/Malliavin.jpg
 tags: [Integration, Malliavin calculus, Skorohod integral, Chaos expansion, Itô integral, Stochastic Calculus]
 ---
 
-#  Three line summary
+# Three line summary
 
--   By fixing $t$, one can obtain a chaos expansion for (possibly
-    non-adapted) square integrable stochastic processes $X(t)$.
+-  By fixing $t$, one can obtain a chaos expansion for (possibly
+  non-adapted) square integrable stochastic processes $X(t)$.
 
--   The Itô integral of an Itô integrable process $X(t)$ has a chaos
-    expansion.
+-  The Itô integral of an Itô integrable process $X(t)$ has a chaos
+  expansion.
 
--   This chaos expansion can converge even when $X(t)$ is not adapted to
-    the filtration $\mathcal{F}\U t$ (and thus not Itô integrable). This
-    allows us to extend the Itô integral to non-adapted processes.
+-  This chaos expansion can converge even when $X(t)$ is not adapted to
+  the filtration $\mathcal{F}\U t$ (and thus not Itô integrable). This
+  allows us to extend the Itô integral to non-adapted processes.
 
 # Why should I care?
 
@@ -45,7 +45,7 @@ there exists $f\U {n,t}\in L^2(S\U n)$ such that
  $$X(t)=\sum\U {n=0}^{\infty} I\U n(f\U {n,t}).$$
 </div>
 
-  Let us write
+ Let us write
 $f\U {n}(\cdot,t):=f\U {n,t}$. Note that we are now considering $f\U n$ as a
 function of $n+1$ variables instead of $n$. In particular, we will be
 able to consider expressions like $I\U {n+1}(f\U n)$ later on. The first
@@ -54,7 +54,7 @@ functions $f\U n$ appearing in its chaos expansion.
 
 
 **Lemma 1**. Let $X(t) \in L^2(\Omega,\mathcal{F}\U \infty)$ for each
-$t \in  I$, then $X$ is adapted iff
+$t \in I$, then $X$ is adapted iff
 
 
 <div>
@@ -72,18 +72,18 @@ Proof. Firstly, we note that a stochastic process $X$ is adapted iff
  $$X(t)=\mathbb{E}\U {\mathcal{F}\U t}\zl X(t)\zr \quad\forall t\in I.$$
 </div>
 
-  By commuting the sum and
+ By commuting the sum and
 using the uniqueness of the chaos expansion this is equivalent to
 requiring that, for all $t$
 
 <div>
- $$\begin{gathered}
-        I\U n(f\U n(\cdot,t))\\=    n!\mathbb{E}\U {\mathcal{F}\U t} \left[ \int\U {I} \left( \int\U {0}^{t\U n}\cdots \int\U {0}^{t\U 2}f(t\U 1\ldots t\U n,t) dW(t\U 1) \cdots dW(t\U {n-1}) \right)dW(t\U n)\right] \\
-        =n!\int\U {0}^t \int\U {0}^{t\U n}\cdots \int\U {0}^{t\U 2}f(t\U 1\ldots t\U n,t) dW(t\U 1) \cdots dW(t\U {n-1})dW(t\U n)\\= I\U n(f\U n(\cdot,t) 1\U {\max\U {t\U i\leq t}})
-    \end{gathered}$$
+ $$
+    I\U n(f\U n(\cdot,t))=  n!\mathbb{E}\U {\mathcal{F}\U t} \left[ \int\U {I} \left( \int\U {0}^{t\U n}\cdots \int\U {0}^{t\U 2}f(t\U 1\ldots t\U n,t) dW(t\U 1) \cdots dW(t\U {n-1}) \right)dW(t\U n)\right] 
+    =n!\int\U {0}^t \int\U {0}^{t\U n}\cdots \int\U {0}^{t\U 2}f(t\U 1\ldots t\U n,t) dW(t\U 1) \cdots dW(t\U {n-1})dW(t\U n)= I\U n(f\U n(\cdot,t) 1\U {\max\U {t\U i\leq t}})
+  $$
 </div>
 Where in the second equality we used that the
-Itô integral is a martingale and where the commutation of the sum and the integral
+Itô integral is a martingale where the commutation of the sum and the integral
 is justified by the $L^2(\Omega)$ convergence of the chaos expansion
 ($L^1(\Omega)$ convergence would have been enough). ◻
 
@@ -118,9 +118,9 @@ Proof. This is a direct calculation using the previous result as
 
 
 <div>
- $$\begin{gathered}
-        \int\U {I} X(t) dW(t)=\sum\U {n=0}^{\infty}\int\U {I} I\U n(f\U {n,t})dW(t)\\=\sum\U {n=0}^{\infty}n! \int\U {I}\int\U {S\U n}f\U {n,t}(t\U 1,\ldots,t\U n) dW(t\U 1)\ldots dW(t\U n) dW(t)\\=\sum\U {n=0}^{\infty}(n+1)! \int\U {I}\int\U {t\U 2\leq\cdots\leq t\U n\leq t}f\U {n,S}(t\U 1,\ldots,t\U n,t) dW(t\U 1)\ldots dW(t\U n) dW(t)\\=\sum\U {n=0}^{\infty}(n+1)! J\U {n+1}(f\U {n,S}) =\sum\U {n=0}^{\infty}  I\U {n+1}(f\U {n,S}).
-    \end{gathered}$$
+ $$
+    \int\U {I} X(t) dW(t)=\sum\U {n=0}^{\infty}\int\U {I} I\U n(f\U {n,t})dW(t)=\sum\U {n=0}^{\infty}n! \int\U {I}\int\U {S\U n}f\U {n,t}(t\U 1,\ldots,t\U n) dW(t\U 1)\ldots dW(t\U n) dW(t)=\sum\U {n=0}^{\infty}(n+1)! \int\U {I}\int\U {t\U 2\leq\cdots\leq t\U n\leq t}f\U {n,S}(t\U 1,\ldots,t\U n,t) dW(t\U 1)\ldots dW(t\U n) dW(t)=\sum\U {n=0}^{\infty}(n+1)! J\U {n+1}(f\U {n,S}) =\sum\U {n=0}^{\infty} I\U {n+1}(f\U {n,S}).
+  $$
 </div>
 
   ◻
@@ -169,7 +169,7 @@ Proof. By Itô's $n$-th isometry we have that
 
 
 <div>
- $$\norm{\delta(X)}^2\U {L^2(\Omega)}=\sum\U {n=0}^{\infty}  \norm{I\U {n+1}(f\U {n,S})}^2\U {L^2(\Omega)}=\sum\U {n=0}^{\infty} (n+1)!\norm{f\U {n,S}}^2\U {L^2(I^{n+1})}.$$
+ $$\norm{\delta(X)}^2\U {L^2(\Omega)}=\sum\U {n=0}^{\infty} \norm{I\U {n+1}(f\U {n,S})}^2\U {L^2(\Omega)}=\sum\U {n=0}^{\infty} (n+1)!\norm{f\U {n,S}}^2\U {L^2(I^{n+1})}.$$
 </div>
 
   ◻
@@ -177,7 +177,7 @@ Proof. By Itô's $n$-th isometry we have that
 
 Of course, a priori the above condition is not that easy to check for a
 given function as it involves calculating the chaos expansion for the
-given process $X$. In some cases however it is possible, to consider for
+given process $X$. In some cases, however, it is possible. Consider for
 example the stochastic process defined by $X(t)=W(T)$ on the interval
 $I=\zl 0,T\zr $. Then we have that
 
@@ -185,15 +185,15 @@ $I=\zl 0,T\zr $. Then we have that
  $$X(t)=\int\U {0}^T dW(t)=I\U 1(1).$$
 </div>
 
-  Thus, for
+ Thus, for
 all $t\in I$ we have that
 
 
 <div>
- $$f\U 1=1;\quad f\U n=0\quad\forall n \in \mathbb{N}\setminus \{1\}  .$$
+ $$f\U 1=1;\quad f\U n=0\quad\forall n \in \mathbb{N}\setminus \{1\} .$$
 </div>
 
-  So
+ So
 $X\in dom(\delta)$ with
 
 
@@ -230,13 +230,13 @@ some of the natural properties we associate with integration.
 **Proposition 2**. Let $X(t), Y(t)\in dom(\delta)$,
 $\lambda \in {\mathbb R}$. Then it holds that
 
--   $X(t)+ \lambda Y(t) \in dom(\delta)$ with
-    $\delta(X+\lambda Y)=\delta(X)+\lambda \delta(Y)$.
+-  $X(t)+ \lambda Y(t) \in dom(\delta)$ with
+  $\delta(X+\lambda Y)=\delta(X)+\lambda \delta(Y)$.
 
--   $\mathbb{E}\zl \delta(X)\zr =0$.
+-  $\mathbb{E}\zl \delta(X)\zr =0$.
 
--   $X\cdot 1\U A \in dom(\delta)$ for any measurable subset
-    $A \subset I$. Furthermore, if $A \cup B =I$ then
+-  $X\cdot 1\U A \in dom(\delta)$ for any measurable subset
+  $A \subset I$. Furthermore, if $A \cup B =I$ then
 
 
 <div>
@@ -258,14 +258,14 @@ the chaos expansion of $X\cdot 1\U A$ is
  $$X\cdot 1\U A=\sum\U {n=0}^{\infty} I\U {n}(\zl f\U n 1\U A\zr \U S).$$
 </div>
 
-  Which shows by
+ Which shows by
 the equivalent characterization of Skorohod functions that
 $X\cdot 1\U A\in dom(\delta)$. The final property is a consequence of the
 previously proved linearity. ◻
 
 
 We now know what the Skorohod expansion is, how to characterize it, and
-its main properties. In the next post we will construct the Malliavin
+its main properties. In the next post, we will construct the Malliavin
 derivative as its adjoint.
 A pdf of version of this page is provided below:
 <object data="/assets/Skorohod.pdf" width="1000" height="1000" type='application/pdf'></object>
