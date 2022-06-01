@@ -135,9 +135,9 @@ $\norm{X}\U {L^2(I\times\Omega)}\leq \norm{\xi}\U {L^2(\Omega)}$.
 
 **Theorem 1** (Chaos expansion). Let
 $\xi\in L^2(\Omega,\mathcal{F}\U \infty)$, then there exists a unique
-sequence of functions $f\U n \in L^2(S\U n),g\U n \in L^2(I^n)$ such that
+sequence of functions $g\U n \in L^2(S\U n),f\U n \in L^2(I^n)$ such that
 <div>
- $$\xi=\sum\U {n=0}^{\infty}  J\U n (f\U n);\quad \xi=\sum\U {n=0}^{\infty} I \U n (g\U n).$$
+ $$\xi=\sum\U {n=0}^{\infty}  J\U n (g\U n);\quad \xi=\sum\U {n=0}^{\infty} I \U n (f\U n).$$
 </div>
 
 
@@ -145,7 +145,7 @@ Proof. The proof is a bit technical but we sketch the main idea which
 is to iteratively apply Itô's representation theorem to get
 <div>
  $$\begin{gathered}
-            \xi=\mathbb{E}\zl \xi\zr +\int\U I X\U 1(t)dW(t\U 1)=\mathbb{E}\zl \xi\zr +\int\U {I} \mathbb{E}\zl X\U 1(t\U 1)\zr  dW(t\U 1)\\+ \int\U {I}\int\U {0}^{t\U 2} X\U 2(t\U 1,t\U 2) dW(t\U 1)dW(t\U 2)= \ldots=\sum\U {n=0}^{N}  J\U n(g\U n)+ \int\U {S\U {N+1}} X\U {N+1} dW^{\otimes(N+1)}.
+            \xi=\mathbb{E}\zl \xi\zr +\int\U I X\U 1(t)dW(t\U 1)=\mathbb{E}\zl \xi\zr +\int\U {I} \mathbb{E}\zl X\U 1(t\U 1)\zr  dW(t\U 1)\\+ \int\U {I}\int\U {0}^{t\U 2} X\U 2(t\U 1,t\U 2) dW(t\U 1)dW(t\U 2)= \ldots=\sum\U {n=0}^{N}  J\U n(f\U n)+ \int\U {S\U {N+1}} X\U {N+1} dW^{\otimes(N+1)}.
         \end{gathered}$$
 </div>  Where
 $g\U 0=\mathbb{E}\zl \xi\zr , g\U 1(t\U 1) =\mathbb{E}\zl X\U 1\zr (t\U 1)$ and so on. By an
@@ -157,7 +157,7 @@ term, then
 Furthermore, by Itô's $n$-th isometry we have that the terms in the
 above sum are orthogonal so
 <div>
- $$\norm{\xi}\U {L^2(\Omega)}=\sum\U {n=0}^{N} \norm{J\U n(f\U n)}\U {L^2(\Omega)} +\norm{\phi\U {N+1}}\U {L^2(\Omega)}.$$
+ $$\norm{\xi}\U {L^2(\Omega)}=\sum\U {n=0}^{N} \norm{J\U n(g\U n)}\U {L^2(\Omega)} +\norm{\phi\U {N+1}}\U {L^2(\Omega)}.$$
 </div>
 Since the last term is bounded, we obtain a bound on the $L^2(\Omega)$
 norm of the sum uniform in $n$ so the sum converges. As a result, so does
@@ -169,7 +169,7 @@ by a density argument (there are a lot of these functions $J\U n(h)$!) we
 obtain $\phi\U \infty=0$. This proves the first sum of the theorem.\
 \
 It remains to prove the second part, but this follows by extending the
-$f\U n$ by $0$ on $I^n\setminus S\U n$ and taking $g\U n$ to be the
+$g\U n$ by $0$ on $I^n\setminus S\U n$ and taking $f\U n$ to be the
 symmetrization of this extension. ◻
 
 
