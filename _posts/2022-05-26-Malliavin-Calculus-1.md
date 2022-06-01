@@ -137,7 +137,7 @@ $\norm{X}\U {L^2(I\times\Omega)}\leq \norm{\xi}\U {L^2(\Omega)}$.
 $\xi\in L^2(\Omega,\mathcal{F}\U \infty)$, then there exists a unique
 sequence of functions $f\U n \in L^2(S\U n),g\U n \in L^2(I^n)$ such that
 <div>
- $$\xi=\sum\U {n=0}^{\infty}  f\U n;\quad \xi=\sum\U {n=0}^{\infty} g\U n.$$
+ $$\xi=\sum\U {n=0}^{\infty}  J\U n (f\U n);\quad \xi=\sum\U {n=0}^{\infty} I \U n (g\U n).$$
 </div>
 
 
