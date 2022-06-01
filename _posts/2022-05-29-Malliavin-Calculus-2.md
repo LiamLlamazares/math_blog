@@ -78,8 +78,8 @@ requiring that, for all $t$
 
 <div>
  $$
-    I\U n(f\U n(\cdot,t))=  n!\mathbb{E}\U {\mathcal{F}\U t} \left[ \int\U {I} \left( \int\U {0}^{t\U n}\cdots \int\U {0}^{t\U 2}f(t\U 1\ldots t\U n,t) dW(t\U 1) \cdots dW(t\U {n-1}) \right)dW(t\U n)\right] 
-    =n!\int\U {0}^t \int\U {0}^{t\U n}\cdots \int\U {0}^{t\U 2}f(t\U 1\ldots t\U n,t) dW(t\U 1) \cdots dW(t\U {n-1})dW(t\U n)= I\U n(f\U n(\cdot,t) 1\U {\max\U {t\U i\leq t}})
+    I\U n(f\U n(\cdot,t))=  n!\mathbb{E}\U {\mathcal{F}\U t} \left[ \int\U {I} \left( \int\U {0}^{t\U n}\cdots \int\U {0}^{t\U 2}f\U n(t\U 1\ldots t\U n,t) dW(t\U 1) \cdots dW(t\U {n-1}) \right)dW(t\U n)\right]
+    =n!\int\U {0}^t \int\U {0}^{t\U n}\cdots \int\U {0}^{t\U 2}f\U n(t\U 1\ldots t\U n,t) dW(t\U 1) \cdots dW(t\U {n-1})dW(t\U n)= I\U n(f\U n(\cdot,t) 1\U {\max\U {t\U i\leq t}})
   $$
 </div>
 Where in the second equality we used that the
