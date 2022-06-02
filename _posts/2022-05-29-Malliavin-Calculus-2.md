@@ -144,10 +144,10 @@ Proof. We have that
 <div>
  $$ \lim \U {N\to\infty}\norm{\sum\U{n=0}^N X\U n-X}\U{L^2(I\times\Omega)}=\lim \U {N\to\infty}\left\|\norm{\sum\U{n=0}^N X\U n-X}\U{L^2(\Omega)}\right\|\U{L^2(I)}=\left\|\lim \U {N\to\infty}\norm{\sum\U{n=0}^N X\U n-X}\U{L^2(\Omega)}\right\|\U{L^2(I)}=0.$$
 </div>
-Where the commutation of the limit was due to he bounded convergence, which we may apply as the sum is normally convergent by hypothesis.
+Where in the commutation of the limit with the $L^2(I)$ norm we used the bounded convergence theorem, which we may apply as the sum of $X_n$ is normally convergent by hypothesis.
   ◻
 
-The commutation of Theorem 1 is now justified by setting $X\U n:=I \U n(f\U {n,t})$ and using that Itô integration is a continuous (isometry) on $\left(\mathbb{L}^2(I\times\Omega),\norm{\cdot}\U{ (I\times\Omega)}\right)$.
+The commutation of Theorem 1 is now justified by setting $X\U n:=I \U n(f\U {n,t})$ and using that Itô integration is a continuous (isometry) on $\left(\mathbb{L}^2(I\times\Omega),\norm{\cdot}\U{ L^2(I\times\Omega)}\right)$.
 
 # The Skorohod integral
 
