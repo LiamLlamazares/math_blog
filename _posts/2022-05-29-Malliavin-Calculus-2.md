@@ -128,10 +128,10 @@ Proof. This is a direct calculation using the previous result as
 In the above theorem we commuted the sum with the *Itô integral* (note the difference with the commutation in Lemma 1). We didn't completely justify this, we do so now.
 
 
-**Lemma 3** Consider $X\U n$ such that $X\U n(t)\in  L^2(\Omega)$ for each $t\in I$
+**Lemma 3** Consider $X\U n$ such that $X\U n(t)\in  L^2(\Omega)$
 with
 <div>
- $$\sum \norm{X\U n(t)}\U{L^2(\Omega)}<\infty, $$
+ $$\sum \norm{X\U n(t)}\U{L^2(\Omega)}\in L^2(I), $$
 </div>
 and denote by $X(t):=\sum\U {n=0}^\infty X\U n(t)$. Then if $X \in L^2(I\times \Omega)$ it holds that
 
@@ -147,7 +147,7 @@ Proof. We have that
 Where in the commutation of the limit with the $L^2(I)$ norm we used the bounded convergence theorem, which we may apply as the sum of $X_n$ is normally convergent by hypothesis.
   ◻
 
-The commutation of the sum with the Itô integral in Theorem 1 is now justified by setting $X\U n:=I \U n(f\U {n,t})$ and using that Itô integration is a continuous (isometry) on $\left(\mathbb{L}^2(I\times\Omega),\norm{\cdot}\U{ L^2(I\times\Omega)}\right)$.
+The commutation of the sum with the Itô integral in Theorem 1 is now justified by setting $X\U n:=I \U n(f\U {n,t})$ (which meets the equired conditions by Itô's $n$-th isometry) and using that Itô integration is a continuous (isometry) on $\left(\mathbb{L}^2(I\times\Omega),\norm{\cdot}\U{ L^2(I\times\Omega)}\right)$.
 
 # The Skorohod integral
 
