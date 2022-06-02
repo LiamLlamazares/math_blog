@@ -235,7 +235,7 @@ Can depend on $t$. Despite this, the Skorohod integral still maintains
 some of the natural properties we associate with integration.
 
 
-**Proposition 2**. Let $X(t), Y(t)\in dom(\delta)$,
+**Proposition 3**. Let $X(t), Y(t)\in dom(\delta)$,
 $\lambda \in {\mathbb R}$. Then it holds that
 
 -  $X(t)+ \lambda Y(t) \in dom(\delta)$ with
