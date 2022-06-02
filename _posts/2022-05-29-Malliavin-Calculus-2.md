@@ -130,9 +130,9 @@ In the above theorem we commuted the sum with the *Itô integral* (note the diff
 **Lemma 3** Consider $X\U n$ such that $X\U n(t)\in  L^2(\Omega)$ for each $t\in I$
 with
 <div>
- $$\sum \norm{X\U n(t)}\U{L^2(\Omega)}<\infty $$.
+ $$\sum \norm{X\U n(t)}\U{L^2(\Omega)}<\infty $$,
 </div>
-Denote by $X(t):=\sum\U {n=0}^\infty X\U n(t)$. Then if $X \in L^2(I\times \Omega)$ it holds that
+and denote by $X(t):=\sum\U {n=0}^\infty X\U n(t)$. Then if $X \in L^2(I\times \Omega)$ it holds that
 
 <div>
  $$\sum\U{n=0}^\infty X\U n=X \in L^2(I\times\Omega). $$
@@ -141,8 +141,12 @@ Denote by $X(t):=\sum\U {n=0}^\infty X\U n(t)$. Then if $X \in L^2(I\times \Omeg
 Proof. We have that
 
 <div>
- $$ \lim \U {N\to\infty}\norm{\sum\U{n=0}^N X\U n-X}\U{L^2(I\times\Omega)}=\lim \U {N\to\infty}\norm{\norm{\sum\U{n=0}^N X\U n-X}\U{L^2(I\times\Omega)}}\U{L^2(I)} $$
+ $$ \lim \U {N\to\infty}\norm{\sum\U{n=0}^N X\U n-X}\U{L^2(I\times\Omega)}=\lim \U {N\to\infty}\left\|\norm{\sum\U{n=0}^N X\U n-X}\U{L^2(I\times\Omega)}\right\|\U{L^2(I)}=\left\|\lim \U {N\to\infty}\norm{\sum\U{n=0}^N X\U n-X}\U{L^2(I\times\Omega)}\right\|\U{L^2(I)}=0 $$
 </div>
+Where the commutation of the limit was due to he bounded convergence, which we may apply as the sum is normally convergent by hypothesis.
+  ◻
+
+The commutation of Theorem 1 is now justified by setting $X\U n:=I \U n(f\ U {n,t})$ and using that Itô integration is a continuous (isometry) on $\left(\mathbb{L}^2(I\times\Omega),\norm{\cdot}\U(I\times\Omega)\right)$
 
 # The Skorohod integral
 
