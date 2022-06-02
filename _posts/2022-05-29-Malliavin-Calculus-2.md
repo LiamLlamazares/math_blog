@@ -124,6 +124,7 @@ Proof. This is a direct calculation using the previous result as
 </div>
 
   ◻
+ 
 In the above theorem we commuted the sum with the *Itô integral* (note the difference with the commutation in Lemma 1). We didn't completely justify this, we do so now.
 
 
