@@ -142,7 +142,7 @@ and denote by $X(t):=\sum\U {n=0}^\infty X\U n(t)$. Then if $X \in L^2(I\times \
 Proof. We have that
 
 <div>
- $$ \lim \U {N\to\infty}\norm{\sum\U{n=0}^N X\U n-X}\U{L^2(I\times\Omega)}=\lim \U {N\to\infty}\left\|\norm{\sum\U{n=0}^N X\U n-X}\U{L^2(\Omega)}\right\|\U{L^2(I)}=\left\|\lim \U {N\to\infty}\norm{\sum\U{n=0}^N X\U n-X}\U{L^2(\Omega)}\right\|\U{L^2(I)}=0.$$
+ $$ \lim \U {N\to\infty}\norm{\sum\U{n=0}^N X\U n-X}\U{L^2(I\times\Omega)}=\lim \U {N\to\infty}\left\|\norm{\sum\U{n=N}^\infty X\U n}\U{L^2(\Omega)}\right\|\U{L^2(I)}=\left\|\lim \U {N\to\infty}\norm{\sum\U{n=N}^\infty X\U n}\U{L^2(\Omega)}\right\|\U{L^2(I)}=0.$$
 </div>
 Where in the commutation of the limit with the $L^2(I)$ norm we used the bounded convergence theorem, which we may apply as the sum of $X_n$ is normally convergent by hypothesis.
   ◻
