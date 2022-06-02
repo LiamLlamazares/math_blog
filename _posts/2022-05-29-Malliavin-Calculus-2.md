@@ -131,7 +131,7 @@ In the above theorem we commuted the sum with the *Itô integral* (note the diff
 **Lemma 3** Consider $X\U n$ such that $X\U n(t)\in  L^2(\Omega)$
 with
 <div>
- $$\sum \norm{X\U n(t)}\U{L^2(\Omega)}\in L^2(I), $$
+ $$\sum\U {n=0}^\infty \norm{X\U n(t)}\U{L^2(\Omega)}\in L^2(I), $$
 </div>
 and denote by $X(t):=\sum\U {n=0}^\infty X\U n(t)$. Then if $X \in L^2(I\times \Omega)$ it holds that
 
