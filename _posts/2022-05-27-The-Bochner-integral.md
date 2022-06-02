@@ -118,7 +118,7 @@ exists $f\in L^p(\Omega\to E)$ such that
 <div>
  $$f=\sum\U {n=1}^\infty f\U n\in L^p(\Omega\to E).$$
 </div>
-To do so one first applies \\zl Minkowski's\\zr  inequality for real valued functions to show
+To do so one first applies [Minkowski's integral  inequality](https://en.wikipedia.org/wiki/Minkowski_inequality#:~:text=_%7Bp%7D%5E%7Bp%7D%7D%7D.%7D-,Minkowski%27s%20integral%20inequality,-%5Bedit%5D) for real valued functions to show
 that
  <div>
  $$\sum\U {n=1}^\infty \norm{f\U n}\U X\in L^p(\Omega\to{\mathbb R}).$$
