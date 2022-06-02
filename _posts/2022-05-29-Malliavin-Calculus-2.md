@@ -124,7 +124,7 @@ Proof. This is a direct calculation using the previous result as
 </div>
 
   ◻
- 
+
 In the above theorem we commuted the sum with the *Itô integral* (note the difference with the commutation in Lemma 1). We didn't completely justify this, we do so now.
 
 
@@ -142,7 +142,7 @@ and denote by $X(t):=\sum\U {n=0}^\infty X\U n(t)$. Then if $X \in L^2(I\times \
 Proof. We have that
 
 <div>
- $$ \lim \U {N\to\infty}\norm{\sum\U{n=0}^N X\U n-X}\U{L^2(I\times\Omega)}=\lim \U {N\to\infty}\left\|\norm{\sum\U{n=0}^N X\U n-X}\U{L^2(I\times\Omega)}\right\|\U{L^2(I)}=\left\|\lim \U {N\to\infty}\norm{\sum\U{n=0}^N X\U n-X}\U{L^2(I\times\Omega)}\right\|\U{L^2(I)}=0 $$
+ $$ \lim \U {N\to\infty}\norm{\sum\U{n=0}^N X\U n-X}\U{L^2(I\times\Omega)}=\lim \U {N\to\infty}\left\|\norm{\sum\U{n=0}^N X\U n-X}\U{L^2(\Omega)}\right\|\U{L^2(I)}=\left\|\lim \U {N\to\infty}\norm{\sum\U{n=0}^N X\U n-X}\U{L^2(\Omega)}\right\|\U{L^2(I)}=0 $$
 </div>
 Where the commutation of the limit was due to he bounded convergence, which we may apply as the sum is normally convergent by hypothesis.
   ◻
