@@ -77,10 +77,10 @@ using the uniqueness of the chaos expansion this is equivalent to
 requiring that, for all $t$
 
 <div>
- $$
-    I\U n(f\U n(\cdot,t))=  n!\mathbb{E}\U {\mathcal{F}\U t} \left[ \int\U {I} \left( \int\U {0}^{t\U n}\cdots \int\U {0}^{t\U 2}f\U n(t\U 1\ldots t\U n,t) dW(t\U 1) \cdots dW(t\U {n-1}) \right)dW(t\U n)\right]
+ $$\begin{gathered}
+    I\U n(f\U n(\cdot,t))=  n!\mathbb{E}\U {\mathcal{F}\U t} \left[ \int\U {I} \left( \int\U {0}^{t\U n}\cdots \int\U {0}^{t\U 2}f\U n(t\U 1\ldots t\U n,t) dW(t\U 1) \cdots dW(t\U {n-1}) \right)dW(t\U n)\right]\\
     =n!\int\U {0}^t \int\U {0}^{t\U n}\cdots \int\U {0}^{t\U 2}f\U n(t\U 1\ldots t\U n,t) dW(t\U 1) \cdots dW(t\U {n-1})dW(t\U n)= I\U n(f\U n(\cdot,t) 1\U {\max\U {t\U i\leq t}})
-  $$
+  \end{gathered}$$
 </div>
 Where in the second equality we used that the
 Itô integral is a martingale where the commutation of the sum and the integral
@@ -118,8 +118,8 @@ Proof. This is a direct calculation using the previous result as
 
 
 <div>
- $$
-    \int\U {I} X(t) dW(t)=\sum\U {n=0}^{\infty}\int\U {I} I\U n(f\U {n,t})dW(t)=\sum\U {n=0}^{\infty}n! \int\U {I}\int\U {S\U n}f\U {n,t}(t\U 1,\ldots,t\U n) dW(t\U 1)\ldots dW(t\U n) dW(t)=\sum\U {n=0}^{\infty}(n+1)! \int\U {I}\int\U {t\U 2\leq\cdots\leq t\U n\leq t}f\U {n,S}(t\U 1,\ldots,t\U n,t) dW(t\U 1)\ldots dW(t\U n) dW(t)=\sum\U {n=0}^{\infty}(n+1)! J\U {n+1}(f\U {n,S}) =\sum\U {n=0}^{\infty} I\U {n+1}(f\U {n,S}).
+ $$\begin{gathered}
+    \int\U {I} X(t) dW(t)=\sum\U {n=0}^{\infty}\int\U {I} I\U n(f\U {n,t})dW(t)=\sum\U {n=0}^{\infty}n! \int\U {I}\int\U {S\U n}f\U {n,t}(t\U 1,\ldots,t\U n) dW(t\U 1)\ldots dW(t\U n) dW(t)\\=\sum\U {n=0}^{\infty}(n+1)! \int\U {I}\int\U {t\U 2\leq\cdots\leq t\U n\leq t}f\U {n,S}(t\U 1,\ldots,t\U n,t) dW(t\U 1)\ldots dW(t\U n) dW(t)=\sum\U {n=0}^{\infty}(n+1)! J\U {n+1}(f\U {n,S}) =\sum\U {n=0}^{\infty} I\U {n+1}(f\U {n,S}).\end{gathered}
   $$
 </div>
 
@@ -158,7 +158,7 @@ $X(t)\in L^2(\Omega,\mathcal{F}\U \infty)$ has a Skorohod integral iff
 
 
 <div>
- $$\sum\U {n=0}^{\infty} (n+1)!\|f\U {n,S}\|^2\U {L^2(\zl 0,T\zr ^n)}<\infty.$$
+ $$\sum\U {n=0}^{\infty} (n+1)!\|f\U {n,S}\|^2\U {L^2(I^{n+1})}<\infty.$$
 </div>
 
 
@@ -173,10 +173,16 @@ Proof. By Itô's $n$-th isometry we have that
 </div>
 
   ◻
+An identical application of Itô's $n$-th ismoetry proves that
+**Proposition 1**. Given two stochastic processes $X(t),Y(t)\in L^2(\Omega,\mathcal{F}\U \infty)$ for all $t\in I$ with chaos expansion $X(t)=\sum_n I_n(f_n(\cdot,t))$ and $Y(t)=\sum_n I_n(g_n(\cdot,t))$, it holds that
+<div>
+ $$\langle \delta(X),\delta(Y)\rangle\U {L^2(\Omega)}=\sum\U {n=0}^{\infty} (n+1)!\langle f\U {n,S}, g\U {n,S}\ranlge \U {L^2(I^{n+1})}<\infty.$$
+</div>
 
 
-Of course, a priori the above condition is not that easy to check for a
-given function as it involves calculating the chaos expansion for the
+
+Of course, a priori the condition of Proposition $1$ is not that easy to check for a
+given process as it involves calculating the chaos expansion for the
 given process $X$. In some cases, however, it is possible. Consider for
 example the stochastic process defined by $X(t)=W(T)$ on the interval
 $I=\zl 0,T\zr $. Then we have that
