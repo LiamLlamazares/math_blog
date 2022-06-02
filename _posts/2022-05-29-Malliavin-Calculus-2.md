@@ -72,7 +72,7 @@ Proof. Firstly, we note that a stochastic process $X$ is adapted iff
  $$X(t)=\mathbb{E}\U {\mathcal{F}\U t}\zl X(t)\zr \quad\forall t\in I.$$
 </div>
 
- By commuting the sum and
+ By commuting the sum （which we recall converges in $L^2(\Omega)$ and thus also in $L^1(\Omega)$) and
 using the uniqueness of the chaos expansion this is equivalent to
 requiring that, for all $t$
 
@@ -124,7 +124,25 @@ Proof. This is a direct calculation using the previous result as
 </div>
 
   ◻
+In the above theorem we commuted the sum with the *Itô integral* (note the difference with the commutation in Lemma 1). We didn't completely justify this, we do so now.
 
+
+**Lemma 3** Consider $X\U n$ such that $X\U n(t)\in  L^2(\Omega)$ for each $t\in I$
+with
+<div>
+ $$\sum \norm{X\U n(t)}\U{L^2(\Omega)}<\infty $$.
+</div>
+Denote by $X(t):=\sum\U {n=0}^\infty X\U n(t)$. Then if $X \in L^2(I\times \Omega)$ it holds that
+
+<div>
+ $$\sum\U{n=0}^\infty X\U n=X \in L^2(I\times\Omega). $$
+</div>
+
+Proof. We have that
+
+<div>
+ $$ \lim \U {N\to\infty}\norm{\sum\U{n=0}^N X\U n-X}\U{L^2(I\times\Omega)}=\lim \U {N\to\infty}\norm{\norm{\sum\U{n=0}^N X\U n-X}\U{L^2(I\times\Omega)}}\U{L^2(I)} $$
+</div>
 
 # The Skorohod integral
 
