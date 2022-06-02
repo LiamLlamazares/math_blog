@@ -174,9 +174,9 @@ Proof. By Itô's $n$-th isometry we have that
 
   ◻
 An identical application of Itô's $n$-th ismoetry proves that
-**Proposition 1**. Given two stochastic processes $X(t),Y(t)\in L^2(\Omega,\mathcal{F}\U \infty)$ for all $t\in I$ with chaos expansion $X(t)=\sum_n I_n(f_n(\cdot,t))$ and $Y(t)=\sum_n I_n(g_n(\cdot,t))$, it holds that
+**Proposition 2** (Skohorod's isometry). Given two stochastic processes $X(t),Y(t)\in L^2(\Omega,\mathcal{F}\U \infty)$ for all $t\in I$ with chaos expansion $X(t)=\sum_n I_n(f_n(\cdot,t))$ and $Y(t)=\sum_n I_n(g_n(\cdot,t))$, it holds that
 <div>
- $$\langle \delta(X),\delta(Y)\rangle\U {L^2(\Omega)}=\sum\U {n=0}^{\infty} (n+1)!\langle f\U {n,S}, g\U {n,S}\ranlge \U {L^2(I^{n+1})}<\infty.$$
+ $$\langle \delta(X),\delta(Y)\rangle\U {L^2(\Omega)}=\sum\U {n=0}^{\infty} (n+1)!\langle f\U {n,S}, g\U {n,S}\rangle \U {L^2(I^{n+1})}<\infty.$$
 </div>
 
 
