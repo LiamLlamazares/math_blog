@@ -132,7 +132,7 @@ $\mathcal{F}\U {t}$-martingale, if:
 The concept of submartingale (supermartingale) is defined by replacing the equality in 3.
 with a $\geq$ (with a $\leq$). In the real case the absolute value of a martingale is a submartingale. To obtain this result for Banach valued Martingales we need to assume that $E$ is separable so that we can use the following result.
 
-**Lemma 1**  Let $E$ be a separable metric space, then there exists a countable family of linear functions $\ell \U n\U n\in E^*$ such that
+**Lemma 1**  Let $E$ be a separable metric space, then there exists a countable family of linear functions $\ell \U n\U n\in E^\star $ such that
 
 <div>
  $$\norm{e}=\sup\U {n\in \mathbb{N}}\ell_n(e)\quad\forall e\in E.$$
