@@ -300,12 +300,12 @@ previous post (1)[https://nowheredifferentiable.com/2022-05-27-The-Bochner-integ
 
 
 <div>
- $$\lim\U {n\to\infty}{M\U {n\U k}}(\cdot,\omega)=M(\cdot,\omega)\in L^\infty(\zl 0,T\zr \to E)\quad a.e.\quad \omega\in\Omega$$
+ $$\lim\U {n\to\infty}{M\U {n\U k}}(\cdot,\omega)=M(\cdot,\omega)\in L^\infty(\zl 0,T\zr \to E)\quad a.e.\quad \omega\in\Omega.$$
 </div>
 
 
 Since $M\U {n\U k}(\cdot,\omega)$ are continuous and continuity is preserved
-by uniform limits this proves that $M$ is continuous almost everywhere. This shows that $\mathcal{M}\U T^2(E)$ is closed and thus a Banach space. In the case where $E$ is a Hilbert space we can endow $\mathcal{M}\U T^2(E)$ with the inner product
+by uniform limits this proves that $M$ is continuous almost everywhere. In consequence, $\mathcal{M}\U T^2(E)$ is closed and thus a Banach space. In the case where $E$ is a Hilbert space we can endow $\mathcal{M}\U T^2(E)$ with the inner product
 
 <div>
  $$\langle{M\U 1, M \U 2\rangle}\U {\mathcal{M}\U T^2(E)}:= \mathbb{E} \left[ \langle{M\U 1(T), M \U 2(T)\rangle}\U E \right ]$$
@@ -315,37 +315,5 @@ This concludes the proof. ◻
 
 
 In future installments, we will prove that a Banach valued Wiener
-process belongs to this space and use it to define the stochastic
+process with trace class covariance belongs to this space and use it to define the stochastic
 integral that leads to the construction of SPDEs.
-
-
-**Proposition 2**. Let $W(t)$ be a $E$ valued $\Sigma$-Wiener process
-with respect to a filtration $\mathcal{F}\U t$. Then
-$W(t)\in \mathcal{M}\U T^2(E)$.
-
-
-
-Proof. It is a martingale as it is adapted and, given
-$A\in\mathcal{G}\U S$ and $u\in E$, by the linearity of the integral and
-Independence of $W(t)-W(s)$ with $\mathcal{G}\U s$
-
-<div>
- $$\begin{gathered}
-        \left\langle\int\U A W(t)-W(s)d\mathbb{P},u\right\rangle=\int\U A \left\langle W(t)-W(s),u\right\rangle d\mathbb{P}\\=
-        \mathbb{P}(A)\mathbb{E}\zl \left\langle W(t)-W(s),u\right\rangle\zr =0
-    \end{gathered}$$
-</div>
-
-  As a result
-
-
-<div>
- $$\int\U A W(t)d\mathbb{P}=\int\U A W(s)d\mathbb{P}=0\quad \forall A\in\mathcal{G}\U s\implies \mathbb{E}\U s\zl W(t)\zr =W(s).$$
-</div>
-
-
-Finally, we have that $\mathbb{E}\zl W(t)^2\zr =t<\infty$ for all $t$ and $W$
-is continuous by construction. This concludes the proof. ◻
-
-A pdf of version of this page is provided below:
-<object data="/assets/Martingales.pdf" width="1000" height="1000" type='application/pdf'></object>
