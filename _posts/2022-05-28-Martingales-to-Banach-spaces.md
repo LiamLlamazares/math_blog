@@ -144,9 +144,15 @@ Proof. Let $e\U n$ be a countable dense subset of $E$. By Hahn Banach's theorem 
 </div>
 By now taking $e\U {n\U k} \to e$ we have that
 <div>
- $$\norm{l\U {n\U k}}(e)\geq\norm{l\U {n\U k}}(e\U {n\U k})-\norm{l\U {n\U k}(e-e\U {n\U k})}\geq \norm{e\U {n\U k}}-\norm{e-e\U {n\U k}} $$.
+ $$\norm{l\U {n\U k}(e)}\geq\norm{l\U {n\U k}}(e\U {n\U k})-\norm{l\U {n\U k}(e-e\U {n\U k})}\geq \norm{e\U {n\U k}}-\norm{e-e\U {n\U k}} $$.
+</div>
+Taking limits we conclude that
+
+<div>
+ $$\sup\U {n\in \mathbb{N}}\ell_n(e)\geq \lim\U {k\to\infty}\norm{l\U {n\U k}(e)}=\norm{e}$$.
 </div>
 
+Since the reverse inequality holds by definition of norm on $E^*$ this concludes the proof.  ◻
 
  Let us abbreviate $\mathbb{E}\U {\mathcal{F}\U t}$ by
 $\mathbb{E}\U t$. Then, as in the real case, we have the following.
@@ -257,7 +263,7 @@ $I=\zl 0,T\zr $, then we define
 
 
 <div>
- $$\mathcal{M}\U T^2(E):=\left\\{\text{continuous martingales } M:\mathbb{E}\zl \norm{M(T)}^2\zr <\infty\right\\}$$
+ $$\mathcal{M}\U T^2(E):=\left\{\text{continuous martingales } M:\mathbb{E}\zl \norm{M(T)}^2\zr <\infty\right\}$$
 </div>
 
 
