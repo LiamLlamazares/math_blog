@@ -152,6 +152,8 @@ Taking limits we conclude that
  $$\sup\U {n\in \mathbb{N}}\ell_n(e)\geq \lim\U {k\to\infty}\norm{l\U {n\U k}(e)}=\norm{e}$$.
 </div>
 Since the reverse inequality holds by definition of norm on $E^\star$ this concludes the proof.  ◻
+
+
 The crucial part of requiring $E$ to be separable is that the norm is a *countable* supremum of linear functions. We recall that it is countable supremums of measurable functions that are measurable. Let us abbreviate $\mathbb{E}\U {\mathcal{F}\U t}$ by
 $\mathbb{E}\U t$. Then, as in the real case, we have the following.
 
@@ -180,7 +182,7 @@ that
 
 
 <div>
- $$\norm{\max\U {k\in\\{1,...,n\\}}X\U k}\U {L^p(\Omega)}\leq \frac{p}{p-1}\norm{X\U n}\U {L^p(\Omega)}$$
+ $$\norm{\max\U {k\in\lb 1,...,n \rb}X\U k}\U {L^p(\Omega)}\leq \frac{p}{p-1}\norm{X\U n}\U {L^p(\Omega)}$$
 </div>
 
 
