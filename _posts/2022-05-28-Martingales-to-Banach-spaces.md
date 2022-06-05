@@ -295,8 +295,8 @@ so that for all $A\in\mathcal{F}\U s$
 </div>
 
 
-This shows that $M$ is a martingale. Furthermore, as was seen in the
-previous post, there exists a subsequence $M\U {n\U k}$ such that
+This shows that $M$ is a martingale. Furthermore, as was seen in Proposition 2 of the
+previous post (1)[https://nowheredifferentiable.com/2022-05-27-The-Bochner-integral/#:~:text=have%20in%20reserve.-,Proposition%202.,-Let], there exists a subsequence $M\U {n\U k}$ such that
 
 
 <div>
