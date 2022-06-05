@@ -199,14 +199,12 @@ continuous to the discrete case is possible by using the continuity of
 $X$ and approximating it on some finer and finer mesh $t\U 0,...,t\U n$. For all the details see page $5$ of [2](http://math.bu.edu/people/prakashb/Math/continuous-time%20martingales.pdf)).
 
 
-
-
 This said, applying Doob's maximal martingale inequality together with
 the Lemma $1$ gives that
 
 
 **Theorem 2** (Maximal Inequality). Let $p>1$ and let $E$ be a
-separable Banach space. If $M(t)$, is a right-continuous $E$-valued
+separable Banach space. If $M(t)\ in L^p (\Omega \to E)$, is a right-continuous $E$-valued
 $\mathcal{F}\U {t}$-martingale, then
 
 <div>
