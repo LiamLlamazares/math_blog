@@ -144,41 +144,28 @@ Proof. Let $e\U n$ be a countable dense subset of $E$. By Hahn Banach's theorem 
 </div>
 By now taking $e\U {n\U k} \to e$ we have that
 <div>
- $$\norm{l\U {n\U k}(e)}\geq\norm{l\U {n\U k}(e\U {n\U k})}-\norm{l\U {n\U k}(e-e\U {n\U k})}\geq \norm{e\U {n\U k}}-\norm{e-e\U {n\U k}} $$.
+ $$\norm{l\U {n\U k}(e)}\geq\norm{l\U {n\U k}(e\U {n\U k})}-\norm{l\U {n\U k}(e-e\U {n\U k})}\geq \norm{e\U {n\U k}}-\norm{e-e\U {n\U k}}.$$
 </div>
 Taking limits we conclude that
 
 <div>
  $$\sup\U {n\in \mathbb{N}}\ell_n(e)\geq \lim\U {k\to\infty}\norm{l\U {n\U k}(e)}=\norm{e}$$.
 </div>
-
 Since the reverse inequality holds by definition of norm on $E^*$ this concludes the proof.  ◻
 
  Let us abbreviate $\mathbb{E}\U {\mathcal{F}\U t}$ by
 $\mathbb{E}\U t$. Then, as in the real case, we have the following.
 
 
-**Lemma 1** (Norm is submartingale). Let $M(t)$ be a martingale, then
-$\norm{M(t)}$ is a martingale
+**Lemma 2** (The norm of a martingale is submartingale). Let $M(t)$ be a martingale, then
+$\norm{M(t)}$ is a submartingale
 
-
-
-Proof. We recall that, by the Hahn Banach theorem, it holds for any
-metric space that given $y\in E$
-
-
-<div>
- $$\norm{z}=\sup\U {\ell\in E^:\|\ell\|=1}\ell(z)$$
-</div>
-
-  As a result, by the
-linearity of the integral and abbreviating the supremum to just
-$\sup\U \ell$,
-
+Let us take $\ell\U n$ as in Lemma 1. Then, by the
+linearity of the integral,
 <div>
  $$\begin{gathered}
-        \|M(s)\|=\|\mathbb{E}\U {s}\zl M(t)\zr \|= \sup\U \ell \ell\left(\mathbb{E}\U {s}\zl M(t)\zr \right)=\sup\U \ell\|{\mathbb{E}\U {s}\left[ \ell(M(t))\right] \|}\\
-        \leq \mathbb{E}\U {s}\left[ \sup\U \ell\ell(M(t))\right] =\mathbb{E}\U {s}\left[ \|M(t)\|\right]
+        \|M(s)\|=\|\mathbb{E}\U {s}\zl M(t)\zr \|= \sup\U {n\in \mathbb{N}} \ell \U n\left(\mathbb{E}\U {s}\zl M(t)\zr \right)=\sup\U {n\in \mathbb{N}}\|{\mathbb{E}\U {s}\left[ \ell \U n(M(t))\right] \|}\\
+        \leq \mathbb{E}\U {s}\left[ \sup\U {n\in \mathbb{N}}\ell \U n(M(t))\right] =\mathbb{E}\U {s}\left[ \|M(t)\|\right]
     \end{gathered}$$
 </div>
 
