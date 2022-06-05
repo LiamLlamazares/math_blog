@@ -132,7 +132,20 @@ $\mathcal{F}\U {t}$-martingale, if:
 The concept of submartingale (supermartingale) is defined by replacing the equality in 3.
 with a $\geq$ (with a $\leq$). In the real case the absolute value of a martingale is a submartingale. To obtain this result for Banach valued Martingales we need to assume that $E$ is separable so that we can use the following result.
 
-**Lemma 1**  Let $E$ be a separable metric space, then there exis
+**Lemma 1**  Let $E$ be a separable metric space, then there exists a countable family of linear functions $\ell_n\U n\ in E^*$ such that
+
+<div>
+ $$\norm{e}=\sup\U {n\in \mathbb{N}}\ell_n(e)\quad\forall e\in E$$.
+</div>
+
+Proof. Let $e\U n$ be a countable dense subset of $E$. By Hahn Banach's theorem we may take $\ell\U n$ such that
+<div>
+ $$\norm{l\U n}=1;\quad \norm{l\U n}(e\U_ n)=\norm{e \U n} \forall n\in \mathbb{N}$$.
+</div>
+By now taking $e\U {n\U k} \to e$ we have that
+<div>
+ $$\norm{l\U {n\U k}}(e)\geq\norm{l\U {n\U k}}(e\U {n\U k})-\norm{l\U {n\U k}(e-e\U {n\U k})}\geq \norm{e\U {n\U k}}-\norm{e-e\U {n\U k}} $$.
+</div>
 
 
  Let us abbreviate $\mathbb{E}\U {\mathcal{F}\U t}$ by
