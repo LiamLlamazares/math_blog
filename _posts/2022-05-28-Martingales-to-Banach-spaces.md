@@ -190,7 +190,7 @@ As a consequence, if $X\U t,t\in\zl 0,T\zr $ is left (or right) continuous then
 
 
 <div>
- $$\norm{\max\U {t\in\zl 0,T\zr }X\U k}\U {L^p(\Omega)}\leq \frac{p}{p-1}\norm{X\U T}\U {L^p(\Omega)}.$$
+ $$\norm{\max\U {t\in\zl 0,T\zr }X\U t}\U {L^p(\Omega)}\leq \frac{p}{p-1}\norm{X\U T}\U {L^p(\Omega)}.$$
 </div>
 
 The idea of the above result is that, since $X\U k$ is a submartingale,
