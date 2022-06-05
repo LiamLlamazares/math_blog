@@ -151,7 +151,7 @@ Taking limits we conclude that
 <div>
  $$\sup\U {n\in \mathbb{N}}\ell_n(e)\geq \lim\U {k\to\infty}\norm{l\U {n\U k}(e)}=\norm{e}$$.
 </div>
-Since the reverse inequality holds by definition of norm on $E$ this concludes the proof.  ◻
+Since the reverse inequality holds by definition of norm on $E^\star$ this concludes the proof.  ◻
 The crucial part of requiring $E$ to be separable is that the norm is a *countable* supremum of linear functions. We recall that it is countable supremums of measurable functions that are measurable. Let us abbreviate $\mathbb{E}\U {\mathcal{F}\U t}$ by
 $\mathbb{E}\U t$. Then, as in the real case, we have the following.
 
@@ -164,7 +164,7 @@ linearity of the integral,
 <div>
  $$\begin{gathered}
         \|M(s)\|=\|\mathbb{E}\U {s}\zl M(t)\zr \|= \sup\U {n\in \mathbb{N}} \ell \U n\left(\mathbb{E}\U {s}\zl M(t)\zr \right)=\sup\U {n\in \mathbb{N}}\|{\mathbb{E}\U {s}\left[ \ell \U n(M(t))\right] \|}\\
-        \leq \mathbb{E}\U {s}\left[ \sup\U {n\in \mathbb{N}}\ell \U n(M(t))\right] =\mathbb{E}\U {s}\left[ \|M(t)\|\right]
+        \leq \mathbb{E}\U {s}\left[ \sup\U {n\in \mathbb{N}}\ell \U n(M(t))\right] =\mathbb{E}\U {s}\left[ \|M(t)\|\right].
     \end{gathered}$$
 </div>
 
