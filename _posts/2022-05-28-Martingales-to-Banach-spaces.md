@@ -159,9 +159,9 @@ $\mathbb{E}\U t$. Then, as in the real case, we have the following.
 
 
 **Lemma 2** (The norm of a martingale is submartingale). Let $M(t)$ be a martingale, then
-$\norm{M(t)}$ is a submartingale
+$\norm{M(t)}^p$ is a submartingale for $p>1$.
 
-Let us take $\ell\U n$ as in Lemma 1. Then, by the
+Proof. Let us take $\ell\U n$ as in Lemma 1. Then, by the
 linearity of the integral,
 <div>
  $$\begin{gathered}
@@ -169,14 +169,14 @@ linearity of the integral,
         \leq \mathbb{E}\U {s}\left[ \sup\U {n\in \mathbb{N}}\ell \U n(M(t))\right] =\mathbb{E}\U {s}\left[ \|M(t)\|\right].
     \end{gathered}$$
 </div>
-
+This proves the case $p=1$, the general case is a consequence of Jensen's inequality.
   ◻
 
 
 Let us recall the following result for real-valued martingales
 
 
-**Lemma 2** (Doob's maximal Martingale inequality). Let
+**Lemma 3** (Doob's maximal Martingale inequality). Let
 $\\{X\U k\\}\U {k=1}^\infty$ be a real-valued sub-martingale. Then it holds
 that
 
@@ -193,6 +193,7 @@ As a consequence, if $X\U t,t\in\zl 0,T\zr $ is left (or right) continuous then
  $$\norm{\max\U {t\in\zl 0,T\zr }X\U k}\U {L^p(\Omega)}\leq \frac{p}{p-1}\norm{X\U T}\U {L^p(\Omega)}.$$
 </div>
 
+Proof. This is a result of Lemma $3$ and an application of Doob's maximmal inequality for non-negative real valued sub-martingles (see page $5$ of [2](http://math.bu.edu/people/prakashb/Math/continuous-time%20martingales.pdf))
 
 
 
