@@ -112,11 +112,11 @@ all linear function $w$, so $Z\U 1=Z\U 2$. ◻
 # Martingales
 
 Okay, so we leveraged some inequalities to prove the existence of a
-conditional expectation. This done, the following definition mimicking
-the real case is quite natural
+conditional expectation. This done, the following definition, which mimicks
+the real case, is quite natural
 
 
-**Definition 1**. Let $\{M(t)\}\U {t\in I}$, be a stochastic process on
+**Definition 1**. Let $\\{M(t)\\}\U {t\in I}$, be a stochastic process on
 $(\Omega, \mathcal{F}, \mathbb{P})$ with a filtration
 $\{\mathcal{F}\U {t}\}\U {t \in I}$. The process $M$ is called an
 $\mathcal{F}\U {t}$-martingale, if:
