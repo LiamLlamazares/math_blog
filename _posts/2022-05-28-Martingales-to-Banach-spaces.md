@@ -176,13 +176,13 @@ linearity of the integral,
 Let us recall the following result for real-valued martingales
 
 
-**Lemma 3** (Doob's maximal Martingale inequality). Let
+**Lemma 3** (Doob's maximal martingale inequality). Let
 ${X\U k}\U {k=1}^\infty$ be a real-valued sub-martingale. Then it holds
 that
 
 
 <div>
- $$\norm{\max\U {k\in\lb 1,...,n \rb}X\U k}\U {L^p(\Omega)}\leq \frac{p}{p-1}\norm{X\U n}\U {L^p(\Omega)}$$
+ $$\norm{\max\U {k\in\lb 1,...,n \rb}X\U k}\U {L^p(\Omega)}\leq \frac{p}{p-1}\norm{X\U n}\U {L^p(\Omega)}.$$
 </div>
 
 
