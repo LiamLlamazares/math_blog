@@ -224,7 +224,7 @@ and Doob's maximal inequality. ◻
 
 Doob's inequality is essentially an equality between different function
 norms we can place on the space of continuous Martingales and will
-provide a very powerful tool later on.
+provide a very powerful tool later on. We state this precisely below.
 
 
 **Corollary 1**. Let $M$ be a (left or right) continuous martingale to
