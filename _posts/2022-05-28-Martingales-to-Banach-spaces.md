@@ -149,7 +149,7 @@ By now taking $e\U {n\U k} \to e$ we have that
 Taking limits we conclude that
 
 <div>
- $$\sup\U {n\in \mathbb{N}}\ell_n(e)\geq \lim\U {k\to\infty}\norm{l\U {n\U k}(e)}=\norm{e}$$.
+ $$\sup\U {n\in \mathbb{N}}\ell_n(e)\geq \lim\U {k\to\infty}\norm{l\U {n\U k}(e)}=\norm{e}.$$
 </div>
 Since the reverse inequality holds by definition of norm on $E^\star$ this concludes the proof.  ◻
 
