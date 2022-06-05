@@ -109,7 +109,7 @@ using the linearity of the integral we obtain that $w(Z\U 1)=w(Z\U 2)$ for
 all linear function $w$, so $Z\U 1=Z\U 2$. ◻
 
 
-# Martingales
+# 2. Martingales
 
 Okay, so we leveraged some inequalities to prove the existence of a
 conditional expectation. This done, the following definition, which mimicks
@@ -132,7 +132,7 @@ $\mathcal{F}\U {t}$-martingale, if:
 The concept of submartingale (supermartingale) is defined by replacing the equality in 3.
 with a $\geq$ (with a $\leq$). In the real case the absolute value of a martingale is a submartingale. To obtain this result for Banach valued Martingales we need to assume that $E$ is separable so that we can use the following result.
 
-**Lemma 1**  Let $E$ be a separable metric space, then there exists a countable family of linear functions $\ell \U n\U n\in E^\star $ such that
+**Lemma 1**  Let $E$ be a separable metric space, then there exists a countable family of linear functions $\ell \U n \in E^\star $ such that
 
 <div>
  $$\norm{e}=\sup\U {n\in \mathbb{N}}\ell_n(e)\quad\forall e\in E.$$
@@ -193,7 +193,7 @@ As a consequence, if $X\U t,t\in\zl 0,T\zr $ is left (or right) continuous then
  $$\norm{\max\U {t\in\zl 0,T\zr }X\U k}\U {L^p(\Omega)}\leq \frac{p}{p-1}\norm{X\U T}\U {L^p(\Omega)}.$$
 </div>
 
-Proof. This is a result of Lemma $3$ and an application of Doob's maximmal inequality for non-negative real valued sub-martingles (see page $5$ of [2](http://math.bu.edu/people/prakashb/Math/continuous-time%20martingales.pdf))
+Proof. This is a result of Lemma $3$ and an application of Doob's maximmal inequality for non-negative real valued sub-martingles (see page $5$ of [2](http://math.bu.edu/people/prakashb/Math/continuous-time%20martingales.pdf)).
 
 
 
