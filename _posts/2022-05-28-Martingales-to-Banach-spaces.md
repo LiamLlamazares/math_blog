@@ -230,11 +230,11 @@ provide a very powerful tool later on. We state this precisely below.
 **Corollary 1**. Let $M$ be a (left or right) continuous martingale to
 a separable Banach space $E$. Then the following are equivalent
 
--   $M\in L^\infty(\zl 0,T\zr \to L^2(\Omega\to E))$
+-   $M\in L^\infty(\zl 0,T\zr \to L^2(\Omega\to E))$.
 
--   $M\in \hat{L}^2(\Omega\to L^\infty(\zl 0,T\zr \to E))$
+-   $M\in \hat{L}^2(\Omega\to L^\infty(\zl 0,T\zr \to E))$.
 
--   $\mathbb{E}\zl \norm{M(T)}^2\zr <\infty$
+-   $\mathbb{E}\zl \norm{M(T)}^2\zr <\infty$.
 
 Where we recall from the previous post that $\hat{L}^p$ symbolizes that
 $M$ may not be separately valued and only have an integrable norm. That
@@ -268,7 +268,7 @@ By Theorem $2$ we have that
 
 
 <div>
- $$\mathcal{M}\U T^2(E)\subset \hat{L}^\infty(\zl 0,T\zr \to \hat{L}^2(\Omega\to E))\cap \hat{L}^2(\Omega\to \hat{L}^\infty(\zl 0,T\zr \to E)).$$
+ $$\mathcal{M}\U T^2(E)\subset L^\infty(\zl 0,T\zr \to L^2(\Omega\to E))\cap \hat{L}^2(\Omega\to L^\infty(\zl 0,T\zr \to E)).$$
 </div>
 
 
@@ -300,7 +300,7 @@ previous post, there exists a subsequence $M\U {n\U k}$ such that
 
 
 <div>
- $$\lim\U {n\to\infty}{M\U {n\U k}}(\cdot,\omega)=M(\cdot,\omega)\in \hat{L}^\infty(\zl 0,T\zr \to E)\quad a.e.\quad \omega\in\Omega$$
+ $$\lim\U {n\to\infty}{M\U {n\U k}}(\cdot,\omega)=M(\cdot,\omega)\in L^\infty(\zl 0,T\zr \to E)\quad a.e.\quad \omega\in\Omega$$
 </div>
 
 
