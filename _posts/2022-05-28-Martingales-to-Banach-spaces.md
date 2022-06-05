@@ -230,9 +230,9 @@ provide a very powerful tool later on. We state this precisely below.
 **Corollary 1**. Let $M$ be a (left or right) continuous martingale to
 a separable Banach space $E$. Then the following are equivalent
 
--   $M\in \hat{L}^\infty(\zl 0,T\zr \to \hat{L}^2(\Omega\to E))$
+-   $M\in L^\infty(\zl 0,T\zr \to L^2(\Omega\to E))$
 
--   $M\in \hat{L}^2(\Omega\to \hat{L}^\infty(\zl 0,T\zr \to E))$
+-   $M\in \hat{L}^2(\Omega\to L^\infty(\zl 0,T\zr \to E))$
 
 -   $\mathbb{E}\zl \norm{M(T)}^2\zr <\infty$
 
