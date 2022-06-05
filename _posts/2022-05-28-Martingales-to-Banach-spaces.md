@@ -26,7 +26,7 @@ analogously to Itô integration of real-valued processes. Integrating
 against a Wiener process valued in a Banach space the same will produce
 a square integrable continuous martingale.
 
-# Conditional expectation
+# 1. Conditional expectation
 
 In graduate-level probability courses, given a $\sigma-$algebra
 $\mathcal{G}$ one shows that by applying Radon-Nikodyn's theorem, for
@@ -39,10 +39,10 @@ conditional expectation $\mathbb{E}\U {\mathcal{G}}\zl X\zr $ verifying that
 </div>
 
 
-Of course, now that we have created an integral for integral random
-variables to a Banach space $L^1(\Omega\to X)$ we would like to see
+Of course, now that we have created an integral for the space of random
+variables $L^1(\Omega\to E)$ to some Banach space $E$,  we would like to see
 whether such a conditional expectation also exists for these functions.
-If we are given a simple function
+To start off with, if we are given a simple function
 
 
 <div>
@@ -50,17 +50,15 @@ If we are given a simple function
 </div>
 
   It is
-a simple calculation to show that, since $1\U {A\U k}$ are real-valued and
-thus $\mathbb{E}\U {\mathcal{G}}\zl 1\U {A\U k}\zr $ are well defined, then
-
+a simple calculation to show that
 
 <div>
  $$\mathbb{E}\U {\mathcal{G}}\zl X\zr =\sum\U {k=1}^n x\U k \mathbb{E}\U {\mathcal{G}}\zl 1\U {A\U k}\zr ,$$
 </div>
 
 
-verifies the desired formula. Furthermore, we have that
-$\mathbb{E}\U \mathcal{F}$ is a linear, and pointwise continuous operator
+verifies the desired formula (we note that, since $1\U {A\U k}$ are real-valued, $\mathbb{E}\U {\mathcal{G}}\zl 1\U {A\U k}\zr $ are well defined). Furthermore, we have that
+$\mathbb{E}\U \mathcal{G}$ is a linear, and pointwise continuous operator
 with
 
 
@@ -96,8 +94,8 @@ to $X$ in $L^1(\Omega\to E)$ to obtain that
 </div>
 
   As a result, $\mathbb{E}\U {\mathcal{G}}\zl X\U n\zr $ is a
-Cauchy sequence in $L^1(\Omega\to E)$ and converges to some function
-$Y$, passing to the limit in the defining equation for the conditional
+Cauchy sequence in the complete space $L^1(\Omega\to E)$ and so converges to some function
+$Z$, passing to the limit in the defining equation for the conditional
 expectation shows that $Z=\mathbb{E}\U \mathcal{G}\zl X\zr $. Finally, to prove
 uniqueness we have that if both $Z\U 1,Z\U 2$ satisfy
 
