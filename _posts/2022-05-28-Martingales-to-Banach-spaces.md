@@ -308,7 +308,7 @@ Since $M\U {n\U k}(\cdot,\omega)$ are continuous and continuity is preserved
 by uniform limits this proves that $M$ is continuous almost everywhere. In consequence, $\mathcal{M}\U T^2(E)$ is closed and thus a Banach space. In the case where $E$ is a Hilbert space we can endow $\mathcal{M}\U T^2(E)$ with the inner product
 
 <div>
- $$\langle{M\U 1, M \U 2\rangle}\U {\mathcal{M}\U T^2(E)}:= \mathbb{E} \left[ \langle{M\U 1(T), M \U 2(T)\rangle}\U E \right ]$$
+ $$\langle{M\U 1, M \U 2\rangle}\U {\mathcal{M}\U T^2(E)}:= \mathbb{E} \left[ \langle{M\U 1(T), M \U 2(T)\rangle}\U E \right ].$$
 </div>
 
 This concludes the proof. ◻
