@@ -284,9 +284,9 @@ $\mathcal{M}\U T^2(E)$ is a Banach (Hilbert) space.
 Proof. Let us first consider the case when $E$ is a Banach space. By the previous observation and the completeness of the
 $\hat{L}^p$ spaces proved in the previous post, $\mathcal{M}\U T^2(E)$ is
 a subspace of a Hilbert space. As a result, it is sufficient to show
-that it is closed. Let $M\U n$ converge to $M$. Then, by the equivalence
+that it is closed. Let $M\U n$ converge to $M \in \hat{L}^2(\Omega\to L^\infty(\zl 0,T\zr \to E))$. Then, by the equivalence
 of the norms we have that
-$M\U n(t)\to M(t)\in \hat{L}^1(\Omega\to E)\subset \hat{L}^2(\Omega\to E)$
+$M\U n(t)\to M(t)\in L^1(\Omega\to E)\subset L^2(\Omega\to E)$
 so that for all $A\in\mathcal{F}\U s$
 
 
