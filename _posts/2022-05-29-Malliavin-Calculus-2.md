@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The Skorohod integral
-subtitle: How many integrals even are there?
+subtitle: How does one generalize the Itô integral?
 thumbnail-img: /assets/img/Malliavin.jpg
 share-img: /assets/img/Malliavin.jpg
 tags: [Integration, Malliavin calculus, Skorohod integral, Chaos expansion, Itô integral, Stochastic Calculus]
