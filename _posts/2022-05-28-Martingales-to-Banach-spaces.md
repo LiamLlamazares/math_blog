@@ -9,22 +9,22 @@ tags: [Integration, Banach spaces, Lp spaces]
 
 # Three line summary
 
--   Conditional expectations exist in a natural way for simple
-    functions, by taking extensions they also exist for integrable
-    functions to a Banach space $L^1(\Omega\to E)$.
+-  Conditional expectations exist in a natural way for simple
+  functions, by taking extensions they also exist for integrable
+  functions to a Banach space $L^1(\Omega\to E)$.
 
--   Using conditional expectations we can define what a martingale is
-    just like in the real case.
+-  Using conditional expectations we can define what a martingale is
+  just like in the real case.
 
--   The space of continuous $p$-integrable martingales is a Banach
-    space.
+-  The space of continuous $p$-integrable martingales is a Banach
+  space.
 
 # Why should I care?
 
 Banach valued martingales form the basis of SPDEs. This is because
 analogously to Itô integration of real-valued processes. Integrating
 against a Wiener process valued in a Banach space the same will produce
-a square integrable continuous martingale.
+a square-integrable continuous martingale.
 
 # 1. Conditional expectation
 
@@ -40,16 +40,16 @@ conditional expectation $\mathbb{E}\U {\mathcal{G}}\zl X\zr $ verifying that
 
 
 Of course, now that we have created an integral for the space of random
-variables $L^1(\Omega\to E)$ to some Banach space $E$,  we would like to see
+variables $L^1(\Omega\to E)$ to some Banach space $E$, we would like to see
 whether such a conditional expectation also exists for these functions.
-To start off with, if we are given a simple function
+To start with, if we are given a simple function
 
 
 <div>
  $$X=\sum\U {k=1}^n x\U k 1\U {A\U k}, \quad x\U k\in E, A\U k\in\mathcal{G}.$$
 </div>
 
-  It is
+ It is
 a simple calculation to show that
 
 <div>
@@ -88,23 +88,23 @@ processes. By the previous post, [1](https://liamllamazares.github.io/2022-05-27
 to $X$ in $L^1(\Omega\to E)$ to obtain that
 
 <div>
- $$\begin{gathered}
-        \|\mathbb{E}\U {\mathcal{G}}\zl X\U n-X\U m\zr \|\leq\mathbb{E}\U {\mathcal{G}}\left[ \|X\U n-X\U m\|\right] \\\implies \mathbb{E}\zl \|\mathbb{E}\U {\mathcal{G}}\zl X\U n\zr -\mathbb{E}\U {\mathcal{G}}\zl X\U m\zr \|\zr \leq \mathbb{E}\left[ \|X\U n-X\U m\|\right] \to 0
-    \end{gathered}$$
+ $$
+    \|\mathbb{E}\U {\mathcal{G}}\zl X\U n-X\U m\zr \|\leq\mathbb{E}\U {\mathcal{G}}\left[ \|X\U n-X\U m\|\right] \implies \mathbb{E}\zl \|\mathbb{E}\U {\mathcal{G}}\zl X\U n\zr -\mathbb{E}\U {\mathcal{G}}\zl X\U m\zr \|\zr \leq \mathbb{E}\left[ \|X\U n-X\U m\|\right] \to 0
+  $$
 </div>
 
-  As a result, $\mathbb{E}\U {\mathcal{G}}\zl X\U n\zr $ is a
+ As a result, $\mathbb{E}\U {\mathcal{G}}\zl X\U n\zr $ is a
 Cauchy sequence in the complete space $L^1(\Omega\to E)$ and so converges to some function
 $Z$, passing to the limit in the defining equation for the conditional
 expectation shows that $Z=\mathbb{E}\U \mathcal{G}\zl X\zr $. Finally, to prove
-uniqueness we have that if both $Z\U 1,Z\U 2$ satisfy
+uniqueness we have that if both $Z\U 1, Z\U 2$ satisfy
 
 
 <div>
  $$\int\U A Z\U 1=\int\U A X=\int\U A Z\U 2,\quad \forall A\in\mathcal{G}.$$
 </div>
 
-  Then
+ Then
 using the linearity of the integral we obtain that $w(Z\U 1)=w(Z\U 2)$ for
 all linear function $w$, so $Z\U 1=Z\U 2$. ◻
 
@@ -112,27 +112,27 @@ all linear function $w$, so $Z\U 1=Z\U 2$. ◻
 # 2. Martingales
 
 Okay, so we leveraged some inequalities to prove the existence of a
-conditional expectation. This done, the following definition, which mimicks
+conditional expectation. This done, the following definition, which mimics
 the real case, is quite natural
 
 
-**Definition 1**. Let $\\{M(t)\\}\U {t\in I}$, be a stochastic process on
+**Definition 1**. Let ${M(t)}\U {t\in I}$, be a stochastic process on
 $(\Omega, \mathcal{F}, \mathbb{P})$ with a filtration
-$\\{\mathcal{F}\U {t}\\}\U {t \in I}$. The process $M$ is called an
+${\mathcal{F}\U {t}}\U {t \in I}$. The process $M$ is called an
 $\mathcal{F}\U {t}$-martingale, if:
 
-1.  $M(t)\in L^1(\Omega\to E)$ for all $t\in I$
+1. $M(t)\in L^1(\Omega\to E)$ for all $t\in I$
 
-2.  $M(t):\mathcal{F}\U {t} \to \mathcal{B}(E)$ for all $t\in I$,
+2. $M(t):\mathcal{F}\U {t} \to \mathcal{B}(E)$ for all $t\in I$,
 
-3.  $\mathbb{E}\U {\mathcal{F}\U {s}}\left[ M(t)\right] =M(s)$ for all
-    $s \leq t$.
+3. $\mathbb{E}\U {\mathcal{F}\U {s}}\left[ M(t)\right] =M(s)$ for all
+  $s \leq t$.
 
 
 The concept of submartingale (supermartingale) is defined by replacing the equality in 3.
-with a $\geq$ (with a $\leq$). In the real case the absolute value of a martingale is a submartingale. To obtain this result for Banach valued Martingales we need to assume that $E$ is separable so that we can use the following result.
+with a $\geq$ (with a $\leq$). In the real case, the absolute value of a martingale is a submartingale. To obtain this result for Banach valued Martingales we need to assume that $E$ is separable so that we can use the following result.
 
-**Lemma 1**  Let $E$ be a separable metric space, then there exists a countable family of linear functions $\ell \U n \in E^\star $ such that
+**Lemma 1** Let $E$ be a separable metric space, then there exists a countable family of linear functions $\ell \U n \in E^\star $ such that
 
 <div>
  $$\norm{e}=\sup\U {n\in \mathbb{N}}\ell_n(e)\quad\forall e\in E.$$
@@ -151,10 +151,10 @@ Taking limits we conclude that
 <div>
  $$\sup\U {n\in \mathbb{N}}\ell_n(e)\geq \lim\U {k\to\infty}\norm{l\U {n\U k}(e)}=\norm{e}.$$
 </div>
-Since the reverse inequality holds by definition of norm on $E^\star$ this concludes the proof.  ◻
+Since the reverse inequality holds by definition of the norm on $E^\star$ this concludes the proof.  ◻
 
 
-The crucial part of requiring $E$ to be separable is that the norm is a *countable* supremum of linear functions. We recall that it is countable supremums of measurable functions that are measurable. Let us abbreviate $\mathbb{E}\U {\mathcal{F}\U t}$ by
+The crucial part of requiring $E$ to be separable is that the norm is a *countable* supremum of linear functions. We recall that it is the only countable supremum of measurable functions that are measurable. Let us abbreviate $\mathbb{E}\U {\mathcal{F}\U t}$ by
 $\mathbb{E}\U t$. Then, as in the real case, we have the following.
 
 
@@ -164,10 +164,10 @@ $\norm{M(t)}$ is a submartingale.
 Proof. Let us take $\ell\U n$ as in Lemma 1. Then, by the
 linearity of the integral,
 <div>
- $$\begin{gathered}
-        \|M(s)\|=\|\mathbb{E}\U {s}\zl M(t)\zr \|= \sup\U {n\in \mathbb{N}} \ell \U n\left(\mathbb{E}\U {s}\zl M(t)\zr \right)=\sup\U {n\in \mathbb{N}}\|{\mathbb{E}\U {s}\left[ \ell \U n(M(t))\right] \|}\\
-        \leq \mathbb{E}\U {s}\left[ \sup\U {n\in \mathbb{N}}\ell \U n(M(t))\right] =\mathbb{E}\U {s}\left[ \|M(t)\|\right].
-    \end{gathered}$$
+ $$
+    \|M(s)\|=\|\mathbb{E}\U {s}\zl M(t)\zr \|= \sup\U {n\in \mathbb{N}} \ell \U n\left(\mathbb{E}\U {s}\zl M(t)\zr \right)=\sup\U {n\in \mathbb{N}}\|{\mathbb{E}\U {s}\left[ \ell \U n(M(t))\right] \|}
+    \leq \mathbb{E}\U {s}\left[ \sup\U {n\in \mathbb{N}}\ell \U n(M(t))\right] =\mathbb{E}\U {s}\left[ \|M(t)\|\right].
+  $$
 </div>
 
   ◻
@@ -177,7 +177,7 @@ Let us recall the following result for real-valued martingales
 
 
 **Lemma 3** (Doob's maximal Martingale inequality). Let
-$\\{X\U k\\}\U {k=1}^\infty$ be a real-valued sub-martingale. Then it holds
+${X\U k}\U {k=1}^\infty$ be a real-valued sub-martingale. Then it holds
 that
 
 
@@ -193,25 +193,25 @@ As a consequence, if $X\U t,t\in\zl 0,T\zr $ is left (or right) continuous then
  $$\norm{\max\U {t\in\zl 0,T\zr }X\U t}\U {L^p(\Omega)}\leq \frac{p}{p-1}\norm{X\U T}\U {L^p(\Omega)}.$$
 </div>
 
-The idea of the above result is that, since $X\U k$ is a submartingale,
+The idea of the above result is that since $X\U k$ is a submartingale,
 $X\U k\lesssim X\U {k+1}\lesssim...\lesssim X\U n$. Getting from the
 continuous to the discrete case is possible by using the continuity of
-$X$ and approximating it on some finer and finer mesh $t\U 0,...,t\U n$. For all the details see page $5$ of [2](http://math.bu.edu/people/prakashb/Math/continuous-time%20martingales.pdf)).
+$X$ and approximating it on some finer and finer mesh $t\U 0,...,t\U n$. For all the details see page $5$ of [2](http://math.bu.edu/people/prakashb/Math/continuous-time
 
 
 This said, applying Doob's maximal martingale inequality together with
 the Lemma $1$ gives that
 
 
-**Theorem 2** (Maximal Inequality). Let $p>1$ and let $E$ be a
+**Theorem 2** (Doob's maximal inequality). Let $p>1$ and let $E$ be a
 separable Banach space. If $M(t)\ in L^p (\Omega \to E)$, is a right-continuous $E$-valued
 $\mathcal{F}\U {t}$-martingale, then
 
 <div>
- $$\begin{gathered}
-        \left(E\left(\sup \U {t \in\zl 0, T\zr }\|M(t)\|^{p}\right)\right)^{\frac{1}{p}} \leq \frac{p}{p-1} \sup \U {t \in\zl 0, T\zr }\left(E\left(\|M(t)\|^{p}\right)\right)^{\frac{1}{p}} \\
-        =\frac{p}{p-1}\left(E\left(\|M(T)\|^{p}\right)\right)^{\frac{1}{p}}
-    \end{gathered}$$
+ $$
+    \left(E\left(\sup \U {t \in\zl 0, T\zr }\|M(t)\|^{p}\right)\right)^{\frac{1}{p}} \leq \frac{p}{p-1} \sup \U {t \in\zl 0, T\zr }\left(E\left(\|M(t)\|^{p}\right)\right)^{\frac{1}{p}}
+    =\frac{p}{p-1}\left(E\left(\|M(T)\|^{p}\right)\right)^{\frac{1}{p}}.
+  $$
 </div>
 
 
@@ -230,11 +230,11 @@ provide a very powerful tool later on. We state this precisely below.
 **Corollary 1**. Let $M$ be a (left or right) continuous martingale to
 a separable Banach space $E$. Then the following are equivalent
 
--   $M\in L^\infty(\zl 0,T\zr \to L^2(\Omega\to E))$.
+-  $M\in L^\infty(\zl 0,T\zr \to L^2(\Omega\to E))$.
 
--   $M\in \hat{L}^2(\Omega\to L^\infty(\zl 0,T\zr \to E))$.
+-  $M\in \hat{L}^2(\Omega\to L^\infty(\zl 0,T\zr \to E))$.
 
--   $\mathbb{E}\zl \norm{M(T)}^2\zr <\infty$.
+-  $\mathbb{E}\zl \norm{M(T)}^2\zr <\infty$.
 
 Where we recall from the previous post that $\hat{L}^p$ symbolizes that
 $M$ may not be separately valued and only have an integrable norm. That
@@ -285,7 +285,7 @@ Proof. Let us first consider the case when $E$ is a Banach space. By the previou
 $\hat{L}^p$ spaces proved in the previous post, $\mathcal{M}\U T^2(E)$ is
 a subspace of a Hilbert space. As a result, it is sufficient to show
 that it is closed. Let $M\U n$ converge to $M \in \hat{L}^2(\Omega\to L^\infty(\zl 0,T\zr \to E))$. Then, by the equivalence
-of the norms we have that
+of the norms, we have that
 $M\U n(t)\to M(t)\in L^1(\Omega\to E)\subset L^2(\Omega\to E)$
 so that for all $A\in\mathcal{F}\U s$
 
@@ -296,7 +296,7 @@ so that for all $A\in\mathcal{F}\U s$
 
 
 This shows that $M$ is a martingale. Furthermore, as was seen in Proposition 2 of the
-previous post (1)[https://nowheredifferentiable.com/2022-05-27-The-Bochner-integral/#:~:text=have%20in%20reserve.-,Proposition%202.,-Let], there exists a subsequence $M\U {n\U k}$ such that
+previous post (1)[https://nowheredifferentiable.com/2022-05-27-The-Bochner-integral/#:~:text=have
 
 
 <div>
