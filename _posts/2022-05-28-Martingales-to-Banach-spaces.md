@@ -140,11 +140,11 @@ with a $\geq$ (with a $\leq$). In the real case the absolute value of a martinga
 
 Proof. Let $e\U n$ be a countable dense subset of $E$. By Hahn Banach's theorem we may take $\ell\U n$ such that
 <div>
- $$\norm{l\U n}=1;\quad \norm{l\U n}(e\U n)=\norm{e \U n} \forall n\in \mathbb{N}.$$
+ $$\norm{\ell\U n}=1;\quad \norm{\ell\U n}(e\U n)=\norm{e \U n} \forall n\in \mathbb{N}.$$
 </div>
 By now taking $e\U {n\U k} \to e$ we have that
 <div>
- $$\norm{l\U {n\U k}(e)}\geq\norm{l\U {n\U k}(e\U {n\U k})}-\norm{l\U {n\U k}(e-e\U {n\U k})}\geq \norm{e\U {n\U k}}-\norm{e-e\U {n\U k}}.$$
+ $$\norm{\ell\U {n\U k}(e)}\geq\norm{\ell\U {n\U k}(e\U {n\U k})}-\norm{\ell\U {n\U k}(e-e\U {n\U k})}\geq \norm{e\U {n\U k}}-\norm{e-e\U {n\U k}}.$$
 </div>
 Taking limits we conclude that
 
