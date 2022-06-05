@@ -250,7 +250,7 @@ $I=\zl 0,T\zr $, then we define
 
 
 <div>
- $$\mathcal{M}\U T^2(E):=\left\{\text{continuous martingales } M:\mathbb{E}\zl \norm{M(T)}^2\zr <\infty\right\}$$
+ $$\mathcal{M}\U T^2(E):=\left\{\text{continuous martingales } M:\mathbb{E}\zl \norm{M(T)}^2\zr <\infty\right\},$$
 </div>
 
 
