@@ -118,7 +118,7 @@ the real case, is quite natural
 
 **Definition 1**. Let $\\{M(t)\\}\U {t\in I}$, be a stochastic process on
 $(\Omega, \mathcal{F}, \mathbb{P})$ with a filtration
-$\{\mathcal{F}\U {t}\}\U {t \in I}$. The process $M$ is called an
+$\\{\mathcal{F}\U {t}\\}\U {t \in I}$. The process $M$ is called an
 $\mathcal{F}\U {t}$-martingale, if:
 
 1.  $M(t)\in L^1(\Omega\to E)$ for all $t\in I$
@@ -129,8 +129,13 @@ $\mathcal{F}\U {t}$-martingale, if:
     $s \leq t$.
 
 
-The concept of submartingale is defined by replacing the equality in 3.
-with a $\geq$. Let us abbreviate $\mathbb{E}\U {\mathcal{F}\U t}$ by
+The concept of submartingale (supermartingale) is defined by replacing the equality in 3.
+with a $\geq$ (with a $\leq$). In the real case the absolute value of a martingale is a submartingale. To obtain this result for Banach valued Martingales we need to assume that $E$ is separable so that we can use the following result.
+
+**Lemma 1**  Let $E$ be a separable metric space, then there exis
+
+
+ Let us abbreviate $\mathbb{E}\U {\mathcal{F}\U t}$ by
 $\mathbb{E}\U t$. Then, as in the real case, we have the following.
 
 
@@ -165,12 +170,12 @@ Let us recall the following result for real-valued martingales
 
 
 **Lemma 2** (Doob's maximal Martingale inequality). Let
-$\{X\U k\}\U {k=1}^\infty$ be a real-valued sub-martingale. Then it holds
+$\\{X\U k\\}\U {k=1}^\infty$ be a real-valued sub-martingale. Then it holds
 that
 
 
 <div>
- $$\norm{\max\U {k\in\{1,...,n\}}X\U k}\U {L^p(\Omega)}\leq \frac{p}{p-1}\norm{X\U n}\U {L^p(\Omega)}$$
+ $$\norm{\max\U {k\in\\{1,...,n\\}}X\U k}\U {L^p(\Omega)}\leq \frac{p}{p-1}\norm{X\U n}\U {L^p(\Omega)}$$
 </div>
 
 
@@ -239,7 +244,7 @@ $I=\zl 0,T\zr $, then we define
 
 
 <div>
- $$\mathcal{M}\U T^2(E):=\left\{\text{continuous martingales } M:\mathbb{E}\zl \norm{M(T)}^2\zr <\infty\right\}$$
+ $$\mathcal{M}\U T^2(E):=\left\\{\text{continuous martingales } M:\mathbb{E}\zl \norm{M(T)}^2\zr <\infty\right\\}$$
 </div>
 
 
