@@ -128,15 +128,15 @@ Proof. This is a direct calculation using the previous result as
 In the above theorem we commuted the sum with the *Itô integral* (note the difference with the commutation in Lemma 1). We didn't completely justify this, we do so now.
 
 
-**Lemma 3** Consider $X\U n$ such that $X\U n(t)\in  L^2(\Omega)$
+**Lemma 3** Consider $X\U n$ such that for each $t\in I$ we have that $X\U n(t)\in  L^2(\Omega)$
 with
 <div>
  $$\sum\U {n=0}^\infty \norm{X\U n(t)}\U{L^2(\Omega)}\in L^2(I), $$
 </div>
-and denote by $X(t):=\sum\U {n=0}^\infty X\U n(t)$. Then if $X \in L^2(I\times \Omega)$ it holds that
+and denote by $X(t):=\sum\U {n=0}^\infty X\U n(t)$. Then if $X \in L^2(I\times \Omega)$ the convergence is also in $L^2(\Omega\times I). That is, it holds that
 
 <div>
- $$\sum\U{n=0}^\infty X\U n=X \in L^2(I\times\Omega). $$
+ $$\lim\U{N\to\infty}\norm{X-\sum\U{n=0}^\infty X\U n}\U {L^2(I\times\Omega)}=0. $$
 </div>
 
 Proof. We have that
