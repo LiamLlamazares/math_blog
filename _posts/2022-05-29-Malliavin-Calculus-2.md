@@ -28,7 +28,7 @@ integral.
 
 The same as in the previous post [1](https://liamllamazares.github.io/2022-05-26-Malliavin-Calculus-1/) on the chaos expansion. We
 will also write $\mathbb{L}^2(I\times \Omega)$ for the space of Itô
-integrable functions (this was defined in [2](https://liamllamazares.github.io/2022-05-26-The-Ito-integral/)).
+integrable functions (this was defined in [2](https://nowheredifferentiable.com/2022-05-26-The-Ito-integral/#:~:text=we%20have%20that-,Theorem%201.,-Let)).
 
 # The chaos expansion of an Itô integral
 
@@ -146,7 +146,7 @@ Proof. We have that
 Where in the commutation of the limit with the $L^2(I)$ norm we used the bounded convergence theorem, which we may apply as the sum of $X_n$ is normally convergent by hypothesis.
   ◻
 
-Let us now set $X\U n(t):=I \U n(f\U {n,t})$. If we go back to the method of construction of $I_n(f_n)$ in the [first post of the series](https://nowheredifferentiable.com/2022-05-26-Malliavin-Calculus-1/#:~:text=iteratively%20apply%20It%C3%B4%E2%80%99s%20representation%20theorem), by the iteration there presented we can show that, since the space of progressively measurable functions is a vector space, $I\U n(f\U {n,\cdot})$ are progressively measurable (as a function of the dot). Thus, by Itô's $n$-th isometry, this sequence meets the conditions of the above lemma  so the sum converges in $L^2(I\times\Omega)$ and thus in $\mathbb{L}^2(I\times\Omega)$ . The commutation with the sum in Theorem [$1$](https://nowheredifferentiable.com/2022-05-29-Malliavin-Calculus-2/#:~:text=Theorem%201.%20Let,is) is now justified by using that Itô integration is a continuous (isometry) on $\left(\mathbb{L}^2(I\times\Omega),\norm{\cdot}\U{ L^2(I\times\Omega)}\right)$.
+Let us now set $X\U n(t):=I \U n(f\U {n,t})$. If we go back to the method of construction of $I_n(f_n)$ in the [first post of the series](https://nowheredifferentiable.com/2022-05-26-Malliavin-Calculus-1/#:~:text=iteratively%20apply%20It%C3%B4%E2%80%99s%20representation%20theorem), by the iteration there presented we can show that, since the space of progressively measurable functions is a vector space, $I\U n(f\U {n,\cdot})$ are progressively measurable (as a function of the dot). Thus, by Itô's $n$-th isometry this sequence meets the conditions of the above lemma.  As a result, the sum converges in $L^2(I\times\Omega)$ and in consequence in $\mathbb{L}^2(I\times\Omega)$ . The commutation with the sum in Theorem [$1$](https://nowheredifferentiable.com/2022-05-29-Malliavin-Calculus-2/#:~:text=Theorem%201.%20Let,is) is now justified by using that Itô integration is a continuous (isometry) on $\left(\mathbb{L}^2(I\times\Omega),\norm{\cdot}\U{ L^2(I\times\Omega)}\right)$.
 
 # The Skorohod integral
 
