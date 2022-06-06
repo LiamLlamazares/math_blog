@@ -136,18 +136,18 @@ with
 and denote by $X(t):=\sum\U {n=0}^\infty X\U n(t)$. Then if $X \in L^2(I\times \Omega)$ the convergence is also in $L^2(\Omega\times I). That is, it holds that
 
 <div>
- $$\lim\U{N\to\infty}\norm{X-\sum\U{n=0}^\infty X\U n}\U {L^2(I\times\Omega)}=0. $$
+ $$\lim\U{N\to\infty}\norm{X-\sum\U{n=0}^N X\U n}\U {L^2(I\times\Omega)}=0. $$
 </div>
 
 Proof. We have that
 
 <div>
- $$ \lim \U {N\to\infty}\norm{\sum\U{n=0}^N X\U n-X}\U{L^2(I\times\Omega)}=\lim \U {N\to\infty}\left\|\norm{\sum\U{n=N}^\infty X\U n}\U{L^2(\Omega)}\right\|\U{L^2(I)}=\left\|\lim \U {N\to\infty}\norm{\sum\U{n=N}^\infty X\U n}\U{L^2(\Omega)}\right\|\U{L^2(I)}=0.$$
+ $$ \lim \U {N\to\infty}\norm{X-\sum\U{n=0}^N X\U n}\U{L^2(I\times\Omega)}=\lim \U {N\to\infty}\left\|\norm{\sum\U{n=N}^\infty X\U n}\U{L^2(\Omega)}\right\|\U{L^2(I)}=\left\|\lim \U {N\to\infty}\norm{\sum\U{n=N}^\infty X\U n}\U{L^2(\Omega)}\right\|\U{L^2(I)}=0.$$
 </div>
 Where in the commutation of the limit with the $L^2(I)$ norm we used the bounded convergence theorem, which we may apply as the sum of $X_n$ is normally convergent by hypothesis.
   ◻
 
-The commutation of the sum with the Itô integral in Theorem 1 is now justified by setting $X\U n:=I \U n(f\U {n,t})$ (which meets the equired conditions by Itô's $n$-th isometry) and using that Itô integration is a continuous (isometry) on $\left(\mathbb{L}^2(I\times\Omega),\norm{\cdot}\U{ L^2(I\times\Omega)}\right)$.
+Now setting $X\U n:=I \U n(f\U {n,t})$, this sequence meets the conditions of the above lemma by Itô's $n$-th isometry and thus the sum converges in $L^2(I\times\Omega). Furthermore, if we go back to the method of construction of $I_n(f_n)$ in the (first post of the series)[https://nowheredifferentiable.com/2022-05-26-Malliavin-Calculus-1/#:~:text=iteratively%20apply%20It%C3%B4%E2%80%99s%20representation%20theorem], by induction we can show that $I\U n(f\ U {n,\cdot})$ are progressively measurable (as a function of the dot).   and using that Itô integration is a continuous (isometry) on $\left(\mathbb{L}^2(I\times\Omega),\norm{\cdot}\U{ L^2(I\times\Omega)}\right)$.
 
 # The Skorohod integral
 
