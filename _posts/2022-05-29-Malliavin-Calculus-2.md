@@ -128,12 +128,11 @@ Proof. This is a direct calculation using the previous result as
 In the above theorem we commuted the sum with the *Itô integral* (note the difference with the commutation in Lemma 1). We didn't completely justify this, we do so now.
 
 
-**Lemma 3** Consider $X\U n$ such that for each $t\in I$ we have that $X\U n(t)\in  L^2(\Omega)$
-with
+**Lemma 3** Consider $X\U n\in L^2(I \times \Omega)$ such that for each $t\in I$ we have the convergence
 <div>
- $$\sum\U {n=0}^\infty \norm{X\U n(t)}\U{L^2(\Omega)}\in L^2(I), $$
+ $$\sum\U {n=0}^\infty \norm{X\U n(t)}\U{L^2(\Omega)}\in L^2(I). $$
 </div>
-and denote by $X(t):=\sum\U {n=0}^\infty X\U n(t)$. Then if $X \in L^2(I\times \Omega)$ the convergence is also in $L^2(\Omega\times I). That is, it holds that
+Denote by $X(t):=\sum\U {n=0}^\infty X\U n(t)$. Then if $X \in L^2(I\times \Omega)$ the convergence is also in $L^2(I\times\Omega)$. That is, it holds that
 
 <div>
  $$\lim\U{N\to\infty}\norm{X-\sum\U{n=0}^N X\U n}\U {L^2(I\times\Omega)}=0. $$
@@ -147,7 +146,7 @@ Proof. We have that
 Where in the commutation of the limit with the $L^2(I)$ norm we used the bounded convergence theorem, which we may apply as the sum of $X_n$ is normally convergent by hypothesis.
   ◻
 
-Now setting $X\U n:=I \U n(f\U {n,t})$, this sequence meets the conditions of the above lemma by Itô's $n$-th isometry and thus the sum converges in $L^2(I\times\Omega). Furthermore, if we go back to the method of construction of $I_n(f_n)$ in the (first post of the series)[https://nowheredifferentiable.com/2022-05-26-Malliavin-Calculus-1/#:~:text=iteratively%20apply%20It%C3%B4%E2%80%99s%20representation%20theorem], by induction we can show that $I\U n(f\ U {n,\cdot})$ are progressively measurable (as a function of the dot).   and using that Itô integration is a continuous (isometry) on $\left(\mathbb{L}^2(I\times\Omega),\norm{\cdot}\U{ L^2(I\times\Omega)}\right)$.
+Let us now set $X\U n:=I \U n(f\U {n,t})$, if we go back to the method of construction of $I_n(f_n)$ in the (first post of the series)[https://nowheredifferentiable.com/2022-05-26-Malliavin-Calculus-1/#:~:text=iteratively%20apply%20It%C3%B4%E2%80%99s%20representation%20theorem], by the iteration their presented, we can show that $I\U n(f\ U {n,\cdot})$ are progressively measurable (as a function of the dot). Thus, by Itô's $n$-th isometry, this sequence meets the conditions of the above lemma  so the sum converges in $L^2(I\times\Omega)$ and thus in $\mathbb{L}^2(I\times\Omega)$ . The commutation with the sum in Theorem ($1$)[https://nowheredifferentiable.com/2022-05-29-Malliavin-Calculus-2/#:~:text=Theorem%201.%20Let,is] is now justified by using that Itô integration is a continuous (isometry) on $\left(\mathbb{L}^2(I\times\Omega),\norm{\cdot}\U{ L^2(I\times\Omega)}\right)$.
 
 # The Skorohod integral
 
