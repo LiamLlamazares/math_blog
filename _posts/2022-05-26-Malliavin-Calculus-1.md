@@ -49,9 +49,17 @@ $f\in L^2(I^n)$ we denote its symmetrization by
 Where $\sigma$ is summed over all the permutations of $\{1,\ldots,n\}$.
 Note that if $f$ is already symmetric then $f=f\U S$. Given a
 deterministic function we can transform it into a random one by
-taking its Itô integral. By integrating multiple times we obtain the
-following definition
+taking its Itô integral. We will want to do this multiple times, this is permitted by the following lemma.
 
+**Lemma 0** Given $f\in L^2(S\U n)$  and any $m<n$, the integral
+<div>
+ $$\int\U {0}^{t\U m}\int\U {0}^{t\U 2} f(t\U 1,\ldots,t\U n)dW(t\U 1)\ldots dW(t\U {m-1}).$$
+</div>
+is in $\mathbb{L}^2(I\times\Omega)$ as a function of $t\U m$.
+
+Proof. The proof can be seen by verifying the above property for smooth functions $f \in C\U c^\infty(S\U n)$ and taking limits as $C\U c^\infty(S\U n)$  is dense in $L^2(S\U n)$ and measurability is preserved by limits. ◻
+
+We can now define, the following
 
 **Definition 1**. Let $f\in L^2(S\U n)$, then we define the n-fold Itô
 integral as
@@ -59,28 +67,8 @@ integral as
  $$J\U n(f):=\int\U I\cdots \int\U {0}^{t\U 3}\int\U {0}^{t\U 2} f(t\U 1,\ldots,t\U n)dW(t\U 1) dW(t\U 2)\ldots dW(t\U n).$$
 </div>
 
-
-The definition requires some care to verify to make sense of
-and to make sure it is well defined. For example, note that the variables
-appearing in the upper bounds of the integration domain are the same as
-those appearing as integration variables. To better understand the
-definition, first note that, by the properties of the Itô integral, for
-each $t\U 2\leq\cdots\leq t\U n$,
-<div>
- $$F\U 2(t\U 2\ldots,t\U n):=    \int\U {0}^{t\U 2} f(t\U 1,\ldots,t\U n)dW(t\U 1) \in \mathcal{M}\U {t\U 3}^2.$$
-</div>
-Where $F\U 2(\cdot,t\U 3,\ldots,t\U n)\in \mathcal{M}\U {t\U 3}^2$ is viewed as a
-function of $t\U 2$. Due to the above inclusion
-$F\U 2(\cdot,t\U 3,\ldots,t\U n)$ is Itô integrable and
-<div>
- $$F\U 3(t\U 3\ldots,t\U n):=    \int\U {0}^{t\U 3} F\U 2(t\U 2,\ldots,t\U n)dW(t\U 2) \in \mathcal{M}\U {t\U 4}^2  .$$
-</div>
-Where the above is viewed as a function of $t\U 3$. Iterating this process
-we get that $F\U n \in \mathcal{M}\U T^2$ and
-<div>
- $$J\U n(f)=\int\U I F\U n(t\U n)dW(t\U 2) \in L^2(\Omega).$$
-</div>  To notice the
-subtleties involved, we note that one example of an integral that would
+To notice the
+subtleties involved in this definition, we note that one example of an integral that would
 be ill-defined however is if for $f\in L^2(I^n)$ we defined
 <div>
  $${\color{red}J\U n(f)}:=\int\U I\cdots \int\U I\int\U I f(t\U 1,\ldots,t\U n)dW(t\U 1) dW(t\U 2)\ldots dW(t\U n).$$
