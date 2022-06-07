@@ -143,10 +143,10 @@ Proof. We have that
 <div>
  $$ \lim \U {N\to\infty}\norm{X-\sum\U{n=0}^N X\U n}\U{L^2(I\times\Omega)}=\lim \U {N\to\infty}\left\|\norm{\sum\U{n=N}^\infty X\U n}\U{L^2(\Omega)}\right\|\U{L^2(I)}=\left\|\lim \U {N\to\infty}\norm{\sum\U{n=N}^\infty X\U n}\U{L^2(\Omega)}\right\|\U{L^2(I)}=0.$$
 </div>
-Where in the commutation of the limit with the $L^2(I)$ norm we used the bounded convergence theorem, which we may apply as the sum of $X_n$ is normally convergent by hypothesis.
+Where in the commutation of the limit with the $L^2(I)$ norm we used the bounded convergence theorem, which we may apply as the sum of $X\U n$ is normally convergent by hypothesis.
   ◻
 
-Let us now set $X\U n(t):=I \U n(f\U {n,t})$. We already noted that $f\U n \in L^2(I^{n+1})$. Thus, as we showed in the [first post of the series](https://nowheredifferentiable.com/2022-05-26-Malliavin-Calculus-1/#:~:text=the%20following%20lemma.-,Lemma%200%20Given,-f%E2%88%88), $I\U n(f\U n)$ is in $\mathbb{L}^2(I\times \Omega). As a result, by Itô's $n$-th isometry this sequence meets the conditions of the above lemma.  in consequence, the sum converges in $L^2(I\times\Omega)$ and also in $\mathbb{L}^2(I\times\Omega)$ . The commutation with the sum in Theorem [$1$](https://nowheredifferentiable.com/2022-05-29-Malliavin-Calculus-2/#:~:text=Theorem%201.%20Let,is) is now justified by using that Itô integration is a continuous (isometry) on $\left(\mathbb{L}^2(I\times\Omega),\norm{\cdot}\U{ L^2(I\times\Omega)}\right)$.
+Let us now set $X\U n(t):=I \U n(f\U {n,t})$. We already noted that $f\U n \in L^2(I^{n+1})$. Thus, as we showed in the [first post of the series](https://nowheredifferentiable.com/2022-05-26-Malliavin-Calculus-1/#:~:text=the%20following%20lemma.-,Lemma%200%20Given,-f%E2%88%88), $I\U n(f\U n)$ is in $\mathbb{L}^2(I\times \Omega)$. As a result, by Itô's $n$-th isometry this sequence meets the conditions of the above lemma.  in consequence, the sum converges in $L^2(I\times\Omega)$ and also in $\mathbb{L}^2(I\times\Omega)$ . The commutation with the sum in Theorem [$1$](https://nowheredifferentiable.com/2022-05-29-Malliavin-Calculus-2/#:~:text=Theorem%201.%20Let,is) is now justified by using that Itô integration is a continuous (isometry) on $\left(\mathbb{L}^2(I\times\Omega),\norm{\cdot}\U{ L^2(I\times\Omega)}\right)$.
 
 # The Skorohod integral
 
@@ -198,7 +198,7 @@ Proof. By Itô's $n$-th isometry we have that
 An identical application of Itô's $n$-th ismoetry proves that
 
 
-**Proposition 2** (Skohorod's isometry). Given two stochastic processes $X(t),Y(t)\in L^2(\Omega,\mathcal{F}\U \infty)$ for all $t\in I$ with chaos expansion $X(t)=\sum_n I_n(f_n(\cdot,t))$ and $Y(t)=\sum_n I_n(g_n(\cdot,t))$, it holds that
+**Proposition 2** (Skohorod's isometry). Given two stochastic processes $X(t),Y(t)\in L^2(\Omega,\mathcal{F}\U \infty)$ for all $t\in I$ with chaos expansion $X(t)=\sum\U n I\U n(f\U n(\cdot,t))$ and $Y(t)=\sum\U n I\U n(g\U n(\cdot,t))$, it holds that
 <div>
  $$\langle \delta(X),\delta(Y)\rangle\U {L^2(\Omega)}=\sum\U {n=0}^{\infty} (n+1)!\langle f\U {n,S}, g\U {n,S}\rangle \U {L^2(I^{n+1})}<\infty.$$
 </div>  ◻
