@@ -51,7 +51,7 @@ Note that if $f$ is already symmetric then $f=f\U S$. Given a
 deterministic function we can transform it into a random one by
 taking its Itô integral. We will want to do this multiple times, this is permitted by the following lemma.
 
-**Lemma 0** Given $f\in L^2(S\U n)$  and any $m<n$, the integral
+**Lemma 0**. Given $f\in L^2(S\U n)$  and any $m<n$, the integral
 <div>
  $$\int\U {0}^{t\U m}\int\U {0}^{t\U 2} f(t\U 1,\ldots,t\U n)dW(t\U 1)\ldots dW(t\U {m-1}).$$
 </div>
