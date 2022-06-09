@@ -39,7 +39,7 @@ We will work with the spaces $L^2(I^n), L^2\U S(I^n),L^2(S\U n)$ of
 respectively square-integrable functions, symmetric square-integrable
 functions and square-integrable functions on
 <div>
- $$S\U n:=\{0\leq t\U 0\leq\ldots\leq t\U n\leq T\}.$$
+ $$S\U n:=\{0\leq t\U 1\leq\ldots\leq t\U n\leq T\}.$$
 </div>  Since these functions
 don't involve a random variable we call them deterministic. Given
 $f\in L^2(I^n)$ we denote its symmetrization by
