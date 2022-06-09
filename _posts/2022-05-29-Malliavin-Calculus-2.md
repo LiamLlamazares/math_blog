@@ -1,4 +1,4 @@
-L^2(I\times \Omega)---
+---
 layout: post
 title: The Skorohod integral
 subtitle: How does one generalize the Itô integral?
