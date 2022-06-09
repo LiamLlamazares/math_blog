@@ -1,4 +1,4 @@
----
+L^2(I\times \Omega)---
 layout: post
 title: The Skorohod integral
 subtitle: How does one generalize the Itô integral?
@@ -36,7 +36,7 @@ Our goal in this post is to construct the Skorohod integral. This serves
 as a generalization of the Itô integral and the starting point for the
 definition of the Malliavin derivative. How is this done? Let us first
 consider a (not-necessarily adapted) stochastic process $X$ such that
-$X(t)\in L^2(\Omega,\mathcal{F}\U \infty)$ for each $t \in I$. Then we know
+$X(t)\in L^2(\Omega,\mathcal{F}\U T)$ for each $t \in I$. Then we know
 that by the chaos expansion proved in the previous post, for each $t$
 there exists $f\U {n,t}\in L^2(S\U n)$ such that
 
@@ -47,13 +47,13 @@ there exists $f\U {n,t}\in L^2(S\U n)$ such that
 
  Let us write
 $f\U {n}(\cdot,t):=f\U {n,t}$. Note that we are now considering $f\U n$ as a
-function of $n+1$ variables instead of $n$. Furthermore, by approximating $f$ by smooth functions and using the [construction](https://nowheredifferentiable.com/2022-05-26-Malliavin-Calculus-1/#:~:text=g0%3D,and%20so%20on.) of $f\U n$, it is possible to show that $f\U n\in L^2(I^{n+1})$. In particular, we will be
+function of $n+1$ variables instead of $n$. Furthermore, by approximating $f$ by smooth functions and using the [construction](https://nowheredifferentiable.com/2022-05-26-Malliavin-Calculus-1/#:~:text=g0%3D,and%20so%20on.) of $f\U n$, it is possible to show that if we also impose that $X\in L^2(I\times \Omega,\mathcal{B}(I)\otimes \mathcal{F}\U T)$, then $f\U n\in L^2(I^{n+1})$. In particular, we will be
 able to consider expressions like $I\U {n+1}(f\U n)$ later on. The first
 thing we do is study what the adaptedness of $X$ means in term of the
 functions $f\U n$ appearing in its chaos expansion.
 
 
-**Lemma 1**. Let $X(t) \in L^2(\Omega,\mathcal{F}\U \infty)$ for each
+**Lemma 1**. Let $X(t) \in L^2(\Omega,\mathcal{F}\U T)$ for each
 $t \in I$, then $X$ is adapted iff
 
 
@@ -154,7 +154,7 @@ The last term appearing in the equality is what we will call the
 Skorohod integral.
 
 
-**Definition 1**. Let $X(t)\in L^2(\Omega,\mathcal{F}\U \infty)$ be a
+**Definition 1**. Let $X\in L^2(I\times \Omega)$ be a
 stochastic process such that
 
 
@@ -176,7 +176,7 @@ last post [1](https://liamllamazares.github.io/2022-05-26-Malliavin-Calculus-1/)
 
 
 **Proposition 1**. A stochastic process
-$X(t)\in L^2(\Omega,\mathcal{F}\U \infty)$ has a Skorohod integral iff
+$X\in L^2(I\times \Omega)$ has a Skorohod integral iff
 
 
 <div>
@@ -198,7 +198,7 @@ Proof. By Itô's $n$-th isometry we have that
 An identical application of Itô's $n$-th ismoetry proves that
 
 
-**Proposition 2** (Skohorod's isometry). Given two stochastic processes $X(t),Y(t)\in L^2(\Omega,\mathcal{F}\U \infty)$ for all $t\in I$ with chaos expansion $X(t)=\sum\U n I\U n(f\U n(\cdot,t))$ and $Y(t)=\sum\U n I\U n(g\U n(\cdot,t))$, it holds that
+**Proposition 2** (Skohorod's isometry). Given two stochastic processes $X(t),Y(t)\in X\in L^2(I\times \Omega,\mathcal{B}(I)\otimes \mathcal{F}\U t)$ for all $t\in I$ with chaos expansion $X(t)=\sum\U n I\U n(f\U n(\cdot,t))$ and $Y(t)=\sum\U n I\U n(g\U n(\cdot,t))$, it holds that
 <div>
  $$\langle \delta(X),\delta(Y)\rangle\U {L^2(\Omega)}=\sum\U {n=0}^{\infty} (n+1)!\langle f\U {n,S}, g\U {n,S}\rangle \U {L^2(I^{n+1})}<\infty.$$
 </div>  ◻
