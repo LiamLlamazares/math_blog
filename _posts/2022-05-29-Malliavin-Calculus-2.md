@@ -285,7 +285,7 @@ the chaos expansion of $X\cdot 1\U A$ is
 
 
 <div>
- $$X\cdot 1\U A=\sum\U {n=0}^{\infty} I\U {n}(\zl f\U n 1\U A\zr \U S).$$
+ $$X\cdot 1\U A=\sum\U {n=0}^{\infty} I\U {n}(f\U n 1\U A).$$
 </div>
 
  Which shows by
