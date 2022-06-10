@@ -22,7 +22,6 @@ tags: [Integration, Malliavin calculus, Skorohod integral, Chaos expansion, Itô
 # Why should I care?
 
 The Malliavin derivative is the adjoint operator of the Skorohod integral.
-integral.
 
 # Notation
 
