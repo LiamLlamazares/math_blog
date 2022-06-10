@@ -174,7 +174,7 @@ Itô integral for all stochastic processes in
 $\mathbb{L}^2(I\times\Omega)$. However, it may also be defined for
 non-adapted stochastic processes. In fact, by using the orthogonality of
 the iterated integrals (what we called Itô's $n$-th isometry in the
-last post [1](https://liamllamazares.github.io/2022-05-26-Malliavin-Calculus-1/), we deduce the following).
+last post [1](https://nowheredifferentiable.com/2022-05-26-Malliavin-Calculus-1/#:~:text=Proposition%201%20(It%C3%B4%E2%80%99s%20n%2Dth%20isometry).), we deduce the following).
 
 
 **Proposition 1**. A stochastic process
@@ -198,7 +198,7 @@ Proof. By Itô's $n$-th isometry we have that
 
   ◻
 
-An identical application of Itô's $n$-th ismoetry proves that
+An identical application of Itô's $n$-th isometry proves that
 
 
 **Proposition 2** (Skohorod's isometry). Given two stochastic processes $X,Y\in L^2(I\times \Omega)$ with chaos expansion $X(t)=\sum\U n I\U n(f\U n(\cdot,t))$ and $Y(t)=\sum\U n I\U n(g\U n(\cdot,t))$, it holds that
