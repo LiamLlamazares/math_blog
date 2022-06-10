@@ -130,7 +130,7 @@ sequence of functions $g\U n \in L^2(S\U n),f\U n \in L^2\U S(I^n)$ such that
 
 
 *Proof*. The proof is a bit technical but we sketch the main idea which
-is to iteratively apply [Itô's representation theorem(https://en.wikipedia.org/wiki/Martingale_representation_theorem) to get
+is to iteratively apply [Itô's representation theorem](https://en.wikipedia.org/wiki/Martingale_representation_theorem) to get
 <div>
  $$\begin{gathered}
             \xi=\mathbb{E}\zl \xi\zr +\int\U I X\U 1(t\U 1)dW(t\U 1)=\mathbb{E}\zl \xi\zr +\int\U {I} \mathbb{E}\zl X\U 1(t\U 1)\zr  dW(t\U 1)\\+ \int\U {I}\int\U {0}^{t\U 1} X\U 2(t\U 1,t\U 2) dW(t\U 2)dW(t\U 1)= \ldots=\sum\U {n=0}^{N}  J\U n(f\U n)+ \int\U {S\U {N+1}} X\U {N+1} dW^{\otimes(N+1)}.
