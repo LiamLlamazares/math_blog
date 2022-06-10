@@ -204,7 +204,7 @@ the Lemma $1$ gives that
 
 
 **Theorem 2** (Doob's maximal inequality). Let $p>1$ and let $E$ be a
-separable Banach space. If $M(t)\ in L^p (\Omega \to E)$, is a right-continuous $E$-valued
+separable Banach space. If $M(t)\in L^p (\Omega \to E)$, is a right-continuous $E$-valued
 $\mathcal{F}\U {t}$-martingale, then
 
 <div>
@@ -218,7 +218,7 @@ $\mathcal{F}\U {t}$-martingale, then
 
 
 
-*Proof*. This follows by using that $\norm{M(t)}$ is a sub-martingale
+*Proof*. This follows by using that $\norm{M(t)}$ is a real valued sub-martingale
 and Doob's maximal inequality. ◻
 
 
