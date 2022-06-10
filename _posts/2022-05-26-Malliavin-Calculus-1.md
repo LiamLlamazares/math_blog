@@ -37,7 +37,7 @@ notation
 </div>
 We will work with the spaces $L^2(I^n), L^2\U S(I^n),L^2(S\U n)$ of
 respectively square-integrable functions, symmetric square-integrable
-functions and square-integrable functions on
+functions, and finally square-integrable functions on
 <div>
  $$S\U n:=\{0\leq t\U 1\leq\ldots\leq t\U n\leq T\}.$$
 </div>  Since these functions
@@ -87,12 +87,12 @@ functions.
 
 Where it is important to note that the second equality is by definition
 and where the rescaling factor is motivated by the fact that, by
-counting permutations, if $I$ is finite then $\mu(I^n)=n! \mu(S\U n)$.
+counting permutations, if $I$ is finite then $\mu(I^n)=n! \mu(S\U n)$. Basde on Itô's isometry we can obtain a similar result for the just defined iterated integrals.
 
 
 **Proposition 1** (Itô's n-th isometry). Let $f,g\in L^2(S^n)$ then
 <div>
- $$\left\langle J\U n(f),J\U m(g)\right\rangle\U {L^2(\Omega)}=\left\langle f,g\right\rangle\U {L^2(S\U n)}\delta\U {nm}$$
+ $$\left\langle J\U n(f),J\U m(g)\right\rangle\U {L^2(\Omega)}=\left\langle f,g\right\rangle\U {L^2(S\U n)}\delta\U {nm}$$.
 </div>
 
 
@@ -123,7 +123,7 @@ $\norm{X}\U {L^2(I\times\Omega)}\leq \norm{\xi}\U {L^2(\Omega)}$.
 
 **Theorem 1** (Chaos expansion). Let
 $\xi\in L^2(\Omega,\mathcal{F}\U \infty)$, then there exists a unique
-sequence of functions $g\U n \in L^2(S\U n),f\U n \in L^2(I^n)$ such that
+sequence of functions $g\U n \in L^2(S\U n),f\U n \in L^2\U S(I^n)$ such that
 <div>
  $$\xi=\sum\U {n=0}^{\infty}  J\U n (g\U n);\quad \xi=\sum\U {n=0}^{\infty} I \U n (f\U n).$$
 </div>
