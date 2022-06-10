@@ -196,7 +196,7 @@ As a consequence, if $X\U t,t\in\zl 0,T\zr $ is left (or right) continuous then
 The idea of the above result is that since $X\U k$ is a submartingale,
 $X\U k\lesssim X\U {k+1}\lesssim...\lesssim X\U n$. Getting from the
 continuous to the discrete case is possible by using the continuity of
-$X$ and approximating it on some finer and finer mesh $t\U 0,...,t\U n$. For all the details see page $5$ of [2](http://math.bu.edu/people/prakashb/Math/continuous-time)
+$X$ and approximating it on some finer and finer mesh $t\U 0,...,t\U n$. For all the details see page $5$ of [2](http://math.bu.edu/people/prakashb/Math/continuous-time%20martingales.pdf)
 
 
 This said, applying Doob's maximal martingale inequality together with
@@ -296,7 +296,7 @@ so that for all $A\in\mathcal{F}\U s$
 
 
 This shows that $M$ is a martingale. Furthermore, as was seen in Proposition 2 of the
-previous post (1)[https://nowheredifferentiable.com/2022-05-27-The-Bochner-integral/#:~:text=have
+previous post [1](https://nowheredifferentiable.com/2022-05-27-The-Bochner-integral/#:~:text=have)
 
 
 <div>
