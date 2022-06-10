@@ -112,7 +112,7 @@ As a result we also get by a calculation that if $f,g\in L^2(I^n)$ then
 
 
 **Lemma 1** ([Itô's representation theorem](https://fabricebaudoin.wordpress.com/2012/09/23/lecture-23-itos-representation-theorem/)). Let
-$\xi\in L^2(\Omega,\mathcal{F}\U \infty)$, then there exists a unique
+$\xi\in L^2(\Omega,\mathcal{F}\U T)$, then there exists a unique
 $X(t)\in \mathbb{L}^2(I)$ such that
 <div>
  $$\xi=\mathbb{E}\zl \xi\zr +\int\U {I} X(t)dW(t).$$
@@ -122,7 +122,7 @@ $\norm{X}\U {L^2(I\times\Omega)}\leq \norm{\xi}\U {L^2(\Omega)}$.
 
 
 **Theorem 1** (Chaos expansion). Let
-$\xi\in L^2(\Omega,\mathcal{F}\U \infty)$, then there exists a unique
+$\xi\in L^2(\Omega,\mathcal{F}\U T)$, then there exists a unique
 sequence of functions $g\U n \in L^2(S\U n),f\U n \in L^2\U S(I^n)$ such that
 <div>
  $$\xi=\sum\U {n=0}^{\infty}  J\U n (g\U n);\quad \xi=\sum\U {n=0}^{\infty} I \U n (f\U n).$$
@@ -159,7 +159,3 @@ obtain $\phi\U \infty=0$. This proves the first sum of the theorem.\
 It remains to prove the second part, but this follows by extending the
 $g\U n$ by $0$ on $I^n\setminus S\U n$ and taking $f\U n$ to be the
 symmetrization of this extension. ◻
-
-
-A pdf of version of this page is provided below:
-<object data="/assets/Malliavin_Oksendal_Chapter_1.pdf" width="1000" height="1000" type='application/pdf'></object>
