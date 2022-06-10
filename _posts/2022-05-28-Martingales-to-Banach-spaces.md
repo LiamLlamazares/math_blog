@@ -140,16 +140,16 @@ with a $\geq$ (with a $\leq$). In the real case, the absolute value of a marting
 
 *Proof*. Let $e\U n$ be a countable dense subset of $E$. By Hahn Banach's theorem we may take $\ell\U n$ such that
 <div>
- $$\norm{\ell\U n}=1;\quad \norm{\ell\U n}(e\U n)=\norm{e \U n} \forall n\in \mathbb{N}.$$
+ $$\norm{\ell\U n}=1;\quad \norm{\ell\U n(e\U n)}=\norm{e \U n} \quad\forall n\in \mathbb{N}.$$
 </div>
-By now taking $e\U {n\U k} \to e$ we have that
+By density, we may take a sequence $e\U {n\U k} \to e$.  This gives,
 <div>
  $$\norm{\ell\U {n\U k}(e)}\geq\norm{\ell\U {n\U k}(e\U {n\U k})}-\norm{\ell\U {n\U k}(e-e\U {n\U k})}\geq \norm{e\U {n\U k}}-\norm{e-e\U {n\U k}}.$$
 </div>
 Taking limits we conclude that
 
 <div>
- $$\sup\U {n\in \mathbb{N}}\ell_n(e)\geq \lim\U {k\to\infty}\norm{l\U {n\U k}(e)}=\norm{e}.$$
+ $$\sup\U {n\in \mathbb{N}}\ell_n(e)\geq \lim\U {k\to\infty}\norm{\ell\U {n\U k}(e)}=\norm{e}.$$
 </div>
 Since the reverse inequality holds by definition of the norm on $E^\star$ this concludes the proof.  ◻
 
@@ -158,11 +158,11 @@ The crucial part of requiring $E$ to be separable is that the norm is a *countab
 $\mathbb{E}\U t$. Then, as in the real case, we have the following.
 
 
-**Lemma 2** (The norm of a martingale is submartingale). Let $M(t)$ be a martingale, then
+**Lemma 2**  Let $M(t)$ be a martingale, then
 $\norm{M(t)}$ is a submartingale.
 
-*Proof*. Let us take $\ell\U n$ as in Lemma 1. Then, by the
-linearity of the integral,
+*Proof*. Let us take $\ell\U n$ as in Lemma 1. Then, since $M$ is a martingale, and by the
+linearity of the integral
 <div>
  $$
     \|M(s)\|=\|\mathbb{E}\U {s}\zl M(t)\zr \|= \sup\U {n\in \mathbb{N}} \ell \U n\left(\mathbb{E}\U {s}\zl M(t)\zr \right)=\sup\U {n\in \mathbb{N}}\|{\mathbb{E}\U {s}\left[ \ell \U n(M(t))\right] \|}
@@ -196,7 +196,7 @@ As a consequence, if $X\U t,t\in\zl 0,T\zr $ is left (or right) continuous then
 The idea of the above result is that since $X\U k$ is a submartingale,
 $X\U k\lesssim X\U {k+1}\lesssim...\lesssim X\U n$. Getting from the
 continuous to the discrete case is possible by using the continuity of
-$X$ and approximating it on some finer and finer mesh $t\U 0,...,t\U n$. For all the details see page $5$ of [2](http://math.bu.edu/people/prakashb/Math/continuous-time
+$X$ and approximating it on some finer and finer mesh $t\U 0,...,t\U n$. For all the details see page $5$ of [2](http://math.bu.edu/people/prakashb/Math/continuous-time)
 
 
 This said, applying Doob's maximal martingale inequality together with
