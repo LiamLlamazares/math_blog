@@ -197,10 +197,11 @@ Proof. By Itô's $n$-th isometry we have that
 </div>
 
   ◻
+
 An identical application of Itô's $n$-th ismoetry proves that
 
 
-**Proposition 2** (Skohorod's isometry). Given two stochastic processes $X(t),Y(t)\in X\in L^2(I\times \Omega,\mathcal{B}(I)\otimes \mathcal{F}\U t)$ for all $t\in I$ with chaos expansion $X(t)=\sum\U n I\U n(f\U n(\cdot,t))$ and $Y(t)=\sum\U n I\U n(g\U n(\cdot,t))$, it holds that
+**Proposition 2** (Skohorod's isometry). Given two stochastic processes $X,Y\in L^2(I\times \Omega)$ with chaos expansion $X(t)=\sum\U n I\U n(f\U n(\cdot,t))$ and $Y(t)=\sum\U n I\U n(g\U n(\cdot,t))$, it holds that
 <div>
  $$\langle \delta(X),\delta(Y)\rangle\U {L^2(\Omega)}=\sum\U {n=0}^{\infty} (n+1)!\langle f\U {n,S}, g\U {n,S}\rangle \U {L^2(I^{n+1})}<\infty.$$
 </div>  ◻
