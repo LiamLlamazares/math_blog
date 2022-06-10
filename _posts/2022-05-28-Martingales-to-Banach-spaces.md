@@ -236,7 +236,7 @@ a separable Banach space $E$. Then the following are equivalent
 
 -  $\mathbb{E}\zl \norm{M(T)}^2\zr <\infty$.
 
-Where we recall from the previous post that $\hat{L}^p$ symbolizes that
+Where we recall from the previous [post](https://nowheredifferentiable.com/2022-05-27-The-Bochner-integral/#:~:text=is%20separable.-,Definition%202.%20For,-1%E2%89%A4p) that $\hat{L}^p$ symbolizes that
 $M$ may not be separately valued and only have an integrable norm. That
 said, the same reasoning shows that the above result also holds for the
 integrable $L^p$ spaces.

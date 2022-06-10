@@ -82,7 +82,7 @@ $f$ is measurable $f(\Omega)$ is separable.
 <div>
  $$\begin{aligned}
         \mathcal{L}^p(\Omega,\mathcal{F},\mu,E)       & =\left\{f:\Omega\to X: f \text{ is strongly measurable and } \int \norm{f}^p d\mu<\infty\right\}. \\
-        \hat{\mathcal{L}}^p(\Omega,\mathcal{F},\mu,E) & =\left\{f:\Omega\to X: \int \norm{f}^p d\mu<\infty\right\}.
+        \hat{\mathcal{L}}^p(\Omega,\mathcal{F},\mu,E) & =\left\{f:\Omega\to X: f \text{ is measurable and }\int \norm{f}^p d\mu<\infty\right\}.
     \end{aligned}$$
 </div>
 We also define the semi-norms
@@ -109,7 +109,7 @@ $L^p(\Omega\to E),\hat{L}^p(\Omega\to E)$ are Banach spaces.
 
 
 
-Proof. The proof is identical in both cases so we prove it only for
+*Proof*. The proof is identical in both cases so we prove it only for
 $f\in L^p(\Omega\to E)$ It suffices to show that if $f\U n$ is such that
 <div>
  $$\sum\U {n=1}^\infty \norm{f\U n}\U {L^p(\Omega\to E)}<\infty.$$
@@ -153,7 +153,7 @@ exists a subsequence $f\U {n\U k}$ converging to $f$ almost everywhere.
 
 
 
-Proof. In the proof of the above proposition we saw that for any
+*Proof*. In the proof of the above proposition we saw that for any
 absolutely convergent sum converges almost everywhere to its limit.
 Further, since $f\U n$ is Cauchy, we can extract a subsequence $f\U {n\U k}$
 with $\|f\U {n\U k}-f\U {n\U {k-1}}\|\leq 2^{-k}$. By construction the sequence
@@ -179,7 +179,7 @@ each $\omega\in\Omega$
 
 
 
-Proof. Consider a countable dense subset $\{e\U k\}\U {k=1}^\infty$ of
+*Proof*. Consider a countable dense subset $\{e\U k\}\U {k=1}^\infty$ of
 $f(\Omega)$. Now define $\varphi:E\to E$
 <div>
  $$\varphi\U n(e):= e\U j \text{ where }  d(e\U j,e)=\min\U {1\leq m\leq n} d(e,e\U m).$$
@@ -205,7 +205,7 @@ of simple functions.
 
 
 
-Proof. Since $f$ is strongly measurable, we can apply the above lemma
+*Proof*. Since $f$ is strongly measurable, we can apply the above lemma
 to obtain a sequence of simple functions $f\U n$ converging pointwise and
 monotonically to $f$. Furthermore we have that, by the monotone
 convergence theorem for integrals in $\mathbb{R}$,
