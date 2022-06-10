@@ -51,7 +51,7 @@ function of $n+1$ variables instead of $n$. Furthermore, if we also impose that 
 <div>
  $$X_k(t,\omega)=\sum_{i=1}^{N_k} a_i^{(k)}(t) b^{(k)}_i(\omega),$$
 </div>
- and using the [construction](https://nowheredifferentiable.com/2022-05-26-Malliavin-Calculus-1/#:~:text=g0%3D,and%20so%20on.) of $f\U n$, it is possible to show that $f\U n\in L^2(I^{n+1})$. In particular, we will be
+ and using the linearity of $f\U n$, one can to show that $f\U n\in L^2(I^{n+1})$. In particular, we will be
 able to consider expressions like $I\U {n+1}(f\U n)$ later on. The first
 thing we do is study what the adaptedness of $X$ means in term of the
 functions $f\U n$ appearing in its chaos expansion.
