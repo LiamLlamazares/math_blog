@@ -208,8 +208,7 @@ An identical application of Itô's $n$-th ismoetry proves that
 
 
 
-Of course, a priori the condition of Proposition $1$ is not that easy to check for a
-given process as it involves calculating the chaos expansion for the
+Of course, a priori the condition of Proposition $1$ is not that easy to check, as it involves calculating the chaos expansion for the
 given process $X$. In some cases, however, it is possible. Consider for
 example the stochastic process defined by $X(t)=W(T)$ on the interval
 $I=\zl 0,T\zr $. Then we have that
