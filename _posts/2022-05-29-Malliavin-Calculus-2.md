@@ -21,7 +21,7 @@ tags: [Integration, Malliavin calculus, Skorohod integral, Chaos expansion, Itô
 
 # Why should I care?
 
-If you want to define the Malliavin derivative you need the Skorohod
+The Malliavin derivative is the adjoint operator of the Skorohod integral.
 integral.
 
 # Notation
@@ -47,9 +47,9 @@ there exists $f\U {n,t}\in L^2(S\U n)$ such that
 
  Let us write
 $f\U {n}(\cdot,t):=f\U {n,t}$. Note that we are now considering $f\U n$ as a
-function of $n+1$ variables instead of $n$. Furthermore, if we also impose that $X\in L^2(I\times \Omega,\mathcal{B}(I)\otimes \mathcal{F}\U T)$.  Then by approximating $X$ by an increasing sequence of functions of the form 
+function of $n+1$ variables instead of $n$. Furthermore, if we also impose that $X\in L^2(I\times \Omega,\mathcal{B}(I)\otimes \mathcal{F}\U T)$.  Then by approximating $X$ by an increasing sequence of functions of the form
 <div>
- $$X_k(t,\omega)=\sum_{i=1}^{N_k} a_i(t) b_i(\omega),$$
+ $$X_k(t,\omega)=\sum_{i=1}^{N_k} a_i^{(k)}(t) b^{(k)}_i(\omega),$$
 </div>
  and using the [construction](https://nowheredifferentiable.com/2022-05-26-Malliavin-Calculus-1/#:~:text=g0%3D,and%20so%20on.) of $f\U n$, it is possible to show that $f\U n\in L^2(I^{n+1})$. In particular, we will be
 able to consider expressions like $I\U {n+1}(f\U n)$ later on. The first
