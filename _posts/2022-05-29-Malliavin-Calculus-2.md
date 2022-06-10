@@ -51,7 +51,7 @@ function of $n+1$ variables instead of $n$. Furthermore, if we also impose that 
 <div>
  $$X_k(t,\omega)=\sum_{i=1}^{N_k} a_i^{(k)}(t) b^{(k)}_i(\omega),$$
 </div>
- and using the linearity of $f\U n$, one can to show that $f\U n\in L^2(I^{n+1})$. In particular, we will be
+ and using the linearity of $I\U n$, one can to show that $f\U n\in L^2(I^{n+1})$. In particular, we will be
 able to consider expressions like $I\U {n+1}(f\U n)$ later on. The first
 thing we do is study what the adaptedness of $X$ means in term of the
 functions $f\U n$ appearing in its chaos expansion.
@@ -76,7 +76,7 @@ Proof. Firstly, we note that a stochastic process $X$ is adapted iff
  $$X(t)=\mathbb{E}\U {\mathcal{F}\U t}\zl X(t)\zr \quad\forall t\in I.$$
 </div>
 
- By commuting the sum （which we recall converges in $L^2(\Omega)$ and thus also in $L^1(\Omega)$) and
+ By commuting the sum (which we recall converges in $L^2(\Omega)$ and thus also in $L^1(\Omega)$) and
 using the uniqueness of the chaos expansion this is equivalent to
 requiring that, for all $t$
 
@@ -87,9 +87,7 @@ requiring that, for all $t$
   \end{gathered}$$
 </div>
 Where in the second equality we used that the
-Itô integral is a martingale where the commutation of the sum and the integral
-is justified by the $L^2(\Omega)$ convergence of the chaos expansion
-($L^1(\Omega)$ convergence would have been enough). ◻
+Itô integral is a martingale. ◻
 
 
 In particular, we obtain that, since $f\U n$ is already symmetric in its
@@ -129,7 +127,7 @@ Proof. This is a direct calculation using the previous result as
 
   ◻
 
-In the above theorem we commuted the sum with the *Itô integral* (note the difference with the commutation in Lemma 1). We didn't completely justify this, we do so now.
+In the above theorem we commuted the sum with the *Itô integral* (note the difference with the commutation in [Lemma 1](https://nowheredifferentiable.com/2022-05-29-Malliavin-Calculus-2/#:~:text=By%20commuting%20the%20sum)). We didn't completely justify this, we do so now.
 
 
 **Lemma 3** Consider $X\U n\in L^2(I \times \Omega)$ such that for each $t\in I$ we have the convergence
