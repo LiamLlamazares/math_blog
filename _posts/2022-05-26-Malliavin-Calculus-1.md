@@ -13,7 +13,7 @@ based on the book by Oksendal and Nunno [1](https://link.springer.com/book/10.10
 
 # Three line summary
 
--   square-integrable deterministic functions of multiple variables
+-   Square-integrable deterministic functions of multiple variables
     can be iteratively Itô integrated to get a square-integrable random
     function.
 
@@ -24,7 +24,7 @@ based on the book by Oksendal and Nunno [1](https://link.springer.com/book/10.10
 
 # Why this is important
 
-The chaos expansion gives us a way to represent random variables as a sum of functions in $L^2$. This representation can be used to define the [Skorohod integral](https://liamllamazares.github.io/2022-05-29-Malliavin-Calculus-2/) and later on the Malliavin derivative.
+The chaos expansion gives us a way to represent random variables as a sum of functions in $L^2$. This representation can be used to define the [Skorohod integral](https://nowheredifferentiable.com/2022-06-10-Malliavin-Calculus-2/) and later on the Malliavin derivative.
 
 ## Iterated integrals
 
@@ -57,7 +57,7 @@ taking its Itô integral. We will want to do this multiple times, this is permit
 </div>
 is in $\mathbb{L}^2(I\times\Omega)$ as a function of $t\U m$.
 
-Proof. The proof can be seen by verifying the above property for smooth functions $f \in C\U c^\infty(S\U n)$ and taking limits as $C\U c^\infty(S\U n)$  is dense in $L^2(S\U n)$ and measurability is preserved by limits. ◻
+*Proof*. The proof can be seen by verifying the above property for smooth functions $f \in C\U c^\infty(S\U n)$ and taking limits as $C\U c^\infty(S\U n)$  is dense in $L^2(S\U n)$ and measurability is preserved by limits. ◻
 
 We can now define, the following
 
@@ -97,7 +97,7 @@ counting permutations, if $I$ is finite then $\mu(I^n)=n! \mu(S\U n)$.
 
 
 
-Proof. The proof is an application of Itô's (product) isometry to move
+*Proof*. The proof is an application of Itô's (product) isometry to move
 the expectation into the iterated integrals. If the number of integrals
 is unequal ($n\neq m$) you get the expectation of an Itô integral which
 is zero. Otherwise, you just get the (deterministic) inner product. ◻
@@ -129,7 +129,7 @@ sequence of functions $g\U n \in L^2(S\U n),f\U n \in L^2(I^n)$ such that
 </div>
 
 
-Proof. The proof is a bit technical but we sketch the main idea which
+*Proof*. The proof is a bit technical but we sketch the main idea which
 is to iteratively apply Itô's representation theorem to get
 <div>
  $$\begin{gathered}
