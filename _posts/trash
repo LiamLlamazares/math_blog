@@ -17,4 +17,7 @@ Where the above is viewed as a function of $t\U 3$. Iterating this process
 we get that $F\U n \in \mathcal{M}\U T^2$ and
 <div>
  $$J\U n(f)=\int\U I F\U n(t\U n)dW(t\U 2) \in L^2(\Omega).$$
-</div>  
+</div>
+
+A pdf of version of this page is provided below:
+<object data="/assets/Skorohod.pdf" width="1000" height="1000" type='application/pdf'></object>

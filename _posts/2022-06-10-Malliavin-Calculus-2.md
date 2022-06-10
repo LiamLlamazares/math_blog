@@ -298,5 +298,3 @@ previously proved linearity. ◻
 We now know what the Skorohod expansion is, how to characterize it, and
 its main properties. In the next post, we will construct the Malliavin
 derivative as its adjoint.
-A pdf of version of this page is provided below:
-<object data="/assets/Skorohod.pdf" width="1000" height="1000" type='application/pdf'></object>

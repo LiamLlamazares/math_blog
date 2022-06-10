@@ -39,7 +39,7 @@ conditional expectation $\mathbb{E}\U {\mathcal{G}}\zl X\zr $ verifying that
 </div>
 
 
-Of course, now that we have created an integral for the space of random
+Of course, now that we have [created](https://nowheredifferentiable.com/2022-05-27-The-Bochner-integral/) an integral for the space of random
 variables $L^1(\Omega\to E)$ to some Banach space $E$, we would like to see
 whether such a conditional expectation also exists for these functions.
 To start with, if we are given a simple function
@@ -57,7 +57,7 @@ a simple calculation to show that
 </div>
 
 
-verifies the desired formula (we note that, since $1\U {A\U k}$ are real-valued, $\mathbb{E}\U {\mathcal{G}}\zl 1\U {A\U k}\zr $ are well defined). Furthermore, we have that
+verifies the desired [formula](https://nowheredifferentiable.com/2022-05-28-Martingales-to-Banach-spaces/#:~:text=%5BX%5D-,verifying%20that,-%E2%88%AB) (we note that, since $1\U {A\U k}$ are real-valued, so $\mathbb{E}\U {\mathcal{G}}\zl 1\U {A\U k}\zr $ are well defined). Furthermore, we have that
 $\mathbb{E}\U \mathcal{G}$ is a linear, and pointwise continuous operator
 with
 
@@ -83,19 +83,19 @@ conditional expectation satisfying
 
 
 
-Proof. We have already proved the above inequality for simple
-processes. By the previous post, [1](https://liamllamazares.github.io/2022-05-27-The-Bochner-integral/) we can take $X\U n$ converging
+*Proof*. We have already proved the above inequality for simple
+processes. By the previous post, [1](https://nowheredifferentiable.com/2022-05-27-The-Bochner-integral/#:~:text=Proposition%203.%20Every,of%20simple%20functions.) we can take $X\U n$ converging
 to $X$ in $L^1(\Omega\to E)$ to obtain that
 
 <div>
  $$
-    \|\mathbb{E}\U {\mathcal{G}}\zl X\U n-X\U m\zr \|\leq\mathbb{E}\U {\mathcal{G}}\left[ \|X\U n-X\U m\|\right] \implies \mathbb{E}\zl \|\mathbb{E}\U {\mathcal{G}}\zl X\U n\zr -\mathbb{E}\U {\mathcal{G}}\zl X\U m\zr \|\zr \leq \mathbb{E}\left[ \|X\U n-X\U m\|\right] \to 0
+    \|\mathbb{E}\U {\mathcal{G}}\zl X\U n-X\U m\zr \|\leq\mathbb{E}\U {\mathcal{G}}\left[ \|X\U n-X\U m\|\right] \implies \mathbb{E}\zl \|\mathbb{E}\U {\mathcal{G}}\zl X\U n\zr -\mathbb{E}\U {\mathcal{G}}\zl X\U m\zr \|\zr \leq \mathbb{E}\left[ \|X\U n-X\U m\|\right] \to 0.
   $$
 </div>
 
  As a result, $\mathbb{E}\U {\mathcal{G}}\zl X\U n\zr $ is a
-Cauchy sequence in the complete space $L^1(\Omega\to E)$ and so converges to some function
-$Z$, passing to the limit in the defining equation for the conditional
+Cauchy sequence in the complete space $L^1(\Omega\to E)$, and so converges to some function
+$Z$. Now passing to the limit in the defining [equation](https://nowheredifferentiable.com/2022-05-28-Martingales-to-Banach-spaces/#:~:text=%5BX%5D-,verifying%20that,-%E2%88%AB) for the conditional
 expectation shows that $Z=\mathbb{E}\U \mathcal{G}\zl X\zr $. Finally, to prove
 uniqueness we have that if both $Z\U 1, Z\U 2$ satisfy
 
@@ -105,7 +105,7 @@ uniqueness we have that if both $Z\U 1, Z\U 2$ satisfy
 </div>
 
  Then
-using the linearity of the integral we obtain that $w(Z\U 1)=w(Z\U 2)$ for
+using the [linearity of the Bochner integral](https://nowheredifferentiable.com/2022-05-27-The-Bochner-integral/#:~:text=%E2%80%96d%CE%BC-,Let,be%20another%20Banach%20space,-and) we obtain that $w(Z\U 1)=w(Z\U 2)$ for
 all linear function $w$, so $Z\U 1=Z\U 2$. ◻
 
 
@@ -113,12 +113,12 @@ all linear function $w$, so $Z\U 1=Z\U 2$. ◻
 
 Okay, so we leveraged some inequalities to prove the existence of a
 conditional expectation. This done, the following definition, which mimics
-the real case, is quite natural
+the real case, is quite natural.
 
 
-**Definition 1**. Let ${M(t)}\U {t\in I}$, be a stochastic process on
+**Definition 1**. Let $\\{M(t)\\}\U {t\in I}$, be a stochastic process on
 $(\Omega, \mathcal{F}, \mathbb{P})$ with a filtration
-${\mathcal{F}\U {t}}\U {t \in I}$. The process $M$ is called an
+$\\{\mathcal{F}\U {t}\\}\U {t \in I}$. The process $M$ is called an
 $\mathcal{F}\U {t}$-martingale, if:
 
 1. $M(t)\in L^1(\Omega\to E)$ for all $t\in I$
@@ -138,7 +138,7 @@ with a $\geq$ (with a $\leq$). In the real case, the absolute value of a marting
  $$\norm{e}=\sup\U {n\in \mathbb{N}}\ell_n(e)\quad\forall e\in E.$$
 </div>
 
-Proof. Let $e\U n$ be a countable dense subset of $E$. By Hahn Banach's theorem we may take $\ell\U n$ such that
+*Proof*. Let $e\U n$ be a countable dense subset of $E$. By Hahn Banach's theorem we may take $\ell\U n$ such that
 <div>
  $$\norm{\ell\U n}=1;\quad \norm{\ell\U n}(e\U n)=\norm{e \U n} \forall n\in \mathbb{N}.$$
 </div>
@@ -161,7 +161,7 @@ $\mathbb{E}\U t$. Then, as in the real case, we have the following.
 **Lemma 2** (The norm of a martingale is submartingale). Let $M(t)$ be a martingale, then
 $\norm{M(t)}$ is a submartingale.
 
-Proof. Let us take $\ell\U n$ as in Lemma 1. Then, by the
+*Proof*. Let us take $\ell\U n$ as in Lemma 1. Then, by the
 linearity of the integral,
 <div>
  $$
@@ -218,7 +218,7 @@ $\mathcal{F}\U {t}$-martingale, then
 
 
 
-Proof. This follows by using that $\norm{M(t)}$ is a sub-martingale
+*Proof*. This follows by using that $\norm{M(t)}$ is a sub-martingale
 and Doob's maximal inequality. ◻
 
 
@@ -281,7 +281,7 @@ $\mathcal{M}\U T^2(E)$ is a Banach (Hilbert) space.
 
 
 
-Proof. Let us first consider the case when $E$ is a Banach space. By the previous observation and the completeness of the
+*Proof*. Let us first consider the case when $E$ is a Banach space. By the previous observation and the completeness of the
 $\hat{L}^p$ spaces proved in the previous post, $\mathcal{M}\U T^2(E)$ is
 a subspace of a Hilbert space. As a result, it is sufficient to show
 that it is closed. Let $M\U n$ converge to $M \in \hat{L}^2(\Omega\to L^\infty(\zl 0,T\zr \to E))$. Then, by the equivalence
