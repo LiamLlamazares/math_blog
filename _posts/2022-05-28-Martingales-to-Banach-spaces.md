@@ -272,7 +272,7 @@ By Theorem $2$ we have that
 </div>
 
 
-and that any of the norms of these spaces is equivalent to the one set
+And that any of the norms of these spaces is equivalent to the one set
 on $\mathcal{M}\U T^2(E)$. This is useful in the following result
 
 
