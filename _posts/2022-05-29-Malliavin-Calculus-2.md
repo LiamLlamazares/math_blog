@@ -78,7 +78,7 @@ Proof. Firstly, we note that a stochastic process $X$ is adapted iff
 
  By commuting the sum (which we recall converges in $L^2(\Omega)$ and thus also in $L^1(\Omega)$) and
 using the uniqueness of the chaos expansion this is equivalent to
-requiring that, for all $t$
+requiring that, for all $t\in I$,
 
 <div>
  $$\begin{gathered}
@@ -148,7 +148,7 @@ Proof. We have that
 Where in the commutation of the limit with the $L^2(I)$ norm we used the bounded convergence theorem, which we may apply as the sum of $X\U n$ is normally convergent by hypothesis.
   ◻
 
-Let us now set $X\U n(t):=I \U n(f\U {n,t})$. We already noted that $f\U n \in L^2(I^{n+1})$. Thus, as we showed in the [first post of the series](https://nowheredifferentiable.com/2022-05-26-Malliavin-Calculus-1/#:~:text=the%20following%20lemma.-,Lemma%200%20Given,-f%E2%88%88), $I\U n(f\U n)$ is in $\mathbb{L}^2(I\times \Omega)$. As a result, by Itô's $n$-th isometry this sequence meets the conditions of the above lemma.  in consequence, the sum converges in $L^2(I\times\Omega)$ and also in $\mathbb{L}^2(I\times\Omega)$ . The commutation with the sum in Theorem [$1$](https://nowheredifferentiable.com/2022-05-29-Malliavin-Calculus-2/#:~:text=Theorem%201.%20Let,is) is now justified by using that Itô integration is a continuous (isometry) on $\left(\mathbb{L}^2(I\times\Omega),\norm{\cdot}\U{ L^2(I\times\Omega)}\right)$.
+Let us now set $X\U n(t):=I \U n(f\U {n,t})$. We already noted that $f\U n \in L^2(I^{n+1})$. Thus, as we showed in the [first post of the series](https://nowheredifferentiable.com/2022-05-26-Malliavin-Calculus-1/#:~:text=Lemma%200.%20Given,Sn)), $I\U n(f\U n)$ is in $\mathbb{L}^2(I\times \Omega)$. As a result, by Itô's $n$-th isometry this sequence meets the conditions of the above lemma.  in consequence, the sum converges in $L^2(I\times\Omega)$ and also in $\mathbb{L}^2(I\times\Omega)$ . The commutation with the sum in Theorem [$1$](https://nowheredifferentiable.com/2022-05-29-Malliavin-Calculus-2/#:~:text=Theorem%201.%20Let,is) is now justified by using that Itô integration is a continuous (isometry) on $\left(\mathbb{L}^2(I\times\Omega),\norm{\cdot}\U{ L^2(I\times\Omega)}\right)$.
 
 # The Skorohod integral
 
