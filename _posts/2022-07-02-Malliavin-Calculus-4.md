@@ -265,14 +265,6 @@ terms of convergence of the series
         (n + 1)! \norm{{f}\U {n,S}}\U {L^2(\zl 0, T\zr ^{n + 1})}^2,$$
 </div>
 
-  where
-$f\U n(\cdot, t)$ are the components of the chaos expansion of $X$. Since
-$X^N \to X$ strongly in $L^2$, and each $X^N$ is Skorokohod integrable,
-the components of their chaos expansions must satisfy the above
-condition, and we can take limits.
-
-Let $Z \in \mathbb{D}^{1, 2}$. Then by adjointness,
-
 
 
 
