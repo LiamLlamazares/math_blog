@@ -29,7 +29,7 @@ $X(\omega + \gamma) - X(\omega)$. Formally, $\nabla{X}$ satisfies
 <div>
  $$X(\omega + \gamma)
     = X(\omega)
-    + \left\langle{\nabla{X}(\omega), \gamma\right\rangle}
+    + \langle{\nabla{X}(\omega), \gamma\rangle}
     + \mathrm{o}(\norm{\gamma}\U {C\U 0(\zl 0, T\zr )}).$$
 </div>
 
@@ -74,7 +74,7 @@ $DX(\omega) \in L^2(\zl 0, T\zr )$ such that
 
 
 <div>
- $$\left\langle{\nabla{X}(\omega), \int\U 0^\cdot \psi \, \mathop{}\!\mathrm{d}{t}\right\rangle}
+ $$\langle{\nabla{X}(\omega), \int\U 0^\cdot \psi \, \mathop{}\!\mathrm{d}{t}\rangle}
     = \left({\int\U 0^\cdot D\U t{X}(\omega) \, \mathop{}\!\mathrm{d}{t},
     \int\U 0^\cdot \psi \, \mathop{}\!\mathrm{d}{t}}\right)\U H
     = \int\U 0^T D\U t{X}(\omega) \psi(t) \, \mathop{}\!\mathrm{d}{t}.$$
@@ -229,8 +229,8 @@ symmetric, and apply Fubini's theorem. ◻
 **Remark 2**. The symbol $\delta$ is often used for a divergence-like
 operator in Hodge theory. The analogy with our case is that in the Hodge
 situation, $\delta$ is defined via a duality formula which looks like
-$\left\langle{d{\alpha},
-            \beta\right\rangle} = \left\langle{\alpha, \delta{\beta}\right\rangle}$, where $d$ is the
+$\langle{d{\alpha},
+            \beta\rangle} = \langle{\alpha, \delta{\beta}\rangle}$, where $d$ is the
 exterior derivative on differential forms. Indeed, even in vector
 calculus, the negative of the divergence is in some sense adjoint to the
 gradient:
