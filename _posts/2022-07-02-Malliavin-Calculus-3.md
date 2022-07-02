@@ -28,7 +28,7 @@ numerical methods, and optimal control.
 
 # Notation
 
-The same as in previous posts. Furthermore we will shorten the notation
+The same as in previous [posts](https://nowheredifferentiable.com/2022-05-26-Malliavin-Calculus-1/#:~:text=Iterated%20integrals-,We%20will%20write,-F). Furthermore we will shorten the notation
 $L^2(\Omega,\mathcal{F}\U T)$ and
 $L^2(I\times\Omega,\mathcal{B}(I)\otimes \mathcal{F}\U T)$ to
 $L^2(\Omega)$ and $L^2(I\times\Omega)$ respectively.
@@ -140,7 +140,7 @@ follows from the fact that
 
 So $\|X\|\U {\mathbb{D}\U {1,2}}=0$ if and only if $f\U n=0$ for all
 $n\geq 1$, which in turn is equivalent to $X=I\U 0(f\U 0):=f\U 0$. Where we
-recall that by convention $L^2\U {S}(I^0):={\mathbb R}$ and $I\U 0$ was
+recall that by convention $L^2\U (S_0):={\mathbb R}$ and $I\U 0$ was
 defined as the identity on ${\mathbb R}$. This concludes the proof. ◻
 
 

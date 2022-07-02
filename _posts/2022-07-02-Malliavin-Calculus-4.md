@@ -9,7 +9,6 @@ authorpost: B. Summers
 ---
 
 # The Malliavin derivative as a Fréchet derivative
-Another test
 Let $C\U 0(\zl 0, T\zr )$ be the Banach space of all
 continuous functions $f \colon \zl 0,
         T\zr  \to \mathbb{R}$ such that $f(0) = 0$. On this space, we can
