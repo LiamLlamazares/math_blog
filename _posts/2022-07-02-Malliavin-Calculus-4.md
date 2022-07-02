@@ -294,57 +294,11 @@ sides and using adjointness on the limiting objects gives us
 $\mathbb{D}^{1, 2}$ is dense in $L^2(\Omega)$, we see that $Y =
         \delta{X}$ a.s., as required. ◻
 
-        remark
-        **Remark 4**. Perhaps a more intuitive way to say the Skorokhod integral
-        is "closable" in the book's words is that it is sequentially continuous
-        as a map $D(\delta) \subseteq L^2(\zl 0,T\zr \times\Omega) \to L^2(\Omega)$
-        with respect to the strong $L^2$ topology in its domain and weak $L^2$
-        topology in its codomain.
-
-
-
-        **Theorem 5**. Let $X \in L^2(\zl 0,T\zr \times\Omega)$ be a Skorokhod
-        integrable random process, and let $Y \in \mathbb{D}^{1, 2}$ be such
-        that $FX$ is also Skorokhod integrable. Then
-
-
-        <div>
-        $$Y \int\U 0^T X\U t \, \delta{W}\U t
-               = \int\U 0^T Y X\U t \, \delta{W}\U t + \int\U 0^T D\U t Y X\U t \, \mathop{}\!\mathrm{d}{t}$$
-        </div>
-
-
-        almost surely.
-
-
-
-        Proof. Suppose $Y$ has finite chaos expansion, and choose some
-        $Z \in \mathbb{D}^{1, 2}$ also with finite chaos expansion. Then by
-        adjointness and the product rule,
-
-        <div>
-        $$\begin{aligned}
-               \mathbb{E}\brackets{
-                   Z \int\U 0^T Y X\U t \, \delta{W}\U t
-               }
-                & = \mathbb{E}\brackets{
-               \int\U 0^T D\U t{Z} Y X\U t \, \mathop{}\!\mathrm{d}{t}
-               }                    \\
-                & = \mathbb{E}\brackets{
-               \int\U 0^T (D\U t(YZ) - Z D\U t{Y}) X\U t \, \mathop{}\!\mathrm{d}{t}
-               }                    \\
-                & = \mathbb{E}\brackets{
-                   YZ \int\U 0^T X\U t \, \delta{W}\U t
-               } - \mathbb{E}\brackets{
-               Z \int\U 0^T D\U t{Y} X\U t \, \mathop{}\!\mathrm{d}{t}
-               }.
-           \end{aligned}$$
-        </div>
-
-         Since the set of all test functions
-        $Z \in \mathbb{D}^{1, 2}$ with finite chaos expansion is dense in
-        $L^2(\Omega)$, we conclude the result for $Y$ with finite chaos
-        expansion. For general $Y$, we approximate. ◻
+**Remark 4**. Perhaps a more intuitive way to say the Skorokhod integral
+is "closable" in the book's words is that it is sequentially continuous
+as a map $D(\delta) \subseteq L^2(\zl 0,T\zr \times\Omega) \to L^2(\Omega)$
+with respect to the strong $L^2$ topology in its domain and weak $L^2$
+topology in its codomain.
 
 
 
