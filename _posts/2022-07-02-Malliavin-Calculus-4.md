@@ -26,7 +26,6 @@ the best linear approximation to the difference
 $X(\omega + \gamma) - X(\omega)$. Formally, $\nabla{X}$ satisfies
 
 
-
 <div>
  $$X(\omega + \gamma)
     = X(\omega)
@@ -202,44 +201,44 @@ chaos expansion of $Y$. Then
     \end{aligned}$$
 </div>
 
-Finally, by definition of the symmetrization,
+  Finally, by definition of the symmetrization,
 
 
 <div>
-$$\begin{aligned}
-      (g\U n, f\U {n - 1,S})\U {L^2(\zl 0, T\zr ^n)}
-       & = \int\U {\zl 0, T\zr ^n}
-      g\U n(t\U 1, \dots, t\U n)
-      \frac{1}{n} \sum\U {k = 1}^n
-      f(t\U 1, \dots, t\U {k - 1}, t\U n, t\U {k + 1}, \dots, t\U {n - 1}, t\U k)
-      \, \mathop{}\!\mathrm{d}{t\U 1} \cdots \mathop{}\!\mathrm{d}{t\U n}                       \\
-       & = \frac{1}{n} \sum\U {k = 0}^n \int\U {\zl 0, T\zr ^n}
-      g\U n(t\U 1, \dots, t\U n)
-      f\U {n - 1}(t\U 1, \dots, t\U n)
-      \, \mathop{}\!\mathrm{d}{t\U 1} \cdots \mathop{}\!\mathrm{d}{t\U n}                       \\
-       & = (g\U n, f\U {n - 1})\U {L^2(\zl 0, T\zr ^n)},
-  \end{aligned}$$
+ $$\begin{aligned}
+        (g\U n, f\U {n - 1,S})\U {L^2(\zl 0, T\zr ^n)}
+         & = \int\U {\zl 0, T\zr ^n}
+        g\U n(t\U 1, \dots, t\U n)
+        \frac{1}{n} \sum\U {k = 1}^n
+        f(t\U 1, \dots, t\U {k - 1}, t\U n, t\U {k + 1}, \dots, t\U {n - 1}, t\U k)
+        \, \mathop{}\!\mathrm{d}{t\U 1} \cdots \mathop{}\!\mathrm{d}{t\U n}                       \\
+         & = \frac{1}{n} \sum\U {k = 0}^n \int\U {\zl 0, T\zr ^n}
+        g\U n(t\U 1, \dots, t\U n)
+        f\U {n - 1}(t\U 1, \dots, t\U n)
+        \, \mathop{}\!\mathrm{d}{t\U 1} \cdots \mathop{}\!\mathrm{d}{t\U n}                       \\
+         & = (g\U n, f\U {n - 1})\U {L^2(\zl 0, T\zr ^n)},
+    \end{aligned}$$
 </div>
 
-where we change variables
+  where we change variables
 $t\U k \mapsto t\U n, t\U n \mapsto t\U k$, use the property that $g\U n$ is
 symmetric, and apply Fubini's theorem. ◻
 
 
-remark
+ remark
 **Remark 2**. The symbol $\delta$ is often used for a divergence-like
 operator in Hodge theory. The analogy with our case is that in the Hodge
 situation, $\delta$ is defined via a duality formula which looks like
 $\angles{d{\alpha},
-          \beta} = \angles{\alpha, \delta{\beta}}$, where $d$ is the
+            \beta} = \angles{\alpha, \delta{\beta}}$, where $d$ is the
 exterior derivative on differential forms. Indeed, even in vector
 calculus, the negative of the divergence is in some sense adjoint to the
 gradient:
 
 
 <div>
-$$\int\U \Omega \mathop{\mathrm{div}}{f} \phi \, \mathop{}\!\mathrm{d}{x}
-      = - \int\U \Omega f \cdot \nabla{\phi} \, \mathop{}\!\mathrm{d}{x}$$
+ $$\int\U \Omega \mathop{\mathrm{div}}{f} \phi \, \mathop{}\!\mathrm{d}{x}
+        = - \int\U \Omega f \cdot \nabla{\phi} \, \mathop{}\!\mathrm{d}{x}$$
 </div>
 
 
@@ -253,7 +252,7 @@ Using this, we can immediately prove the following:
 **Corollary 3**. Let $(X^n)\U {n \in \mathbb{N}}$ be a sequence of
 Skorokhod-integrable stochastic processes. Suppose there exist
 $X \in L^2(\zl 0,T\zr \times\Omega)$ and $Y
-      \in L^2(\Omega)$ such that $X^N \to X$ in
+        \in L^2(\Omega)$ such that $X^N \to X$ in
 $L^2(\zl 0,T\zr \times\Omega)$, and $\delta{X^N} \to Y$ in $L^2(\Omega)$. Then
 $X$ is Skorokhod integrable, and $\delta{X^N} \to \delta{X}$.
 
@@ -263,11 +262,11 @@ Proof. Recall that Skorokhod integrability of $X$ can be expressed in
 terms of convergence of the series
 
 <div>
-$$\sum\U {n = 0}^\infty
-      (n + 1)! \norm{{f}\U {n,S}}\U {L^2(\zl 0, T\zr ^{n + 1})}^2,$$
+ $$\sum\U {n = 0}^\infty
+        (n + 1)! \norm{{f}\U {n,S}}\U {L^2(\zl 0, T\zr ^{n + 1})}^2,$$
 </div>
 
-where
+  where
 $f\U n(\cdot, t)$ are the components of the chaos expansion of $X$. Since
 $X^N \to X$ strongly in $L^2$, and each $X^N$ is Skorokohod integrable,
 the components of their chaos expansions must satisfy the above
@@ -277,26 +276,26 @@ Let $Z \in \mathbb{D}^{1, 2}$. Then by adjointness,
 
 
 <div>
-$$(Z, \delta{X^N})\U {L^2(\Omega)}
-      = (DZ, X^N)\U {L^2(\zl 0,T\zr \times\Omega)}.$$
+ $$(Z, \delta{X^N})\U {L^2(\Omega)}
+        = (DZ, X^N)\U {L^2(\zl 0,T\zr \times\Omega)}.$$
 </div>
 
-Taking limits on both
+  Taking limits on both
 sides and using adjointness on the limiting objects gives us
 
 
 <div>
-$$(Z, Y)\U {L^2(\Omega)}
-      = (DZ, X)\U {L^2(\zl 0,T\zr \times\Omega)}
-      = (Z, \delta{X})\U {L^2(\Omega)}.$$
+ $$(Z, Y)\U {L^2(\Omega)}
+        = (DZ, X)\U {L^2(\zl 0,T\zr \times\Omega)}
+        = (Z, \delta{X})\U {L^2(\Omega)}.$$
 </div>
 
-Then, since
+  Then, since
 $\mathbb{D}^{1, 2}$ is dense in $L^2(\Omega)$, we see that $Y =
-      \delta{X}$ a.s., as required. ◻
+        \delta{X}$ a.s., as required. ◻
 
 
-remark
+ remark
 **Remark 4**. Perhaps a more intuitive way to say the Skorokhod integral
 is "closable" in the book's words is that it is sequentially continuous
 as a map $D(\delta) \subseteq L^2(\zl 0,T\zr \times\Omega) \to L^2(\Omega)$
@@ -311,8 +310,8 @@ that $FX$ is also Skorokhod integrable. Then
 
 
 <div>
-$$Y \int\U 0^T X\U t \, \delta{W}\U t
-      = \int\U 0^T Y X\U t \, \delta{W}\U t + \int\U 0^T D\U t Y X\U t \, \mathop{}\!\mathrm{d}{t}$$
+ $$Y \int\U 0^T X\U t \, \delta{W}\U t
+        = \int\U 0^T Y X\U t \, \delta{W}\U t + \int\U 0^T D\U t Y X\U t \, \mathop{}\!\mathrm{d}{t}$$
 </div>
 
 
@@ -325,25 +324,38 @@ $Z \in \mathbb{D}^{1, 2}$ also with finite chaos expansion. Then by
 adjointness and the product rule,
 
 <div>
-$$\begin{aligned}
-      \mathbb{E}\brackets{
-          Z \int\U 0^T Y X\U t \, \delta{W}\U t
-      }
-       & = \mathbb{E}\brackets{
-      \int\U 0^T D\U t{Z} Y X\U t \, \mathop{}\!\mathrm{d}{t}
-      }                    \\
-       & = \mathbb{E}\brackets{
-      \int\U 0^T (D\U t(YZ) - Z D\U t{Y}) X\U t \, \mathop{}\!\mathrm{d}{t}
-      }                    \\
-       & = \mathbb{E}\brackets{
-          YZ \int\U 0^T X\U t \, \delta{W}\U t
-      } - \mathbb{E}\brackets{
-      Z \int\U 0^T D\U t{Y} X\U t \, \mathop{}\!\mathrm{d}{t}
-      }.
+ $$\begin{aligned}
+        \mathbb{E}\brackets{
+            Z \int\U 0^T Y X\U t \, \delta{W}\U t
+        }
+         & = \mathbb{E}\brackets{
+        \int\U 0^T D\U t{Z} Y X\U t \, \mathop{}\!\mathrm{d}{t}
+        }                    \\
+         & = \mathbb{E}\brackets{
+        \int\U 0^T (D\U t(YZ) - Z D\U t{Y}) X\U t \, \mathop{}\!\mathrm{d}{t}
+        }                    \\
+         & = \mathbb{E}\brackets{
+            YZ \int\U 0^T X\U t \, \delta{W}\U t
+        } - \mathbb{E}\brackets{
+        Z \int\U 0^T D\U t{Y} X\U t \, \mathop{}\!\mathrm{d}{t}
+        }.
+    \end{aligned}$$
+</div>
+
+  Since the set of all test functions
+$Z \in \mathbb{D}^{1, 2}$ with finite chaos expansion is dense in
+$L^2(\Omega)$, we conclude the result for $Y$ with finite chaos
+expansion. For general $Y$, we approximate. ◻
 
 
+ remark
+**Remark 6**. A similar formula crops up in vector calculus, namely the
+following:
 
 
+<div>
+ $$\mathop{\mathrm{div}}(fX) = \nabla{f} \cdot X + f \mathop{\mathrm{div}}{X},$$
+</div>
 
 # Why should I care?
 
