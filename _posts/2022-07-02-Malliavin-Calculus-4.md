@@ -295,10 +295,11 @@ $\mathbb{D}^{1, 2}$ is dense in $L^2(\Omega)$, we see that $Y =
         \delta{X}$ a.s., as required. ◻
 
 **Remark 4**. Perhaps a more intuitive way to say the Skorokhod integral
-is "closable" in the book's words is that it is sequentially continuous
+is closable in the book's words is that it is sequentially continuous
 as a map $D(\delta) \subseteq L^2(\zl 0,T\zr \times\Omega) \to L^2(\Omega)$
 with respect to the strong $L^2$ topology in its domain and weak $L^2$
 topology in its codomain.
+
 
 
 
