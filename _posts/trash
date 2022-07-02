@@ -1,34 +1,11 @@
-The definition requires some care to verify to make sense of
-and to make sure it is well defined. For example, note that the variables
-appearing in the upper bounds of the integration domain are the same as
-those appearing as integration variables. To better understand the
-definition, first note that, by the [properties of the Itô integral](https://nowheredifferentiable.com/2022-05-26-The-Ito-integral/#:~:text=Then%20the%20above,as), for
-each $t\U 2\leq\cdots\leq t\U n$,
-<div>
- $$F\U 2(t\U 2\ldots,t\U n):=    \int\U {0}^{t\U 2} f(t\U 1,\ldots,t\U n)dW(t\U 1) \in \mathcal{M}\U {t\U 3}^2.$$
-</div>
-Where $F\U 2(\cdot,t\U 3,\ldots,t\U n)\in \mathcal{M}\U {t\U 3}^2$ is viewed as a
-function of $t\U 2$. Due to the above inclusion
-$F\U 2(\cdot,t\U 3,\ldots,t\U n)$ is Itô integrable and
-<div>
- $$F\U 3(t\U 3\ldots,t\U n):=    \int\U {0}^{t\U 3} F\U 2(t\U 2,\ldots,t\U n)dW(t\U 2) \in \mathcal{M}\U {t\U 4}^2  .$$
-</div>
-Where the above is viewed as a function of $t\U 3$. Iterating this process
-we get that $F\U n \in \mathcal{M}\U T^2$ and
-<div>
- $$J\U n(f)=\int\U I F\U n(t\U n)dW(t\U 2) \in L^2(\Omega).$$
-</div>
-
-A pdf of version of this page is provided below:
-<object data="/assets/Skorohod.pdf" width="1000" height="1000" type='application/pdf'></object>
 ---
 layout: post
-title: Malliavin_Derivative_4
+title: The Malliavin Derivative 2
 subtitle: Part 4 of the series on Malliavin calculus
 thumbnail-img: /assets/img/Malliavin.jpg
 share-img: /assets/img/Malliavin.jpg
 tags: [Malliavin derivative, Chaos Expansion]
-authorpost: B.Summers
+authorpost: testing
 ---
 
 # The Malliavin derivative as a Fréchet derivative
@@ -391,7 +368,7 @@ change, unlike in the vector calculus case (see the remark above).
 
 
 
-Theorem 7. Let $X \in L^2(\zl 0,T\zr \times\Omega)$ be a stochastic
+**Theorem 7**. Let $X \in L^2(\zl 0,T\zr \times\Omega)$ be a stochastic
 process such that for all $s \in \zl 0, T\zr $, $X\U s$ is in
 $\mathbb{D}^{1, 2}$, $D{X\U s}$ is Skorokhod integrable, and
 
