@@ -5,6 +5,7 @@ subtitle: Part 3 of the series on Malliavin calculus
 thumbnail-img: /assets/img/Malliavin.jpg
 share-img: /assets/img/Malliavin.jpg
 tags: [Malliavin derivative, Chaos Expansion]
+author: L. Llamazares-Elias
 ---
 
 #  Three line summary
@@ -178,7 +179,7 @@ there exists $X \in \mathbb{D}\U {1,2}$ such that
  $$\lim\U {m \to \infty}\|X\U m-X\|\U {L^2(\Omega)}=\lim\U {n \to \infty}\|D\U tX\U m-D\U tX\|\U {L^2(I\times\Omega)}.$$
 </div>
 
- 
+
 
 
 

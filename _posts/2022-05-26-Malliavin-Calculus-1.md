@@ -5,6 +5,7 @@ subtitle: Iterated Itô integrals and their consequences
 thumbnail-img: /assets/img/Malliavin.jpg
 share-img: /assets/img/Malliavin.jpg
 tags: [Stochastic calculus, Malliavin Calculus]
+author: L. Llamazares-Elias
 ---
 
 This is the first post of many to come on this blog, thanks for joining!

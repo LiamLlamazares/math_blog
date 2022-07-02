@@ -5,6 +5,7 @@ subtitle: Can you really construct this thing?
 thumbnail-img: /assets/img/karatzas.jpg
 share-img: /assets/img/karatzas.jpg
 tags: [Stochastic calculus,Itô integral, Adapted processes, Progressively measurable, Square integrable continuous martingales]
+author: L. Llamazares-Elias
 ---
 # Three line summary
 
@@ -85,7 +86,7 @@ measurable. Then it is also jointly measurable.
 
 
 
-Proof. Given $A\in\mathcal{H}$ we have that
+*Proof*. Given $A\in\mathcal{H}$ we have that
 <div>
  $$\begin{gathered}
         \left.{X^{-1}}\right|\U {\zl 0,t\zr \times\Omega}(A)\in\mathcal{B}(\zl 0,t\zr )\otimes\mathcal{F}\U t\quad\forall t\in I\\ \iff X^{-1}(A)\cap(\zl 0,t\zr \times\Omega)\in\mathcal{B}(\zl 0,t\zr )\otimes\mathcal{F}\U t\quad\forall t\in I\\\implies X^{-1}(A)=\bigcup\U {n \in  \mathbb{N}}X^{-1}(A)\cap(\zl 0,t\U n\zr \times\Omega) \in\mathcal{B}(I)\otimes\mathcal{F}\U \infty
@@ -125,7 +126,7 @@ measurable.
 
 
 
-Proof. Suppose for example that $X$ is right continuous. Let us fix $t \in I$ and set
+*Proof*. Suppose for example that $X$ is right continuous. Let us fix $t \in I$ and set
  $X^{(n)}_0=X_0$ and for $k=1,...,2^{n}-1$
 <div>
  $$X\U {s}^{(n)}(\omega)=X\U {(k+1)t / 2^{n}}(\omega) \text { for } \frac{k t}{2^{n}}<s \leq \frac{k+1}{2^{n}} t$$
@@ -149,7 +150,7 @@ progressively measurable.
 
 
 
-Proof. This follows from considering $(t,\omega)\to (t,X(t,w))$. Where
+*Proof*. This follows from considering $(t,\omega)\to (t,X(t,w))$. Where
 the arrow is measurable as, due to the progressive measurability of $X$,
 each component is adapted. ◻
 We now move to defining the Itô integral. We will first define it on step processes of the form
@@ -214,7 +215,7 @@ Thus, it extends uniquely to the closure
 $\overline{\mathcal{E}}=\mathbb{L}^2(I\times\Omega)$. Furthermore the
 extension also has image in $\mathcal{M}\U I^2.$
 
-Proof. Proving this holds for simple processes is a calculation using: the
+*Proof*. Proving this holds for simple processes is a calculation using: the
 definition of the Itô integral of a simple process, the adaptedness of $X$ and the
 definition of $W$. The fact that the extension of the integral is also in $\mathcal{M}\U I^2$ is due to the fact that, by Doob's maximal inequality and the completeness of $L^p$ spaces, $\mathcal{M}\U I^2$ is a Banach space (in fact it's a Hilbert space). In fact, this holds even for processes valued in other separable Banach spaces (and not just $\mathbb{R}$), but this is a matter for another [post](https://nowheredifferentiable.com/2022-05-28-Martingales-to-Banach-spaces/)  ◻
 
