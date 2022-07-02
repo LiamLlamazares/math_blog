@@ -29,7 +29,7 @@ $X(\omega + \gamma) - X(\omega)$. Formally, $\nabla{X}$ satisfies
 <div>
  $$X(\omega + \gamma)
     = X(\omega)
-    + \langle{\nabla{X}(\omega), \gamma\rangle}
+    + \left\langle{\nabla{X}(\omega), \gamma\rightlangle}
     + \mathrm{o}(\norm{\gamma}\U {C\U 0(\zl 0, T\zr )}).$$
 </div>
 
@@ -74,9 +74,9 @@ $DX(\omega) \in L^2(\zl 0, T\zr )$ such that
 
 
 <div>
- $$\langle{\nabla{X}(\omega), \int\U 0^\cdot \psi \, \mathop{}\!\mathrm{d}{t}\rangle}
-    = \parens{\int\U 0^\cdot D\U t{X}(\omega) \, \mathop{}\!\mathrm{d}{t},
-    \int\U 0^\cdot \psi \, \mathop{}\!\mathrm{d}{t}}\U H
+ $$\left\langle{\nabla{X}(\omega), \int\U 0^\cdot \psi \, \mathop{}\!\mathrm{d}{t}\rightlangle}
+    = \left({\int\U 0^\cdot D\U t{X}(\omega) \, \mathop{}\!\mathrm{d}{t},
+    \int\U 0^\cdot \psi \, \mathop{}\!\mathrm{d}{t}}\right)\U H
     = \int\U 0^T D\U t{X}(\omega) \psi(t) \, \mathop{}\!\mathrm{d}{t}.$$
 </div>
 
@@ -119,12 +119,12 @@ $Y \in \mathbb{D}^{1,
 
 
 <div>
- $$\parens{
+ $$\left({
             Y, \int\U 0^T X\U t \, \delta{W}\U t
-        }\U {L^2(\Omega)}
-        = \parens{
+        }\right)\U {L^2(\Omega)}
+        = \left({
             D{Y}, X
-        }\U {L^2(\zl 0,T\zr \times\Omega)}.$$
+        }\right\U {L^2(\zl 0,T\zr \times\Omega)}.$$
 </div>
 
   More concretely,
@@ -229,8 +229,8 @@ symmetric, and apply Fubini's theorem. ◻
 **Remark 2**. The symbol $\delta$ is often used for a divergence-like
 operator in Hodge theory. The analogy with our case is that in the Hodge
 situation, $\delta$ is defined via a duality formula which looks like
-$\langle{d{\alpha},
-            \beta\rangle} = \langle{\alpha, \delta{\beta}\rangle}$, where $d$ is the
+$\left\langle{d{\alpha},
+            \beta\rightlangle} = \left\langle{\alpha, \delta{\beta}\rightlangle}$, where $d$ is the
 exterior derivative on differential forms. Indeed, even in vector
 calculus, the negative of the divergence is in some sense adjoint to the
 gradient:
