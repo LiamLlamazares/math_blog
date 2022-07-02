@@ -131,14 +131,14 @@ $Y \in \mathbb{D}^{1,
 
 
 <div>
- $$\mathbb{E}\brackets{
+ $$\mathbb{E}\left[{
             Y \int\U 0^T X\U t \, \delta{W}\U t
-        }
-        = \mathbb{E}\brackets{
+        }\right]
+        = \mathbb{E}\left[{
             \int\U 0^T
             D\U t Y X\U t
             \, \mathop{}\!\mathrm{d}{t}
-        }.$$
+        }\right].$$
 </div>
 
 
@@ -164,13 +164,13 @@ chaos expansion of $Y$. Then
 
 <div>
  $$\begin{aligned}
-        \mathbb{E}\brackets{
+        \mathbb{E}\left[{
             Y \int\U 0^T X\U t \, \delta{W}\U t
-        }
-         & = \mathbb{E}\brackets{
+        }\right]
+         & = \mathbb{E}\left[{
             \sum\U {n = 0}^\infty I\U n(g\U n)
             \sum\U {m = 0}^\infty I\U {m + 1}({f}\U {m,S})
-        }                                                                 \\
+        }\right]                                                                 \\
          & = \sum\U {n = 0}^\infty \sum\U {m = 0}^\infty
         \mathbb{E}\zl I\U n(g\U n) I\U {m + 1}({f}\U {m,S})\zr                                \\
          & = \sum\U {n = 0}^\infty n! (g\U n, {f}\U {n - 1,S})\U {L^2(\zl 0, T\zr ^n)},
@@ -181,17 +181,17 @@ chaos expansion of $Y$. Then
 
 <div>
  $$\begin{aligned}
-        \mathbb{E}\brackets{
+        \mathbb{E}\left[{
         \int\U 0^T D\U t{Y} X\U t \, \mathop{}\!\mathrm{d}{t}
-        }
-         & = \int\U 0^T \mathbb{E}\brackets{
+        }\right]
+         & = \int\U 0^T \mathbb{E}\left[{
             \sum\U {n = 1}^\infty n I\U {n - 1}(g\U n(\cdot, t))
             \sum\U {m = 0}^\infty I\U m(f\U m(\cdot, t))
-        } \, \mathop{}\!\mathrm{d}{t}                                            \\
+        } \, \mathop{}\!\mathrm{d}{t}\right]                                            \\
          & = \int\U 0^T \sum\U {n = 0}^\infty \sum\U {m = 0}^\infty
-        n \mathbb{E}\brackets{
+        n \mathbb{E}\left[{
             I\U {n - 1}(g\U n(\cdot, t)) I\U m(f\U m(\cdot, t))
-        } \, \mathop{}\!\mathrm{d}{t}                                            \\
+        }\right]  \, \mathop{}\!\mathrm{d}{t}                                           \\
          & = \sum\U {n = 0}^\infty
         n (n - 1)! \int\U 0^T
         (g\U n(\cdot, t), f\U {n - 1}(\cdot, t))\U {L^2(\zl 0, T\zr ^{n - 1})}
@@ -323,20 +323,20 @@ adjointness and the product rule,
 
 <div>
 $$\begin{aligned}
-      \mathbb{E}\brackets{
+      \mathbb{E}\left[{
           Z \int\U 0^T Y X\U t \, \delta{W}\U t
-      }
-       & = \mathbb{E}\brackets{
+      }\right]
+       & = \mathbb{E}\left[{
       \int\U 0^T D\U t{Z} Y X\U t \, \mathop{}\!\mathrm{d}{t}
-      }                    \\
-       & = \mathbb{E}\brackets{
+      }\right]                     \\
+       & = \mathbb{E}\left[{
       \int\U 0^T (D\U t(YZ) - Z D\U t{Y}) X\U t \, \mathop{}\!\mathrm{d}{t}
-      }                    \\
-       & = \mathbb{E}\brackets{
+      }\right]                     \\
+       & = \mathbb{E}\left[{
           YZ \int\U 0^T X\U t \, \delta{W}\U t
-      } - \mathbb{E}\brackets{
+      }\right]  - \mathbb{E}\left[{
       Z \int\U 0^T D\U t{Y} X\U t \, \mathop{}\!\mathrm{d}{t}
-      }.
+      }\right] .
   \end{aligned}$$
 </div>
 
