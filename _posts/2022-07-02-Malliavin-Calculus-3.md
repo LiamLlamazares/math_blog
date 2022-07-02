@@ -235,8 +235,8 @@ it holds that
 
 Finally, though we shall not use it, we mention that if
 $\Omega=\mathcal{S}^\star({\mathbb R})$ is the dual of the Schwartz space
-and we construct a probability measure $\mathbb{P}$ called the white
-noise probability measure then the following version of the chain rule
+and we construct a probability measure $\mathbb{P}$ called the [white
+noise probability measure](https://en.wikipedia.org/wiki/White_noise_analysis#:~:text=In%20probability%20theory%2C%20a%20branch,based%20on%20the%20Wiener%20process.) then the following version of the chain rule
 also holds (see [2](https://link.springer.com/book/10.1007/978-3-540-78572-9) page $89$).
 
 
