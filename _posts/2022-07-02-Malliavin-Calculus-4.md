@@ -9,7 +9,6 @@ authorpost: B. Summers
 ---
 # Foreword
 This is the first post of Billy on the blog. Not only did he provide the reading group with an excellent presentation, but he also typed up some wonderful notes which he is very graciously sharing today. Round of applause for Billy please!
-
  L.
 
 # The Malliavin derivative as a Fréchet derivative
