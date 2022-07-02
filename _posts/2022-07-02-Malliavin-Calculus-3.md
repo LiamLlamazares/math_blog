@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The Malliavin Derivative: Part 1
+title: The Malliavin Derivative, part 1
 subtitle: Part 3 of the series on Malliavin calculus
 thumbnail-img: /assets/img/Malliavin.jpg
 share-img: /assets/img/Malliavin.jpg
