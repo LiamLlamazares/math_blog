@@ -249,51 +249,6 @@ integral is just a divergence operator.
 Using this, we can immediately prove the following:
 
 
-**Corollary 3**. Let $(X^n)\U {n \in \mathbb{N}}$ be a sequence of
-Skorokhod-integrable stochastic processes. Suppose there exist
-$X \in L^2(\zl 0,T\zr \times\Omega)$ and $Y
-        \in L^2(\Omega)$ such that $X^N \to X$ in
-$L^2(\zl 0,T\zr \times\Omega)$, and $\delta{X^N} \to Y$ in $L^2(\Omega)$. Then
-$X$ is Skorokhod integrable, and $\delta{X^N} \to \delta{X}$.
-
-
-
-Proof. Recall that Skorokhod integrability of $X$ can be expressed in
-terms of convergence of the series
-
-<div>
- $$\sum\U {n = 0}^\infty
-        (n + 1)! \norm{{f}\U {n,S}}\U {L^2(\zl 0, T\zr ^{n + 1})}^2,$$
-</div>
-
-  where
-$f\U n(\cdot, t)$ are the components of the chaos expansion of $X$. Since
-$X^N \to X$ strongly in $L^2$, and each $X^N$ is Skorokohod integrable,
-the components of their chaos expansions must satisfy the above
-condition, and we can take limits.
-
-Let $Z \in \mathbb{D}^{1, 2}$. Then by adjointness,
-
-
-<div>
- $$(Z, \delta{X^N})\U {L^2(\Omega)}
-        = (DZ, X^N)\U {L^2(\zl 0,T\zr \times\Omega)}.$$
-</div>
-
-  Taking limits on both
-sides and using adjointness on the limiting objects gives us
-
-
-<div>
- $$(Z, Y)\U {L^2(\Omega)}
-        = (DZ, X)\U {L^2(\zl 0,T\zr \times\Omega)}
-        = (Z, \delta{X})\U {L^2(\Omega)}.$$
-</div>
-
-  Then, since
-$\mathbb{D}^{1, 2}$ is dense in $L^2(\Omega)$, we see that $Y =
-        \delta{X}$ a.s., as required. ◻
-
 
 
 
