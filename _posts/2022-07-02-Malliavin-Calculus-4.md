@@ -124,7 +124,7 @@ $Y \in \mathbb{D}^{1,
         }\right)\U {L^2(\Omega)}
         = \left({
             D{Y}, X
-        }\right\U {L^2(\zl 0,T\zr \times\Omega)}.$$
+        }\right)\U {L^2(\zl 0,T\zr \times\Omega)}.$$
 </div>
 
   More concretely,
