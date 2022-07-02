@@ -5,7 +5,7 @@ subtitle: Part 3 of the series on Malliavin calculus
 thumbnail-img: /assets/img/Malliavin.jpg
 share-img: /assets/img/Malliavin.jpg
 tags: [Malliavin derivative, Chaos Expansion]
-author: L. Llamazares-Elias
+authorpost: L. Llamazares-Elias
 ---
 
 #  Three line summary

@@ -5,7 +5,7 @@ subtitle: Wait a second, how many integrals are there?
 thumbnail-img: /assets/img/Liu-SPDE.jpg
 share-img: /assets/img/Liu-SPDE.jpg
 tags: [Integration, Banach spaces, Lp spaces]
-author: L. Llamazares-Elias
+authorpost: L. Llamazares-Elias
 ---
 
 This is the first post in a series extending stochastic calculus to in
