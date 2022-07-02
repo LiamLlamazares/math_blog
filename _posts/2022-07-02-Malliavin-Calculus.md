@@ -10,7 +10,7 @@ authorpost: B.Summers
 
 # The Malliavin derivative as a Fréchet derivative
 
-[1](https://link.springer.com/book/10.1007/978-3-540-78572-9) Let $C\U 0(\zl 0, T\zr )$ be the Banach space of all
+Let $C\U 0(\zl 0, T\zr )$ be the Banach space of all
 continuous functions $f \colon \zl 0,
         T\zr  \to \mathbb{R}$ such that $f(0) = 0$. On this space, we can
 associate a special Borel probability measure $\mu$ such that
