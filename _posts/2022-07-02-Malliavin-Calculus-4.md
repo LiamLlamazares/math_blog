@@ -262,10 +262,8 @@ terms of convergence of the series
 
 <div>
  $$\sum\U {n = 0}^\infty
-        (n + 1)! \norm{{f}\U {n,S}}\U {L^2(\zl 0, T\zr ^{n + 1})}^2,$$
+        $$
 </div>
-
-
 
 
 
