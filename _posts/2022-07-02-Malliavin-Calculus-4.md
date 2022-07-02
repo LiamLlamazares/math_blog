@@ -248,6 +248,15 @@ integral is just a divergence operator.
 
 Using this, we can immediately prove the following:
 
+**Corollary 3**. Let $(X^n)\U {n \in \mathbb{N}}$ be a sequence of
+Skorokhod-integrable stochastic processes. Suppose there exist
+$X \in L^2(\zl 0,T\zr \times\Omega)$ and $Y
+        \in L^2(\Omega)$ such that $X^N \to X$ in
+$L^2(\zl 0,T\zr \times\Omega)$, and $\delta{X^N} \to Y$ in $L^2(\Omega)$. Then
+$X$ is Skorokhod integrable, and $\delta{X^N} \to \delta{X}$.
+
+
+
 
 
 
