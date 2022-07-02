@@ -46,7 +46,7 @@ layout: page
 
     <p class="post-meta">
       {% assign date_format = site.date_format | default: "%B %-d, %Y" %}
-      Posted on {{ post.date | date: date_format }} by {% if page.authorpost %}{{ page.authorpost | strip_html }}{% else %}<br/>{% endif %}
+      Posted on {{ post.date | date: date_format }} by2 {{ post.authorpost }}
     </p>
 
     {% if thumbnail != "" %}
