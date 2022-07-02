@@ -294,8 +294,7 @@ sides and using adjointness on the limiting objects gives us
 $\mathbb{D}^{1, 2}$ is dense in $L^2(\Omega)$, we see that $Y =
         \delta{X}$ a.s., as required. ◻
 
-Remark 4. Perhaps a more intuitive way to say the Skorokhod integral
-is closable in the book's words is that it is sequentially continuous
+
 
 
 
