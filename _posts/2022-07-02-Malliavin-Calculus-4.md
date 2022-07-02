@@ -225,7 +225,7 @@ $t\U k \mapsto t\U n, t\U n \mapsto t\U k$, use the property that $g\U n$ is
 symmetric, and apply Fubini's theorem. ◻
 
 
- remark
+
 **Remark 2**. The symbol $\delta$ is often used for a divergence-like
 operator in Hodge theory. The analogy with our case is that in the Hodge
 situation, $\delta$ is defined via a duality formula which looks like
@@ -293,7 +293,7 @@ $\mathbb{D}^{1, 2}$ is dense in $L^2(\Omega)$, we see that $Y =
       \delta{X}$ a.s., as required. ◻
 
 
-remark
+
 **Remark 4**. Perhaps a more intuitive way to say the Skorokhod integral
 is "closable" in the book's words is that it is sequentially continuous
 as a map $D(\delta) \subseteq L^2(\zl 0,T\zr \times\Omega) \to L^2(\Omega)$
@@ -346,7 +346,7 @@ $L^2(\Omega)$, we conclude the result for $Y$ with finite chaos
 expansion. For general $Y$, we approximate. ◻
 
 
-remark
+
 **Remark 6**. A similar formula crops up in vector calculus, namely the
 following:
 
