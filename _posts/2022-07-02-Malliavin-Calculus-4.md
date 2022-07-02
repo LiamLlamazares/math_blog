@@ -21,7 +21,7 @@ $X(\omega)$ changes upon perturbing the path $\omega$ by a small
 quantity $\gamma \in C\U 0(\zl 0, T\zr )$. This can be described by the Fréchet
 derivative $\nabla{X}(\omega)$, which is a bounded linear map
 $C\U 0(\zl 0, T\zr ) \to
-    \mathbb{R}$, i.e. a member of the dual space $C\U 0(\zl 0, T\zr )^$, giving
+    \mathbb{R}$, i.e. a member of the dual space $C\U 0(\zl 0, T\zr )^\star $, giving
 the best linear approximation to the difference
 $X(\omega + \gamma) - X(\omega)$. Formally, $\nabla{X}$ satisfies
 
@@ -35,7 +35,7 @@ $X(\omega + \gamma) - X(\omega)$. Formally, $\nabla{X}$ satisfies
 
   If $X$ has a Fréchet
 derivative $\nabla{X} \colon C\U 0(\zl 0, T\zr ) \to C\U 0(\zl 0,
-            T\zr )^$, we say it is Fréchet differentiable.
+            T\zr )^\star $, we say it is Fréchet differentiable.
 
 Within the Banach space $C\U 0(\zl 0, T\zr )$ lies a Hilbert space $H$ of
 distinguished elements. This is the space of paths of the form
@@ -68,7 +68,7 @@ Returning to our Fréchet differentiable random variable $X$, given some
 path $\omega \in C\U 0(\zl 0, T\zr )$, we consider the restriction of its
 derivative at $\omega$ to $H$, namely $\eval{\nabla{X}(\omega)}\U H$.
 Since $H$ is continously imbedded in $C\U 0$, this restriction is an
-element of $H^$. Then, as $H$ is a Hilbert space, the dual space $H^$
+element of $H^\star $. Then, as $H$ is a Hilbert space, the dual space $H^\star $
 is isomorphic to $H$ through its inner product, so there exists some
 $DX(\omega) \in L^2(\zl 0, T\zr )$ such that
 
