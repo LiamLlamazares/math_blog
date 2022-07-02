@@ -7,8 +7,10 @@ share-img: /assets/img/Malliavin.jpg
 tags: [Malliavin derivative, Chaos Expansion]
 authorpost: B. Summers
 ---
-# Foreword by Liam
-This is the first post of Billy on the blog. Not only did he provide the reading group with an excellent presentation, but he also typed up some wonderful notes which he is very graciously sharing today. Round of applause for Billy please! 
+# Foreword
+This is the first post of Billy on the blog. Not only did he provide the reading group with an excellent presentation, but he also typed up some wonderful notes which he is very graciously sharing today. Round of applause for Billy please!
+
+ L.
 
 # The Malliavin derivative as a Fréchet derivative
 Let $C\U 0(\zl 0, T\zr )$ be the Banach space of all
