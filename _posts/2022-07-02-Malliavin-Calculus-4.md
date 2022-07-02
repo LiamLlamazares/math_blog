@@ -66,7 +66,7 @@ Banach space.
 
 Returning to our Fréchet differentiable random variable $X$, given some
 path $\omega \in C\U 0(\zl 0, T\zr )$, we consider the restriction of its
-derivative at $\omega$ to $H$, namely $\eval{\nabla{X}(\omega)}\U H$.
+derivative at $\omega$ to $H$, namely ${\nabla{X}(\omega)}|\U H$.
 Since $H$ is continously imbedded in $C\U 0$, this restriction is an
 element of $H^\star $. Then, as $H$ is a Hilbert space, the dual space $H^\star $
 is isomorphic to $H$ through its inner product, so there exists some
