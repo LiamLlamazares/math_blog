@@ -17,8 +17,8 @@ $W\U t(\omega) := \omega(t)$ is a Brownian motion. Given a random variable
 on $C\U 0(\zl 0, T\zr )$, i.e. a $\mu$-measurable function
 $X \colon C\U 0(\zl 0, T\zr ) \to \mathbb{R}$, we want to know how the value
 $X(\omega)$ changes upon perturbing the path $\omega$ by a small
-quantity $\gamma \in C\U 0(\zl 0, T\zr )$. This can be described by the Fréchet
-derivative $\nabla{X}(\omega)$, which is a bounded linear map
+quantity $\gamma \in C\U 0(\zl 0, T\zr )$. This can be described by the [Fréchet
+derivative](https://en.wikipedia.org/wiki/Fr%C3%A9chet_derivative) $\nabla{X}(\omega)$, which is a bounded linear map
 $C\U 0(\zl 0, T\zr ) \to
     \mathbb{R}$, i.e. a member of the dual space $C\U 0(\zl 0, T\zr )^\star $, giving
 the best linear approximation to the difference
@@ -45,8 +45,8 @@ distinguished elements. This is the space of paths of the form
 </div>
 
   for some
-$\psi \in L^2(\zl 0, T\zr )$. In other words, it is the space of $W^{1, 2}$
-functions on $\zl 0, T\zr $ starting at 0. Its inner product is given by
+$\psi \in L^2(\zl 0, T\zr )$. In other words, it is the space of [$W^{1, 2}$
+functions](https://en.wikipedia.org/wiki/Sobolev_space#One-dimensional_case:~:text=%5Bedit%5D-,One%2Ddimensional%20case,-%5Bedit%5D) on $\zl 0, T\zr $ starting at 0. Its inner product is given by
 
 
 <div>
@@ -385,7 +385,6 @@ $\delta{X}$ lies in $\mathbb{D}^{1, 2}$, and
 
 
 
- remark
 **Remark 8**. The technical constraints in the theorem above are an
 unfortunate consequence of the fact the Skorokhod and Malliavin
 operators $\delta$ and $D$ are not defined on the full space
