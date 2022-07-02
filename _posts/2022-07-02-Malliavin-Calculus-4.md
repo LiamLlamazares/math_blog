@@ -222,7 +222,7 @@ chaos expansion of $Y$. Then
 
   where we change variables
 $t\U k \mapsto t\U n, t\U n \mapsto t\U k$, use the property that $g\U n$ is
-symmetric, and apply Fubini's theorem. ◻
+symmetric, and apply Fubini's theorem. ◻
 
 
  remark
@@ -290,7 +290,7 @@ $$(Z, Y)\U {L^2(\Omega)}
 
 Then, since
 $\mathbb{D}^{1, 2}$ is dense in $L^2(\Omega)$, we see that $Y =
-      \delta{X}$ a.s., as required. ◻
+      \delta{X}$ a.s., as required. ◻
 
 
 remark
@@ -343,7 +343,7 @@ $$\begin{aligned}
 Since the set of all test functions
 $Z \in \mathbb{D}^{1, 2}$ with finite chaos expansion is dense in
 $L^2(\Omega)$, we conclude the result for $Y$ with finite chaos
-expansion. For general $Y$, we approximate. ◻
+expansion. For general $Y$, we approximate. ◻
 
 
 remark
