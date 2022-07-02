@@ -250,8 +250,3 @@ $i=1,\ldots,d$. Then it holds that $\varphi(X)\in \mathbb{D}\U {1,2}$ with
 <div>
  $$D\U t\varphi(X)=\sum\U {i=0}^{d} \frac{\partial \varphi}{\partial x\U i}(X)D\U t(X\U i) .$$
 </div>
-
-
-
-A pdf of version of this page is provided below:
-<object data="/assets/Malliavin3.pdf" width="1000" height="1000" type='application/pdf'></object>
