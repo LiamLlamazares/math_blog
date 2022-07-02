@@ -7,9 +7,9 @@ share-img: /assets/img/Malliavin.jpg
 tags: [Malliavin derivative, Chaos Expansion]
 authorpost: B. Summers
 ---
-Testing
-# The Malliavin derivative as a Fréchet derivative
 
+# The Malliavin derivative as a Fréchet derivative
+Another test
 Let $C\U 0(\zl 0, T\zr )$ be the Banach space of all
 continuous functions $f \colon \zl 0,
         T\zr  \to \mathbb{R}$ such that $f(0) = 0$. On this space, we can
