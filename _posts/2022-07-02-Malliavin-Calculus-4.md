@@ -397,7 +397,7 @@ applying the other one.
 
 Note that this theorem is simply an expression of the Malliavin
 derivative and Skorokhod integral's failure to commute, with the error
-simply being the identity on $L^2(\Omega \times \zl 0, 1\zr )$. That is,
+simply being the identity on $L^2(\Omega \times \zl 0, T\zr )$. That is,
 
 
 <div>
