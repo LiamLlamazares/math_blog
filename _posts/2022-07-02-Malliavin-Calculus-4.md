@@ -364,7 +364,7 @@ the Skorokhod integral take the place of the divergence, and the usual
 inner product on $\mathbb{R}^n$ (the dot product) is replaced with the
 $L^2(\zl 0, T\zr )$ inner product. There is a sign difference owing to the
 fact the adjointness in the Malliavin case does not induce a sign
-change, unlike in the vector calculus case (see the remark above).
+change, unlike in the vector calculus case (see the [remark above](https://nowheredifferentiable.com/2022-07-02-Malliavin-Calculus-4/#:~:text=apply%20Fubini%E2%80%99s%20theorem.%C2%A0%E2%97%BB-,Remark%202,-.%20The%20symbol)).
 
 
 
