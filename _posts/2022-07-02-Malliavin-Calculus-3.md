@@ -114,7 +114,7 @@ that, as occurs with the ordinary derivative, a random variable has
 Malliavin derivative $0$ if and only if it is constant.
 
 
-**Corollary 1**. $(\mathbb{D}\U {1,2},\|\cdot \|\U {\mathbb{D}\U {1,2}})$ is
+**Corollary 1**. $(\mathbb{D}\U {1,2},\norm{\cdot }\U {\mathbb{D}\U {1,2}})$ is
 a seminormed space. Furthermore
 
 
