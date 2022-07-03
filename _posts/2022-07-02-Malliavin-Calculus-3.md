@@ -69,8 +69,7 @@ Furthermore, we define the Malliavin derivative of $X$ as
 
 
 
-
-The first questions to be asked is: "what kind of object is the
+These kinds of manipulations of the terms in the chaos expansion should be familiar from our post on the Skorohod integral. Note for example that $f\U {n}(\cdot ,t)$ is a square integrable symmetric function of $n-1$ variables and thus the terms $I\U {n-1}(f\U {n}(\cdot ,t))$ make sese. This checked, the first questions to be asked is: "what kind of object is the
 Malliavin derivative of a random variable? What is the link between
 $\mathbb{D}\U {1,2}$ and $D\U t$? Is $\|\cdot \|\U {\mathbb{D}\U {1,2}}$ even a
 norm?" We answer this in the next proposition and corollary.
@@ -120,7 +119,7 @@ a seminormed space. Furthermore
 
 
 <div>
- $$\|X\|\U {\mathbb{D}\U {1,2}}=0 \iff D\U tX=0\iff X\in {\mathbb R}.$$
+ $$\|X\|\U {\mathbb{D}\U {1,2}}=0 \iff DX=0\iff X\in {\mathbb R}.$$
 </div>
 
 
@@ -161,13 +160,13 @@ $X=I\U 1(f)$ so
 
   This is a nice result and it
 might suggest something akin to the fundamental theorem of calculus such
-as $D\U t(\delta Y)=Y$ for any Skorohod integrable process $Y$. However,
+as $D\U t(\delta Y)=Y(t)$ for any Skorohod integrable process $Y$. However,
 this will not hold in general and as, will be seen in the next post,
 occurs if and only if $Y$ is a deterministic function in $L^2(\Omega)$.\
 \
 This said, we now show that $\mathbb{D}\U {1,2}$ is closed in the sense
-that: given a convergent sequence $X\U m\to X$. If the derivatives
-$D\U tX\U m$ converge then also $D\U t X\U m\to D\U t X$.
+that: given a convergent sequence $X\U m\to X$, if the derivatives
+$DX\U m$ converge then also $D X\U m\to D X$.
 
 
 **Proposition 2**. Let $X\U m \in \mathbb{D}\U {1,2}$ such that $X\U m$ is a
@@ -176,7 +175,7 @@ there exists $X \in \mathbb{D}\U {1,2}$ such that
 
 
 <div>
- $$\lim\U {m \to \infty}\|X\U m-X\|\U {L^2(\Omega)}=\lim\U {n \to \infty}\|D\U tX\U m-D\U tX\|\U {L^2(I\times\Omega)}.$$
+ $$\lim\U {m \to \infty}\|X\U m-X\|\U {L^2(\Omega)}=\lim\U {n \to \infty}\|DX\U m-DX\|\U {L^2(I\times\Omega)}.$$
 </div>
 
 
@@ -227,7 +226,7 @@ many $n$.
 it holds that
 
 <div>
- $$D\U t(X\U 1X\U 2)=X\U 1D\U tX\U 2+X\U 2D\U tX\U 1.$$
+ $$D(X\U 1X\U 2)=X\U 1DX\U 2+X\U 2DX\U 1.$$
 </div>
 
 
@@ -248,5 +247,5 @@ $i=1,\ldots,d$. Then it holds that $\varphi(X)\in \mathbb{D}\U {1,2}$ with
 
 
 <div>
- $$D\U t\varphi(X)=\sum\U {i=0}^{d} \frac{\partial \varphi}{\partial x\U i}(X)D\U t(X\U i) .$$
+ $$D\varphi(X)=\sum\U {i=0}^{d} \frac{\partial \varphi}{\partial x\U i}(X)D(X\U i) .$$
 </div>
