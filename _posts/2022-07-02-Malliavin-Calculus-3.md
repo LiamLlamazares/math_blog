@@ -69,7 +69,7 @@ Furthermore, we define the Malliavin derivative of $X$ as
 
 
 
-These kinds of manipulations of the terms in the chaos expansion should be familiar from our post on the Skorohod integral. Note for example that $f\U {n}(\cdot ,t)$ is a square integrable symmetric function of $n-1$ variables and thus the terms $I\U {n-1}(f\U {n}(\cdot ,t))$ make sese. This checked, the first questions to be asked is: "what kind of object is the
+These kinds of manipulations of the terms in the chaos expansion should be familiar from our [definition of the Skorohod integral](https://nowheredifferentiable.com/2022-06-10-Malliavin-Calculus-2/#:~:text=the%20Skorohod%20integral.-,Definition%201.%20Let,-X%E2%88%88). Note for example that $f\U {n}(\cdot ,t)$ is a square integrable symmetric function of $n-1$ variables and thus the terms $I\U {n-1}(f\U {n}(\cdot ,t))$ make sese. This checked, the first questions to be asked is: "what kind of object is the
 Malliavin derivative of a random variable? What is the link between
 $\mathbb{D}\U {1,2}$ and $D\U t$? Is $\|\cdot \|\U {\mathbb{D}\U {1,2}}$ even a
 norm?" We answer this in the next proposition and corollary.
