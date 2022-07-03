@@ -4,7 +4,7 @@ title: The Malliavin Derivative 1
 subtitle: Part 3 of the series on Malliavin calculus
 thumbnail-img: /assets/img/Malliavin.jpg
 share-img: /assets/img/Malliavin.jpg
-tags: [Malliavin derivative, Chaos Expansion,Malliavin calculus]
+tags: [Malliavin derivative, Chaos Expansion, Malliavin calculus]
 authorpost: L. Llamazares-Elias
 ---
 
@@ -129,7 +129,7 @@ a seminormed space. Furthermore
 
 Proof. The triangle inequality and the absolute homogeneity are direct
 consequences of the isometry of the previous proposition. This shows
-that $\|\cdot \|\U {\mathbb{D}\U {1,2}}$ is a seminorm. The second part
+that $\norm{\cdot }\U {\mathbb{D}\U {1,2}}$ is a seminorm. The second part
 follows from the fact that
 
 
@@ -138,9 +138,9 @@ follows from the fact that
 </div>
 
 
-So $\|X\|\U {\mathbb{D}\U {1,2}}=0$ if and only if $f\U n=0$ for all
+So $\norm{X}\U {\mathbb{D}\U {1,2}}=0$ if and only if $f\U n=0$ for all
 $n\geq 1$, which in turn is equivalent to $X=I\U 0(f\U 0):=f\U 0$. Where we
-recall that by convention $L^2\U (S_0):={\mathbb R}$ and $I\U 0$ was
+recall that by convention $L^2 (S_0):={\mathbb R}$ and $I\U 0$ was
 defined as the identity on ${\mathbb R}$. This concludes the proof. ◻
 
 
