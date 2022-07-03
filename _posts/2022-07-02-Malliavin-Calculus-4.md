@@ -229,7 +229,7 @@ symmetric, and apply Fubini's theorem. ◻
 
 
 **Remark 2**. The symbol $\delta$ is often used for a divergence-like
-operator in Hodge theory. The analogy with our case is that in the Hodge
+operator in [Hodge theory](https://en.wikipedia.org/wiki/Hodge_theory). The analogy with our case is that in the Hodge
 situation, $\delta$ is defined via a duality formula which looks like
 $\left\langle{d{\alpha},
             \beta}\right\rangle = \left\langle{\alpha, \delta{\beta}}\right\rangle$, where $d$ is the
