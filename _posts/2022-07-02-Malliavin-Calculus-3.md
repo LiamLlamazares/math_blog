@@ -148,7 +148,7 @@ deterministic function $f\in L^2(I)$ and set
 
 
 <div>
- $$X:=\delta(f)= \int\U {0}^T f(s)dW(s).$$
+ $$X:=\delta(f)= \int\U I f(s)dW(s).$$
 </div>
 
   Then, by construction, we have
