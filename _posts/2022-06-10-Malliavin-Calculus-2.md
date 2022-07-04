@@ -47,7 +47,7 @@ there exists $f\U {n,t}\in L^2(S\U n)$ such that
 
  Let us write
 $f\U {n}(\cdot,t):=f\U {n,t}$. Note that we are now considering $f\U n$ as a
-function of $n+1$ variables instead of $n$. Furthermore, if we also impose that $X\in L^2(I\times \Omega,\mathcal{B}(I)\otimes \mathcal{F}\U T)$.  Then by approximating $X$ by an increasing sequence of functions of the form
+function of $n+1$ variables instead of $n$. Furthermore, if we also impose that $X\in L^2(I\times \Omega,\mathcal{B}(I)\otimes \mathcal{F}\U T)$.  Then by approximating $X$ by a sequence of functions of the form
 <div>
  $$X_k(t,\omega)=\sum_{i=1}^{N_k} a_i^{(k)}(t) b^{(k)}_i(\omega),$$
 </div>
