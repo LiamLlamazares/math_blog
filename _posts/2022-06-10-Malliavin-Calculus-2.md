@@ -230,7 +230,7 @@ $X\in dom(\delta)$ with
 
 
 <div>
- $$\delta(X)= I\U 2(1)=\int\U {0}^T\int\U {0}^t dW(t\U 1)dW(t)=\int\U {0}^T W(t) dW(t)= W^2(T)-T.$$
+ $$\delta(X)= I\U 2(1)=2\int\U {0}^T\int\U {0}^t dW(t\U 1)dW(t)=2\int\U {0}^T W(t) dW(t)= W^2(T)-T.$$
 </div>
 
 
