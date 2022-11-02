@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Study of densities part 1
-subtitle: Part 6 of the series on Malliavin calculus
+subtitle: Part 5 of the series on Malliavin calculus
 thumbnail-img: /assets/img/Malliavin.jpg
 share-img: /assets/img/Malliavin.jpg
 tags: [Malliavin calculus, Densities]
