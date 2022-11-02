@@ -301,10 +301,7 @@ $\varphi=\phi'$) we obtain that, by Fubini
 
 <div>
 $$
-\begin{gathered}
-  \mathbb{E}[ g(x)] =\mathbb{E}[ \langle D\varphi(X),\frac{DX}{\norm{DX}^2\U {H}}\rangle\U {H}] =\mathbb{E}[ \varphi(X)\delta(\frac{DX}{\norm{DX}\U {H}^2})]                                  \\
- =\mathbb{E}[ (\int\U \mathbb{R} 1\U {X\leq x} g(x)dx)\delta(\frac{DX}{\norm{DX}^2\U {H}})] =\int\U{\mathbb{R}} g(x)\mathbb{E}[ 1\U {X\leq x}\delta (\frac{DX}{\norm{DX}\U {H}^2}) ]  \\=\int\U{\mathbb{R}} g(x)p(x).
-        \end{gathered}
+\mathbb{E}[ \varphi^{(n)}(X)] =E[ \varphi(X)H\U n(X,1)] = E\left[ \left(\int\U\mathbb{R} 1\U {[ -\infty,X] }(x) \varphi(x)dx\right) H\U n(X,1)\right] \\=\int\U\mathbb{R} \varphi(x)\mathbb{E}\left[ 1\U {[ -\infty,X] }(x)H\U n(X,1)\right]  dx=:(-1)^n \int\U {\mathbb R}\varphi(x) p^{(n)}(x) dx 
         $$
 </div>
 
