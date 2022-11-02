@@ -191,8 +191,8 @@ we obtain,
 
 <div>
  $$\begin{gathered}
-  \mathbb{E}[ g(x)] =\mathbb{E}[ \langle D\varphi(X),\frac{DX}{\norm{DX}^2\U {H}}\rangle\U {H}] =\mathbb{E}[ \varphi(X)\delta(\frac{DX}{\norm{DX}\U {H}^2})]                                  \\
- =\mathbb{E}[ (\int\U\mathbb{R} 1\U {X\leq x} g(x)dx)\delta(\frac{DX}{\norm{DX}^2\U {H}})] =\int\U{\mathbb{R}} g(x)\mathbb{E}[ 1\U {X\leq x}\delta (\frac{DX}{\norm{DX}\U {H}^2}) ]
+  \mathbb{E}[ g(x)] =\mathbb{E}\left[ \left\langle D\varphi(X),\frac{DX}{\norm{DX}^2\U {H}}\right\rangle\U {H}\right] =\mathbb{E}\left[ \varphi(X)\delta\left(\frac{DX}{\norm{DX}\U {H}^2}\right)\right]                                  \\
+ =\mathbb{E}\left[ \left(\int\U\mathbb{R} 1\U {X\leq x} g(x)dx\right)\delta\left(\frac{DX}{\norm{DX}^2\U {H}}\right)\right] =\int\U{\mathbb{R}} g(x)\mathbb{E}\left[ 1\U {X\leq x}\delta\left (\frac{DX}{\norm{DX}\U {H}^2}\right) \right]
    \\=\int\U{\mathbb{R}} g(x)p(x).
         \end{gathered}$$
 </div>
