@@ -136,7 +136,7 @@ and
   Then, by construction
 $\varphi=0$, so also $\varphi(X)=0$. Suppose now that $g$ were
 continuous. Then we would have that, by the fundamental theorem of
-calculus $\varphi'(x)=g(x)$. So by the [chain rule](https://nowheredifferentiable.com/2022-07-02-Malliavin-Calculus-3/#:~:text=).-,Proposition%204,-(Chain%20rule).%20Consider)
+calculus $\varphi'(x)=g(x)$. So by the [chain rule](https://nowheredifferentiable.com/2022-07-02-Malliavin-Calculus-3/#:~:text=%28.-,Proposition%204,-(Chain%20rule).%20Consider)
 
 
 <div>
