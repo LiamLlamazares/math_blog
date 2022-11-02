@@ -192,12 +192,12 @@ before
 
 By taking expectations on both sides, and using that the Skorohod
 integral is the adjoint (link) of the Malliavin derivative, and Fubini
-we obtain
+we obtain,
 
 <div>
  $$\begin{aligned}
-             & \mathbb{E}[ g(x)] =\mathbb{E}\left[ \left\langle D\varphi(X),\frac{DX}{\norm{DX}^2\U {H}}\right\rangle\U {H}\right] =\mathbb{E}\left[ \varphi(X)\delta\left(\frac{DX}{\norm{DX}\U {H}^2}\right)\right]                                  \\
-             & =\mathbb{E}\left[ \left(\int\U{{\mathbb R}} 1\U {X\leq x} g(x)dx\right)\delta\left(\frac{DX}{\norm{DX}^2\U {H}}\right)\right] =\int\U g(x)\mathbb{E}\left[ 1\U {X\leq x}\delta \left(\frac{DX}{\norm{DX}\U {H}^2}\right) \right]  \\&=\int\U g(x)p(x).
+ & \mathbb{E}[ g(x)] =\mathbb{E}\left[ \left\langle D\varphi(X),\frac{DX}{\norm{DX}^2\U {H}}\right\rangle\U {H}\right] =\mathbb{E}\left[ \varphi(X)\delta\left(\frac{DX}{\norm{DX}\U {H}^2}\right)\right]                                  \\
+& =\mathbb{E}\left[ \left(\int\U{{\mathbb R}} 1\U {X\leq x} g(x)dx\right)\delta\left(\frac{DX}{\norm{DX}^2\U {H}}\right)\right] =\int\U{\mathbb{R}} g(x)\mathbb{E}\left[ 1\U {X\leq x}\delta \left(\frac{DX}{\norm{DX}\U {H}^2}\right) \right]  \\&=\int\U{\mathbb{R}} g(x)p(x).
         \end{aligned}$$
 </div>
 
