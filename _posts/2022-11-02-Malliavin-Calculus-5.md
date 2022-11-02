@@ -275,8 +275,8 @@ $X\in \mathbb{D}^\infty$ such that $\norm{DX}\U {H}>0$ almost everywhere,
 then $X$ has a smooth density with respect to the Lebesgue measure.
 
 
-
-Proof. By Theorem [2](https://nowheredifferentiable.com/2022-11-02-Malliavin-Calculus-5/#:~:text=dens%20exists%20.theorem%7D-,Theorem%202,-(Density%20expression) we know that $X$ has a density $p(x)$. To show
+x
+Proof. By Theorem [2](https://nowheredifferentiable.com/2022-11-02-Malliavin-Calculus-5/#:~:text=our%20last%20one.-,Theorem%202,-(Density%20expression).%20Let) we know that $X$ has a density $p(x)$. To show
 that $p$ is smooth, by Sobolev embedding (link) it is sufficient to show
 that $p$ is weakly differentiable with order $n$ for all
 $n \in \mathbb{N}$. That is, for all
