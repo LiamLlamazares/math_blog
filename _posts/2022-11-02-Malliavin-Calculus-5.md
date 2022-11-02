@@ -78,7 +78,7 @@ take a smooth and bounded function $\varphi$ with $\varphi(y)=0$ for
 $y<x-\epsilon$ and with $\varphi(y)=1$ for $y>x+\epsilon$. By
 the previousequation it holds that
 (almost everywhere) $\varphi(X)=1\U {X>x+\epsilon}$. Combining
-proposition\... (link) and corollary (link) of the previous post, we
+[Proposition 4](https://nowheredifferentiable.com/2022-07-02-Malliavin-Calculus-3/#:~:text=).-,Proposition%204,-(Chain%20rule).%20Consider) and [Corollary 2](https://nowheredifferentiable.com/2022-07-02-Malliavin-Calculus-3/#:~:text=proved%20the%20following-,Corollary%202,-.%20Given) of a previous post, we
 obtain that $1\U {X>x+\epsilon}$ is either $0$ or $1$ almost everywhere.
 That is,
 
@@ -127,7 +127,7 @@ $\norm{DX}\U {H}>0$ almost everywhere, then $X$ has a density.
 
 
 
-Proof. By the Radon Nikodyn theorem (link) all we need to do is show
+Proof. By the [Radon Nikodyn theorem](https://en.wikipedia.org/wiki/Radon%E2%80%93Nikodym_theorem#Formal_description:~:text=%5Bedit%5D-,Radon%E2%80%93Nikodym%20theorem,-%5Bedit%5D) all we need to do is show
 that $\mathbb{P}\U X$ is absolutely continuous with respect to the
 Lebesgue measure $\lambda$. That is, we must show that if,
 $\lambda (A)=0$ then also $\mathbb{P}\U X(A)=0$. Let us set $g(y):=1\U A(y)$
@@ -140,7 +140,7 @@ and
   Then, by construction
 $\varphi=0$, so also $\varphi(X)=0$. Suppose now that $g$ were
 continuous. Then we would have that, by the fundamental theorem of
-calculus $\varphi'(x)=g(x)$. So by the chain rule (link)
+calculus $\varphi'(x)=g(x)$. So by the [chain rule](https://nowheredifferentiable.com/2022-07-02-Malliavin-Calculus-3/#:~:text=).-,Proposition%204,-(Chain%20rule).%20Consider)
 
 
 <div>
@@ -181,8 +181,7 @@ before
  $$\varphi(X):=\int\U {-\infty}^x g(x)dx.$$
 </div>
 
-  Then by the chain rule
-(link) and the fundamental theorem of calculus, we have that
+  Then by the chain rule and the fundamental theorem of calculus, we have that
 
 
 <div>
@@ -190,8 +189,8 @@ before
 </div>
 
 
-By taking expectations on both sides, and using that the Skorohod
-integral is the adjoint (link) of the Malliavin derivative, and Fubini
+By taking expectations on both sides, and using that [the Skorohod
+integral is the adjoint of the Malliavin derivative](https://nowheredifferentiable.com/2022-07-02-Malliavin-Calculus-4/#:~:text=result%20is%20fundamental.-,Theorem%201,-.%20The%20Skorokhod%20integral), and Fubini
 we obtain,
 
 <div>
@@ -276,7 +275,7 @@ then $X$ has a smooth density with respect to the Lebesgue measure.
 
 x
 Proof. By Theorem [2](https://nowheredifferentiable.com/2022-11-02-Malliavin-Calculus-5/#:~:text=our%20last%20one.-,Theorem%202,-(Density%20expression).%20Let) we know that $X$ has a density $p(x)$. To show
-that $p$ is smooth, by Sobolev embedding (link) it is sufficient to show
+that $p$ is smooth, by [Sobolev embedding](https://mathworld.wolfram.com/SobolevEmbeddingTheorem.html) it is sufficient to show
 that $p$ is weakly differentiable with order $n$ for all
 $n \in \mathbb{N}$. That is, for all
 $\varphi\in C\U b^\infty({\mathbb R})$ there exists a function $p^{(n)}$
@@ -318,5 +317,5 @@ $X$ is a vector-valued random variable (as opposed to real-valued). In
 this case, the condition for the existence of densities becomes that the
 matrix of derivatives $(\left\langle DX\U i,DX\U j\right\rangle\U {H})\U {i,j}$
 has non-zero determinant almost everywhere. We refer the reader to
-[3](https://www.hairer.org/notes/Malliavin.pdf) (link) Chapter $7$ or
-[4](https://www.hairer.org/notes/Malliavin.pdf) chapter $4$ for the multidimensional theory.
+[1](https://books.google.co.uk/books?hl=zh-CN&lr=&id=l\U 1uDwAAQBAJ&oi=fnd&pg=PR11&dq=nualart+introduction+malliavin&ots=\U JuMhMkTMt&sig=Tx5y00u4kMNs73jLtMEs-kyXAuU&redir\U esc=y#v=onepage&q=nualart\%20introduction\%20malliavin&f=false)  Chapter $7$ or
+[2](https://www.hairer.org/notes/Malliavin.pdf) chapter $4$ for the multidimensional theory.
