@@ -160,7 +160,7 @@ The question is, can we give an explicit formula for the density of $X$.
 The answer is (under some stricter conditions) yes, and the proof uses a
 similar trick as our last one.
 
- {#dens exists .theorem}
+
 **Theorem 2** (Density expression). Let $X\in \mathbb{D}^{1,2}$ such
 that $\norm{DX}\U {H}$ is non-zero almost everywhere. Suppose further that
 $DX/\norm{DX}^2\U {H}\in \text{dom} (\delta )$. Then $X$ has a density

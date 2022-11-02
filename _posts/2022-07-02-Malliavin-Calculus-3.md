@@ -260,7 +260,7 @@ First of all, consider the set of cylindrical variables
 
 
 <div>
- $$\mathbb{W}:=\left\{\varphi\qty(\int\U {I}h(t) dW(t)):\varphi\in C\U b^\infty({\mathbb R}^n), h\in L^2(I\to{\mathbb R}^n), n \in \mathbb{N}\right\}$$
+ $$\mathbb{W}:=\left\{\varphi\left(\int\U {I}h(t) dW(t)\right):\varphi\in C\U b^\infty({\mathbb R}^n), h\in L^2(I\to{\mathbb R}^n), n \in \mathbb{N}\right\}$$
 </div>
 
 
