@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Densities_1
+title: Study of densities part 1
 subtitle: Part 6 of the series on Malliavin calculus
 thumbnail-img: /assets/img/Malliavin.jpg
 share-img: /assets/img/Malliavin.jpg
@@ -16,7 +16,7 @@ UTF8gbsn
 -   A Malliavin differentiable random variable $X\in \mathbb{D}^{1,2}$
     is supported in intervals.
 
--   If $\|DX\|\U {L^2(I)}$ is almost nowhere zero, then $X$ has a density
+-   If $\norm{DX}\U {L^2(I)}$ is almost nowhere zero, then $X$ has a density
     $p$.
 
 -   If $X$ is smooth then $p$ is smooth.
@@ -76,7 +76,7 @@ $\epsilon >0$ such that
 take $\epsilon$ small enough so that $a<x-\epsilon<x+\epsilon<b$. Now
 take a smooth and bounded function $\varphi$ with $\varphi(y)=0$ for
 $y<x-\epsilon$ and with $\varphi(y)=1$ for $y>x+\epsilon$. By
-\zl \\zl sup\\zr \zr (#sup){reference-type="eqref" reference="sup"} it holds that
+the previousequation it holds that
 (almost everywhere) $\varphi(X)=1\U {X>x+\epsilon}$. Combining
 proposition\... (link) and corollary (link) of the previous post, we
 obtain that $1\U {X>x+\epsilon}$ is either $0$ or $1$ almost everywhere.
@@ -168,7 +168,7 @@ given by
 
 
 <div>
- $$p(x):=\mathbb{E}\qty\zl 1\U {X\leq x}\delta \qty(\frac{DX}{\norm{DX}\U {H}^2}) \zr .$$
+ $$p(x):=\mathbb{E}\left\zl 1\U {X\leq x}\delta \left(\frac{DX}{\norm{DX}\U {H}^2}\right) \right\zr .$$
 </div>
 
 
@@ -197,8 +197,8 @@ we obtain
 
 <div>
  $$\begin{aligned}
-             & \mathbb{E}\zl g(x)\zr =\mathbb{E}\qty\zl \left\langle D\varphi(X),\frac{DX}{\norm{DX}^2\U {H}}\right\rangle\U {H}\zr =\mathbb{E}\qty\zl \varphi(X)\delta\qty(\frac{DX}{\norm{DX}\U {H}^2})\zr                                  \\
-             & =\mathbb{E}\qty\zl \qty(\int\U {{\mathbb R}}1\U {X\leq x} g(x)dx)\delta\qty(\frac{DX}{\norm{DX}^2\U {H}})\zr =\int\U {{\mathbb R}}g(x)\mathbb{E}\qty\zl 1\U {X\leq x}\delta \qty(\frac{DX}{\norm{DX}\U {H}^2}) \zr  \\&=\int\U {{\mathbb R}}g(x)p(x).
+             & \mathbb{E}\zl g(x)\zr =\mathbb{E}\qty\zl \left\langle D\varphi(X),\frac{DX}{\norm{DX}^2\U {H}}\right\rangle\U {H}\zr =\mathbb{E}\left\zl \varphi(X)\delta\left(\frac{DX}{\norm{DX}\U {H}^2}\right)\right\zr                                  \\
+             & =\mathbb{E}\left\zl \\left(\int\U {{\mathbb R}}1\U {X\leq x} g(x)dx\right)\delta\left(\frac{DX}{\norm{DX}^2\U {H}}\right)\right\zr =\int\U {{\mathbb R}}g(x)\mathbb{E}\left\zl 1\U {X\leq x}\delta \left(\frac{DX}{\norm{DX}\U {H}^2}\right) \right\zr  \\&=\int\U {{\mathbb R}}g(x)p(x).
         \end{aligned}$$
 </div>
 
@@ -243,7 +243,7 @@ derivative, we get that
 
 
 <div>
- $$\mathbb{E}\zl \varphi'(X)Y\zr =\mathbb{E}\qty\zl \varphi(X)\delta \qty(\frac{DX}{\norm{DX}}\U {H}Y)\zr =:\mathbb{E}\zl \varphi(X)H\U 1(X,Y)\zr .$$
+ $$\mathbb{E}\zl \varphi'(X)Y\zr =\mathbb{E}\left\zl \varphi(X)\delta \left(\frac{DX}{\norm{DX}}\U {H}Y\right)\right\zr =:\mathbb{E}\zl \varphi(X)H\U 1(X,Y)\zr .$$
 </div>
 
 
@@ -276,8 +276,7 @@ then $X$ has a smooth density with respect to the Lebesgue measure.
 
 
 
-Proof. By Theorem \zl 2\zr (#dens exists){reference-type="ref"
-reference="dens exists"} we know that $X$ has a density $p(x)$. To show
+Proof. By Theorem [2](https://nowheredifferentiable.com/2022-11-02-Malliavin-Calculus-5/#:~:text=dens%20exists%20.theorem%7D-,Theorem%202,-(Density%20expression) we know that $X$ has a density $p(x)$. To show
 that $p$ is smooth, by Sobolev embedding (link) it is sufficient to show
 that $p$ is weakly differentiable with order $n$ for all
 $n \in \mathbb{N}$. That is, for all

@@ -256,67 +256,127 @@ The Malliavin derivative lets us define a derivative on a subset of
 $L^2(\Omega)$. However, it may also be useful to have a concept of
 derivative on random variables in $L^p(\Omega)$. We now explain how to
 do this via an alternative construction of the Malliavin derivative.
-First of all, consider the set of *cylindrical variables*
-$$\mathbb{W}:=\left\{\varphi\qty(\int_{I}h(t) dW(t)):\varphi\in C_b^\infty({\mathbb R}^n), h\in L^2(I\to{\mathbb R}^n), n \in \mathbb{N}\right\}$$
+First of all, consider the set of cylindrical variables
+
+
+<div>
+ $$\mathbb{W}:=\left\{\varphi\qty(\int\U {I}h(t) dW(t)):\varphi\in C\U b^\infty({\mathbb R}^n), h\in L^2(I\to{\mathbb R}^n), n \in \mathbb{N}\right\}$$
+</div>
+
+
 That is, $\mathbb{W}$ is the set of all smooth functions with bounded
 derivatives of Wiener integrals of deterministic functions. Let us use
-the abbreviation $W(h):=\int_{I}h(t) dW(t)$. Then, the results in the
+the abbreviation $W(h):=\int\U {I}h(t) dW(t)$. Then, the results in the
 previous section show that the Malliavin differential of a cylindrical
 variable is
-$$D_t\varphi(W(h))=\nabla\varphi(W(h))\cdot h(t)=\sum_{i=1}^{n} \frac{\partial \varphi}{\partial x_i}(W(h))h_i(t).$$
+
+
+<div>
+ $$D\U t\varphi(W(h))=\nabla\varphi(W(h))\cdot h(t)=\sum\U {i=1}^{n} \frac{\partial \varphi}{\partial x\U i}(W(h))h\U i(t).$$
+</div>
+
+
 One can also start directly with the above equation as the defintion of
-Malliavin differential. In this case it is not clear that $D_t$ is well
+Malliavin differential. In this case it is not clear that $D\U t$ is well
 defined (that is, independent of the representation of
-$X=\varphi(W(h))$). However it is, see [@hairer2021introduction] page
+$X=\varphi(W(h))$). However it is, see [3](https://www.hairer.org/notes/Malliavin.pdf) page
 10. Analogously to how one defines the norm on Sobolev spaces, we now
 take any $1\leq p< \infty$ and define a norm on $\mathbb{W}$ by
-$$\norm{X}_{\mathbb{D}^{1,p}}:=\norm{X}_{L^p(\Omega)}+\norm{DX}_{L^p(\Omega\to L^2(I))},\quad X\in \mathbb{W}.$$
+
+
+<div>
+ $$\norm{X}\U {\mathbb{D}^{1,p}}:=\norm{X}\U {L^p(\Omega)}+\norm{DX}\U {L^p(\Omega\to L^2(I))},\quad X\in \mathbb{W}.$$
+</div>
+
+
 Then, $D$ is a continuous linear operator on
-$(\mathbb{W},\norm{\cdot }_{\mathbb{D}^{1,p}})$ to
+$(\mathbb{W},\norm{\cdot }\U {\mathbb{D}^{1,p}})$ to
 $L^2(\Omega\to L^2(I))$. As a result, $D$ may be extended to the closure
-of $(\mathbb{W},\norm{\cdot }_{\mathbb{D}^{1,p}})$. We denote this
+of $(\mathbb{W},\norm{\cdot }\U {\mathbb{D}^{1,p}})$. We denote this
 closure by $\mathbb{D}^{1,p}$ and by abuse of notation also write $D$
 for the continuous extension of $D$ to $\mathbb{D}^{1,p}$. Note that by
-definition of the norm $\norm{\cdot }_{\mathbb{D}^{1,p}}$, necessarily
+definition of the norm $\norm{\cdot }\U {\mathbb{D}^{1,p}}$, necessarily
 $\mathbb{D}^{1,p}$ is a subset of $L^p(\Omega)$. In this way, we have
 been able to extend the Malliavin differential to
 $\mathbb{D}^{1,p}\subset L^p(\Omega)$. Explicitly, we have that
-$$D X:=\lim_{n \to \infty}D X_n \in L^p(\Omega\to L^2(I)).$$ Where
-$X_n \in \mathbb{W}$ is a sequence converging to $X$ in
+
+
+<div>
+ $$D X:=\lim\U {n \to \infty}D X\U n \in L^p(\Omega\to L^2(I)).$$
+</div>
+
+  Where
+$X\U n \in \mathbb{W}$ is a sequence converging to $X$ in
 $\mathbb{D}^{1,p}$. Furthermore, we note that by the previous discussion
 $D$ coincides with our previous definition of the Malliavin differential
 when $p=2$. For the case $p=\infty$ we define
-$$D^{1,\infty}:=\bigcap_{p=1} ^\infty \mathbb{D}^{1,p}.$$
+
+
+<div>
+ $$D^{1,\infty}:=\bigcap\U {p=1} ^\infty \mathbb{D}^{1,p}.$$
+</div>
+
+
 
 We now conclude with an extension of the chain rule which can be used
 even when $\varphi$ does not have bounded derivative.
 
-::: proposition
-**Proposition 5** (Chain rule for $\mathbb{D}^{1,p}$). *Let
+
+**Proposition 5** (Chain rule for $\mathbb{D}^{1,p}$). Let
 $X\in \mathbb{D}^{1,p}$ and consider $\varphi\in C^1({\mathbb R}^n)$
 such that $\norm{\nabla\varphi(x)}\leq C(1+\norm{x}^\alpha)$ for some
 $0\leq \alpha\leq p-1$. Then $\varphi(X)\in \mathbb{D}^{1,q}$, where
 $q=p/(\alpha+1)$. Furthermore,
-$$D\varphi(X)=\nabla \varphi(X) \cdot D X.$$*
-:::
 
-::: proof
-*Proof.* By the mean value inequality we have that
-$$\abs{\varphi(x)}\leq C'(1+\norm{x}^{\alpha+1})=C'(1+\norm{x}^{\frac{p}{q}}).$$
-As a result we have that $$\label{in1}
-        \varphi(X) \in L^q(\Omega).$$ Furthermore, by Hölder's
+
+<div>
+ $$D\varphi(X)=\nabla \varphi(X) \cdot D X.$$
+</div>
+
+
+
+
+
+Proof. By the mean value inequality we have that
+
+
+<div>
+ $$\abs{\varphi(x)}\leq C'(1+\norm{x}^{\alpha+1})=C'(1+\norm{x}^{\frac{p}{q}}).$$
+</div>
+
+
+As a result we have that
+
+<div>
+ $$\label{in1}
+        \varphi(X) \in L^q(\Omega).$$
+</div>
+
+  Furthermore, by Hölder's
 inequality applied to $r=(\alpha+1) / \alpha, s=\alpha+1$ we have that
-$$\label{in2}
-        \nabla \varphi(X) \cdot D X \in L^q(\Omega\to L^2(I)).$$ We now
-take a sequence of cylindrical random variables $X_n$ converging to $X$
-in $\mathbb{D}^{1,p}$ and an approximation to the identity $\delta_n$.
-Let us set $\varphi_n:=\varphi \cdot \delta_n$ $$\begin{gathered}
-        D \varphi(X)=\lim_{n \to \infty} D [\varphi_n(X_n)]=\lim_{n \to \infty} (\nabla \varphi_n)(X_n)\cdot DX_n\\=    (\nabla \varphi)(X)\cdot DX \in L^q(\Omega\to L^2(I)).
-    \end{gathered}$$ Where the final equality is due to the same method
-that gave inclusions [\[in1\]](#in1){reference-type="eqref"
-reference="in1"}-[\[in2\]](#in2){reference-type="eqref" reference="in2"}
-and the way $X_n,\varphi_n$ converge to $X,\varphi$ respectively. ◻
-:::
+
+
+<div>
+ $$\label{in2}
+        \nabla \varphi(X) \cdot D X \in L^q(\Omega\to L^2(I)).$$
+</div>
+
+  We now
+take a sequence of cylindrical random variables $X\U n$ converging to $X$
+in $\mathbb{D}^{1,p}$ and an approximation to the identity $\delta\U n$.
+Let us set $\varphi\U n:=\varphi \cdot \delta\U n$
+
+<div>
+ $$\begin{gathered}
+        D \varphi(X)=\lim\U {n \to \infty} D \zl \varphi\U n(X\U n)\zr =\lim\U {n \to \infty} (\nabla \varphi\U n)(X\U n)\cdot DX\U n\\=    (\nabla \varphi)(X)\cdot DX \in L^q(\Omega\to L^2(I)).
+    \end{gathered}$$
+</div>
+
+  Where the final equality is due to the same method
+that gave inclusions \zl \\zl in1\\zr \zr (#in1){reference-type="eqref"
+reference="in1"}-\zl \\zl in2\\zr \zr (#in2){reference-type="eqref" reference="in2"}
+and the way $X\U n,\varphi\U n$ converge to $X,\varphi$ respectively. ◻
+
 
 Essentially the previous proposition says that, if $X$ is differentiable
 and the derivative of $\varphi$ doesn't grow to fast (depending on the
@@ -327,31 +387,65 @@ on the integrability of $DX$ and the growth of $\nabla \varphi$.
 ## Example application
 
 For example, in the case $p=2$ we could take $\varphi(x)=x^2$ to deduce
-that $$D(X^2)=2XDX,\quad\forall X\in \mathbb{D}^{1,2}.$$ If $X=1_A$ is
+that
+
+<div>
+ $$D(X^2)=2XDX,\quad\forall X\in \mathbb{D}^{1,2}.$$
+</div>
+
+  If $X=1\U A$ is
 an indicator function for some $A\in \mathcal{F}$ we obtain that
-$$D(1_A)=D(1_A^2)=21_AD(1_A).$$ From here we deduce that $D1_A=0$. As we
-have seen, this occurs if and only if $1_A$ is constant, so necessarily
-$1_A=0$ or $1_A=1$. Identifying sets with functions, we have just proved
+
+
+<div>
+ $$D(1\U A)=D(1\U A^2)=21\U AD(1\U A).$$
+</div>
+
+  From here we deduce that $D1\U A=0$. As we
+have seen, this occurs if and only if $1\U A$ is constant, so necessarily
+$1\U A=0$ or $1\U A=1$. Identifying sets with functions, we have just proved
 the following
 
-::: corollary
-**Corollary 2**. *Given $A\in \mathcal{F}$ we have that
-$1_A\in \mathbb{D}^{1,2}$ if and only if (almost everywhere)
-$A=\emptyset$ or $A=\Omega$.*
-:::
+
+**Corollary 2**. Given $A\in \mathcal{F}$ we have that
+$1\U A\in \mathbb{D}^{1,2}$ if and only if (almost everywhere)
+$A=\emptyset$ or $A=\Omega$.
+
 
 ## Multiple derivatives
 
 Finally we comment on how it is possible to iterate the Malliavin
 derivative. Given a cylindrical process $X=\varphi(W(h))\in \mathbb{W}$
 we should have that, with Einstein notation
-$$D_{t_1}D_{t_2}X=D_{t_1}(\partial_i \varphi(X)h_i(t_2))=D_{t_1}(\partial_i \varphi(X))h_i(t_2)=(\partial_i\partial _j \varphi)(X)h_i(t_1)h_j(t_2).$$
+
+
+<div>
+ $$D\U {t\U 1}D\U {t\U 2}X=D\U {t\U 1}(\partial\U i \varphi(X)h\U i(t\U 2))=D\U {t\U 1}(\partial\U i \varphi(X))h\U i(t\U 2)=(\partial\U i\partial \U j \varphi)(X)h\U i(t\U 1)h\U j(t\U 2).$$
+</div>
+
+
 As a result, we define given $X\in \mathbb{W}$
-$$D^k_{t_1,\ldots,t_k} X:= \sum_{i_1,\ldots,i_k=1}^{n}  \frac{\partial \varphi}{\partial x_{i_1}\ldots\partial x_{i_k}}(X)h_{i_1}(t_1)\ldots h_{i_k}(t_k) .$$
+
+
+<div>
+ $$D^k\U {t\U 1,\ldots,t\U k} X:= \sum\U {i\U 1,\ldots,i\U k=1}^{n}  \frac{\partial \varphi}{\partial x\U {i\U 1}\ldots\partial x\U {i\U k}}(X)h\U {i\U 1}(t\U 1)\ldots h\U {i\U k}(t\U k) .$$
+</div>
+
+
 In the same fashion as before, we can now define the $k$-th differential
 norm as
-$$\norm{X}_{\mathbb{D}^{k,p}}:=\sum_{i=0}^{k}  \norm{D^j X}_{L^p(\Omega\to L^2(I^k))}.$$
+
+
+<div>
+ $$\norm{X}\U {\mathbb{D}^{k,p}}:=\sum\U {i=0}^{k}  \norm{D^j X}\U {L^p(\Omega\to L^2(I^k))}.$$
+</div>
+
+
 Where we use the convention $D^0 X:=X, L^2(I^0):= {\mathbb R}$. Then we
 simply define $\mathbb{D}^{p,k}$ to be the completion of $\mathbb{W}$
 with this norm. Finally, we define
-$$\mathbb{D}^{\infty,p}:= \bigcap_{k=1}^\infty \mathbb{D}^{k,p};\quad \mathbb{D}^{\infty}:= \mathbb{D}^{\infty,\infty} .$$
+
+
+<div>
+ $$\mathbb{D}^{\infty,p}:= \bigcap\U {k=1}^\infty \mathbb{D}^{k,p};\quad \mathbb{D}^{\infty}:= \mathbb{D}^{\infty,\infty} .$$
+</div>
