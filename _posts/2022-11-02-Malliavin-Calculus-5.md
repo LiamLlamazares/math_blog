@@ -164,11 +164,10 @@ similar trick as our last one.
 **Theorem 2** (Density expression). Let $X\in \mathbb{D}^{1,2}$ such
 that $\norm{DX}\U {H}$ is non-zero almost everywhere. Suppose further that
 $DX/\norm{DX}^2\U {H}\in \text{dom} (\delta )$. Then $X$ has a density
-given by thefollowing
 
 
 <div>
- $$p(x):=\mathbb{E}\zl 1\U {X\leq x}\delta (\frac{DX}{\norm{DX}\U {H}^2}) \zr .$$
+ $$p(x):=\mathbb{E}\left[1\U {X\leq x}\delta \left(\frac{DX}{\norm{DX}\U {H}^2}\right) \right] .$$
 </div>
 
 
