@@ -69,7 +69,7 @@ $\epsilon >0$ such that
 
 <div>
  $$\label{sup}
-            \mathcal{P}\U X(\zl x-\epsilon ,x+\epsilon \zr )=0.$$
+            \mathcal{P}\U X([ x-\epsilon ,x+\epsilon ] )=0.$$
 </div>
 
   Where we also
@@ -196,8 +196,8 @@ we obtain
 
 <div>
  $$\begin{aligned}
-             & \mathbb{E}\zl g(x)\zr =\mathbb{E}\qty\zl \left\langle D\varphi(X),\frac{DX}{\norm{DX}^2\U {H}}\right\rangle\U {H}\zr =\mathbb{E}\left\zl \varphi(X)\delta\left(\frac{DX}{\norm{DX}\U {H}^2}\right)\right\zr                                  \\
-             & =\mathbb{E}\left\zl \\left(\int\U {{\mathbb R}}1\U {X\leq x} g(x)dx\right)\delta\left(\frac{DX}{\norm{DX}^2\U {H}}\right)\right\zr =\int\U {{\mathbb R}}g(x)\mathbb{E}\left\zl 1\U {X\leq x}\delta \left(\frac{DX}{\norm{DX}\U {H}^2}\right) \right\zr  \\&=\int\U {{\mathbb R}}g(x)p(x).
+             & \mathbb{E}[ g(x)] =\mathbb{E}\qty[ \left\langle D\varphi(X),\frac{DX}{\norm{DX}^2\U {H}}\right\rangle\U {H}] =\mathbb{E}\left[ \varphi(X)\delta\left(\frac{DX}{\norm{DX}\U {H}^2}\right)\right]                                  \\
+             & =\mathbb{E}\left[ \\left(\int\U {{\mathbb R}}1\U {X\leq x} g(x)dx\right)\delta\left(\frac{DX}{\norm{DX}^2\U {H}}\right)\right] =\int\U {{\mathbb R}}g(x)\mathbb{E}\left[ 1\U {X\leq x}\delta \left(\frac{DX}{\norm{DX}\U {H}^2}\right) \right]  \\&=\int\U {{\mathbb R}}g(x)p(x).
         \end{aligned}$$
 </div>
 
@@ -217,7 +217,7 @@ there exists $H\U {k}(X,Y)\in \mathbb{D}^\infty$ such that
 
 
 <div>
- $$\mathbb{E}\zl \varphi^{(k)}(X)Y\zr =\mathbb{E}\zl \varphi(X)H\U k(X,Y)\zr .$$
+ $$\mathbb{E}[ \varphi^{(k)}(X)Y] =\mathbb{E}[ \varphi(X)H\U k(X,Y)] .$$
 </div>
 
 
@@ -242,7 +242,7 @@ derivative, we get that
 
 
 <div>
- $$\mathbb{E}\zl \varphi'(X)Y\zr =\mathbb{E}\left\zl \varphi(X)\delta \left(\frac{DX}{\norm{DX}}\U {H}Y\right)\right\zr =:\mathbb{E}\zl \varphi(X)H\U 1(X,Y)\zr .$$
+ $$\mathbb{E}[ \varphi'(X)Y] =\mathbb{E}\left[ \varphi(X)\delta \left(\frac{DX}{\norm{DX}}\U {H}Y\right)\right] =:\mathbb{E}[ \varphi(X)H\U 1(X,Y)] .$$
 </div>
 
 
@@ -255,7 +255,7 @@ Now suppose that the lemma holds for $k=n$, then by the same procedure,
 
 <div>
  $$\begin{aligned}
-                E\zl \varphi^{(n+1)}X\zr  & =E\zl \varphi'(X) H\U n(X,Y)\zr =\mathbb{E}\zl \varphi(X)H\U 1(X,H\U n(X,Y))\zr  \\&=:\mathbb{E}\zl \varphi(X)H\U {n+1}(X,Y)\zr .
+                E[ \varphi^{(n+1)}X]  & =E[ \varphi'(X) H\U n(X,Y)] =\mathbb{E}[ \varphi(X)H\U 1(X,H\U n(X,Y))]  \\&=:\mathbb{E}[ \varphi(X)H\U {n+1}(X,Y)] .
             \end{aligned}$$
 </div>
 
@@ -284,7 +284,7 @@ such that
 
 
 <div>
- $$\mathbb{E}\zl \varphi^{(n)}(X)\zr =\int\U {{\mathbb R}}\varphi^{(n)}(x)p(x) dx=(-1)^n\int\U {{\mathbb R}}\varphi(x) p^{(n)}(x) dx.$$
+ $$\mathbb{E}[ \varphi^{(n)}(X)] =\int\U {{\mathbb R}}\varphi^{(n)}(x)p(x) dx=(-1)^n\int\U {{\mathbb R}}\varphi(x) p^{(n)}(x) dx.$$
 </div>
 
 
@@ -296,7 +296,7 @@ $\phi\in C\U b^\infty({\mathbb R})$
 
 
 <div>
- $$\mathbb{E}\zl \phi^{(n+1)}(X)\zr =E\zl \phi'(X)H\U n(X,1)\zr .$$
+ $$\mathbb{E}[ \phi^{(n+1)}(X)] =E[ \phi'(X)H\U n(X,1)] .$$
 </div>
 
   If we apply this to
@@ -306,7 +306,7 @@ $\varphi=\phi'$) we obtain that, by Fubini,
 
 <div>
  $$\begin{gathered}
-            \mathbb{E}\zl \varphi^{(n)}(X)\zr =E\zl \varphi(X)H\U n(X,1)\zr = E\qty\zl \qty(\int\U {{\mathbb R}}1\U {\zl -\infty,X\zr }(x) \varphi(x)dx) H\U n(X,1)\zr \\=\int\U {{\mathbb R}}\varphi(x)\mathbb{E}\qty\zl 1\U {\zl -\infty,X\zr }(x)H\U n(X,1)\zr  dx=:(-1)^n \int\U {R}\varphi(x) p^{(n)}(x) d
+            \mathbb{E}[ \varphi^{(n)}(X)] =E[ \varphi(X)H\U n(X,1)] = E\qty[ \qty(\int\U {{\mathbb R}}1\U {[ -\infty,X] }(x) \varphi(x)dx) H\U n(X,1)] \\=\int\U {{\mathbb R}}\varphi(x)\mathbb{E}\qty[ 1\U {[ -\infty,X] }(x)H\U n(X,1)]  dx=:(-1)^n \int\U {R}\varphi(x) p^{(n)}(x) d
         \end{gathered}$$
 </div>
 
