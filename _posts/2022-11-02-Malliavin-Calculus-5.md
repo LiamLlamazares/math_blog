@@ -74,7 +74,7 @@ take a smooth and bounded function $\varphi$ with $\varphi(y)=0$ for
 $y<x-\epsilon$ and with $\varphi(y)=1$ for $y>x+\epsilon$. By
 the previousequation it holds that
 (almost everywhere) $\varphi(X)=1\U {X>x+\epsilon}$. Combining
-[Proposition 4][https://nowheredifferentiable.com/2022-07-02-Malliavin-Calculus-3/#:~:text=%28.-,Proposition%204,-(Chain%20rule).%20Consider] and [Corollary 2](https://nowheredifferentiable.com/2022-07-02-Malliavin-Calculus-3/#:~:text=proved%20the%20following-,Corollary%202,-.%20Given) of a previous post, we
+[Proposition 4][https://nowheredifferentiable.com/2022-07-02-Malliavin-Calculus-3/#:~:text=%29.-,Proposition%204,-(Chain%20rule).%20Consider] and [Corollary 2](https://nowheredifferentiable.com/2022-07-02-Malliavin-Calculus-3/#:~:text=proved%20the%20following-,Corollary%202,-.%20Given) of a previous post, we
 obtain that $1\U {X>x+\epsilon}$ is either $0$ or $1$ almost everywhere.
 That is,
 
