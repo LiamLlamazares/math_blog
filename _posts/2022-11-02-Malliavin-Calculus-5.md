@@ -302,11 +302,11 @@ $\phi\in C\U b^\infty({\mathbb R})$
   If we apply this to
 $\phi(x):=\int\U {-\infty}^x \varphi(y) dy$ where $\varphi$ is any
 function in $C\U c^\infty({\mathbb R})$ (and in particular
-$\varphi=\phi'$) we obtain that, by Fubini,
+$\varphi=\phi'$) we obtain that, by Fubini
 
 <div>
  $$\begin{gathered}
-            \mathbb{E}[ \varphi^{(n)}(X)] =E[ \varphi(X)H\U n(X,1)] = E\qty[ \qty(\int\U {{\mathbb R}}1\U {[ -\infty,X] }(x) \varphi(x)dx) H\U n(X,1)] \\=\int\U {{\mathbb R}}\varphi(x)\mathbb{E}\qty[ 1\U {[ -\infty,X] }(x)H\U n(X,1)]  dx=:(-1)^n \int\U {R}\varphi(x) p^{(n)}(x) d
+            \mathbb{E}[ \varphi^{(n)}(X)] =E[ \varphi(X)H\U n(X,1)] = E\left[ \left(\int\U {{\mathbb R}}1\U {[ -\infty,X] }(x) \varphi(x)dx\right) H\U n(X,1)\right] \\=\int\U {{\mathbb R}}\varphi(x)\mathbb{E}\left[ 1\U {[ -\infty,X] }(x)H\U n(X,1)\right]  dx=:(-1)^n \int\U {\mathbb R}\varphi(x) p^{(n)}(x) dx
         \end{gathered}$$
 </div>
 
