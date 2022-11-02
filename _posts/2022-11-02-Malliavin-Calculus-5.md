@@ -284,7 +284,7 @@ such that
 
 
 <div>
- $$\mathbb{E}[ \varphi^{(n)}(X)] =\int\U {{\mathbb R}}\varphi^{(n)}(x)p(x) dx=(-1)^n\int\U {{\mathbb R}}\varphi(x) p^{(n)}(x) dx.$$
+ $$\mathbb{E}\zl \varphi^{(n)}(X)\zr =\int\U {{\mathbb R}}\varphi^{(n)}(x)p(x) dx=(-1)^n\int\U {{\mathbb R}}\varphi(x) p^{(n)}(x) dx.$$
 </div>
 
 
