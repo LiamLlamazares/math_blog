@@ -269,7 +269,7 @@ $X\in \mathbb{D}^\infty$ such that $\norm{DX}\U {H}>0$ almost everywhere,
 then $X$ has a smooth density with respect to the Lebesgue measure.
 
 
-x
+
 Proof. By Theorem [2](https://nowheredifferentiable.com/2022-11-02-Malliavin-Calculus-5/#:~:text=our%20last%20one.-,Theorem%202,-(Density%20expression).%20Let) we know that $X$ has a density $p(x)$. To show
 that $p$ is smooth, by [Sobolev embedding](https://mathworld.wolfram.com/SobolevEmbeddingTheorem.html) it is sufficient to show
 that $p$ is weakly differentiable with order $n$ for all
@@ -279,7 +279,7 @@ such that
 
 
 <div>
- $$\mathbb{E}\zl \varphi^{(n)}(X)\zr =\int\U {{\mathbb R}}\varphi^{(n)}(x)p(x) dx=(-1)^n\int\U {{\mathbb R}}\varphi(x) p^{(n)}(x) dx.$$
+ $$\mathbb{E}\zl \varphi^{(n)}(X)\zr =\int\U\mathbb{R}\varphi^{(n)}(x)p(x) dx=(-1)^n\int\U\mathbb {R}\varphi(x) p^{(n)}(x) dx.$$
 </div>
 
 
