@@ -88,7 +88,7 @@ Malliavin differentiable and we have that
 
 Proof. Suppose that $D\U tX$ is progressively measurable. Then, using
 the previously studied divergence [property](https://nowheredifferentiable.com/2022-07-02-Malliavin-Calculus-4/#:~:text=be%20a-,stochastic,-process%20such%20that) and the fact that the
-Skorohod integral is an extension of the Itô integral (link) gives
+Skorohod integral is an [extension of the Itô integral](https://nowheredifferentiable.com/2022-06-10-Malliavin-Calculus-2/#:~:text=As%20we%20saw%20in%20the%20previous%20theorem) gives
 
 
 <div>
@@ -98,7 +98,7 @@ Skorohod integral is an extension of the Itô integral (link) gives
 </div>
 
   We consider the chaos expansion of $X$. Then, as was
-seen [previously](https://nowheredifferentiable.com/2022-06-10-Malliavin-Calculus-2/#:~:text=As%20we%20saw%20in%20the%20previous%20theorem), we have that
+seen [previously](https://nowheredifferentiable.com/2022-06-10-Malliavin-Calculus-2/#:~:text=fn-,appearing,-in%20its%20chaos), we have that
 
 
 <div>
