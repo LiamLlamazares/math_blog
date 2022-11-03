@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Study of densities part 2
+title: Study of densities part 2 test
 subtitle: Part 6 of the series on Malliavin calculus
 thumbnail-img: /assets/img/Malliavin.jpg
 share-img: /assets/img/Malliavin.jpg
