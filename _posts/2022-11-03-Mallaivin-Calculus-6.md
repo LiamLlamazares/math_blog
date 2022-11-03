@@ -22,8 +22,8 @@ authorpost: L.Llamazares
 # Notation
 
 The same as in the other posts of this series. In particular, we recall
-the notation $\mathbb{L}^2(I\times\Omega)$ for the set of progressively
-measurable (link) square integrable stochastic processes. Furthermore,
+the notation $\mathbb{L}^2(I\times\Omega)$ for the set of [progressively
+measurable](https://nowheredifferentiable.com/2022-05-26-The-Ito-integral/#:~:text=mysterious%20term%20mean%3F-,Definition%201,-.%20A%20stochastic%20process) square integrable stochastic processes. Furthermore,
 given a stochastic process $X$ such that $X(t)\in \mathbb{D}^{1,2}$ for
 each $t\in I$ we write $D\U rX(t)$ for the Malliavin differential at time
 $r\in I$ of $X(t)$. That is, if
@@ -34,7 +34,7 @@ $r\in I$ of $X(t)$. That is, if
 </div>
 
 
-is the chaos expansion (link) of $X(t)$ for each $t$ then we have that
+is the [chaos expansion](https://nowheredifferentiable.com/2022-06-10-Malliavin-Calculus-2/#:~:text=.%20Then-,we%20know,-that%20by%20the) of $X(t)$ for each $t$ then we have that
 
 
 <div>
@@ -87,7 +87,7 @@ Malliavin differentiable and we have that
 
 
 Proof. Suppose that $D\U tX$ is progressively measurable. Then, using
-the previously studied divergence property (link) and the fact that the
+the previously studied divergence [property](https://nowheredifferentiable.com/2022-07-02-Malliavin-Calculus-4/#:~:text=be%20a-,stochastic,-process%20such%20that) and the fact that the
 Skorohod integral is an extension of the Itô integral (link) gives
 
 
@@ -98,7 +98,7 @@ Skorohod integral is an extension of the Itô integral (link) gives
 </div>
 
   We consider the chaos expansion of $X$. Then, as was
-seen previously (link), we have that
+seen [previously](https://nowheredifferentiable.com/2022-06-10-Malliavin-Calculus-2/#:~:text=As%20we%20saw%20in%20the%20previous%20theorem), we have that
 
 
 <div>
@@ -156,7 +156,7 @@ Proof. We will apply Fubini, we have that
 
 
 <div>
- $$\left\langle D\U rX,h\right\rangle\U {L^2(I)}=\int\U I\sum\U {n=0}^{\infty}nI\U {n-1}(f\U n(\cdot ,r,s))ds=\sum\U {n=0}^{\infty}nI\U {n-1}\qty(\int\U If\U n(\cdot ,r,s)h(s)ds).$$
+ $$\left\langle D\U rX,h\right\rangle\U {L^2(I)}=\int\U I\sum\U {n=0}^{\infty}nI\U {n-1}(f\U n(\cdot ,r,s))ds=\sum\U {n=0}^{\infty}nI\U {n-1}\left(\int\U If\U n(\cdot ,r,s)h(s)ds\right).$$
 </div>
 
 
@@ -166,7 +166,7 @@ sum has finite $L^2(I\times\Omega)$ norm as
 
 <div>
  $$\begin{gathered}
-        \int\U {I} \norm{\sum\U {n=0}^{\infty}nI\U {n-1}\qty(\int\U If\U n(\cdot ,r,s)h(s)ds)}\U {L^2(\Omega)}^2d r  \\
+        \int\U {I} \norm{\sum\U {n=0}^{\infty}nI\U {n-1}\left(\int\U If\U n(\cdot ,r,s)h(s)ds\right)}\U {L^2(\Omega)}^2d r  \\
         \leq \int\U {I}\sum\U {n=0}^{\infty}n^2 \left(\int\U {{\mathbb R}}\norm{I\U {n-1}f\U n(\cdot ,r,s)}^2\U {L^2(\Omega)}d r\right)ds \norm{h}^2\U {L^2(I)}\\
         =\norm{h}^2\U {L^2(I)}\int\U {I}\sum\U {n=0}^{\infty}\norm{D\U tX}\U {L^2(I\times\Omega)}d t<\infty .
     \end{gathered}$$
@@ -174,7 +174,7 @@ sum has finite $L^2(I\times\Omega)$ norm as
 
   Where in the first inequality we applied Fubini,
 Cauchy Schwartz, and the triangle inequality, and in the equality, we
-used our old calculation of the norm of the Malliavin derivative (link)
+used our old calculation of the [norm of the Malliavin derivative](https://nowheredifferentiable.com/2022-07-02-Malliavin-Calculus-3/#:~:text=DX.-,Proof.,-The%20proof%20of)
 
 
 <div>
@@ -213,7 +213,7 @@ and the solution to our SDE verifies all necessary conditions, then
 
 
 
-**Proposition 1**. Given our SDE (link) with
+**Proposition 1**. Given our [SDE](https://nowheredifferentiable.com/2022-11-03-Mallaivin-Calculus-6/#:~:text=working%20with%20an-,SDE,-of%20the%20form) with
 $\sigma ,b\in C^1\U b({\mathbb R})$ it holds that there exists a unique
 solution $X\U t$ and for all $r\leq t$ we have
 
@@ -228,7 +228,7 @@ solution $X\U t$ and for all $r\leq t$ we have
 
 
 Proof. The proof is quite technical and we merely sketch it. The full
-detail in [2](https://link.springer.com/book/10.1007/978-3-540-78572-9) page 120. By the previous discussion, it
+detail in [2](https://www.cambridge.org/core/books/introduction-to-malliavin-calculus/8E17E009769FE6797351721C024BDCAE) page 120. By the previous discussion, it
 is only necessary to show that $X$ verifies the conditions of the lemma,
 i.e. is Malliavin differentiable and its differential verifies that
 
@@ -361,8 +361,6 @@ but now takes initial data $Y\U r(r)$). ◻
 
 
 
-We end this post by noting that Proposition $1$ (link) has a
+We end this post by noting that [Proposition $1$](https://nowheredifferentiable.com/2022-11-03-Mallaivin-Calculus-6/#:~:text=it-,holds,-that%20there%20exists) has a
 multidimensional generalization which can also be found in Nualart's
-book [3](https://books.google.co.uk/books?hl=zh-CN&lr=&id=l\U 1uDwAAQBAJ&oi=fnd&pg=PR11&dq=nualart+introduction+malliavin&ots=\U JuMhMkTMt&sig=Tx5y00u4kMNs73jLtMEs-kyXAuU&redir\U esc=y#v=onepage&q=nualart\%20introduction\%20malliavin&f=false), on page 119.
-A pdf of version of this page is provided below:
-<object data="/assets/Densities_Existence_and_regularity.pdf" width="1000" height="1000" type='application/pdf'></object>
+book [2](https://www.cambridge.org/core/books/introduction-to-malliavin-calculus/8E17E009769FE6797351721C024BDCAE), on page 119.
