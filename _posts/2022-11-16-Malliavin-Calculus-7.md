@@ -26,7 +26,7 @@ authorpost: L.Llamazares
 
 
     <div>
-     $$\int\U {{\mathbb R}^d}f(x) \cdot \nabla g(x) dx=-\int\U {{\mathbb R}^d}\nabla\cdot  f(x) \nabla g(x) dx.$$
+     $$\int\U \mathbb{R}^df(x) \cdot \nabla g(x) dx=-\int\U \mathbb{R}^d\nabla\cdot  f(x) \nabla g(x) dx.$$
     </div>
 
 
@@ -42,5 +42,5 @@ authorpost: L.Llamazares
 
 
     <div>
-     $$\Delta\U {{\mathbb R}^d} =\nabla\cdot \nabla=\partial\U 1^2+\ldots\partial \U d^2.$$
+     $$\Delta\U \mathbb{R}^d =\nabla\cdot \nabla=\partial\U 1^2+\ldots\partial \U d^2.$$
     </div>
