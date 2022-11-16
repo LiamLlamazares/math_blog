@@ -70,7 +70,7 @@ rapidly decaying chaos expansion, then
 
 
 All we require for this expression to make sense is that- the right-hand
-side is in $L^2(\Omega)$. That is, by Ito's $n$-th [isometry](https://nowheredifferentiable.com/2022-05-26-Malliavin-Calculus-1/#:~:text=defined%20iterated%20integrals.-,Proposition%201,-(It%C3%B4%E2%80%99s%20n%2Dth), that
+side is in $L^2(\Omega)$. That is, by Ito's $n$-th [isometry](https://nowheredifferentiable.com/2022-05-26-Malliavin-Calculus-1/#:~:text=As%20a%20result-,we,-also%20get%20by), that
 
 
 <div>

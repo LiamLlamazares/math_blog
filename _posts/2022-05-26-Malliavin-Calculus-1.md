@@ -88,7 +88,7 @@ functions.
 
 Where it is important to note that the second equality is by definition
 and where the rescaling factor is motivated by the fact that, by
-counting permutations, if $I$ is finite then $\mu(I^n)=n! \mu(S\U n)$. Basde on Itô's isometry we can obtain a similar result for the just defined iterated integrals.
+counting permutations, if $I$ is finite then $\mu(I^n)=n! \mu(S\U n)$. Based on Itô's isometry we can obtain a similar result for the just defined iterated integrals.
 
 
 **Proposition 1** (Itô's n-th isometry). Let $f,g\in L^2(S^n)$ then
