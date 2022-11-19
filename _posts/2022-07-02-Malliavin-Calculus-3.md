@@ -364,7 +364,7 @@ inequality applied to $r=(\alpha+1) / \alpha, s=\alpha+1$ we have that
   We now
 take a sequence of cylindrical random variables $X\U n$ converging to $X$
 in $\mathbb{D}^{1,p}$ and an approximation to the identity $\delta\U n$.
-Let us set $\varphi\U n:=\varphi \cdot \delta\U n$
+Let us set $\varphi\U n:=\varphi * \delta\U n$
 
 <div>
  $$\begin{gathered}
