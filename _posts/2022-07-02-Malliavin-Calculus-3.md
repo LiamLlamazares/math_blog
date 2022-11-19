@@ -373,9 +373,7 @@ Let us set $\varphi\U n:=\varphi \cdot \delta\U n$
 </div>
 
   Where the final equality is due to the same method
-that gave inclusions \zl \\zl in1\\zr \zr (#in1){reference-type="eqref"
-reference="in1"}-\zl \\zl in2\\zr \zr (#in2){reference-type="eqref" reference="in2"}
-and the way $X\U n,\varphi\U n$ converge to $X,\varphi$ respectively. ◻
+that gave the previous two inclusions and the way $X\U n,\varphi\U n$ converge to $X,\varphi$ respectively. ◻
 
 
 Essentially the previous proposition says that, if $X$ is differentiable
