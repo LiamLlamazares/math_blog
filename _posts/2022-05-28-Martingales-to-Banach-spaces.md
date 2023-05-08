@@ -109,6 +109,22 @@ uniqueness we have that if both $Z\U 1, Z\U 2$ satisfy
 using the [linearity of the Bochner integral](https://nowheredifferentiable.com/2022-05-27-The-Bochner-integral/#:~:text=%E2%80%96d%CE%BC-,Let,be%20another%20Banach%20space,-and) we obtain that $w(Z\U 1)=w(Z\U 2)$ for
 all linear function $w$, so $Z\U 1=Z\U 2$. ◻
 
+In proofs it is often useful to reduce infinite dimensional conditional expectations to finite dimensional ones. This can be done with the following trick
+
+**Proposition 1** (Linearity of the conditional expectation).
+Let $X\in L^1(\Omega\to E)$ for some Banach space $E$. Then it holds that
+
+
+<div>
+ $$\|\mathbb{E}\U {\mathcal{G}}\zl \ell(X)\zr \|\=\ell\left(\mathbb{E}\U {\mathcal{G}}\left[ \|X\|\right]\right) .$$
+</div>
+
+
+
+*Proof*. This follows from the definition of conditional expectation and the linearity  of the Bochner integral. ◻
+
+
+
 
 # 2. Martingales
 
@@ -159,26 +175,25 @@ The crucial part of requiring $E$ to be separable is that the norm is a *countab
 $\mathbb{E}\U t$. Then, as in the real case, we have the following.
 
 
-**Lemma 2**  Let $M(t)$ be a martingale, then
+**Lemma 2**  Let $M(t)$ be a martingale valued in a separable metric space $E$ , then
 $\norm{M(t)}$ is a submartingale.
 
-*Proof*. Let us take $\ell\U n$ as in Lemma 1. Then, since $M$ is a martingale, and by the
-linearity of the integral
+*Proof*. Let us take $\ell\U n$ as in Lemma 1. Then, since $M$ is a martingale, by the
+linearity of conditional expectation (Proposition 1) and by [Fatou's lemma for the limsup](https://en.wikipedia.org/wiki/Fatou%27s_lemma#:~:text=%5Bedit%5D-,We,-apply%20linearity%20of)
 <div>
  $$
-    \|M(s)\|=\|\mathbb{E}\U {s}\zl M(t)\zr \|= \sup\U {n\in \mathbb{N}} \ell \U n\left(\mathbb{E}\U {s}\zl M(t)\zr \right)=\sup\U {n\in \mathbb{N}}\|{\mathbb{E}\U {s}\left[ \ell \U n(M(t))\right] \|}
+    \|M(s)\|=\|\mathbb{E}\U {s}\zl M(t)\zr \|= \sup\U {n\in \mathbb{N}} \ell \U n\left(\mathbb{E}\U {s}\zl M(t)\zr \right)=\sup\U {n\in \mathbb{N}}{\mathbb{E}\U {s}\left[ \ell \U n(M(t))\right] }
     \leq \mathbb{E}\U {s}\left[ \sup\U {n\in \mathbb{N}}\ell \U n(M(t))\right] =\mathbb{E}\U {s}\left[ \|M(t)\|\right].
   $$
 </div>
 
   ◻
 
-
 Let us recall the following result for real-valued martingales
 
 
 **Lemma 3** (Doob's maximal martingale inequality). Let
-${X\U k}\U {k=1}^\infty$ be a real-valued sub-martingale. Then it holds
+$\\{X\U k\\}\U {k=1}^\infty$ be a real-valued sub-martingale. Then it holds
 that
 
 
@@ -197,7 +212,7 @@ As a consequence, if $X\U t,t\in\zl 0,T\zr $ is left (or right) continuous then
 The idea of the above result is that since $X\U k$ is a submartingale,
 $X\U k\lesssim X\U {k+1}\lesssim...\lesssim X\U n$. Getting from the
 continuous to the discrete case is possible by using the continuity of
-$X$ and approximating it on some finer and finer mesh $t\U 0,...,t\U n$. For all the details see page $5$ of [2](http://math.bu.edu/people/prakashb/Math/continuous-time%20martingales.pdf)
+$X$ and approximating it on some finer and finer mesh $t\U 0,...,t\U n$. For all the details see page $5$ of [2](http://math.bu.edu/people/prakashb/Math/continuous-time%20martingales.pdf).
 
 
 This said, applying Doob's maximal martingale inequality together with

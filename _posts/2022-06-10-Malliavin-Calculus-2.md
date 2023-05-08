@@ -260,7 +260,7 @@ some of the natural properties we associate with integration.
 
 
 **Proposition 3**. Let $X(t), Y(t)\in dom(\delta)$,
-$\lambda \in {\mathbb R}$. Then it holds that
+$\lambda \in {\mathbb{R}}$. Then it holds that
 
 -  $X(t)+ \lambda Y(t) \in dom(\delta)$ with
   $\delta(X+\lambda Y)=\delta(X)+\lambda \delta(Y)$.

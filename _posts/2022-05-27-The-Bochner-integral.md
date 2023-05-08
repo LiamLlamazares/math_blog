@@ -154,14 +154,14 @@ exists a subsequence $f\U {n\U k}$ converging to $f$ almost everywhere.
 
 
 
-*Proof*. In the proof of the above proposition we saw that for any
-absolutely convergent sum converges almost everywhere to its limit.
-Further, since $f\U n$ is Cauchy, we can extract a subsequence $f\U {n\U k}$
-with $\|f\U {n\U k}-f\U {n\U {k-1}}\|\leq 2^{-k}$. By construction the sequence
+*Proof*. In the proof of the above proposition we saw that any
+absolutely convergent sum converges almost everywhere to its pointwise limit.
+Now, since $f\U n$ is Cauchy in $\U {L^p(\Omega\to E)}$ , we can extract a subsequence $f\U {n\U k}$
+with $\norm{f\U {n\U k}-f\U {n\U {k-1}}}\U {L^p(\Omega\to E)}\leq 2^{-k}$. By construction the sequence $\\{g_k\\}\U {k=0}^\infty :=\\{f\U {n\U k}-f\U {n\U {k-1}}\\}\U {k=0}^\infty$ verifies
 <div>
- $$\sum\U {k=0}^{\infty} f\U {n\U k}-f\U {n\U {k-1}},$$
+ $$\sum\U {k=0}^{\infty} \norm{g\U k}\U {L^p(\Omega\to E)} <\infty;$$
 </div>
-is normally convergent and converges in $f$. By the above discussion we conclude the proof. ◻
+and $g_k \to f$ almost everywhere. By the initial discussion we conclude the proof. ◻
 
 
 Ok, so we've constructed some spaces of $p$-integrable functions and
