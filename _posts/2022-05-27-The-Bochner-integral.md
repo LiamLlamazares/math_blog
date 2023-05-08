@@ -82,8 +82,8 @@ $f$ is measurable $f(\Omega)$ is separable.
 
 <div>
  $$\begin{aligned}
-        \mathcal{L}^p(\Omega,\mathcal{F},\mu,E)       & =\left\{f:\Omega\to X: f \text{ is strongly measurable and } \int \norm{f}^p d\mu<\infty\right\}. \\
-        \hat{\mathcal{L}}^p(\Omega,\mathcal{F},\mu,E) & =\left\{f:\Omega\to X: f \text{ is measurable and }\int \norm{f}^p d\mu<\infty\right\}.
+        \mathcal{L}^p(\Omega,\mathcal{F},\mu,E)       & =\left\{f:\Omega\to E: f \text{ is strongly measurable and } \int \norm{f}^p d\mu<\infty\right\}. \\
+        \hat{\mathcal{L}}^p(\Omega,\mathcal{F},\mu,E) & =\left\{f:\Omega\to E: f \text{ is measurable and }\int \norm{f}^p d\mu<\infty\right\}.
     \end{aligned}$$
 </div>
 We also define the semi-norms
@@ -180,13 +180,13 @@ each $\omega\in\Omega$
 
 
 
-*Proof*. Consider a countable dense subset $\{e\U k\}\U {k=1}^\infty$ of
+*Proof*. Consider a countable dense subset $\\{e\U k\\}\U {k=1}^\infty$ of
 $f(\Omega)$. Now define $\varphi:E\to E$
 <div>
  $$\varphi\U n(e):= e\U j \text{ where }  d(e\U j,e)=\min\U {1\leq m\leq n} d(e,e\U m).$$
 </div>
 And define $f\U n:=\varphi\U n \circ f$. A bit of thought shows that
-$\varphi\U n$ is continuous and thus so is $f\U n$ (remember we are
+$\varphi\U n$ is continuous and thus $f\U n$ is measurable (remember we are
 considering the Borel $\sigma$-algebra) on $E$. Furthermore, since for
 each fixed $\omega$ the above distance goes to $0$ we have that
 <div>
@@ -261,6 +261,3 @@ the extra requirement that appears over the Lebesgue case is that the
 function $f$ is separately valued and justifies why, as we will see in
 future posts on SPDEs, the image of $f$ is often taken to be some
 separable Hilbert space. Until the next time!
-
-A pdf of version of this page is provided below:
-<object data="/assets/Bochner.pdf" width="1000" height="1000" type='application/pdf'></object>
