@@ -46,7 +46,7 @@ are the square integrable and progressively measurable ones. But what does
 this mysterious term mean?
 
 
-**Definition 1**. A stochastic process $\{ X\U t \}\U {t\in I}$ is
+**Definition 1**. A stochastic process $\\{ X\U t \\}\U {t\in I}$ is
 progressively measurable if
 <div>
  $$X:\mathcal{B}(\zl 0,t\zr )\otimes\mathcal{F}\U t\to \mathcal{H}$$
@@ -69,7 +69,7 @@ seen as functions of a product space, this leads to the following
 definition.
 
 
-**Definition 2**. We say that a stochastic process $\{X\U t\}\U {t\in I}$
+**Definition 2**. We say that a stochastic process $\\{X\U t\\}\U {t\in I}$
 is jointly measurable if
 <div>
  $$X:\mathcal{B}(I)\otimes\mathcal{F}\U \infty\to \mathcal{H}$$
@@ -81,7 +81,7 @@ measurability, in fact the condition leads to the following
 
 
 **Proposition 1** (Progressive implies jointly measurable). Let
-$I\subset{\mathbb R}$, and $\{X\U t\}\U {t\in I}$ be progressively
+$I\subset{\mathbb R}$, and $\\{X\U t\\}\U {t\in I}$ be progressively
 measurable. Then it is also jointly measurable.
 
 
@@ -120,7 +120,7 @@ to equivalent definition. That said, this technicality is usually of
 little importance due to the following result.
 
 
-**Lemma 3** (Continuity, when adapated, is progressive). Let $\{X\U t\}\U {t\in I}$ be a
+**Lemma 3** (Continuity, when adapated, is progressive). Let $\\{X\U t\\}\U {t\in I}$ be a
 left or right continuous adapted stochastic process. Then $X$ is progressively
 measurable.
 
@@ -153,6 +153,8 @@ progressively measurable.
 *Proof*. This follows from considering $(t,\omega)\to (t,X(t,w))$. Where
 the arrow is measurable as, due to the progressive measurability of $X$,
 each component is adapted. ◻
+
+
 We now move to defining the Itô integral. We will first define it on step processes of the form
 
 $$
@@ -179,10 +181,10 @@ $2$ of [2](http://galton.uchicago.edu/~lalley/Courses/385/Old/ItoIntegral-2012.p
 
 **Theorem 1**. Let
 $(\mathcal{E},\| \cdot \|\U {L^2(I\times\Omega)},\mathcal{F}\U t)$ be the set
-of simple stochastic processes adapted to $\{\mathcal{F}\U t\}\U {t\in I}$
+of simple stochastic processes adapted to $\\{\mathcal{F}\U t\\}\U {t\in I}$
 with the $L^2$ norm. Then it's completion is
 <div>
- $$\mathbb{L}^2(I\times\Omega):=\{X\in L^2(\zl 0,T\zr \times\Omega)\text{ progressively measurable }\}.$$
+ $$\mathbb{L}^2(I\times\Omega):=\\{X\in L^2(\zl 0,T\zr \times\Omega)\text{ progressively measurable }\\}.$$
 </div>
 
 
