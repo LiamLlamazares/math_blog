@@ -102,8 +102,8 @@ constant in $t$ then, for some $B\subset \Omega$ it holds that
  $$X^{-1}(A)=I\times B;\quad {X^{-1}}|\U {\zl 0,t\zr \times\Omega}(A)= \zl 0,t\zr \times B$$
 </div>
 So it suffices to consider some construction where
-$B\in\mathcal{F}\U \infty$ but $B\not\in\mathcal{F}\U t$. \\
-\\
+$B\in\mathcal{F}\U \infty$ but $B\not\in\mathcal{F}\U t$.
+
 
 
 The difference between progressively measurable and adapted is quite
