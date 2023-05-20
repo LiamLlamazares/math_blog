@@ -1,3 +1,196 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Liam Llamazares" />
+  <meta name="dcterms.date" content="2023-05-12" />
+  <title>Gelfand’s theorems</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Gelfand’s theorems</h1>
+<p class="author">Liam Llamazares</p>
+<p class="date">05/12/2023</p>
+</header>
 <div class="CJK*">
 <p><span>UTF8</span><span>gbsn</span></p>
 <h1 data-number="1" id="three-line-summary"><span
@@ -7,8 +200,9 @@ class="header-section-number">1</span> Three line summary</h1>
 that represent an element of a Banach algebra.</p></li>
 <li><p>In a unital Banach algebra every element has non-empty
 spectrum.</p></li>
-<li><p>A commutative Banach algebra <span class="math inline">A</span>
-can be thought of as a subgroup of continuous functions.</p></li>
+<li><p>A commutative Banach algebra <img style="vertical-align:middle"
+src="%5Ctextstyle%20A" alt="A" title="A" class="math inline" /> can be
+thought of as a subgroup of continuous functions.</p></li>
 </ul>
 <h1 data-number="2" id="why-should-i-care"><span
 class="header-section-number">2</span> Why should I care?</h1>
@@ -19,454 +213,883 @@ class="header-section-number">3</span> Preliminary definitions</h1>
 familiar if the reader has an algebra background and can be skimmed
 over.</p>
 <div class="definition">
-<p><strong>Definition 1</strong>. <em>An <em>algebra</em> <span
-class="math inline">A</span> is a vector space together with a
-multiplication which is bilinear and associative. That is, <span
-class="math display">\begin{aligned}
+<p><strong>Definition 1</strong>. <em>An <em>algebra</em> <img
+style="vertical-align:middle" src="%5Ctextstyle%20A" alt="A" title="A"
+class="math inline" /> is a vector space together with a multiplication
+which is bilinear and associative. That is, <img
+style="vertical-align:middle"
+src="%5Cdisplaystyle%20%5Cbegin%7Baligned%7D%0A%09%09%09%28a%2Bb%29c%3Dac%2Bbc%3B%5Cquad%20a%28b%2Bc%29%3Dab%2Bac%3B%20%5Cquad%20a%28bc%29%3D%28ab%29c%20%5Cforall%20a%2Cb%2Cc%20%5Cin%20A.%0A%09%09%0A%5Cend%7Baligned%7D"
+alt="\begin{aligned}
 			(a+b)c=ac+bc;\quad a(b+c)=ab+ac; \quad a(bc)=(ab)c \forall a,b,c \in A.
 
-\end{aligned}</span> Note that in general we do not require that the
-product is commutative. Though this will be a common requirement later
-on. We will take <span class="math inline">A</span> for the remainder to
-be a vectro space over <span
-class="math inline">\mathbb{C}</span></em></p>
+\end{aligned}" title="\begin{aligned}
+			(a+b)c=ac+bc;\quad a(b+c)=ab+ac; \quad a(bc)=(ab)c \forall a,b,c \in A.
+
+\end{aligned}" class="math display" /> Note that in general we do not
+require that the product is commutative. Though this will be a common
+requirement later on. We will take <img style="vertical-align:middle"
+src="%5Ctextstyle%20A" alt="A" title="A" class="math inline" /> for the
+remainder to be a vectro space over <img style="vertical-align:middle"
+src="%5Ctextstyle%20%5Cmathbb%7BC%7D" alt="\mathbb{C}"
+title="\mathbb{C}" class="math inline" /></em></p>
 </div>
 <div class="definition">
-<p><strong>Definition 2</strong>. <em>Given a norm <span
-class="math inline">\lVert \cdot  \rVert</span> on algebra <span
-class="math inline">A</span> we say that <span class="math inline">(A,
-\lVert  \rVert)</span> is a <em>normed algebra</em> if the norm is
-<em>submultiplicative</em>. That is, <span
-class="math display">\begin{aligned}
+<p><strong>Definition 2</strong>. <em>Given a norm <img
+style="vertical-align:middle"
+src="%5Ctextstyle%20%5ClVert%20%5Ccdot%20%20%5CrVert"
+alt="\lVert \cdot  \rVert" title="\lVert \cdot  \rVert"
+class="math inline" /> on algebra <img style="vertical-align:middle"
+src="%5Ctextstyle%20A" alt="A" title="A" class="math inline" /> we say
+that <img style="vertical-align:middle"
+src="%5Ctextstyle%20%28A%2C%20%5ClVert%20%20%5CrVert%29"
+alt="(A, \lVert  \rVert)" title="(A, \lVert  \rVert)"
+class="math inline" /> is a <em>normed algebra</em> if the norm is
+<em>submultiplicative</em>. That is, <img style="vertical-align:middle"
+src="%5Cdisplaystyle%20%5Cbegin%7Baligned%7D%0A%09%09%09%5ClVert%20ab%20%5CrVert%5Cleq%20%5ClVert%20a%20%5CrVert%5ClVert%20b%20%5CrVert.%0A%09%09%0A%5Cend%7Baligned%7D"
+alt="\begin{aligned}
 			\lVert ab \rVert\leq \lVert a \rVert\lVert b \rVert.
 
-\end{aligned}</span></em></p>
+\end{aligned}" title="\begin{aligned}
+			\lVert ab \rVert\leq \lVert a \rVert\lVert b \rVert.
+
+\end{aligned}" class="math display" /></em></p>
 </div>
 <div class="definition">
-<p><strong>Definition 3</strong>. <em>We say that a normed algebra <span
-class="math inline">(A,\lVert \cdot  \rVert)</span> is a <em>Banach
-algebra</em> if it is complete. We say that it is <em>unital</em> if
-there exists an identity <span class="math inline">1</span> for the
-multiplication <span class="math display">\begin{aligned}
+<p><strong>Definition 3</strong>. <em>We say that a normed algebra <img
+style="vertical-align:middle"
+src="%5Ctextstyle%20%28A%2C%5ClVert%20%5Ccdot%20%20%5CrVert%29"
+alt="(A,\lVert \cdot  \rVert)" title="(A,\lVert \cdot  \rVert)"
+class="math inline" /> is a <em>Banach algebra</em> if it is complete.
+We say that it is <em>unital</em> if there exists an identity <img
+style="vertical-align:middle" src="%5Ctextstyle%201" alt="1" title="1"
+class="math inline" /> for the multiplication <img
+style="vertical-align:middle"
+src="%5Cdisplaystyle%20%5Cbegin%7Baligned%7D%0A%09%09%09a%201%3D1%20a%2C%20%5Cquad%5Cforall%20a%5Cin%20A.%0A%09%09%0A%5Cend%7Baligned%7D"
+alt="\begin{aligned}
 			a 1=1 a, \quad\forall a\in A.
 
-\end{aligned}</span></em></p>
-<p><em>and we say that it is <em>commutative</em> if <span
-class="math display">\begin{aligned}
+\end{aligned}" title="\begin{aligned}
+			a 1=1 a, \quad\forall a\in A.
+
+\end{aligned}" class="math display" /></em></p>
+<p><em>and we say that it is <em>commutative</em> if <img
+style="vertical-align:middle"
+src="%5Cdisplaystyle%20%5Cbegin%7Baligned%7D%0A%09%09%09ab%3D%20ba%20%2C%20%5Cquad%5Cforall%20a%2Cb%20%5Cin%20A.%0A%09%09%0A%5Cend%7Baligned%7D"
+alt="\begin{aligned}
 			ab= ba , \quad\forall a,b \in A.
 
-\end{aligned}</span></em></p>
-</div>
-<div class="definition">
-<p><strong>Definition 4</strong>. <em>Given <span class="math inline">a
-\in  A</span> we say that <span class="math inline">\lambda  \in
-\mathbb{C}</span> is in the <em>spectrum</em> of <span
-class="math inline">a</span> if <span class="math inline">\lambda
-1-a</span> is <strong>not</strong> invertible. We write <span
-class="math inline">\sigma (a) \subset \mathbb{C}</span> for the set of
-such <span class="math inline">\lambda</span>.</em></p>
-</div>
-<div class="definition">
-<p><strong>Definition 5</strong>. <em>Given two algebras <span
-class="math inline">A,B</span> we say that <span
-class="math inline">\varphi: A\to B</span> is a <em>homomorphism</em> if
-it is linear and respects the product. That is, <span
-class="math display">\begin{aligned}
-			\varphi(a+ \lambda b)= \varphi(a)+ \lambda  \varphi(b);\quad
-\varphi(ab)=\varphi(a) \varphi(b) , \quad\forall a ,b \in  A.
+\end{aligned}" title="\begin{aligned}
+			ab= ba , \quad\forall a,b \in A.
 
-\end{aligned}</span> If <span class="math inline">A,B</span> are unital
-and <span class="math inline">\varphi(1)=1</span> we say that <span
-class="math inline">\varphi</span> is <em>unital</em>. If <span
-class="math inline">\varphi</span> has an inverse <span
-class="math inline">\varphi</span> and <span
-class="math inline">\varphi</span> and <span
-class="math inline">\varphi^{-1}</span> are continuous we say that it is
-a <em>homeomorphism</em></em></p>
+\end{aligned}" class="math display" /></em></p>
 </div>
-<p>Note that any morphism <span class="math inline">\varphi</span>
-between unital algebras conserves invertability. However that, even if
-<span class="math inline">A,B</span> are unital it may be the case that
-<span class="math inline">\varphi(1)</span> is not (consider for example
+<div class="definition">
+<p><strong>Definition 4</strong>. <em>Given <img
+style="vertical-align:middle" src="%5Ctextstyle%20a%20%5Cin%20%20A"
+alt="a \in  A" title="a \in  A" class="math inline" /> we say that <img
+style="vertical-align:middle"
+src="%5Ctextstyle%20%5Clambda%20%20%5Cin%20%5Cmathbb%7BC%7D"
+alt="\lambda  \in \mathbb{C}" title="\lambda  \in \mathbb{C}"
+class="math inline" /> is in the <em>spectrum</em> of <img
+style="vertical-align:middle" src="%5Ctextstyle%20a" alt="a" title="a"
+class="math inline" /> if <img style="vertical-align:middle"
+src="%5Ctextstyle%20%5Clambda%201-a" alt="\lambda 1-a"
+title="\lambda 1-a" class="math inline" /> is <strong>not</strong>
+invertible. We write <img style="vertical-align:middle"
+src="%5Ctextstyle%20%5Csigma%20%28a%29%20%5Csubset%20%5Cmathbb%7BC%7D"
+alt="\sigma (a) \subset \mathbb{C}"
+title="\sigma (a) \subset \mathbb{C}" class="math inline" /> for the set
+of such <img style="vertical-align:middle"
+src="%5Ctextstyle%20%5Clambda" alt="\lambda" title="\lambda"
+class="math inline" />.</em></p>
+</div>
+<div class="definition">
+<p><strong>Definition 5</strong>. <em>Given two algebras <img
+style="vertical-align:middle" src="%5Ctextstyle%20A%2CB" alt="A,B"
+title="A,B" class="math inline" /> we say that <img
+style="vertical-align:middle"
+src="%5Ctextstyle%20%5Cvarphi%3A%20A%5Cto%20B" alt="\varphi: A\to B"
+title="\varphi: A\to B" class="math inline" /> is a
+<em>homomorphism</em> if it is linear and respects the product. That is,
+<img style="vertical-align:middle"
+src="%5Cdisplaystyle%20%5Cbegin%7Baligned%7D%0A%09%09%09%5Cvarphi%28a%2B%20%5Clambda%20b%29%3D%20%5Cvarphi%28a%29%2B%20%5Clambda%20%20%5Cvarphi%28b%29%3B%5Cquad%20%5Cvarphi%28ab%29%3D%5Cvarphi%28a%29%20%5Cvarphi%28b%29%20%2C%20%5Cquad%5Cforall%20a%20%2Cb%20%5Cin%20%20A.%0A%09%09%0A%5Cend%7Baligned%7D"
+alt="\begin{aligned}
+			\varphi(a+ \lambda b)= \varphi(a)+ \lambda  \varphi(b);\quad \varphi(ab)=\varphi(a) \varphi(b) , \quad\forall a ,b \in  A.
+
+\end{aligned}" title="\begin{aligned}
+			\varphi(a+ \lambda b)= \varphi(a)+ \lambda  \varphi(b);\quad \varphi(ab)=\varphi(a) \varphi(b) , \quad\forall a ,b \in  A.
+
+\end{aligned}" class="math display" /> If <img
+style="vertical-align:middle" src="%5Ctextstyle%20A%2CB" alt="A,B"
+title="A,B" class="math inline" /> are unital and <img
+style="vertical-align:middle" src="%5Ctextstyle%20%5Cvarphi%281%29%3D1"
+alt="\varphi(1)=1" title="\varphi(1)=1" class="math inline" /> we say
+that <img style="vertical-align:middle" src="%5Ctextstyle%20%5Cvarphi"
+alt="\varphi" title="\varphi" class="math inline" /> is <em>unital</em>.
+If <img style="vertical-align:middle" src="%5Ctextstyle%20%5Cvarphi"
+alt="\varphi" title="\varphi" class="math inline" /> has an inverse <img
+style="vertical-align:middle" src="%5Ctextstyle%20%5Cvarphi"
+alt="\varphi" title="\varphi" class="math inline" /> and <img
+style="vertical-align:middle" src="%5Ctextstyle%20%5Cvarphi"
+alt="\varphi" title="\varphi" class="math inline" /> and <img
+style="vertical-align:middle" src="%5Ctextstyle%20%5Cvarphi%5E%7B-1%7D"
+alt="\varphi^{-1}" title="\varphi^{-1}" class="math inline" /> are
+continuous we say that it is a <em>homeomorphism</em></em></p>
+</div>
+<p>Note that any morphism <img style="vertical-align:middle"
+src="%5Ctextstyle%20%5Cvarphi" alt="\varphi" title="\varphi"
+class="math inline" /> between unital algebras conserves invertability.
+However that, even if <img style="vertical-align:middle"
+src="%5Ctextstyle%20A%2CB" alt="A,B" title="A,B" class="math inline" />
+are unital it may be the case that <img style="vertical-align:middle"
+src="%5Ctextstyle%20%5Cvarphi%281%29" alt="\varphi(1)"
+title="\varphi(1)" class="math inline" /> is not (consider for example
 the zero morphism).</p>
 <div class="definition">
-<p><strong>Definition 6</strong>. <em>We say that <span
-class="math inline">\varphi</span> is a character of <span
-class="math inline">A</span> if <span class="math inline">\varphi:A\to
-\mathbb{C}</span> is a homomorphism.</em></p>
+<p><strong>Definition 6</strong>. <em>We say that <img
+style="vertical-align:middle" src="%5Ctextstyle%20%5Cvarphi"
+alt="\varphi" title="\varphi" class="math inline" /> is a character of
+<img style="vertical-align:middle" src="%5Ctextstyle%20A" alt="A"
+title="A" class="math inline" /> if <img style="vertical-align:middle"
+src="%5Ctextstyle%20%5Cvarphi%3AA%5Cto%20%5Cmathbb%7BC%7D"
+alt="\varphi:A\to \mathbb{C}" title="\varphi:A\to \mathbb{C}"
+class="math inline" /> is a homomorphism.</em></p>
 </div>
 <div class="definition">
-<p><strong>Definition 7</strong>. <em>Given an algebra <span
-class="math inline">A</span> we say that <span class="math inline">B
-\subset A</span> is a sub-algebra if it is subspace of <span
-class="math inline">A</span> closed under multiplication. That is <span
-class="math inline">B</span> itself is an algebra.</em></p>
+<p><strong>Definition 7</strong>. <em>Given an algebra <img
+style="vertical-align:middle" src="%5Ctextstyle%20A" alt="A" title="A"
+class="math inline" /> we say that <img style="vertical-align:middle"
+src="%5Ctextstyle%20B%20%5Csubset%20A" alt="B \subset A"
+title="B \subset A" class="math inline" /> is a sub-algebra if it is
+subspace of <img style="vertical-align:middle" src="%5Ctextstyle%20A"
+alt="A" title="A" class="math inline" /> closed under multiplication.
+That is <img style="vertical-align:middle" src="%5Ctextstyle%20B"
+alt="B" title="B" class="math inline" /> itself is an algebra.</em></p>
 </div>
 <div class="definition">
-<p><strong>Definition 8</strong>. <em>Given an algebra <span
-class="math inline">A</span>, we say that <span class="math inline">I
-\subset A</span> is an <em>ideal</em> of <span
-class="math inline">A</span> if <span class="math inline">I</span> is
-stable under multiplication with elements is <span
-class="math inline">A</span>. That is <span
-class="math display">\begin{aligned}
+<p><strong>Definition 8</strong>. <em>Given an algebra <img
+style="vertical-align:middle" src="%5Ctextstyle%20A" alt="A" title="A"
+class="math inline" />, we say that <img style="vertical-align:middle"
+src="%5Ctextstyle%20I%20%5Csubset%20A" alt="I \subset A"
+title="I \subset A" class="math inline" /> is an <em>ideal</em> of <img
+style="vertical-align:middle" src="%5Ctextstyle%20A" alt="A" title="A"
+class="math inline" /> if <img style="vertical-align:middle"
+src="%5Ctextstyle%20I" alt="I" title="I" class="math inline" /> is
+stable under multiplication with elements is <img
+style="vertical-align:middle" src="%5Ctextstyle%20A" alt="A" title="A"
+class="math inline" />. That is <img style="vertical-align:middle"
+src="%5Cdisplaystyle%20%5Cbegin%7Baligned%7D%0A%09%09%09AI%20%3A%3D%20%5C%7B%20a%20b%3A%20a%5Cin%20A%2C%20%5Cquad%20%20b%20%5Cin%20I%20%5C%7D%20%5Csubset%20I%3B%20%5Cquad%20IA%20%5Csubset%20I%20.%0A%09%09%0A%5Cend%7Baligned%7D"
+alt="\begin{aligned}
 			AI := \{ a b: a\in A, \quad  b \in I \} \subset I; \quad IA \subset I .
 
-\end{aligned}</span> We say that <span class="math inline">I</span> is
-<em>maximal</em> if given any other ideal <span
-class="math inline">J</span> such that <span
-class="math inline">I\subset J</span> it holds that <span
-class="math inline">J=A</span>.</em></p>
+\end{aligned}" title="\begin{aligned}
+			AI := \{ a b: a\in A, \quad  b \in I \} \subset I; \quad IA \subset I .
+
+\end{aligned}" class="math display" /> We say that <img
+style="vertical-align:middle" src="%5Ctextstyle%20I" alt="I" title="I"
+class="math inline" /> is <em>maximal</em> if given any other ideal <img
+style="vertical-align:middle" src="%5Ctextstyle%20J" alt="J" title="J"
+class="math inline" /> such that <img style="vertical-align:middle"
+src="%5Ctextstyle%20I%5Csubset%20J" alt="I\subset J" title="I\subset J"
+class="math inline" /> it holds that <img style="vertical-align:middle"
+src="%5Ctextstyle%20J%3DA" alt="J=A" title="J=A"
+class="math inline" />.</em></p>
 </div>
 <p>We recall that, by Zorn’s Lemma every algebra has a maximal
 ideal.</p>
 <div class="definition">
-<p><strong>Definition 9</strong>. <em>Given a closed ideal <span
-class="math inline">I</span> of an algebra <span
-class="math inline">A</span> we define the quotient algebra <span
-class="math inline">A/I</span> to be the set of equivalence classes
-under the relation <span class="math display">\begin{aligned}
+<p><strong>Definition 9</strong>. <em>Given a closed ideal <img
+style="vertical-align:middle" src="%5Ctextstyle%20I" alt="I" title="I"
+class="math inline" /> of an algebra <img style="vertical-align:middle"
+src="%5Ctextstyle%20A" alt="A" title="A" class="math inline" /> we
+define the quotient algebra <img style="vertical-align:middle"
+src="%5Ctextstyle%20A%2FI" alt="A/I" title="A/I" class="math inline" />
+to be the set of equivalence classes under the relation <img
+style="vertical-align:middle"
+src="%5Cdisplaystyle%20%5Cbegin%7Baligned%7D%0A%09%09%09a%20%5Csim%20b%20%5Ciff%20a-b%20%5Cin%20I.%0A%09%09%0A%5Cend%7Baligned%7D"
+alt="\begin{aligned}
 			a \sim b \iff a-b \in I.
 
-\end{aligned}</span> With the product <span
-class="math inline">\overline{a}\overline{b}:= \overline{ab}</span> and
-the norm <span class="math display">\begin{aligned}
+\end{aligned}" title="\begin{aligned}
+			a \sim b \iff a-b \in I.
+
+\end{aligned}" class="math display" /> With the product <img
+style="vertical-align:middle"
+src="%5Ctextstyle%20%5Coverline%7Ba%7D%5Coverline%7Bb%7D%3A%3D%20%5Coverline%7Bab%7D"
+alt="\overline{a}\overline{b}:= \overline{ab}"
+title="\overline{a}\overline{b}:= \overline{ab}" class="math inline" />
+and the norm <img style="vertical-align:middle"
+src="%5Cdisplaystyle%20%5Cbegin%7Baligned%7D%0A%09%09%09%5ClVert%20%5Coverline%7Ba%7D%20%5CrVert%3A%3D%20%5Cinf_%7B%20b%20%5Cin%20%20I%20%7D%20%5ClVert%20a%2Bb%20%5CrVert.%0A%09%09%0A%5Cend%7Baligned%7D"
+alt="\begin{aligned}
 			\lVert \overline{a} \rVert:= \inf_{ b \in  I } \lVert a+b \rVert.
 
-\end{aligned}</span></em></p>
+\end{aligned}" title="\begin{aligned}
+			\lVert \overline{a} \rVert:= \inf_{ b \in  I } \lVert a+b \rVert.
+
+\end{aligned}" class="math display" /></em></p>
 </div>
-<p>We note that it is necessary for <span class="math inline">I</span>
-to be closed so that if <span class="math inline">\lVert \overline{a}
-\rVert=0</span> then <span class="math inline">a \in I</span>, that is
-<span class="math inline">\overline{a}=0</span>.</p>
+<p>We note that it is necessary for <img style="vertical-align:middle"
+src="%5Ctextstyle%20I" alt="I" title="I" class="math inline" /> to be
+closed so that if <img style="vertical-align:middle"
+src="%5Ctextstyle%20%5ClVert%20%5Coverline%7Ba%7D%20%5CrVert%3D0"
+alt="\lVert \overline{a} \rVert=0" title="\lVert \overline{a} \rVert=0"
+class="math inline" /> then <img style="vertical-align:middle"
+src="%5Ctextstyle%20a%20%5Cin%20I" alt="a \in I" title="a \in I"
+class="math inline" />, that is <img style="vertical-align:middle"
+src="%5Ctextstyle%20%5Coverline%7Ba%7D%3D0" alt="\overline{a}=0"
+title="\overline{a}=0" class="math inline" />.</p>
 <h1 data-number="4" id="introduction"><span
 class="header-section-number">4</span> Introduction</h1>
 <h1 data-number="5" id="the-big-theorems"><span
 class="header-section-number">5</span> The big theorems</h1>
 <p>We now state the main theorems and outline the proof</p>
 <div class="theorem">
-<p><strong>Theorem 1</strong>. <em>Given a unital Banach algebra <span
-class="math inline">A</span> it holds that</em></p>
+<p><strong>Theorem 1</strong>. <em>Given a unital Banach algebra <img
+style="vertical-align:middle" src="%5Ctextstyle%20A" alt="A" title="A"
+class="math inline" /> it holds that</em></p>
 <ol>
-<li><p><em>The set of invertible elements in <span
-class="math inline">A</span> is open.</em></p></li>
+<li><p><em>The set of invertible elements in <img
+style="vertical-align:middle" src="%5Ctextstyle%20A" alt="A" title="A"
+class="math inline" /> is open.</em></p></li>
 <li><p><em>Taking the inverse is smooth.</em></p></li>
-<li><p><em><span class="math inline">\sigma (a)</span> is a closed
-subset of <span class="math inline">\subset B(0,\lVert a
-\rVert)</span></em></p></li>
+<li><p><em><img style="vertical-align:middle"
+src="%5Ctextstyle%20%5Csigma%20%28a%29" alt="\sigma (a)"
+title="\sigma (a)" class="math inline" /> is a closed subset of <img
+style="vertical-align:middle"
+src="%5Ctextstyle%20%5Csubset%20B%280%2C%5ClVert%20a%20%5CrVert%29"
+alt="\subset B(0,\lVert a \rVert)" title="\subset B(0,\lVert a \rVert)"
+class="math inline" /></em></p></li>
 </ol>
 </div>
 <div class="proof">
 <p><em>Proof.</em> All of these facts can be proved via the Von-Neumman
-series for the inverse <span class="math display">\begin{aligned}
+series for the inverse <img style="vertical-align:middle"
+src="%5Cdisplaystyle%20%5Cbegin%7Baligned%7D%0A%09%09%09%281%20-a%29%5E%7B-1%7D%3D%5Csum_%7Bn%3D0%7D%5E%7B%5Cinfty%7D%20a%5En%2C%20%5Cquad%5Cforall%20a%20%5Cin%20B%280%2C1%29%20.%0A%09%09%0A%5Cend%7Baligned%7D"
+alt="\begin{aligned}
 			(1 -a)^{-1}=\sum_{n=0}^{\infty} a^n, \quad\forall a \in B(0,1) .
 
-\end{aligned}</span> ◻</p>
+\end{aligned}" title="\begin{aligned}
+			(1 -a)^{-1}=\sum_{n=0}^{\infty} a^n, \quad\forall a \in B(0,1) .
+
+\end{aligned}" class="math display" /> ◻</p>
 </div>
 <div class="theorem">
 <p><strong>Theorem 2</strong> (Gelfand’s theorem). <em>Given a unital
-Banach algebra <span class="math inline">A</span>, <span
-class="math inline">\sigma (a)\neq \emptyset</span> for all <span
-class="math inline">a\in A</span>.</em></p>
+Banach algebra <img style="vertical-align:middle" src="%5Ctextstyle%20A"
+alt="A" title="A" class="math inline" />, <img
+style="vertical-align:middle"
+src="%5Ctextstyle%20%5Csigma%20%28a%29%5Cneq%20%5Cemptyset"
+alt="\sigma (a)\neq \emptyset" title="\sigma (a)\neq \emptyset"
+class="math inline" /> for all <img style="vertical-align:middle"
+src="%5Ctextstyle%20a%5Cin%20A" alt="a\in A" title="a\in A"
+class="math inline" />.</em></p>
 </div>
 <div class="proof">
-<p><em>Proof.</em> Suppose not, then <span class="math inline">(\lambda
-1-a)^{-1}</span> exists for all <span class="math inline">\lambda
-\in  \mathbb{C}</span>. Let us consider the function <span
-class="math inline">f:\mathbb{C}\to \mathbb{C}</span> <span
-class="math display">\begin{aligned}
+<p><em>Proof.</em> Suppose not, then <img style="vertical-align:middle"
+src="%5Ctextstyle%20%28%5Clambda%201-a%29%5E%7B-1%7D"
+alt="(\lambda 1-a)^{-1}" title="(\lambda 1-a)^{-1}"
+class="math inline" /> exists for all <img style="vertical-align:middle"
+src="%5Ctextstyle%20%5Clambda%20%5Cin%20%20%5Cmathbb%7BC%7D"
+alt="\lambda \in  \mathbb{C}" title="\lambda \in  \mathbb{C}"
+class="math inline" />. Let us consider the function <img
+style="vertical-align:middle"
+src="%5Ctextstyle%20f%3A%5Cmathbb%7BC%7D%5Cto%20%5Cmathbb%7BC%7D"
+alt="f:\mathbb{C}\to \mathbb{C}" title="f:\mathbb{C}\to \mathbb{C}"
+class="math inline" /> <img style="vertical-align:middle"
+src="%5Cdisplaystyle%20%5Cbegin%7Baligned%7D%0A%5Clabel%7Be1%7D%0A%09%09%09f%28%5Clambda%29%3A%3D%20%28%5Clambda%201-a%29%5E%7B-1%7D.%0A%09%09%0A%5Cend%7Baligned%7D"
+alt="\begin{aligned}
 \label{e1}
 			f(\lambda):= (\lambda 1-a)^{-1}.
 
-\end{aligned}</span> Since taking inverse is smooth, <span
-class="math inline">f</span> is smooth and thus bounded on <span
-class="math inline">B(0,2\lVert a \rVert)</span>. Furthermore, using
-Neumann’s series for the inverse we obtain that <span
-class="math display">\begin{aligned}
-			\lVert f(\lambda ) \rVert = \left| \lambda^{-1} \right| \lVert
-\sum_{n=0}^{\infty}  (a / \lambda)^n  \rVert\leq \left| \lambda
-\right|^{-1} \sum_{n=0}^{\infty} (\lVert a \rVert / \lambda)^n \leq
-\frac{1}{\left|  \lambda  \right|}\leq \frac{1}{2 \lVert a \rVert}  .
+\end{aligned}" title="\begin{aligned}
+\label{e1}
+			f(\lambda):= (\lambda 1-a)^{-1}.
 
-\end{aligned}</span> As a result <span class="math inline">f</span> is a
-bounded smooth function and <span class="math inline">\ell (f(\lambda
-))</span> is a bounded entire function for any <span
-class="math inline">\ell \in A^*</span>. By Liouville’s theorem <span
-class="math inline">\ell (f(\lambda ))</span> is constant. Since this
-holds for all <span class="math inline">\ell \in  A^*</span> we deduce
-that <span class="math inline">f(\lambda )</span> is constant. This
-leads to a contradiction by taking <span class="math inline">\lambda =1,
-\lambda =0</span> as we get <span class="math display">\begin{aligned}
+\end{aligned}" class="math display" /> Since taking inverse is smooth,
+<img style="vertical-align:middle" src="%5Ctextstyle%20f" alt="f"
+title="f" class="math inline" /> is smooth and thus bounded on <img
+style="vertical-align:middle"
+src="%5Ctextstyle%20B%280%2C2%5ClVert%20a%20%5CrVert%29"
+alt="B(0,2\lVert a \rVert)" title="B(0,2\lVert a \rVert)"
+class="math inline" />. Furthermore, using Neumann’s series for the
+inverse we obtain that <img style="vertical-align:middle"
+src="%5Cdisplaystyle%20%5Cbegin%7Baligned%7D%0A%09%09%09%5ClVert%20f%28%5Clambda%20%29%20%5CrVert%20%3D%20%5Cleft%7C%20%5Clambda%5E%7B-1%7D%20%5Cright%7C%20%5ClVert%20%5Csum_%7Bn%3D0%7D%5E%7B%5Cinfty%7D%20%20%28a%20%2F%20%5Clambda%29%5En%20%20%5CrVert%5Cleq%20%5Cleft%7C%20%5Clambda%20%5Cright%7C%5E%7B-1%7D%20%5Csum_%7Bn%3D0%7D%5E%7B%5Cinfty%7D%20%28%5ClVert%20a%20%5CrVert%20%2F%20%5Clambda%29%5En%20%5Cleq%20%5Cfrac%7B1%7D%7B%5Cleft%7C%20%20%5Clambda%20%20%5Cright%7C%7D%5Cleq%20%5Cfrac%7B1%7D%7B2%20%5ClVert%20a%20%5CrVert%7D%20%20.%0A%09%09%0A%5Cend%7Baligned%7D"
+alt="\begin{aligned}
+			\lVert f(\lambda ) \rVert = \left| \lambda^{-1} \right| \lVert \sum_{n=0}^{\infty}  (a / \lambda)^n  \rVert\leq \left| \lambda \right|^{-1} \sum_{n=0}^{\infty} (\lVert a \rVert / \lambda)^n \leq \frac{1}{\left|  \lambda  \right|}\leq \frac{1}{2 \lVert a \rVert}  .
+
+\end{aligned}" title="\begin{aligned}
+			\lVert f(\lambda ) \rVert = \left| \lambda^{-1} \right| \lVert \sum_{n=0}^{\infty}  (a / \lambda)^n  \rVert\leq \left| \lambda \right|^{-1} \sum_{n=0}^{\infty} (\lVert a \rVert / \lambda)^n \leq \frac{1}{\left|  \lambda  \right|}\leq \frac{1}{2 \lVert a \rVert}  .
+
+\end{aligned}" class="math display" /> As a result <img
+style="vertical-align:middle" src="%5Ctextstyle%20f" alt="f" title="f"
+class="math inline" /> is a bounded smooth function and <img
+style="vertical-align:middle"
+src="%5Ctextstyle%20%5Cell%20%28f%28%5Clambda%20%29%29"
+alt="\ell (f(\lambda ))" title="\ell (f(\lambda ))"
+class="math inline" /> is a bounded entire function for any <img
+style="vertical-align:middle"
+src="%5Ctextstyle%20%5Cell%20%5Cin%20A%5E%2A" alt="\ell \in A^*"
+title="\ell \in A^*" class="math inline" />. By Liouville’s theorem <img
+style="vertical-align:middle"
+src="%5Ctextstyle%20%5Cell%20%28f%28%5Clambda%20%29%29"
+alt="\ell (f(\lambda ))" title="\ell (f(\lambda ))"
+class="math inline" /> is constant. Since this holds for all <img
+style="vertical-align:middle"
+src="%5Ctextstyle%20%5Cell%20%5Cin%20%20A%5E%2A" alt="\ell \in  A^*"
+title="\ell \in  A^*" class="math inline" /> we deduce that <img
+style="vertical-align:middle" src="%5Ctextstyle%20f%28%5Clambda%20%29"
+alt="f(\lambda )" title="f(\lambda )" class="math inline" /> is
+constant. This leads to a contradiction by taking <img
+style="vertical-align:middle"
+src="%5Ctextstyle%20%5Clambda%20%3D1%2C%20%5Clambda%20%3D0"
+alt="\lambda =1, \lambda =0" title="\lambda =1, \lambda =0"
+class="math inline" /> as we get <img style="vertical-align:middle"
+src="%5Cdisplaystyle%20%5Cbegin%7Baligned%7D%0A%5Clabel%7Be2%7D%0A%09%09%09I%20-a%3D%20a%20%20%20.%0A%09%09%0A%5Cend%7Baligned%7D"
+alt="\begin{aligned}
 \label{e2}
 			I -a= a   .
 
-\end{aligned}</span> Citing <a href="#e1" data-reference-type="eqref"
-data-reference="e1">[e1]</a> and <a href="#e2"
-data-reference-type="eqref" data-reference="e2">[e2]</a> and referencing
-<span class="citation" data-cites="murphy2014c">(Murphy
+\end{aligned}" title="\begin{aligned}
+\label{e2}
+			I -a= a   .
+
+\end{aligned}" class="math display" /> Citing <a href="#e1"
+data-reference-type="eqref" data-reference="e1">[e1]</a> and <a
+href="#e2" data-reference-type="eqref" data-reference="e2">[e2]</a> and
+referencing <span class="citation" data-cites="murphy2014c">(Murphy
 2014)</span>. ◻</p>
 </div>
 <p>We now discuss Gelfand’s representation theorem. First some
 lemmas</p>
 <div class="lemma">
 <p><strong>Lemma 1</strong> (<strong>Codimension of a maximal ideal is
-1</strong> ). <em>Let <span class="math inline">I</span> be a maximal
-ideal in a commutative unital Banach Algebra <span
-class="math inline">A</span>, then <span class="math inline">A \simeq I+
-\mathbb{C}\cdot 1</span>.</em></p>
+1</strong> ). <em>Let <img style="vertical-align:middle"
+src="%5Ctextstyle%20I" alt="I" title="I" class="math inline" /> be a
+maximal ideal in a commutative unital Banach Algebra <img
+style="vertical-align:middle" src="%5Ctextstyle%20A" alt="A" title="A"
+class="math inline" />, then <img style="vertical-align:middle"
+src="%5Ctextstyle%20A%20%5Csimeq%20I%2B%20%5Cmathbb%7BC%7D%5Ccdot%201"
+alt="A \simeq I+ \mathbb{C}\cdot 1"
+title="A \simeq I+ \mathbb{C}\cdot 1" class="math inline" />.</em></p>
 </div>
 <div class="proof">
-<p><em>Proof.</em> We must show that any <span class="math inline">a \in
-A</span> can be written <span class="math inline">b+\lambda</span> where
-<span class="math inline">b\in I</span>. Given <span
-class="math inline">\overline{a} \in A/I</span> there exists by
-Gelfand’s theorem <span
-class="math inline">\lambda  \in  \mathbb{C}</span> such that <span
-class="math inline">\overline{\lambda -a}</span> is not invertible.
-Since <span class="math inline">A /I</span> is a field we deduce that
-<span class="math inline">\overline{\lambda -a}=0</span>, that is there
-exists <span class="math inline">b \in  I</span> such that <span
-class="math inline">b+ \lambda =a</span> as desired. ◻</p>
+<p><em>Proof.</em> We must show that any <img
+style="vertical-align:middle" src="%5Ctextstyle%20a%20%5Cin%20A"
+alt="a \in A" title="a \in A" class="math inline" /> can be written <img
+style="vertical-align:middle" src="%5Ctextstyle%20b%2B%5Clambda"
+alt="b+\lambda" title="b+\lambda" class="math inline" /> where <img
+style="vertical-align:middle" src="%5Ctextstyle%20b%5Cin%20I"
+alt="b\in I" title="b\in I" class="math inline" />. Given <img
+style="vertical-align:middle"
+src="%5Ctextstyle%20%5Coverline%7Ba%7D%20%5Cin%20A%2FI"
+alt="\overline{a} \in A/I" title="\overline{a} \in A/I"
+class="math inline" /> there exists by Gelfand’s theorem <img
+style="vertical-align:middle"
+src="%5Ctextstyle%20%5Clambda%20%20%5Cin%20%20%5Cmathbb%7BC%7D"
+alt="\lambda  \in  \mathbb{C}" title="\lambda  \in  \mathbb{C}"
+class="math inline" /> such that <img style="vertical-align:middle"
+src="%5Ctextstyle%20%5Coverline%7B%5Clambda%20-a%7D"
+alt="\overline{\lambda -a}" title="\overline{\lambda -a}"
+class="math inline" /> is not invertible. Since <img
+style="vertical-align:middle" src="%5Ctextstyle%20A%20%2FI" alt="A /I"
+title="A /I" class="math inline" /> is a field we deduce that <img
+style="vertical-align:middle"
+src="%5Ctextstyle%20%5Coverline%7B%5Clambda%20-a%7D%3D0"
+alt="\overline{\lambda -a}=0" title="\overline{\lambda -a}=0"
+class="math inline" />, that is there exists <img
+style="vertical-align:middle" src="%5Ctextstyle%20b%20%5Cin%20%20I"
+alt="b \in  I" title="b \in  I" class="math inline" /> such that <img
+style="vertical-align:middle"
+src="%5Ctextstyle%20b%2B%20%5Clambda%20%3Da" alt="b+ \lambda =a"
+title="b+ \lambda =a" class="math inline" /> as desired. ◻</p>
 </div>
 <div class="proposition">
-<p><strong>Proposition 1</strong>. <em>Let <span
-class="math inline">A</span> be a commutative Banach algebra.There is a
+<p><strong>Proposition 1</strong>. <em>Let <img
+style="vertical-align:middle" src="%5Ctextstyle%20A" alt="A" title="A"
+class="math inline" /> be a commutative Banach algebra.There is a
 bijective correspondence</em></p>
-<p><em><span class="math display">\begin{aligned}
+<p><em><img style="vertical-align:middle"
+src="%5Cdisplaystyle%20%5Cbegin%7Baligned%7D%0A%09%09%09%5COmega%28A%29%3A%20%26%20%5Csimeq%20%5C%7B%5Ctext%7BMaximal%20ideals%20%7D%20I%20%5Csubset%20A%5C%7D%20%20.%20%5C%5C%0A%09%09%09%20%20%20%20%20%20%20%20%20%20%20%26%20%5Cvarphi%20%20%20%20%5Clongmapsto%20%5Ctext%7Bker%7D%28%5Cvarphi%29.%0A%09%09%0A%5Cend%7Baligned%7D"
+alt="\begin{aligned}
 			\Omega(A): &amp; \simeq \{\text{Maximal ideals } I \subset A\}  . \\
 			           &amp; \varphi    \longmapsto \text{ker}(\varphi).
 
-\end{aligned}</span></em></p>
+\end{aligned}" title="\begin{aligned}
+			\Omega(A): &amp; \simeq \{\text{Maximal ideals } I \subset A\}  . \\
+			           &amp; \varphi    \longmapsto \text{ker}(\varphi).
+
+\end{aligned}" class="math display" /></em></p>
 <div class="proof">
-<p><em><em>Proof.</em> The mapping is well defined as <span
-class="math inline">a -\varphi(a) \in \text{ker}(\varphi)</span> for all
-<span class="math inline">a\in  A</span> so <span
-class="math inline">\text{ker}(\varphi)</span> is maximal. The mapping
-is surjective by the previous lemma as given a maximal ideal <span
-class="math inline">I</span> we have that <span class="math inline">A=I
-\oplus \mathbb{C}</span> and we can define <span
-class="math inline">\varphi((a,\lambda )):= \lambda</span>. The mapping
-is injective as if <span
-class="math inline">\text{ker}\varphi_1=\text{ker} \varphi_2</span> then
-<span class="math inline">\varphi_1(a -\varphi_2(a))=0</span> for all
-<span class="math inline">a \in  A</span>. ◻</em></p>
+<p><em><em>Proof.</em> The mapping is well defined as <img
+style="vertical-align:middle"
+src="%5Ctextstyle%20a%20-%5Cvarphi%28a%29%20%5Cin%20%5Ctext%7Bker%7D%28%5Cvarphi%29"
+alt="a -\varphi(a) \in \text{ker}(\varphi)"
+title="a -\varphi(a) \in \text{ker}(\varphi)" class="math inline" /> for
+all <img style="vertical-align:middle"
+src="%5Ctextstyle%20a%5Cin%20%20A" alt="a\in  A" title="a\in  A"
+class="math inline" /> so <img style="vertical-align:middle"
+src="%5Ctextstyle%20%5Ctext%7Bker%7D%28%5Cvarphi%29"
+alt="\text{ker}(\varphi)" title="\text{ker}(\varphi)"
+class="math inline" /> is maximal. The mapping is surjective by the
+previous lemma as given a maximal ideal <img
+style="vertical-align:middle" src="%5Ctextstyle%20I" alt="I" title="I"
+class="math inline" /> we have that <img style="vertical-align:middle"
+src="%5Ctextstyle%20A%3DI%20%5Coplus%20%5Cmathbb%7BC%7D"
+alt="A=I \oplus \mathbb{C}" title="A=I \oplus \mathbb{C}"
+class="math inline" /> and we can define <img
+style="vertical-align:middle"
+src="%5Ctextstyle%20%5Cvarphi%28%28a%2C%5Clambda%20%29%29%3A%3D%20%5Clambda"
+alt="\varphi((a,\lambda )):= \lambda"
+title="\varphi((a,\lambda )):= \lambda" class="math inline" />. The
+mapping is injective as if <img style="vertical-align:middle"
+src="%5Ctextstyle%20%5Ctext%7Bker%7D%5Cvarphi_1%3D%5Ctext%7Bker%7D%20%5Cvarphi_2"
+alt="\text{ker}\varphi_1=\text{ker} \varphi_2"
+title="\text{ker}\varphi_1=\text{ker} \varphi_2" class="math inline" />
+then <img style="vertical-align:middle"
+src="%5Ctextstyle%20%5Cvarphi_1%28a%20-%5Cvarphi_2%28a%29%29%3D0"
+alt="\varphi_1(a -\varphi_2(a))=0" title="\varphi_1(a -\varphi_2(a))=0"
+class="math inline" /> for all <img style="vertical-align:middle"
+src="%5Ctextstyle%20a%20%5Cin%20%20A" alt="a \in  A" title="a \in  A"
+class="math inline" />. ◻</em></p>
 </div>
 </div>
 <div class="proposition">
-<p><strong>Proposition 2</strong>. <em>Let <span
-class="math inline">A</span> be a commutative Banach algebra. Then <span
-class="math inline">\lVert \varphi \rVert=1</span> for every <span
-class="math inline">\varphi \in A</span>.</em></p>
+<p><strong>Proposition 2</strong>. <em>Let <img
+style="vertical-align:middle" src="%5Ctextstyle%20A" alt="A" title="A"
+class="math inline" /> be a commutative Banach algebra. Then <img
+style="vertical-align:middle"
+src="%5Ctextstyle%20%5ClVert%20%5Cvarphi%20%5CrVert%3D1"
+alt="\lVert \varphi \rVert=1" title="\lVert \varphi \rVert=1"
+class="math inline" /> for every <img style="vertical-align:middle"
+src="%5Ctextstyle%20%5Cvarphi%20%5Cin%20A" alt="\varphi \in A"
+title="\varphi \in A" class="math inline" />.</em></p>
 </div>
 <div class="proof">
-<p><em>Proof.</em> We have that <span class="math inline">\varphi(a)
-\subset \sigma (a)\subset B(0,\lVert a \rVert)</span> as a result <span
-class="math inline">\lVert \varphi \rVert\leq 1</span>. On the other
-hand <span class="math inline">\varphi(1)^2=1</span> proves that <span
-class="math inline">\varphi(1)=1</span> (we recall that characters by
-definition are non-zero). This shows that <span
-class="math inline">\lVert \varphi \rVert \geq 1</span> and concludes
-the proof. ◻</p>
+<p><em>Proof.</em> We have that <img style="vertical-align:middle"
+src="%5Ctextstyle%20%5Cvarphi%28a%29%20%5Csubset%20%5Csigma%20%28a%29%5Csubset%20B%280%2C%5ClVert%20a%20%5CrVert%29"
+alt="\varphi(a) \subset \sigma (a)\subset B(0,\lVert a \rVert)"
+title="\varphi(a) \subset \sigma (a)\subset B(0,\lVert a \rVert)"
+class="math inline" /> as a result <img style="vertical-align:middle"
+src="%5Ctextstyle%20%5ClVert%20%5Cvarphi%20%5CrVert%5Cleq%201"
+alt="\lVert \varphi \rVert\leq 1" title="\lVert \varphi \rVert\leq 1"
+class="math inline" />. On the other hand <img
+style="vertical-align:middle"
+src="%5Ctextstyle%20%5Cvarphi%281%29%5E2%3D1" alt="\varphi(1)^2=1"
+title="\varphi(1)^2=1" class="math inline" /> proves that <img
+style="vertical-align:middle" src="%5Ctextstyle%20%5Cvarphi%281%29%3D1"
+alt="\varphi(1)=1" title="\varphi(1)=1" class="math inline" /> (we
+recall that characters by definition are non-zero). This shows that <img
+style="vertical-align:middle"
+src="%5Ctextstyle%20%5ClVert%20%5Cvarphi%20%5CrVert%20%5Cgeq%201"
+alt="\lVert \varphi \rVert \geq 1" title="\lVert \varphi \rVert \geq 1"
+class="math inline" /> and concludes the proof. ◻</p>
 </div>
 <div class="theorem">
 <p><strong>Theorem 3</strong>. <em>Given a commutative unital Banach
-algebra <span class="math inline">A</span> it holds that <span
-class="math display">\begin{aligned}
+algebra <img style="vertical-align:middle" src="%5Ctextstyle%20A"
+alt="A" title="A" class="math inline" /> it holds that <img
+style="vertical-align:middle"
+src="%5Cdisplaystyle%20%5Cbegin%7Baligned%7D%0A%09%09%09%5Csigma%20%28a%29%3D%5C%7B%5Cvarphi%28a%29%3A%20%5Cvarphi%20%5Cin%20%5COmega%28A%29%5C%7D%20.%0A%09%09%0A%5Cend%7Baligned%7D"
+alt="\begin{aligned}
 			\sigma (a)=\{\varphi(a): \varphi \in \Omega(A)\} .
 
-\end{aligned}</span> If <span class="math inline">A</span> is not unital
-then <span class="math display">\begin{aligned}
+\end{aligned}" title="\begin{aligned}
+			\sigma (a)=\{\varphi(a): \varphi \in \Omega(A)\} .
+
+\end{aligned}" class="math display" /> If <img
+style="vertical-align:middle" src="%5Ctextstyle%20A" alt="A" title="A"
+class="math inline" /> is not unital then <img
+style="vertical-align:middle"
+src="%5Cdisplaystyle%20%5Cbegin%7Baligned%7D%0A%09%09%09%5Csigma%20%28a%29%3D%5C%7B%5Cvarphi%28a%29%3A%20%5Cvarphi%20%5Cin%20%5COmega%28A%29%5C%7D%20%5Ccup%20%5C%7B0%5C%7D%20%20.%0A%09%09%0A%5Cend%7Baligned%7D"
+alt="\begin{aligned}
 			\sigma (a)=\{\varphi(a): \varphi \in \Omega(A)\} \cup \{0\}  .
 
-\end{aligned}</span></em></p>
-</div>
-<div class="proof">
-<p><em>Proof.</em> To prove the direct inclusion consider <span
-class="math inline">\lambda \not\in \sigma (a)</span>, then we may take
-by Zorn’s lemma a proper maximal ideal <span
-class="math inline">I</span> with <span class="math inline">\lambda -a
-\in I</span>. By the previous proposition we can take <span
-class="math inline">I =\text{ker} \varphi</span> for some character
-<span class="math inline">\varphi</span>, from which we deduce that
-<span class="math inline">\varphi(\lambda -a)=\lambda
--\varphi(a)=0</span>.</p>
-<p>The reverse inclusion is immediate from the fact that <span
-class="math inline">\varphi(a-\varphi(a))=0</span> so <span
-class="math inline">a- \varphi(a)</span> is not invertible for any <span
-class="math inline">a \in  A</span>.</p>
-<p>Suppose now <span class="math inline">A</span> is not unital, then we
-unitize it by considering <span class="math inline">\tilde{A}</span> as
-previously. The characters of <span class="math inline">\tilde{A}</span>
-are <span class="math inline">\Omega(A) \cup \{\tau_0\}</span> where
-<span class="math inline">\tau_0((a,\lambda )):= \lambda</span>.
-Applying the just prove result to <span
-class="math inline">\tilde{A}</span> shows that, since <span
-class="math inline">\tau_0(a,0)=0</span> <span
-class="math display">\begin{aligned}
-			\sigma (a):=\sigma (\tilde{a})=\{\varphi(a): \varphi \in \Omega(A)\}
-\cup \{0\}  .
+\end{aligned}" title="\begin{aligned}
+			\sigma (a)=\{\varphi(a): \varphi \in \Omega(A)\} \cup \{0\}  .
 
-\end{aligned}</span> ◻</p>
-</div>
-<p>We now consider <span class="math inline">A^*</span> with the weak*
-topology and <span class="math inline">\Omega(A)</span> included within
-it. We recall that <span class="math inline">A^*</span> is Hausdorff and
-thus so must be <span class="math inline">\Omega(A)</span>.</p>
-<div class="theorem">
-<p><strong>Theorem 4</strong>. <em>Let <span
-class="math inline">A</span> be an Abelian Banach algebra. Then <span
-class="math inline">\Omega(A)</span> is locally compact. Furthermore, if
-<span class="math inline">A</span> is also unital then <span
-class="math inline">\Omega(A)</span> is compact.</em></p>
+\end{aligned}" class="math display" /></em></p>
 </div>
 <div class="proof">
-<p><em>Proof.</em> By the previous theorem we know that <span
-class="math inline">\Omega(A) \subset B(0,1)</span> whihc is compact
-with the weak star topology (Banach Aloglu’s theorem). Now, if <span
-class="math inline">\varphi_n(a) \to \varphi(a)</span> for all <span
-class="math inline">a \in A</span> then it holds that, by a simple
-argument <span class="math inline">\varphi</span> is also a morphism.
-Thus <span class="math inline">\varphi</span> will be a character if and
-only if <span class="math inline">\varphi \neq 0</span>. For this reason
-it is necessary to adjoin <span class="math inline">0</span> if <span
-class="math inline">A</span> is not unital. This shows that <span
-class="math inline">\Omega(A) \cup  \{0\}</span> is closed in <span
-class="math inline">B(0,1)</span> and is thus compact. In consequence
-<span class="math inline">\Omega(A)</span> is locally compact.</p>
-<p>Suppose now that <span class="math inline">A</span> is unital, then
-we have seen than <span class="math inline">\lVert \varphi
-\rVert=1</span> for all <span class="math inline">\varphi
-\in  \Omega(A)</span>. The previous argument shows that <span
-class="math inline">\Omega(A)</span> is closed (we can never reach <span
-class="math inline">0</span>) and as a result <span
-class="math inline">\Omega(A)</span> is compact. ◻</p>
+<p><em>Proof.</em> To prove the direct inclusion consider <img
+style="vertical-align:middle"
+src="%5Ctextstyle%20%5Clambda%20%5Cnot%5Cin%20%5Csigma%20%28a%29"
+alt="\lambda \not\in \sigma (a)" title="\lambda \not\in \sigma (a)"
+class="math inline" />, then we may take by Zorn’s lemma a proper
+maximal ideal <img style="vertical-align:middle" src="%5Ctextstyle%20I"
+alt="I" title="I" class="math inline" /> with <img
+style="vertical-align:middle"
+src="%5Ctextstyle%20%5Clambda%20-a%20%5Cin%20I" alt="\lambda -a \in I"
+title="\lambda -a \in I" class="math inline" />. By the previous
+proposition we can take <img style="vertical-align:middle"
+src="%5Ctextstyle%20I%20%3D%5Ctext%7Bker%7D%20%5Cvarphi"
+alt="I =\text{ker} \varphi" title="I =\text{ker} \varphi"
+class="math inline" /> for some character <img
+style="vertical-align:middle" src="%5Ctextstyle%20%5Cvarphi"
+alt="\varphi" title="\varphi" class="math inline" />, from which we
+deduce that <img style="vertical-align:middle"
+src="%5Ctextstyle%20%5Cvarphi%28%5Clambda%20-a%29%3D%5Clambda%20-%5Cvarphi%28a%29%3D0"
+alt="\varphi(\lambda -a)=\lambda -\varphi(a)=0"
+title="\varphi(\lambda -a)=\lambda -\varphi(a)=0"
+class="math inline" />.</p>
+<p>The reverse inclusion is immediate from the fact that <img
+style="vertical-align:middle"
+src="%5Ctextstyle%20%5Cvarphi%28a-%5Cvarphi%28a%29%29%3D0"
+alt="\varphi(a-\varphi(a))=0" title="\varphi(a-\varphi(a))=0"
+class="math inline" /> so <img style="vertical-align:middle"
+src="%5Ctextstyle%20a-%20%5Cvarphi%28a%29" alt="a- \varphi(a)"
+title="a- \varphi(a)" class="math inline" /> is not invertible for any
+<img style="vertical-align:middle" src="%5Ctextstyle%20a%20%5Cin%20%20A"
+alt="a \in  A" title="a \in  A" class="math inline" />.</p>
+<p>Suppose now <img style="vertical-align:middle" src="%5Ctextstyle%20A"
+alt="A" title="A" class="math inline" /> is not unital, then we unitize
+it by considering <img style="vertical-align:middle"
+src="%5Ctextstyle%20%5Ctilde%7BA%7D" alt="\tilde{A}" title="\tilde{A}"
+class="math inline" /> as previously. The characters of <img
+style="vertical-align:middle" src="%5Ctextstyle%20%5Ctilde%7BA%7D"
+alt="\tilde{A}" title="\tilde{A}" class="math inline" /> are <img
+style="vertical-align:middle"
+src="%5Ctextstyle%20%5COmega%28A%29%20%5Ccup%20%5C%7B%5Ctau_0%5C%7D"
+alt="\Omega(A) \cup \{\tau_0\}" title="\Omega(A) \cup \{\tau_0\}"
+class="math inline" /> where <img style="vertical-align:middle"
+src="%5Ctextstyle%20%5Ctau_0%28%28a%2C%5Clambda%20%29%29%3A%3D%20%5Clambda"
+alt="\tau_0((a,\lambda )):= \lambda"
+title="\tau_0((a,\lambda )):= \lambda" class="math inline" />. Applying
+the just prove result to <img style="vertical-align:middle"
+src="%5Ctextstyle%20%5Ctilde%7BA%7D" alt="\tilde{A}" title="\tilde{A}"
+class="math inline" /> shows that, since <img
+style="vertical-align:middle"
+src="%5Ctextstyle%20%5Ctau_0%28a%2C0%29%3D0" alt="\tau_0(a,0)=0"
+title="\tau_0(a,0)=0" class="math inline" /> <img
+style="vertical-align:middle"
+src="%5Cdisplaystyle%20%5Cbegin%7Baligned%7D%0A%09%09%09%5Csigma%20%28a%29%3A%3D%5Csigma%20%28%5Ctilde%7Ba%7D%29%3D%5C%7B%5Cvarphi%28a%29%3A%20%5Cvarphi%20%5Cin%20%5COmega%28A%29%5C%7D%20%5Ccup%20%5C%7B0%5C%7D%20%20.%0A%09%09%0A%5Cend%7Baligned%7D"
+alt="\begin{aligned}
+			\sigma (a):=\sigma (\tilde{a})=\{\varphi(a): \varphi \in \Omega(A)\} \cup \{0\}  .
+
+\end{aligned}" title="\begin{aligned}
+			\sigma (a):=\sigma (\tilde{a})=\{\varphi(a): \varphi \in \Omega(A)\} \cup \{0\}  .
+
+\end{aligned}" class="math display" /> ◻</p>
 </div>
-<p>We can now identify <span class="math inline">A</span> with a
-sub-algebra of continuous functions on <span
-class="math inline">\Omega(A)</span> via the mapping <span
-class="math inline">a \to \widehat{a}</span> where we define <span
-class="math inline">\widehat{a}(\varphi):= \varphi(a)</span>. Let us
-denote the image of this mapping by <span
-class="math inline">\widehat{A}</span>, then we obtain the following
+<p>We now consider <img style="vertical-align:middle"
+src="%5Ctextstyle%20A%5E%2A" alt="A^*" title="A^*"
+class="math inline" /> with the weak* topology and <img
+style="vertical-align:middle" src="%5Ctextstyle%20%5COmega%28A%29"
+alt="\Omega(A)" title="\Omega(A)" class="math inline" /> included within
+it. We recall that <img style="vertical-align:middle"
+src="%5Ctextstyle%20A%5E%2A" alt="A^*" title="A^*"
+class="math inline" /> is Hausdorff and thus so must be <img
+style="vertical-align:middle" src="%5Ctextstyle%20%5COmega%28A%29"
+alt="\Omega(A)" title="\Omega(A)" class="math inline" />.</p>
+<div class="theorem">
+<p><strong>Theorem 4</strong>. <em>Let <img
+style="vertical-align:middle" src="%5Ctextstyle%20A" alt="A" title="A"
+class="math inline" /> be an Abelian Banach algebra. Then <img
+style="vertical-align:middle" src="%5Ctextstyle%20%5COmega%28A%29"
+alt="\Omega(A)" title="\Omega(A)" class="math inline" /> is locally
+compact. Furthermore, if <img style="vertical-align:middle"
+src="%5Ctextstyle%20A" alt="A" title="A" class="math inline" /> is also
+unital then <img style="vertical-align:middle"
+src="%5Ctextstyle%20%5COmega%28A%29" alt="\Omega(A)" title="\Omega(A)"
+class="math inline" /> is compact.</em></p>
+</div>
+<div class="proof">
+<p><em>Proof.</em> By the previous theorem we know that <img
+style="vertical-align:middle"
+src="%5Ctextstyle%20%5COmega%28A%29%20%5Csubset%20B%280%2C1%29"
+alt="\Omega(A) \subset B(0,1)" title="\Omega(A) \subset B(0,1)"
+class="math inline" /> whihc is compact with the weak star topology
+(Banach Aloglu’s theorem). Now, if <img style="vertical-align:middle"
+src="%5Ctextstyle%20%5Cvarphi_n%28a%29%20%5Cto%20%5Cvarphi%28a%29"
+alt="\varphi_n(a) \to \varphi(a)" title="\varphi_n(a) \to \varphi(a)"
+class="math inline" /> for all <img style="vertical-align:middle"
+src="%5Ctextstyle%20a%20%5Cin%20A" alt="a \in A" title="a \in A"
+class="math inline" /> then it holds that, by a simple argument <img
+style="vertical-align:middle" src="%5Ctextstyle%20%5Cvarphi"
+alt="\varphi" title="\varphi" class="math inline" /> is also a morphism.
+Thus <img style="vertical-align:middle" src="%5Ctextstyle%20%5Cvarphi"
+alt="\varphi" title="\varphi" class="math inline" /> will be a character
+if and only if <img style="vertical-align:middle"
+src="%5Ctextstyle%20%5Cvarphi%20%5Cneq%200" alt="\varphi \neq 0"
+title="\varphi \neq 0" class="math inline" />. For this reason it is
+necessary to adjoin <img style="vertical-align:middle"
+src="%5Ctextstyle%200" alt="0" title="0" class="math inline" /> if <img
+style="vertical-align:middle" src="%5Ctextstyle%20A" alt="A" title="A"
+class="math inline" /> is not unital. This shows that <img
+style="vertical-align:middle"
+src="%5Ctextstyle%20%5COmega%28A%29%20%5Ccup%20%20%5C%7B0%5C%7D"
+alt="\Omega(A) \cup  \{0\}" title="\Omega(A) \cup  \{0\}"
+class="math inline" /> is closed in <img style="vertical-align:middle"
+src="%5Ctextstyle%20B%280%2C1%29" alt="B(0,1)" title="B(0,1)"
+class="math inline" /> and is thus compact. In consequence <img
+style="vertical-align:middle" src="%5Ctextstyle%20%5COmega%28A%29"
+alt="\Omega(A)" title="\Omega(A)" class="math inline" /> is locally
+compact.</p>
+<p>Suppose now that <img style="vertical-align:middle"
+src="%5Ctextstyle%20A" alt="A" title="A" class="math inline" /> is
+unital, then we have seen than <img style="vertical-align:middle"
+src="%5Ctextstyle%20%5ClVert%20%5Cvarphi%20%5CrVert%3D1"
+alt="\lVert \varphi \rVert=1" title="\lVert \varphi \rVert=1"
+class="math inline" /> for all <img style="vertical-align:middle"
+src="%5Ctextstyle%20%5Cvarphi%20%5Cin%20%20%5COmega%28A%29"
+alt="\varphi \in  \Omega(A)" title="\varphi \in  \Omega(A)"
+class="math inline" />. The previous argument shows that <img
+style="vertical-align:middle" src="%5Ctextstyle%20%5COmega%28A%29"
+alt="\Omega(A)" title="\Omega(A)" class="math inline" /> is closed (we
+can never reach <img style="vertical-align:middle"
+src="%5Ctextstyle%200" alt="0" title="0" class="math inline" />) and as
+a result <img style="vertical-align:middle"
+src="%5Ctextstyle%20%5COmega%28A%29" alt="\Omega(A)" title="\Omega(A)"
+class="math inline" /> is compact. ◻</p>
+</div>
+<p>We can now identify <img style="vertical-align:middle"
+src="%5Ctextstyle%20A" alt="A" title="A" class="math inline" /> with a
+sub-algebra of continuous functions on <img
+style="vertical-align:middle" src="%5Ctextstyle%20%5COmega%28A%29"
+alt="\Omega(A)" title="\Omega(A)" class="math inline" /> via the mapping
+<img style="vertical-align:middle"
+src="%5Ctextstyle%20a%20%5Cto%20%5Cwidehat%7Ba%7D"
+alt="a \to \widehat{a}" title="a \to \widehat{a}" class="math inline" />
+where we define <img style="vertical-align:middle"
+src="%5Ctextstyle%20%5Cwidehat%7Ba%7D%28%5Cvarphi%29%3A%3D%20%5Cvarphi%28a%29"
+alt="\widehat{a}(\varphi):= \varphi(a)"
+title="\widehat{a}(\varphi):= \varphi(a)" class="math inline" />. Let us
+denote the image of this mapping by <img style="vertical-align:middle"
+src="%5Ctextstyle%20%5Cwidehat%7BA%7D" alt="\widehat{A}"
+title="\widehat{A}" class="math inline" />, then we obtain the following
 theorem</p>
 <div class="theorem">
 <p><strong>Theorem 5</strong> (<strong>Gelfand’s represntation
-theorem</strong>). <em>Let <span class="math inline">A</span> be a
-commutative Banach algebra, then the mapping <span
-class="math display">\begin{aligned}
+theorem</strong>). <em>Let <img style="vertical-align:middle"
+src="%5Ctextstyle%20A" alt="A" title="A" class="math inline" /> be a
+commutative Banach algebra, then the mapping <img
+style="vertical-align:middle"
+src="%5Cdisplaystyle%20%5Cbegin%7Baligned%7D%0A%09%09%09A%20%5Cto%5Cwidehat%7BA%7D%20%5Csubset%20C_0%28%5COmega%28A%29%29%3B%20%5Cquad%20a%5Cto%20%5Cwidehat%7Ba%7D.%0A%09%09%0A%5Cend%7Baligned%7D"
+alt="\begin{aligned}
 			A \to\widehat{A} \subset C_0(\Omega(A)); \quad a\to \widehat{a}.
 
-\end{aligned}</span> is a norm decreasing injective homomorphism with
-<span class="math inline">\lVert \widehat{a} \rVert= r(a)</span>.
-Furhtermore, if <span class="math inline">a</span> is unital then <span
-class="math inline">\sigma (a)=\widehat{a}(\Omega(A))</span> and
-otherwise <span class="math inline">\sigma (a)=\widehat{a}(\Omega(A))
-\cup  \{0\}</span>.</em></p>
+\end{aligned}" title="\begin{aligned}
+			A \to\widehat{A} \subset C_0(\Omega(A)); \quad a\to \widehat{a}.
+
+\end{aligned}" class="math display" /> is a norm decreasing injective
+homomorphism with <img style="vertical-align:middle"
+src="%5Ctextstyle%20%5ClVert%20%5Cwidehat%7Ba%7D%20%5CrVert%3D%20r%28a%29"
+alt="\lVert \widehat{a} \rVert= r(a)"
+title="\lVert \widehat{a} \rVert= r(a)" class="math inline" />.
+Furhtermore, if <img style="vertical-align:middle"
+src="%5Ctextstyle%20a" alt="a" title="a" class="math inline" /> is
+unital then <img style="vertical-align:middle"
+src="%5Ctextstyle%20%5Csigma%20%28a%29%3D%5Cwidehat%7Ba%7D%28%5COmega%28A%29%29"
+alt="\sigma (a)=\widehat{a}(\Omega(A))"
+title="\sigma (a)=\widehat{a}(\Omega(A))" class="math inline" /> and
+otherwise <img style="vertical-align:middle"
+src="%5Ctextstyle%20%5Csigma%20%28a%29%3D%5Cwidehat%7Ba%7D%28%5COmega%28A%29%29%20%5Ccup%20%20%5C%7B0%5C%7D"
+alt="\sigma (a)=\widehat{a}(\Omega(A)) \cup  \{0\}"
+title="\sigma (a)=\widehat{a}(\Omega(A)) \cup  \{0\}"
+class="math inline" />.</em></p>
 </div>
 <div class="proof">
-<p><em>Proof.</em> To show that <span
-class="math inline">\widehat{a}</span> vanishes at infinity note that
-the set <span class="math display">\begin{aligned}
-			\{\varphi : \widehat{a}(\varphi) \geq \epsilon \}
-=\widehat{a}^{-1}([\epsilon ,\lVert a \rVert]).
+<p><em>Proof.</em> To show that <img style="vertical-align:middle"
+src="%5Ctextstyle%20%5Cwidehat%7Ba%7D" alt="\widehat{a}"
+title="\widehat{a}" class="math inline" /> vanishes at infinity note
+that the set <img style="vertical-align:middle"
+src="%5Cdisplaystyle%20%5Cbegin%7Baligned%7D%0A%09%09%09%5C%7B%5Cvarphi%20%3A%20%5Cwidehat%7Ba%7D%28%5Cvarphi%29%20%5Cgeq%20%5Cepsilon%20%5C%7D%20%3D%5Cwidehat%7Ba%7D%5E%7B-1%7D%28%5B%5Cepsilon%20%2C%5ClVert%20a%20%5CrVert%5D%29.%0A%09%09%0A%5Cend%7Baligned%7D"
+alt="\begin{aligned}
+			\{\varphi : \widehat{a}(\varphi) \geq \epsilon \} =\widehat{a}^{-1}([\epsilon ,\lVert a \rVert]).
 
-\end{aligned}</span> Which is a closed subset in the compact <span
-class="math inline">B(0,a)</span> and thus compact. ◻</p>
+\end{aligned}" title="\begin{aligned}
+			\{\varphi : \widehat{a}(\varphi) \geq \epsilon \} =\widehat{a}^{-1}([\epsilon ,\lVert a \rVert]).
+
+\end{aligned}" class="math display" /> Which is a closed subset in the
+compact <img style="vertical-align:middle"
+src="%5Ctextstyle%20B%280%2Ca%29" alt="B(0,a)" title="B(0,a)"
+class="math inline" /> and thus compact. ◻</p>
 </div>
-<p>We note however that the mapping <span class="math inline">a \to
-\widehat{a}</span> is in general neither injective (this means the
-identification isn’t prefect) not surjective.</p>
+<p>We note however that the mapping <img style="vertical-align:middle"
+src="%5Ctextstyle%20a%20%5Cto%20%5Cwidehat%7Ba%7D"
+alt="a \to \widehat{a}" title="a \to \widehat{a}" class="math inline" />
+is in general neither injective (this means the identification isn’t
+prefect) not surjective.</p>
 <div class="example">
 <p><strong>Example 1</strong> (Continuous Fourier Transform).
-<em>Consider the Banach Algebra <span
-class="math inline">A=L^1(\mathbb{R}^d)</span> with multiplication given
-by the convolution <span class="math display">\begin{aligned}
+<em>Consider the Banach Algebra <img style="vertical-align:middle"
+src="%5Ctextstyle%20A%3DL%5E1%28%5Cmathbb%7BR%7D%5Ed%29"
+alt="A=L^1(\mathbb{R}^d)" title="A=L^1(\mathbb{R}^d)"
+class="math inline" /> with multiplication given by the convolution <img
+style="vertical-align:middle"
+src="%5Cdisplaystyle%20%5Cbegin%7Baligned%7D%0A%09%09%09f%2Ag%28x%29%3A%3D%20%5Cint_%7B%5Cmathbb%7BR%7D%5Ed%7Df%28y%29g%28x-y%29%20%5C%2C%5Cmathrm%7Bd%7Dy.%0A%09%09%0A%5Cend%7Baligned%7D"
+alt="\begin{aligned}
 			f*g(x):= \int_{\mathbb{R}^d}f(y)g(x-y) \,\mathrm{d}y.
 
-\end{aligned}</span> Then the Gelfand transform can be identified with
-the Fourier transform and <span class="math display">\begin{aligned}
-			\widehat{f}(\Omega)= \left\{ \widehat{f}(\omega):= \int_{\mathbb{R}^d}
-f(x)e^{-2\pi i \omega \cdot  x} \,\mathrm{d}x:\omega\in
-\mathbb{R}^d\right\} .
+\end{aligned}" title="\begin{aligned}
+			f*g(x):= \int_{\mathbb{R}^d}f(y)g(x-y) \,\mathrm{d}y.
 
-\end{aligned}</span></em></p>
+\end{aligned}" class="math display" /> Then the Gelfand transform can be
+identified with the Fourier transform and <img
+style="vertical-align:middle"
+src="%5Cdisplaystyle%20%5Cbegin%7Baligned%7D%0A%09%09%09%5Cwidehat%7Bf%7D%28%5COmega%29%3D%20%5Cleft%5C%7B%20%5Cwidehat%7Bf%7D%28%5Comega%29%3A%3D%20%5Cint_%7B%5Cmathbb%7BR%7D%5Ed%7D%20f%28x%29e%5E%7B-2%5Cpi%20i%20%5Comega%20%5Ccdot%20%20x%7D%20%5C%2C%5Cmathrm%7Bd%7Dx%3A%5Comega%5Cin%20%5Cmathbb%7BR%7D%5Ed%5Cright%5C%7D%20.%0A%09%09%0A%5Cend%7Baligned%7D"
+alt="\begin{aligned}
+			\widehat{f}(\Omega)= \left\{ \widehat{f}(\omega):= \int_{\mathbb{R}^d} f(x)e^{-2\pi i \omega \cdot  x} \,\mathrm{d}x:\omega\in \mathbb{R}^d\right\} .
+
+\end{aligned}" title="\begin{aligned}
+			\widehat{f}(\Omega)= \left\{ \widehat{f}(\omega):= \int_{\mathbb{R}^d} f(x)e^{-2\pi i \omega \cdot  x} \,\mathrm{d}x:\omega\in \mathbb{R}^d\right\} .
+
+\end{aligned}" class="math display" /></em></p>
 </div>
 <div class="proof">
-<p><em>Proof.</em> We know that the dual of <span
-class="math inline">L^1(\mathbb{R}^d)</span> is <span
-class="math inline">L^\infty(\mathbb{R}^d)</span>. In particular every
-character is of the form <span class="math display">\begin{aligned}
+<p><em>Proof.</em> We know that the dual of <img
+style="vertical-align:middle"
+src="%5Ctextstyle%20L%5E1%28%5Cmathbb%7BR%7D%5Ed%29"
+alt="L^1(\mathbb{R}^d)" title="L^1(\mathbb{R}^d)" class="math inline" />
+is <img style="vertical-align:middle"
+src="%5Ctextstyle%20L%5E%5Cinfty%28%5Cmathbb%7BR%7D%5Ed%29"
+alt="L^\infty(\mathbb{R}^d)" title="L^\infty(\mathbb{R}^d)"
+class="math inline" />. In particular every character is of the form
+<img style="vertical-align:middle"
+src="%5Cdisplaystyle%20%5Cbegin%7Baligned%7D%0A%09%09%09%5Cvarphi_g%20%28f%29%3D%20%5Cint_%7B%5Cmathbb%7BR%7D%5Ed%7Df%20%5Coverline%7Bg%7D.%0A%09%09%0A%5Cend%7Baligned%7D"
+alt="\begin{aligned}
 			\varphi_g (f)= \int_{\mathbb{R}^d}f \overline{g}.
 
-\end{aligned}</span> The condition that <span
-class="math inline">\varphi_g</span> preserves multiplication becomes by
-a change of variable <span class="math display">\begin{aligned}
+\end{aligned}" title="\begin{aligned}
+			\varphi_g (f)= \int_{\mathbb{R}^d}f \overline{g}.
+
+\end{aligned}" class="math display" /> The condition that <img
+style="vertical-align:middle" src="%5Ctextstyle%20%5Cvarphi_g"
+alt="\varphi_g" title="\varphi_g" class="math inline" /> preserves
+multiplication becomes by a change of variable <img
+style="vertical-align:middle"
+src="%5Cdisplaystyle%20%5Cbegin%7Baligned%7D%0A%09%09%09g%28x%2By%29%3Dg%28x%29g%28y%29%2C%20%5Cquad%5Cforall%20x%2Cy%20%5Cin%20%5Cmathbb%7BR%7D%5Ed.%0A%09%09%0A%5Cend%7Baligned%7D"
+alt="\begin{aligned}
 			g(x+y)=g(x)g(y), \quad\forall x,y \in \mathbb{R}^d.
 
-\end{aligned}</span> The only <span class="math inline">g \in L^\infty
-(\mathbb{R}^d)</span> verifying the above are of the form <span
-class="math inline">g(x)= e^{2\pi i \omega \cdot  x}</span> for some
-<span class="math inline">\omega \in \mathbb{R}^d</span>. That is, the
-character group is <span class="math display">\begin{aligned}
-			\Omega(L^1(\mathbb{R}^d))\simeq\{e^{2\pi i \omega \cdot }: \omega \in
-\mathbb{R}^d\} .
+\end{aligned}" title="\begin{aligned}
+			g(x+y)=g(x)g(y), \quad\forall x,y \in \mathbb{R}^d.
 
-\end{aligned}</span> This concludes the proof (we use the abuse of
-notation <span
-class="math inline">\widehat{f}(\omega):=\widehat{f}(\varphi_{e^{2\pi i
-\omega \cdot }})</span>). ◻</p>
+\end{aligned}" class="math display" /> The only <img
+style="vertical-align:middle"
+src="%5Ctextstyle%20g%20%5Cin%20L%5E%5Cinfty%20%28%5Cmathbb%7BR%7D%5Ed%29"
+alt="g \in L^\infty (\mathbb{R}^d)"
+title="g \in L^\infty (\mathbb{R}^d)" class="math inline" /> verifying
+the above are of the form <img style="vertical-align:middle"
+src="%5Ctextstyle%20g%28x%29%3D%20e%5E%7B2%5Cpi%20i%20%5Comega%20%5Ccdot%20%20x%7D"
+alt="g(x)= e^{2\pi i \omega \cdot  x}"
+title="g(x)= e^{2\pi i \omega \cdot  x}" class="math inline" /> for some
+<img style="vertical-align:middle"
+src="%5Ctextstyle%20%5Comega%20%5Cin%20%5Cmathbb%7BR%7D%5Ed"
+alt="\omega \in \mathbb{R}^d" title="\omega \in \mathbb{R}^d"
+class="math inline" />. That is, the character group is <img
+style="vertical-align:middle"
+src="%5Cdisplaystyle%20%5Cbegin%7Baligned%7D%0A%09%09%09%5COmega%28L%5E1%28%5Cmathbb%7BR%7D%5Ed%29%29%5Csimeq%5C%7Be%5E%7B2%5Cpi%20i%20%5Comega%20%5Ccdot%20%7D%3A%20%5Comega%20%5Cin%20%5Cmathbb%7BR%7D%5Ed%5C%7D%20.%0A%09%09%0A%5Cend%7Baligned%7D"
+alt="\begin{aligned}
+			\Omega(L^1(\mathbb{R}^d))\simeq\{e^{2\pi i \omega \cdot }: \omega \in \mathbb{R}^d\} .
+
+\end{aligned}" title="\begin{aligned}
+			\Omega(L^1(\mathbb{R}^d))\simeq\{e^{2\pi i \omega \cdot }: \omega \in \mathbb{R}^d\} .
+
+\end{aligned}" class="math display" /> This concludes the proof (we use
+the abuse of notation <img style="vertical-align:middle"
+src="%5Ctextstyle%20%5Cwidehat%7Bf%7D%28%5Comega%29%3A%3D%5Cwidehat%7Bf%7D%28%5Cvarphi_%7Be%5E%7B2%5Cpi%20i%20%5Comega%20%5Ccdot%20%7D%7D%29"
+alt="\widehat{f}(\omega):=\widehat{f}(\varphi_{e^{2\pi i \omega \cdot }})"
+title="\widehat{f}(\omega):=\widehat{f}(\varphi_{e^{2\pi i \omega \cdot }})"
+class="math inline" />). ◻</p>
 </div>
 <div class="example">
 <p><strong>Example 2</strong> (Discrete Fourier Transform). <em>Consider
-the Banach Algebra <span class="math inline">A=\ell
-^\infty(\mathbb{Z}^d)</span> with multiplication given by the
-convolution <span class="math display">\begin{aligned}
+the Banach Algebra <img style="vertical-align:middle"
+src="%5Ctextstyle%20A%3D%5Cell%20%5E%5Cinfty%28%5Cmathbb%7BZ%7D%5Ed%29"
+alt="A=\ell ^\infty(\mathbb{Z}^d)" title="A=\ell ^\infty(\mathbb{Z}^d)"
+class="math inline" /> with multiplication given by the convolution <img
+style="vertical-align:middle"
+src="%5Cdisplaystyle%20%5Cbegin%7Baligned%7D%0A%09%09%09g%2Ah%28k%29%3A%3D%20%5Csum_%7Bk%20%5Cin%20%5Cmathbb%7BZ%7D%5Ed%7Dg%28j%29h%28k-j%29%20.%0A%09%09%0A%5Cend%7Baligned%7D"
+alt="\begin{aligned}
 			g*h(k):= \sum_{k \in \mathbb{Z}^d}g(j)h(k-j) .
 
-\end{aligned}</span> Then the Gelfand transform can be identified with
-the (inverse) Fourier transform and <span
-class="math display">\begin{aligned}
-			\widehat{g}(\Omega)= \left\{ \check{g}(k):= \sum_{k \in \mathbb{Z}^d}
-g(x)e^{2\pi i k \cdot  x} \,\mathrm{d}x: k\in \mathbb{Z}^d\right\} .
+\end{aligned}" title="\begin{aligned}
+			g*h(k):= \sum_{k \in \mathbb{Z}^d}g(j)h(k-j) .
 
-\end{aligned}</span></em></p>
+\end{aligned}" class="math display" /> Then the Gelfand transform can be
+identified with the (inverse) Fourier transform and <img
+style="vertical-align:middle"
+src="%5Cdisplaystyle%20%5Cbegin%7Baligned%7D%0A%09%09%09%5Cwidehat%7Bg%7D%28%5COmega%29%3D%20%5Cleft%5C%7B%20%5Ccheck%7Bg%7D%28k%29%3A%3D%20%5Csum_%7Bk%20%5Cin%20%5Cmathbb%7BZ%7D%5Ed%7D%20g%28x%29e%5E%7B2%5Cpi%20i%20k%20%5Ccdot%20%20x%7D%20%5C%2C%5Cmathrm%7Bd%7Dx%3A%20k%5Cin%20%5Cmathbb%7BZ%7D%5Ed%5Cright%5C%7D%20.%0A%09%09%0A%5Cend%7Baligned%7D"
+alt="\begin{aligned}
+			\widehat{g}(\Omega)= \left\{ \check{g}(k):= \sum_{k \in \mathbb{Z}^d} g(x)e^{2\pi i k \cdot  x} \,\mathrm{d}x: k\in \mathbb{Z}^d\right\} .
+
+\end{aligned}" title="\begin{aligned}
+			\widehat{g}(\Omega)= \left\{ \check{g}(k):= \sum_{k \in \mathbb{Z}^d} g(x)e^{2\pi i k \cdot  x} \,\mathrm{d}x: k\in \mathbb{Z}^d\right\} .
+
+\end{aligned}" class="math display" /></em></p>
 </div>
-<p>Furthermore <span class="math display">\begin{aligned}
+<p>Furthermore <img style="vertical-align:middle"
+src="%5Cdisplaystyle%20%5Cbegin%7Baligned%7D%0A%09%09g%28k%29%3D%5Cint_%7B0%7D%5E1%20%5Ccheck%7Bg%7D%28k%29e%5E%7B2%20%5Cpi%20i%20%28j-k%29%20%5Ccdot%20x%7D%5C%2C%5Cmathrm%7Bd%7Dx.%0A%09%0A%5Cend%7Baligned%7D"
+alt="\begin{aligned}
 		g(k)=\int_{0}^1 \check{g}(k)e^{2 \pi i (j-k) \cdot x}\,\mathrm{d}x.
 
-\end{aligned}</span></p>
+\end{aligned}" title="\begin{aligned}
+		g(k)=\int_{0}^1 \check{g}(k)e^{2 \pi i (j-k) \cdot x}\,\mathrm{d}x.
+
+\end{aligned}" class="math display" /></p>
 <div class="proof">
-<p><em>Proof.</em> Let <span class="math inline">e_1,\ldots e_d \in
-A</span> be defined by <span class="math display">\begin{aligned}
+<p><em>Proof.</em> Let <img style="vertical-align:middle"
+src="%5Ctextstyle%20e_1%2C%5Cldots%20e_d%20%5Cin%20A"
+alt="e_1,\ldots e_d \in A" title="e_1,\ldots e_d \in A"
+class="math inline" /> be defined by <img style="vertical-align:middle"
+src="%5Cdisplaystyle%20%5Cbegin%7Baligned%7D%0A%09%09%09e_n%28k%29%3A%3D%20%5Cdelta%20_%7Bnk_1%7D%2C%20%5Cquad%5Cforall%20n%3D1%2C%5Cldots%20d%2C%20k%5Cin%20%5Cmathbb%7BZ%7D%5Ed%20.%0A%09%09%0A%5Cend%7Baligned%7D"
+alt="\begin{aligned}
 			e_n(k):= \delta _{nk_1}, \quad\forall n=1,\ldots d, k\in \mathbb{Z}^d .
 
-\end{aligned}</span> Then we have that <span
-class="math inline">A</span> is generated by <span
-class="math inline">e_{1},\ldots e_n</span> with <span
-class="math display">\begin{aligned}
+\end{aligned}" title="\begin{aligned}
+			e_n(k):= \delta _{nk_1}, \quad\forall n=1,\ldots d, k\in \mathbb{Z}^d .
+
+\end{aligned}" class="math display" /> Then we have that <img
+style="vertical-align:middle" src="%5Ctextstyle%20A" alt="A" title="A"
+class="math inline" /> is generated by <img
+style="vertical-align:middle"
+src="%5Ctextstyle%20e_%7B1%7D%2C%5Cldots%20e_n" alt="e_{1},\ldots e_n"
+title="e_{1},\ldots e_n" class="math inline" /> with <img
+style="vertical-align:middle"
+src="%5Cdisplaystyle%20%5Cbegin%7Baligned%7D%0A%09%09%09g%28k%29%20%3D%5Csum_%7Bk%7D%20g%28k%29%20e_1%5E%7Bk_1%7D%5Cldots%20e_d%20%5E%7Bk_d%7D%20.%0A%09%09%0A%5Cend%7Baligned%7D"
+alt="\begin{aligned}
 			g(k) =\sum_{k} g(k) e_1^{k_1}\ldots e_d ^{k_d} .
 
-\end{aligned}</span> Any character <span
-class="math inline">\varphi</span> is thus determined by where it sends
-the <span class="math inline">e_n</span> and they take the form <span
-class="math display">\begin{aligned}
-			\Omega(A)= \left\{ \varphi_z (g):= \sum_{k \in \mathbb{Z}^d} g(k) z^k: z
-\in \mathbb{T}^d  \right\} \simeq \mathbb{T}^d .
+\end{aligned}" title="\begin{aligned}
+			g(k) =\sum_{k} g(k) e_1^{k_1}\ldots e_d ^{k_d} .
 
-\end{aligned}</span> Noting that <span class="math inline">\mathbb{T}^d=
-\left\{ e^{ 2\pi i x}: x \in \mathbb{R}^d \right\}</span> and defining
-<span class="math display">\begin{aligned}
-			\check{g}(x):= \varphi_{e^{ 2\pi i x \cdot  }}(g)=\sum_{k \in
-\mathbb{Z}^d} g(k) e^{2 \pi  i k \cdot x}.
+\end{aligned}" class="math display" /> Any character <img
+style="vertical-align:middle" src="%5Ctextstyle%20%5Cvarphi"
+alt="\varphi" title="\varphi" class="math inline" /> is thus determined
+by where it sends the <img style="vertical-align:middle"
+src="%5Ctextstyle%20e_n" alt="e_n" title="e_n" class="math inline" />
+and they take the form <img style="vertical-align:middle"
+src="%5Cdisplaystyle%20%5Cbegin%7Baligned%7D%0A%09%09%09%5COmega%28A%29%3D%20%5Cleft%5C%7B%20%5Cvarphi_z%20%28g%29%3A%3D%20%5Csum_%7Bk%20%5Cin%20%5Cmathbb%7BZ%7D%5Ed%7D%20g%28k%29%20z%5Ek%3A%20z%20%5Cin%20%5Cmathbb%7BT%7D%5Ed%20%20%5Cright%5C%7D%20%5Csimeq%20%5Cmathbb%7BT%7D%5Ed%20.%0A%09%09%0A%5Cend%7Baligned%7D"
+alt="\begin{aligned}
+			\Omega(A)= \left\{ \varphi_z (g):= \sum_{k \in \mathbb{Z}^d} g(k) z^k: z \in \mathbb{T}^d  \right\} \simeq \mathbb{T}^d .
 
-\end{aligned}</span> Gives the first part of the proof and using the
-orthonormality trick <span class="math display">\begin{aligned}
-			\int_{0}^1 \check{g}(x) e^{-2 \pi i k \cdot x}\,\mathrm{d}x=\sum_{j \in
-\mathbb{Z}^d} g(j)  \int_{0}^1 e^{2 \pi i (j-k) \cdot x}\,\mathrm{d}x=
-g(k).
+\end{aligned}" title="\begin{aligned}
+			\Omega(A)= \left\{ \varphi_z (g):= \sum_{k \in \mathbb{Z}^d} g(k) z^k: z \in \mathbb{T}^d  \right\} \simeq \mathbb{T}^d .
 
-\end{aligned}</span> Gives the second. Where in the above we applied the
-dominated convergence theorem. ◻</p>
+\end{aligned}" class="math display" /> Noting that <img
+style="vertical-align:middle"
+src="%5Ctextstyle%20%5Cmathbb%7BT%7D%5Ed%3D%20%5Cleft%5C%7B%20e%5E%7B%202%5Cpi%20i%20x%7D%3A%20x%20%5Cin%20%5Cmathbb%7BR%7D%5Ed%20%5Cright%5C%7D"
+alt="\mathbb{T}^d= \left\{ e^{ 2\pi i x}: x \in \mathbb{R}^d \right\}"
+title="\mathbb{T}^d= \left\{ e^{ 2\pi i x}: x \in \mathbb{R}^d \right\}"
+class="math inline" /> and defining <img style="vertical-align:middle"
+src="%5Cdisplaystyle%20%5Cbegin%7Baligned%7D%0A%09%09%09%5Ccheck%7Bg%7D%28x%29%3A%3D%20%5Cvarphi_%7Be%5E%7B%202%5Cpi%20i%20x%20%5Ccdot%20%20%7D%7D%28g%29%3D%5Csum_%7Bk%20%5Cin%20%5Cmathbb%7BZ%7D%5Ed%7D%20g%28k%29%20e%5E%7B2%20%5Cpi%20%20i%20k%20%5Ccdot%20x%7D.%0A%09%09%0A%5Cend%7Baligned%7D"
+alt="\begin{aligned}
+			\check{g}(x):= \varphi_{e^{ 2\pi i x \cdot  }}(g)=\sum_{k \in \mathbb{Z}^d} g(k) e^{2 \pi  i k \cdot x}.
+
+\end{aligned}" title="\begin{aligned}
+			\check{g}(x):= \varphi_{e^{ 2\pi i x \cdot  }}(g)=\sum_{k \in \mathbb{Z}^d} g(k) e^{2 \pi  i k \cdot x}.
+
+\end{aligned}" class="math display" /> Gives the first part of the proof
+and using the orthonormality trick <img style="vertical-align:middle"
+src="%5Cdisplaystyle%20%5Cbegin%7Baligned%7D%0A%09%09%09%5Cint_%7B0%7D%5E1%20%5Ccheck%7Bg%7D%28x%29%20e%5E%7B-2%20%5Cpi%20i%20k%20%5Ccdot%20x%7D%5C%2C%5Cmathrm%7Bd%7Dx%3D%5Csum_%7Bj%20%5Cin%20%5Cmathbb%7BZ%7D%5Ed%7D%20g%28j%29%20%20%5Cint_%7B0%7D%5E1%20e%5E%7B2%20%5Cpi%20i%20%28j-k%29%20%5Ccdot%20x%7D%5C%2C%5Cmathrm%7Bd%7Dx%3D%20g%28k%29.%0A%09%09%0A%5Cend%7Baligned%7D"
+alt="\begin{aligned}
+			\int_{0}^1 \check{g}(x) e^{-2 \pi i k \cdot x}\,\mathrm{d}x=\sum_{j \in \mathbb{Z}^d} g(j)  \int_{0}^1 e^{2 \pi i (j-k) \cdot x}\,\mathrm{d}x= g(k).
+
+\end{aligned}" title="\begin{aligned}
+			\int_{0}^1 \check{g}(x) e^{-2 \pi i k \cdot x}\,\mathrm{d}x=\sum_{j \in \mathbb{Z}^d} g(j)  \int_{0}^1 e^{2 \pi i (j-k) \cdot x}\,\mathrm{d}x= g(k).
+
+\end{aligned}" class="math display" /> Gives the second. Where in the
+above we applied the dominated convergence theorem. ◻</p>
 </div>
 </div>
 <div id="refs" class="references csl-bib-body hanging-indent"
@@ -476,3 +1099,5 @@ Murphy, Gerald J. 2014. <em>C*-Algebras and Operator Theory</em>.
 Academic press.
 </div>
 </div>
+</body>
+</html>
