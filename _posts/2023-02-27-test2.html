@@ -1,657 +1,485 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <meta name="author" content="Liam Llamazares" />
-  <meta name="dcterms.date" content="2023-05-12" />
-  <title>Gelfand’s theorems</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      overflow-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-      overflow-wrap: normal;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC ul {
-      padding-left: 1.3em;
-    }
-    #TOC > ul {
-      padding-left: 0;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
-  </style>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-</head>
-<body>
-<header id="title-block-header">
-<h1 class="title">Gelfand’s theorems</h1>
-<p class="author">Liam Llamazares</p>
-<p class="date">05/12/2023</p>
-</header>
 <div class="CJK*">
 <p><span>UTF8</span><span>gbsn</span></p>
-<h1 id="three-line-summary"> Three line summary</h1>
+<h1 data-number="1" id="three-line-summary"><span
+class="header-section-number">1</span> Three line summary</h1>
 <ul>
 <li><p>The spectrum can be thought of heuristically as the frequencies
 that represent an element of a Banach algebra.</p></li>
 <li><p>In a unital Banach algebra every element has non-empty
 spectrum.</p></li>
 <li><p>A commutative Banach algebra <span
-class="math inline"><em>A</em></span> can be thought of as a subgroup of
+class="math inline">\(A\)</span> can be thought of as a subgroup of
 continuous functions.</p></li>
 </ul>
-<h1 id="why-should-i-care">Why should I care?</h1>
+<h1 data-number="2" id="why-should-i-care"><span
+class="header-section-number">2</span> Why should I care?</h1>
 <p>We introduce the basis of spectral theory which is useful to ...</p>
-<h1 id="preliminary-definitions">Preliminary definitions</h1>
+<h1 data-number="3" id="preliminary-definitions"><span
+class="header-section-number">3</span> Preliminary definitions</h1>
 <p>Here I include all the needed definitions. Many of them will be
 familiar if the reader has an algebra background and can be skimmed
 over.</p>
 <div class="definition">
 <p><strong>Definition 1</strong>. <em>An <em>algebra</em> <span
-class="math inline"><em>A</em></span> is a vector space together with a
+class="math inline">\(A\)</span> is a vector space together with a
 multiplication which is bilinear and associative. That is, <span
-class="math display">$$\begin{aligned}
-            (a+b)c=ac+bc;\quad a(b+c)=ab+ac; \quad a(bc)=(ab)c \forall
-a,b,c \in A.
-        \end{aligned}$$</span> Note that in general we do not require
-that the product is commutative. Though this will be a common
-requirement later on. We will take <span
-class="math inline"><em>A</em></span> for the remainder to be a vectro
-space over <span class="math inline">ℂ</span></em></p>
+class="math display">\[\begin{aligned}
+			(a+b)c=ac+bc;\quad a(b+c)=ab+ac; \quad a(bc)=(ab)c \forall a,b,c \in A.
+
+\end{aligned}\]</span> Note that in general we do not require that the
+product is commutative. Though this will be a common requirement later
+on. We will take <span class="math inline">\(A\)</span> for the
+remainder to be a vectro space over <span
+class="math inline">\(\mathbb{C}\)</span></em></p>
 </div>
 <div class="definition">
 <p><strong>Definition 2</strong>. <em>Given a norm <span
-class="math inline">∥ ⋅ ∥</span> on algebra <span
-class="math inline"><em>A</em></span> we say that <span
-class="math inline">(<em>A</em>,∥∥)</span> is a <em>normed algebra</em>
-if the norm is <em>submultiplicative</em>. That is, <span
-class="math display">$$\begin{aligned}
-            \lVert ab \rVert\leq \lVert a \rVert\lVert b \rVert.
-        \end{aligned}$$</span></em></p>
+class="math inline">\(\lVert \cdot  \rVert\)</span> on algebra <span
+class="math inline">\(A\)</span> we say that <span
+class="math inline">\((A, \lVert  \rVert)\)</span> is a <em>normed
+algebra</em> if the norm is <em>submultiplicative</em>. That is, <span
+class="math display">\[\begin{aligned}
+			\lVert ab \rVert\leq \lVert a \rVert\lVert b \rVert.
+
+\end{aligned}\]</span></em></p>
 </div>
 <div class="definition">
 <p><strong>Definition 3</strong>. <em>We say that a normed algebra <span
-class="math inline">(<em>A</em>,∥⋅∥)</span> is a <em>Banach algebra</em>
-if it is complete. We say that it is <em>unital</em> if there exists an
-identity <span class="math inline">1</span> for the multiplication <span
-class="math display">$$\begin{aligned}
-            a 1=1 a, \quad\forall a\in A.
-        \end{aligned}$$</span></em></p>
+class="math inline">\((A,\lVert \cdot  \rVert)\)</span> is a <em>Banach
+algebra</em> if it is complete. We say that it is <em>unital</em> if
+there exists an identity <span class="math inline">\(1\)</span> for the
+multiplication <span class="math display">\[\begin{aligned}
+			a 1=1 a, \quad\forall a\in A.
+
+\end{aligned}\]</span></em></p>
 <p><em>and we say that it is <em>commutative</em> if <span
-class="math display">$$\begin{aligned}
-            ab= ba , \quad\forall a,b \in A.
-        \end{aligned}$$</span></em></p>
+class="math display">\[\begin{aligned}
+			ab= ba , \quad\forall a,b \in A.
+
+\end{aligned}\]</span></em></p>
 </div>
 <div class="definition">
 <p><strong>Definition 4</strong>. <em>Given <span
-class="math inline"><em>a</em> ∈ <em>A</em></span> we say that <span
-class="math inline"><em>λ</em> ∈ ℂ</span> is in the <em>spectrum</em> of
-<span class="math inline"><em>a</em></span> if <span
-class="math inline"><em>λ</em>1 − <em>a</em></span> is
-<strong>not</strong> invertible. We write <span
-class="math inline"><em>σ</em>(<em>a</em>) ⊂ ℂ</span> for the set of
-such <span class="math inline"><em>λ</em></span>.</em></p>
+class="math inline">\(a \in  A\)</span> we say that <span
+class="math inline">\(\lambda  \in \mathbb{C}\)</span> is in the
+<em>spectrum</em> of <span class="math inline">\(a\)</span> if <span
+class="math inline">\(\lambda 1-a\)</span> is <strong>not</strong>
+invertible. We write <span class="math inline">\(\sigma (a) \subset
+\mathbb{C}\)</span> for the set of such <span
+class="math inline">\(\lambda\)</span>.</em></p>
 </div>
 <div class="definition">
 <p><strong>Definition 5</strong>. <em>Given two algebras <span
-class="math inline"><em>A</em>, <em>B</em></span> we say that <span
-class="math inline"><em>φ</em> : <em>A</em> → <em>B</em></span> is a
+class="math inline">\(A,B\)</span> we say that <span
+class="math inline">\(\varphi: A\to B\)</span> is a
 <em>homomorphism</em> if it is linear and respects the product. That is,
-<span class="math display">$$\begin{aligned}
-            \varphi(a+ \lambda b)= \varphi(a)+ \lambda  \varphi(b);\quad
+<span class="math display">\[\begin{aligned}
+			\varphi(a+ \lambda b)= \varphi(a)+ \lambda  \varphi(b);\quad
 \varphi(ab)=\varphi(a) \varphi(b) , \quad\forall a ,b \in  A.
-        \end{aligned}$$</span> If <span
-class="math inline"><em>A</em>, <em>B</em></span> are unital and <span
-class="math inline"><em>φ</em>(1) = 1</span> we say that <span
-class="math inline"><em>φ</em></span> is <em>unital</em>. If <span
-class="math inline"><em>φ</em></span> has an inverse <span
-class="math inline"><em>φ</em></span> and <span
-class="math inline"><em>φ</em></span> and <span
-class="math inline"><em>φ</em><sup>−1</sup></span> are continuous we say
-that it is a <em>homeomorphism</em></em></p>
+
+\end{aligned}\]</span> If <span class="math inline">\(A,B\)</span> are
+unital and <span class="math inline">\(\varphi(1)=1\)</span> we say that
+<span class="math inline">\(\varphi\)</span> is <em>unital</em>. If
+<span class="math inline">\(\varphi\)</span> has an inverse <span
+class="math inline">\(\varphi\)</span> and <span
+class="math inline">\(\varphi\)</span> and <span
+class="math inline">\(\varphi^{-1}\)</span> are continuous we say that
+it is a <em>homeomorphism</em></em></p>
 </div>
-<p>Note that any morphism <span class="math inline"><em>φ</em></span>
+<p>Note that any morphism <span class="math inline">\(\varphi\)</span>
 between unital algebras conserves invertability. However that, even if
-<span class="math inline"><em>A</em>, <em>B</em></span> are unital it
-may be the case that <span class="math inline"><em>φ</em>(1)</span> is
-not (consider for example the zero morphism).</p>
+<span class="math inline">\(A,B\)</span> are unital it may be the case
+that <span class="math inline">\(\varphi(1)\)</span> is not (consider
+for example the zero morphism).</p>
 <div class="definition">
 <p><strong>Definition 6</strong>. <em>We say that <span
-class="math inline"><em>φ</em></span> is a character of <span
-class="math inline"><em>A</em></span> if <span
-class="math inline"><em>φ</em> : <em>A</em> → ℂ</span> is a
+class="math inline">\(\varphi\)</span> is a character of <span
+class="math inline">\(A\)</span> if <span
+class="math inline">\(\varphi:A\to \mathbb{C}\)</span> is a
 homomorphism.</em></p>
 </div>
 <div class="definition">
 <p><strong>Definition 7</strong>. <em>Given an algebra <span
-class="math inline"><em>A</em></span> we say that <span
-class="math inline"><em>B</em> ⊂ <em>A</em></span> is a sub-algebra if
-it is subspace of <span class="math inline"><em>A</em></span> closed
-under multiplication. That is <span
-class="math inline"><em>B</em></span> itself is an algebra.</em></p>
+class="math inline">\(A\)</span> we say that <span
+class="math inline">\(B \subset A\)</span> is a sub-algebra if it is
+subspace of <span class="math inline">\(A\)</span> closed under
+multiplication. That is <span class="math inline">\(B\)</span> itself is
+an algebra.</em></p>
 </div>
 <div class="definition">
 <p><strong>Definition 8</strong>. <em>Given an algebra <span
-class="math inline"><em>A</em></span>, we say that <span
-class="math inline"><em>I</em> ⊂ <em>A</em></span> is an <em>ideal</em>
-of <span class="math inline"><em>A</em></span> if <span
-class="math inline"><em>I</em></span> is stable under multiplication
-with elements is <span class="math inline"><em>A</em></span>. That is
-<span class="math display">$$\begin{aligned}
-            AI := \{ a b: a\in A, \quad  b \in I \} \subset I; \quad IA
-\subset I .
-        \end{aligned}$$</span> We say that <span
-class="math inline"><em>I</em></span> is <em>maximal</em> if given any
-other ideal <span class="math inline"><em>J</em></span> such that <span
-class="math inline"><em>I</em> ⊂ <em>J</em></span> it holds that <span
-class="math inline"><em>J</em> = <em>A</em></span>.</em></p>
+class="math inline">\(A\)</span>, we say that <span
+class="math inline">\(I \subset A\)</span> is an <em>ideal</em> of <span
+class="math inline">\(A\)</span> if <span
+class="math inline">\(I\)</span> is stable under multiplication with
+elements is <span class="math inline">\(A\)</span>. That is <span
+class="math display">\[\begin{aligned}
+			AI := \{ a b: a\in A, \quad  b \in I \} \subset I; \quad IA \subset I .
+
+\end{aligned}\]</span> We say that <span
+class="math inline">\(I\)</span> is <em>maximal</em> if given any other
+ideal <span class="math inline">\(J\)</span> such that <span
+class="math inline">\(I\subset J\)</span> it holds that <span
+class="math inline">\(J=A\)</span>.</em></p>
 </div>
 <p>We recall that, by Zorn’s Lemma every algebra has a maximal
 ideal.</p>
 <div class="definition">
 <p><strong>Definition 9</strong>. <em>Given a closed ideal <span
-class="math inline"><em>I</em></span> of an algebra <span
-class="math inline"><em>A</em></span> we define the quotient algebra
-<span class="math inline"><em>A</em>/<em>I</em></span> to be the set of
-equivalence classes under the relation <span
-class="math display">$$\begin{aligned}
-            a \sim b \iff a-b \in I.
-        \end{aligned}$$</span> With the product <span
-class="math inline">$\overline{a}\overline{b}:= \overline{ab}$</span>
-and the norm <span class="math display">$$\begin{aligned}
-            \lVert \overline{a} \rVert:= \inf_{ b \in  I } \lVert a+b
-\rVert.
-        \end{aligned}$$</span></em></p>
+class="math inline">\(I\)</span> of an algebra <span
+class="math inline">\(A\)</span> we define the quotient algebra <span
+class="math inline">\(A/I\)</span> to be the set of equivalence classes
+under the relation <span class="math display">\[\begin{aligned}
+			a \sim b \iff a-b \in I.
+
+\end{aligned}\]</span> With the product <span
+class="math inline">\(\overline{a}\overline{b}:= \overline{ab}\)</span>
+and the norm <span class="math display">\[\begin{aligned}
+			\lVert \overline{a} \rVert:= \inf_{ b \in  I } \lVert a+b \rVert.
+
+\end{aligned}\]</span></em></p>
 </div>
 <p>We note that it is necessary for <span
-class="math inline"><em>I</em></span> to be closed so that if <span
-class="math inline">$\lVert \overline{a} \rVert=0$</span> then <span
-class="math inline"><em>a</em> ∈ <em>I</em></span>, that is <span
-class="math inline">$\overline{a}=0$</span>.</p>
-<h1 id="introduction">Introduction</h1>
-<h1 id="the-big-theorems">The big theorems</h1>
+class="math inline">\(I\)</span> to be closed so that if <span
+class="math inline">\(\lVert \overline{a} \rVert=0\)</span> then <span
+class="math inline">\(a \in I\)</span>, that is <span
+class="math inline">\(\overline{a}=0\)</span>.</p>
+<h1 data-number="4" id="introduction"><span
+class="header-section-number">4</span> Introduction</h1>
+<h1 data-number="5" id="the-big-theorems"><span
+class="header-section-number">5</span> The big theorems</h1>
 <p>We now state the main theorems and outline the proof</p>
 <div class="theorem">
 <p><strong>Theorem 1</strong>. <em>Given a unital Banach algebra <span
-class="math inline"><em>A</em></span> it holds that</em></p>
+class="math inline">\(A\)</span> it holds that</em></p>
 <ol>
 <li><p><em>The set of invertible elements in <span
-class="math inline"><em>A</em></span> is open.</em></p></li>
+class="math inline">\(A\)</span> is open.</em></p></li>
 <li><p><em>Taking the inverse is smooth.</em></p></li>
-<li><p><em><span class="math inline"><em>σ</em>(<em>a</em>)</span> is a
-closed subset of <span
-class="math inline"> ⊂ <em>B</em>(0,∥<em>a</em>∥)</span></em></p></li>
+<li><p><em><span class="math inline">\(\sigma (a)\)</span> is a closed
+subset of <span class="math inline">\(\subset B(0,\lVert a
+\rVert)\)</span></em></p></li>
 </ol>
 </div>
 <div class="proof">
 <p><em>Proof.</em> All of these facts can be proved via the Von-Neumman
-series for the inverse <span class="math display">$$\begin{aligned}
-            (1 -a)^{-1}=\sum_{n=0}^{\infty} a^n, \quad\forall a \in
-B(0,1) .
-        \end{aligned}$$</span> ◻</p>
+series for the inverse <span class="math display">\[\begin{aligned}
+			(1 -a)^{-1}=\sum_{n=0}^{\infty} a^n, \quad\forall a \in B(0,1) .
+
+\end{aligned}\]</span> ◻</p>
 </div>
 <div class="theorem">
 <p><strong>Theorem 2</strong> (Gelfand’s theorem). <em>Given a unital
-Banach algebra <span class="math inline"><em>A</em></span>, <span
-class="math inline"><em>σ</em>(<em>a</em>) ≠ ∅</span> for all <span
-class="math inline"><em>a</em> ∈ <em>A</em></span>.</em></p>
+Banach algebra <span class="math inline">\(A\)</span>, <span
+class="math inline">\(\sigma (a)\neq \emptyset\)</span> for all <span
+class="math inline">\(a\in A\)</span>.</em></p>
 </div>
 <div class="proof">
 <p><em>Proof.</em> Suppose not, then <span
-class="math inline">(<em>λ</em>1−<em>a</em>)<sup>−1</sup></span> exists
-for all <span class="math inline"><em>λ</em> ∈ ℂ</span>. Let us consider
-the function <span class="math inline"><em>f</em> : ℂ → ℂ</span> <span
-class="math display">$$\begin{aligned}
+class="math inline">\((\lambda 1-a)^{-1}\)</span> exists for all <span
+class="math inline">\(\lambda \in  \mathbb{C}\)</span>. Let us consider
+the function <span class="math inline">\(f:\mathbb{C}\to
+\mathbb{C}\)</span> <span class="math display">\[\begin{aligned}
 \label{e1}
-            f(\lambda):= (\lambda 1-a)^{-1}.
-        \end{aligned}$$</span> Since taking inverse is smooth, <span
-class="math inline"><em>f</em></span> is smooth and thus bounded on
-<span class="math inline"><em>B</em>(0,2∥<em>a</em>∥)</span>.
-Furthermore, using Neumann’s series for the inverse we obtain that <span
-class="math display">$$\begin{aligned}
-            \lVert f(\lambda ) \rVert = \left| \lambda^{-1} \right|
-\lVert \sum_{n=0}^{\infty}  (a / \lambda)^n  \rVert\leq \left| \lambda
+			f(\lambda):= (\lambda 1-a)^{-1}.
+
+\end{aligned}\]</span> Since taking inverse is smooth, <span
+class="math inline">\(f\)</span> is smooth and thus bounded on <span
+class="math inline">\(B(0,2\lVert a \rVert)\)</span>. Furthermore, using
+Neumann’s series for the inverse we obtain that <span
+class="math display">\[\begin{aligned}
+			\lVert f(\lambda ) \rVert = \left| \lambda^{-1} \right| \lVert
+\sum_{n=0}^{\infty}  (a / \lambda)^n  \rVert\leq \left| \lambda
 \right|^{-1} \sum_{n=0}^{\infty} (\lVert a \rVert / \lambda)^n \leq
 \frac{1}{\left|  \lambda  \right|}\leq \frac{1}{2 \lVert a \rVert}  .
-        \end{aligned}$$</span> As a result <span
-class="math inline"><em>f</em></span> is a bounded smooth function and
-<span class="math inline">ℓ(<em>f</em>(<em>λ</em>))</span> is a bounded
-entire function for any <span
-class="math inline">ℓ ∈ <em>A</em><sup>*</sup></span>. By Liouville’s
-theorem <span class="math inline">ℓ(<em>f</em>(<em>λ</em>))</span> is
-constant. Since this holds for all <span
-class="math inline">ℓ ∈ <em>A</em><sup>*</sup></span> we deduce that
-<span class="math inline"><em>f</em>(<em>λ</em>)</span> is constant.
-This leads to a contradiction by taking <span
-class="math inline"><em>λ</em> = 1, <em>λ</em> = 0</span> as we get
-<span class="math display">$$\begin{aligned}
+
+\end{aligned}\]</span> As a result <span
+class="math inline">\(f\)</span> is a bounded smooth function and <span
+class="math inline">\(\ell (f(\lambda ))\)</span> is a bounded entire
+function for any <span class="math inline">\(\ell \in A^*\)</span>. By
+Liouville’s theorem <span class="math inline">\(\ell (f(\lambda
+))\)</span> is constant. Since this holds for all <span
+class="math inline">\(\ell \in  A^*\)</span> we deduce that <span
+class="math inline">\(f(\lambda )\)</span> is constant. This leads to a
+contradiction by taking <span class="math inline">\(\lambda =1, \lambda
+=0\)</span> as we get <span class="math display">\[\begin{aligned}
 \label{e2}
-            I -a= a   .
-        \end{aligned}$$</span> Citing <a href="#e1"
-data-reference-type="eqref" data-reference="e1">[e1]</a> and <a
-href="#e2" data-reference-type="eqref" data-reference="e2">[e2]</a> and
-referencing <span class="citation"
-data-cites="murphy2014c"></span>. ◻</p>
+			I -a= a   .
+
+\end{aligned}\]</span> Citing <a href="#e1" data-reference-type="eqref"
+data-reference="e1">[e1]</a> and <a href="#e2"
+data-reference-type="eqref" data-reference="e2">[e2]</a> and referencing
+<span class="citation" data-cites="murphy2014c"></span>. ◻</p>
 </div>
 <p>We now discuss Gelfand’s representation theorem. First some
 lemmas</p>
 <div class="lemma">
 <p><strong>Lemma 1</strong> (<strong>Codimension of a maximal ideal is
-1</strong> ). <em>Let <span class="math inline"><em>I</em></span> be a
+1</strong> ). <em>Let <span class="math inline">\(I\)</span> be a
 maximal ideal in a commutative unital Banach Algebra <span
-class="math inline"><em>A</em></span>, then <span
-class="math inline"><em>A</em> ≃ <em>I</em> + ℂ ⋅ 1</span>.</em></p>
+class="math inline">\(A\)</span>, then <span class="math inline">\(A
+\simeq I+ \mathbb{C}\cdot 1\)</span>.</em></p>
 </div>
 <div class="proof">
-<p><em>Proof.</em> We must show that any <span
-class="math inline"><em>a</em> ∈ <em>A</em></span> can be written <span
-class="math inline"><em>b</em> + <em>λ</em></span> where <span
-class="math inline"><em>b</em> ∈ <em>I</em></span>. Given <span
-class="math inline">$\overline{a} \in A/I$</span> there exists by
-Gelfand’s theorem <span class="math inline"><em>λ</em> ∈ ℂ</span> such
-that <span class="math inline">$\overline{\lambda -a}$</span> is not
-invertible. Since <span class="math inline"><em>A</em>/<em>I</em></span>
-is a field we deduce that <span class="math inline">$\overline{\lambda
--a}=0$</span>, that is there exists <span
-class="math inline"><em>b</em> ∈ <em>I</em></span> such that <span
-class="math inline"><em>b</em> + <em>λ</em> = <em>a</em></span> as
-desired. ◻</p>
+<p><em>Proof.</em> We must show that any <span class="math inline">\(a
+\in A\)</span> can be written <span
+class="math inline">\(b+\lambda\)</span> where <span
+class="math inline">\(b\in I\)</span>. Given <span
+class="math inline">\(\overline{a} \in A/I\)</span> there exists by
+Gelfand’s theorem <span
+class="math inline">\(\lambda  \in  \mathbb{C}\)</span> such that <span
+class="math inline">\(\overline{\lambda -a}\)</span> is not invertible.
+Since <span class="math inline">\(A /I\)</span> is a field we deduce
+that <span class="math inline">\(\overline{\lambda -a}=0\)</span>, that
+is there exists <span class="math inline">\(b \in  I\)</span> such that
+<span class="math inline">\(b+ \lambda =a\)</span> as desired. ◻</p>
 </div>
 <div class="proposition">
 <p><strong>Proposition 1</strong>. <em>Let <span
-class="math inline"><em>A</em></span> be a commutative Banach
-algebra.There is a bijective correspondence</em></p>
-<p><em><span class="math display">$$\begin{aligned}
-            \Omega(A): &amp; \simeq \{\text{Maximal ideals } I \subset
-A\}  . \\
-                       &amp; \varphi    \longmapsto \text{ker}(\varphi).
-        \end{aligned}$$</span></em></p>
+class="math inline">\(A\)</span> be a commutative Banach algebra.There
+is a bijective correspondence</em></p>
+<p><em><span class="math display">\[\begin{aligned}
+			\Omega(A): &amp; \simeq \{\text{Maximal ideals } I \subset A\}  . \\
+			           &amp; \varphi    \longmapsto \text{ker}(\varphi).
+
+\end{aligned}\]</span></em></p>
 <div class="proof">
 <p><em><em>Proof.</em> The mapping is well defined as <span
-class="math inline"><em>a</em> − <em>φ</em>(<em>a</em>) ∈ ker(<em>φ</em>)</span>
-for all <span class="math inline"><em>a</em> ∈ <em>A</em></span> so
-<span class="math inline">ker(<em>φ</em>)</span> is maximal. The mapping
-is surjective by the previous lemma as given a maximal ideal <span
-class="math inline"><em>I</em></span> we have that <span
-class="math inline"><em>A</em> = <em>I</em> ⊕ ℂ</span> and we can define
-<span
-class="math inline"><em>φ</em>((<em>a</em>,<em>λ</em>)) := <em>λ</em></span>.
+class="math inline">\(a -\varphi(a) \in \text{ker}(\varphi)\)</span> for
+all <span class="math inline">\(a\in  A\)</span> so <span
+class="math inline">\(\text{ker}(\varphi)\)</span> is maximal. The
+mapping is surjective by the previous lemma as given a maximal ideal
+<span class="math inline">\(I\)</span> we have that <span
+class="math inline">\(A=I \oplus \mathbb{C}\)</span> and we can define
+<span class="math inline">\(\varphi((a,\lambda )):= \lambda\)</span>.
 The mapping is injective as if <span
-class="math inline">ker<em>φ</em><sub>1</sub> = ker<em>φ</em><sub>2</sub></span>
-then <span
-class="math inline"><em>φ</em><sub>1</sub>(<em>a</em>−<em>φ</em><sub>2</sub>(<em>a</em>)) = 0</span>
-for all <span
-class="math inline"><em>a</em> ∈ <em>A</em></span>. ◻</em></p>
+class="math inline">\(\text{ker}\varphi_1=\text{ker} \varphi_2\)</span>
+then <span class="math inline">\(\varphi_1(a -\varphi_2(a))=0\)</span>
+for all <span class="math inline">\(a \in  A\)</span>. ◻</em></p>
 </div>
 </div>
 <div class="proposition">
 <p><strong>Proposition 2</strong>. <em>Let <span
-class="math inline"><em>A</em></span> be a commutative Banach algebra.
-Then <span class="math inline">∥<em>φ</em>∥ = 1</span> for every <span
-class="math inline"><em>φ</em> ∈ <em>A</em></span>.</em></p>
+class="math inline">\(A\)</span> be a commutative Banach algebra. Then
+<span class="math inline">\(\lVert \varphi \rVert=1\)</span> for every
+<span class="math inline">\(\varphi \in A\)</span>.</em></p>
 </div>
 <div class="proof">
-<p><em>Proof.</em> We have that <span
-class="math inline"><em>φ</em>(<em>a</em>) ⊂ <em>σ</em>(<em>a</em>) ⊂ <em>B</em>(0,∥<em>a</em>∥)</span>
-as a result <span class="math inline">∥<em>φ</em>∥ ≤ 1</span>. On the
-other hand <span
-class="math inline"><em>φ</em>(1)<sup>2</sup> = 1</span> proves that
-<span class="math inline"><em>φ</em>(1) = 1</span> (we recall that
+<p><em>Proof.</em> We have that <span class="math inline">\(\varphi(a)
+\subset \sigma (a)\subset B(0,\lVert a \rVert)\)</span> as a result
+<span class="math inline">\(\lVert \varphi \rVert\leq 1\)</span>. On the
+other hand <span class="math inline">\(\varphi(1)^2=1\)</span> proves
+that <span class="math inline">\(\varphi(1)=1\)</span> (we recall that
 characters by definition are non-zero). This shows that <span
-class="math inline">∥<em>φ</em>∥ ≥ 1</span> and concludes the
-proof. ◻</p>
+class="math inline">\(\lVert \varphi \rVert \geq 1\)</span> and
+concludes the proof. ◻</p>
 </div>
 <div class="theorem">
 <p><strong>Theorem 3</strong>. <em>Given a commutative unital Banach
-algebra <span class="math inline"><em>A</em></span> it holds that <span
-class="math display">$$\begin{aligned}
-            \sigma (a)=\{\varphi(a): \varphi \in \Omega(A)\} .
-        \end{aligned}$$</span> If <span
-class="math inline"><em>A</em></span> is not unital then <span
-class="math display">$$\begin{aligned}
-            \sigma (a)=\{\varphi(a): \varphi \in \Omega(A)\} \cup
-\{0\}  .
-        \end{aligned}$$</span></em></p>
+algebra <span class="math inline">\(A\)</span> it holds that <span
+class="math display">\[\begin{aligned}
+			\sigma (a)=\{\varphi(a): \varphi \in \Omega(A)\} .
+
+\end{aligned}\]</span> If <span class="math inline">\(A\)</span> is not
+unital then <span class="math display">\[\begin{aligned}
+			\sigma (a)=\{\varphi(a): \varphi \in \Omega(A)\} \cup \{0\}  .
+
+\end{aligned}\]</span></em></p>
 </div>
 <div class="proof">
 <p><em>Proof.</em> To prove the direct inclusion consider <span
-class="math inline"><em>λ</em> ∉ <em>σ</em>(<em>a</em>)</span>, then we
-may take by Zorn’s lemma a proper maximal ideal <span
-class="math inline"><em>I</em></span> with <span
-class="math inline"><em>λ</em> − <em>a</em> ∈ <em>I</em></span>. By the
-previous proposition we can take <span
-class="math inline"><em>I</em> = ker<em>φ</em></span> for some character
-<span class="math inline"><em>φ</em></span>, from which we deduce that
-<span
-class="math inline"><em>φ</em>(<em>λ</em>−<em>a</em>) = <em>λ</em> − <em>φ</em>(<em>a</em>) = 0</span>.</p>
+class="math inline">\(\lambda \not\in \sigma (a)\)</span>, then we may
+take by Zorn’s lemma a proper maximal ideal <span
+class="math inline">\(I\)</span> with <span
+class="math inline">\(\lambda -a \in I\)</span>. By the previous
+proposition we can take <span class="math inline">\(I =\text{ker}
+\varphi\)</span> for some character <span
+class="math inline">\(\varphi\)</span>, from which we deduce that <span
+class="math inline">\(\varphi(\lambda -a)=\lambda
+-\varphi(a)=0\)</span>.</p>
 <p>The reverse inclusion is immediate from the fact that <span
-class="math inline"><em>φ</em>(<em>a</em>−<em>φ</em>(<em>a</em>)) = 0</span>
-so <span class="math inline"><em>a</em> − <em>φ</em>(<em>a</em>)</span>
-is not invertible for any <span
-class="math inline"><em>a</em> ∈ <em>A</em></span>.</p>
-<p>Suppose now <span class="math inline"><em>A</em></span> is not
-unital, then we unitize it by considering <span
-class="math inline"><em>Ã</em></span> as previously. The characters of
-<span class="math inline"><em>Ã</em></span> are <span
-class="math inline"><em>Ω</em>(<em>A</em>) ∪ {<em>τ</em><sub>0</sub>}</span>
-where <span
-class="math inline"><em>τ</em><sub>0</sub>((<em>a</em>,<em>λ</em>)) := <em>λ</em></span>.
-Applying the just prove result to <span
-class="math inline"><em>Ã</em></span> shows that, since <span
-class="math inline"><em>τ</em><sub>0</sub>(<em>a</em>,0) = 0</span>
-<span class="math display">$$\begin{aligned}
-            \sigma (a):=\sigma (\tilde{a})=\{\varphi(a): \varphi \in
-\Omega(A)\} \cup \{0\}  .
-        \end{aligned}$$</span> ◻</p>
+class="math inline">\(\varphi(a-\varphi(a))=0\)</span> so <span
+class="math inline">\(a- \varphi(a)\)</span> is not invertible for any
+<span class="math inline">\(a \in  A\)</span>.</p>
+<p>Suppose now <span class="math inline">\(A\)</span> is not unital,
+then we unitize it by considering <span
+class="math inline">\(\tilde{A}\)</span> as previously. The characters
+of <span class="math inline">\(\tilde{A}\)</span> are <span
+class="math inline">\(\Omega(A) \cup \{\tau_0\}\)</span> where <span
+class="math inline">\(\tau_0((a,\lambda )):= \lambda\)</span>. Applying
+the just prove result to <span class="math inline">\(\tilde{A}\)</span>
+shows that, since <span class="math inline">\(\tau_0(a,0)=0\)</span>
+<span class="math display">\[\begin{aligned}
+			\sigma (a):=\sigma (\tilde{a})=\{\varphi(a): \varphi \in \Omega(A)\}
+\cup \{0\}  .
+
+\end{aligned}\]</span> ◻</p>
 </div>
-<p>We now consider <span
-class="math inline"><em>A</em><sup>*</sup></span> with the weak*
-topology and <span class="math inline"><em>Ω</em>(<em>A</em>)</span>
+<p>We now consider <span class="math inline">\(A^*\)</span> with the
+weak* topology and <span class="math inline">\(\Omega(A)\)</span>
 included within it. We recall that <span
-class="math inline"><em>A</em><sup>*</sup></span> is Hausdorff and thus
-so must be <span class="math inline"><em>Ω</em>(<em>A</em>)</span>.</p>
+class="math inline">\(A^*\)</span> is Hausdorff and thus so must be
+<span class="math inline">\(\Omega(A)\)</span>.</p>
 <div class="theorem">
 <p><strong>Theorem 4</strong>. <em>Let <span
-class="math inline"><em>A</em></span> be an Abelian Banach algebra. Then
-<span class="math inline"><em>Ω</em>(<em>A</em>)</span> is locally
-compact. Furthermore, if <span class="math inline"><em>A</em></span> is
-also unital then <span class="math inline"><em>Ω</em>(<em>A</em>)</span>
-is compact.</em></p>
+class="math inline">\(A\)</span> be an Abelian Banach algebra. Then
+<span class="math inline">\(\Omega(A)\)</span> is locally compact.
+Furthermore, if <span class="math inline">\(A\)</span> is also unital
+then <span class="math inline">\(\Omega(A)\)</span> is compact.</em></p>
 </div>
 <div class="proof">
 <p><em>Proof.</em> By the previous theorem we know that <span
-class="math inline"><em>Ω</em>(<em>A</em>) ⊂ <em>B</em>(0,1)</span>
-whihc is compact with the weak star topology (Banach Aloglu’s theorem).
-Now, if <span
-class="math inline"><em>φ</em><sub><em>n</em></sub>(<em>a</em>) → <em>φ</em>(<em>a</em>)</span>
-for all <span class="math inline"><em>a</em> ∈ <em>A</em></span> then it
-holds that, by a simple argument <span
-class="math inline"><em>φ</em></span> is also a morphism. Thus <span
-class="math inline"><em>φ</em></span> will be a character if and only if
-<span class="math inline"><em>φ</em> ≠ 0</span>. For this reason it is
-necessary to adjoin <span class="math inline">0</span> if <span
-class="math inline"><em>A</em></span> is not unital. This shows that
-<span class="math inline"><em>Ω</em>(<em>A</em>) ∪ {0}</span> is closed
-in <span class="math inline"><em>B</em>(0,1)</span> and is thus compact.
-In consequence <span class="math inline"><em>Ω</em>(<em>A</em>)</span>
-is locally compact.</p>
-<p>Suppose now that <span class="math inline"><em>A</em></span> is
-unital, then we have seen than <span
-class="math inline">∥<em>φ</em>∥ = 1</span> for all <span
-class="math inline"><em>φ</em> ∈ <em>Ω</em>(<em>A</em>)</span>. The
-previous argument shows that <span
-class="math inline"><em>Ω</em>(<em>A</em>)</span> is closed (we can
-never reach <span class="math inline">0</span>) and as a result <span
-class="math inline"><em>Ω</em>(<em>A</em>)</span> is compact. ◻</p>
+class="math inline">\(\Omega(A) \subset B(0,1)\)</span> whihc is compact
+with the weak star topology (Banach Aloglu’s theorem). Now, if <span
+class="math inline">\(\varphi_n(a) \to \varphi(a)\)</span> for all <span
+class="math inline">\(a \in A\)</span> then it holds that, by a simple
+argument <span class="math inline">\(\varphi\)</span> is also a
+morphism. Thus <span class="math inline">\(\varphi\)</span> will be a
+character if and only if <span class="math inline">\(\varphi \neq
+0\)</span>. For this reason it is necessary to adjoin <span
+class="math inline">\(0\)</span> if <span
+class="math inline">\(A\)</span> is not unital. This shows that <span
+class="math inline">\(\Omega(A) \cup  \{0\}\)</span> is closed in <span
+class="math inline">\(B(0,1)\)</span> and is thus compact. In
+consequence <span class="math inline">\(\Omega(A)\)</span> is locally
+compact.</p>
+<p>Suppose now that <span class="math inline">\(A\)</span> is unital,
+then we have seen than <span class="math inline">\(\lVert \varphi
+\rVert=1\)</span> for all <span class="math inline">\(\varphi
+\in  \Omega(A)\)</span>. The previous argument shows that <span
+class="math inline">\(\Omega(A)\)</span> is closed (we can never reach
+<span class="math inline">\(0\)</span>) and as a result <span
+class="math inline">\(\Omega(A)\)</span> is compact. ◻</p>
 </div>
-<p>We can now identify <span class="math inline"><em>A</em></span> with
-a sub-algebra of continuous functions on <span
-class="math inline"><em>Ω</em>(<em>A</em>)</span> via the mapping <span
-class="math inline"><em>a</em> → <em>â</em></span> where we define <span
-class="math inline"><em>â</em>(<em>φ</em>) := <em>φ</em>(<em>a</em>)</span>.
-Let us denote the image of this mapping by <span
-class="math inline"><em>Â</em></span>, then we obtain the following
+<p>We can now identify <span class="math inline">\(A\)</span> with a
+sub-algebra of continuous functions on <span
+class="math inline">\(\Omega(A)\)</span> via the mapping <span
+class="math inline">\(a \to \widehat{a}\)</span> where we define <span
+class="math inline">\(\widehat{a}(\varphi):= \varphi(a)\)</span>. Let us
+denote the image of this mapping by <span
+class="math inline">\(\widehat{A}\)</span>, then we obtain the following
 theorem</p>
 <div class="theorem">
 <p><strong>Theorem 5</strong> (<strong>Gelfand’s represntation
-theorem</strong>). <em>Let <span class="math inline"><em>A</em></span>
-be a commutative Banach algebra, then the mapping <span
-class="math display">$$\begin{aligned}
-            A \to\widehat{A} \subset C_0(\Omega(A)); \quad a\to
-\widehat{a}.
-        \end{aligned}$$</span> is a norm decreasing injective
-homomorphism with <span
-class="math inline">∥<em>â</em>∥ = <em>r</em>(<em>a</em>)</span>.
-Furhtermore, if <span class="math inline"><em>a</em></span> is unital
-then <span
-class="math inline"><em>σ</em>(<em>a</em>) = <em>â</em>(<em>Ω</em>(<em>A</em>))</span>
-and otherwise <span
-class="math inline"><em>σ</em>(<em>a</em>) = <em>â</em>(<em>Ω</em>(<em>A</em>)) ∪ {0}</span>.</em></p>
+theorem</strong>). <em>Let <span class="math inline">\(A\)</span> be a
+commutative Banach algebra, then the mapping <span
+class="math display">\[\begin{aligned}
+			A \to\widehat{A} \subset C_0(\Omega(A)); \quad a\to \widehat{a}.
+
+\end{aligned}\]</span> is a norm decreasing injective homomorphism with
+<span class="math inline">\(\lVert \widehat{a} \rVert= r(a)\)</span>.
+Furhtermore, if <span class="math inline">\(a\)</span> is unital then
+<span class="math inline">\(\sigma (a)=\widehat{a}(\Omega(A))\)</span>
+and otherwise <span class="math inline">\(\sigma
+(a)=\widehat{a}(\Omega(A)) \cup  \{0\}\)</span>.</em></p>
 </div>
 <div class="proof">
 <p><em>Proof.</em> To show that <span
-class="math inline"><em>â</em></span> vanishes at infinity note that the
-set <span class="math display">$$\begin{aligned}
-            \{\varphi : \widehat{a}(\varphi) \geq \epsilon \}
+class="math inline">\(\widehat{a}\)</span> vanishes at infinity note
+that the set <span class="math display">\[\begin{aligned}
+			\{\varphi : \widehat{a}(\varphi) \geq \epsilon \}
 =\widehat{a}^{-1}([\epsilon ,\lVert a \rVert]).
-        \end{aligned}$$</span> Which is a closed subset in the compact
-<span class="math inline"><em>B</em>(0,<em>a</em>)</span> and thus
-compact. ◻</p>
+
+\end{aligned}\]</span> Which is a closed subset in the compact <span
+class="math inline">\(B(0,a)\)</span> and thus compact. ◻</p>
 </div>
-<p>We note however that the mapping <span
-class="math inline"><em>a</em> → <em>â</em></span> is in general neither
-injective (this means the identification isn’t prefect) not
-surjective.</p>
+<p>We note however that the mapping <span class="math inline">\(a \to
+\widehat{a}\)</span> is in general neither injective (this means the
+identification isn’t prefect) not surjective.</p>
 <div class="example">
 <p><strong>Example 1</strong> (Continuous Fourier Transform).
 <em>Consider the Banach Algebra <span
-class="math inline"><em>A</em> = <em>L</em><sup>1</sup>(ℝ<sup><em>d</em></sup>)</span>
-with multiplication given by the convolution <span
-class="math display">$$\begin{aligned}
-            f*g(x):= \int_{\mathbb{R}^d}f(y)g(x-y) \,\mathrm{d}y.
-        \end{aligned}$$</span> Then the Gelfand transform can be
-identified with the Fourier transform and <span
-class="math display">$$\begin{aligned}
-            \widehat{f}(\Omega)= \left\{ \widehat{f}(\omega):=
-\int_{\mathbb{R}^d} f(x)e^{-2\pi i \omega \cdot  x}
-\,\mathrm{d}x:\omega\in \mathbb{R}^d\right\} .
-        \end{aligned}$$</span></em></p>
+class="math inline">\(A=L^1(\mathbb{R}^d)\)</span> with multiplication
+given by the convolution <span class="math display">\[\begin{aligned}
+			f*g(x):= \int_{\mathbb{R}^d}f(y)g(x-y) \,\mathrm{d}y.
+
+\end{aligned}\]</span> Then the Gelfand transform can be identified with
+the Fourier transform and <span class="math display">\[\begin{aligned}
+			\widehat{f}(\Omega)= \left\{ \widehat{f}(\omega):= \int_{\mathbb{R}^d}
+f(x)e^{-2\pi i \omega \cdot  x} \,\mathrm{d}x:\omega\in
+\mathbb{R}^d\right\} .
+
+\end{aligned}\]</span></em></p>
 </div>
 <div class="proof">
 <p><em>Proof.</em> We know that the dual of <span
-class="math inline"><em>L</em><sup>1</sup>(ℝ<sup><em>d</em></sup>)</span>
-is <span
-class="math inline"><em>L</em><sup>∞</sup>(ℝ<sup><em>d</em></sup>)</span>.
-In particular every character is of the form <span
-class="math display">$$\begin{aligned}
-            \varphi_g (f)= \int_{\mathbb{R}^d}f \overline{g}.
-        \end{aligned}$$</span> The condition that <span
-class="math inline"><em>φ</em><sub><em>g</em></sub></span> preserves
-multiplication becomes by a change of variable <span
-class="math display">$$\begin{aligned}
-            g(x+y)=g(x)g(y), \quad\forall x,y \in \mathbb{R}^d.
-        \end{aligned}$$</span> The only <span
-class="math inline"><em>g</em> ∈ <em>L</em><sup>∞</sup>(ℝ<sup><em>d</em></sup>)</span>
-verifying the above are of the form <span
-class="math inline"><em>g</em>(<em>x</em>) = <em>e</em><sup>2<em>π</em><em>i</em><em>ω</em> ⋅ <em>x</em></sup></span>
-for some <span
-class="math inline"><em>ω</em> ∈ ℝ<sup><em>d</em></sup></span>. That is,
-the character group is <span class="math display">$$\begin{aligned}
-            \Omega(L^1(\mathbb{R}^d))\simeq\{e^{2\pi i \omega \cdot }:
-\omega \in \mathbb{R}^d\} .
-        \end{aligned}$$</span> This concludes the proof (we use the
-abuse of notation <span
-class="math inline"><em>f̂</em>(<em>ω</em>) := <em>f̂</em>(<em>φ</em><sub><em>e</em><sup>2<em>π</em><em>i</em><em>ω</em>⋅</sup></sub>)</span>). ◻</p>
+class="math inline">\(L^1(\mathbb{R}^d)\)</span> is <span
+class="math inline">\(L^\infty(\mathbb{R}^d)\)</span>. In particular
+every character is of the form <span
+class="math display">\[\begin{aligned}
+			\varphi_g (f)= \int_{\mathbb{R}^d}f \overline{g}.
+
+\end{aligned}\]</span> The condition that <span
+class="math inline">\(\varphi_g\)</span> preserves multiplication
+becomes by a change of variable <span
+class="math display">\[\begin{aligned}
+			g(x+y)=g(x)g(y), \quad\forall x,y \in \mathbb{R}^d.
+
+\end{aligned}\]</span> The only <span class="math inline">\(g \in
+L^\infty (\mathbb{R}^d)\)</span> verifying the above are of the form
+<span class="math inline">\(g(x)= e^{2\pi i \omega \cdot  x}\)</span>
+for some <span class="math inline">\(\omega \in \mathbb{R}^d\)</span>.
+That is, the character group is <span
+class="math display">\[\begin{aligned}
+			\Omega(L^1(\mathbb{R}^d))\simeq\{e^{2\pi i \omega \cdot }: \omega \in
+\mathbb{R}^d\} .
+
+\end{aligned}\]</span> This concludes the proof (we use the abuse of
+notation <span
+class="math inline">\(\widehat{f}(\omega):=\widehat{f}(\varphi_{e^{2\pi
+i \omega \cdot }})\)</span>). ◻</p>
 </div>
 <div class="example">
 <p><strong>Example 2</strong> (Discrete Fourier Transform). <em>Consider
-the Banach Algebra <span
-class="math inline"><em>A</em> = ℓ<sup>∞</sup>(ℤ<sup><em>d</em></sup>)</span>
-with multiplication given by the convolution <span
-class="math display">$$\begin{aligned}
-            g*h(k):= \sum_{k \in \mathbb{Z}^d}g(j)h(k-j) .
-        \end{aligned}$$</span> Then the Gelfand transform can be
-identified with the (inverse) Fourier transform and <span
-class="math display">$$\begin{aligned}
-            \widehat{g}(\Omega)= \left\{ \check{g}(k):= \sum_{k \in
-\mathbb{Z}^d} g(x)e^{2\pi i k \cdot  x} \,\mathrm{d}x: k\in
-\mathbb{Z}^d\right\} .
-        \end{aligned}$$</span></em></p>
+the Banach Algebra <span class="math inline">\(A=\ell
+^\infty(\mathbb{Z}^d)\)</span> with multiplication given by the
+convolution <span class="math display">\[\begin{aligned}
+			g*h(k):= \sum_{k \in \mathbb{Z}^d}g(j)h(k-j) .
+
+\end{aligned}\]</span> Then the Gelfand transform can be identified with
+the (inverse) Fourier transform and <span
+class="math display">\[\begin{aligned}
+			\widehat{g}(\Omega)= \left\{ \check{g}(k):= \sum_{k \in \mathbb{Z}^d}
+g(x)e^{2\pi i k \cdot  x} \,\mathrm{d}x: k\in \mathbb{Z}^d\right\} .
+
+\end{aligned}\]</span></em></p>
 </div>
-<p>Furthermore <span class="math display">$$\begin{aligned}
-        g(k)=\int_{0}^1 \check{g}(k)e^{2 \pi i (j-k) \cdot
-x}\,\mathrm{d}x.
-    \end{aligned}$$</span></p>
+<p>Furthermore <span class="math display">\[\begin{aligned}
+		g(k)=\int_{0}^1 \check{g}(k)e^{2 \pi i (j-k) \cdot x}\,\mathrm{d}x.
+
+\end{aligned}\]</span></p>
 <div class="proof">
-<p><em>Proof.</em> Let <span
-class="math inline"><em>e</em><sub>1</sub>, …<em>e</em><sub><em>d</em></sub> ∈ <em>A</em></span>
-be defined by <span class="math display">$$\begin{aligned}
-            e_n(k):= \delta _{nk_1}, \quad\forall n=1,\ldots d, k\in
-\mathbb{Z}^d .
-        \end{aligned}$$</span> Then we have that <span
-class="math inline"><em>A</em></span> is generated by <span
-class="math inline"><em>e</em><sub>1</sub>, …<em>e</em><sub><em>n</em></sub></span>
-with <span class="math display">$$\begin{aligned}
-            g(k) =\sum_{k} g(k) e_1^{k_1}\ldots e_d ^{k_d} .
-        \end{aligned}$$</span> Any character <span
-class="math inline"><em>φ</em></span> is thus determined by where it
-sends the <span
-class="math inline"><em>e</em><sub><em>n</em></sub></span> and they take
-the form <span class="math display">$$\begin{aligned}
-            \Omega(A)= \left\{ \varphi_z (g):= \sum_{k \in \mathbb{Z}^d}
-g(k) z^k: z \in \mathbb{T}^d  \right\} \simeq \mathbb{T}^d .
-        \end{aligned}$$</span> Noting that <span
-class="math inline">𝕋<sup><em>d</em></sup> = {<em>e</em><sup>2<em>π</em><em>i</em><em>x</em></sup>:<em>x</em>∈ℝ<sup><em>d</em></sup>}</span>
-and defining <span class="math display">$$\begin{aligned}
-            \check{g}(x):= \varphi_{e^{ 2\pi i x \cdot  }}(g)=\sum_{k
-\in \mathbb{Z}^d} g(k) e^{2 \pi  i k \cdot x}.
-        \end{aligned}$$</span> Gives the first part of the proof and
-using the orthonormality trick <span
-class="math display">$$\begin{aligned}
-            \int_{0}^1 \check{g}(x) e^{-2 \pi i k \cdot
-x}\,\mathrm{d}x=\sum_{j \in \mathbb{Z}^d} g(j)  \int_{0}^1 e^{2 \pi i
-(j-k) \cdot x}\,\mathrm{d}x= g(k).
-        \end{aligned}$$</span> Gives the second. Where in the above we
-applied the dominated convergence theorem. ◻</p>
+<p><em>Proof.</em> Let <span class="math inline">\(e_1,\ldots e_d \in
+A\)</span> be defined by <span class="math display">\[\begin{aligned}
+			e_n(k):= \delta _{nk_1}, \quad\forall n=1,\ldots d, k\in \mathbb{Z}^d .
+
+\end{aligned}\]</span> Then we have that <span
+class="math inline">\(A\)</span> is generated by <span
+class="math inline">\(e_{1},\ldots e_n\)</span> with <span
+class="math display">\[\begin{aligned}
+			g(k) =\sum_{k} g(k) e_1^{k_1}\ldots e_d ^{k_d} .
+
+\end{aligned}\]</span> Any character <span
+class="math inline">\(\varphi\)</span> is thus determined by where it
+sends the <span class="math inline">\(e_n\)</span> and they take the
+form <span class="math display">\[\begin{aligned}
+			\Omega(A)= \left\{ \varphi_z (g):= \sum_{k \in \mathbb{Z}^d} g(k) z^k: z
+\in \mathbb{T}^d  \right\} \simeq \mathbb{T}^d .
+
+\end{aligned}\]</span> Noting that <span
+class="math inline">\(\mathbb{T}^d= \left\{ e^{ 2\pi i x}: x \in
+\mathbb{R}^d \right\}\)</span> and defining <span
+class="math display">\[\begin{aligned}
+			\check{g}(x):= \varphi_{e^{ 2\pi i x \cdot  }}(g)=\sum_{k \in
+\mathbb{Z}^d} g(k) e^{2 \pi  i k \cdot x}.
+
+\end{aligned}\]</span> Gives the first part of the proof and using the
+orthonormality trick <span class="math display">\[\begin{aligned}
+			\int_{0}^1 \check{g}(x) e^{-2 \pi i k \cdot x}\,\mathrm{d}x=\sum_{j \in
+\mathbb{Z}^d} g(j)  \int_{0}^1 e^{2 \pi i (j-k) \cdot x}\,\mathrm{d}x=
+g(k).
+
+\end{aligned}\]</span> Gives the second. Where in the above we applied
+the dominated convergence theorem. ◻</p>
 </div>
 </div>
-</body>
-</html>
