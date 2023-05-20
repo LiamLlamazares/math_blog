@@ -35,7 +35,7 @@ the preceding issues.
 Given two measure spaces $(\Omega,\mathcal{F}),(\Omega',\mathcal{H})$
 we abbreviate that $f:\Omega\to\Omega'$ is measurable between
 $\mathcal{F}$ and $\mathcal{F}'$ as $f:\mathcal{F}\to\mathcal{F}'.$
-Furthermore we will take $I=\zl 0,T\zr $ or $I=\zl 0,+\infty)$ to be the index
+Furthermore we will take $I=\zl 0,T\zr $ or $I=\zl 0,+\infty\zr$ to be the index
 set of our stochastic processes and write
 $\mathcal{F}\U \infty:=\vee\U {t\in I}\mathcal{F}\U t$. Finally, we will denote the Borel $\sigma$-algebra on some interval $J$ by $\mathcal{B}(J)$.
 
@@ -133,7 +133,7 @@ measurable.
 </div>
 Since $X^{(n)}$ is piecewise constant in time, the pre-image of any set $A\in\mathcal{H}$ is of the form
 <div>
- $$(X^{(n)})^{-1}(A)=\bigcup\U {i}(t^n\U i,t^n\U {i+1}\zr \times X\U {t^n\U {i+1}}^{-1}(A),$$
+ $$(X^{(n)})^{-1}(A)=\bigcup\U {i}(t^n\U i,t^n\U {i+1}) \times X\U {t^n\U {i+1}}^{-1}(A),$$
 </div>
 for some $t_i^n \in [0,t]$. So $X^{(n)}$ is $\mathcal{B}(\zl 0, t \zr\times \Omega)$ measurable. Furthermore by right
 continuity $\lim\U {n \to \infty}X^{(n)}=X$. So $X$ is also $\mathcal{B}(\zl 0, t \zr\times \Omega)$ measurable. Since $t$ was any we conclude. ◻
