@@ -35,69 +35,26 @@ common-js:
 
   <div style="display:none">
     $$
-      \newcommand{\R}{\mathbb{R}}
-      \newcommand{\T}{\mathbb{T}}
-      \newcommand{\K}{\mathbb{K}}
-      \newcommand{\LL}{\mathbb{L}}
-      \newcommand{\E}{\mathbb{E}}
-      \newcommand{\C}{\mathbb{C}}
-      \newcommand{\N}{\mathbb{N}}
-      \newcommand{\Z}{\mathbb{Z}}
-      \newcommand{\P}{\mathbb{P}}
-      \newcommand{\Q}{\mathbb{Q}}
-      \newcommand{\U}{_}
-      \newcommand{\star}{*}
-      \newcommand{\set}[1]{\left\{#1\right\}}
-      \newcommand{\qp}[1]{\left(#1\right)}
-      \newcommand{\qb}[1]{\left[#1\right]}
-\newcommand{\wh}[1]{\widehat{#1}}
-      \newcommand{\frakB}{\mathfrak{B}}
-      \newcommand{\frakW}{\mathfrak{W}}
-      \newcommand{\Id}{\mathbf{I}}
-      \newcommand{\dist}{\mathrm{dist}}
-      \newcommand{\span}{\mathrm{Span}}
-      \newcommand{\diag}[1]{\mathrm{diag}(#1)}
-      \newcommand{\dim}[1]{\mathrm{dim} \, #1}
-      \newcommand{\tr}[1]{\mathrm{tr}(#1)}
-      \newcommand{\partder}[2]{\frac{\partial #1}{\partial #2}}
-      \newcommand{\rank}[1]{\mathrm{rank} \, #1}
-      \newcommand{\inner}[1]{\langle #1 \rangle}
-      \newcommand{\innerbig}[1]{\left \langle #1 \right \rangle}
-      \newcommand{\abs}[1]{\lvert #1 \rvert}
-      \newcommand{\norm}[1]{\lVert #1 \rVert}
-      \newcommand{\ker}[1]{\text{ker}(#1)}
-      \newcommand{\supp}[1]{\text{supp}(#1)}
-      \newcommand{\Aa}{\mathcal{A}}
-      \newcommand{\Bb}{\mathcal{B}}
-      \newcommand{\Cc}{\mathcal{C}}
-      \newcommand{\Dd}{\mathcal{D}}
-      \newcommand{\Ee}{\mathcal{E}}
-      \newcommand{\Ff}{\mathcal{F}}
-      \newcommand{\Gg}{\mathcal{G}}
-      \newcommand{\Hh}{\mathcal{H}}
-      \newcommand{\Ii}{\mathcal{I}}
-      \newcommand{\Jj}{\mathcal{J}}
-      \newcommand{\Kk}{\mathcal{K}}
-      \newcommand{\Ll}{\mathcal{L}}
-      \newcommand{\Mm}{\mathcal{M}}
-      \newcommand{\Nn}{\mathcal{N}}
-      \newcommand{\Oo}{\mathcal{O}}
-      \newcommand{\Pp}{\mathcal{P}}
-      \newcommand{\Qq}{\mathcal{Q}}
-      \newcommand{\Rr}{\mathcal{R}}
-      \newcommand{\Ss}{\mathcal{S}}
-      \newcommand{\Tt}{\mathcal{T}}
-      \newcommand{\Uu}{\mathcal{U}}
-      \newcommand{\Vv}{\mathcal{V}}
-      \newcommand{\Ww}{\mathcal{W}}
-      \newcommand{\Xx}{\mathcal{X}}
-      \newcommand{\Yy}{\mathcal{Y}}
-      \newcommand{\Zz}{\mathcal{Z}}
-      \newcommand{\lb}{\{}
-      \newcommand{\rb}{\}}
-      \newcommand{\zl}{[}
-      \newcommand{\zr}{]}
-      \newcommand{\Pker}{P_{\ker{L}^{\perp}}}
+    \newcommand{\fk}[1]{\mathfrak{#1}}
+    \newcommand{\wh}[1]{\widehat{#1}}
+    \newcommand{\Id}{\mathbf{I}}
+    \renewcommand{\ker}{\mathbf{ker}}
+    \newcommand{\supp}[1]{\mathbf{supp}(#1)}
+    \renewcommand{\norm}[1]{\lVert #1 \rVert}
+    \renewcommand{\tr}[1]{\mathrm{tr}\left(#1\right)}
+    \newcommand{\lb}{\left\{}
+     \newcommand{\rb}{\right\}}
+    \newcommand{\zl}{\left[}
+    \newcommand{\zr}{\right]}
+    \newcommand{\U}{_}
+    \renewcommand{\star}{*}
+    \newcommand{\A}{\mathbb{A}}\newcommand{\C}{\mathbb{C}}\newcommand{\E}{\mathbb{E}}\newcommand{\F}{\mathbb{F}}\newcommand{\II}{\mathbb{I}}\newcommand{\K}{\mathbb{K}}\newcommand{\LL}{\mathbb{L}}\newcommand{\M}{\mathbb{M}}\newcommand{\N}{\mathbb{N}}\newcommand{\PP}{\mathbb{P}}\newcommand{\Q}{\mathbb{Q}}\newcommand{\R}{{\mathbb R}}\newcommand{\T}{{\mathbb T}}\newcommand{\W}{\mathbb{W}}\newcommand{\Z}{{\mathbb Z}}
+    \newcommand{\Ww}{\mathcal{W}}\newcommand{\Aa}{\mathcal{A}}\newcommand{\Bb}{\mathcal{B}}\newcommand{\Cc}{\mathcal{C}}\newcommand{\Dd}{\mathcal{D}}\newcommand{\Ee}{\mathcal{E}}\newcommand{\Ff}{\mathcal{F}}\newcommand{\Gg}{\mathcal{G}}\newcommand{\Hh}{\mathcal{H}}\newcommand{\Kk}{\mathcal{K}}\newcommand{\Ll}{\mathcal{L}}\newcommand{\Mm}{\mathcal{M}}\newcommand{\Nn}{\mathcal{N}}\newcommand{\Pp}{\mathcal{P}}\newcommand{\Qq}{\mathcal{Q}}\newcommand{\Rr}{{\mathcal R}}\newcommand{\Ss}{{\mathcal S}}\newcommand{\Tt}{{\mathcal T}}\newcommand{\Uu}{{\mathcal U}}\newcommand{\XX}{{\mathcal X}}\newcommand{\Zz}{{\mathcal Z}}
+    \renewcommand{\d}{\,\mathrm{d}}
+    \newcommand\restr[2]{{\left.\kern-\nulldelimiterspace #1\vphantom{\big|} \right|_{#2}}}
+     \newcommand{\br}[1]{\left\langle#1\right\rangle}
+     \newcommand{\set}[1]{\left\{#1\right\}} \newcommand{\qp}[1]{\left(#1\right)}\newcommand{\qb}[1]{\left[#1\right]}
+
     $$
   </div>
 
