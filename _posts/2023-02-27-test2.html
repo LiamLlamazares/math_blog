@@ -2,607 +2,269 @@
 <p><span>UTF8</span><span>gbsn</span></p>
 <h1 id="three-line-summary"> Three line summary</h1>
 <ul>
-<li><p>The spectrum can be thought of heuristically as the frequencies
-that represent an element of a Banach algebra.</p></li>
-<li><p>In a unital Banach algebra every element has non-empty
-spectrum.</p></li>
-<li><p>A commutative Banach algebra
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-can be thought of as a subgroup of continuous functions.</p></li>
+<li><p>The spectrum can be thought of heuristically as the frequencies that represent an element of a Banach algebra.</p></li>
+<li><p>In a unital Banach algebra every element has non-empty spectrum.</p></li>
+<li><p>A commutative Banach algebra <span class="math inline">\(A\)</span> can be thought of as a subgroup of continuous functions.</p></li>
 </ul>
 <h1 id="why-should-i-care">Why should I care?</h1>
 <p>We introduce the basis of spectral theory which is useful to ...</p>
 <h1 id="preliminary-definitions">Preliminary definitions</h1>
-<p>Here I include all the needed definitions. Many of them will be
-familiar if the reader has an algebra background and can be skimmed
-over.</p>
+<p>Here I include all the needed definitions. Many of them will be familiar if the reader has an algebra background and can be skimmed over.</p>
 <div class="definition">
-<p><strong>Definition 1</strong>. <em>An <em>algebra</em>
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-is a vector space together with a multiplication which is bilinear and
-associative. That is,
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo>+</mo><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>c</mi><mo>=</mo><mi>a</mi><mi>c</mi><mo>+</mo><mi>b</mi><mi>c</mi><mo>;</mo><mspace width="1.0em"></mspace><mi>a</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>b</mi><mo>+</mo><mi>c</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>a</mi><mi>b</mi><mo>+</mo><mi>a</mi><mi>c</mi><mo>;</mo><mspace width="1.0em"></mspace><mi>a</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>b</mi><mi>c</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>c</mi><mo>∀</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo>,</mo><mi>c</mi><mo>∈</mo><mi>A</mi><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
-&#9;&#9;&#9;(a+b)c=ac+bc;\quad a(b+c)=ab+ac; \quad a(bc)=(ab)c \forall a,b,c \in A.
-&#9;&#9;
-\end{aligned}</annotation></semantics></math> Note that in general we do
-not require that the product is commutative. Though this will be a
-common requirement later on. We will take
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-for the remainder to be a vectro space over
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℂ</mi><annotation encoding="application/x-tex">\mathbb{C}</annotation></semantics></math></em></p>
+<p><strong>Definition 1</strong>.  <em>An <em>algebra</em> <span class="math inline">\(A\)</span> is a vector space together with a multiplication which is bilinear and associative. That is,
+<span class="math display">\[\begin{aligned}
+			(a+b)c=ac+bc;\quad a(b+c)=ab+ac; \quad a(bc)=(ab)c \forall a,b,c \in A.
+
+\end{aligned}\]</span>
+Note that in general we do not require that the product is commutative. Though this will be a common requirement later on. We will take <span class="math inline">\(A\)</span> for the remainder to be a vectro space over <span class="math inline">\(\mathbb{C}\)</span></em></p>
 </div>
 <div class="definition">
-<p><strong>Definition 2</strong>. <em>Given a norm
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">∥</mo><mo>⋅</mo><mo stretchy="false" form="postfix">∥</mo></mrow><annotation encoding="application/x-tex">\lVert \cdot  \rVert</annotation></semantics></math>
-on algebra
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-we say that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo>,</mo><mo stretchy="false" form="prefix">∥</mo><mo stretchy="false" form="postfix">∥</mo><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(A, \lVert  \rVert)</annotation></semantics></math>
-is a <em>normed algebra</em> if the norm is <em>submultiplicative</em>.
-That is,
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mo stretchy="false" form="prefix">∥</mo><mi>a</mi><mi>b</mi><mo stretchy="false" form="postfix">∥</mo><mo>≤</mo><mo stretchy="false" form="prefix">∥</mo><mi>a</mi><mo stretchy="false" form="postfix">∥</mo><mo stretchy="false" form="prefix">∥</mo><mi>b</mi><mo stretchy="false" form="postfix">∥</mo><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
-&#9;&#9;&#9;\lVert ab \rVert\leq \lVert a \rVert\lVert b \rVert.
-&#9;&#9;
-\end{aligned}</annotation></semantics></math></em></p>
+<p><strong>Definition 2</strong>.  <em>Given a norm <span class="math inline">\(\lVert \cdot  \rVert\)</span> on algebra <span class="math inline">\(A\)</span> we say that <span class="math inline">\((A, \lVert  \rVert)\)</span> is a <em>normed algebra</em> if the norm is <em>submultiplicative</em>. That is,
+<span class="math display">\[\begin{aligned}
+			\lVert ab \rVert\leq \lVert a \rVert\lVert b \rVert.
+
+\end{aligned}\]</span></em></p>
 </div>
 <div class="definition">
-<p><strong>Definition 3</strong>. <em>We say that a normed algebra
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo>,</mo><mo stretchy="false" form="prefix">∥</mo><mo>⋅</mo><mo stretchy="false" form="postfix">∥</mo><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(A,\lVert \cdot  \rVert)</annotation></semantics></math>
-is a <em>Banach algebra</em> if it is complete. We say that it is
-<em>unital</em> if there exists an identity
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math>
-for the multiplication
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>a</mi><mn>1</mn><mo>=</mo><mn>1</mn><mi>a</mi><mo>,</mo><mspace width="1.0em"></mspace><mo>∀</mo><mi>a</mi><mo>∈</mo><mi>A</mi><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
-&#9;&#9;&#9;a 1=1 a, \quad\forall a\in A.
-&#9;&#9;
-\end{aligned}</annotation></semantics></math></em></p>
+<p><strong>Definition 3</strong>.  <em>We say that a normed algebra <span class="math inline">\((A,\lVert \cdot  \rVert)\)</span> is a <em>Banach algebra</em> if it is complete. We say that it is <em>unital</em> if there exists an identity <span class="math inline">\(1\)</span> for the multiplication
+<span class="math display">\[\begin{aligned}
+			a 1=1 a, \quad\forall a\in A.
+
+\end{aligned}\]</span></em></p>
 <p><em>and we say that it is <em>commutative</em> if
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>a</mi><mi>b</mi><mo>=</mo><mi>b</mi><mi>a</mi><mo>,</mo><mspace width="1.0em"></mspace><mo>∀</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo>∈</mo><mi>A</mi><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
-&#9;&#9;&#9;ab= ba , \quad\forall a,b \in A.
-&#9;&#9;
-\end{aligned}</annotation></semantics></math></em></p>
+<span class="math display">\[\begin{aligned}
+			ab= ba , \quad\forall a,b \in A.
+
+\end{aligned}\]</span></em></p>
 </div>
 <div class="definition">
-<p><strong>Definition 4</strong>. <em>Given
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>∈</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">a \in  A</annotation></semantics></math>
-we say that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>∈</mo><mi>ℂ</mi></mrow><annotation encoding="application/x-tex">\lambda  \in \mathbb{C}</annotation></semantics></math>
-is in the <em>spectrum</em> of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
-if
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mn>1</mn><mo>−</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">\lambda 1-a</annotation></semantics></math>
-is <strong>not</strong> invertible. We write
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>⊂</mo><mi>ℂ</mi></mrow><annotation encoding="application/x-tex">\sigma (a) \subset \mathbb{C}</annotation></semantics></math>
-for the set of such
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>.</em></p>
+<p><strong>Definition 4</strong>.  <em>Given <span class="math inline">\(a \in  A\)</span> we say that <span class="math inline">\(\lambda  \in \mathbb{C}\)</span> is in the <em>spectrum</em> of <span class="math inline">\(a\)</span> if <span class="math inline">\(\lambda 1-a\)</span> is <strong>not</strong> invertible. We write <span class="math inline">\(\sigma (a) \subset \mathbb{C}\)</span> for the set of such <span class="math inline">\(\lambda\)</span>.</em></p>
 </div>
 <div class="definition">
-<p><strong>Definition 5</strong>. <em>Given two algebras
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>,</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A,B</annotation></semantics></math>
-we say that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>φ</mi><mo>:</mo><mi>A</mi><mo>→</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">\varphi: A\to B</annotation></semantics></math>
-is a <em>homomorphism</em> if it is linear and respects the product.
-That is,
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo>+</mo><mi>λ</mi><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mi>λ</mi><mi>φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>;</mo><mspace width="1.0em"></mspace><mi>φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="1.0em"></mspace><mo>∀</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo>∈</mo><mi>A</mi><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
-&#9;&#9;&#9;\varphi(a+ \lambda b)= \varphi(a)+ \lambda  \varphi(b);\quad \varphi(ab)=\varphi(a) \varphi(b) , \quad\forall a ,b \in  A.
-&#9;&#9;
-\end{aligned}</annotation></semantics></math> If
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>,</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A,B</annotation></semantics></math>
-are unital and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\varphi(1)=1</annotation></semantics></math>
-we say that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>φ</mi><annotation encoding="application/x-tex">\varphi</annotation></semantics></math>
-is <em>unital</em>. If
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>φ</mi><annotation encoding="application/x-tex">\varphi</annotation></semantics></math>
-has an inverse
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>φ</mi><annotation encoding="application/x-tex">\varphi</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>φ</mi><annotation encoding="application/x-tex">\varphi</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>φ</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><annotation encoding="application/x-tex">\varphi^{-1}</annotation></semantics></math>
-are continuous we say that it is a <em>homeomorphism</em></em></p>
+<p><strong>Definition 5</strong>.  <em>Given two algebras <span class="math inline">\(A,B\)</span> we say that <span class="math inline">\(\varphi: A\to B\)</span> is a <em>homomorphism</em> if it is linear and respects the product. That is,
+<span class="math display">\[\begin{aligned}
+			\varphi(a+ \lambda b)= \varphi(a)+ \lambda  \varphi(b);\quad \varphi(ab)=\varphi(a) \varphi(b) , \quad\forall a ,b \in  A.
+
+\end{aligned}\]</span>
+If <span class="math inline">\(A,B\)</span> are unital and <span class="math inline">\(\varphi(1)=1\)</span> we say that <span class="math inline">\(\varphi\)</span> is <em>unital</em>. If <span class="math inline">\(\varphi\)</span> has an inverse <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\varphi^{-1}\)</span> are continuous we say that it is a <em>homeomorphism</em></em></p>
 </div>
-<p>Note that any morphism
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>φ</mi><annotation encoding="application/x-tex">\varphi</annotation></semantics></math>
-between unital algebras conserves invertability. However that, even if
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>,</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A,B</annotation></semantics></math>
-are unital it may be the case that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\varphi(1)</annotation></semantics></math>
-is not (consider for example the zero morphism).</p>
+<p>Note that any morphism <span class="math inline">\(\varphi\)</span> between unital algebras conserves invertability. However that, even if <span class="math inline">\(A,B\)</span> are unital it may be the case that <span class="math inline">\(\varphi(1)\)</span> is not (consider for example the zero morphism).</p>
 <div class="definition">
-<p><strong>Definition 6</strong>. <em>We say that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>φ</mi><annotation encoding="application/x-tex">\varphi</annotation></semantics></math>
-is a character of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-if
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>φ</mi><mo>:</mo><mi>A</mi><mo>→</mo><mi>ℂ</mi></mrow><annotation encoding="application/x-tex">\varphi:A\to \mathbb{C}</annotation></semantics></math>
-is a homomorphism.</em></p>
+<p><strong>Definition 6</strong>.  <em>We say that <span class="math inline">\(\varphi\)</span> is a character of <span class="math inline">\(A\)</span> if <span class="math inline">\(\varphi:A\to \mathbb{C}\)</span> is a homomorphism.</em></p>
 </div>
 <div class="definition">
-<p><strong>Definition 7</strong>. <em>Given an algebra
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-we say that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>⊂</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">B \subset A</annotation></semantics></math>
-is a sub-algebra if it is subspace of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-closed under multiplication. That is
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
-itself is an algebra.</em></p>
+<p><strong>Definition 7</strong>.  <em>Given an algebra <span class="math inline">\(A\)</span> we say that <span class="math inline">\(B \subset A\)</span> is a sub-algebra if it is subspace of <span class="math inline">\(A\)</span> closed under multiplication. That is <span class="math inline">\(B\)</span> itself is an algebra.</em></p>
 </div>
 <div class="definition">
-<p><strong>Definition 8</strong>. <em>Given an algebra
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>,
-we say that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo>⊂</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">I \subset A</annotation></semantics></math>
-is an <em>ideal</em> of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-if
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>
-is stable under multiplication with elements is
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>.
-That is
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>A</mi><mi>I</mi><mo>:=</mo><mo stretchy="false" form="prefix">{</mo><mi>a</mi><mi>b</mi><mo>:</mo><mi>a</mi><mo>∈</mo><mi>A</mi><mo>,</mo><mspace width="1.0em"></mspace><mi>b</mi><mo>∈</mo><mi>I</mi><mo stretchy="false" form="postfix">}</mo><mo>⊂</mo><mi>I</mi><mo>;</mo><mspace width="1.0em"></mspace><mi>I</mi><mi>A</mi><mo>⊂</mo><mi>I</mi><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
-&#9;&#9;&#9;AI := \{ a b: a\in A, \quad  b \in I \} \subset I; \quad IA \subset I .
-&#9;&#9;
-\end{aligned}</annotation></semantics></math> We say that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>
-is <em>maximal</em> if given any other ideal
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>J</mi><annotation encoding="application/x-tex">J</annotation></semantics></math>
-such that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo>⊂</mo><mi>J</mi></mrow><annotation encoding="application/x-tex">I\subset J</annotation></semantics></math>
-it holds that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mo>=</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">J=A</annotation></semantics></math>.</em></p>
+<p><strong>Definition 8</strong>.  <em>Given an algebra <span class="math inline">\(A\)</span>, we say that <span class="math inline">\(I \subset A\)</span> is an <em>ideal</em> of <span class="math inline">\(A\)</span> if <span class="math inline">\(I\)</span> is stable under multiplication with elements is <span class="math inline">\(A\)</span>. That is
+<span class="math display">\[\begin{aligned}
+			AI := \{ a b: a\in A, \quad  b \in I \} \subset I; \quad IA \subset I .
+
+\end{aligned}\]</span>
+We say that <span class="math inline">\(I\)</span> is <em>maximal</em> if given any other ideal <span class="math inline">\(J\)</span> such that <span class="math inline">\(I\subset J\)</span> it holds that <span class="math inline">\(J=A\)</span>.</em></p>
 </div>
-<p>We recall that, by Zorn’s Lemma every algebra has a maximal
-ideal.</p>
+<p>We recall that, by Zorn’s Lemma every algebra has a maximal ideal.</p>
 <div class="definition">
-<p><strong>Definition 9</strong>. <em>Given a closed ideal
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>
-of an algebra
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-we define the quotient algebra
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>/</mi><mi>I</mi></mrow><annotation encoding="application/x-tex">A/I</annotation></semantics></math>
-to be the set of equivalence classes under the relation
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>a</mi><mo>∼</mo><mi>b</mi><mo>⇔</mo><mi>a</mi><mo>−</mo><mi>b</mi><mo>∈</mo><mi>I</mi><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
-&#9;&#9;&#9;a \sim b \iff a-b \in I.
-&#9;&#9;
-\end{aligned}</annotation></semantics></math> With the product
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>a</mi><mo accent="true">¯</mo></mover><mover><mi>b</mi><mo accent="true">¯</mo></mover><mo>:=</mo><mover><mrow><mi>a</mi><mi>b</mi></mrow><mo accent="true">¯</mo></mover></mrow><annotation encoding="application/x-tex">\overline{a}\overline{b}:= \overline{ab}</annotation></semantics></math>
-and the norm
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mo stretchy="false" form="prefix">∥</mo><mover><mi>a</mi><mo accent="true">¯</mo></mover><mo stretchy="false" form="postfix">∥</mo><mo>:=</mo><munder><mo>inf</mo><mrow><mi>b</mi><mo>∈</mo><mi>I</mi></mrow></munder><mo stretchy="false" form="prefix">∥</mo><mi>a</mi><mo>+</mo><mi>b</mi><mo stretchy="false" form="postfix">∥</mo><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
-&#9;&#9;&#9;\lVert \overline{a} \rVert:= \inf_{ b \in  I } \lVert a+b \rVert.
-&#9;&#9;
-\end{aligned}</annotation></semantics></math></em></p>
+<p><strong>Definition 9</strong>.  <em>Given a closed ideal <span class="math inline">\(I\)</span> of an algebra <span class="math inline">\(A\)</span> we define the quotient algebra <span class="math inline">\(A/I\)</span> to be the set of equivalence classes under the relation
+<span class="math display">\[\begin{aligned}
+			a \sim b \iff a-b \in I.
+
+\end{aligned}\]</span>
+With the product <span class="math inline">\(\overline{a}\overline{b}:= \overline{ab}\)</span> and the norm
+<span class="math display">\[\begin{aligned}
+			\lVert \overline{a} \rVert:= \inf_{ b \in  I } \lVert a+b \rVert.
+
+\end{aligned}\]</span></em></p>
 </div>
-<p>We note that it is necessary for
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>
-to be closed so that if
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">∥</mo><mover><mi>a</mi><mo accent="true">¯</mo></mover><mo stretchy="false" form="postfix">∥</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lVert \overline{a} \rVert=0</annotation></semantics></math>
-then
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>∈</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">a \in I</annotation></semantics></math>,
-that is
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>a</mi><mo accent="true">¯</mo></mover><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\overline{a}=0</annotation></semantics></math>.</p>
+<p>We note that it is necessary for <span class="math inline">\(I\)</span> to be closed so that if <span class="math inline">\(\lVert \overline{a} \rVert=0\)</span> then <span class="math inline">\(a \in I\)</span>, that is <span class="math inline">\(\overline{a}=0\)</span>.</p>
 <h1 id="introduction">Introduction</h1>
 <h1 id="the-big-theorems">The big theorems</h1>
 <p>We now state the main theorems and outline the proof</p>
 <div class="theorem">
-<p><strong>Theorem 1</strong>. <em>Given a unital Banach algebra
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-it holds that</em></p>
+<p><strong>Theorem 1</strong>.  <em>Given a unital Banach algebra <span class="math inline">\(A\)</span> it holds that</em></p>
 <ol>
-<li><p><em>The set of invertible elements in
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-is open.</em></p></li>
+<li><p><em>The set of invertible elements in <span class="math inline">\(A\)</span> is open.</em></p></li>
 <li><p><em>Taking the inverse is smooth.</em></p></li>
-<li><p><em><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\sigma (a)</annotation></semantics></math>
-is a closed subset of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⊂</mo><mi>B</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mo stretchy="false" form="prefix">∥</mo><mi>a</mi><mo stretchy="false" form="postfix">∥</mo><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\subset B(0,\lVert a \rVert)</annotation></semantics></math></em></p></li>
+<li><p><em><span class="math inline">\(\sigma (a)\)</span> is a closed subset of <span class="math inline">\(\subset B(0,\lVert a \rVert)\)</span></em></p></li>
 </ol>
 </div>
 <div class="proof">
-<p><em>Proof.</em> All of these facts can be proved via the Von-Neumman
-series for the inverse
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msup><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo>−</mo><mn>1</mn></mrow></msup><mo>=</mo><munderover><mo>∑</mo><mrow><mi>n</mi><mo>=</mo><mn>0</mn></mrow><mo accent="false">∞</mo></munderover><msup><mi>a</mi><mi>n</mi></msup><mo>,</mo><mspace width="1.0em"></mspace><mo>∀</mo><mi>a</mi><mo>∈</mo><mi>B</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
-&#9;&#9;&#9;(1 -a)^{-1}=\sum_{n=0}^{\infty} a^n, \quad\forall a \in B(0,1) .
-&#9;&#9;
-\end{aligned}</annotation></semantics></math> ◻</p>
+<p><em>Proof.</em> All of these facts can be proved via the Von-Neumman series for the inverse
+<span class="math display">\[\begin{aligned}
+			(1 -a)^{-1}=\sum_{n=0}^{\infty} a^n, \quad\forall a \in B(0,1) .
+
+\end{aligned}\]</span> ◻</p>
 </div>
 <div class="theorem">
-<p><strong>Theorem 2</strong> (Gelfand’s theorem). <em>Given a unital
-Banach algebra
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≠</mo><mi>∅</mi></mrow><annotation encoding="application/x-tex">\sigma (a)\neq \emptyset</annotation></semantics></math>
-for all
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>∈</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">a\in A</annotation></semantics></math>.</em></p>
+<p><strong>Theorem 2</strong> (Gelfand’s theorem).  <em>Given a unital Banach algebra <span class="math inline">\(A\)</span>, <span class="math inline">\(\sigma (a)\neq \emptyset\)</span> for all <span class="math inline">\(a\in A\)</span>.</em></p>
 </div>
 <div class="proof">
-<p><em>Proof.</em> Suppose not, then
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>λ</mi><mn>1</mn><mo>−</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo>−</mo><mn>1</mn></mrow></msup><annotation encoding="application/x-tex">(\lambda 1-a)^{-1}</annotation></semantics></math>
-exists for all
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>∈</mo><mi>ℂ</mi></mrow><annotation encoding="application/x-tex">\lambda \in  \mathbb{C}</annotation></semantics></math>.
-Let us consider the function
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>ℂ</mi><mo>→</mo><mi>ℂ</mi></mrow><annotation encoding="application/x-tex">f:\mathbb{C}\to \mathbb{C}</annotation></semantics></math>
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>λ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>:=</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>λ</mi><mn>1</mn><mo>−</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo>−</mo><mn>1</mn></mrow></msup><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+<p><em>Proof.</em> Suppose not, then <span class="math inline">\((\lambda 1-a)^{-1}\)</span> exists for all <span class="math inline">\(\lambda \in  \mathbb{C}\)</span>. Let us consider the function <span class="math inline">\(f:\mathbb{C}\to \mathbb{C}\)</span>
+<span class="math display">\[\begin{aligned}
 \label{e1}
-&#9;&#9;&#9;f(\lambda):= (\lambda 1-a)^{-1}.
-&#9;&#9;
-\end{aligned}</annotation></semantics></math> Since taking inverse is
-smooth,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
-is smooth and thus bounded on
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="prefix">∥</mo><mi>a</mi><mo stretchy="false" form="postfix">∥</mo><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">B(0,2\lVert a \rVert)</annotation></semantics></math>.
-Furthermore, using Neumann’s series for the inverse we obtain that
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mo stretchy="false" form="prefix">∥</mo><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>λ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="false" form="postfix">∥</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">|</mo><msup><mi>λ</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mo stretchy="true" form="postfix">|</mo></mrow><mo stretchy="false" form="prefix">∥</mo><munderover><mo>∑</mo><mrow><mi>n</mi><mo>=</mo><mn>0</mn></mrow><mo accent="false">∞</mo></munderover><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mi>/</mi><mi>λ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>n</mi></msup><mo stretchy="false" form="postfix">∥</mo><mo>≤</mo><msup><mrow><mo stretchy="true" form="prefix">|</mo><mi>λ</mi><mo stretchy="true" form="postfix">|</mo></mrow><mrow><mo>−</mo><mn>1</mn></mrow></msup><munderover><mo>∑</mo><mrow><mi>n</mi><mo>=</mo><mn>0</mn></mrow><mo accent="false">∞</mo></munderover><msup><mrow><mo stretchy="true" form="prefix">(</mo><mo stretchy="false" form="prefix">∥</mo><mi>a</mi><mo stretchy="false" form="postfix">∥</mo><mi>/</mi><mi>λ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>n</mi></msup><mo>≤</mo><mfrac><mn>1</mn><mrow><mo stretchy="true" form="prefix">|</mo><mi>λ</mi><mo stretchy="true" form="postfix">|</mo></mrow></mfrac><mo>≤</mo><mfrac><mn>1</mn><mrow><mn>2</mn><mo stretchy="false" form="prefix">∥</mo><mi>a</mi><mo stretchy="false" form="postfix">∥</mo></mrow></mfrac><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
-&#9;&#9;&#9;\lVert f(\lambda ) \rVert = \left| \lambda^{-1} \right| \lVert \sum_{n=0}^{\infty}  (a / \lambda)^n  \rVert\leq \left| \lambda \right|^{-1} \sum_{n=0}^{\infty} (\lVert a \rVert / \lambda)^n \leq \frac{1}{\left|  \lambda  \right|}\leq \frac{1}{2 \lVert a \rVert}  .
-&#9;&#9;
-\end{aligned}</annotation></semantics></math> As a result
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
-is a bounded smooth function and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>ℓ</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>λ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\ell (f(\lambda ))</annotation></semantics></math>
-is a bounded entire function for any
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>ℓ</mo><mo>∈</mo><msup><mi>A</mi><mo>*</mo></msup></mrow><annotation encoding="application/x-tex">\ell \in A^*</annotation></semantics></math>.
-By Liouville’s theorem
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>ℓ</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>λ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\ell (f(\lambda ))</annotation></semantics></math>
-is constant. Since this holds for all
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>ℓ</mo><mo>∈</mo><msup><mi>A</mi><mo>*</mo></msup></mrow><annotation encoding="application/x-tex">\ell \in  A^*</annotation></semantics></math>
-we deduce that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>λ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">f(\lambda )</annotation></semantics></math>
-is constant. This leads to a contradiction by taking
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>=</mo><mn>1</mn><mo>,</mo><mi>λ</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lambda =1, \lambda =0</annotation></semantics></math>
-as we get
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>I</mi><mo>−</mo><mi>a</mi><mo>=</mo><mi>a</mi><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+			f(\lambda):= (\lambda 1-a)^{-1}.
+
+\end{aligned}\]</span>
+Since taking inverse is smooth, <span class="math inline">\(f\)</span> is smooth and thus bounded on <span class="math inline">\(B(0,2\lVert a \rVert)\)</span>. Furthermore, using Neumann’s series for the inverse we obtain that
+<span class="math display">\[\begin{aligned}
+			\lVert f(\lambda ) \rVert = \left| \lambda^{-1} \right| \lVert \sum_{n=0}^{\infty}  (a / \lambda)^n  \rVert\leq \left| \lambda \right|^{-1} \sum_{n=0}^{\infty} (\lVert a \rVert / \lambda)^n \leq \frac{1}{\left|  \lambda  \right|}\leq \frac{1}{2 \lVert a \rVert}  .
+
+\end{aligned}\]</span>
+As a result <span class="math inline">\(f\)</span> is a bounded smooth function and <span class="math inline">\(\ell (f(\lambda ))\)</span> is a bounded entire function for any <span class="math inline">\(\ell \in A^*\)</span>. By Liouville’s theorem <span class="math inline">\(\ell (f(\lambda ))\)</span> is constant. Since this holds for all <span class="math inline">\(\ell \in  A^*\)</span> we deduce that <span class="math inline">\(f(\lambda )\)</span> is constant. This leads to a contradiction by taking <span class="math inline">\(\lambda =1, \lambda =0\)</span> as we get
+<span class="math display">\[\begin{aligned}
 \label{e2}
-&#9;&#9;&#9;I -a= a   .
-&#9;&#9;
-\end{aligned}</annotation></semantics></math> Citing <a href="#e1"
-data-reference-type="eqref" data-reference="e1">[e1]</a> and <a
-href="#e2" data-reference-type="eqref" data-reference="e2">[e2]</a> and
-referencing <span class="citation"
-data-cites="murphy2014c"></span>. ◻</p>
+			I -a= a   .
+
+\end{aligned}\]</span>
+Citing <a href="#e1" data-reference-type="eqref" data-reference="e1">[e1]</a> and <a href="#e2" data-reference-type="eqref" data-reference="e2">[e2]</a> and referencing <span class="citation" data-cites="murphy2014c">(Murphy 2014)</span>. ◻</p>
 </div>
-<p>We now discuss Gelfand’s representation theorem. First some
-lemmas</p>
+<p>We now discuss Gelfand’s representation theorem. First some lemmas</p>
 <div class="lemma">
-<p><strong>Lemma 1</strong> (<strong>Codimension of a maximal ideal is
-1</strong> ). <em>Let
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>
-be a maximal ideal in a commutative unital Banach Algebra
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>,
-then
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>≃</mo><mi>I</mi><mo>+</mo><mi>ℂ</mi><mo>⋅</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">A \simeq I+ \mathbb{C}\cdot 1</annotation></semantics></math>.</em></p>
+<p><strong>Lemma 1</strong> (<strong>Codimension of a maximal ideal is 1</strong> ).  <em>Let <span class="math inline">\(I\)</span> be a maximal ideal in a commutative unital Banach Algebra <span class="math inline">\(A\)</span>, then <span class="math inline">\(A \simeq I+ \mathbb{C}\cdot 1\)</span>.</em></p>
 </div>
 <div class="proof">
-<p><em>Proof.</em> We must show that any
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>∈</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">a \in A</annotation></semantics></math>
-can be written
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>+</mo><mi>λ</mi></mrow><annotation encoding="application/x-tex">b+\lambda</annotation></semantics></math>
-where
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>∈</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">b\in I</annotation></semantics></math>.
-Given
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>a</mi><mo accent="true">¯</mo></mover><mo>∈</mo><mi>A</mi><mi>/</mi><mi>I</mi></mrow><annotation encoding="application/x-tex">\overline{a} \in A/I</annotation></semantics></math>
-there exists by Gelfand’s theorem
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>∈</mo><mi>ℂ</mi></mrow><annotation encoding="application/x-tex">\lambda  \in  \mathbb{C}</annotation></semantics></math>
-such that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mrow><mi>λ</mi><mo>−</mo><mi>a</mi></mrow><mo accent="true">¯</mo></mover><annotation encoding="application/x-tex">\overline{\lambda -a}</annotation></semantics></math>
-is not invertible. Since
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>/</mi><mi>I</mi></mrow><annotation encoding="application/x-tex">A /I</annotation></semantics></math>
-is a field we deduce that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mrow><mi>λ</mi><mo>−</mo><mi>a</mi></mrow><mo accent="true">¯</mo></mover><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\overline{\lambda -a}=0</annotation></semantics></math>,
-that is there exists
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>∈</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">b \in  I</annotation></semantics></math>
-such that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>+</mo><mi>λ</mi><mo>=</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">b+ \lambda =a</annotation></semantics></math>
-as desired. ◻</p>
+<p><em>Proof.</em> We must show that any <span class="math inline">\(a \in A\)</span> can be written <span class="math inline">\(b+\lambda\)</span> where <span class="math inline">\(b\in I\)</span>. Given <span class="math inline">\(\overline{a} \in A/I\)</span> there exists by Gelfand’s theorem <span class="math inline">\(\lambda  \in  \mathbb{C}\)</span> such that <span class="math inline">\(\overline{\lambda -a}\)</span> is not invertible. Since <span class="math inline">\(A /I\)</span> is a field we deduce that <span class="math inline">\(\overline{\lambda -a}=0\)</span>, that is there exists <span class="math inline">\(b \in  I\)</span> such that <span class="math inline">\(b+ \lambda =a\)</span> as desired. ◻</p>
 </div>
 <div class="proposition">
-<p><strong>Proposition 1</strong>. <em>Let
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-be a commutative Banach algebra.There is a bijective
-correspondence</em></p>
-<p><em><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>Ω</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>:</mo></mtd><mtd columnalign="left" style="text-align: left"><mo>≃</mo><mo stretchy="false" form="prefix">{</mo><mrow><mtext mathvariant="normal">Maximal ideals </mtext><mspace width="0.333em"></mspace></mrow><mi>I</mi><mo>⊂</mo><mi>A</mi><mo stretchy="false" form="postfix">}</mo><mi>.</mi></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mi>φ</mi><mo>↦</mo><mtext mathvariant="normal">ker</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mi>φ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
-&#9;&#9;&#9;\Omega(A): &amp; \simeq \{\text{Maximal ideals } I \subset A\}  . \\
-&#9;&#9;&#9;           &amp; \varphi    \longmapsto \text{ker}(\varphi).
-&#9;&#9;
-\end{aligned}</annotation></semantics></math></em></p>
+<p><strong>Proposition 1</strong>.  <em>Let <span class="math inline">\(A\)</span> be a commutative Banach algebra.There is a bijective correspondence</em></p>
+<p><em><span class="math display">\[\begin{aligned}
+			\Omega(A): &amp; \simeq \{\text{Maximal ideals } I \subset A\}  . \\
+			           &amp; \varphi    \longmapsto \text{ker}(\varphi).
+
+\end{aligned}\]</span></em></p>
 <div class="proof">
-<p><em><em>Proof.</em> The mapping is well defined as
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>−</mo><mi>φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>∈</mo><mtext mathvariant="normal">ker</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mi>φ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">a -\varphi(a) \in \text{ker}(\varphi)</annotation></semantics></math>
-for all
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>∈</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">a\in  A</annotation></semantics></math>
-so
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">ker</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mi>φ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\text{ker}(\varphi)</annotation></semantics></math>
-is maximal. The mapping is surjective by the previous lemma as given a
-maximal ideal
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>
-we have that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><mi>I</mi><mo>⊕</mo><mi>ℂ</mi></mrow><annotation encoding="application/x-tex">A=I \oplus \mathbb{C}</annotation></semantics></math>
-and we can define
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo>,</mo><mi>λ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>:=</mo><mi>λ</mi></mrow><annotation encoding="application/x-tex">\varphi((a,\lambda )):= \lambda</annotation></semantics></math>.
-The mapping is injective as if
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">ker</mtext><msub><mi>φ</mi><mn>1</mn></msub><mo>=</mo><mtext mathvariant="normal">ker</mtext><msub><mi>φ</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">\text{ker}\varphi_1=\text{ker} \varphi_2</annotation></semantics></math>
-then
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>φ</mi><mn>1</mn></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo>−</mo><msub><mi>φ</mi><mn>2</mn></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\varphi_1(a -\varphi_2(a))=0</annotation></semantics></math>
-for all
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>∈</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">a \in  A</annotation></semantics></math>. ◻</em></p>
+<p><em><em>Proof.</em> The mapping is well defined as <span class="math inline">\(a -\varphi(a) \in \text{ker}(\varphi)\)</span> for all <span class="math inline">\(a\in  A\)</span> so <span class="math inline">\(\text{ker}(\varphi)\)</span> is maximal. The mapping is surjective by the previous lemma as given a maximal ideal <span class="math inline">\(I\)</span> we have that <span class="math inline">\(A=I \oplus \mathbb{C}\)</span> and we can define <span class="math inline">\(\varphi((a,\lambda )):= \lambda\)</span>. The mapping is injective as if <span class="math inline">\(\text{ker}\varphi_1=\text{ker} \varphi_2\)</span> then <span class="math inline">\(\varphi_1(a -\varphi_2(a))=0\)</span> for all <span class="math inline">\(a \in  A\)</span>. ◻</em></p>
 </div>
 </div>
 <div class="proposition">
-<p><strong>Proposition 2</strong>. <em>Let
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-be a commutative Banach algebra. Then
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">∥</mo><mi>φ</mi><mo stretchy="false" form="postfix">∥</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\lVert \varphi \rVert=1</annotation></semantics></math>
-for every
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>φ</mi><mo>∈</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">\varphi \in A</annotation></semantics></math>.</em></p>
+<p><strong>Proposition 2</strong>.  <em>Let <span class="math inline">\(A\)</span> be a commutative Banach algebra. Then <span class="math inline">\(\lVert \varphi \rVert=1\)</span> for every <span class="math inline">\(\varphi \in A\)</span>.</em></p>
 </div>
 <div class="proof">
-<p><em>Proof.</em> We have that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>⊂</mo><mi>σ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>⊂</mo><mi>B</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mo stretchy="false" form="prefix">∥</mo><mi>a</mi><mo stretchy="false" form="postfix">∥</mo><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\varphi(a) \subset \sigma (a)\subset B(0,\lVert a \rVert)</annotation></semantics></math>
-as a result
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">∥</mo><mi>φ</mi><mo stretchy="false" form="postfix">∥</mo><mo>≤</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\lVert \varphi \rVert\leq 1</annotation></semantics></math>.
-On the other hand
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>φ</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\varphi(1)^2=1</annotation></semantics></math>
-proves that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\varphi(1)=1</annotation></semantics></math>
-(we recall that characters by definition are non-zero). This shows that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">∥</mo><mi>φ</mi><mo stretchy="false" form="postfix">∥</mo><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\lVert \varphi \rVert \geq 1</annotation></semantics></math>
-and concludes the proof. ◻</p>
+<p><em>Proof.</em> We have that <span class="math inline">\(\varphi(a) \subset \sigma (a)\subset B(0,\lVert a \rVert)\)</span> as a result <span class="math inline">\(\lVert \varphi \rVert\leq 1\)</span>. On the other hand <span class="math inline">\(\varphi(1)^2=1\)</span> proves that <span class="math inline">\(\varphi(1)=1\)</span> (we recall that characters by definition are non-zero). This shows that <span class="math inline">\(\lVert \varphi \rVert \geq 1\)</span> and concludes the proof. ◻</p>
 </div>
 <div class="theorem">
-<p><strong>Theorem 3</strong>. <em>Given a commutative unital Banach
-algebra
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-it holds that
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>σ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>:</mo><mi>φ</mi><mo>∈</mo><mi>Ω</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="false" form="postfix">}</mo><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
-&#9;&#9;&#9;\sigma (a)=\{\varphi(a): \varphi \in \Omega(A)\} .
-&#9;&#9;
-\end{aligned}</annotation></semantics></math> If
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-is not unital then
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>σ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>:</mo><mi>φ</mi><mo>∈</mo><mi>Ω</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="false" form="postfix">}</mo><mo>∪</mo><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo stretchy="false" form="postfix">}</mo><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
-&#9;&#9;&#9;\sigma (a)=\{\varphi(a): \varphi \in \Omega(A)\} \cup \{0\}  .
-&#9;&#9;
-\end{aligned}</annotation></semantics></math></em></p>
+<p><strong>Theorem 3</strong>.  <em>Given a commutative unital Banach algebra <span class="math inline">\(A\)</span> it holds that
+<span class="math display">\[\begin{aligned}
+			\sigma (a)=\{\varphi(a): \varphi \in \Omega(A)\} .
+
+\end{aligned}\]</span>
+If <span class="math inline">\(A\)</span> is not unital then
+<span class="math display">\[\begin{aligned}
+			\sigma (a)=\{\varphi(a): \varphi \in \Omega(A)\} \cup \{0\}  .
+
+\end{aligned}\]</span></em></p>
 </div>
 <div class="proof">
-<p><em>Proof.</em> To prove the direct inclusion consider
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>∉</mo><mi>σ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\lambda \not\in \sigma (a)</annotation></semantics></math>,
-then we may take by Zorn’s lemma a proper maximal ideal
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>
-with
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>−</mo><mi>a</mi><mo>∈</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">\lambda -a \in I</annotation></semantics></math>.
-By the previous proposition we can take
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo>=</mo><mtext mathvariant="normal">ker</mtext><mi>φ</mi></mrow><annotation encoding="application/x-tex">I =\text{ker} \varphi</annotation></semantics></math>
-for some character
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>φ</mi><annotation encoding="application/x-tex">\varphi</annotation></semantics></math>,
-from which we deduce that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>λ</mi><mo>−</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>λ</mi><mo>−</mo><mi>φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\varphi(\lambda -a)=\lambda -\varphi(a)=0</annotation></semantics></math>.</p>
-<p>The reverse inclusion is immediate from the fact that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo>−</mo><mi>φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\varphi(a-\varphi(a))=0</annotation></semantics></math>
-so
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>−</mo><mi>φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">a- \varphi(a)</annotation></semantics></math>
-is not invertible for any
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>∈</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">a \in  A</annotation></semantics></math>.</p>
-<p>Suppose now
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-is not unital, then we unitize it by considering
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>A</mi><mo accent="true">̃</mo></mover><annotation encoding="application/x-tex">\tilde{A}</annotation></semantics></math>
-as previously. The characters of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>A</mi><mo accent="true">̃</mo></mover><annotation encoding="application/x-tex">\tilde{A}</annotation></semantics></math>
-are
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Ω</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>∪</mo><mo stretchy="false" form="prefix">{</mo><msub><mi>τ</mi><mn>0</mn></msub><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\Omega(A) \cup \{\tau_0\}</annotation></semantics></math>
-where
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>τ</mi><mn>0</mn></msub><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo>,</mo><mi>λ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>:=</mo><mi>λ</mi></mrow><annotation encoding="application/x-tex">\tau_0((a,\lambda )):= \lambda</annotation></semantics></math>.
-Applying the just prove result to
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>A</mi><mo accent="true">̃</mo></mover><annotation encoding="application/x-tex">\tilde{A}</annotation></semantics></math>
-shows that, since
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>τ</mi><mn>0</mn></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo>,</mo><mn>0</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\tau_0(a,0)=0</annotation></semantics></math>
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>σ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>:=</mo><mi>σ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mover><mi>a</mi><mo accent="true">̃</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>:</mo><mi>φ</mi><mo>∈</mo><mi>Ω</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="false" form="postfix">}</mo><mo>∪</mo><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo stretchy="false" form="postfix">}</mo><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
-&#9;&#9;&#9;\sigma (a):=\sigma (\tilde{a})=\{\varphi(a): \varphi \in \Omega(A)\} \cup \{0\}  .
-&#9;&#9;
-\end{aligned}</annotation></semantics></math> ◻</p>
+<p><em>Proof.</em> To prove the direct inclusion consider <span class="math inline">\(\lambda \not\in \sigma (a)\)</span>, then we may take by Zorn’s lemma a proper maximal ideal <span class="math inline">\(I\)</span> with <span class="math inline">\(\lambda -a \in I\)</span>. By the previous proposition we can take <span class="math inline">\(I =\text{ker} \varphi\)</span> for some character <span class="math inline">\(\varphi\)</span>, from which we deduce that <span class="math inline">\(\varphi(\lambda -a)=\lambda -\varphi(a)=0\)</span>.</p>
+<p>The reverse inclusion is immediate from the fact that <span class="math inline">\(\varphi(a-\varphi(a))=0\)</span> so <span class="math inline">\(a- \varphi(a)\)</span> is not invertible for any <span class="math inline">\(a \in  A\)</span>.</p>
+<p>Suppose now <span class="math inline">\(A\)</span> is not unital, then we unitize it by considering <span class="math inline">\(\tilde{A}\)</span> as previously. The characters of <span class="math inline">\(\tilde{A}\)</span> are <span class="math inline">\(\Omega(A) \cup \{\tau_0\}\)</span> where <span class="math inline">\(\tau_0((a,\lambda )):= \lambda\)</span>. Applying the just prove result to <span class="math inline">\(\tilde{A}\)</span> shows that, since <span class="math inline">\(\tau_0(a,0)=0\)</span>
+<span class="math display">\[\begin{aligned}
+			\sigma (a):=\sigma (\tilde{a})=\{\varphi(a): \varphi \in \Omega(A)\} \cup \{0\}  .
+
+\end{aligned}\]</span> ◻</p>
 </div>
-<p>We now consider
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>A</mi><mo>*</mo></msup><annotation encoding="application/x-tex">A^*</annotation></semantics></math>
-with the weak* topology and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Ω</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\Omega(A)</annotation></semantics></math>
-included within it. We recall that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>A</mi><mo>*</mo></msup><annotation encoding="application/x-tex">A^*</annotation></semantics></math>
-is Hausdorff and thus so must be
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Ω</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\Omega(A)</annotation></semantics></math>.</p>
+<p>We now consider <span class="math inline">\(A^*\)</span> with the weak* topology and <span class="math inline">\(\Omega(A)\)</span> included within it. We recall that <span class="math inline">\(A^*\)</span> is Hausdorff and thus so must be <span class="math inline">\(\Omega(A)\)</span>.</p>
 <div class="theorem">
-<p><strong>Theorem 4</strong>. <em>Let
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-be an Abelian Banach algebra. Then
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Ω</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\Omega(A)</annotation></semantics></math>
-is locally compact. Furthermore, if
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-is also unital then
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Ω</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\Omega(A)</annotation></semantics></math>
-is compact.</em></p>
+<p><strong>Theorem 4</strong>.  <em>Let <span class="math inline">\(A\)</span> be an Abelian Banach algebra. Then <span class="math inline">\(\Omega(A)\)</span> is locally compact. Furthermore, if <span class="math inline">\(A\)</span> is also unital then <span class="math inline">\(\Omega(A)\)</span> is compact.</em></p>
 </div>
 <div class="proof">
-<p><em>Proof.</em> By the previous theorem we know that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Ω</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>⊂</mo><mi>B</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\Omega(A) \subset B(0,1)</annotation></semantics></math>
-whihc is compact with the weak star topology (Banach Aloglu’s theorem).
-Now, if
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>φ</mi><mi>n</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>→</mo><mi>φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\varphi_n(a) \to \varphi(a)</annotation></semantics></math>
-for all
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>∈</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">a \in A</annotation></semantics></math>
-then it holds that, by a simple argument
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>φ</mi><annotation encoding="application/x-tex">\varphi</annotation></semantics></math>
-is also a morphism. Thus
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>φ</mi><annotation encoding="application/x-tex">\varphi</annotation></semantics></math>
-will be a character if and only if
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>φ</mi><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\varphi \neq 0</annotation></semantics></math>.
-For this reason it is necessary to adjoin
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0</mn><annotation encoding="application/x-tex">0</annotation></semantics></math>
-if
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-is not unital. This shows that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Ω</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>∪</mo><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\Omega(A) \cup  \{0\}</annotation></semantics></math>
-is closed in
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">B(0,1)</annotation></semantics></math>
-and is thus compact. In consequence
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Ω</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\Omega(A)</annotation></semantics></math>
-is locally compact.</p>
-<p>Suppose now that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-is unital, then we have seen than
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">∥</mo><mi>φ</mi><mo stretchy="false" form="postfix">∥</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\lVert \varphi \rVert=1</annotation></semantics></math>
-for all
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>φ</mi><mo>∈</mo><mi>Ω</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\varphi \in  \Omega(A)</annotation></semantics></math>.
-The previous argument shows that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Ω</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\Omega(A)</annotation></semantics></math>
-is closed (we can never reach
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0</mn><annotation encoding="application/x-tex">0</annotation></semantics></math>)
-and as a result
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Ω</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\Omega(A)</annotation></semantics></math>
-is compact. ◻</p>
+<p><em>Proof.</em> By the previous theorem we know that <span class="math inline">\(\Omega(A) \subset B(0,1)\)</span> whihc is compact with the weak star topology (Banach Aloglu’s theorem). Now, if <span class="math inline">\(\varphi_n(a) \to \varphi(a)\)</span> for all <span class="math inline">\(a \in A\)</span> then it holds that, by a simple argument <span class="math inline">\(\varphi\)</span> is also a morphism. Thus <span class="math inline">\(\varphi\)</span> will be a character if and only if <span class="math inline">\(\varphi \neq 0\)</span>. For this reason it is necessary to adjoin <span class="math inline">\(0\)</span> if <span class="math inline">\(A\)</span> is not unital. This shows that <span class="math inline">\(\Omega(A) \cup  \{0\}\)</span> is closed in <span class="math inline">\(B(0,1)\)</span> and is thus compact. In consequence <span class="math inline">\(\Omega(A)\)</span> is locally compact.</p>
+<p>Suppose now that <span class="math inline">\(A\)</span> is unital, then we have seen than <span class="math inline">\(\lVert \varphi \rVert=1\)</span> for all <span class="math inline">\(\varphi \in  \Omega(A)\)</span>. The previous argument shows that <span class="math inline">\(\Omega(A)\)</span> is closed (we can never reach <span class="math inline">\(0\)</span>) and as a result <span class="math inline">\(\Omega(A)\)</span> is compact. ◻</p>
 </div>
-<p>We can now identify
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-with a sub-algebra of continuous functions on
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Ω</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\Omega(A)</annotation></semantics></math>
-via the mapping
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>→</mo><mover><mi>a</mi><mo accent="true">̂</mo></mover></mrow><annotation encoding="application/x-tex">a \to \widehat{a}</annotation></semantics></math>
-where we define
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>a</mi><mo accent="true">̂</mo></mover><mrow><mo stretchy="true" form="prefix">(</mo><mi>φ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>:=</mo><mi>φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\widehat{a}(\varphi):= \varphi(a)</annotation></semantics></math>.
-Let us denote the image of this mapping by
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>A</mi><mo accent="true">̂</mo></mover><annotation encoding="application/x-tex">\widehat{A}</annotation></semantics></math>,
-then we obtain the following theorem</p>
+<p>We can now identify <span class="math inline">\(A\)</span> with a sub-algebra of continuous functions on <span class="math inline">\(\Omega(A)\)</span> via the mapping <span class="math inline">\(a \to \widehat{a}\)</span> where we define <span class="math inline">\(\widehat{a}(\varphi):= \varphi(a)\)</span>. Let us denote the image of this mapping by <span class="math inline">\(\widehat{A}\)</span>, then we obtain the following theorem</p>
 <div class="theorem">
-<p><strong>Theorem 5</strong> (<strong>Gelfand’s represntation
-theorem</strong>). <em>Let
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-be a commutative Banach algebra, then the mapping
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>A</mi><mo>→</mo><mover><mi>A</mi><mo accent="true">̂</mo></mover><mo>⊂</mo><msub><mi>C</mi><mn>0</mn></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>Ω</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>;</mo><mspace width="1.0em"></mspace><mi>a</mi><mo>→</mo><mover><mi>a</mi><mo accent="true">̂</mo></mover><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
-&#9;&#9;&#9;A \to\widehat{A} \subset C_0(\Omega(A)); \quad a\to \widehat{a}.
-&#9;&#9;
-\end{aligned}</annotation></semantics></math> is a norm decreasing
-injective homomorphism with
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">∥</mo><mover><mi>a</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="postfix">∥</mo><mo>=</mo><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\lVert \widehat{a} \rVert= r(a)</annotation></semantics></math>.
-Furhtermore, if
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
-is unital then
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mover><mi>a</mi><mo accent="true">̂</mo></mover><mrow><mo stretchy="true" form="prefix">(</mo><mi>Ω</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\sigma (a)=\widehat{a}(\Omega(A))</annotation></semantics></math>
-and otherwise
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mover><mi>a</mi><mo accent="true">̂</mo></mover><mrow><mo stretchy="true" form="prefix">(</mo><mi>Ω</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>∪</mo><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\sigma (a)=\widehat{a}(\Omega(A)) \cup  \{0\}</annotation></semantics></math>.</em></p>
+<p><strong>Theorem 5</strong> (<strong>Gelfand’s represntation theorem</strong>).  <em>Let <span class="math inline">\(A\)</span> be a commutative Banach algebra, then the mapping
+<span class="math display">\[\begin{aligned}
+			A \to\widehat{A} \subset C_0(\Omega(A)); \quad a\to \widehat{a}.
+
+\end{aligned}\]</span>
+is a norm decreasing injective homomorphism with <span class="math inline">\(\lVert \widehat{a} \rVert= r(a)\)</span>. Furhtermore, if <span class="math inline">\(a\)</span> is unital then <span class="math inline">\(\sigma (a)=\widehat{a}(\Omega(A))\)</span> and otherwise <span class="math inline">\(\sigma (a)=\widehat{a}(\Omega(A)) \cup  \{0\}\)</span>.</em></p>
 </div>
 <div class="proof">
-<p><em>Proof.</em> To show that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>a</mi><mo accent="true">̂</mo></mover><annotation encoding="application/x-tex">\widehat{a}</annotation></semantics></math>
-vanishes at infinity note that the set
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mo stretchy="false" form="prefix">{</mo><mi>φ</mi><mo>:</mo><mover><mi>a</mi><mo accent="true">̂</mo></mover><mrow><mo stretchy="true" form="prefix">(</mo><mi>φ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≥</mo><mi>ϵ</mi><mo stretchy="false" form="postfix">}</mo><mo>=</mo><msup><mover><mi>a</mi><mo accent="true">̂</mo></mover><mrow><mo>−</mo><mn>1</mn></mrow></msup><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mo stretchy="true" form="prefix">[</mo><mi>ϵ</mi><mo>,</mo><mo stretchy="false" form="prefix">∥</mo><mi>a</mi><mo stretchy="false" form="postfix">∥</mo><mo stretchy="true" form="postfix">]</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
-&#9;&#9;&#9;\{\varphi : \widehat{a}(\varphi) \geq \epsilon \} =\widehat{a}^{-1}([\epsilon ,\lVert a \rVert]).
-&#9;&#9;
-\end{aligned}</annotation></semantics></math> Which is a closed subset
-in the compact
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">B(0,a)</annotation></semantics></math>
-and thus compact. ◻</p>
+<p><em>Proof.</em> To show that <span class="math inline">\(\widehat{a}\)</span> vanishes at infinity note that the set
+<span class="math display">\[\begin{aligned}
+			\{\varphi : \widehat{a}(\varphi) \geq \epsilon \} =\widehat{a}^{-1}([\epsilon ,\lVert a \rVert]).
+
+\end{aligned}\]</span>
+Which is a closed subset in the compact <span class="math inline">\(B(0,a)\)</span> and thus compact. ◻</p>
 </div>
-<p>We note however that the mapping
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>→</mo><mover><mi>a</mi><mo accent="true">̂</mo></mover></mrow><annotation encoding="application/x-tex">a \to \widehat{a}</annotation></semantics></math>
-is in general neither injective (this means the identification isn’t
-prefect) not surjective.</p>
+<p>We note however that the mapping <span class="math inline">\(a \to \widehat{a}\)</span> is in general neither injective (this means the identification isn’t prefect) not surjective.</p>
 <div class="example">
-<p><strong>Example 1</strong> (Continuous Fourier Transform).
-<em>Consider the Banach Algebra
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><msup><mi>L</mi><mn>1</mn></msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>ℝ</mi><mi>d</mi></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">A=L^1(\mathbb{R}^d)</annotation></semantics></math>
-with multiplication given by the convolution
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>f</mi><mo>*</mo><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>:=</mo><msub><mo>∫</mo><msup><mi>ℝ</mi><mi>d</mi></msup></msub><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>−</mo><mi>y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.167em"></mspace><mi mathvariant="normal">d</mi><mi>y</mi><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
-&#9;&#9;&#9;f*g(x):= \int_{\mathbb{R}^d}f(y)g(x-y) \,\mathrm{d}y.
-&#9;&#9;
-\end{aligned}</annotation></semantics></math> Then the Gelfand transform
-can be identified with the Fourier transform and
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mover><mi>f</mi><mo accent="true">̂</mo></mover><mrow><mo stretchy="true" form="prefix">(</mo><mi>Ω</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">{</mo><mover><mi>f</mi><mo accent="true">̂</mo></mover><mrow><mo stretchy="true" form="prefix">(</mo><mi>ω</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>:=</mo><msub><mo>∫</mo><msup><mi>ℝ</mi><mi>d</mi></msup></msub><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><msup><mi>e</mi><mrow><mo>−</mo><mn>2</mn><mi>π</mi><mi>i</mi><mi>ω</mi><mo>⋅</mo><mi>x</mi></mrow></msup><mspace width="0.167em"></mspace><mi mathvariant="normal">d</mi><mi>x</mi><mo>:</mo><mi>ω</mi><mo>∈</mo><msup><mi>ℝ</mi><mi>d</mi></msup><mo stretchy="true" form="postfix">}</mo></mrow><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
-&#9;&#9;&#9;\widehat{f}(\Omega)= \left\{ \widehat{f}(\omega):= \int_{\mathbb{R}^d} f(x)e^{-2\pi i \omega \cdot  x} \,\mathrm{d}x:\omega\in \mathbb{R}^d\right\} .
-&#9;&#9;
-\end{aligned}</annotation></semantics></math></em></p>
+<p><strong>Example 1</strong> (Continuous Fourier Transform).  <em>Consider the Banach Algebra <span class="math inline">\(A=L^1(\mathbb{R}^d)\)</span> with multiplication given by the convolution
+<span class="math display">\[\begin{aligned}
+			f*g(x):= \int_{\mathbb{R}^d}f(y)g(x-y) \,\mathrm{d}y.
+
+\end{aligned}\]</span>
+Then the Gelfand transform can be identified with the Fourier transform and <span class="math display">\[\begin{aligned}
+			\widehat{f}(\Omega)= \left\{ \widehat{f}(\omega):= \int_{\mathbb{R}^d} f(x)e^{-2\pi i \omega \cdot  x} \,\mathrm{d}x:\omega\in \mathbb{R}^d\right\} .
+
+\end{aligned}\]</span></em></p>
 </div>
 <div class="proof">
-<p><em>Proof.</em> We know that the dual of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>L</mi><mn>1</mn></msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>ℝ</mi><mi>d</mi></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">L^1(\mathbb{R}^d)</annotation></semantics></math>
-is
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>L</mi><mi>∞</mi></msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>ℝ</mi><mi>d</mi></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">L^\infty(\mathbb{R}^d)</annotation></semantics></math>.
-In particular every character is of the form
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>φ</mi><mi>g</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>f</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mo>∫</mo><msup><mi>ℝ</mi><mi>d</mi></msup></msub><mi>f</mi><mover><mi>g</mi><mo accent="true">¯</mo></mover><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
-&#9;&#9;&#9;\varphi_g (f)= \int_{\mathbb{R}^d}f \overline{g}.
-&#9;&#9;
-\end{aligned}</annotation></semantics></math> The condition that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>φ</mi><mi>g</mi></msub><annotation encoding="application/x-tex">\varphi_g</annotation></semantics></math>
-preserves multiplication becomes by a change of variable
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>+</mo><mi>y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="1.0em"></mspace><mo>∀</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>∈</mo><msup><mi>ℝ</mi><mi>d</mi></msup><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
-&#9;&#9;&#9;g(x+y)=g(x)g(y), \quad\forall x,y \in \mathbb{R}^d.
-&#9;&#9;
-\end{aligned}</annotation></semantics></math> The only
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>∈</mo><msup><mi>L</mi><mi>∞</mi></msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>ℝ</mi><mi>d</mi></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">g \in L^\infty (\mathbb{R}^d)</annotation></semantics></math>
-verifying the above are of the form
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msup><mi>e</mi><mrow><mn>2</mn><mi>π</mi><mi>i</mi><mi>ω</mi><mo>⋅</mo><mi>x</mi></mrow></msup></mrow><annotation encoding="application/x-tex">g(x)= e^{2\pi i \omega \cdot  x}</annotation></semantics></math>
-for some
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ω</mi><mo>∈</mo><msup><mi>ℝ</mi><mi>d</mi></msup></mrow><annotation encoding="application/x-tex">\omega \in \mathbb{R}^d</annotation></semantics></math>.
-That is, the character group is
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>Ω</mi><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>L</mi><mn>1</mn></msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>ℝ</mi><mi>d</mi></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>≃</mo><mo stretchy="false" form="prefix">{</mo><msup><mi>e</mi><mrow><mn>2</mn><mi>π</mi><mi>i</mi><mi>ω</mi><mo>⋅</mo></mrow></msup><mo>:</mo><mi>ω</mi><mo>∈</mo><msup><mi>ℝ</mi><mi>d</mi></msup><mo stretchy="false" form="postfix">}</mo><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
-&#9;&#9;&#9;\Omega(L^1(\mathbb{R}^d))\simeq\{e^{2\pi i \omega \cdot }: \omega \in \mathbb{R}^d\} .
-&#9;&#9;
-\end{aligned}</annotation></semantics></math> This concludes the proof
-(we use the abuse of notation
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>f</mi><mo accent="true">̂</mo></mover><mrow><mo stretchy="true" form="prefix">(</mo><mi>ω</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>:=</mo><mover><mi>f</mi><mo accent="true">̂</mo></mover><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>φ</mi><msup><mi>e</mi><mrow><mn>2</mn><mi>π</mi><mi>i</mi><mi>ω</mi><mo>⋅</mo></mrow></msup></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\widehat{f}(\omega):=\widehat{f}(\varphi_{e^{2\pi i \omega \cdot }})</annotation></semantics></math>). ◻</p>
+<p><em>Proof.</em> We know that the dual of <span class="math inline">\(L^1(\mathbb{R}^d)\)</span> is <span class="math inline">\(L^\infty(\mathbb{R}^d)\)</span>. In particular every character is of the form
+<span class="math display">\[\begin{aligned}
+			\varphi_g (f)= \int_{\mathbb{R}^d}f \overline{g}.
+
+\end{aligned}\]</span>
+The condition that <span class="math inline">\(\varphi_g\)</span> preserves multiplication becomes by a change of variable
+<span class="math display">\[\begin{aligned}
+			g(x+y)=g(x)g(y), \quad\forall x,y \in \mathbb{R}^d.
+
+\end{aligned}\]</span>
+The only <span class="math inline">\(g \in L^\infty (\mathbb{R}^d)\)</span> verifying the above are of the form <span class="math inline">\(g(x)= e^{2\pi i \omega \cdot  x}\)</span> for some <span class="math inline">\(\omega \in \mathbb{R}^d\)</span>. That is, the character group is
+<span class="math display">\[\begin{aligned}
+			\Omega(L^1(\mathbb{R}^d))\simeq\{e^{2\pi i \omega \cdot }: \omega \in \mathbb{R}^d\} .
+
+\end{aligned}\]</span>
+This concludes the proof (we use the abuse of notation <span class="math inline">\(\widehat{f}(\omega):=\widehat{f}(\varphi_{e^{2\pi i \omega \cdot }})\)</span>). ◻</p>
 </div>
 <div class="example">
-<p><strong>Example 2</strong> (Discrete Fourier Transform). <em>Consider
-the Banach Algebra
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><msup><mo>ℓ</mo><mi>∞</mi></msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>ℤ</mi><mi>d</mi></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">A=\ell ^\infty(\mathbb{Z}^d)</annotation></semantics></math>
-with multiplication given by the convolution
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>g</mi><mo>*</mo><mi>h</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>k</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>:=</mo><munder><mo>∑</mo><mrow><mi>k</mi><mo>∈</mo><msup><mi>ℤ</mi><mi>d</mi></msup></mrow></munder><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>j</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>h</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>k</mi><mo>−</mo><mi>j</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
-&#9;&#9;&#9;g*h(k):= \sum_{k \in \mathbb{Z}^d}g(j)h(k-j) .
-&#9;&#9;
-\end{aligned}</annotation></semantics></math> Then the Gelfand transform
-can be identified with the (inverse) Fourier transform and
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mover><mi>g</mi><mo accent="true">̂</mo></mover><mrow><mo stretchy="true" form="prefix">(</mo><mi>Ω</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">{</mo><mover><mi>g</mi><mo accent="true">̌</mo></mover><mrow><mo stretchy="true" form="prefix">(</mo><mi>k</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>:=</mo><munder><mo>∑</mo><mrow><mi>k</mi><mo>∈</mo><msup><mi>ℤ</mi><mi>d</mi></msup></mrow></munder><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><msup><mi>e</mi><mrow><mn>2</mn><mi>π</mi><mi>i</mi><mi>k</mi><mo>⋅</mo><mi>x</mi></mrow></msup><mspace width="0.167em"></mspace><mi mathvariant="normal">d</mi><mi>x</mi><mo>:</mo><mi>k</mi><mo>∈</mo><msup><mi>ℤ</mi><mi>d</mi></msup><mo stretchy="true" form="postfix">}</mo></mrow><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
-&#9;&#9;&#9;\widehat{g}(\Omega)= \left\{ \check{g}(k):= \sum_{k \in \mathbb{Z}^d} g(x)e^{2\pi i k \cdot  x} \,\mathrm{d}x: k\in \mathbb{Z}^d\right\} .
-&#9;&#9;
-\end{aligned}</annotation></semantics></math></em></p>
+<p><strong>Example 2</strong> (Discrete Fourier Transform).  <em>Consider the Banach Algebra <span class="math inline">\(A=\ell ^\infty(\mathbb{Z}^d)\)</span> with multiplication given by the convolution
+<span class="math display">\[\begin{aligned}
+			g*h(k):= \sum_{k \in \mathbb{Z}^d}g(j)h(k-j) .
+
+\end{aligned}\]</span>
+Then the Gelfand transform can be identified with the (inverse) Fourier transform and <span class="math display">\[\begin{aligned}
+			\widehat{g}(\Omega)= \left\{ \check{g}(k):= \sum_{k \in \mathbb{Z}^d} g(x)e^{2\pi i k \cdot  x} \,\mathrm{d}x: k\in \mathbb{Z}^d\right\} .
+
+\end{aligned}\]</span></em></p>
 </div>
 <p>Furthermore
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>k</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mover><mi>g</mi><mo accent="true">̌</mo></mover><mrow><mo stretchy="true" form="prefix">(</mo><mi>k</mi><mo stretchy="true" form="postfix">)</mo></mrow><msup><mi>e</mi><mrow><mn>2</mn><mi>π</mi><mi>i</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>j</mi><mo>−</mo><mi>k</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>⋅</mo><mi>x</mi></mrow></msup><mspace width="0.167em"></mspace><mi mathvariant="normal">d</mi><mi>x</mi><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
-&#9;&#9;g(k)=\int_{0}^1 \check{g}(k)e^{2 \pi i (j-k) \cdot x}\,\mathrm{d}x.
-&#9;
-\end{aligned}</annotation></semantics></math></p>
+<span class="math display">\[\begin{aligned}
+		g(k)=\int_{0}^1 \check{g}(k)e^{2 \pi i (j-k) \cdot x}\,\mathrm{d}x.
+
+\end{aligned}\]</span></p>
 <div class="proof">
-<p><em>Proof.</em> Let
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>e</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><msub><mi>e</mi><mi>d</mi></msub><mo>∈</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">e_1,\ldots e_d \in A</annotation></semantics></math>
-be defined by
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>e</mi><mi>n</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>k</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>:=</mo><msub><mi>δ</mi><mrow><mi>n</mi><msub><mi>k</mi><mn>1</mn></msub></mrow></msub><mo>,</mo><mspace width="1.0em"></mspace><mo>∀</mo><mi>n</mi><mo>=</mo><mn>1</mn><mo>,</mo><mi>…</mi><mi>d</mi><mo>,</mo><mi>k</mi><mo>∈</mo><msup><mi>ℤ</mi><mi>d</mi></msup><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
-&#9;&#9;&#9;e_n(k):= \delta _{nk_1}, \quad\forall n=1,\ldots d, k\in \mathbb{Z}^d .
-&#9;&#9;
-\end{aligned}</annotation></semantics></math> Then we have that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
-is generated by
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>e</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><msub><mi>e</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">e_{1},\ldots e_n</annotation></semantics></math>
-with
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>k</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><munder><mo>∑</mo><mi>k</mi></munder><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>k</mi><mo stretchy="true" form="postfix">)</mo></mrow><msubsup><mi>e</mi><mn>1</mn><msub><mi>k</mi><mn>1</mn></msub></msubsup><mi>…</mi><msubsup><mi>e</mi><mi>d</mi><msub><mi>k</mi><mi>d</mi></msub></msubsup><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
-&#9;&#9;&#9;g(k) =\sum_{k} g(k) e_1^{k_1}\ldots e_d ^{k_d} .
-&#9;&#9;
-\end{aligned}</annotation></semantics></math> Any character
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>φ</mi><annotation encoding="application/x-tex">\varphi</annotation></semantics></math>
-is thus determined by where it sends the
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>e</mi><mi>n</mi></msub><annotation encoding="application/x-tex">e_n</annotation></semantics></math>
-and they take the form
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>Ω</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">{</mo><msub><mi>φ</mi><mi>z</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>g</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>:=</mo><munder><mo>∑</mo><mrow><mi>k</mi><mo>∈</mo><msup><mi>ℤ</mi><mi>d</mi></msup></mrow></munder><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>k</mi><mo stretchy="true" form="postfix">)</mo></mrow><msup><mi>z</mi><mi>k</mi></msup><mo>:</mo><mi>z</mi><mo>∈</mo><msup><mi>𝕋</mi><mi>d</mi></msup><mo stretchy="true" form="postfix">}</mo></mrow><mo>≃</mo><msup><mi>𝕋</mi><mi>d</mi></msup><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
-&#9;&#9;&#9;\Omega(A)= \left\{ \varphi_z (g):= \sum_{k \in \mathbb{Z}^d} g(k) z^k: z \in \mathbb{T}^d  \right\} \simeq \mathbb{T}^d .
-&#9;&#9;
-\end{aligned}</annotation></semantics></math> Noting that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>𝕋</mi><mi>d</mi></msup><mo>=</mo><mrow><mo stretchy="true" form="prefix">{</mo><msup><mi>e</mi><mrow><mn>2</mn><mi>π</mi><mi>i</mi><mi>x</mi></mrow></msup><mo>:</mo><mi>x</mi><mo>∈</mo><msup><mi>ℝ</mi><mi>d</mi></msup><mo stretchy="true" form="postfix">}</mo></mrow></mrow><annotation encoding="application/x-tex">\mathbb{T}^d= \left\{ e^{ 2\pi i x}: x \in \mathbb{R}^d \right\}</annotation></semantics></math>
-and defining
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mover><mi>g</mi><mo accent="true">̌</mo></mover><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>:=</mo><msub><mi>φ</mi><msup><mi>e</mi><mrow><mn>2</mn><mi>π</mi><mi>i</mi><mi>x</mi><mo>⋅</mo></mrow></msup></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>g</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><munder><mo>∑</mo><mrow><mi>k</mi><mo>∈</mo><msup><mi>ℤ</mi><mi>d</mi></msup></mrow></munder><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>k</mi><mo stretchy="true" form="postfix">)</mo></mrow><msup><mi>e</mi><mrow><mn>2</mn><mi>π</mi><mi>i</mi><mi>k</mi><mo>⋅</mo><mi>x</mi></mrow></msup><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
-&#9;&#9;&#9;\check{g}(x):= \varphi_{e^{ 2\pi i x \cdot  }}(g)=\sum_{k \in \mathbb{Z}^d} g(k) e^{2 \pi  i k \cdot x}.
-&#9;&#9;
-\end{aligned}</annotation></semantics></math> Gives the first part of
-the proof and using the orthonormality trick
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mover><mi>g</mi><mo accent="true">̌</mo></mover><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><msup><mi>e</mi><mrow><mo>−</mo><mn>2</mn><mi>π</mi><mi>i</mi><mi>k</mi><mo>⋅</mo><mi>x</mi></mrow></msup><mspace width="0.167em"></mspace><mi mathvariant="normal">d</mi><mi>x</mi><mo>=</mo><munder><mo>∑</mo><mrow><mi>j</mi><mo>∈</mo><msup><mi>ℤ</mi><mi>d</mi></msup></mrow></munder><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>j</mi><mo stretchy="true" form="postfix">)</mo></mrow><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><msup><mi>e</mi><mrow><mn>2</mn><mi>π</mi><mi>i</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>j</mi><mo>−</mo><mi>k</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>⋅</mo><mi>x</mi></mrow></msup><mspace width="0.167em"></mspace><mi mathvariant="normal">d</mi><mi>x</mi><mo>=</mo><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>k</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
-&#9;&#9;&#9;\int_{0}^1 \check{g}(x) e^{-2 \pi i k \cdot x}\,\mathrm{d}x=\sum_{j \in \mathbb{Z}^d} g(j)  \int_{0}^1 e^{2 \pi i (j-k) \cdot x}\,\mathrm{d}x= g(k).
-&#9;&#9;
-\end{aligned}</annotation></semantics></math> Gives the second. Where in
-the above we applied the dominated convergence theorem. ◻</p>
+<p><em>Proof.</em> Let <span class="math inline">\(e_1,\ldots e_d \in A\)</span> be defined by
+<span class="math display">\[\begin{aligned}
+			e_n(k):= \delta _{nk_1}, \quad\forall n=1,\ldots d, k\in \mathbb{Z}^d .
+
+\end{aligned}\]</span>
+Then we have that <span class="math inline">\(A\)</span> is generated by <span class="math inline">\(e_{1},\ldots e_n\)</span> with
+<span class="math display">\[\begin{aligned}
+			g(k) =\sum_{k} g(k) e_1^{k_1}\ldots e_d ^{k_d} .
+
+\end{aligned}\]</span>
+Any character <span class="math inline">\(\varphi\)</span> is thus determined by where it sends the <span class="math inline">\(e_n\)</span> and they take the form
+<span class="math display">\[\begin{aligned}
+			\Omega(A)= \left\{ \varphi_z (g):= \sum_{k \in \mathbb{Z}^d} g(k) z^k: z \in \mathbb{T}^d  \right\} \simeq \mathbb{T}^d .
+
+\end{aligned}\]</span>
+Noting that <span class="math inline">\(\mathbb{T}^d= \left\{ e^{ 2\pi i x}: x \in \mathbb{R}^d \right\}\)</span> and defining
+<span class="math display">\[\begin{aligned}
+			\check{g}(x):= \varphi_{e^{ 2\pi i x \cdot  }}(g)=\sum_{k \in \mathbb{Z}^d} g(k) e^{2 \pi  i k \cdot x}.
+
+\end{aligned}\]</span>
+Gives the first part of the proof and using the orthonormality trick
+<span class="math display">\[\begin{aligned}
+			\int_{0}^1 \check{g}(x) e^{-2 \pi i k \cdot x}\,\mathrm{d}x=\sum_{j \in \mathbb{Z}^d} g(j)  \int_{0}^1 e^{2 \pi i (j-k) \cdot x}\,\mathrm{d}x= g(k).
+
+\end{aligned}\]</span>
+Gives the second. Where in the above we applied the dominated convergence theorem. ◻</p>
+</div>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-murphy2014c" class="csl-entry" role="listitem">
+Murphy, Gerald J. 2014. <em>C*-Algebras and Operator Theory</em>. Academic press.
 </div>
 </div>
