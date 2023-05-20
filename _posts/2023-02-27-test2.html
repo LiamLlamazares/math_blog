@@ -1,270 +1,173 @@
-<div class="CJK*">
-<p><span>UTF8</span><span>gbsn</span></p>
-<h1 id="three-line-summary"> Three line summary</h1>
-<ul>
-<li><p>The spectrum can be thought of heuristically as the frequencies that represent an element of a Banach algebra.</p></li>
-<li><p>In a unital Banach algebra every element has non-empty spectrum.</p></li>
-<li><p>A commutative Banach algebra <span class="math inline">\(A\)</span> can be thought of as a subgroup of continuous functions.</p></li>
-</ul>
-<h1 id="why-should-i-care">Why should I care?</h1>
-<p>We introduce the basis of spectral theory which is useful to ...</p>
-<h1 id="preliminary-definitions">Preliminary definitions</h1>
-<p>Here I include all the needed definitions. Many of them will be familiar if the reader has an algebra background and can be skimmed over.</p>
-<div class="definition">
-<p><strong>Definition 1</strong>.  <em>An <em>algebra</em> <span class="math inline">\(A\)</span> is a vector space together with a multiplication which is bilinear and associative. That is,
-<span class="math display">\[\begin{aligned}
-			(a+b)c=ac+bc;\quad a(b+c)=ab+ac; \quad a(bc)=(ab)c \forall a,b,c \in A.
+---
+layout: post
+mathjax: true
+title:  "How did I set up my blog using Jekyll, Hyde and GitHub"
+date:   2019-09-25 08:00:00 +0800
+categories: LEARNING
+tags: coding
+---
 
-\end{aligned}\]</span>
-Note that in general we do not require that the product is commutative. Though this will be a common requirement later on. We will take <span class="math inline">\(A\)</span> for the remainder to be a vectro space over <span class="math inline">\(\mathbb{C}\)</span></em></p>
-</div>
-<div class="definition">
-<p><strong>Definition 2</strong>.  <em>Given a norm <span class="math inline">\(\lVert \cdot  \rVert\)</span> on algebra <span class="math inline">\(A\)</span> we say that <span class="math inline">\((A, \lVert  \rVert)\)</span> is a <em>normed algebra</em> if the norm is <em>submultiplicative</em>. That is,
-<span class="math display">\[\begin{aligned}
-			\lVert ab \rVert\leq \lVert a \rVert\lVert b \rVert.
+What would be a better way to start this blog than writing a post about how I set it up? Because after three days of sifting through all the documents, blogs, StackOverflow answers and GitHub issues, I finally realized that the process is not as straightforward as I thought it would be. Anyway, I got it to work (for now).
 
-\end{aligned}\]</span></em></p>
-</div>
-<div class="definition">
-<p><strong>Definition 3</strong>.  <em>We say that a normed algebra <span class="math inline">\((A,\lVert \cdot  \rVert)\)</span> is a <em>Banach algebra</em> if it is complete. We say that it is <em>unital</em> if there exists an identity <span class="math inline">\(1\)</span> for the multiplication
-<span class="math display">\[\begin{aligned}
-			a 1=1 a, \quad\forall a\in A.
+My aim is simple, to set up a blog for myself where I can post stuff about my life. The blog needs to be free, elegant, intuitive and supports math. My current set up, Jekyll + Hyde + Github + MathJax, matches with that. Since there are many resources online about setting up a blog using Jekyll and serve it with GitHub, I am going to skip all the standard procedures by referring to the official documents. Instead, this post specifically documents:
+- the sequence of setting up different parts,
+- adding support for Tags, Categories and their corresponding pages,
+- adding MathJax to support $\LaTeX$-like math.
 
-\end{aligned}\]</span></em></p>
-<p><em>and we say that it is <em>commutative</em> if
-<span class="math display">\[\begin{aligned}
-			ab= ba , \quad\forall a,b \in A.
+I am using a macbook, so the steps will be described assuming the system is macOS. When in doubt, just google the relevant steps for other OSs.
 
-\end{aligned}\]</span></em></p>
-</div>
-<div class="definition">
-<p><strong>Definition 4</strong>.  <em>Given <span class="math inline">\(a \in  A\)</span> we say that <span class="math inline">\(\lambda  \in \mathbb{C}\)</span> is in the <em>spectrum</em> of <span class="math inline">\(a\)</span> if <span class="math inline">\(\lambda 1-a\)</span> is <strong>not</strong> invertible. We write <span class="math inline">\(\sigma (a) \subset \mathbb{C}\)</span> for the set of such <span class="math inline">\(\lambda\)</span>.</em></p>
-</div>
-<div class="definition">
-<p><strong>Definition 5</strong>.  <em>Given two algebras <span class="math inline">\(A,B\)</span> we say that <span class="math inline">\(\varphi: A\to B\)</span> is a <em>homomorphism</em> if it is linear and respects the product. That is,
-<span class="math display">\[\begin{aligned}
-			\varphi(a+ \lambda b)= \varphi(a)+ \lambda  \varphi(b);\quad \varphi(ab)=\varphi(a) \varphi(b) , \quad\forall a ,b \in  A.
+## 1. Set up Jekyll
+Jekyll is the package that is generating all your website pages. First thing you want to do is to make sure that [Jekyll](https://jekyllrb.com) is installed and ready to run.
 
-\end{aligned}\]</span>
-If <span class="math inline">\(A,B\)</span> are unital and <span class="math inline">\(\varphi(1)=1\)</span> we say that <span class="math inline">\(\varphi\)</span> is <em>unital</em>. If <span class="math inline">\(\varphi\)</span> has an inverse <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\varphi\)</span> and <span class="math inline">\(\varphi^{-1}\)</span> are continuous we say that it is a <em>homeomorphism</em></em></p>
-</div>
-<p>Note that any morphism <span class="math inline">\(\varphi\)</span> between unital algebras conserves invertability. However that, even if <span class="math inline">\(A,B\)</span> are unital it may be the case that <span class="math inline">\(\varphi(1)\)</span> is not (consider for example the zero morphism).</p>
-<div class="definition">
-<p><strong>Definition 6</strong>.  <em>We say that <span class="math inline">\(\varphi\)</span> is a character of <span class="math inline">\(A\)</span> if <span class="math inline">\(\varphi:A\to \mathbb{C}\)</span> is a homomorphism.</em></p>
-</div>
-<div class="definition">
-<p><strong>Definition 7</strong>.  <em>Given an algebra <span class="math inline">\(A\)</span> we say that <span class="math inline">\(B \subset A\)</span> is a sub-algebra if it is subspace of <span class="math inline">\(A\)</span> closed under multiplication. That is <span class="math inline">\(B\)</span> itself is an algebra.</em></p>
-</div>
-<div class="definition">
-<p><strong>Definition 8</strong>.  <em>Given an algebra <span class="math inline">\(A\)</span>, we say that <span class="math inline">\(I \subset A\)</span> is an <em>ideal</em> of <span class="math inline">\(A\)</span> if <span class="math inline">\(I\)</span> is stable under multiplication with elements is <span class="math inline">\(A\)</span>. That is
-<span class="math display">\[\begin{aligned}
-			AI := \{ a b: a\in A, \quad  b \in I \} \subset I; \quad IA \subset I .
+Follow the official [instructions](https://jekyllrb.com/docs/). If you successfully made a new site, good!
 
-\end{aligned}\]</span>
-We say that <span class="math inline">\(I\)</span> is <em>maximal</em> if given any other ideal <span class="math inline">\(J\)</span> such that <span class="math inline">\(I\subset J\)</span> it holds that <span class="math inline">\(J=A\)</span>.</em></p>
-</div>
-<p>We recall that, by Zorn’s Lemma every algebra has a maximal ideal.</p>
-<div class="definition">
-<p><strong>Definition 9</strong>.  <em>Given a closed ideal <span class="math inline">\(I\)</span> of an algebra <span class="math inline">\(A\)</span> we define the quotient algebra <span class="math inline">\(A/I\)</span> to be the set of equivalence classes under the relation
-<span class="math display">\[\begin{aligned}
-			a \sim b \iff a-b \in I.
+1. But if you ran into a **failed to build native extension error**, install macOS SDK headers with the following line.
+```bash
+open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg
+```
 
-\end{aligned}\]</span>
-With the product <span class="math inline">\(\overline{a}\overline{b}:= \overline{ab}\)</span> and the norm
-<span class="math display">\[\begin{aligned}
-			\lVert \overline{a} \rVert:= \inf_{ b \in  I } \lVert a+b \rVert.
+2. If you ran into a **file permission error**, run the following lines to set GEM_HOME to your user directory.
+```bash
+echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
+echo 'export GEM_HOME=$HOME/gems' >> ~/.bashrc
+echo 'export PATH=$HOME/gems/bin:$PATH' >> ~/.bashrc
+source ~/.bashrc
+```
 
-\end{aligned}\]</span></em></p>
-</div>
-<p>We note that it is necessary for <span class="math inline">\(I\)</span> to be closed so that if <span class="math inline">\(\lVert \overline{a} \rVert=0\)</span> then <span class="math inline">\(a \in I\)</span>, that is <span class="math inline">\(\overline{a}=0\)</span>.</p>
-<h1 id="introduction">Introduction</h1>
-<h1 id="the-big-theorems">The big theorems</h1>
-<p>We now state the main theorems and outline the proof</p>
-<div class="theorem">
-<p><strong>Theorem 1</strong>.  <em>Given a unital Banach algebra <span class="math inline">\(A\)</span> it holds that</em></p>
-<ol>
-<li><p><em>The set of invertible elements in <span class="math inline">\(A\)</span> is open.</em></p></li>
-<li><p><em>Taking the inverse is smooth.</em></p></li>
-<li><p><em><span class="math inline">\(\sigma (a)\)</span> is a closed subset of <span class="math inline">\(\subset B(0,\lVert a \rVert)\)</span></em></p></li>
-</ol>
-</div>
-<div class="proof">
-<p><em>Proof.</em> All of these facts can be proved via the Von-Neumman series for the inverse
-<span class="math display">\[\begin{aligned}
-			(1 -a)^{-1}=\sum_{n=0}^{\infty} a^n, \quad\forall a \in B(0,1) .
+Now you can proceed with the following line and the rest of the steps.
+```bash
+gem install bundler jekyll
+```
 
-\end{aligned}\]</span> ◻</p>
-</div>
-<div class="theorem">
-<p><strong>Theorem 2</strong> (Gelfand’s theorem).  <em>Given a unital Banach algebra <span class="math inline">\(A\)</span>, <span class="math inline">\(\sigma (a)\neq \emptyset\)</span> for all <span class="math inline">\(a\in A\)</span>.</em></p>
-</div>
-<div class="proof">
-<p><em>Proof.</em> Suppose not, then <span class="math inline">\((\lambda 1-a)^{-1}\)</span> exists for all <span class="math inline">\(\lambda \in  \mathbb{C}\)</span>. Let us consider the function <span class="math inline">\(f:\mathbb{C}\to \mathbb{C}\)</span>
-<span class="math display">\[\begin{aligned}
-\label{e1}
-			f(\lambda):= (\lambda 1-a)^{-1}.
+The problem is caused by the macOS Mojave update. The above solution is provided by [desiredpersona and Frank](https://talk.jekyllrb.com/t/issues-installing-jekyll-on-macos-mojave/2400/3). Make sure Jekyll can run normally before proceeding to step 2.
 
-\end{aligned}\]</span>
-Since taking inverse is smooth, <span class="math inline">\(f\)</span> is smooth and thus bounded on <span class="math inline">\(B(0,2\lVert a \rVert)\)</span>. Furthermore, using Neumann’s series for the inverse we obtain that
-<span class="math display">\[\begin{aligned}
-			\lVert f(\lambda ) \rVert = \left| \lambda^{-1} \right| \lVert \sum_{n=0}^{\infty}  (a / \lambda)^n  \rVert\leq \left| \lambda \right|^{-1} \sum_{n=0}^{\infty} (\lVert a \rVert / \lambda)^n \leq \frac{1}{\left|  \lambda  \right|}\leq \frac{1}{2 \lVert a \rVert}  .
+## 2. Set up GitHub repo
+Jekyll generates web pages locally; we need a GitHub repository to host our pages so that they can be accessed on the internet. For this part, setup can be done by following GitHub's official [instructions](https://pages.github.com). In the end, you should have a repo on GitHub called *username*.github.io, and the corresponding local folder on your computer. In my case, the name of my repo is yangxiaozhou.github.io.
 
-\end{aligned}\]</span>
-As a result <span class="math inline">\(f\)</span> is a bounded smooth function and <span class="math inline">\(\ell (f(\lambda ))\)</span> is a bounded entire function for any <span class="math inline">\(\ell \in A^*\)</span>. By Liouville’s theorem <span class="math inline">\(\ell (f(\lambda ))\)</span> is constant. Since this holds for all <span class="math inline">\(\ell \in  A^*\)</span> we deduce that <span class="math inline">\(f(\lambda )\)</span> is constant. This leads to a contradiction by taking <span class="math inline">\(\lambda =1, \lambda =0\)</span> as we get
-<span class="math display">\[\begin{aligned}
-\label{e2}
-			I -a= a   .
+By the end of Step 1 and 2, we have set up the local engine for generating web pages and the GitHub repo for hosting and publishing your pages. Now we proceed to the actual website construction.
 
-\end{aligned}\]</span>
-Citing <a href="#e1" data-reference-type="eqref" data-reference="e1">[e1]</a> and <a href="#e2" data-reference-type="eqref" data-reference="e2">[e2]</a> and referencing <span class="citation" data-cites="murphy2014c">(Murphy 2014)</span>. ◻</p>
+## 3. Use a website template
+[Hyde](http://hyde.getpoole.com) is a Jekyll website theme built on [Poole](https://github.com/poole/poole). They provide the template and the theme for the website. There are many themes for Jekyll, but I decided to use Hyde because I like the elegant design and it's easy to customize.
+
+To get Hyde, just download [the repo](https://github.com/poole/hyde) and move all the files into the local folder that you have just created in Step 2. Remember to clear any existing file in that folder before moving in Hyde files. From here, you just have to edit parts of those files to make the website yours (or use it as it is). I changed the following two lines in `_config.yml` since redcarpet and pygments are not supported anymore. Other variables can also be changed such as name, GitHub account, etc.
+```yaml
+markdown: kramdown
+highlighter: rouge
+```
+At this point, it would be a good idea to learn some basics of [Jekyll](https://jekyllrb.com/docs/), e.g. what is a front matter, what is a page, how to create a layout, etc. After learning these, you can go ahead and customize the website as you'd like.
+
+One problem that I ran into is that pages look fine in local serve, but when I publish them to the web, all pages other than the home page have suddenly lost all their style elements. After searching through the internet, I realize that this has to do with the `url` and `baseurl` usage. If you also have this problem, consider doing the following:
+- change all the {% raw  %}`{{ site.baseurl }}`{% endraw  %}
+instances in `head.html` and `sidebar.html` to {% raw  %}`{{ '/' | relative_url }}`{% endraw  %} so that the correct files can be located.
+
+
+## 4. Add tags & categories
+I want to add tags and categories to my posts and create a dedicated page where posts can be arranged according to [tags](https://yangxiaozhou.github.io/tag/supervised-learning)/[categories](https://yangxiaozhou.github.io/categories/). This should be easy since tags and categories are default front matter variables that you can define in Jekyll. For example, tags and categories of my LDA post are defined like this:
+```yaml
+---
+layout: post
+title:  "Linear discriminant analysis, explained"
+date:   2019-10-2 08:00:00 +0800
+categories: DATA
+tags: LDA supervised-learning classification
+---
+```
+
+For **categories**, I created one page where posts of different categories are collected and the page is accessible through the sidebar link. To do this, just create a `category.html` in the root folder:
+{% raw  %}
+```html
+---
+layout: page
+permalink: /categories/
+title: Categories
+---
+
+<div id="archives">
+{% for category in site.categories %}
+  <div class="archive-group">
+    {% capture category_name %}{{ category | first }}{% endcapture %}
+    <div id="#{{ category_name | slugize }}"></div>
+    <p></p>
+
+    <h3 class="category-head">{{ category_name }}</h3>
+    <a name="{{ category_name | slugize }}"></a>
+    {% for post in site.categories[category_name] %}
+    <article class="archive-item">
+      <h4><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></h4>
+    </article>
+    {% endfor %}
+  </div>
+{% endfor %}
 </div>
-<p>We now discuss Gelfand’s representation theorem. First some lemmas</p>
-<div class="lemma">
-<p><strong>Lemma 1</strong> (<strong>Codimension of a maximal ideal is 1</strong> ).  <em>Let <span class="math inline">\(I\)</span> be a maximal ideal in a commutative unital Banach Algebra <span class="math inline">\(A\)</span>, then <span class="math inline">\(A \simeq I+ \mathbb{C}\cdot 1\)</span>.</em></p>
-</div>
-<div class="proof">
-<p><em>Proof.</em> We must show that any <span class="math inline">\(a \in A\)</span> can be written <span class="math inline">\(b+\lambda\)</span> where <span class="math inline">\(b\in I\)</span>. Given <span class="math inline">\(\overline{a} \in A/I\)</span> there exists by Gelfand’s theorem <span class="math inline">\(\lambda  \in  \mathbb{C}\)</span> such that <span class="math inline">\(\overline{\lambda -a}\)</span> is not invertible. Since <span class="math inline">\(A /I\)</span> is a field we deduce that <span class="math inline">\(\overline{\lambda -a}=0\)</span>, that is there exists <span class="math inline">\(b \in  I\)</span> such that <span class="math inline">\(b+ \lambda =a\)</span> as desired. ◻</p>
-</div>
-<div class="proposition">
-<p><strong>Proposition 1</strong>.  <em>Let <span class="math inline">\(A\)</span> be a commutative Banach algebra.There is a bijective correspondence</em></p>
-<p><em><span class="math display">\[\begin{aligned}
-			\Omega(A): &amp; \simeq \{\text{Maximal ideals } I \subset A\}  . \\
-			           &amp; \varphi    \longmapsto \text{ker}(\varphi).
+```
+{% endraw  %}
 
-\end{aligned}\]</span></em></p>
-<div class="proof">
-<p><em><em>Proof.</em> The mapping is well defined as <span class="math inline">\(a -\varphi(a) \in \text{ker}(\varphi)\)</span> for all <span class="math inline">\(a\in  A\)</span> so <span class="math inline">\(\text{ker}(\varphi)\)</span> is maximal. The mapping is surjective by the previous lemma as given a maximal ideal <span class="math inline">\(I\)</span> we have that <span class="math inline">\(A=I \oplus \mathbb{C}\)</span> and we can define <span class="math inline">\(\varphi((a,\lambda )):= \lambda\)</span>. The mapping is injective as if <span class="math inline">\(\text{ker}\varphi_1=\text{ker} \varphi_2\)</span> then <span class="math inline">\(\varphi_1(a -\varphi_2(a))=0\)</span> for all <span class="math inline">\(a \in  A\)</span>. ◻</em></p>
-</div>
-</div>
-<div class="proposition">
-<p><strong>Proposition 2</strong>.  <em>Let <span class="math inline">\(A\)</span> be a commutative Banach algebra. Then <span class="math inline">\(\lVert \varphi \rVert=1\)</span> for every <span class="math inline">\(\varphi \in A\)</span>.</em></p>
-</div>
-<div class="proof">
-<p><em>Proof.</em> We have that <span class="math inline">\(\varphi(a) \subset \sigma (a)\subset B(0,\lVert a \rVert)\)</span> as a result <span class="math inline">\(\lVert \varphi \rVert\leq 1\)</span>. On the other hand <span class="math inline">\(\varphi(1)^2=1\)</span> proves that <span class="math inline">\(\varphi(1)=1\)</span> (we recall that characters by definition are non-zero). This shows that <span class="math inline">\(\lVert \varphi \rVert \geq 1\)</span> and concludes the proof. ◻</p>
-</div>
-<div class="theorem">
-<p><strong>Theorem 3</strong>.  <em>Given a commutative unital Banach algebra <span class="math inline">\(A\)</span> it holds that
-<span class="math display">\[\begin{aligned}
-			\sigma (a)=\{\varphi(a): \varphi \in \Omega(A)\} .
+For **tags**, I did two things:
+1. Show the tags of a post at the end of the content.
+2. For every tag, create a page where posts are collected, i.e. [classification](https://yangxiaozhou.github.io/tag/classification), [supervised-learning](https://yangxiaozhou.github.io/tag/supervised-learning).
 
-\end{aligned}\]</span>
-If <span class="math inline">\(A\)</span> is not unital then
-<span class="math display">\[\begin{aligned}
-			\sigma (a)=\{\varphi(a): \varphi \in \Omega(A)\} \cup \{0\}  .
+To do 1, include the following lines after the `content` section in your `post.html`:
+{% raw %}
+```html
+<span class="post-tags">
+    {% for tag in page.tags %}
+      {% capture tag_name %}{{ tag }}{% endcapture %}
+      <a class="no-underline" href="/tag/{{ tag_name }}"><code class="highligher-rouge"><nobr>{{ tag_name }}</nobr></code>&nbsp;</a>
+    {% endfor %}
+</span>
+```
+{% endraw %}
+To do 2, Long Qian has written a very clear [post](https://longqian.me/2017/02/09/github-jekyll-tag/) about it.
 
-\end{aligned}\]</span></em></p>
-</div>
-<div class="proof">
-<p><em>Proof.</em> To prove the direct inclusion consider <span class="math inline">\(\lambda \not\in \sigma (a)\)</span>, then we may take by Zorn’s lemma a proper maximal ideal <span class="math inline">\(I\)</span> with <span class="math inline">\(\lambda -a \in I\)</span>. By the previous proposition we can take <span class="math inline">\(I =\text{ker} \varphi\)</span> for some character <span class="math inline">\(\varphi\)</span>, from which we deduce that <span class="math inline">\(\varphi(\lambda -a)=\lambda -\varphi(a)=0\)</span>.</p>
-<p>The reverse inclusion is immediate from the fact that <span class="math inline">\(\varphi(a-\varphi(a))=0\)</span> so <span class="math inline">\(a- \varphi(a)\)</span> is not invertible for any <span class="math inline">\(a \in  A\)</span>.</p>
-<p>Suppose now <span class="math inline">\(A\)</span> is not unital, then we unitize it by considering <span class="math inline">\(\tilde{A}\)</span> as previously. The characters of <span class="math inline">\(\tilde{A}\)</span> are <span class="math inline">\(\Omega(A) \cup \{\tau_0\}\)</span> where <span class="math inline">\(\tau_0((a,\lambda )):= \lambda\)</span>. Applying the just prove result to <span class="math inline">\(\tilde{A}\)</span> shows that, since <span class="math inline">\(\tau_0(a,0)=0\)</span>
-<span class="math display">\[\begin{aligned}
-			\sigma (a):=\sigma (\tilde{a})=\{\varphi(a): \varphi \in \Omega(A)\} \cup \{0\}  .
+## 5. Add MathJax
+The last piece to my website is to add the support of $\LaTeX$-like math. This is done through MathJax. There are two steps to achieve it:
 
-\end{aligned}\]</span> ◻</p>
-</div>
-<p>We now consider <span class="math inline">\(A^*\)</span> with the weak* topology and <span class="math inline">\(\Omega(A)\)</span> included within it. We recall that <span class="math inline">\(A^*\)</span> is Hausdorff and thus so must be <span class="math inline">\(\Omega(A)\)</span>.</p>
-<div class="theorem">
-<p><strong>Theorem 4</strong>.  <em>Let <span class="math inline">\(A\)</span> be an Abelian Banach algebra. Then <span class="math inline">\(\Omega(A)\)</span> is locally compact. Furthermore, if <span class="math inline">\(A\)</span> is also unital then <span class="math inline">\(\Omega(A)\)</span> is compact.</em></p>
-</div>
-<div class="proof">
-<p><em>Proof.</em> By the previous theorem we know that <span class="math inline">\(\Omega(A) \subset B(0,1)\)</span> whihc is compact with the weak star topology (Banach Aloglu’s theorem). Now, if <span class="math inline">\(\varphi_n(a) \to \varphi(a)\)</span> for all <span class="math inline">\(a \in A\)</span> then it holds that, by a simple argument <span class="math inline">\(\varphi\)</span> is also a morphism. Thus <span class="math inline">\(\varphi\)</span> will be a character if and only if <span class="math inline">\(\varphi \neq 0\)</span>. For this reason it is necessary to adjoin <span class="math inline">\(0\)</span> if <span class="math inline">\(A\)</span> is not unital. This shows that <span class="math inline">\(\Omega(A) \cup  \{0\}\)</span> is closed in <span class="math inline">\(B(0,1)\)</span> and is thus compact. In consequence <span class="math inline">\(\Omega(A)\)</span> is locally compact.</p>
-<p>Suppose now that <span class="math inline">\(A\)</span> is unital, then we have seen than <span class="math inline">\(\lVert \varphi \rVert=1\)</span> for all <span class="math inline">\(\varphi \in  \Omega(A)\)</span>. The previous argument shows that <span class="math inline">\(\Omega(A)\)</span> is closed (we can never reach <span class="math inline">\(0\)</span>) and as a result <span class="math inline">\(\Omega(A)\)</span> is compact. ◻</p>
-</div>
-<p>We can now identify <span class="math inline">\(A\)</span> with a sub-algebra of continuous functions on <span class="math inline">\(\Omega(A)\)</span> via the mapping <span class="math inline">\(a \to \widehat{a}\)</span> where we define <span class="math inline">\(\widehat{a}(\varphi):= \varphi(a)\)</span>. Let us denote the image of this mapping by <span class="math inline">\(\widehat{A}\)</span>, then we obtain the following theorem</p>
-<div class="theorem">
-<p><strong>Theorem 5</strong> (<strong>Gelfand’s represntation theorem</strong>).  <em>Let <span class="math inline">\(A\)</span> be a commutative Banach algebra, then the mapping
-<span class="math display">\[\begin{aligned}
-			A \to\widehat{A} \subset C_0(\Omega(A)); \quad a\to \widehat{a}.
+1. Create a `mathjax.html` file and put it in your `_includes` folder. Download the file [here](https://github.com/YangXiaozhou/yangxiaozhou.github.io/blob/master/_includes/mathjax.html).
+2. Put the following line before `</head>` in your `head.html`:
+    {% raw %}
+    ```
+    {% include mathjax.html %}
+    ```
+    {% endraw %}
+    to enbale MathJax on the page.
 
-\end{aligned}\]</span>
-is a norm decreasing injective homomorphism with <span class="math inline">\(\lVert \widehat{a} \rVert= r(a)\)</span>. Furhtermore, if <span class="math inline">\(a\)</span> is unital then <span class="math inline">\(\sigma (a)=\widehat{a}(\Omega(A))\)</span> and otherwise <span class="math inline">\(\sigma (a)=\widehat{a}(\Omega(A)) \cup  \{0\}\)</span>.</em></p>
-</div>
-<div class="proof">
-<p><em>Proof.</em> To show that <span class="math inline">\(\widehat{a}\)</span> vanishes at infinity note that the set
-<span class="math display">\[\begin{aligned}
-			\{\varphi : \widehat{a}(\varphi) \geq \epsilon \} =\widehat{a}^{-1}([\epsilon ,\lVert a \rVert]).
+#### Tips
+- To use the normal dollar sign instead of the MathJax command (escape), put `<span class="tex2jax_ignore">...</span>` around the text you don't want MathJax to process.
+- Check out currently supported Tex/LaTeX commands by MathJax [here](https://docs.mathjax.org/en/latest/input/tex/macros/index.html).
 
-\end{aligned}\]</span>
-Which is a closed subset in the compact <span class="math inline">\(B(0,a)\)</span> and thus compact. ◻</p>
-</div>
-<p>We note however that the mapping <span class="math inline">\(a \to \widehat{a}\)</span> is in general neither injective (this means the identification isn’t prefect) not surjective.</p>
-<div class="example">
-<p><strong>Example 1</strong> (Continuous Fourier Transform).  <em>Consider the Banach Algebra <span class="math inline">\(A=L^1(\mathbb{R}^d)\)</span> with multiplication given by the convolution
-<span class="math display">\[\begin{aligned}
-			f*g(x):= \int_{\mathbb{R}^d}f(y)g(x-y) \,\mathrm{d}y.
 
-\end{aligned}\]</span>
-Then the Gelfand transform can be identified with the Fourier transform and <span class="math display">\[\begin{aligned}
-			\widehat{f}(\Omega)= \left\{ \widehat{f}(\omega):= \int_{\mathbb{R}^d} f(x)e^{-2\pi i \omega \cdot  x} \,\mathrm{d}x:\omega\in \mathbb{R}^d\right\} .
+#### Math Rendering Showcase
+- Inline math using `\$...\$`: $\mathbf{x}+\mathbf{y}$.
+- Displayed math using `\$\$...\$\$` on a new paragraph:
 
-\end{aligned}\]</span></em></p>
-</div>
-<div class="proof">
-<p><em>Proof.</em> We know that the dual of <span class="math inline">\(L^1(\mathbb{R}^d)\)</span> is <span class="math inline">\(L^\infty(\mathbb{R}^d)\)</span>. In particular every character is of the form
-<span class="math display">\[\begin{aligned}
-			\varphi_g (f)= \int_{\mathbb{R}^d}f \overline{g}.
+$$
+\hat{\mathbf{\Sigma}}_k (\alpha) = \alpha \hat{\mathbf{\Sigma}}_k + (1-\alpha) \hat{\mathbf{\Sigma}} \,.
+$$
 
-\end{aligned}\]</span>
-The condition that <span class="math inline">\(\varphi_g\)</span> preserves multiplication becomes by a change of variable
-<span class="math display">\[\begin{aligned}
-			g(x+y)=g(x)g(y), \quad\forall x,y \in \mathbb{R}^d.
+- Automatic numbering and referencing using <span class="tex2jax_ignore">`\ref{label}`</span>:
+In (\ref{eq:sample}), we find the value of an interesting integral:
 
-\end{aligned}\]</span>
-The only <span class="math inline">\(g \in L^\infty (\mathbb{R}^d)\)</span> verifying the above are of the form <span class="math inline">\(g(x)= e^{2\pi i \omega \cdot  x}\)</span> for some <span class="math inline">\(\omega \in \mathbb{R}^d\)</span>. That is, the character group is
-<span class="math display">\[\begin{aligned}
-			\Omega(L^1(\mathbb{R}^d))\simeq\{e^{2\pi i \omega \cdot }: \omega \in \mathbb{R}^d\} .
+$$
+\begin{align}
+  \int_0^\infty \frac{x^3}{e^x-1}\,dx = \frac{\pi^4}{15} \, .
+  \label{eq:sample}
+\end{align}
+$$
 
-\end{aligned}\]</span>
-This concludes the proof (we use the abuse of notation <span class="math inline">\(\widehat{f}(\omega):=\widehat{f}(\varphi_{e^{2\pi i \omega \cdot }})\)</span>). ◻</p>
-</div>
-<div class="example">
-<p><strong>Example 2</strong> (Discrete Fourier Transform).  <em>Consider the Banach Algebra <span class="math inline">\(A=\ell ^\infty(\mathbb{Z}^d)\)</span> with multiplication given by the convolution
-<span class="math display">\[\begin{aligned}
-			g*h(k):= \sum_{k \in \mathbb{Z}^d}g(j)h(k-j) .
+- Multiline equations using `\begin{align*}`:
 
-\end{aligned}\]</span>
-Then the Gelfand transform can be identified with the (inverse) Fourier transform and <span class="math display">\[\begin{aligned}
-			\widehat{g}(\Omega)= \left\{ \check{g}(k):= \sum_{k \in \mathbb{Z}^d} g(x)e^{2\pi i k \cdot  x} \,\mathrm{d}x: k\in \mathbb{Z}^d\right\} .
+$$
+\begin{align*}
+  \nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} & = \frac{4\pi}{c}\vec{\mathbf{j}} \,,\newline
+  \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \,.
+\end{align*}
+$$
 
-\end{aligned}\]</span></em></p>
-</div>
-<p>Furthermore
-<span class="math display">\[\begin{aligned}
-		g(k)=\int_{0}^1 \check{g}(k)e^{2 \pi i (j-k) \cdot x}\,\mathrm{d}x.
+That's it for now. Happy blogging.
 
-\end{aligned}\]</span></p>
-<div class="proof">
-<p><em>Proof.</em> Let <span class="math inline">\(e_1,\ldots e_d \in A\)</span> be defined by
-<span class="math display">\[\begin{aligned}
-			e_n(k):= \delta _{nk_1}, \quad\forall n=1,\ldots d, k\in \mathbb{Z}^d .
-
-\end{aligned}\]</span>
-Then we have that <span class="math inline">\(A\)</span> is generated by <span class="math inline">\(e_{1},\ldots e_n\)</span> with
-<span class="math display">\[\begin{aligned}
-			g(k) =\sum_{k} g(k) e_1^{k_1}\ldots e_d ^{k_d} .
-
-\end{aligned}\]</span>
-Any character <span class="math inline">\(\varphi\)</span> is thus determined by where it sends the <span class="math inline">\(e_n\)</span> and they take the form
-<span class="math display">\[\begin{aligned}
-			\Omega(A)= \left\{ \varphi_z (g):= \sum_{k \in \mathbb{Z}^d} g(k) z^k: z \in \mathbb{T}^d  \right\} \simeq \mathbb{T}^d .
-
-\end{aligned}\]</span>
-Noting that <span class="math inline">\(\mathbb{T}^d= \left\{ e^{ 2\pi i x}: x \in \mathbb{R}^d \right\}\)</span> and defining
-<span class="math display">\[\begin{aligned}
-			\check{g}(x):= \varphi_{e^{ 2\pi i x \cdot  }}(g)=\sum_{k \in \mathbb{Z}^d} g(k) e^{2 \pi  i k \cdot x}.
-
-\end{aligned}\]</span>
-Gives the first part of the proof and using the orthonormality trick
-<span class="math display">\[\begin{aligned}
-			\int_{0}^1 \check{g}(x) e^{-2 \pi i k \cdot x}\,\mathrm{d}x=\sum_{j \in \mathbb{Z}^d} g(j)  \int_{0}^1 e^{2 \pi i (j-k) \cdot x}\,\mathrm{d}x= g(k).
-
-\end{aligned}\]</span>
-Gives the second. Where in the above we applied the dominated convergence theorem. ◻</p>
-</div>
-</div>
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-murphy2014c" class="csl-entry" role="listitem">
-Murphy, Gerald J. 2014. <em>C*-Algebras and Operator Theory</em>. Academic press.
-</div>
-</div>
+Additional resources:
+- Set up [categories & tags](https://blog.webjeda.com/jekyll-categories/)
+- Set up [Disqus comments & Google Analytics](http://joshualande.com/jekyll-github-pages-poole)
+- Add in social media [icons](https://jreel.github.io/social-media-icons-on-jekyll/)
+- kramdown [basics](https://kramdown.gettalong.org/quickref.html)
+- MathJax [basics](https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference)
