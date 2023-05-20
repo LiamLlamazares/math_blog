@@ -167,7 +167,7 @@ sum has finite $L^2(I\times\Omega)$ norm as
 <div>
  $$\begin{gathered}
         \int\U {I} \norm{\sum\U {n=0}^{\infty}nI\U {n-1}\left(\int\U If\U n(\cdot ,r,s)h(s)ds\right)}\U {L^2(\Omega)}^2d r  \\
-        \leq \int\U {I}\sum\U {n=0}^{\infty}n^2 \left(\int\U {{\mathbb R}}\norm{I\U {n-1}f\U n(\cdot ,r,s)}^2\U {L^2(\Omega)}d r\right)ds \norm{h}^2\U {L^2(I)}\\
+        \leq \int\U {I}\sum\U {n=0}^{\infty}n^2 \left(\int\U \mathbb{R}\norm{I\U {n-1}f\U n(\cdot ,r,s)}^2\U {L^2(\Omega)}d r\right)ds \norm{h}^2\U {L^2(I)}\\
         =\norm{h}^2\U {L^2(I)}\int\U {I}\sum\U {n=0}^{\infty}\norm{D\U tX}\U {L^2(I\times\Omega)}d t<\infty .
     \end{gathered}$$
 </div>
@@ -234,7 +234,7 @@ i.e. is Malliavin differentiable and its differential verifies that
 
 
 <div>
- $$\int\U {{\mathbb R}}\norm{D\U tX}\U {L^2(I\times\Omega)} d t<\infty.$$
+ $$\int\U \mathbb{R}\norm{D\U tX}\U {L^2(I\times\Omega)} d t<\infty.$$
 </div>
 
   This

@@ -186,7 +186,7 @@ $f(\Omega)$. Now define $\varphi:E\to E$
  $$\varphi\U n(e):= e\U j \text{ where }  d(e\U j,e)=\min\U {1\leq m\leq n} d(e,e\U m).$$
 </div>
 And define $f\U n:=\varphi\U n \circ f$. A bit of thought shows that
-$\varphi\U n$ is continuous and thus $f\U n$ is measurable (remember we are
+$\varphi\U n$ is measurable and thus $f\U n$ is measurable (remember we are
 considering the Borel $\sigma$-algebra) on $E$. Furthermore, since for
 each fixed $\omega$ the above distance goes to $0$ we have that
 <div>
