@@ -1180,7 +1180,7 @@ $K \in \mathcal{K}(H)$. Consider $T:= Id-K$ then it holds that
 
 <div>
  $$\begin{aligned}
-            T \text{ is injective } \iff  T \text{is surjective}.
+            T \text{ is injective } \iff  T \text{ is surjective}.
         \end{aligned}$$
 </div>
 
