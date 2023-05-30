@@ -363,7 +363,7 @@ spaces reproduce is that of the existence of an orthonormal basis.
 
 
 **Definition 4**. Let $H$ be a Hilbert space and $I$ some index set. We
-say that $\mathcal{B}=\{\phi\U \alpha\}\U {\alpha \in  I}$ is an
+say that $\mathcal{B}=\\{\phi\U \alpha\\}\U {\alpha \in  I}$ is an
 orthonormal basis of $H$ if
 
 <div>
@@ -420,10 +420,10 @@ with an uncountable sequence we will always end up back in this case.
 
 
 **Proposition 2**. Let $X$ be a normed space and
-$\left\{x\U \alpha\right\}\U {\alpha \in I} \subset  X$ be absolutely
+$\lb\{x\U \alpha\rb\U {\alpha \in I} \subset  X$ be absolutely
 summable to $x$, then only a countable number of the terms $x\U \alpha$
 are non-zero. Let us take the nonzero terms and relabel them
-$\left\{x\U n\right\}\U {n \in \mathbb{N}}$, then
+$\left\{ x\U n\right \}\U {n \in \mathbb{N}}$, then plz2
 
 <div>
  $$\begin{align}
