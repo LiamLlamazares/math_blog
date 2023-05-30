@@ -282,7 +282,9 @@ product. ◻
 A consequence of the above theorem is that orthogonal complements in
 Hilbert spaces exist.
 
-<a name="complement"></a>
+<a name="complement">
+
+</a>
 **Theorem 2** (Orthogonal complement). Let $V$ be a closed subspace of
 a vector space $H$. Then we have that
 
@@ -1076,7 +1078,9 @@ An important property of compact operators is that they are preserved by
 continuous ones.
 
 
-<a name="comp">Proposition 7. </a> Let $K \in \mathcal{K}(X,Y), T \in L(Y,Z)$ with $Z$
+<a name="comp">
+Proposition 7.
+</a> Let $K \in \mathcal{K}(X,Y), T \in L(Y,Z)$ with $Z$
 complete, then $T \circ K$ is compact
 
 
