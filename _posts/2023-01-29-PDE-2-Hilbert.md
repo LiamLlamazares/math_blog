@@ -254,7 +254,7 @@ orthogonal to $F$. That is, it is the unique $f\in F$ verifying
 
 <div>
  $$\begin{aligned}
-            h-f \in F^\perp:= \left\{g \in H : \left\langle g,F\right\rangle=\{0\}\right\}.
+            h-f \in F^\perp:= \left\\{g \in H : \left\langle g,F\right\rangle=\\{0\\}\right\\}.
         \end{aligned}$$
 </div>
 
@@ -282,9 +282,7 @@ product. ◻
 A consequence of the above theorem is that orthogonal complements in
 Hilbert spaces exist.
 
-<a name="complement">
-
-</a>
+ {#complement theorem .theorem}
 **Theorem 2** (Orthogonal complement). Let $V$ be a closed subspace of
 a vector space $H$. Then we have that
 
@@ -329,22 +327,16 @@ An important corollary of this is the following
 
 <div>
  $$\begin{aligned}
-            \overline{V}=H \iff \overline{V}^\perp =\left\{0\right\} .
+            \overline{V}=H \iff \overline{V}^\perp =\left\\{0\right\\} .
         \end{aligned}$$
 </div>
 
-<a name="tasks">
-   my tasks
-</a>
-<a name="comp2">
-Proposition 7.
-</a>
-
-[tasks](#tasks)
 
 
-Note that the imposition that $V$ is closed in Theorem plz
-[link text](#complement) or [link text](#comp) is necessary. Finite dimensional
+
+Note that the imposition that $V$ is closed in Theorem
+[2](#complement theorem){reference-type="ref"
+reference="complement theorem"} is necessary. Finite dimensional
 subspaces are always closed, but infinite-dimensional subspaces may not
 be. For example, consider $H=L^2(I)$ for some bounded $I$ and take $V$
 to polynomials on $I$ . By the
@@ -354,7 +346,7 @@ theorem $V$ is dense in $H$. That is $H=\overline{V}$, whereas
 
 <div>
  $$\begin{aligned}
-        H \neq V \oplus V^\perp =V \oplus \left\{0\right\} .
+        H \neq V \oplus V^\perp =V \oplus \left\\{0\right\\} .
     \end{aligned}$$
 </div>
 
@@ -420,10 +412,10 @@ with an uncountable sequence we will always end up back in this case.
 
 
 **Proposition 2**. Let $X$ be a normed space and
-$\lb\{x\U \alpha\rb\U {\alpha \in I} \subset  X$ be absolutely
+$\left\\{x\U \alpha\right\\}\U {\alpha \in I} \subset  X$ be absolutely
 summable to $x$, then only a countable number of the terms $x\U \alpha$
 are non-zero. Let us take the nonzero terms and relabel them
-$\left\{ x\U n\right \}\U {n \in \mathbb{N}}$, then plz2
+$\left\\{x\U n\right\\}\U {n \in \mathbb{N}}$, then
 
 <div>
  $$\begin{align}
@@ -468,7 +460,7 @@ of the form
 
 <div>
  $$\begin{aligned}
-            \mathcal{S}=\left\{\left\{\phi\U \alpha\right\}\U {\alpha \in  J}:  \left\langle\phi\U \alpha,\phi\U \beta \right\rangle= \delta \U {\alpha, \beta }, \quad\forall \alpha,\beta \in J\right\} .
+            \mathcal{S}=\left\\{\left\\{\phi\U \alpha\right\\}\U {\alpha \in  J}:  \left\langle\phi\U \alpha,\phi\U \beta \right\rangle= \delta \U {\alpha, \beta }, \quad\forall \alpha,\beta \in J\right\\} .
         \end{aligned}$$
 </div>
 
@@ -489,7 +481,7 @@ maximal element $\mathcal{B}$. If $\mathcal{B}$ is not complete (that
 is, (\ref{sum})  doesn't
 hold), then there exists $f \in \overline{\mathcal{B}}^\perp$. By taking
 $f /\left\lVert f \right\rVert$ and forming
-$\mathcal{B}':=\mathcal{B}\cup \left\{f \left\lVert f \right\rVert\right\}$
+$\mathcal{B}':=\mathcal{B}\cup \left\\{f \left\lVert f \right\rVert\right\\}$
 we obtain that $\mathcal{B}\subsetneq \mathcal{B}' \in \mathcal{A}$.
 This contradicts the maximality of $\mathcal{B}$ and concludes the
 proof. ◻
@@ -500,7 +492,7 @@ Hilbert spaces.
 
  {#Parseval .theorem}
 **Theorem 4** (Parseval). Let $H$ be a Hilbert space with orthonormal
-basis $\mathcal{B}=\left\{\phi\U \alpha\right\}\U {\alpha\in I}$. Then for
+basis $\mathcal{B}=\left\\{\phi\U \alpha\right\\}\U {\alpha\in I}$. Then for
 every $f \in  H$ it holds that
 
 <div>
@@ -545,7 +537,7 @@ isometry
 
 <div>
  $$\begin{aligned}
-        H\to \ell ^2(I); \quad f \to \left\{\left\langle f,\phi\U {\alpha}\right\rangle\right\}\U {\alpha \in I}.
+        H\to \ell ^2(I); \quad f \to \left\\{\left\langle f,\phi\U {\alpha}\right\rangle\right\\}\U {\alpha \in I}.
     \end{aligned}$$
 </div>
 
@@ -564,7 +556,7 @@ $L^2(\mathbb{R}^d /\mathbb{Z}^d \to \mathbb{C})$ has orthonormal basis
 
 <div>
  $$\begin{aligned}
-            \left\{\phi\U k(x)\right\}\U {k \in \mathbb{Z}^d}:=\left\{e^{2\pi i  k \cdot x }\right\}\U {k \in \mathbb{Z}^d}.
+            \left\\{\phi\U k(x)\right\\}\U {k \in \mathbb{Z}^d}:=\left\\{e^{2\pi i  k \cdot x }\right\\}\U {k \in \mathbb{Z}^d}.
         \end{aligned}$$
 </div>
 
@@ -631,7 +623,7 @@ $\left\lVert f\U \ell  \right\rVert=\left\lVert \ell  \right\rVert$.
 
 
 Proof. Consider an orthonormal basis
-$\left\{\phi\U \alpha\right\}\U {\alpha \in  I}$ for $H$. Then, just as in
+$\left\\{\phi\U \alpha\right\\}\U {\alpha \in  I}$ for $H$. Then, just as in
 Euclidean space we have that
 
 <div>
@@ -908,7 +900,8 @@ $u \in  \Im(\mathcal{L})^\perp$, then it holdalign
 
 
 As a result, we deduce from the orthogonal complement theorem
-\ref{complement} that $\overline{\Im(\mathcal{L})}=0$.
+[2](#complement theorem){reference-type="ref"
+reference="complement theorem"} that $\overline{\Im(\mathcal{L})}=0$.
 Thus, if we show that $\mathcal{L}$ is closed we are done. The estimate
 in (\ref{est})  together with
 Cauchy Schwartz shows that for all $u \in H$
@@ -1041,9 +1034,9 @@ finite-dimensional operators $T\U n$ such that
 
 
 Proof. Since $H$ is separable there exists a countable orthonormal
-basis $\left\{\phi\U n\right\}\U {n \in \mathbb{N}}$. If we denote $T\U n$ for
+basis $\left\\{\phi\U n\right\\}\U {n \in \mathbb{N}}$. If we denote $T\U n$ for
 the projection of $T$ onto the space generated by
-$\left\{\phi\U 1,\ldots,\phi\U n\right\}$ then, by Parseval's Theorem
+$\left\\{\phi\U 1,\ldots,\phi\U n\right\\}$ then, by Parseval's Theorem
 pointwise convergence holds
 
 <div>
@@ -1080,10 +1073,8 @@ inequality
 An important property of compact operators is that they are preserved by
 continuous ones.
 
-
-<a name="comp">
-Proposition 7.
-</a> Let $K \in \mathcal{K}(X,Y), T \in L(Y,Z)$ with $Z$
+ {#comp .proposition}
+Proposition 7. Let $K \in \mathcal{K}(X,Y), T \in L(Y,Z)$ with $Z$
 complete, then $T \circ K$ is compact
 
 
@@ -1134,7 +1125,8 @@ smooth boundary and $s, \sigma >0$, then every continuous operator
 Proof. We have that $T= T \circ i$ so we conclude by
 Rellich-Kondrachov's theorem [8](#Rellich){reference-type="ref"
 reference="Rellich"} and the preservation of compact operators by
-continuous ones (Proposition 7 \ref{comp}). ◻
+continuous ones (Proposition [7](#comp){reference-type="ref"
+reference="comp"}). ◻
 
 
 Compact operators also have a nice spectral theory. Where we recall that
@@ -1142,7 +1134,7 @@ the spectrum of an operator $T$ is defined as
 
 <div>
  $$\begin{aligned}
-        \sigma (T):=\left\{\lambda \in \mathbb{K}: \lambda \I -T \text{ is not invertible } \right\} .
+        \sigma (T):=\left\\{\lambda \in \mathbb{K}: \lambda \I -T \text{ is not invertible } \right\\} .
     \end{aligned}$$
 </div>
 
@@ -1153,7 +1145,7 @@ to it's eigenvalues. Secondly the following holds
 Theorem 9 (Spectral theorem). Let $T \in \mathcal{K}(H)$ be a
 compact self adjoint operator on a Hilbert space $H$. Then $T$
 diagonalizes on an orthonormal basis. That is, there exists an
-orthonormal basis $\left\{\phi\U \alpha\right\} \U {\alpha \in  I}$ and
+orthonormal basis $\left\\{\phi\U \alpha\right\\} \U {\alpha \in  I}$ and
 $\lambda \U \alpha \in \mathbb{K}$ such that
 
 <div>
