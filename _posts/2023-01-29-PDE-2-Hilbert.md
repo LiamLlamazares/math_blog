@@ -65,7 +65,7 @@ with what kind of spaces we want to model.
 
 
 **Example 1**. The Euclidean space $\mathbb{R}^n$ together with the
-inner product 
+inner product
 
 <div>
  $$\begin{aligned}
@@ -73,12 +73,12 @@ inner product
         \end{aligned}$$
 </div>
 
- 
+
 
 
 
 **Example 2**. The complex Euclidean space $\mathbb{C}^n$ together with
-the inner product 
+the inner product
 
 <div>
  $$\begin{aligned}
@@ -86,12 +86,12 @@ the inner product
         \end{aligned}$$
 </div>
 
- 
+
 
 
 You might be wondering why we took the conjugate in the definition of
 the inner product above. That is simply because we want the inner
-product to define a norm by 
+product to define a norm by
 
 <div>
  $$\begin{aligned}
@@ -100,7 +100,7 @@ product to define a norm by
 </div>
 
   In the cases above note that this is the standard
-Euclidean norm 
+Euclidean norm
 
 <div>
  $$\begin{aligned}
@@ -115,7 +115,7 @@ generalized as follows.
 
 **Definition 1**. Given a vector space $V$ over $\mathbb{K}$ where
 $\mathbb{K}=\mathbb{R}$ or $\mathbb{K}=\mathbb{C}$, an inner product is
-a mapping 
+a mapping
 
 <div>
  $$\begin{aligned}
@@ -140,7 +140,7 @@ In what follows we will take always take the base field to be
 $\mathbb{K}$, that is, we will consider real and complex vector spaces
 as the theory is the same. In the real case, the conjugate function just
 being the identity. Note that the first two properties also imply
-"antilinearity" of the second component as 
+"antilinearity" of the second component as
 
 <div>
  $$\begin{aligned}
@@ -180,7 +180,7 @@ following
 
  {#CS .proposition}
 **Proposition 1** (Cauchy Schwartz). Let $V$ be an inner product space,
-then it holds that 
+then it holds that
 
 <div>
  $$\begin{aligned}
@@ -188,7 +188,7 @@ then it holds that
         \end{aligned}$$
 </div>
 
- 
+
 
 
 In particular, this implies that the inner product is continuous
@@ -199,7 +199,7 @@ inner product. The third key property is that of completeness.
 
 **Definition 3**. A Hilbert space is a complete inner product space
 $(H, \left\langle\cdot ,\cdot \right\rangle)$. Where completeness is
-respect to the inner product norm 
+respect to the inner product norm
 
 <div>
  $$\begin{aligned}
@@ -207,7 +207,7 @@ respect to the inner product norm
         \end{aligned}$$
 </div>
 
- 
+
 
 
 Cool! Now we know what is a Hilbert space. Some examples that have come
@@ -224,7 +224,7 @@ valued in another Hilbert space $H$ with the inner product
 
   Another are the [Sobolev
 spaces](https://nowheredifferentiable.com/2023-01-29-PDE-1/#:~:text=From%20the%20two-,equations,-above%20we%20deduce)
-$H^s(\mathbb{R}^d)$ with the inner product 
+$H^s(\mathbb{R}^d)$ with the inner product
 
 <div>
  $$\begin{aligned}
@@ -239,7 +239,7 @@ from Euclidean spaces to Hilbert spaces is that of projection.
  {#projection .theorem}
 **Theorem 1** (Projection theorem). Let $F$ be a closed convex subset
 of a Hilbert space $H$. Then, given $h \in H$ there exists a unique
-$f \in F$ such that 
+$f \in F$ such that
 
 <div>
  $$\begin{aligned}
@@ -258,12 +258,12 @@ orthogonal to $F$. That is, it is the unique $f\in F$ verifying
         \end{aligned}$$
 </div>
 
- 
+
 
 
 
 Proof. The idea of the proof is to consider a sequence $f\U n$ that
-approaches the minimum distance 
+approaches the minimum distance
 
 <div>
  $$\begin{aligned}
@@ -282,9 +282,9 @@ product. ◻
 A consequence of the above theorem is that orthogonal complements in
 Hilbert spaces exist.
 
- {#complement theorem .theorem}
+\label{complement}
 **Theorem 2** (Orthogonal complement). Let $V$ be a closed subspace of
-a vector space $H$. Then we have that 
+a vector space $H$. Then we have that
 
 <div>
  $$\begin{aligned}
@@ -294,7 +294,7 @@ a vector space $H$. Then we have that
 </div>
 
   Is a bijective isomorphism where we
-consider on $V \oplus V^\perp$ the inner product 
+consider on $V \oplus V^\perp$ the inner product
 
 <div>
  $$\begin{aligned}
@@ -302,13 +302,13 @@ consider on $V \oplus V^\perp$ the inner product
         \end{aligned}$$
 </div>
 
- 
+
 
 
 
 Proof. Given $h \in  H$ we know that there exists a unique closest
 point $v\U 1 \in V$ to $V$ (the projection of $h$ onto $v$). Furthermore,
-$v\U 2:=h-v \in V^\perp$ so we get the decomposition 
+$v\U 2:=h-v \in V^\perp$ so we get the decomposition
 
 <div>
  $$\begin{aligned}
@@ -323,7 +323,7 @@ property follows quickly from the orthogonality of $v\U 1,v\U 2$. ◻
 An important corollary of this is the following
 
  {#cor .corollary}
-**Corollary 1**. Let $V$ be a vector space, then 
+**Corollary 1**. Let $V$ be a vector space, then
 
 <div>
  $$\begin{aligned}
@@ -331,12 +331,11 @@ An important corollary of this is the following
         \end{aligned}$$
 </div>
 
- 
+
 
 
 Note that the imposition that $V$ is closed in Theorem
-[2](#complement theorem){reference-type="ref"
-reference="complement theorem"} is necessary. Finite dimensional
+\ref{complent} is necessary. Finite dimensional
 subspaces are always closed, but infinite-dimensional subspaces may not
 be. For example, consider $H=L^2(I)$ for some bounded $I$ and take $V$
 to polynomials on $I$ . By the
@@ -356,7 +355,7 @@ spaces reproduce is that of the existence of an orthonormal basis.
 
 **Definition 4**. Let $H$ be a Hilbert space and $I$ some index set. We
 say that $\mathcal{B}=\left\{\phi\U \alpha\right\}\U {\alpha \in  I}$ is an
-orthonormal basis of $H$ if 
+orthonormal basis of $H$ if
 
 <div>
  $$\begin{aligned}
@@ -365,7 +364,7 @@ orthonormal basis of $H$ if
 </div>
 
   And for every element $f \in H$ there exist
-$\lambda \U \alpha \in  \mathbb{C}$ such that 
+$\lambda \U \alpha \in  \mathbb{C}$ such that
 
 <div>
  $$\begin{align}
@@ -374,7 +373,7 @@ $\lambda \U \alpha \in  \mathbb{C}$ such that
         \end{align}$$
 </div>
 
- 
+
 
 
 Note that we impose no conditions on the Index set $I$ which may be
@@ -394,7 +393,7 @@ we say that $x\U \alpha$ is absolutely summable to $x$ and write
 
   if given $\epsilon >0$ there exists some finite
 subset $J\U 0 \in I$ such that for every $J$ containing $J\U 0$ it holds
-that 
+that
 
 <div>
  $$\begin{aligned}
@@ -402,7 +401,7 @@ that
         \end{aligned}$$
 </div>
 
- 
+
 
 
 If $I$ is countable, the definition says that
@@ -424,11 +423,11 @@ $\left\{x\U n\right\}\U {n \in \mathbb{N}}$, then
         \end{align}$$
 </div>
 
- 
 
 
 
-Proof. Take $J\U n$ such that 
+
+Proof. Take $J\U n$ such that
 
 <div>
  $$\begin{aligned}
@@ -456,7 +455,7 @@ an orthonormal basis $\mathcal{B}$.
 Proof. The proof is formally identical to the proof that every vector
 space has a basis space . Let $\mathcal{A}$ be the collection of all
 orthonormal subsets of $H$. That is, $\mathcal{A}$ is comprised of sets
-of the form 
+of the form
 
 <div>
  $$\begin{aligned}
@@ -467,7 +466,7 @@ of the form
   Such that $\phi\U \alpha$ are orthonormal. Given
 an ordered chain
 $\mathcal{S}\U 0\subset \mathcal{S}\U 1\subset \mathcal{S}\U 2\subset \cdots$
-we have the bound 
+we have the bound
 
 <div>
  $$\begin{aligned}
@@ -493,7 +492,7 @@ Hilbert spaces.
  {#Parseval .theorem}
 **Theorem 4** (Parseval). Let $H$ be a Hilbert space with orthonormal
 basis $\mathcal{B}=\left\{\phi\U \alpha\right\}\U {\alpha\in I}$. Then for
-every $f \in  H$ it holds that 
+every $f \in  H$ it holds that
 
 <div>
  $$\begin{aligned}
@@ -501,12 +500,12 @@ every $f \in  H$ it holds that
         \end{aligned}$$
 </div>
 
- 
+
 
 
 
 Proof. We have that by the orthonormality of $\phi\U \alpha$ and the
-continuity of the inner product 
+continuity of the inner product
 
 <div>
  $$\begin{aligned}
@@ -518,7 +517,7 @@ continuity of the inner product
 $f-\sum\U {\alpha \in  I} \left\langle f,\phi\U \alpha\right\rangle\phi\U \alpha$
 is orthogonal to the closure of the span of $\mathcal{B}$, which by
 assumption is $H$. By Corollary [1](#cor){reference-type="ref"
-reference="cor"} we conclude that 
+reference="cor"} we conclude that
 
 <div>
  $$\begin{aligned}
@@ -533,7 +532,7 @@ $\phi\U \alpha$. ◻
 
 The above shows that, on fixing a basis, every Hilbert space can be
 identified with a space of square-integrable sequences by the bijective
-isometry 
+isometry
 
 <div>
  $$\begin{aligned}
@@ -571,7 +570,7 @@ $f \in L^2(\mathbb{R}^d /\mathbb{Z}^d)$ can be written as
 </div>
 
   Where $\widehat{f} \in \ell ^2(\mathbb{Z}^d)$ is
-known as the Fourier transform of $f$ and defined by 
+known as the Fourier transform of $f$ and defined by
 
 <div>
  $$\begin{aligned}
@@ -579,12 +578,12 @@ known as the Fourier transform of $f$ and defined by
         \end{aligned}$$
 </div>
 
- 
+
 
 
 Another interesting property of Euclidean space is that every element of
 the dual $\ell :\mathbb{C}^n \to \mathbb{C}$ is represented by a vector
-in the space, that is 
+in the space, that is
 
 <div>
  $$\begin{aligned}
@@ -624,7 +623,7 @@ $\left\lVert f\U \ell  \right\rVert=\left\lVert \ell  \right\rVert$.
 
 Proof. Consider an orthonormal basis
 $\left\{\phi\U \alpha\right\}\U {\alpha \in  I}$ for $H$. Then, just as in
-Euclidean space we have that 
+Euclidean space we have that
 
 <div>
  $$\begin{aligned}
@@ -636,7 +635,7 @@ Euclidean space we have that
 (\ref{riesz})  is a
 direct application of the (anti)-linearity and continuity of the inner
 product. Uniqueness following from the fact that if $f\U \ell , g\U \ell$
-both verify the equality then for all $h \in h$ 
+both verify the equality then for all $h \in h$
 
 <div>
  $$\begin{aligned}
@@ -646,7 +645,7 @@ both verify the equality then for all $h \in h$
 
   This can only occur if $f\U \ell -g\U \ell =0$ (hint
 take $h= f\U \ell -g\U \ell$). To verify the norm we can use that, for all
-$h \in  H$ with norm $1$ 
+$h \in  H$ with norm $1$
 
 <div>
  $$\begin{aligned}
@@ -678,7 +677,7 @@ space in a canonical way
 
 
 **Proposition 3**. Let $H$ be a Hilbert space, then $H'$ is also a
-Hilbert space, with inner product given by 
+Hilbert space, with inner product given by
 
 <div>
  $$\begin{aligned}
@@ -686,14 +685,14 @@ Hilbert space, with inner product given by
         \end{aligned}$$
 </div>
 
- 
+
 
 
 Where we had to "swap the order" of the representatives of
 $\ell\U 1, \ell\U 2$ due to the anti-linearity of the mapping
 $\ell \to f\U \ell$. Since $H'$ is also a Hilbert space we can apply
 Riesz's theorem to $H'$ to show that $H''$ is also a Hilbert space and
-there exists a canonical antilinear isometry 
+there exists a canonical antilinear isometry
 
 <div>
  $$\begin{aligned}
@@ -711,7 +710,7 @@ there exists a canonical antilinear isometry
 </div>
 
   That is, $H$ is identified canonically with $H''$
-and, the identification is such that 
+and, the identification is such that
 
 <div>
  $$\begin{aligned}
@@ -726,7 +725,7 @@ Theorem 6. Every Hilbert space is reflexive.
 
 
 Consider now a Hilbert space $H$ and a linear operator $T: H \to H$.
-Then, for each $g \in H$ we can define the linear form 
+Then, for each $g \in H$ we can define the linear form
 
 <div>
  $$\begin{aligned}
@@ -736,7 +735,7 @@ Then, for each $g \in H$ we can define the linear form
 
   As a result, there exists a unique representative of
 $\ell \U g$ in $H$ which, to track the dependence on $g$, we denote by
-$h\U g$. That is, $h\U g$ verifies 
+$h\U g$. That is, $h\U g$ verifies
 
 <div>
  $$\begin{aligned}
@@ -746,7 +745,7 @@ $h\U g$. That is, $h\U g$ verifies
 
   A small reasoning shows that $h\U g$ is a linear
 function of $g$, that is, there exists $T^:H \to H$ with $T^ g=h\U g$,
-or in other words 
+or in other words
 
 <div>
  $$\begin{align}
@@ -755,7 +754,7 @@ or in other words
     \end{align}$$
 </div>
 
- 
+
 
 
 Definition 6. Given $T \in \mathcal{L}(H)$ we denote by $T^$ the
@@ -782,7 +781,7 @@ a wide class of problems, an important tool is Lax-Milgram's theorem. We
 first need two definitions
 
 
-Definition 7. We say that a mapping 
+Definition 7. We say that a mapping
 
 <div>
  $$\begin{aligned}
@@ -792,7 +791,7 @@ Definition 7. We say that a mapping
 
   on a vector space $V$, is sesquilinear if $B$ is
 linear in the first component and antilinear in the second. That is, for
-all $x,y,z \in V$ and $\lambda \in \mathbb{K}$: 
+all $x,y,z \in V$ and $\lambda \in \mathbb{K}$:
 
 <div>
  $$\begin{aligned}
@@ -800,7 +799,7 @@ all $x,y,z \in V$ and $\lambda \in \mathbb{K}$:
         \end{aligned}$$
 </div>
 
- 
+
 
 
 
@@ -813,7 +812,7 @@ exists a constant $\alpha>0$ such that
  $$B(f,f)\geq c\left\lVert f \right\rVert^2 \quad\forall f \in  H.$$
 </div>
 
- 
+
 
 
 The coercivity condition essentially imposes that the bilinear form is
@@ -831,7 +830,7 @@ and $f \in H$ such that
  $$B(v,u)=\left\langle v,\mathcal{L}u\right\rangle; \quad L(v)=\left\langle v,f\right\rangle.$$
 </div>
 
- 
+
 As a result, eqalign
 
 <div>
@@ -857,7 +856,7 @@ sucalign
             B(v,u)= \ell \U u(v)= \left\langle v, f\U {\ell \U u}\right\rangle .$$
 </div>
 
- 
+
 Furthermore, it can be verified that, by the sesquilinearity of $B$, the
 mapping $u \to f\U {\ell \U u}$ is linear in $u$. That is, there exists
 $\mathcal{L}: H\to H$ sucalign
@@ -878,7 +877,7 @@ $u\in  H$
  $$\left\lVert \mathcal{L}u \right\rVert^2=\left\langle\mathcal{L}u,  \mathcal{L}u\right\rangle=B(\mathcal{L}u, u)\leq \left\lVert B \right\rVert \left\lVert u \right\rVert\left\lVert  \mathcal{L}u \right\rVert.$$
 </div>
 
- 
+
 So dividing by $\left\lVert \mathcal{L}u \right\rVert$ on either side
 shows that
 $\left\lVert \mathcal{L} \right\rVert \leq \left\lVert B \right\rVert$.
@@ -889,7 +888,7 @@ Now, $\mathcal{L}$ is injective as if $\mathcal{L}u=0$ then
  $$0=\left\langle u, \mathcal{L}u\right\rangle= B(u,u) \geq \alpha \left\lVert u \right\rVert^2 .$$
 </div>
 
- 
+
 We now show that $\mathcal{L}$ is surjective. Consider
 $u \in  \Im(\mathcal{L})^\perp$, then it holdalign
 
@@ -898,10 +897,9 @@ $u \in  \Im(\mathcal{L})^\perp$, then it holdalign
             \left\langle u, \mathcal{L}u\right\rangle= B(u,u)\geq \alpha \left\lVert u \right\rVert^2.$$
 </div>
 
- 
+
 As a result, we deduce from the orthogonal complement theorem
-[2](#complement theorem){reference-type="ref"
-reference="complement theorem"} that $\overline{\Im(\mathcal{L})}=0$.
+\ref{complement} that $\overline{\Im(\mathcal{L})}=0$.
 Thus, if we show that $\mathcal{L}$ is closed we are done. The estimate
 in (\ref{est})  together with
 Cauchy Schwartz shows that for all $u \in H$
@@ -911,7 +909,7 @@ Cauchy Schwartz shows that for all $u \in H$
  $$\left\lVert  \mathcal{L}u \right\rVert\geq \left\lVert u \right\rVert.$$
 </div>
 
- 
+
 From here it follows that $\mathcal{L}$ is closed, as if
 $\mathcal{L}u\U n \in  \Im (\mathcal{L})$ is a Cauchy sequence then so
 must be $u\U n$. By completeness of $\mathcal{L}$, the sequence $u\U n$
@@ -926,7 +924,7 @@ $\mathcal{L}^{-1}$ let us write $u =\mathcal{L}^{-1} f$ then
  $$\alpha \left\lVert u \right\rVert^2 \leq B(u,u) = \left\langle u,f\right\rangle\leq \left\lVert u \right\rVert\left\lVert f \right\rVert .$$
 </div>
 
- 
+
 Dividing on either side by $\alpha \left\lVert u \right\rVert$ concludes
 the proof. ◻
 
@@ -935,7 +933,7 @@ If we had assumed that $B$ were (anti-)symmetric then the proof would
 have been simplified as $B$ would define an inner product
 $\left\langle\cdot ,\cdot \right\rangle\U B$. Applying Riesz's theorem to
 this inner product (as opposed to the original one) would transform our
-equation (\ref{lax eq})  into 
+equation (\ref{lax eq})  into
 
 <div>
  $$\begin{align}
@@ -953,7 +951,7 @@ real, we can also find $u$ by solving a minimization problem
 $B: H\times H \to \mathbb{R}$ be a symmetric coercive bilinear operator
 on a real Hilbert space $H$. Then, problem
 (\ref{lax eq})  is
-equivalent to minimizing 
+equivalent to minimizing
 
 <div>
  $$\begin{aligned}
@@ -961,14 +959,14 @@ equivalent to minimizing
         \end{aligned}$$
 </div>
 
- 
+
 
 
 
 Proof. To prove that a solution to
-(\ref{lax eq}) 
+(\ref{lax eq})
 minimizes $J$ we can develop $J(u+v)$ and simplify it using
-$B(v,u)=L(v)$ to obtain 
+$B(v,u)=L(v)$ to obtain
 
 <div>
  $$\begin{aligned}
@@ -978,7 +976,7 @@ $B(v,u)=L(v)$ to obtain
 
   To prove that a minimum of $J$ solves
 $\eqref{lax eq}$ one can show by taking limits as $\lambda  \to 0$ in
-the expression 
+the expression
 
 <div>
  $$\begin{aligned}
@@ -986,7 +984,7 @@ the expression
         \end{aligned}$$
 </div>
 
-  That for all $h \in  H$ 
+  That for all $h \in  H$
 
 <div>
  $$\begin{aligned}
@@ -1021,7 +1019,7 @@ finite-dimensional operators . Or more precisely, as the limit of them
 
 Proposition 6. Let $T \in  \mathcal{K}(X,H)$ where $H$ is a
 separable Hilbert space . Then there exists a sequence of
-finite-dimensional operators $T\U n$ such that 
+finite-dimensional operators $T\U n$ such that
 
 <div>
  $$\begin{aligned}
@@ -1029,7 +1027,7 @@ finite-dimensional operators $T\U n$ such that
         \end{aligned}$$
 </div>
 
- 
+
 
 
 
@@ -1037,7 +1035,7 @@ Proof. Since $H$ is separable there exists a countable orthonormal
 basis $\left\{\phi\U n\right\}\U {n \in \mathbb{N}}$. If we denote $T\U n$ for
 the projection of $T$ onto the space generated by
 $\left\{\phi\U 1,\ldots,\phi\U n\right\}$ then, by Parseval's Theorem
-pointwise convergence holds 
+pointwise convergence holds
 
 <div>
  $$\begin{aligned}
@@ -1049,7 +1047,7 @@ pointwise convergence holds
 $T(B\U X)$ is relatively compact. So $T(B\U X)$ is totally bounded and given
 $\epsilon >0$ we can form a finite $\epsilon$ net $Tx\U 1,\ldots,Tx\U m$ of
 $T(B(X)$. By pointwise convergence, we can now take $n\U 0$ large enough
-so that for all $N \geq n\U 0$ 
+so that for all $N \geq n\U 0$
 
 <div>
  $$\begin{aligned}
@@ -1059,7 +1057,7 @@ so that for all $N \geq n\U 0$
 
   Now, for any $x\in B\U X$ we can find $x\U j$ such
 that $\left\lVert Tx-Tx\U j \right\rVert< \epsilon$. Using the triangle
-inequality 
+inequality
 
 <div>
  $$\begin{aligned}
@@ -1073,8 +1071,8 @@ inequality
 An important property of compact operators is that they are preserved by
 continuous ones.
 
- {#comp .proposition}
-Proposition 7. Let $K \in \mathcal{K}(X,Y), T \in L(Y,Z)$ with $Z$
+
+Proposition 7. \label{comp} Let $K \in \mathcal{K}(X,Y), T \in L(Y,Z)$ with $Z$
 complete, then $T \circ K$ is compact
 
 
@@ -1090,7 +1088,7 @@ theorem
  {#Rellich .theorem}
 Theorem 8 (Rellich-Kondrachov). Let $U \subset \mathbb{R}^n$ be a
 bounded open domain in $\mathbb{R}^n$ with smooth boundary. Then, given
-$s >0$ it holds that the natural inclusion 
+$s >0$ it holds that the natural inclusion
 
 <div>
  $$\begin{aligned}
@@ -1125,12 +1123,11 @@ smooth boundary and $s, \sigma >0$, then every continuous operator
 Proof. We have that $T= T \circ i$ so we conclude by
 Rellich-Kondrachov's theorem [8](#Rellich){reference-type="ref"
 reference="Rellich"} and the preservation of compact operators by
-continuous ones (Proposition [7](#comp){reference-type="ref"
-reference="comp"}). ◻
+continuous ones (Proposition 7 \ref{comp}). ◻
 
 
 Compact operators also have a nice spectral theory. Where we recall that
-the spectrum of an operator $T$ is defined as 
+the spectrum of an operator $T$ is defined as
 
 <div>
  $$\begin{aligned}
@@ -1146,7 +1143,7 @@ Theorem 9 (Spectral theorem). Let $T \in \mathcal{K}(H)$ be a
 compact self adjoint operator on a Hilbert space $H$. Then $T$
 diagonalizes on an orthonormal basis. That is, there exists an
 orthonormal basis $\left\{\phi\U \alpha\right\} \U {\alpha \in  I}$ and
-$\lambda \U \alpha \in \mathbb{K}$ such that 
+$\lambda \U \alpha \in \mathbb{K}$ such that
 
 <div>
  $$\begin{aligned}
@@ -1154,7 +1151,7 @@ $\lambda \U \alpha \in \mathbb{K}$ such that
         \end{aligned}$$
 </div>
 
- 
+
 
 
 A more general result is possible but requires more theory so we reserve
