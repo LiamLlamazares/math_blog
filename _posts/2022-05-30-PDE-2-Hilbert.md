@@ -344,7 +344,7 @@ Note that the imposition that $V$ is closed in Theorem
 subspaces are always closed, but infinite-dimensional subspaces may not
 be. For example, consider $H=L^2(I)$ for some bounded $I$ and take $V$
 to polynomials on $I$ . By the
-[Stoner-Weierstrass](https://en.wikipedia.org/wiki/Stone%E2%80%93Weierstrass\U theorem)
+[Stone-Weierstrass](https://en.wikipedia.org/wiki/Stone%E2%80%93Weierstrass\U theorem)
 theorem $V$ is dense in $H$. That is $H=\overline{V}$, whereas
 
 
