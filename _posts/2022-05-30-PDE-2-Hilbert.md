@@ -49,14 +49,15 @@ for the space of continuous linear functions to the base field of $X$.
 
 In writing the next post in the series of PDEs I realized that there
 were many results from functional analysis which had not been discussed
-and would be necessary. As such this post is meant as a short, yet
+and would be necessary. As such, this post is meant as a short, yet
 rather longer than I intended, introduction to the basic theory that
-will be required. I'm going to assume you know nothing (please don't
-feel insulted) and go over the main ideas and results. Much of the
-material may be familiar so please feel free to skim briefly through the
-results or skip entirely. There is a lot of theory to cover so the
-proofs will only be sketched. For more details see for example
-[1](https://books.google.co.uk/books?hl=en&lr=&id=wCHtLumoGY4C&oi=fnd&pg=PR3&dq=narici+bachman&ots=vxU8cRul6s&sig=tGyszvXv-1psk-qyJ8ruM6S7l5I&redir\U esc=y#v=onepage&q=narici%20bachman&f=false).
+will be required.
+
+I'm going to assume you know nothing (please don't feel insulted) and go
+over the main ideas and results. Much of the material may be familiar so
+please feel free to skim briefly through the results or skip entirely.
+There is a lot of theory to cover so the proofs will only be sketched.
+For more details see for example [1](https://books.google.co.uk/books?hl=en&lr=&id=wCHtLumoGY4C&oi=fnd&pg=PR3&dq=narici+bachman&ots=vxU8cRul6s&sig=tGyszvXv-1psk-qyJ8ruM6S7l5I&redir\U esc=y#v=onepage&q=narici%20bachman&f=false).
 
 # A brief recap of Hilbert spaces
 
@@ -95,7 +96,7 @@ product to define a norm by
 
 <div>
  $$\begin{aligned}
-        \left\lVert x \right\rVert^2:= \left\langle x,x\right\rangle.
+        \lVert x \rVert^2:= \left\langle x,x\right\rangle.
     \end{aligned}$$
 </div>
 
@@ -104,7 +105,7 @@ Euclidean norm
 
 <div>
  $$\begin{aligned}
-        \left\lVert x \right\rVert^2= \left\langle x,x\right\rangle= \left| x\U 1 \right| ^2+\ldots +\left| x\U n \right|^2 .
+        \lVert x \rVert^2= \left\langle x,x\right\rangle= \left| x\U 1 \right| ^2+\ldots +\left| x\U n \right|^2 .
     \end{aligned}$$
 </div>
 
@@ -129,11 +130,15 @@ $x,y,z \in V$ and all $\lambda \in \mathbb{K}$
 1.  Linearity:
     $\left\langle\lambda x+y,z\right\rangle= \lambda \left\langle x,z\right\rangle+ \left\langle y,z\right\rangle$.
 
-2.  Conjugate symmetry:
+2.  Conjugate symmetry
     $\left\langle x,y\right\rangle= \overline{\left\langle y,x\right\rangle}$.
 
-3.  Positivity: $\left\langle x,x\right\rangle =0$ if and only if
+3.  Positivity $\left\langle x,x\right\rangle =0$ if and only if
     $x=0$.
+
+
+
+**Definition 2**.
 
 
 In what follows we will take always take the base field to be
@@ -152,12 +157,12 @@ being the identity. Note that the first two properties also imply
 inner product space. This inner product gives us a concept of geometry.
 
 
-**Definition 2**. Given an inner product space $V$ we define
+**Definition 3**. Given an inner product space $V$ we define
 
 
 <div>
  $$\begin{aligned}
-            \left\lVert x \right\rVert:= \sqrt{\left\langle x,x\right\rangle}.
+            \lVert x \rVert:= \sqrt{\left\langle x,x\right\rangle}.
         \end{aligned}$$
 </div>
 
@@ -171,7 +176,7 @@ are orthogonal then by the linearity of the inner product.
 
 <div>
  $$\begin{aligned}
-        \left\lVert x+y \right\rVert^2 = \left\langle x+y,x+y\right\rangle= \left\lVert x \right\rVert^2 +\left\lVert y \right\rVert^2.
+        \lVert x+y \rVert^2 = \left\langle x+y,x+y\right\rangle= \lVert x \rVert^2 +\lVert y \rVert^2.
     \end{aligned}$$
 </div>
 
@@ -184,7 +189,7 @@ then it holds that
 
 <div>
  $$\begin{aligned}
-            \left\langle x,y\right\rangle\leq \left\lVert x \right\rVert\left\lVert y \right\rVert.
+            \left\langle x,y\right\rangle\leq \lVert x \rVert\lVert y \rVert.
         \end{aligned}$$
 </div>
 
@@ -197,13 +202,13 @@ properties of Euclidean space, namely the vector space structure and
 inner product. The third key property is that of completeness.
 
 
-**Definition 3**. A Hilbert space is a complete inner product space
+**Definition 4**. A Hilbert space is a complete inner product space
 $(H, \left\langle\cdot ,\cdot \right\rangle)$. Where completeness is
 respect to the inner product norm
 
 <div>
  $$\begin{aligned}
-            \left\lVert x \right\rVert^2:= \left\langle x,x\right\rangle.
+            \lVert x \rVert^2:= \left\langle x,x\right\rangle.
         \end{aligned}$$
 </div>
 
@@ -211,10 +216,8 @@ respect to the inner product norm
 
 
 Cool! Now we know what is a Hilbert space. Some examples that have come
-up in previous posts are the space of [square-integrable
-functions](https://nowheredifferentiable.com/2022-05-27-The-Bochner-integral/#:~:text=we%20can%20integrate.-,Our,-next%20definitions%20are)
-valued in another Hilbert space $H$ with the inner product
-
+up in previous posts are the space of square-integrable functions valued
+in another Hilbert space $H$ with the inner product
 
 <div>
  $$\begin{aligned}
@@ -222,19 +225,18 @@ valued in another Hilbert space $H$ with the inner product
     \end{aligned}$$
 </div>
 
-  Another are the [Sobolev
-spaces](https://nowheredifferentiable.com/2023-01-29-PDE-1/#:~:text=From%20the%20two-,equations,-above%20we%20deduce)
-$H^s(\mathbb{R}^d)$ with the inner product
+  Another are the Sobolev spaces $H^s(U)$ with the
+inner product
 
 <div>
  $$\begin{aligned}
-        \left\langle f,g\right\rangle\U {H^s(\mathbb{R}^d)}:= \int\U {\mathbb{R}^d} \left\langle\omega\right\rangle^{2s} \widehat{f}(\xi ) \overline{\widehat{g}(\xi )}d\xi  .
+        \left\langle f,g\right\rangle\U {H^s(U)}:= \int\U {U} \left\langle\omega\right\rangle^{2s} \widehat{f}(\xi ) \overline{\widehat{g}(\xi )}d\xi  .
     \end{aligned}$$
 </div>
 
   (I apologize for using the same notation for the
 Japanese bracket and the inner product). One result that carries over
-from Euclidean spaces to Hilbert spaces is that of projection.
+from Euclidean spaces to Hilbert spaces is the existence of projections.
 
  <a name="projection">
 **Theorem 1** </a>  (Projection theorem). Let $F$ be a closed convex subset
@@ -243,13 +245,13 @@ $f \in F$ such that
 
 <div>
  $$\begin{aligned}
-            \min\U {g \in F}\left\lVert h-g \right\rVert= \left\lVert h-f \right\rVert.
+            \min\U {g \in F}\lVert h-g \rVert= \lVert h-f \rVert.
         \end{aligned}$$
 </div>
 
   Furthermore, if $F$ is a (vector) subspace, then
 it holds that $f$ is the unique element in $F$ such that $h-f$ is
-orthogonal to $F$. That is, it is the unique $f\in F$ verifying
+orthogonal to $F$. That is $f\in F$ is the only one verifying
 
 
 <div>
@@ -335,7 +337,7 @@ An important corollary of this is the following
 
 
 Note that the imposition that $V$ is closed in Theorem
-[2](#complement theorem) is necessary. Finite dimensional
+[2](#complement theorem) is necessary. Finite-dimensional
 subspaces are always closed, but infinite-dimensional subspaces may not
 be. For example, consider $H=L^2(I)$ for some bounded $I$ and take $V$
 to polynomials on $I$ . By the
@@ -350,10 +352,10 @@ theorem $V$ is dense in $H$. That is $H=\overline{V}$, whereas
 </div>
 
   Another property of Euclidean space that Hilbert
-spaces reproduce is that of the existence of an orthonormal basis.
+spaces reproduce is that of the existence of an orthonormal basis
 
 
-**Definition 4**. Let $H$ be a Hilbert space and $I$ some index set. We
+**Definition 5**. Let $H$ be a Hilbert space and $I$ some index set. We
 say that $\mathcal{B}=\left\\{\phi\U \alpha\right\\}\U {\alpha \in  I}$ is an
 orthonormal basis of $H$ if
 
@@ -377,11 +379,10 @@ $\lambda \U \alpha \in  \mathbb{C}$ such that
 
 
 Note that we impose no conditions on the Index set $I$ which may be
-countable or uncountable. In this second case we need to make precise
-what is meant by (\ref{sum}) .
+countable or uncountable.
 
 
-**Definition 5**. Given an index set $I$ and a normed vector space $X$
+Definition 6. Given an index set $I$ and a normed vector space $X$
 we say that $x\U \alpha$ is absolutely summable to $x$ and write
 
 
@@ -397,7 +398,7 @@ that
 
 <div>
  $$\begin{aligned}
-            \left\lVert x-\sum\U {\alpha\notin J} x\U \alpha \right\rVert<\epsilon  .
+            \lVert x-\sum\U {\alpha\notin J} x\U \alpha \rVert<\epsilon  .
         \end{aligned}$$
 </div>
 
@@ -417,10 +418,9 @@ are non-zero. Let us take the nonzero terms and relabel them
 $\left\\{x\U n\right\\}\U {n \in \mathbb{N}}$, then
 
 <div>
- $$\begin{align}
-\label{eq}
+ $$\begin{aligned}
             x= \sum\U {n=0}^{\infty} x\U n.
-        \end{align}$$
+        \end{aligned}$$
 </div>
 
 
@@ -431,15 +431,14 @@ Proof. Take $J\U n$ such that
 
 <div>
  $$\begin{aligned}
-            \left\lVert x-\sum\U { \alpha \notin J\U n} x\U \alpha \right\rVert< \frac{1}{n}   .
+            \lVert x-\sum\U { \alpha \notin J\U n} x\U \alpha \rVert< \frac{1}{n}   .
         \end{aligned}$$
 </div>
 
   Then $J:= \cup\U n J\U n$ is countable (it is a
 countable union of countable sets) and a small reasoning shows that $J$
-are the non-zero terms of $I$. The equality in
-(\ref{eq})  then follows
-quickly from the definition of summable to $x$. ◻
+are the non-zero terms of $I$. The fact that the nonzero $x\U n$ sum to
+$x$ is just a consequence of the definition of absolute summability. ◻
 
 
 Now that we made sense of the sum over a potentially uncountable number
@@ -476,14 +475,13 @@ we have the bound
 
   As a result by [Zorn's
 lemma](https://en.wikipedia.org/wiki/Zorn%27s\U lemma) there exists a
-maximal element $\mathcal{B}$. If $\mathcal{B}$ is not complete (that
-is, (\ref{sum})  doesn't
-hold), then there exists $f \in \overline{\mathcal{B}}^\perp$. By taking
-$f /\left\lVert f \right\rVert$ and forming
-$\mathcal{B}':=\mathcal{B}\cup \left\\{f \left\lVert f \right\rVert\right\\}$
-we obtain that $\mathcal{B}\subsetneq \mathcal{B}' \in \mathcal{A}$.
-This contradicts the maximality of $\mathcal{B}$ and concludes the
-proof. ◻
+maximal element $\mathcal{B}$. If $\mathcal{B}$ is not complete (that is
+(\ref{sum})  doesn't hold),
+then there exists $f \in \overline{\mathcal{B}}^\perp$. By taking
+$f /\lVert f \rVert$ and forming
+$\mathcal{B}':=\mathcal{B}\cup \left\\{f \lVert f \rVert\right\\}$ we
+obtain that $\mathcal{B}\subsetneq \mathcal{B}' \in \mathcal{A}$. This
+contradicts the maximality of $\mathcal{B}$ and concludes the proof. ◻
 
 
 The next result is the natural generalization of Pythagoras's theorem to
@@ -496,7 +494,7 @@ every $f \in  H$ it holds that
 
 <div>
  $$\begin{aligned}
-            f= \sum\U {\alpha \in  I} \left\langle f,\phi\U \alpha\right\rangle\phi\U \alpha;\quad \left\lVert f \right\rVert^2=\sum\U {\alpha\in I} \left\lVert \phi\U \alpha \right\rVert^2.
+            f= \sum\U {\alpha \in  I} \left\langle f,\phi\U \alpha\right\rangle\phi\U \alpha;\quad \lVert f \rVert^2=\sum\U {\alpha\in I} \lVert \phi\U \alpha \rVert^2.
         \end{aligned}$$
 </div>
 
@@ -540,10 +538,9 @@ isometry
 </div>
 
   In particular, every Hilbert space with a countable
-basis (or equivalently, which is seperable) is isometric to
-$\ell ^2(\mathbb{N})$. However, the identification is not "canonical" as
-it depends on the bases chosen. The next example is all pervasive (in
-fact it has [even invaded our
+basis is isometric to $\ell ^2(\mathbb{N})$. However, the identification
+is not "canonical" as it depends on the bases chosen. The next example
+is all pervasive (in fact it has [even invaded our
 blog](https://nowheredifferentiable.com/2023-01-29-PDE-1/))
 
 
@@ -601,7 +598,8 @@ conjugate of the "matrix" defined by $\ell$ as a linear function
 </div>
 
   Where $e\U i$ is the standard orthonormal basis of
-$\mathbb{C}^n$. In Hilbert spaces, the same result holds
+$\mathbb{C}^n$. In Hilbert spaces, the same result holds for Hilbert
+spaces
 
  <a name="riesz theorem">
 **Theorem 5** </a>  (Riesz representation ). Let $H$ be a Hilbert space, then
@@ -616,7 +614,7 @@ given $\ell \in H'$ there exists a unique $f\U \ell \in H$ such that
 </div>
 
   Furthermore,
-$\left\lVert f\U \ell  \right\rVert=\left\lVert \ell  \right\rVert$.
+$\lVert f\U \ell  \rVert=\lVert \ell  \rVert$.
 
 
 
@@ -648,14 +646,13 @@ $h \in  H$ with norm $1$
 
 <div>
  $$\begin{aligned}
-            \ell   \left(\frac{f\U \ell }{\left\lVert f\U \ell  \right\rVert} \right)= \left\langle\frac{f\U \ell }{\left\lVert f\U \ell  \right\rVert} ,f\U \ell \right\rangle=\left\lVert f\U \ell  \right\rVert; \quad \ell(h)= \left\langle h, f\U \ell \right\rangle\leq \left\lVert h \right\rVert\left\lVert f\U \ell  \right\rVert= \left\lVert f\U \ell  \right\rVert.
+            \ell   \left(\frac{f\U \ell }{\lVert f\U \ell  \rVert} \right)= \left\langle\frac{f\U \ell }{\lVert f\U \ell  \rVert} ,f\U \ell \right\rangle=\lVert f\U \ell  \rVert; \quad \ell(h)= \left\langle h, f\U \ell \right\rangle\leq \lVert h \rVert\lVert f\U \ell  \rVert= \lVert f\U \ell  \rVert.
         \end{aligned}$$
 </div>
 
   The equality shows that
-$\left\lVert \ell  \right\rVert\geq \left\lVert f\U \ell  \right\rVert$
-whereas the inequality shows the converse
-$\left\lVert \ell  \right\rVert\leq \left\lVert f\U \ell  \right\rVert$,
+$\lVert \ell  \rVert\geq \lVert f\U \ell  \rVert$ whereas the inequality
+shows the converse $\lVert \ell  \rVert\leq \lVert f\U \ell  \rVert$,
 proving the theorem. ◻
 
 
@@ -664,7 +661,7 @@ The previous theorem says that we have an antilinear isometry
 
 <div>
  $$\begin{aligned}
-        \Phi\U 1:    H\to H' ;\quad  f\U \ell\to \ell  .
+        \Phi\U 1:    H\to H';\quad f\U \ell  \to \ell .
     \end{aligned}$$
 </div>
 
@@ -695,7 +692,7 @@ there exists a canonical antilinear isometry
 
 <div>
  $$\begin{aligned}
-        \Phi\U 2:  H'\to H''; \ell  \to \varphi\U \ell  .
+        \Phi\U 2:  H'\to H''; \ell\U \varphi \to \varphi .
     \end{aligned}$$
 </div>
 
@@ -726,6 +723,8 @@ Theorem 6. Every Hilbert space is reflexive.
 Consider now a Hilbert space $H$ and a linear operator $T: H \to H$.
 Then, for each $g \in H$ we can define the linear form
 
+
+
 <div>
  $$\begin{aligned}
         \ell\U g := \left\langle T\cdot ,g\right\rangle.
@@ -743,12 +742,11 @@ $h\U g$. That is, $h\U g$ verifies
 </div>
 
   A small reasoning shows that $h\U g$ is a linear
-function of $g$, that is, there exists $T^\star :H \to H$ with $T^\star  g=h\U g$,
-or in other words
+function of $g$, that is, there exists $T^\star :H \to H$ with $T^\star g=h\U g$, or
+in other words
 
 <div>
- $$\begin{align}
-\label{adjoint}
+ $$\begin{aligned}align  \label{adjoint}
         \left\langle Tf,g\right\rangle=\left\langle f, T^\star g\right\rangle , \quad\forall f,g \in  H.
     \end{align}$$
 </div>
@@ -756,10 +754,8 @@ or in other words
 
 
 
-Definition 6. Given $T \in \mathcal{L}(H)$ we denote by $T^\star $ the
-unique element of $\mathcal{L}(H)$ verifying
-(\ref{adjoint}) . If
-$T=T^\star $ we say that $T$ is self adjoint.
+Definition 7. Given $T \in \mathcal{L}(H)$ we denote by $T^\star $ the
+unique element verifying (\ref{adjoint})  . If $T=T^\star $ we say that $T$ is self adjoint.
 
 
 If we think in terms of complex numbers, the adjoint of an element
@@ -767,12 +763,12 @@ $\lambda  \in \mathbb{C}$ is $\overline{\lambda }$ and $T$ is self
 adjoint if and only if it is real. If now we consider the case where $H$
 is $\mathbb{C}^n$ and $T$ is given by some matrix $A$ then
 $A^\star =A^\dagger:= \overline{A^T}$. As in these finite dimensional cases,
-the following proof is not difficult
+the following proof is not difficult.
 
 
 **Proposition 4**. Let $T \in \mathcal{L}(H)$ with $H$ a Hilbert space.
-Then $T^\star  \in \mathcal{L}(H)$ with
-$\left\lVert T \right\rVert=\left\lVert T^\star  \right\rVert$.
+Then $T^\star \in \mathcal{L}(H)$ with
+$\left\lVert T \right\rVert=\left\lVert T^\star \right\rVert$.
 
 
 Hilbert spaces provide us a way to guarantee existence and uniqueness to
@@ -780,7 +776,7 @@ a wide class of problems, an important tool is Lax-Milgram's theorem. We
 first need two definitions
 
 
-Definition 7. We say that a mapping
+Definition 8. We say that a mapping
 
 <div>
  $$\begin{aligned}
@@ -802,13 +798,14 @@ all $x,y,z \in V$ and $\lambda \in \mathbb{K}$:
 
 
 
-Definition 8. Let $V$ be a normed vector space then we say that a
+Definition 9. Let $V$ be a normed vector space then we say that a
 sesquilinear form $B$ is $\alpha$ coercive if it is continuous and there
 exists a constant $\alpha>0$ such that
 
-
 <div>
- $$B(f,f)\geq c\left\lVert f \right\rVert^2 \quad\forall f \in  H.$$
+ $$\begin{aligned}
+            B(f,f)\geq c\lVert f \rVert^2 \quad\forall f \in  H.
+        \end{aligned}$$
 </div>
 
 
@@ -824,117 +821,130 @@ coercive sesquilinear form and a linear form on a Hilbert space $H$.
 Then there exists an invertible linear operator $\mathcal{L}:H \to H$
 and $f \in H$ such that
 
+<div>
+ $$\begin{aligned}
+            B(v,u)=\left\langle v,\mathcal{L}u\right\rangle; \quad L(v)=\left\langle v,f\right\rangle.
+        \end{aligned}$$
+</div>
+
+  As a result, equation
 
 <div>
- $$B(v,u)=\left\langle v,\mathcal{L}u\right\rangle; \quad L(v)=\left\langle v,f\right\rangle.$$
+ $$\begin{align}
+\label{lax eq}
+            B(v,u)=L(v) \quad\forall v \in H
+        \end{align}$$
+</div>
+
+  has a unique solution $u= \mathcal{L}^{-1} f$.
+Furthermore, the solution operator $\mathcal{L}^{-1}$ is continuous with
+
+
+<div>
+ $$\begin{aligned}
+            \lVert \mathcal{L}^{-1} \rVert\leq \alpha^{-1} .
+        \end{aligned}$$
 </div>
 
 
-As a result, eqalign
-
-<div>
- $$\label{lax eq}
-            B(v,u)=L(v) \quad\forall v \in H$$
-</div>
-
-  has a unique solution
-$u= \mathcal{L}^{-1} f$. Furthermore, the solution operator
-$\mathcal{L}^{-1}$ is continuous with
-$\left\lVert \mathcal{L}^{-1} \right\rVert\leq \alpha^{-1}$.
 
 
 
 Proof. For each fixed $u \in H$, we have that
 $\ell\U u :=B(\cdot ,u) \in  H'$. As a result by Riesz's representation
 theorem (Theorem [5](#riesz theorem)) there exists a unique $f\U {\ell \U u} \in H$
-sucalign
+such that
 
 <div>
- $$\label{f}
-            B(v,u)= \ell \U u(v)= \left\langle v, f\U {\ell \U u}\right\rangle .$$
+ $$\begin{align}
+\label{f}
+            B(v,u)= \ell \U u(v)= \left\langle v, f\U {\ell \U u}\right\rangle .
+        \end{align}$$
 </div>
 
-
-Furthermore, it can be verified that, by the sesquilinearity of $B$, the
+  Furthermore, it can be simply verified that the
 mapping $u \to f\U {\ell \U u}$ is linear in $u$. That is, there exists
-$\mathcal{L}: H\to H$ sucalign
+$\mathcal{L}: H\to H$ such that
 
 <div>
- $$\label{g}
-            \mathcal{L}u =f\U {\ell \U u} \quad\forall  u \in H.$$
+ $$\begin{align}
+\label{g}
+            \mathcal{L}u =f\U {\ell \U u} \quad\forall  u \in H.
+        \end{align}$$
 </div>
 
-  The
-existence of the representative $f \in  H$ of $L$ is once more by
-Riesz's representation theorem. We now show that $\mathcal{L}$ verifies
-the desired properties. Firstly, $\mathcal{L}$ is continuous as given
-$u\in  H$
-
+  The existence of the representative $f \in  H$
+of $L$ is once more by Riesz's representation theorem. We now show that
+$\mathcal{L}$ verifies the desired properties. Firstly $\mathcal{L}$ is
+continuous as, given $u\in  H$
 
 <div>
- $$\left\lVert \mathcal{L}u \right\rVert^2=\left\langle\mathcal{L}u,  \mathcal{L}u\right\rangle=B(\mathcal{L}u, u)\leq \left\lVert B \right\rVert \left\lVert u \right\rVert\left\lVert  \mathcal{L}u \right\rVert.$$
+ $$\begin{aligned}
+            \lVert \mathcal{L}u \rVert^2=\left\langle\mathcal{L}u,  \mathcal{L}u\right\rangle=B(\mathcal{L}u, u)\leq \lVert B \rVert \lVert u \rVert\lVert  \mathcal{L}u \rVert.
+        \end{aligned}$$
 </div>
 
-
-So dividing by $\left\lVert \mathcal{L}u \right\rVert$ on either side
-shows that
-$\left\lVert \mathcal{L} \right\rVert \leq \left\lVert B \right\rVert$.
+  So dividing by $\lVert \mathcal{L}u \rVert$ on
+either side shows that $\lVert \mathcal{L} \rVert \leq \lVert B \rVert$.
 Now, $\mathcal{L}$ is injective as if $\mathcal{L}u=0$ then
 
 
 <div>
- $$0=\left\langle u, \mathcal{L}u\right\rangle= B(u,u) \geq \alpha \left\lVert u \right\rVert^2 .$$
+ $$\begin{aligned}
+            0=\left\langle u, \mathcal{L}u\right\rangle= B(u,u) \geq \alpha \lVert u \rVert^2 .
+        \end{aligned}$$
 </div>
 
-
-We now show that $\mathcal{L}$ is surjective. Consider
-$u \in  \Im(\mathcal{L})^\perp$, then it holdalign
-
-<div>
- $$\label{est}
-            \left\langle u, \mathcal{L}u\right\rangle= B(u,u)\geq \alpha \left\lVert u \right\rVert^2.$$
-</div>
-
-
-As a result, we deduce from the orthogonal complement theorem
-[2](#complement theorem) that $\overline{\Im(\mathcal{L})}=0$.
-Thus, if we show that $\mathcal{L}$ is closed we are done. The estimate
-in (\ref{est})  together with
-Cauchy Schwartz shows that for all $u \in H$
+  We now prove surjectivity of $\mathcal{L}$.
+Consider $u \in  \Im(\mathcal{L})^\perp$, then it holds that
 
 
 <div>
- $$\left\lVert  \mathcal{L}u \right\rVert\geq \left\lVert u \right\rVert.$$
+ $$\begin{align}
+\label{est}
+            \left\langle u, \mathcal{L}u\right\rangle= B(u,u)\geq \alpha \lVert u \rVert^2.
+        \end{align}$$
 </div>
 
+  As a result, we deduce from the corollary of the
+orthogonal complement theorem [1](#cor) that $\overline{\Im(\mathcal{L})}=0$. Thus, if we show
+that $\mathcal{L}$ is closed invertibility follows. The estimate in
+(\ref{est})  together with
+Cauchy Schwartz show that for all $u \in H$
 
-From here it follows that $\mathcal{L}$ is closed, as if
-$\mathcal{L}u\U n \in  \Im (\mathcal{L})$ is a Cauchy sequence then so
-must be $u\U n$. By completeness of $\mathcal{L}$, the sequence $u\U n$
-converges to some $u \in  H$ and we deduce, by continuity of
-$\mathcal{L}$, that
+<div>
+ $$\begin{aligned}
+            \lVert  \mathcal{L}u \rVert\geq \lVert u \rVert.
+        \end{aligned}$$
+</div>
+
+  As if $\mathcal{L}u\U n \in  \Im (\mathcal{L})$ is
+a Cauchy sequence then so must be $u\U n$. By completeness of
+$\mathcal{L}$, the sequence $u\U n$ converges to some $u \in  H$ and we
+deduce, by continuity of $\mathcal{L}$, that
 $\mathcal{L}u\U n \to \mathcal{L}u \in \Im (\mathcal{L})$. In consequence,
 $\mathcal{L}$ is invertible, finally to show the bound on
 $\mathcal{L}^{-1}$ let us write $u =\mathcal{L}^{-1} f$ then
 
 
 <div>
- $$\alpha \left\lVert u \right\rVert^2 \leq B(u,u) = \left\langle u,f\right\rangle\leq \left\lVert u \right\rVert\left\lVert f \right\rVert .$$
+ $$\begin{aligned}
+            \alpha \lVert u \rVert^2 \leq B(u,u) = \left\langle u,f\right\rangle\leq \lVert u \rVert\lVert f \rVert .
+        \end{aligned}$$
 </div>
 
+  Dividing on either side by
+$\alpha \lVert u \rVert$ concludes the proof. ◻
 
-Dividing on either side by $\alpha \left\lVert u \right\rVert$ concludes
-the proof. ◻
 
-
-If we had assumed that $B$ were (anti-)symmetric then the proof would
-have been simplified as $B$ would define an inner product
+If we had assumed that $B$ were anti-symmetric then the proof would have
+been simplified as $B$ would define an inner product
 $\left\langle\cdot ,\cdot \right\rangle\U B$. Applying Riesz's theorem to
 this inner product (as opposed to the original one) would transform our
 equation (\ref{lax eq})  into
 
 <div>
- $$\begin{align}
+ $$\begin{aligned}
         \left\langle v,u\right\rangle\U B= \left\langle v,f\right\rangle , \quad\forall v\in H.
     \end{aligned}$$
 </div>
@@ -982,7 +992,7 @@ the expression
         \end{aligned}$$
 </div>
 
-  That for all $h \in  H$
+  That for all $h$
 
 <div>
  $$\begin{aligned}
@@ -1002,7 +1012,7 @@ a more detailed blog post on spectral theory. For now, we give the
 essentials.
 
 
-Definition 9. We say that a linear operator $K: X \to Y$ where
+**Definition 1**0. We say that a linear operator $K: X \to Y$ where
 $X,Y$ are two normed spaces is compact if $T(B)$ is relatively compact
 for all bounded $B \subset  X$.
 
@@ -1049,21 +1059,21 @@ so that for all $N \geq n\U 0$
 
 <div>
  $$\begin{aligned}
-            \left\lVert T(x\U j)-T\U N(x\U j) \right\rVert , \quad\forall j=1,\ldots,m.
+            \lVert T(x\U j)-T\U N(x\U j) \rVert , \quad\forall j=1,\ldots,m.
         \end{aligned}$$
 </div>
 
-  Now, for any $x\in B\U X$ we can find $x\U j$ such
-that $\left\lVert Tx-Tx\U j \right\rVert< \epsilon$. Using the triangle
-inequality
+  Now for any $x\in B\U X$ we can find $x\U j$ such
+that $\lVert Tx\U j-Tx \rVert< \epsilon$. Using the triangle inequality
+
 
 <div>
  $$\begin{aligned}
-            \left\lVert (T-T\U N) x \right\rVert \leq \left\lVert Tx-Tx\U j \right\rVert+ \left\lVert T x\U j-T\U N x\U {j} \right\rVert+ \left\lVert T\U N x\U j-T\U N x \right\rVert < 3\epsilon .
+            \lVert Tx-T\U N x \rVert \leq \lVert Tx-T x\U j \rVert+ \lVert T x\U j-T\U N x\U {j} \rVert+ \lVert T\U N x\U j-T\U N x \rVert < 3\epsilon .
         \end{aligned}$$
 </div>
 
-  Thus $T\U n \to T$, concluding the proof. ◻
+  This concludes the proof. ◻
 
 
 An important property of compact operators is that they are preserved by
@@ -1136,15 +1146,15 @@ the spectrum of an operator $T$ is defined as
 to it's eigenvalues. Secondly the following holds
 
 
-Theorem 9 (Spectral theorem). Let $T \in \mathcal{K}(H)$ be a
-compact self adjoint operator on a Hilbert space $H$. Then $T$
-diagonalizes on an orthonormal basis. That is, there exists an
-orthonormal basis $\left\\{\phi\U \alpha\right\\} \U {\alpha \in  I}$ and
+Theorem 9 (Spectral theorem). Let $K \in \mathcal{K}(H)$ be compact
+and self adjoint on a Hilbert space $H$. Then $T$ diagonalizes in an
+orthonormal basis. That is, there exists an orthonormal basis
+$\left\\{\phi\U \alpha\right\\} \U {\alpha \in  I}$ and
 $\lambda \U \alpha \in \mathbb{K}$ such that
 
 <div>
  $$\begin{aligned}
-            Tx=\left(\sum\U {\alpha \in I} \lambda \U \alpha \phi\U \alpha\otimes \phi\U \alpha\right) x  =\sum\U {\alpha \in I} \lambda \U \alpha  \left\langle x,\phi\U \alpha\right\rangle\phi\U \alpha .
+            Kx=\left(\sum\U {\alpha \in I}^{\infty} \lambda \U \alpha \phi\U \alpha\otimes \phi\U \alpha\right) x  =\sum\U {\alpha \in  I} \lambda \U \alpha \left\langle x,\phi\U \alpha\right\rangle\phi\U \alpha .
         \end{aligned}$$
 </div>
 
@@ -1166,7 +1176,7 @@ $K \in \mathcal{K}(H)$. Consider $T:= Id-K$ then it holds that
 
 <div>
  $$\begin{aligned}
-            T \text{ is injective  }\iff  T \text{ is surjective.}
+            T \text{ is injective } \iff  T \text{is surjective}.
         \end{aligned}$$
 </div>
 
@@ -1178,11 +1188,11 @@ b)  $T$ is closed.
 
 c)  $\Im (T)=\mathbf{ker}(T^\star )^\perp$.
 
-d)  $\mathrm{dim}(\mathbf{ker}(T))=\mathrm{dim}(\mathbf{ker}(T^\star ))$.
+d)  $\mathrm{dim}(\mathbf{ker}(T))=\mathrm{dim}(\mathbf{ker}(T^\star ))$
 
 
-We also delay the proof till our future posts on spectral theory. In the
-meantime, see [3](https://math24.files.wordpress.com/2013/02/partial-differential-equations-by-evans.pdf) page 725.
+We delay the proof till another day, in the meantime, see
+[3](https://math24.files.wordpress.com/2013/02/partial-differential-equations-by-evans.pdf) page 725.
 
 A pdf of version of this page is provided below:
 <object data="/assets/blank.pdf" width="1000" height="1000" type='application/pdf'></object>
