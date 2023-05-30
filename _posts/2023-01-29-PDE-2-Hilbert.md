@@ -336,12 +336,15 @@ An important corollary of this is the following
 <a name="tasks">
    my tasks
 </a>
+<a name="comp2">
+Proposition 7.
+</a>
 
 [tasks](#tasks)
 
 
-Note that the imposition that $V$ is closed in Theorem
-[link text](complement) or [link text](comp) is necessary. Finite dimensional
+Note that the imposition that $V$ is closed in Theorem plz
+[link text](#complement) or [link text](#comp) is necessary. Finite dimensional
 subspaces are always closed, but infinite-dimensional subspaces may not
 be. For example, consider $H=L^2(I)$ for some bounded $I$ and take $V$
 to polynomials on $I$ . By the
@@ -360,7 +363,7 @@ spaces reproduce is that of the existence of an orthonormal basis.
 
 
 **Definition 4**. Let $H$ be a Hilbert space and $I$ some index set. We
-say that $\mathcal{B}=\left\{\phi\U \alpha\right\}\U {\alpha \in  I}$ is an
+say that $\mathcal{B}=\{\phi\U \alpha\}\U {\alpha \in  I}$ is an
 orthonormal basis of $H$ if
 
 <div>
