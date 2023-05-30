@@ -746,7 +746,8 @@ function of $g$, that is, there exists $T^\star :H \to H$ with $T^\star g=h\U g$
 in other words
 
 <div>
- $$\begin{aligned}align  \label{adjoint}
+ $$\begin{align}
+\label{adjoint}
         \left\langle Tf,g\right\rangle=\left\langle f, T^\star g\right\rangle , \quad\forall f,g \in  H.
     \end{align}$$
 </div>
