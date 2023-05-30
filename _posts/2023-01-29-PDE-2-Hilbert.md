@@ -282,7 +282,7 @@ product. ◻
 A consequence of the above theorem is that orthogonal complements in
 Hilbert spaces exist.
 
-\label{complement}
+<div>\label{complement}</div>
 **Theorem 2** (Orthogonal complement). Let $V$ be a closed subspace of
 a vector space $H$. Then we have that
 
@@ -335,7 +335,7 @@ An important corollary of this is the following
 
 
 Note that the imposition that $V$ is closed in Theorem
-\ref{complent} is necessary. Finite dimensional
+\ref{complement} is necessary. Finite dimensional
 subspaces are always closed, but infinite-dimensional subspaces may not
 be. For example, consider $H=L^2(I)$ for some bounded $I$ and take $V$
 to polynomials on $I$ . By the
@@ -1072,7 +1072,7 @@ An important property of compact operators is that they are preserved by
 continuous ones.
 
 
-Proposition 7. \label{comp} Let $K \in \mathcal{K}(X,Y), T \in L(Y,Z)$ with $Z$
+<div>Proposition 7. \label{comp} </div>Let $K \in \mathcal{K}(X,Y), T \in L(Y,Z)$ with $Z$
 complete, then $T \circ K$ is compact
 
 
