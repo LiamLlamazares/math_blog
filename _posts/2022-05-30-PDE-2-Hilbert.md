@@ -216,8 +216,10 @@ respect to the inner product norm
 
 
 Cool! Now we know what is a Hilbert space. Some examples that have come
-up in previous posts are the space of square-integrable functions valued
-in another Hilbert space $H$ with the inner product
+up in previous posts are the space of [square-integrable
+functions](https://nowheredifferentiable.com/2022-05-27-The-Bochner-integral/#:~:text=we%20can%20integrate.-,Our,-next%20definitions%20are)
+valued in another Hilbert space $H$ with the inner product
+
 
 <div>
  $$\begin{aligned}
@@ -225,12 +227,13 @@ in another Hilbert space $H$ with the inner product
     \end{aligned}$$
 </div>
 
-  Another are the Sobolev spaces $H^s(U)$ with the
-inner product
+  Another are the [Sobolev
+spaces](https://nowheredifferentiable.com/2022-05-27-The-Bochner-integral/#:~:text=we%20can%20integrate.-,Our,-next%20definitions%20are)
+$H^s(\mathbb{R}^d)$ with the inner product
 
 <div>
  $$\begin{aligned}
-        \left\langle f,g\right\rangle\U {H^s(U)}:= \int\U {U} \left\langle\omega\right\rangle^{2s} \widehat{f}(\xi ) \overline{\widehat{g}(\xi )}d\xi  .
+        \left\langle f,g\right\rangle\U {H^s(\mathbb{R}^d)}:= \int\U {\mathbb{R}^d} \left\langle\omega\right\rangle^{2s} \widehat{f}(\xi ) \overline{\widehat{g}(\xi )}d\xi  .
     \end{aligned}$$
 </div>
 
