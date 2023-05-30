@@ -254,7 +254,7 @@ orthogonal to $F$. That is, it is the unique $f\in F$ verifying
 
 <div>
  $$\begin{aligned}
-            h-f \in F^\perp:= \left\\{g \in H : \left\langle g,F\right\rangle=\\{0\\}\right\\}.
+            h-f \in F^\perp:= \left\{g \in H : \left\langle g,F\right\rangle=\{0\}\right\}.
         \end{aligned}$$
 </div>
 
@@ -327,7 +327,7 @@ An important corollary of this is the following
 
 <div>
  $$\begin{aligned}
-            \overline{V}=H \iff \overline{V}^\perp =\left\\{0\right\\} .
+            \overline{V}=H \iff \overline{V}^\perp =\left\{0\right\} .
         \end{aligned}$$
 </div>
 
@@ -346,7 +346,7 @@ theorem $V$ is dense in $H$. That is $H=\overline{V}$, whereas
 
 <div>
  $$\begin{aligned}
-        H \neq V \oplus V^\perp =V \oplus \left\\{0\right\\} .
+        H \neq V \oplus V^\perp =V \oplus \left\{0\right\} .
     \end{aligned}$$
 </div>
 
@@ -355,7 +355,7 @@ spaces reproduce is that of the existence of an orthonormal basis.
 
 
 **Definition 4**. Let $H$ be a Hilbert space and $I$ some index set. We
-say that $\mathcal{B}=\left\\{\phi\U \alpha\right\\}\U {\alpha \in  I}$ is an
+say that <div>$\mathcal{B}=\left\{\phi\U \alpha\right\}\U {\alpha \in  I}$</div> is an
 orthonormal basis of $H$ if
 
 <div>
@@ -412,10 +412,13 @@ with an uncountable sequence we will always end up back in this case.
 
 
 **Proposition 2**. Let $X$ be a normed space and
-$\left\\{x\U \alpha\right\\}\U {\alpha \in I} \subset  X$ be absolutely
+<div>plz
+$\left\{x\U \alpha\right\}\U {\alpha \in I} \subset  X$
+</div>
+ be absolutely
 summable to $x$, then only a countable number of the terms $x\U \alpha$
 are non-zero. Let us take the nonzero terms and relabel them
-$\left\\{x\U n\right\\}\U {n \in \mathbb{N}}$, then
+$\left\{x\U n\right\}\U {n \in \mathbb{N}}$, then
 
 <div>
  $$\begin{align}
@@ -460,7 +463,7 @@ of the form
 
 <div>
  $$\begin{aligned}
-            \mathcal{S}=\left\\{\left\\{\phi\U \alpha\right\\}\U {\alpha \in  J}:  \left\langle\phi\U \alpha,\phi\U \beta \right\rangle= \delta \U {\alpha, \beta }, \quad\forall \alpha,\beta \in J\right\\} .
+            \mathcal{S}=\left\{\left\{\phi\U \alpha\right\}\U {\alpha \in  J}:  \left\langle\phi\U \alpha,\phi\U \beta \right\rangle= \delta \U {\alpha, \beta }, \quad\forall \alpha,\beta \in J\right\} .
         \end{aligned}$$
 </div>
 
@@ -481,7 +484,7 @@ maximal element $\mathcal{B}$. If $\mathcal{B}$ is not complete (that
 is, (\ref{sum})  doesn't
 hold), then there exists $f \in \overline{\mathcal{B}}^\perp$. By taking
 $f /\left\lVert f \right\rVert$ and forming
-$\mathcal{B}':=\mathcal{B}\cup \left\\{f \left\lVert f \right\rVert\right\\}$
+$\mathcal{B}':=\mathcal{B}\cup \left\{f \left\lVert f \right\rVert\right\}$
 we obtain that $\mathcal{B}\subsetneq \mathcal{B}' \in \mathcal{A}$.
 This contradicts the maximality of $\mathcal{B}$ and concludes the
 proof. ◻
@@ -492,7 +495,7 @@ Hilbert spaces.
 
  {#Parseval .theorem}
 **Theorem 4** (Parseval). Let $H$ be a Hilbert space with orthonormal
-basis $\mathcal{B}=\left\\{\phi\U \alpha\right\\}\U {\alpha\in I}$. Then for
+basis $\mathcal{B}=\left\{\phi\U \alpha\right\}\U {\alpha\in I}$. Then for
 every $f \in  H$ it holds that
 
 <div>
@@ -537,7 +540,7 @@ isometry
 
 <div>
  $$\begin{aligned}
-        H\to \ell ^2(I); \quad f \to \left\\{\left\langle f,\phi\U {\alpha}\right\rangle\right\\}\U {\alpha \in I}.
+        H\to \ell ^2(I); \quad f \to \left\{\left\langle f,\phi\U {\alpha}\right\rangle\right\}\U {\alpha \in I}.
     \end{aligned}$$
 </div>
 
@@ -556,7 +559,7 @@ $L^2(\mathbb{R}^d /\mathbb{Z}^d \to \mathbb{C})$ has orthonormal basis
 
 <div>
  $$\begin{aligned}
-            \left\\{\phi\U k(x)\right\\}\U {k \in \mathbb{Z}^d}:=\left\\{e^{2\pi i  k \cdot x }\right\\}\U {k \in \mathbb{Z}^d}.
+            \left\{\phi\U k(x)\right\}\U {k \in \mathbb{Z}^d}:=\left\{e^{2\pi i  k \cdot x }\right\}\U {k \in \mathbb{Z}^d}.
         \end{aligned}$$
 </div>
 
@@ -623,7 +626,7 @@ $\left\lVert f\U \ell  \right\rVert=\left\lVert \ell  \right\rVert$.
 
 
 Proof. Consider an orthonormal basis
-$\left\\{\phi\U \alpha\right\\}\U {\alpha \in  I}$ for $H$. Then, just as in
+$\left\{\phi\U \alpha\right\}\U {\alpha \in  I}$ for $H$. Then, just as in
 Euclidean space we have that
 
 <div>
@@ -745,36 +748,36 @@ $h\U g$. That is, $h\U g$ verifies
 </div>
 
   A small reasoning shows that $h\U g$ is a linear
-function of $g$, that is, there exists $T^:H \to H$ with $T^ g=h\U g$,
+function of $g$, that is, there exists $T^\star:H \to H$ with $T^\star g=h\U g$,
 or in other words
 
 <div>
  $$\begin{align}
 \label{adjoint}
-        \left\langle Tf,g\right\rangle=\left\langle f, T^g\right\rangle , \quad\forall f,g \in  H.
+        \left\langle Tf,g\right\rangle=\left\langle f, T^\starg\right\rangle , \quad\forall f,g \in  H.
     \end{align}$$
 </div>
 
 
 
 
-Definition 6. Given $T \in \mathcal{L}(H)$ we denote by $T^$ the
+Definition 6. Given $T \in \mathcal{L}(H)$ we denote by $T^\star$ the
 unique element of $\mathcal{L}(H)$ verifying
 (\ref{adjoint}) . If
-$T=T^$ we say that $T$ is self adjoint.
+$T=T^\star$ we say that $T$ is self adjoint.
 
 
 If we think in terms of complex numbers, the adjoint of an element
 $\lambda  \in \mathbb{C}$ is $\overline{\lambda }$ and $T$ is self
 adjoint if and only if it is real. If now we consider the case where $H$
 is $\mathbb{C}^n$ and $T$ is given by some matrix $A$ then
-$A^=A^\dagger:= \overline{A^T}$. As in these finite dimensional cases,
+$A^\star=A^\dagger:= \overline{A^T}$. As in these finite dimensional cases,
 the following proof is not difficult
 
 
 **Proposition 4**. Let $T \in \mathcal{L}(H)$ with $H$ a Hilbert space.
-Then $T^ \in \mathcal{L}(H)$ with
-$\left\lVert T \right\rVert=\left\lVert T^ \right\rVert$.
+Then $T^\star \in \mathcal{L}(H)$ with
+$\left\lVert T \right\rVert=\left\lVert T^\star \right\rVert$.
 
 
 Hilbert spaces provide us a way to guarantee existence and uniqueness to
@@ -1034,9 +1037,9 @@ finite-dimensional operators $T\U n$ such that
 
 
 Proof. Since $H$ is separable there exists a countable orthonormal
-basis $\left\\{\phi\U n\right\\}\U {n \in \mathbb{N}}$. If we denote $T\U n$ for
+basis $\left\{\phi\U n\right\}\U {n \in \mathbb{N}}$. If we denote $T\U n$ for
 the projection of $T$ onto the space generated by
-$\left\\{\phi\U 1,\ldots,\phi\U n\right\\}$ then, by Parseval's Theorem
+$\left\{\phi\U 1,\ldots,\phi\U n\right\}$ then, by Parseval's Theorem
 pointwise convergence holds
 
 <div>
@@ -1134,7 +1137,7 @@ the spectrum of an operator $T$ is defined as
 
 <div>
  $$\begin{aligned}
-        \sigma (T):=\left\\{\lambda \in \mathbb{K}: \lambda \I -T \text{ is not invertible } \right\\} .
+        \sigma (T):=\left\{\lambda \in \mathbb{K}: \lambda \I -T \text{ is not invertible } \right\} .
     \end{aligned}$$
 </div>
 
@@ -1145,7 +1148,7 @@ to it's eigenvalues. Secondly the following holds
 Theorem 9 (Spectral theorem). Let $T \in \mathcal{K}(H)$ be a
 compact self adjoint operator on a Hilbert space $H$. Then $T$
 diagonalizes on an orthonormal basis. That is, there exists an
-orthonormal basis $\left\\{\phi\U \alpha\right\\} \U {\alpha \in  I}$ and
+orthonormal basis $\left\{\phi\U \alpha\right\} \U {\alpha \in  I}$ and
 $\lambda \U \alpha \in \mathbb{K}$ such that
 
 <div>
@@ -1182,9 +1185,9 @@ a)  $\mathbf{ker}(T)$ is finite dimensional.
 
 b)  $T$ is closed.
 
-c)  $\Im (T)=\mathbf{ker}(T^)^\perp$.
+c)  $\Im (T)=\mathbf{ker}(T^\star)^\perp$.
 
-d)  $\mathrm{dim}(\mathbf{ker}(T))=\mathrm{dim}(\mathbf{ker}(T^))$.
+d)  $\mathrm{dim}(\mathbf{ker}(T))=\mathrm{dim}(\mathbf{ker}(T^\star))$.
 
 
 We also delay the proof till our future posts on spectral theory. In the
