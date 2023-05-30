@@ -368,10 +368,10 @@ orthonormal basis of $H$ if
 $\lambda \U \alpha \in  \mathbb{C}$ such that
 
 <div>
- $$\begin{aligned}
+ $$\begin{align}
 \label{sum}
             f= \sum\U {\alpha \in I} \lambda \U \alpha \phi\U \alpha .
-        \end{aligned}$$
+        \end{align}$$
 </div>
 
 
@@ -418,10 +418,10 @@ are non-zero. Let us take the nonzero terms and relabel them
 $\left\\{x\U n\right\\}\U {n \in \mathbb{N}}$, then
 
 <div>
- $$\begin{aligned}
+ $$\begin{align}
 \label{eq}
             x= \sum\U {n=0}^{\infty} x\U n.
-        \end{aligned}$$
+        \end{align}$$
 </div>
 
 
@@ -611,10 +611,10 @@ given $\ell \in H'$ there exists a unique $f\U \ell \in H$ such that
 
 
 <div>
- $$\begin{aligned}
+ $$\begin{align}
 \label{riesz}
             \left\langle h,f\U \ell \right\rangle, \quad\forall h \in H.
-        \end{aligned}$$
+        \end{align}$$
 </div>
 
   Furthermore,
@@ -749,10 +749,10 @@ function of $g$, that is, there exists $T^\star :H \to H$ with $T^\star  g=h\U g
 or in other words
 
 <div>
- $$\begin{aligned}
+ $$\begin{align}
 \label{adjoint}
         \left\langle Tf,g\right\rangle=\left\langle f, T^\star g\right\rangle , \quad\forall f,g \in  H.
-    \end{aligned}$$
+    \end{align}$$
 </div>
 
 
@@ -832,7 +832,7 @@ and $f \in H$ such that
 </div>
 
 
-As a result, equation
+As a result, eqalign
 
 <div>
  $$\label{lax eq}
@@ -850,7 +850,7 @@ Proof. For each fixed $u \in H$, we have that
 $\ell\U u :=B(\cdot ,u) \in  H'$. As a result by Riesz's representation
 theorem (Theorem [5](#riesz theorem){reference-type="ref"
 reference="riesz theorem"}) there exists a unique $f\U {\ell \U u} \in H$
-such that
+sucalign
 
 <div>
  $$\label{f}
@@ -860,7 +860,7 @@ such that
 
 Furthermore, it can be verified that, by the sesquilinearity of $B$, the
 mapping $u \to f\U {\ell \U u}$ is linear in $u$. That is, there exists
-$\mathcal{L}: H\to H$ such that
+$\mathcal{L}: H\to H$ sucalign
 
 <div>
  $$\label{g}
@@ -891,7 +891,7 @@ Now, $\mathcal{L}$ is injective as if $\mathcal{L}u=0$ then
 
 
 We now show that $\mathcal{L}$ is surjective. Consider
-$u \in  \Im(\mathcal{L})^\perp$, then it holds that
+$u \in  \Im(\mathcal{L})^\perp$, then it holdalign
 
 <div>
  $$\label{est}
@@ -938,7 +938,7 @@ this inner product (as opposed to the original one) would transform our
 equation (\ref{lax eq})  into
 
 <div>
- $$\begin{aligned}
+ $$\begin{align}
         \left\langle v,u\right\rangle\U B= \left\langle v,f\right\rangle , \quad\forall v\in H.
     \end{aligned}$$
 </div>
