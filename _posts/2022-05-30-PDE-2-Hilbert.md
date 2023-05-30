@@ -178,8 +178,8 @@ are orthogonal then by the linearity of the inner product.
   An important property of the inner product is the
 following
 
- {#CS .proposition}
-**Proposition 1** (Cauchy Schwartz). Let $V$ be an inner product space,
+ <a name="CS"
+**Proposition 1**</a>  (Cauchy Schwartz). Let $V$ be an inner product space,
 then it holds that
 
 <div>
@@ -236,8 +236,8 @@ $H^s(\mathbb{R}^d)$ with the inner product
 Japanese bracket and the inner product). One result that carries over
 from Euclidean spaces to Hilbert spaces is that of projection.
 
- {#projection .theorem}
-**Theorem 1** (Projection theorem). Let $F$ be a closed convex subset
+ <a name="projection"
+**Theorem 1**</a>  (Projection theorem). Let $F$ be a closed convex subset
 of a Hilbert space $H$. Then, given $h \in H$ there exists a unique
 $f \in F$ such that
 
@@ -282,8 +282,8 @@ product. ◻
 A consequence of the above theorem is that orthogonal complements in
 Hilbert spaces exist.
 
- {#complement theorem .theorem}
-**Theorem 2** (Orthogonal complement). Let $V$ be a closed subspace of
+ <a name="complement theorem"
+**Theorem 2**</a>  (Orthogonal complement). Let $V$ be a closed subspace of
 a vector space $H$. Then we have that
 
 <div>
@@ -322,8 +322,8 @@ property follows quickly from the orthogonality of $v\U 1,v\U 2$. ◻
 
 An important corollary of this is the following
 
- {#cor .corollary}
-**Corollary 1**. Let $V$ be a vector space, then
+ <a name="cor"
+**Corollary 1**</a> . Let $V$ be a vector space, then
 
 <div>
  $$\begin{aligned}
@@ -335,8 +335,7 @@ An important corollary of this is the following
 
 
 Note that the imposition that $V$ is closed in Theorem
-[2](#complement theorem){reference-type="ref"
-reference="complement theorem"} is necessary. Finite dimensional
+[2](#complement theorem) is necessary. Finite dimensional
 subspaces are always closed, but infinite-dimensional subspaces may not
 be. For example, consider $H=L^2(I)$ for some bounded $I$ and take $V$
 to polynomials on $I$ . By the
@@ -447,8 +446,8 @@ Now that we made sense of the sum over a potentially uncountable number
 of basis elements in (\ref{sum}) , it remains to address the question of the existence of
 orthonormal basis.
 
- {#existence .theorem}
-**Theorem 3** (Existence of orthonormal basis). Every Hilbert space has
+ <a name="existence"
+**Theorem 3**</a>  (Existence of orthonormal basis). Every Hilbert space has
 an orthonormal basis $\mathcal{B}$.
 
 
@@ -490,8 +489,8 @@ proof. ◻
 The next result is the natural generalization of Pythagoras's theorem to
 Hilbert spaces.
 
- {#Parseval .theorem}
-**Theorem 4** (Parseval). Let $H$ be a Hilbert space with orthonormal
+ <a name="Parseval"
+**Theorem 4**</a>  (Parseval). Let $H$ be a Hilbert space with orthonormal
 basis $\mathcal{B}=\left\\{\phi\U \alpha\right\\}\U {\alpha\in I}$. Then for
 every $f \in  H$ it holds that
 
@@ -517,8 +516,7 @@ continuity of the inner product
   As a result,
 $f-\sum\U {\alpha \in  I} \left\langle f,\phi\U \alpha\right\rangle\phi\U \alpha$
 is orthogonal to the closure of the span of $\mathcal{B}$, which by
-assumption is $H$. By Corollary [1](#cor){reference-type="ref"
-reference="cor"} we conclude that
+assumption is $H$. By Corollary [1](#cor) we conclude that
 
 <div>
  $$\begin{aligned}
@@ -605,8 +603,8 @@ conjugate of the "matrix" defined by $\ell$ as a linear function
   Where $e\U i$ is the standard orthonormal basis of
 $\mathbb{C}^n$. In Hilbert spaces, the same result holds
 
- {#riesz theorem .theorem}
-**Theorem 5** (Riesz representation ). Let $H$ be a Hilbert space, then
+ <a name="riesz theorem"
+**Theorem 5**</a>  (Riesz representation ). Let $H$ be a Hilbert space, then
 given $\ell \in H'$ there exists a unique $f\U \ell \in H$ such that
 
 
@@ -820,8 +818,8 @@ The coercivity condition essentially imposes that the bilinear form is
 not degenerate. As a particular example, a symmetric sesquilinear form
 is an inner product.
 
- {#Lax theorem .theorem}
-Theorem 7 (Lax Milgram). Let $B, L$ be respectively an $\alpha$
+ <a name="Lax theorem"
+Theorem 7</a>  (Lax Milgram). Let $B, L$ be respectively an $\alpha$
 coercive sesquilinear form and a linear form on a Hilbert space $H$.
 Then there exists an invertible linear operator $\mathcal{L}:H \to H$
 and $f \in H$ such that
@@ -848,8 +846,7 @@ $\left\lVert \mathcal{L}^{-1} \right\rVert\leq \alpha^{-1}$.
 
 Proof. For each fixed $u \in H$, we have that
 $\ell\U u :=B(\cdot ,u) \in  H'$. As a result by Riesz's representation
-theorem (Theorem [5](#riesz theorem){reference-type="ref"
-reference="riesz theorem"}) there exists a unique $f\U {\ell \U u} \in H$
+theorem (Theorem [5](#riesz theorem)) there exists a unique $f\U {\ell \U u} \in H$
 sucalign
 
 <div>
@@ -900,8 +897,7 @@ $u \in  \Im(\mathcal{L})^\perp$, then it holdalign
 
 
 As a result, we deduce from the orthogonal complement theorem
-[2](#complement theorem){reference-type="ref"
-reference="complement theorem"} that $\overline{\Im(\mathcal{L})}=0$.
+[2](#complement theorem) that $\overline{\Im(\mathcal{L})}=0$.
 Thus, if we show that $\mathcal{L}$ is closed we are done. The estimate
 in (\ref{est})  together with
 Cauchy Schwartz shows that for all $u \in H$
@@ -1073,8 +1069,8 @@ inequality
 An important property of compact operators is that they are preserved by
 continuous ones.
 
- {#comp .proposition}
-Proposition 7. Let $K \in \mathcal{K}(X,Y), T \in L(Y,Z)$ with $Z$
+ <a name="comp"
+Proposition 7</a> . Let $K \in \mathcal{K}(X,Y), T \in L(Y,Z)$ with $Z$
 complete, then $T \circ K$ is compact
 
 
@@ -1087,8 +1083,8 @@ For us, an important example of compact operators will be the solution
 operator $\mathcal{L}^{-1}$ of a PDE. This is because of the following
 theorem
 
- {#Rellich .theorem}
-Theorem 8 (Rellich-Kondrachov). Let $U \subset \mathbb{R}^n$ be a
+ <a name="Rellich"
+Theorem 8</a>  (Rellich-Kondrachov). Let $U \subset \mathbb{R}^n$ be a
 bounded open domain in $\mathbb{R}^n$ with smooth boundary. Then, given
 $s >0$ it holds that the natural inclusion
 
@@ -1106,8 +1102,8 @@ For the proof of a more general version see [2](https://books.google.co.uk/books
 necessary and the theorem no longer holds if $U$ is replaced by
 $\mathbb{R}^n$.
 
- {#addd .corollary}
-**Corollary 2** (Adding differentiability is compact). Let
+ <a name="addd"
+**Corollary 2**</a>  (Adding differentiability is compact). Let
 $U \subset \mathbb{R}^n$ be a bounded open domain in $\mathbb{R}^n$ with
 smooth boundary and $s, \sigma >0$, then every continuous operator
 
@@ -1123,10 +1119,8 @@ smooth boundary and $s, \sigma >0$, then every continuous operator
 
 
 Proof. We have that $T= T \circ i$ so we conclude by
-Rellich-Kondrachov's theorem [8](#Rellich){reference-type="ref"
-reference="Rellich"} and the preservation of compact operators by
-continuous ones (Proposition [7](#comp){reference-type="ref"
-reference="comp"}). ◻
+Rellich-Kondrachov's theorem [8](#Rellich) and the preservation of compact operators by
+continuous ones (Proposition [7](#comp)). ◻
 
 
 Compact operators also have a nice spectral theory. Where we recall that
