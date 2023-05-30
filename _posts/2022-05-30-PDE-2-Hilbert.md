@@ -382,7 +382,7 @@ Note that we impose no conditions on the Index set $I$ which may be
 countable or uncountable.
 
 
-Definition 6. Given an index set $I$ and a normed vector space $X$
+**Definition 6**. Given an index set $I$ and a normed vector space $X$
 we say that $x\U \alpha$ is absolutely summable to $x$ and write
 
 
@@ -717,7 +717,7 @@ and, the identification is such that
   In other words.
 
 
-Theorem 6. Every Hilbert space is reflexive.
+**Theorem 6**. Every Hilbert space is reflexive.
 
 
 Consider now a Hilbert space $H$ and a linear operator $T: H \to H$.
@@ -755,7 +755,7 @@ in other words
 
 
 
-Definition 7. Given $T \in \mathcal{L}(H)$ we denote by $T^\star $ the
+**Definition 7**. Given $T \in \mathcal{L}(H)$ we denote by $T^\star $ the
 unique element verifying (\ref{adjoint})  . If $T=T^\star $ we say that $T$ is self adjoint.
 
 
@@ -777,7 +777,7 @@ a wide class of problems, an important tool is Lax-Milgram's theorem. We
 first need two definitions
 
 
-Definition 8. We say that a mapping
+**Definition 8**. We say that a mapping
 
 <div>
  $$\begin{aligned}
@@ -799,7 +799,7 @@ all $x,y,z \in V$ and $\lambda \in \mathbb{K}$:
 
 
 
-Definition 9. Let $V$ be a normed vector space then we say that a
+**Definition 9**. Let $V$ be a normed vector space then we say that a
 sesquilinear form $B$ is $\alpha$ coercive if it is continuous and there
 exists a constant $\alpha>0$ such that
 
@@ -817,7 +817,7 @@ not degenerate. As a particular example, a symmetric sesquilinear form
 is an inner product.
 
  <a name="Lax theorem">
-Theorem 7 </a>  (Lax Milgram). Let $B, L$ be respectively an $\alpha$
+**Theorem 7** </a>  (Lax Milgram). Let $B, L$ be respectively an $\alpha$
 coercive sesquilinear form and a linear form on a Hilbert space $H$.
 Then there exists an invertible linear operator $\mathcal{L}:H \to H$
 and $f \in H$ such that
@@ -1013,7 +1013,7 @@ a more detailed blog post on spectral theory. For now, we give the
 essentials.
 
 
-**Definition 1**0. We say that a linear operator $K: X \to Y$ where
+**Definition 10**. We say that a linear operator $K: X \to Y$ where
 $X,Y$ are two normed spaces is compact if $T(B)$ is relatively compact
 for all bounded $B \subset  X$.
 
@@ -1026,7 +1026,7 @@ in fact, a good way of thinking of compact operators is to see them as
 finite-dimensional operators . Or more precisely, as the limit of them
 
 
-Proposition 6. Let $T \in  \mathcal{K}(X,H)$ where $H$ is a
+**Proposition 6**. Let $T \in  \mathcal{K}(X,H)$ where $H$ is a
 separable Hilbert space . Then there exists a sequence of
 finite-dimensional operators $T\U n$ such that
 
@@ -1081,7 +1081,7 @@ An important property of compact operators is that they are preserved by
 continuous ones.
 
  <a name="comp">
-Proposition 7 </a> . Let $K \in \mathcal{K}(X,Y), T \in L(Y,Z)$ with $Z$
+**Proposition 7** </a> . Let $K \in \mathcal{K}(X,Y), T \in L(Y,Z)$ with $Z$
 complete, then $T \circ K$ is compact
 
 
@@ -1095,7 +1095,7 @@ operator $\mathcal{L}^{-1}$ of a PDE. This is because of the following
 theorem
 
  <a name="Rellich">
-Theorem 8 </a>  (Rellich-Kondrachov). Let $U \subset \mathbb{R}^n$ be a
+**Theorem 8** </a>  (Rellich-Kondrachov). Let $U \subset \mathbb{R}^n$ be a
 bounded open domain in $\mathbb{R}^n$ with smooth boundary. Then, given
 $s >0$ it holds that the natural inclusion
 
@@ -1147,7 +1147,7 @@ the spectrum of an operator $T$ is defined as
 to it's eigenvalues. Secondly the following holds
 
 
-Theorem 9 (Spectral theorem). Let $K \in \mathcal{K}(H)$ be compact
+**Theorem 9** (Spectral theorem). Let $K \in \mathcal{K}(H)$ be compact
 and self adjoint on a Hilbert space $H$. Then $T$ diagonalizes in an
 orthonormal basis. That is, there exists an orthonormal basis
 $\left\\{\phi\U \alpha\right\\} \U {\alpha \in  I}$ and
@@ -1171,7 +1171,7 @@ To end it all off we state without proof a theorem that will be useful
 in proving properties about the solution space to the solution of PDEs
 
 
-**Theorem 1**0 (Fredholm alternative). Let $H$ be a Hilbert space and
+**Theorem 10** (Fredholm alternative). Let $H$ be a Hilbert space and
 $K \in \mathcal{K}(H)$. Consider $T:= Id-K$ then it holds that
 
 
