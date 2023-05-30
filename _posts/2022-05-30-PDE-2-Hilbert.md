@@ -254,7 +254,7 @@ orthogonal to $F$. That is, it is the unique $f\in F$ verifying
 
 <div>
  $$\begin{aligned}
-            h-f \in F^\perp:= \left\lb g \in H : \left\langle g,F\right\rangle=\lb 0\rb \right\rb .
+            h-f \in F^\perp:= \left\{g \in H : \left\langle g,F\right\rangle=\{0\}\right\}.
         \end{aligned}$$
 </div>
 
@@ -327,7 +327,7 @@ An important corollary of this is the following
 
 <div>
  $$\begin{aligned}
-            \overline{V}=H \iff \overline{V}^\perp =\left\lb 0\right\rb  .
+            \overline{V}=H \iff \overline{V}^\perp =\left\{0\right\} .
         \end{aligned}$$
 </div>
 
@@ -346,7 +346,7 @@ theorem $V$ is dense in $H$. That is $H=\overline{V}$, whereas
 
 <div>
  $$\begin{aligned}
-        H \neq V \oplus V^\perp =V \oplus \left\lb 0\right\rb  .
+        H \neq V \oplus V^\perp =V \oplus \left\{0\right\} .
     \end{aligned}$$
 </div>
 
@@ -355,8 +355,8 @@ spaces reproduce is that of the existence of an orthonormal basis.
 
 
 **Definition 4**. Let $H$ be a Hilbert space and $I$ some index set. We
-say that $\mathcal{B}=\left\lb \phi\U \alpha\right\rb \U {\alpha \in  I}$ is an
-orthonormal basis of $H$ if
+say that $\mathcal{B}=\left\\{\phi\U \alpha\right\\}\U {\alpha \in  I}$}$ is an
+orthonormal basis o$H$H$ if
 
 <div>
  $$\begin{aligned}
@@ -364,8 +364,7 @@ orthonormal basis of $H$ if
         \end{aligned}$$
 </div>
 
-  And for every element $f \in H$ there exist
-$\lambda \U \alpha \in  \mathbb{C}$ such that
+  And for every elemen$f \in H$H$ there exis$\lambda \U \alpha \in  \mathbb{C}$}$ such that
 
 <div>
  $$\begin{align}
@@ -377,13 +376,13 @@ $\lambda \U \alpha \in  \mathbb{C}$ such that
 
 
 
-Note that we impose no conditions on the Index set $I$ which may be
+Note that we impose no conditions on the Index se$I$I$ which may be
 countable or uncountable. In this second case we need to make precise
 what is meant by (\ref{sum}) .
 
 
-**Definition 5**. Given an index set $I$ and a normed vector space $X$
-we say that $x\U \alpha$ is absolutely summable to $x$ and write
+**Definition 5**. Given an index se$I$I$ and a normed vector spac$X$X$
+we say tha$x\U \alpha$a$ is absolutely summable t$x$x$ and write
 
 
 <div>
@@ -392,8 +391,8 @@ we say that $x\U \alpha$ is absolutely summable to $x$ and write
         \end{aligned}$$
 </div>
 
-  if given $\epsilon >0$ there exists some finite
-subset $J\U 0 \in I$ such that for every $J$ containing $J\U 0$ it holds
+  if give$\epsilon >0$0$ there exists some finite
+subse$J\U 0 \in I$I$ such that for ever$J$J$ containin$J\U 0$0$ it holds
 that
 
 <div>
@@ -405,17 +404,14 @@ that
 
 
 
-If $I$ is countable, the definition says that
-$\sum\U {\alpha \in I} x\U \alpha$ converges to $x$ regardless of the order
+I$I$I$ is countable, the definition says tha$\sum\U {\alpha \in I} x\U \alpha$a$ converges t$x$x$ regardless of the order
 in which we sum. In fact, the following shows that, even if we start
 with an uncountable sequence we will always end up back in this case.
 
 
-**Proposition 2**. Let $X$ be a normed space and
-$\left\lb x\U \alpha\right\rb \U {\alpha \in I} \subset  X$ be absolutely
-summable to $x$, then only a countable number of the terms $x\U \alpha$
-are non-zero. Let us take the nonzero terms and relabel them
-$\left\lb x\U n\right\rb \U {n \in \mathbb{N}}$, then
+**Proposition 2**. Le$X$X$ be a normed space an$\left\\{x\U \alpha\right\\}\U {\alpha \in I} \subset  X$  X$ be absolutely
+summable$x$ $x$, then only a countable number of the te$x\U \alpha$pha$
+are non-zero. Let us take the nonzero terms and relabel t$\left\\{x\U n\right\\}\U {n \in \mathbb{N}}$b{N}}$, then
 
 <div>
  $$\begin{align}
@@ -428,7 +424,7 @@ $\left\lb x\U n\right\rb \U {n \in \mathbb{N}}$, then
 
 
 
-Proof. Take $J\U n$ such that
+Proof.$J\U n$ $J\U n$ such that
 
 <div>
  $$\begin{aligned}
@@ -436,11 +432,11 @@ Proof. Take $J\U n$ such that
         \end{aligned}$$
 </div>
 
-  Then $J:= \cup\U n J\U n$ is countable (it is a
-countable union of countable sets) and a small reasoning shows that $J$
-are the non-zero terms of $I$. The equality in
+ $J:= \cup\U n J\U n$n J\U n$ is countable (it is a
+countable union of countable sets) and a small reasoning shows$J$at $J$
+are the non-zero ter$I$of $I$. The equality in
 (\ref{eq})  then follows
-quickly from the definition of summable to $x$. ◻
+quickly from the definition of summab$x$to $x$. ◻
 
 
 Now that we made sense of the sum over a potentially uncountable number
@@ -449,24 +445,23 @@ orthonormal basis.
 
  {#existence .theorem}
 **Theorem 3** (Existence of orthonormal basis). Every Hilbert space has
-an orthonormal basis $\mathcal{B}$.
+an orthonormal $\mathcal{B}$al{B}$.
 
 
 
 Proof. The proof is formally identical to the proof that every vector
-space has a basis space . Let $\mathcal{A}$ be the collection of all
-orthonormal subsets of $H$. That is, $\mathcal{A}$ is comprised of sets
+space has a basis space $\mathcal{A}$al{A}$ be the collection of all
+orthonormal subse$H$of $H$. Tha$\mathcal{A}$al{A}$ is comprised of sets
 of the form
 
 <div>
  $$\begin{aligned}
-            \mathcal{S}=\left\lb \left\lb \phi\U \alpha\right\rb \U {\alpha \in  J}:  \left\langle\phi\U \alpha,\phi\U \beta \right\rangle= \delta \U {\alpha, \beta }, \quad\forall \alpha,\beta \in J\right\rb  .
+            \mathcal{S}=\left\{\left\{\phi\U \alpha\right\}\U {\alpha \in  J}:  \left\langle\phi\U \alpha,\phi\U \beta \right\rangle= \delta \U {\alpha, \beta }, \quad\forall \alpha,\beta \in J\right\} .
         \end{aligned}$$
 </div>
 
-  Such that $\phi\U \alpha$ are orthonormal. Given
-an ordered chain
-$\mathcal{S}\U 0\subset \mathcal{S}\U 1\subset \mathcal{S}\U 2\subset \cdots$
+  Such$\phi\U \alpha$alpha$ are orthonormal. Given
+an ordered $\mathcal{S}\U 0\subset \mathcal{S}\U 1\subset \mathcal{S}\U 2\subset \cdots$cdots$
 we have the bound
 
 <div>
@@ -477,13 +472,11 @@ we have the bound
 
   As a result by [Zorn's
 lemma](https://en.wikipedia.org/wiki/Zorn%27s\U lemma) there exists a
-maximal element $\mathcal{B}$. If $\mathcal{B}$ is not complete (that
+maximal el$\mathcal{B}$al{B}$\mathcal{B}$al{B}$ is not complete (that
 is, (\ref{sum})  doesn't
-hold), then there exists $f \in \overline{\mathcal{B}}^\perp$. By taking
-$f /\left\lVert f \right\rVert$ and forming
-$\mathcal{B}':=\mathcal{B}\cup \left\lb f \left\lVert f \right\rVert\right\rb $
-we obtain that $\mathcal{B}\subsetneq \mathcal{B}' \in \mathcal{A}$.
-This contradicts the maximality of $\mathcal{B}$ and concludes the
+hold), then there e$f \in \overline{\mathcal{B}}^\perp$\perp$. By t$f /\left\lVert f \right\rVert$rVert$ and fo$\mathcal{B}':=\mathcal{B}\cup \left\\{f \left\lVert f \right\rVert\right\\}$ight\\}$
+we obta$\mathcal{B}\subsetneq \mathcal{B}' \in \mathcal{A}$hcal{A}$.
+This contradicts the maxima$\mathcal{B}$hcal{B}$ and concludes the
 proof. ◻
 
 
@@ -491,9 +484,7 @@ The next result is the natural generalization of Pythagoras's theorem to
 Hilbert spaces.
 
  {#Parseval .theorem}
-**Theorem 4** (Parseval). Let $H$ be a Hilbert space with orthonormal
-basis $\mathcal{B}=\left\lb \phi\U \alpha\right\rb \U {\alpha\in I}$. Then for
-every $f \in  H$ it holds that
+**Theorem 4** (Parseval$H$Let $H$ be a Hilbert space with orthonorma$\mathcal{B}=\left\\{\phi\U \alpha\right\\}\U {\alpha\in I}$pha\in I}$. Then $f \in  H$$f \in  H$ it holds that
 
 <div>
  $$\begin{aligned}
@@ -505,7 +496,7 @@ every $f \in  H$ it holds that
 
 
 
-Proof. We have that by the orthonormality of $\phi\U \alpha$ and the
+Proof. We have that by the orthonor$\phi\U \alpha$hi\U \alpha$ and the
 continuity of the inner product
 
 <div>
@@ -514,10 +505,9 @@ continuity of the inner product
         \end{aligned}$$
 </div>
 
-  As a result,
-$f-\sum\U {\alpha \in  I} \left\langle f,\phi\U \alpha\right\rangle\phi\U \alpha$
-is orthogonal to the closure of the span of $\mathcal{B}$, which by
-assumption is $H$. By Corollary [1](#cor){reference-type="ref"
+  As $f-\sum\U {\alpha \in  I} \left\langle f,\phi\U \alpha\right\rangle\phi\U \alpha$hi\U \alpha$
+is orthogonal to the closure of th$\mathcal{B}$athcal{B}$, which by
+assu$H$ion is $H$. By Corollary [1](#cor){reference-type="ref"
 reference="cor"} we conclude that
 
 <div>
@@ -527,8 +517,7 @@ reference="cor"} we conclude that
 </div>
 
   This proves the first part of the theorem. The
-second follows by the first together with the orthonormality of
-$\phi\U \alpha$. ◻
+second follows by the first together with the orthonor$\phi\U \alpha$hi\U \alpha$. ◻
 
 
 The above shows that, on fixing a basis, every Hilbert space can be
@@ -537,41 +526,36 @@ isometry
 
 <div>
  $$\begin{aligned}
-        H\to \ell ^2(I); \quad f \to \left\lb \left\langle f,\phi\U {\alpha}\right\rangle\right\rb \U {\alpha \in I}.
+        H\to \ell ^2(I); \quad f \to \left\{\left\langle f,\phi\U {\alpha}\right\rangle\right\}\U {\alpha \in I}.
     \end{aligned}$$
 </div>
 
   In particular, every Hilbert space with a countable
-basis (or equivalently, which is seperable) is isometric to
-$\ell ^2(\mathbb{N})$. However, the identification is not "canonical" as
+basis (or equivalently, which is seperable) is iso$\ell ^2(\mathbb{N})$athbb{N})$. However, the identification is not "canonical" as
 it depends on the bases chosen. The next example is all pervasive (in
 fact it has [even invaded our
 blog](https://nowheredifferentiable.com/2023-01-29-PDE-1/))
 
 
 **Example 3** (Plancherel). The Hilbert space of square integrable
-complex valued periodic functions
-$L^2(\mathbb{R}^d /\mathbb{Z}^d \to \mathbb{C})$ has orthonormal basis
+complex valued periodic $L^2(\mathbb{R}^d /\mathbb{Z}^d \to \mathbb{C})$athbb{C})$ has orthonormal basis
 
 
 <div>
  $$\begin{aligned}
-            \left\lb \phi\U k(x)\right\rb \U {k \in \mathbb{Z}^d}:=\left\lb e^{2\pi i  k \cdot x }\right\rb \U {k \in \mathbb{Z}^d}.
+            \left\{\phi\U k(x)\right\}\U {k \in \mathbb{Z}^d}:=\left\{e^{2\pi i  k \cdot x }\right\}\U {k \in \mathbb{Z}^d}.
         \end{aligned}$$
 </div>
 
-  Thus, every function
-$f \in L^2(\mathbb{R}^d /\mathbb{Z}^d)$ can be written as
+  Thus, every$f \in L^2(\mathbb{R}^d /\mathbb{Z}^d)$hbb{Z}^d)$ can be written as
 
 
 <div>
  $$\begin{aligned}
             f(x)= \sum\U {k \in  \mathbb{Z}^d}\widehat{f}(k)e^{2\pi i  k \cdot x } .
         \end{aligned}$$
-</div>
-
-  Where $\widehat{f} \in \ell ^2(\mathbb{Z}^d)$ is
-known as the Fourier transform of $f$ and defined by
+</div>$\widehat{f} \in \ell ^2(\mathbb{Z}^d)$hbb{Z}^d)$ is
+known as the Fourier tra$f$orm of $f$ and defined by
 
 <div>
  $$\begin{aligned}
@@ -582,8 +566,7 @@ known as the Fourier transform of $f$ and defined by
 
 
 
-Another interesting property of Euclidean space is that every element of
-the dual $\ell :\mathbb{C}^n \to \mathbb{C}$ is represented by a vector
+Another interesting property of Euclidean space is that every element of$\ell :\mathbb{C}^n \to \mathbb{C}$mathbb{C}$ is represented by a vector
 in the space, that is
 
 <div>
@@ -592,22 +575,18 @@ in the space, that is
     \end{aligned}$$
 </div>
 
-  Here one can calculate directly that $y\U \ell$ is the
-conjugate of the "matrix" defined by $\ell$ as a linear function
+  Here one can calculate dire$y\U \ell$t $y\U \ell$ is the
+conjugate of the "matrix" d$\ell$ by $\ell$ as a linear function
 
 
 <div>
  $$\begin{aligned}
         y\U \ell =(\overline{\ell (e\U 1)},\ldots,\overline{\ell (e\U n)}) .
     \end{aligned}$$
-</div>
-
-  Where $e\U i$ is the standard orthonormal basis of
-$\mathbb{C}^n$. In Hilbert spaces, the same result holds
+</div>$e\U i$here $e\U i$ is the standard orthonormal$\mathbb{C}^n$thbb{C}^n$. In Hilbert spaces, the same result holds
 
  {#riesz theorem .theorem}
-**Theorem 5** (Riesz representation ). Let $H$ be a Hilbert space, then
-given $\ell \in H'$ there exists a unique $f\U \ell \in H$ such that
+**Theorem 5** (Riesz representatio$H$. Let $H$ be a Hilbert space, t$\ell \in H'$ll \in H'$ there exists$f\U \ell \in H$ell \in H$ such that
 
 
 <div>
@@ -617,13 +596,11 @@ given $\ell \in H'$ there exists a unique $f\U \ell \in H$ such that
         \end{align}$$
 </div>
 
-  Furthermore,
-$\left\lVert f\U \ell  \right\rVert=\left\lVert \ell  \right\rVert$.
+  Fur$\left\lVert f\U \ell  \right\rVert=\left\lVert \ell  \right\rVert$ght\rVert$.
 
 
 
-Proof. Consider an orthonormal basis
-$\left\lb \phi\U \alpha\right\rb \U {\alpha \in  I}$ for $H$. Then, just as in
+Proof. Consider an orthonor$\left\\{\phi\U \alpha\right\\}\U {\alpha \in  I}$pha \$H$ I}$ for $H$. Then, just as in
 Euclidean space we have that
 
 <div>
@@ -632,11 +609,11 @@ Euclidean space we have that
         \end{aligned}$$
 </div>
 
-  The fact that $f\U \ell$ verifies
+  Th$f\U \ell$hat $f\U \ell$ verifies
 (\ref{riesz})  is a
 direct application of the (anti)-linearity and continuity of the inner
-product. Uniqueness following from the fact that if $f\U \ell , g\U \ell$
-both verify the equality then for all $h \in h$
+product. Uniqueness following from the f$f\U \ell , g\U \ell$ll , g\U \ell$
+both verify the equality t$h \in h$ll $h \in h$
 
 <div>
  $$\begin{aligned}
@@ -644,9 +621,8 @@ both verify the equality then for all $h \in h$
         \end{aligned}$$
 </div>
 
-  This can only occur if $f\U \ell -g\U \ell =0$ (hint
-take $h= f\U \ell -g\U \ell$). To verify the norm we can use that, for all
-$h \in  H$ with norm $1$
+  This can on$f\U \ell -g\U \ell =0$ -g\U \ell =0$$h= f\U \ell -g\U \ell$ell -g\U \ell$). To verify the norm we can use th$h \in  H$l
+$h \in  H$1$ith norm $1$
 
 <div>
  $$\begin{aligned}
@@ -654,10 +630,8 @@ $h \in  H$ with norm $1$
         \end{aligned}$$
 </div>
 
-  The equality shows that
-$\left\lVert \ell  \right\rVert\geq \left\lVert f\U \ell  \right\rVert$
-whereas the inequality shows the converse
-$\left\lVert \ell  \right\rVert\leq \left\lVert f\U \ell  \right\rVert$,
+  The equality$\left\lVert \ell  \right\rVert\geq \left\lVert f\U \ell  \right\rVert$right\rVert$
+whereas the inequality shows t$\left\lVert \ell  \right\rVert\leq \left\lVert f\U \ell  \right\rVert$right\rVert$,
 proving the theorem. ◻
 
 
@@ -670,14 +644,14 @@ The previous theorem says that we have an antilinear isometry
     \end{aligned}$$
 </div>
 
-  This allows us to identify $H$ with $H'$. The
+  This allows us $H$identi$H'$H$ with $H'$. The
 identification is canonical as it does not depend on the bases chosen.
-Yes, we fixed a basis to prove it but the vector $f\U \ell$ is unique
-independently of the basis. This allows us to make $H'$ into a Hilbert
+Yes, we fixed a basis to prove it but$f\U \ell$tor $f\U \ell$ is unique
+independently of the basis. This allows$H'$to make $H'$ into a Hilbert
 space in a canonical way
 
 
-**Proposition 3**. Let $H$ be a Hilbert space, then $H'$ is also a
+Propositio$H$. Let $H$ be a Hilbert $H'$e, then $H'$ is also a
 Hilbert space, with inner product given by
 
 <div>
@@ -689,10 +663,8 @@ Hilbert space, with inner product given by
 
 
 
-Where we had to "swap the order" of the representatives of
-$\ell\U 1, \ell\U 2$ due to the anti-linearity of the mapping
-$\ell \to f\U \ell$. Since $H'$ is also a Hilbert space we can apply
-Riesz's theorem to $H'$ to show that $H''$ is also a Hilbert space and
+Where we had to "swap the order" of the represe$\ell\U 1, \ell\U 2$l\U 1, \ell\U 2$ due to the anti-linearity of $\ell \to f\U \ell$ \to f\U \$H'$. Since $H'$ is also a Hilbert space we can apply
+Riesz's$H'$orem to $H'$ t$H''$w that $H''$ is also a Hilbert space and
 there exists a canonical antilinear isometry
 
 <div>
@@ -701,7 +673,7 @@ there exists a canonical antilinear isometry
     \end{aligned}$$
 </div>
 
-  By construction, of $\Phi\U 1,\Phi\U 2$ it holds that
+  By const$\Phi\U 1,\Phi\U 2$hi\U 1,\Phi\U 2$ it holds that
 
 
 <div>
@@ -709,8 +681,7 @@ there exists a canonical antilinear isometry
         \Phi\U 2 \circ \Phi\U 1 (f) (\ell )= \ell(f).
     \end{aligned}$$
 </div>
-
-  That is, $H$ is identified canonically with $H''$
+$H$That is, $H$ is identified canon$H''$y with $H''$
 and, the identification is such that
 
 <div>
@@ -725,8 +696,8 @@ and, the identification is such that
 Theorem 6. Every Hilbert space is reflexive.
 
 
-Consider now a Hilbert space $H$ and a linear operator $T: H \to H$.
-Then, for each $g \in H$ we can define the linear form
+Consider now a Hi$H$rt space $H$ and a line$T: H \to H$$T: H \to H$.
+The$g \in H$ch $g \in H$ we can define the linear form
 
 <div>
  $$\begin{aligned}
@@ -734,9 +705,9 @@ Then, for each $g \in H$ we can define the linear form
     \end{aligned}$$
 </div>
 
-  As a result, there exists a unique representative of
-$\ell \U g$ in $H$ which, to track the dependence on $g$, we denote by
-$h\U g$. That is, $h\U g$ verifies
+  As a result, there exists a unique repres$\ell \U g$of
+$$H$l \U g$ in $H$ which, to track the de$g$dence on $g$, w$h\U g$ote by
+$h\U g$h\U g$at is, $h\U g$ verifies
 
 <div>
  $$\begin{aligned}
@@ -744,8 +715,8 @@ $h\U g$. That is, $h\U g$ verifies
     \end{aligned}$$
 </div>
 
-  A small reasoning shows that $h\U g$ is a linear
-function of $g$, that is, there exists $T^\star :H \to H$ with $T^\star  g=h\U g$,
+  A small reasoning$h\U g$s that $h\U g$ is a linear
+$g$ction of $g$, that is, t$T^\star :H \to H$T^\star :H $T^\star  g=h\U g$ $T^\star  g=h\U g$,
 or in other words
 
 <div>
@@ -758,23 +729,18 @@ or in other words
 
 
 
-Definition 6. Given $T \in \mathcal{L}(H)$ we denote by $T^\star $ the
-unique element of $\mathcal{L}(H)$ verifying
-(\ref{adjoint}) . If
-$T=T^\star $ we say that $T$ is self adjoint.
+Definition $T \in \mathcal{L}(H)$thcal{L}(H)$ w$T^\star $ote by $T^\star $ the
+unique$\mathcal{L}(H)$thcal{L}(H)$ verifying
+(\ref{adj$T=T^\star $. If
+$T=T^\star $ $T$say that $T$ is self adjoint.
 
 
-If we think in terms of complex numbers, the adjoint of an element
-$\lambda  \in \mathbb{C}$ is $\overline{\lambda }$ and $T$ is self
-adjoint if and only if it is real. If now we consider the case where $H$
-is $\mathbb{C}^n$ and $T$ is given by some matrix $A$ then
-$A^\star =A^\dagger:= \overline{A^T}$. As in these finite dimensional cases,
+If we think in terms of complex numbers, the adjoint of$\lambda  \in \mathbb{C}$ \ma$\overline{\lambda }$e{\la$T$a }$ and $T$ is self
+adjoint if and only if it is real. If now we consider the$H$se w$\mathbb{C}^n$mathb$T$}^n$ and $T$ is given by $A$e matr$A^\star =A^\dagger:= \overline{A^T}$erline{A^T}$. As in these finite dimensional cases,
 the following proof is not difficult
 
 
-**Proposition 4**. Let $T \in \mathcal{L}(H)$ with $H$ a Hilbert space.
-Then $T^\star  \in \mathcal{L}(H)$ with
-$\left\lVert T \right\rVert=\left\lVert T^\star  \right\rVert$.
+Propositio$T \in \mathcal{L}(H)$thcal{$H$H)$ with $H$ a Hilbert $T^\star  \in \mathcal{L}(H)$thcal{$\left\lVert T \right\rVert=\left\lVert T^\star  \right\rVert$right\rVert$.
 
 
 Hilbert spaces provide us a way to guarantee existence and uniqueness to
@@ -790,9 +756,8 @@ Definition 7. We say that a mapping
         \end{aligned}$$
 </div>
 
-  on a vector space $V$, is sesquilinear if $B$ is
-linear in the first component and antilinear in the second. That is, for
-all $x,y,z \in V$ and $\lambda \in \mathbb{K}$:
+  on a v$V$or space $V$, is sesq$B$inear if $B$ is
+linear in the first component and antilinear in the second. That $x,y,z \in V$x,y,z$\lambda \in \mathbb{K}$ \mathbb{K}$:
 
 <div>
  $$\begin{aligned}
@@ -804,9 +769,9 @@ all $x,y,z \in V$ and $\lambda \in \mathbb{K}$:
 
 
 
-Definition 8. Let $V$ be a normed vector space then we say that a
-sesquilinear form $B$ is $\alpha$ coercive if it is continuous and there
-exists a constant $\alpha>0$ such that
+Definitio$V$. Let $V$ be a normed vector space then we say that a
+sesqui$B$ear $\alpha$ is $\alpha$ coercive if it is continuous and there
+exists$\alpha>0$t $\alpha>0$ such that
 
 
 <div>
@@ -821,10 +786,9 @@ not degenerate. As a particular example, a symmetric sesquilinear form
 is an inner product.
 
  {#Lax theorem .theorem}
-Theorem 7 (Lax Milgram). Let $B, L$ be respectively an $\alpha$
-coercive sesquilinear form and a linear form on a Hilbert space $H$.
-Then there exists an invertible linear operator $\mathcal{L}:H \to H$
-and $f \in H$ such that
+Theorem 7 (Lax Mil$B, L$ Let $B, L$ be resp$\alpha$ an $\alpha$
+coercive sesquilinear form and a linear form on a Hi$H$rt space $H$.
+Then there exists an invertible line$\mathcal{L}:H \to H${L}:H$f \in H$nd $f \in H$ such that
 
 
 <div>
@@ -839,17 +803,13 @@ As a result, eqalign
             B(v,u)=L(v) \quad\forall v \in H$$
 </div>
 
-  has a unique solution
-$u= \mathcal{L}^{-1} f$. Furthermore, the solution operator
-$\mathcal{L}^{-1}$ is continuous with
-$\left\lVert \mathcal{L}^{-1} \right\rVert\leq \alpha^{-1}$.
+  has a uniq$u= \mathcal{L}^{-1} f$l{L}^{-1} f$. Furthermore, the soluti$\mathcal{L}^{-1}$cal{L}^{-1}$ is cont$\left\lVert \mathcal{L}^{-1} \right\rVert\leq \alpha^{-1}$\alpha^{-1}$.
 
 
 
-Proof. For each fixed $u \in H$, we have that
-$\ell\U u :=B(\cdot ,u) \in  H'$. As a result by Riesz's representation
+Proof. For$u \in H$ed $u \in H$, w$\ell\U u :=B(\cdot ,u) \in  H'$,u) \in  H'$. As a result by Riesz's representation
 theorem (Theorem [5](#riesz theorem){reference-type="ref"
-reference="riesz theorem"}) there exists a unique $f\U {\ell \U u} \in H$
+reference="riesz theorem"}) there exis$f\U {\ell \U u} \in H$l \U u} \in H$
 sucalign
 
 <div>
@@ -858,9 +818,7 @@ sucalign
 </div>
 
 
-Furthermore, it can be verified that, by the sesquilinearity of $B$, the
-mapping $u \to f\U {\ell \U u}$ is linear in $u$. That is, there exists
-$\mathcal{L}: H\to H$ sucalign
+Furthermore, it can be verified that, by the sesquil$B$arity of $B$, $u \to f\U {\ell \U u}$f\U {\ell \U u}$ i$u$inear in $u$. That is, t$\mathcal{L}: H\to H${L}: H\to H$ sucalign
 
 <div>
  $$\label{g}
@@ -868,9 +826,9 @@ $\mathcal{L}: H\to H$ sucalign
 </div>
 
   The
-existence of the representative $f \in  H$ of $L$ is once more by
-Riesz's representation theorem. We now show that $\mathcal{L}$ verifies
-the desired properties. Firstly, $\mathcal{L}$ is continuous as given
+existence of the rep$f \in  H$e $f$L$n  H$ of $L$ is once more by
+Riesz's representation theorem. We no$\mathcal{L}$\mathcal{L}$ verifies
+the desired propertie$\mathcal{L}$\mathcal{L}$ is continuo$u\in  H$en
 $u\in  H$
 
 
@@ -879,10 +837,7 @@ $u\in  H$
 </div>
 
 
-So dividing by $\left\lVert \mathcal{L}u \right\rVert$ on either side
-shows that
-$\left\lVert \mathcal{L} \right\rVert \leq \left\lVert B \right\rVert$.
-Now, $\mathcal{L}$ is injective as if $\mathcal{L}u=0$ then
+So $\left\lVert \mathcal{L}u \right\rVert$right\rVert$ on either side$\left\lVert \mathcal{L} \right\rVert \leq \left\lVert B \right\rVert$right\r$\mathcal{L}$\mathcal{L}$ is inje$\mathcal{L}u=0$thcal{L}u=0$ then
 
 
 <div>
@@ -890,8 +845,7 @@ Now, $\mathcal{L}$ is injective as if $\mathcal{L}u=0$ then
 </div>
 
 
-We now show that $\mathcal{L}$ is surjective. Consider
-$u \in  \Im(\mathcal{L})^\perp$, then it holdalign
+We no$\mathcal{L}$\mathcal{L}$ is surjectiv$u \in  \Im(\mathcal{L})^\perp$l{L})^\perp$, then it holdalign
 
 <div>
  $$\label{est}
@@ -901,10 +855,10 @@ $u \in  \Im(\mathcal{L})^\perp$, then it holdalign
 
 As a result, we deduce from the orthogonal complement theorem
 [2](#complement theorem){reference-type="ref"
-reference="complement theorem"} that $\overline{\Im(\mathcal{L})}=0$.
-Thus, if we show that $\mathcal{L}$ is closed we are done. The estimate
+reference="complement the$\overline{\Im(\mathcal{L})}=0$hcal{L})}=0$.
+Thus, if w$\mathcal{L}$\mathcal{L}$ is closed we are done. The estimate
 in (\ref{est})  together with
-Cauchy Schwartz shows that for all $u \in H$
+Cauchy Schwartz shows t$u \in H$ll $u \in H$
 
 
 <div>
@@ -912,14 +866,8 @@ Cauchy Schwartz shows that for all $u \in H$
 </div>
 
 
-From here it follows that $\mathcal{L}$ is closed, as if
-$\mathcal{L}u\U n \in  \Im (\mathcal{L})$ is a Cauchy sequence then so
-must be $u\U n$. By completeness of $\mathcal{L}$, the sequence $u\U n$
-converges to some $u \in  H$ and we deduce, by continuity of
-$\mathcal{L}$, that
-$\mathcal{L}u\U n \to \mathcal{L}u \in \Im (\mathcal{L})$. In consequence,
-$\mathcal{L}$ is invertible, finally to show the bound on
-$\mathcal{L}^{-1}$ let us write $u =\mathcal{L}^{-1} f$ then
+From here it f$\mathcal{L}$\mathcal{L}$ is cl$\mathcal{L}u\U n \in  \Im (\mathcal{L})$mathcal{L})$ is a Cauchy sequence then$u\U n$ust be $u\U n$. By comp$\mathcal{L}$\mathcal{L}$, t$u\U n$quence $u\U n$
+conver$u \in  H$e $u \in  H$ and we deduce, by co$\mathcal{L}$\mathca$\mathcal{L}u\U n \to \mathcal{L}u \in \Im (\mathcal{L})$mathcal{L})$. In c$\mathcal{L}$\mathcal{L}$ is invertible, finally to show t$\mathcal{L}^{-1}$cal{L}^{-1}$ l$u =\mathcal{L}^{-1} f$l{L}^{-1} f$ then
 
 
 <div>
@@ -927,13 +875,12 @@ $\mathcal{L}^{-1}$ let us write $u =\mathcal{L}^{-1} f$ then
 </div>
 
 
-Dividing on either side by $\alpha \left\lVert u \right\rVert$ concludes
+Dividing on eit$\alpha \left\lVert u \right\rVert$right\rVert$ concludes
 the proof. ◻
 
 
-If we had assumed that $B$ were (anti-)symmetric then the proof would
-have been simplified as $B$ would define an inner product
-$\left\langle\cdot ,\cdot \right\rangle\U B$. Applying Riesz's theorem to
+If we had a$B$med that $B$ were (anti-)symmetric then the proof would
+have been si$B$ified as $B$ would define an in$\left\langle\cdot ,\cdot \right\rangle\U B$ht\rangle\U B$. Applying Riesz's theorem to
 this inner product (as opposed to the original one) would transform our
 equation (\ref{lax eq})  into
 
@@ -945,13 +892,12 @@ equation (\ref{lax eq})  into
 
   That is, to solve
 (\ref{lax eq})  it
-would suffice to take $u=f$. In the case where $B$ is symmetric and
-real, we can also find $u$ by solving a minimization problem
+would suff$u=f$o take $u=f$. In the$B$se where $B$ is symmetric and
+real, we ca$u$lso find $u$ by solving a minimization problem
 
 
-**Proposition 5** (Minimization formulation). Let
-$B: H\times H \to \mathbb{R}$ be a symmetric coercive bilinear operator
-on a real Hilbert space $H$. Then, problem
+**Proposition 5** (Minimization formula$B: H\times H \to \mathbb{R}$ \mathbb{R}$ be a symmetric coercive bilinear operator
+on a real Hi$H$rt space $H$. Then, problem
 (\ref{lax eq})  is
 equivalent to minimizing
 
@@ -966,9 +912,7 @@ equivalent to minimizing
 
 
 Proof. To prove that a solution to
-(\ref{lax eq})
-minimizes $J$ we can develop $J(u+v)$ and simplify it using
-$B(v,u)=L(v)$ to obtain
+(\ref{lax eq})$J$inimizes $J$ we $J(u+v)$lop $J(u+v)$ and simpli$B(v,u)=L(v)$B(v,u)=L(v)$ to obtain
 
 <div>
  $$\begin{aligned}
@@ -976,8 +920,7 @@ $B(v,u)=L(v)$ to obtain
         \end{aligned}$$
 </div>
 
-  To prove that a minimum of $J$ solves
-$\eqref{lax eq}$ one can show by taking limits as $\lambda  \to 0$ in
+  To prove that a$J$nimum of$\eqref{lax eq}$ref{lax eq}$ one can show by takin$\lambda  \to 0$mbda  \to 0$ in
 the expression
 
 <div>
@@ -986,16 +929,13 @@ the expression
         \end{aligned}$$
 </div>
 
-  That for all $h \in  H$
+  T$h \in  H$l $h \in  H$
 
 <div>
  $$\begin{aligned}
             L(h-u) \leq B(u,h-u).
         \end{aligned}$$
-</div>
-
-  Taking $h=u+v$ and $h=u-v$ where $v$ is any
-shows $-L(v) \leq -B(u,v)$ and $L(v) \leq B(u,v)$, which concludes the
+</div$h=u+v$king $h=u-v$ and $h$v$v$ where $v$ i$-L(v) \leq -B(u,v)$leq -$L(v) \leq B(u,v)$\leq B(u,v)$, which concludes the
 proof. ◻
 
 
@@ -1006,12 +946,12 @@ a more detailed blog post on spectral theory. For now, we give the
 essentials.
 
 
-Definition 9. We say that a linear operator $K: X \to Y$ where
-$X,Y$ are two normed spaces is compact if $T(B)$ is relatively compact
-for all bounded $B \subset  X$.
+Definition 9. We say that a line$K: X \to Y$$K: X \$X,Y$ where
+$X,Y$ are two normed spaces is$T(B)$ct if $T(B)$ is relatively compact
+for $B \subset  X$ \subset  X$.
 
 
-The above will be abbreviated $K \in  \mathcal{K}(X,Y)$. The reason we
+The above will be $K \in  \mathcal{K}(X,Y)$cal{K}(X,Y)$. The reason we
 are interested in compact operators is that they are particularly
 simple. Note that every finite-dimensional operator (that is operators
 whose image is finite-dimensional) is compact by the Heine-Borel theorem
@@ -1019,9 +959,9 @@ in fact, a good way of thinking of compact operators is to see them as
 finite-dimensional operators . Or more precisely, as the limit of them
 
 
-Proposition 6. Let $T \in  \mathcal{K}(X,H)$ where $H$ is a
+Propositio$T \in  \mathcal{K}(X,H)$cal{K}($H$)$ where $H$ is a
 separable Hilbert space . Then there exists a sequence of
-finite-dimensional operators $T\U n$ such that
+finite-dimensiona$T\U n$rators $T\U n$ such that
 
 <div>
  $$\begin{aligned}
@@ -1033,10 +973,8 @@ finite-dimensional operators $T\U n$ such that
 
 
 
-Proof. Since $H$ is separable there exists a countable orthonormal
-basis $\left\lb \phi\U n\right\rb \U {n \in \mathbb{N}}$. If we denote $T\U n$ for
-the projection of $T$ onto the space generated by
-$\left\lb \phi\U 1,\ldots,\phi\U n\right\rb $ then, by Parseval's Theorem
+Pr$H$. Since $H$ is separable there exists a countable orthon$\left\\{\phi\U n\right\\}\U {n \in \mathbb{N}}$n \mathbb{N}}$.$T\U n$e denote $T\U n$ for
+the $T$jection of $T$ onto the space$\left\\{\phi\U 1,\ldots,\phi\U n\right\\}$\phi\U n\right\\}$ then, by Parseval's Theorem
 pointwise convergence holds
 
 <div>
@@ -1045,37 +983,31 @@ pointwise convergence holds
         \end{aligned}$$
 </div>
 
-  Consider the unit ball $B\U X$ in $X$. Then
-$T(B\U X)$ is relatively compact. So $T(B\U X)$ is totally bounded and given
-$\epsilon >0$ we can form a finite $\epsilon$ net $Tx\U 1,\ldots,Tx\U m$ of
-$T(B(X)$. By pointwise convergence, we can now take $n\U 0$ large enough
-so that for all $N \geq n\U 0$
+  Conside$B\U X$ uni$X$all $B\U $T(B\U X)$$. Then
+$T(B\U X)$ is relativ$T(B\U X)$act. So $T(B\U X)$ is totally bo$\epsilon >0$en
+$\epsilon >0$ we ca$\epsilon$inite$Tx\U 1,\ldots,Tx\U m$x\U 1,$T(B(X)$x\U m$ of
+$T(B(X)$. By pointwise convergence, $n\U 0$n now take $n\U 0$ large enough
+$N \geq n\U 0$all $N \geq n\U 0$
 
 <div>
  $$\begin{aligned}
             \left\lVert T(x\U j)-T\U N(x\U j) \right\rVert , \quad\forall j=1,\ldots,m.
         \end{aligned}$$
 </div>
-
-  Now, for any $x\in B\U X$ we can find $x\U j$ such
-that $\left\lVert Tx-Tx\U j \right\rVert< \epsilon$. Using the triangle
+$x\in B\U X$r any $x\in B$x\U j$e can find $\left\lVert Tx-Tx\U j \right\rVert< \epsilon$rVert< \epsilon$. Using the triangle
 inequality
 
 <div>
  $$\begin{aligned}
             \left\lVert (T-T\U N) x \right\rVert \leq \left\lVert Tx-Tx\U j \right\rVert+ \left\lVert T x\U j-T\U N x\U {j} \right\rVert+ \left\lVert T\U N x\U j-T\U N x \right\rVert < 3\epsilon .
-        \end{aligned}$$
-</div>
-
-  Thus $T\U n \to T$, concluding the proof. ◻
+        \end{aligned}$$$T\U n \to T$Thus $T\U n \to T$, concluding the proof. ◻
 
 
 An important property of compact operators is that they are preserved by
 continuous ones.
 
  {#comp .proposition}
-Proposition 7. Let $K \in \mathcal{K}(X,Y), T \in L(Y,Z)$ with $Z$
-complete, then $T \circ K$ is compact
+Propos$K \in \mathcal{K}(X,Y), T \in L(Y,Z)$), T \$Z$L(Y,Z)$ with $Z$$T \circ K$then $T \circ K$ is compact
 
 
 
@@ -1083,13 +1015,12 @@ Proof. This is a consequence of the fact that in complete metric
 spaces relatively compact is equivalent to totally bounded. ◻
 
 
-For us, an important example of compact operators will be the solution
-operator $\mathcal{L}^{-1}$ of a PDE. This is because of the following
+For us, an important example of compact operators will be the so$\mathcal{L}^{-1}$mathcal{L}^{-1}$ of a PDE. This is because of the following
 theorem
 
  {#Rellich .theorem}
-Theorem 8 (Rellich-Kondrachov). Let $U \subset \mathbb{R}^n$ be a
-bounded open domain in $\mathbb{R}^n$ with smooth boundary. Then, given
+Theorem 8 (Rellich-Ko$U \subset \mathbb{R}^n$et \mathbb{R}^n$ be a
+bounded$\mathbb{R}^n$n $\mathbb{R}^n$ with smooth bounda$s >0$en, given
 $s >0$ it holds that the natural inclusion
 
 <div>
@@ -1098,18 +1029,17 @@ $s >0$ it holds that the natural inclusion
         \end{aligned}$$
 </div>
 
-  is compact for all $\sigma >0$.
+  is $\sigma >0$ all $\sigma >0$.
 
 
 For the proof of a more general version see [2](https://books.google.co.uk/books?id=wI4fAwAAQBAJ&printsec=frontcover&hl=fr&source=gbs\U ge\U summary\U r&cad=0#v=onepage&q&f=false) page
-334. It is important to observe the restriction that $U$ is bounded is
-necessary and the theorem no longer holds if $U$ is replaced by
+334. It is important to observe the r$U$riction that $U$ is bounded is
+necessary and the theorem no $U$ger holds if $U$$\mathbb{R}^n$y
 $\mathbb{R}^n$.
 
  {#addd .corollary}
-**Corollary 2** (Adding differentiability is compact). Let
-$U \subset \mathbb{R}^n$ be a bounded open domain in $\mathbb{R}^n$ with
-smooth boundary and $s, \sigma >0$, then every continuous operator
+**Corollary 2** (Adding differentiability is$U \subset \mathbb{R}^n$et \mathbb{R}^n$ be a bounded$\mathbb{R}^n$n $\mathbb{R}^n$ with
+smoo$s, \sigma >0$d $s, \sigma >0$, then every continuous operator
 
 
 <div>
@@ -1122,7 +1052,7 @@ smooth boundary and $s, \sigma >0$, then every continuous operator
 
 
 
-Proof. We have that $T= T \circ i$ so we conclude by
+Proof$T= T \circ i$t $T= T \circ i$ so we conclude by
 Rellich-Kondrachov's theorem [8](#Rellich){reference-type="ref"
 reference="Rellich"} and the preservation of compact operators by
 continuous ones (Proposition [7](#comp){reference-type="ref"
@@ -1130,11 +1060,11 @@ reference="comp"}). ◻
 
 
 Compact operators also have a nice spectral theory. Where we recall that
-the spectrum of an operator $T$ is defined as
+the spectrum$T$ an operator $T$ is defined as
 
 <div>
  $$\begin{aligned}
-        \sigma (T):=\left\lb \lambda \in \mathbb{K}: \lambda \I -T \text{ is not invertible } \right\rb  .
+        \sigma (T):=\left\{\lambda \in \mathbb{K}: \lambda \I -T \text{ is not invertible } \right\} .
     \end{aligned}$$
 </div>
 
@@ -1142,11 +1072,10 @@ the spectrum of an operator $T$ is defined as
 to it's eigenvalues. Secondly the following holds
 
 
-Theorem 9 (Spectral theorem). Let $T \in \mathcal{K}(H)$ be a
-compact self adjoint operator on a Hilbert space $H$. Then $T$
+Theorem 9 (Spectral$T \in \mathcal{K}(H)$ \mathcal{K}(H)$ be a
+compact self adjoint operator on $H$ilbert $T$ce $H$. Then $T$
 diagonalizes on an orthonormal basis. That is, there exists an
-orthonormal basis $\left\lb \phi\U \alpha\right\rb  \U {\alpha \in  I}$ and
-$\lambda \U \alpha \in \mathbb{K}$ such that
+or$\left\\{\phi\U \alpha\right\\} \U {\alpha \in  I}$ \U {\a$\lambda \U \alpha \in \mathbb{K}$ha \in \mathbb{K}$ such that
 
 <div>
  $$\begin{aligned}
@@ -1158,7 +1087,7 @@ $\lambda \U \alpha \in \mathbb{K}$ such that
 
 
 A more general result is possible but requires more theory so we reserve
-it for another day. That said, this type of discrete representation of
+it for another day. That said, this type of discrete $T$resentation of
 $T$ is very useful and links up with the theory of trace class and
 Hilbert-Schmidt operators which we will discuss more in the future.
 
@@ -1166,8 +1095,7 @@ To end it all off we state without proof a theorem that will be useful
 in proving properties about the solution space to the solution of PDEs
 
 
-**Theorem 1**0 (Fredholm alternative). Let $H$ be a Hilbert space and
-$K \in \mathcal{K}(H)$. Consider $T:= Id-K$ then it holds that
+**Theorem 1**0 (Fredholm a$H$rnative). Let $H$ be a $K \in \mathcal{K}(H)$in \mathcal$T:= Id-K$onsider $T:= Id-K$ then it holds that
 
 
 <div>
@@ -1176,15 +1104,9 @@ $K \in \mathcal{K}(H)$. Consider $T:= Id-K$ then it holds that
         \end{aligned}$$
 </div>
 
-  Furthermore, it holds that
+  Furthermore, it $\mathbf{ker}(T)$$\mathbf{ker}(T)$ is finite di$T$sional.
 
-a)  $\mathbf{ker}(T)$ is finite dimensional.
-
-b)  $T$ is closed.
-
-c)  $\Im (T)=\mathbf{ker}(T^\star )^\perp$.
-
-d)  $\mathrm{dim}(\mathbf{ker}(T))=\mathrm{dim}(\mathbf{ker}(T^\star ))$.
+b)  $T$ $\Im (T)=\mathbf{ker}(T^\star )^\perp$f{ker}(T^$\mathrm{dim}(\mathbf{ker}(T))=\mathrm{dim}(\mathbf{ker}(T^\star ))$mathbf{ker}(T^\star ))$.
 
 
 We also delay the proof till our future posts on spectral theory. In the
