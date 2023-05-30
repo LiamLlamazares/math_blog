@@ -590,7 +590,7 @@ $$\hat{f}(\xi):=\int_G f(x)\xi(x) \mu(dx).$$
 
 From here one can proceed as previously to extend the Fourier transform on $G$ to an isometry (if the Haar measure is properly normalized) of $L^2(G)$. In the particular cases we studied, we had that the Haar measure is just the Lebesgue measure and
 <div>
-$$\widehat{\mathbb{R}^d}=\left\{e^{2\pi i\xi \cdot}:\xi\in\R^d\right\}\quad;\widehat{\mathbb{T}^d}=\left\{e^{2\pi ik \cdot}:k\in\Z^d\right\}.$$
+$$\widehat{\mathbb{R}^d}=\left\\{e^{2\pi i\xi \cdot}:\xi\in\R^d\right\\}\quad;\widehat{\mathbb{T}^d}=\left\{e^{2\pi ik \cdot}:k\in\Z^d\right\}.$$
 </div>
 This helps shed light on why in the euclidean case we obtain an integral and in the periodic case we obtain a sum. It is also possible to study the $L^p$ theory of the
 Fourier transform for general $p$. The case $p=2$ is greatly facilitated by the fact that $L^2(G), L^2(\hat{G})$ are Hilbert spaces. But for $p\neq 2$ this does not hold. The theory in this setting relies heavily on interpolation theory as one must use the [Riesz Thorin theorem](https://en.wikipedia.org/wiki/Riesz%E2%80%93Thorin_theorem) to obtain the Haussdorff Young inequality

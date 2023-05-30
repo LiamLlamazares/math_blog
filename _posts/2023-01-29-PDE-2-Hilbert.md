@@ -363,7 +363,7 @@ spaces reproduce is that of the existence of an orthonormal basis.
 
 
 **Definition 4**. Let $H$ be a Hilbert space and $I$ some index set. We
-say that $\mathcal{B}=\\{\phi\U \alpha\\}\U {\alpha \in  I}$ is an
+say that $\mathcal{B}=\left\\{\phi\U \alpha\right\\}\U {\alpha \in  I}$ is an
 orthonormal basis of $H$ if
 
 <div>
