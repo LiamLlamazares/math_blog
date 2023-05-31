@@ -1327,6 +1327,3 @@ d)  $\mathrm{dim}(\mathbf{ker}(T))=\mathrm{dim}(\mathbf{ker}(T^\star ))$
 
 We delay the proof till another day, in the meantime, see
 [3](https://math24.files.wordpress.com/2013/02/partial-differential-equations-by-evans.pdf) page 725.
-
-A pdf of version of this page is provided below:
-<object data="/assets/blank.pdf" width="1000" height="1000" type='application/pdf'></object>
