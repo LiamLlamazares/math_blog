@@ -71,7 +71,8 @@ inner product
 <div>
  $$\begin{aligned}
             x \cdot y:= x\U 1 y\U 1+\ldots x\U n y\U n.
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
 
@@ -84,7 +85,8 @@ the inner product
 <div>
  $$\begin{aligned}
             \left\langle x,y\right\rangle:= x\U 1 \overline{y\U 1}+\ldots x\U n \overline{y\U n}.
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
 
@@ -97,7 +99,8 @@ product to define a norm by
 <div>
  $$\begin{aligned}
         \lVert x \rVert^2:= \left\langle x,x\right\rangle.
-    \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
   In the cases above note that this is the standard
@@ -106,12 +109,13 @@ Euclidean norm
 <div>
  $$\begin{aligned}
         \lVert x \rVert^2= \left\langle x,x\right\rangle= \left| x\U 1 \right| ^2+\ldots +\left| x\U n \right|^2 .
-    \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
-  A Hilbert space is just this construction
-generalized to infinite dimensions. Firstly, the inner product is
-generalized as follows.
+  A Hilbert space is just this construction generalized to
+infinite dimensions. Firstly, the inner product is generalized as
+follows.
 
 
 **Definition 1**. Given a vector space $V$ over $\mathbb{K}$ where
@@ -121,11 +125,12 @@ a mapping
 <div>
  $$\begin{aligned}
             \left\langle\cdot ,\cdot \right\rangle: V \times V \to \mathbb{K}; \quad (x,y)\to \left\langle x,y\right\rangle.
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
-  Such that the following hold for all
-$x,y,z \in V$ and all $\lambda \in \mathbb{K}$
+  Such that the following hold for all $x,y,z \in V$ and
+all $\lambda \in \mathbb{K}$
 
 1.  Linearity:
     $\left\langle\lambda x+y,z\right\rangle= \lambda \left\langle x,z\right\rangle+ \left\langle y,z\right\rangle$.
@@ -150,11 +155,12 @@ being the identity. Note that the first two properties also imply
 <div>
  $$\begin{aligned}
         \left\langle z,\lambda x+  y\right\rangle=\overline{\left\langle\lambda  x+ y,z\right\rangle}= \overline{\lambda }\left\langle z,x\right\rangle+ \lambda \U 2\left\langle z,y\right\rangle.
-    \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
-  A vector space with an inner product is called an
-inner product space. This inner product gives us a concept of geometry.
+  A vector space with an inner product is called an inner
+product space. This inner product gives us a concept of geometry.
 
 
 **Definition 3**. Given an inner product space $V$ we define
@@ -163,7 +169,8 @@ inner product space. This inner product gives us a concept of geometry.
 <div>
  $$\begin{aligned}
             \lVert x \rVert:= \sqrt{\left\langle x,x\right\rangle}.
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
   Furthermore, we say that $x,y$ are orthogonal if
@@ -177,7 +184,8 @@ are orthogonal then by the linearity of the inner product.
 <div>
  $$\begin{aligned}
         \lVert x+y \rVert^2 = \left\langle x+y,x+y\right\rangle= \lVert x \rVert^2 +\lVert y \rVert^2.
-    \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
   An important property of the inner product is the
@@ -190,7 +198,8 @@ then it holds that
 <div>
  $$\begin{aligned}
             \left\langle x,y\right\rangle\leq \lVert x \rVert\lVert y \rVert.
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
 
@@ -209,7 +218,8 @@ respect to the inner product norm
 <div>
  $$\begin{aligned}
             \lVert x \rVert^2:= \left\langle x,x\right\rangle.
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
 
@@ -224,7 +234,8 @@ valued in another Hilbert space $H$ with the inner product
 <div>
  $$\begin{aligned}
         \left\langle f,g\right\rangle\U {L^2(\Omega \to H)}:= \int\U {\Omega} \left\langle f,g\right\rangle d\mu .
-    \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
   Another are the [Sobolev
@@ -234,7 +245,8 @@ $H^s(\mathbb{R}^d)$ with the inner product
 <div>
  $$\begin{aligned}
         \left\langle f,g\right\rangle\U {H^s(\mathbb{R}^d)}:= \int\U {\mathbb{R}^d} \left\langle\omega\right\rangle^{2s} \widehat{f}(\xi ) \overline{\widehat{g}(\xi )}d\xi  .
-    \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
   (I apologize for using the same notation for the
@@ -249,18 +261,20 @@ $f \in F$ such that
 <div>
  $$\begin{aligned}
             \min\U {g \in F}\lVert h-g \rVert= \lVert h-f \rVert.
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
-  Furthermore, if $F$ is a (vector) subspace, then
-it holds that $f$ is the unique element in $F$ such that $h-f$ is
+  Furthermore, if $F$ is a (vector) subspace, then it
+holds that $f$ is the unique element in $F$ such that $h-f$ is
 orthogonal to $F$. That is $f\in F$ is the only one verifying
 
 
 <div>
  $$\begin{aligned}
             h-f \in F^\perp:= \left\{g \in H : \left\langle g,F\right\rangle=\{0\}\right\}.
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
 
@@ -273,11 +287,12 @@ approaches the minimum distance
 <div>
  $$\begin{aligned}
             d(f\U n,h)\to d(h,F).
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
-  The inner product comes in to show that $f\U n$ is
-a Cauchy sequence. Since $H$ is complete it converges to some $f$. Then
+  The inner product comes in to show that $f\U n$ is a
+Cauchy sequence. Since $H$ is complete it converges to some $f$. Then
 our assumptions on $F$ come in. Firstly, since $F$ is closed shows
 $f \in F$. Secondly, since $F$ is convex one can get uniqueness. The
 uniqueness is once more a consequence of the properties of the inner
@@ -295,16 +310,18 @@ a vector space $H$. Then we have that
  $$\begin{aligned}
             V \oplus V^\perp & \longrightarrow H   \\
             (v\U 1,v\U 2)        & \longmapsto v\U 1+v\U 2
-            .\end{aligned}$$
+            .
+\end{aligned}$$
 </div>
 
-  Is a bijective isomorphism where we
-consider on $V \oplus V^\perp$ the inner product
+  Is a bijective isomorphism where we consider on
+$V \oplus V^\perp$ the inner product
 
 <div>
  $$\begin{aligned}
             \left\langle(v\U 1,v\U 2),(v\U 1',v\U 2')\right\rangle= \left\langle v\U 1,v\U 1'\right\rangle+ \left\langle v\U 2,v\U 2'\right\rangle.
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
 
@@ -318,7 +335,8 @@ $v\U 2:=h-v \in V^\perp$ so we get the decomposition
 <div>
  $$\begin{aligned}
             h=v\U 1 +v\U 2.
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
   This proves bijectivity, whereas the isomorphism
@@ -333,7 +351,8 @@ An important corollary of this is the following
 <div>
  $$\begin{aligned}
             \overline{V}=H \iff \overline{V}^\perp =\left\{0\right\} .
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
 
@@ -351,11 +370,12 @@ theorem $V$ is dense in $H$. That is $H=\overline{V}$, whereas
 <div>
  $$\begin{aligned}
         H \neq V \oplus V^\perp =V \oplus \left\{0\right\} .
-    \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
-  Another property of Euclidean space that Hilbert
-spaces reproduce is that of the existence of an orthonormal basis
+  Another property of Euclidean space that Hilbert spaces
+reproduce is that of the existence of an orthonormal basis
 
 
 **Definition 5**. Let $H$ be a Hilbert space and $I$ some index set. We
@@ -365,7 +385,8 @@ orthonormal basis of $H$ if
 <div>
  $$\begin{aligned}
             \left\langle\phi\U \alpha,\phi\U \beta \right\rangle= \delta \U {\alpha, \beta }, \quad\forall \alpha,\beta \in I.
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
   And for every element $f \in H$ there exist
@@ -375,7 +396,8 @@ $\lambda \U \alpha \in  \mathbb{C}$ such that
  $$\begin{align}
 \label{sum}
             f= \sum\U {\alpha \in I} \lambda \U \alpha \phi\U \alpha .
-        \end{align}$$
+
+\end{align}$$
 </div>
 
 
@@ -392,17 +414,19 @@ we say that $x\U \alpha$ is absolutely summable to $x$ and write
 <div>
  $$\begin{aligned}
             x= \sum\U {\alpha\in I}x\U \alpha
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
-  if given $\epsilon >0$ there exists some finite
-subset $J\U 0 \in I$ such that for every $J$ containing $J\U 0$ it holds
-that
+  if given $\epsilon >0$ there exists some finite subset
+$J\U 0 \in I$ such that for every $J$ containing $J\U 0$ it holds that
+
 
 <div>
  $$\begin{aligned}
             \lVert x-\sum\U {\alpha\notin J} x\U \alpha \rVert<\epsilon  .
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
 
@@ -423,7 +447,8 @@ $\left\\{x\U n\right\\}\U {n \in \mathbb{N}}$, then
 <div>
  $$\begin{aligned}
             x= \sum\U {n=0}^{\infty} x\U n.
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
 
@@ -435,13 +460,14 @@ Proof. Take $J\U n$ such that
 <div>
  $$\begin{aligned}
             \lVert x-\sum\U { \alpha \notin J\U n} x\U \alpha \rVert< \frac{1}{n}   .
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
-  Then $J:= \cup\U n J\U n$ is countable (it is a
-countable union of countable sets) and a small reasoning shows that $J$
-are the non-zero terms of $I$. The fact that the nonzero $x\U n$ sum to
-$x$ is just a consequence of the definition of absolute summability. ◻
+  Then $J:= \cup\U n J\U n$ is countable (it is a countable
+union of countable sets) and a small reasoning shows that $J$ are the
+non-zero terms of $I$. The fact that the nonzero $x\U n$ sum to $x$ is
+just a consequence of the definition of absolute summability. ◻
 
 
 Now that we made sense of the sum over a potentially uncountable number
@@ -462,18 +488,20 @@ of the form
 <div>
  $$\begin{aligned}
             \mathcal{S}=\left\{\left\{\phi\U \alpha\right\}\U {\alpha \in  J}:  \left\langle\phi\U \alpha,\phi\U \beta \right\rangle= \delta \U {\alpha, \beta }, \quad\forall \alpha,\beta \in J\right\} .
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
-  Such that $\phi\U \alpha$ are orthonormal. Given
-an ordered chain
+  Such that $\phi\U \alpha$ are orthonormal. Given an
+ordered chain
 $\mathcal{S}\U 0\subset \mathcal{S}\U 1\subset \mathcal{S}\U 2\subset \cdots$
 we have the bound
 
 <div>
  $$\begin{aligned}
             \mathcal{S}\U 0\subset \mathcal{S}\U 1\subset \mathcal{S}\U 2\subset \cdots \subset \bigcup\U {n=0}^\infty \mathcal{S}\U n  .
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
   As a result by [Zorn's
@@ -498,7 +526,8 @@ every $f \in  H$ it holds that
 <div>
  $$\begin{aligned}
             f= \sum\U {\alpha \in  I} \left\langle f,\phi\U \alpha\right\rangle\phi\U \alpha;\quad \lVert f \rVert^2=\sum\U {\alpha\in I} \lVert \phi\U \alpha \rVert^2.
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
 
@@ -511,7 +540,8 @@ continuity of the inner product
 <div>
  $$\begin{aligned}
             \left\langle f-\sum\U {\alpha \in  I} \left\langle f,\phi\U \alpha\right\rangle\phi\U \alpha, \phi\U \alpha\right\rangle=\left\langle f,\phi\U \alpha\right\rangle-\left\langle f,\phi\U \alpha\right\rangle=0.
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
   As a result,
@@ -522,11 +552,12 @@ assumption is $H$. By Corollary [1](#cor) we conclude that
 <div>
  $$\begin{aligned}
             f-\sum\U {\alpha \in  I} \left\langle f,\phi\U \alpha\right\rangle\phi\U \alpha=0.
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
-  This proves the first part of the theorem. The
-second follows by the first together with the orthonormality of
+  This proves the first part of the theorem. The second
+follows by the first together with the orthonormality of
 $\phi\U \alpha$. ◻
 
 
@@ -537,7 +568,8 @@ isometry
 <div>
  $$\begin{aligned}
         H\to \ell ^2(I); \quad f \to \left\{\left\langle f,\phi\U {\alpha}\right\rangle\right\}\U {\alpha \in I}.
-    \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
   In particular, every Hilbert space with a countable
@@ -555,7 +587,8 @@ $L^2(\mathbb{R}^d /\mathbb{Z}^d \to \mathbb{C})$ has orthonormal basis
 <div>
  $$\begin{aligned}
             \left\{\phi\U k(x)\right\}\U {k \in \mathbb{Z}^d}:=\left\{e^{2\pi i  k \cdot x }\right\}\U {k \in \mathbb{Z}^d}.
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
   Thus, every function
@@ -565,16 +598,18 @@ $f \in L^2(\mathbb{R}^d /\mathbb{Z}^d)$ can be written as
 <div>
  $$\begin{aligned}
             f(x)= \sum\U {k \in  \mathbb{Z}^d}\widehat{f}(k)e^{2\pi i  k \cdot x } .
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
-  Where $\widehat{f} \in \ell ^2(\mathbb{Z}^d)$ is
-known as the Fourier transform of $f$ and defined by
+  Where $\widehat{f} \in \ell ^2(\mathbb{Z}^d)$ is known
+as the Fourier transform of $f$ and defined by
 
 <div>
  $$\begin{aligned}
             \widehat{f}(k):= \left\langle f, \phi\U k\right\rangle= \int\U {\mathbb{R}^d/ \mathbb{Z}^d} f(x)e^{-2 \pi i k \cdot x} \,\mathrm{d}x .
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
 
@@ -587,7 +622,8 @@ in the space, that is
 <div>
  $$\begin{aligned}
         \ell (x)= \left\langle x,y\U \ell \right\rangle, \quad\forall  x \in \mathbb{C}^n.
-    \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
   Here one can calculate directly that $y\U \ell$ is the
@@ -597,7 +633,8 @@ conjugate of the "matrix" defined by $\ell$ as a linear function
 <div>
  $$\begin{aligned}
         y\U \ell =(\overline{\ell (e\U 1)},\ldots,\overline{\ell (e\U n)}) .
-    \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
   Where $e\U i$ is the standard orthonormal basis of
@@ -613,7 +650,8 @@ given $\ell \in H'$ there exists a unique $f\U \ell \in H$ such that
  $$\begin{align}
 \label{riesz}
             \left\langle h,f\U \ell \right\rangle, \quad\forall h \in H.
-        \end{align}$$
+
+\end{align}$$
 </div>
 
   Furthermore,
@@ -628,7 +666,8 @@ Euclidean space we have that
 <div>
  $$\begin{aligned}
             f\U \ell =\sum\U {\alpha \in I}\overline{\ell (\phi\U \alpha)}\phi\U \alpha  .
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
   The fact that $f\U \ell$ verifies
@@ -640,17 +679,19 @@ both verify the equality then for all $h \in h$
 <div>
  $$\begin{aligned}
             \left\langle h, f\U \ell -g\U \ell \right\rangle= \ell (h)-\ell (h)=0.
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
-  This can only occur if $f\U \ell -g\U \ell =0$ (hint
-take $h= f\U \ell -g\U \ell$). To verify the norm we can use that, for all
+  This can only occur if $f\U \ell -g\U \ell =0$ (hint take
+$h= f\U \ell -g\U \ell$). To verify the norm we can use that, for all
 $h \in  H$ with norm $1$
 
 <div>
  $$\begin{aligned}
             \ell   \left(\frac{f\U \ell }{\lVert f\U \ell  \rVert} \right)= \left\langle\frac{f\U \ell }{\lVert f\U \ell  \rVert} ,f\U \ell \right\rangle=\lVert f\U \ell  \rVert; \quad \ell(h)= \left\langle h, f\U \ell \right\rangle\leq \lVert h \rVert\lVert f\U \ell  \rVert= \lVert f\U \ell  \rVert.
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
   The equality shows that
@@ -665,7 +706,8 @@ The previous theorem says that we have an antilinear isometry
 <div>
  $$\begin{aligned}
         \Phi\U 1:    H\to H';\quad f\U \ell  \to \ell .
-    \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
   This allows us to identify $H$ with $H'$. The
@@ -681,7 +723,8 @@ Hilbert space, with inner product given by
 <div>
  $$\begin{aligned}
             \left\langle\ell\U 1 , \ell\U 2 \right\rangle\U {H'}=\left\langle f\U {\ell \U 2},f\U {\ell\U 1 }\right\rangle\U H.
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
 
@@ -696,7 +739,8 @@ there exists a canonical antilinear isometry
 <div>
  $$\begin{aligned}
         \Phi\U 2:  H'\to H''; \ell\U \varphi \to \varphi .
-    \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
   By construction, of $\Phi\U 1,\Phi\U 2$ it holds that
@@ -705,16 +749,18 @@ there exists a canonical antilinear isometry
 <div>
  $$\begin{aligned}
         \Phi\U 2 \circ \Phi\U 1 (f) (\ell )= \ell(f).
-    \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
-  That is, $H$ is identified canonically with $H''$
-and, the identification is such that
+  That is, $H$ is identified canonically with $H''$ and,
+the identification is such that
 
 <div>
  $$\begin{aligned}
         f(\ell )=\ell (f).
-    \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
   In other words.
@@ -731,7 +777,8 @@ Then, for each $g \in H$ we can define the linear form
 <div>
  $$\begin{aligned}
         \ell\U g := \left\langle T\cdot ,g\right\rangle.
-    \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
   As a result, there exists a unique representative of
@@ -741,18 +788,20 @@ $h\U g$. That is, $h\U g$ verifies
 <div>
  $$\begin{aligned}
         \left\langle T f,g\right\rangle= \left\langle f,h\U g\right\rangle, \quad\forall f \in H.
-    \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
-  A small reasoning shows that $h\U g$ is a linear
-function of $g$, that is, there exists $T^\star :H \to H$ with $T^\star g=h\U g$, or
-in other words
+  A small reasoning shows that $h\U g$ is a linear function
+of $g$, that is, there exists $T^\star :H \to H$ with $T^\star g=h\U g$, or in other
+words
 
 <div>
  $$\begin{align}
 \label{adjoint}
         \left\langle Tf,g\right\rangle=\left\langle f, T^\star g\right\rangle , \quad\forall f,g \in  H.
-    \end{align}$$
+
+\end{align}$$
 </div>
 
 
@@ -785,17 +834,19 @@ first need two definitions
 <div>
  $$\begin{aligned}
             B:V \times V \to \mathbb{K}
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
-  on a vector space $V$, is sesquilinear if $B$ is
-linear in the first component and antilinear in the second. That is, for
-all $x,y,z \in V$ and $\lambda \in \mathbb{K}$:
+  on a vector space $V$, is sesquilinear if $B$ is linear
+in the first component and antilinear in the second. That is, for all
+$x,y,z \in V$ and $\lambda \in \mathbb{K}$:
 
 <div>
  $$\begin{aligned}
             {B(\lambda x+y,z)}= \lambda B({x,z})+ B({y,z}); \quad B(x,\lambda y+z)= \overline{\lambda} B({x,z})+ B({y,z}) .
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
 
@@ -808,8 +859,9 @@ exists a constant $\alpha>0$ such that
 
 <div>
  $$\begin{aligned}
-            B(f,f)\geq c\lVert f \rVert^2 \quad\forall f \in  H.
-        \end{aligned}$$
+            B(f,f)\geq \alpha\lVert f \rVert^2 \quad\forall f \in  H.
+
+\end{aligned}$$
 </div>
 
 
@@ -828,7 +880,8 @@ and $f \in H$ such that
 <div>
  $$\begin{aligned}
             B(v,u)=\left\langle v,\mathcal{L}u\right\rangle; \quad L(v)=\left\langle v,f\right\rangle.
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
   As a result, equation
@@ -837,7 +890,8 @@ and $f \in H$ such that
  $$\begin{align}
 \label{lax eq}
             B(v,u)=L(v) \quad\forall v \in H
-        \end{align}$$
+
+\end{align}$$
 </div>
 
   has a unique solution $u= \mathcal{L}^{-1} f$.
@@ -847,7 +901,8 @@ Furthermore, the solution operator $\mathcal{L}^{-1}$ is continuous with
 <div>
  $$\begin{aligned}
             \lVert \mathcal{L}^{-1} \rVert\leq \alpha^{-1} .
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
 
@@ -863,51 +918,54 @@ such that
  $$\begin{align}
 \label{f}
             B(v,u)= \ell \U u(v)= \left\langle v, f\U {\ell \U u}\right\rangle .
-        \end{align}$$
+
+\end{align}$$
 </div>
 
-  Furthermore, it can be simply verified that the
-mapping $u \to f\U {\ell \U u}$ is linear in $u$. That is, there exists
+  Furthermore, it can be simply verified that the mapping
+$u \to f\U {\ell \U u}$ is linear in $u$. That is, there exists
 $\mathcal{L}: H\to H$ such that
 
 <div>
  $$\begin{align}
 \label{g}
             \mathcal{L}u =f\U {\ell \U u} \quad\forall  u \in H.
-        \end{align}$$
+
+\end{align}$$
 </div>
 
-  The existence of the representative $f \in  H$
-of $L$ is once more by Riesz's representation theorem. We now show that
+  The existence of the representative $f \in  H$ of $L$ is
+once more by Riesz's representation theorem. We now show that
 $\mathcal{L}$ verifies the desired properties. Firstly $\mathcal{L}$ is
 continuous as, given $u\in  H$
 
 <div>
  $$\begin{aligned}
             \lVert \mathcal{L}u \rVert^2=\left\langle\mathcal{L}u,  \mathcal{L}u\right\rangle=B(\mathcal{L}u, u)\leq \lVert B \rVert \lVert u \rVert\lVert  \mathcal{L}u \rVert.
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
-  So dividing by $\lVert \mathcal{L}u \rVert$ on
-either side shows that $\lVert \mathcal{L} \rVert \leq \lVert B \rVert$.
-Now, $\mathcal{L}$ is injective as if $\mathcal{L}u=0$ then
-
+  So dividing by $\lVert \mathcal{L}u \rVert$ on either
+side shows that $\lVert \mathcal{L} \rVert \leq \lVert B \rVert$. Now,
+$\mathcal{L}$ is injective as if $\mathcal{L}u=0$ then
 
 <div>
  $$\begin{aligned}
             0=\left\langle u, \mathcal{L}u\right\rangle= B(u,u) \geq \alpha \lVert u \rVert^2 .
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
-  We now prove surjectivity of $\mathcal{L}$.
-Consider $u \in  \Im(\mathcal{L})^\perp$, then it holds that
-
+  We now prove surjectivity of $\mathcal{L}$. Consider
+$u \in  \Im(\mathcal{L})^\perp$, then it holds that
 
 <div>
  $$\begin{align}
 \label{est}
             \left\langle u, \mathcal{L}u\right\rangle= B(u,u)\geq \alpha \lVert u \rVert^2.
-        \end{align}$$
+
+\end{align}$$
 </div>
 
   As a result, we deduce from the corollary of the
@@ -919,13 +977,14 @@ Cauchy Schwartz show that for all $u \in H$
 <div>
  $$\begin{aligned}
             \lVert  \mathcal{L}u \rVert\geq \lVert u \rVert.
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
-  As if $\mathcal{L}u\U n \in  \Im (\mathcal{L})$ is
-a Cauchy sequence then so must be $u\U n$. By completeness of
-$\mathcal{L}$, the sequence $u\U n$ converges to some $u \in  H$ and we
-deduce, by continuity of $\mathcal{L}$, that
+  As if $\mathcal{L}u\U n \in  \Im (\mathcal{L})$ is a
+Cauchy sequence then so must be $u\U n$. By completeness of $\mathcal{L}$,
+the sequence $u\U n$ converges to some $u \in  H$ and we deduce, by
+continuity of $\mathcal{L}$, that
 $\mathcal{L}u\U n \to \mathcal{L}u \in \Im (\mathcal{L})$. In consequence,
 $\mathcal{L}$ is invertible, finally to show the bound on
 $\mathcal{L}^{-1}$ let us write $u =\mathcal{L}^{-1} f$ then
@@ -934,11 +993,12 @@ $\mathcal{L}^{-1}$ let us write $u =\mathcal{L}^{-1} f$ then
 <div>
  $$\begin{aligned}
             \alpha \lVert u \rVert^2 \leq B(u,u) = \left\langle u,f\right\rangle\leq \lVert u \rVert\lVert f \rVert .
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
-  Dividing on either side by
-$\alpha \lVert u \rVert$ concludes the proof. ◻
+  Dividing on either side by $\alpha \lVert u \rVert$
+concludes the proof. ◻
 
 
 If we had assumed that $B$ were anti-symmetric then the proof would have
@@ -950,7 +1010,8 @@ equation (\ref{lax eq})  into
 <div>
  $$\begin{aligned}
         \left\langle v,u\right\rangle\U B= \left\langle v,f\right\rangle , \quad\forall v\in H.
-    \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
   That is, to solve
@@ -968,7 +1029,8 @@ equivalent to minimizing
 <div>
  $$\begin{aligned}
             J(u):= \frac{1}{2}B(u,u)-L(u) .
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
 
@@ -983,17 +1045,19 @@ $B(v,u)=L(v)$ to obtain
 <div>
  $$\begin{aligned}
             J(u+v) \geq J(u) , \quad\forall  v \in H.
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
-  To prove that a minimum of $J$ solves
-$\eqref{lax eq}$ one can show by taking limits as $\lambda  \to 0$ in
-the expression
+  To prove that a minimum of $J$ solves $\eqref{lax eq}$
+one can show by taking limits as $\lambda  \to 0$ in the expression
+
 
 <div>
  $$\begin{aligned}
             J(u) \leq J(u+ \lambda (h-u)).
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
   That for all $h$
@@ -1001,11 +1065,12 @@ the expression
 <div>
  $$\begin{aligned}
             L(h-u) \leq B(u,h-u).
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
-  Taking $h=u+v$ and $h=u-v$ where $v$ is any
-shows $-L(v) \leq -B(u,v)$ and $L(v) \leq B(u,v)$, which concludes the
+  Taking $h=u+v$ and $h=u-v$ where $v$ is any shows
+$-L(v) \leq -B(u,v)$ and $L(v) \leq B(u,v)$, which concludes the
 proof. ◻
 
 
@@ -1017,26 +1082,96 @@ essentials.
 
 
 **Definition 10**. We say that a linear operator $K: X \to Y$ where
-$X,Y$ are two normed spaces is compact if $T(B)$ is relatively compact
+$X,Y$ are two metric spaces is compact if $T(B)$ is relatively compact
 for all bounded $B \subset  X$.
 
 
-The above will be abbreviated $K \in  \mathcal{K}(X,Y)$. The reason we
-are interested in compact operators is that they are particularly
-simple. Note that every finite-dimensional operator (that is operators
-whose image is finite-dimensional) is compact by the Heine-Borel theorem
-in fact, a good way of thinking of compact operators is to see them as
-finite-dimensional operators . Or more precisely, as the limit of them
+The above will be abbreviated $K \in  \mathcal{K}(X,Y)$. Note that,
+since every compact set is bounded $K$ must be bounded and thus
+continuous. That is
+
+<div>
+ $$\mathbb{K}(X,Y)\subset \mathcal{L}(X,Y).$$
+</div>
+
+  In
+practice, the following equivalent characterizations are useful.
+
+ <a name="equivalent">
+**Proposition 6** </a> . Let $X,Y$ be two metric spaces, then the following
+are equivalent
+
+a)  $K \in \mathcal{K}(X,Y)$.
+
+b)  $K(B\U X)$ is relatively compact where
+    $B\U X=\\{ x \in X : \lVert x \rVert<1\\}$ is the unit ball in $X$.
+
+c)  From every sequence $Kx\U n$ where $x\U n \in B\U X$ one can extract a
+    subsequence $K {x\U {n\U j}}$ converging in $Y$.
 
 
-**Proposition 6**. Let $T \in  \mathcal{K}(X,H)$ where $H$ is a
+
+Proof. The prove the first two points are equivalent we observe that
+every bounded set $B \subset  X$ is contained in $\lambda B\U X$ for
+$\lambda$ big enough. A general fact from topology is that closed
+subsets of compact sets are compact. This is enough to conclude the
+equivalence.
+
+To prove that the last two points are equivalent we recall that in
+metric spaces compact is equvalent to sequentially compact. ◻
+
+
+An important property of compact operators is that they are preserved by
+continuous ones.
+
+ <a name="comp">
+**Proposition 7** </a> . Let
+$K \in \mathcal{K}(X,Y), T\U 1\in \mathcal{L}(W,X), T\U 2 \in L(Y,Z)$. Where
+$W,X,Y,Z$ are metric spaces , then $K\circ T\U 1$ and $T\U 2 \circ K$ are
+compact
+
+
+
+Proof. This follows by the last equivalent characterization in
+Proposition [6](#equivalent). ◻
+
+
+We already saw that the space of compact operators $\mathcal{K}(X,Y)$ is
+a subset of the space of linear operators. The structure of
+$\mathcal{K}(X,Y)$ as a subspace is as follows
+
+
+**Proposition 8**. Let $X,Y$ be metric spaces then $\mathcal{K}(X,Y)$
+is a vector space. Furthermore, if $Y$ is completee then
+$\mathcal{K}(X,Y)$ is closed in $\mathcal{L}(X,Y)$. That is, if $K\U n$
+are compact and $K\U n \to K \in \mathcal{L}(X,Y)$ then $K$ is compact.
+
+
+
+Proof. The first part again follows fromb the last equivalent
+characterization in Proposition [6](#equivalent). The second part relies on the fact that in
+complete spaces compact and [totally
+bounded](https://en.wikipedia.org/wiki/Totally\U bounded\U space#:~:text=not%20in%20general.-,In,-metric%20spaces%5B)
+are equivalent. ◻
+
+
+The reason we are interested in compact operators is that they are
+particularly simple. Note that every finite-dimensional operator (that
+is operators whose image is finite-dimensional) is compact by the
+Heine-Borel theorem. In fact, a good way of thinking of compact
+operators is to see them as finite-dimensional operators . Or more
+precisely, as the limit of them
+
+
+**Proposition 9**. Let $K \in  \mathcal{K}(X,H)$ where $H$ is a
 separable Hilbert space . Then there exists a sequence of
-finite-dimensional operators $T\U n$ such that
+finite-dimensional operators $K\U n$ such that
 
 <div>
  $$\begin{aligned}
-            \lim\U {n \to \infty}T\U n=T.
-        \end{aligned}$$
+            \lim\U {n \to \infty}K\U n=K.
+
+\end{aligned}$$
 </div>
 
 
@@ -1045,52 +1180,42 @@ finite-dimensional operators $T\U n$ such that
 
 Proof. Since $H$ is separable there exists a countable orthonormal
 basis $\left\\{\phi\U n\right\\}\U {n \in \mathbb{N}}$. If we denote $T\U n$ for
-the projection of $T$ onto the space generated by
+the projection of $K$ onto the space generated by
 $\left\\{\phi\U 1,\ldots,\phi\U n\right\\}$ then, by Parseval's Theorem
 pointwise convergence holds
 
 <div>
  $$\begin{aligned}
-            T\U n(x) \to T(x) , \quad\forall x \in  H.
-        \end{aligned}$$
+            K\U n(x) \to K(x) , \quad\forall x \in  H.
+
+\end{aligned}$$
 </div>
 
-  Consider the unit ball $B\U X$ in $X$. Then
-$T(B\U X)$ is relatively compact. So $T(B\U X)$ is totally bounded and given
-$\epsilon >0$ we can form a finite $\epsilon$ net $Tx\U 1,\ldots,Tx\U m$ of
-$T(B(X)$. By pointwise convergence, we can now take $n\U 0$ large enough
+  Consider the unit ball $B\U X$ in $X$. Then $K(B\U X)$ is
+relatively compact. So $K(B\U X)$ is totally bounded and given
+$\epsilon >0$ we can form a finite $\epsilon$ net $Kx\U 1,\ldots,Kx\U m$ of
+$K(B\U X)$. By pointwise convergence, we can now take $n\U 0$ large enough
 so that for all $N \geq n\U 0$
 
 <div>
  $$\begin{aligned}
-            \lVert T(x\U j)-T\U N(x\U j) \rVert , \quad\forall j=1,\ldots,m.
-        \end{aligned}$$
+            \lVert K(x\U j)-K\U N(x\U j) \rVert , \quad\forall j=1,\ldots,m.
+
+\end{aligned}$$
 </div>
 
-  Now for any $x\in B\U X$ we can find $x\U j$ such
-that $\lVert Tx\U j-Tx \rVert< \epsilon$. Using the triangle inequality
+  Now for any $x\in B\U X$ we can find $x\U j$ such that
+$\lVert Tx\U j-Tx \rVert< \epsilon$. Using the triangle inequality
 
 
 <div>
  $$\begin{aligned}
-            \lVert Tx-T\U N x \rVert \leq \lVert Tx-T x\U j \rVert+ \lVert T x\U j-T\U N x\U {j} \rVert+ \lVert T\U N x\U j-T\U N x \rVert < 3\epsilon .
-        \end{aligned}$$
+            \lVert Kx-K\U N x \rVert \leq \lVert Kx-K x\U j \rVert+ \lVert K x\U j-K\U N x\U {j} \rVert+ \lVert K\U N x\U j-K\U N x \rVert < 3\epsilon .
+
+\end{aligned}$$
 </div>
 
   This concludes the proof. ◻
-
-
-An important property of compact operators is that they are preserved by
-continuous ones.
-
- <a name="comp">
-**Proposition 7** </a> . Let $K \in \mathcal{K}(X,Y), T \in L(Y,Z)$ with $Z$
-complete, then $T \circ K$ is compact
-
-
-
-Proof. This is a consequence of the fact that in complete metric
-spaces relatively compact is equivalent to totally bounded. ◻
 
 
 For us, an important example of compact operators will be the solution
@@ -1105,7 +1230,8 @@ $s >0$ it holds that the natural inclusion
 <div>
  $$\begin{aligned}
             i: H^{s+ \sigma }(U) \hookrightarrow H^s(U)
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
   is compact for all $\sigma >0$.
@@ -1125,14 +1251,15 @@ smooth boundary and $s, \sigma >0$, then every continuous operator
 <div>
  $$\begin{aligned}
             T:H^{s+ \sigma }(U) \hookrightarrow H^s(U)
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
   is compact.
 
 
 
-Proof. We have that $T= T \circ i$ so we conclude by
+Proof. We have that $T= i \circ T$ so we conclude by
 Rellich-Kondrachov's theorem [8](#Rellich) and the preservation of compact operators by
 continuous ones (Proposition [7](#comp)). ◻
 
@@ -1142,12 +1269,13 @@ the spectrum of an operator $T$ is defined as
 
 <div>
  $$\begin{aligned}
-        \sigma (T):=\left\{\lambda \in \mathbb{K}: \lambda \I -T \text{ is not invertible } \right\} .
-    \end{aligned}$$
+        \sigma (T):=\left\{\lambda \in \mathbb{K}: \lambda \mathbf{Id}-T \text{ is not invertible } \right\} .
+
+\end{aligned}$$
 </div>
 
-  Firstly, the spectrum of a compact operator is equal
-to it's eigenvalues. Secondly the following holds
+  Firstly, the spectrum of a compact operator is equal to
+it's eigenvalues. Secondly the following holds
 
 
 **Theorem 9** (Spectral theorem). Let $K \in \mathcal{K}(H)$ be compact
@@ -1159,7 +1287,8 @@ $\lambda \U \alpha \in \mathbb{K}$ such that
 <div>
  $$\begin{aligned}
             Kx=\left(\sum\U {\alpha \in I}^{\infty} \lambda \U \alpha \phi\U \alpha\otimes \phi\U \alpha\right) x  =\sum\U {\alpha \in  I} \lambda \U \alpha \left\langle x,\phi\U \alpha\right\rangle\phi\U \alpha .
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
 
@@ -1181,7 +1310,8 @@ $K \in \mathcal{K}(H)$. Consider $T:= Id-K$ then it holds that
 <div>
  $$\begin{aligned}
             T \text{ is injective } \iff  T \text{ is surjective}.
-        \end{aligned}$$
+
+\end{aligned}$$
 </div>
 
   Furthermore, it holds that
