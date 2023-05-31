@@ -1091,7 +1091,7 @@ since every compact set is bounded $K$ must be bounded and thus
 continuous. That is
 
 <div>
- $$\mathbb{K}(X,Y)\subset \mathcal{L}(X,Y).$$
+ $$\mathcal{K}(X,Y)\subset \mathcal{L}(X,Y).$$
 </div>
 
   In
