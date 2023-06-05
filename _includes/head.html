@@ -177,4 +177,20 @@
   </script>
   <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="inlineDisqussions.js"></script>
+  <link rel="stylesheet" type="text/css" href="inlineDisqussions.css" />
+  <script>
+  disqus_shortname = '{{ site.disqus }}';
+  jQuery(document).ready(function() {
+    jQuery("p").inlineDisqussions();
+  });
+</script>
+jQuery("p").inlineDisqussions({
+  identifier: 'disqussion',
+  displayCount: true,
+  highlighted: false,
+  position: 'right',
+  background: 'white',
+  maxWidth: 9999
+});
 </head>
