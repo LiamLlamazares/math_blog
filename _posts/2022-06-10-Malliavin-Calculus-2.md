@@ -4,7 +4,7 @@ title: The Skorohod integral
 subtitle: How does one generalize the Itô integral?
 thumbnail-img: /assets/img/Malliavin.jpg
 share-img: /assets/img/Malliavin.jpg
-tags: [Integration, Malliavin calculus, Skorohod integral, Chaos expansion, Itô integral, Stochastic calculus]
+tags: [Malliavin calculus]
 authorpost: L. Llamazares-Elias
 ---
 

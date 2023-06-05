@@ -4,7 +4,7 @@ title: Study of densities part 1
 subtitle: Part 5 of the series on Malliavin calculus
 thumbnail-img: /assets/img/Malliavin.jpg
 share-img: /assets/img/Malliavin.jpg
-tags: [Malliavin calculus, Densities]
+tags: [Malliavin calculus]
 authorpost: L.Llamazares
 ---
 #  Three line summary

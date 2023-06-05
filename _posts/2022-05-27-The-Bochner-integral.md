@@ -4,7 +4,7 @@ title: The Bochner integral
 subtitle: Wait a second, how many integrals are there?
 thumbnail-img: /assets/img/Liu-SPDE.jpg
 share-img: /assets/img/Liu-SPDE.jpg
-tags: [Integration, Banach spaces, Lp spaces]
+tags: [Functional Analysis]
 authorpost: L. Llamazares-Elias
 ---
 

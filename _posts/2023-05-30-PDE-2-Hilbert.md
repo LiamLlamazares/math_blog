@@ -4,7 +4,7 @@ title: What is a Hilbert space?
 subtitle: An appendix for a series on PDEs
 thumbnail-img: /assets/img/Narici.jpg
 share-img: /assets/img/Narici.jpg
-tags: [Hilbert spaces]
+tags: [PDEs]
 authorpost: L.Llamazares
 ---
 

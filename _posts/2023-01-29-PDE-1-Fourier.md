@@ -4,7 +4,7 @@ title: The Fourier transform, tempered distributions and Sobolev spaces
 subtitle: The holy trinity
 thumbnail-img: /assets/img/Taylor1.jpg
 share-img: /assets/img/Taylor1.jpg
-tags: [PDEs, Lp spaces]
+tags: [PDEs]
 authorpost: L.Llamazares
 ---
 

@@ -4,7 +4,7 @@ title: Martingales
 subtitle: Doob's Martingale inequality is cool
 thumbnail-img: /assets/img/Liu-SPDE.jpg
 share-img: /assets/img/Liu-SPDE.jpg
-tags: [Integration, Banach spaces, Lp spaces]
+tags: [Stochastic calculus]
 authorpost: L. Llamazares-Elias
 ---
 

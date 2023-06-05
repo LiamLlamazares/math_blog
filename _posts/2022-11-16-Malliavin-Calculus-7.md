@@ -4,7 +4,7 @@ title: The Ornstein-Uhlenbeck Semigroup
 subtitle: Part 7 of the series on Malliavin calculus
 thumbnail-img: /assets/img/Malliavin.jpg
 share-img: /assets/img/Malliavin.jpg
-tags: [Malliavin calculus, Semigroups]
+tags: [Malliavin calculus]
 authorpost: L.Llamazares
 ---
 #  Three line summary

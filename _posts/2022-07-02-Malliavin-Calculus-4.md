@@ -4,7 +4,7 @@ title: The Malliavin Derivative 2
 subtitle: Part 4 of the series on Malliavin calculus
 thumbnail-img: /assets/img/Malliavin.jpg
 share-img: /assets/img/Malliavin.jpg
-tags: [Malliavin derivative, Chaos Expansion, Skorohod integral, Stochastic calculus, Malliavin calculus]
+tags: [Malliavin calculus]
 authorpost: B. Summers
 ---
 # A word of thanks
