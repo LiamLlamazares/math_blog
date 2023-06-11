@@ -90,7 +90,7 @@ the inner product
 </div>
 
 
-
+<iframe src="https://www.wolframcloud.com/obj/e40ea24d-8dbc-42c4-8e81-d3f10d9379f8?_embed=iframe" width="600" height="800"></iframe>
 
 You might be wondering why we took the conjugate in the definition of
 the inner product above. That is simply because we want the inner
