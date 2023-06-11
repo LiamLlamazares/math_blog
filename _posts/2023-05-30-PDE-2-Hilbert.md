@@ -89,8 +89,7 @@ the inner product
 \end{aligned}$$
 </div>
 
-Example convolution
-<iframe src="https://www.wolframcloud.com/obj/7580ca85-ce30-4679-919f-e456f0e08aed?_embed=iframe" width="600" height="800"></iframe>
+
 
 You might be wondering why we took the conjugate in the definition of
 the inner product above. That is simply because we want the inner
