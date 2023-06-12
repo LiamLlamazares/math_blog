@@ -4,7 +4,7 @@ title: The Chaos Expansion
 subtitle: Iterated Itô integrals and their consequences
 thumbnail-img: /assets/img/Malliavin.jpg
 share-img: /assets/img/Malliavin.jpg
-tags: [PDEs]
+tags: [Malliavin calculus]
 authorpost: L. Llamazares-Elias
 ---
 
