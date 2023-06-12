@@ -15,8 +15,9 @@ author: Liam Llamazares
 
 navbar-links:
   About: "aboutme"
-  Tags: "tags"
-  All posts: "posts_list"
+  Posts:
+    -Tags: "tags"
+    -All posts: "posts_list"
   Resources:
     - A much better blog: "https://terrytao.wordpress.com/"
     - My supervisor: "https://scholar.google.com/citations?user=oYSH-mwAAAAJ&hl=fr&oi=ao"
