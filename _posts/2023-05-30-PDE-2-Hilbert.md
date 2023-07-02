@@ -1326,3 +1326,18 @@ d)  $\mathrm{dim}(\mathbf{ker}(T))=\mathrm{dim}(\mathbf{ker}(T^\star ))$
 
 We delay the proof till another day, in the meantime, see
 [3](https://math24.files.wordpress.com/2013/02/partial-differential-equations-by-evans.pdf) page 725.
+
+
+<button onclick="myFunction()">Hint</button>
+
+   <div id="myDIV">
+       <p>  Furthermore, it holds that
+
+       a)  $\mathbf{ker}(T)$ is finite dimensional.
+
+       b)  $T$ is closed.
+
+       c)  $\Im (T)=\mathbf{ker}(T^\star )^\perp$.
+
+       d)  $\mathrm{dim}(\mathbf{ker}(T))=\mathrm{dim}(\mathbf{ker}(T^\star ))$</p>
+   </div>
