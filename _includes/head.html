@@ -181,4 +181,49 @@
 <link href="../../comments/inlineDisqussions.css" rel="stylesheet">
 <script src="../../comments/inlineDisqussions.js"></script>
 <script src="../..assets/js/disqus.js"></script>
+
+
+
+<style>
+        #myDIV {
+            width: 100%;
+            padding: 50px 0;
+            text-align: center;
+            background-color: lightblue;
+            margin-top: 20px;
+            display: none; /* Added to hide the text by default */
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #myDIV p {
+            color: inherit;
+            font-family: inherit;
+            font-size: inherit;
+            font-weight: inherit;
+        }
+    </style>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myDIV");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script>
 </head>

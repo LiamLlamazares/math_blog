@@ -7,7 +7,37 @@ share-img: /assets/img/Narici.jpg
 tags: [PDEs]
 authorpost: L.Llamazares
 ---
+<style>
+        #myDIV {
+            width: 100%;
+            padding: 50px 0;
+            text-align: center;
+            background-color: lightblue;
+            margin-top: 20px;
+            display: none; /* Added to hide the text by default */
+        }
 
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #myDIV p {
+            color: inherit;
+            font-family: inherit;
+            font-size: inherit;
+            font-weight: inherit;
+        }
+    </style>
 
 #  Three line summary
 
@@ -1330,9 +1360,9 @@ We delay the proof till another day, in the meantime, see
 <button onclick="myFunction()">Hint</button>
 
    <div id="myDIV">
-       <p>  Furthermore, it holds that style stuff no
+       <p>  Furthermore, it holds that style stuff for sure
 
-       a)  $\mathbf{ker}(T)$ is finite dimensional.
+       a)  $\mathbf{ker}(T)$ is finite dimensional2.
 
        b)  $T$ is closed.
 
@@ -1340,14 +1370,3 @@ We delay the proof till another day, in the meantime, see
 
        d)  $\mathrm{dim}(\mathbf{ker}(T))=\mathrm{dim}(\mathbf{ker}(T^\star ))$</p>
    </div>
-
-    <script>
-        function myFunction() {
-            var x = document.getElementById("myDIV");
-            if (x.style.display === "none") {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
-            }
-        }
-    </script>
