@@ -7,34 +7,6 @@ share-img: /assets/img/Narici.jpg
 tags: [PDEs]
 authorpost: L.Llamazares
 ---
-<style>
-        #myDIV {
-            width: 100%;
-            margin-top: 20px;
-            display: none; /* Added to hide the text by default */
-        }
-
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 8px 16px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease-in;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        #myDIV p {
-            color: inherit;
-            font-family: inherit;
-            font-size: inherit;
-            font-weight: inherit;
-        }
-    </style>
 
 #  Three line summary
 
@@ -1354,19 +1326,20 @@ We delay the proof till another day, in the meantime, see
 [3](https://math24.files.wordpress.com/2013/02/partial-differential-equations-by-evans.pdf) page 725.
 
 
-<button onclick="myFunction()">Hint</button>
 
-   <div id="myDIV">
-   **Theorem 9** (Spectral theorem). Let $K \in \mathcal{K}(H)$ be compact
-   and self adjoint on a Hilbert space $H$. Then $T$ diagonalizes in an
-   orthonormal basis. That is, there exists an orthonormal basis
-   $\left\\{\phi\U \alpha\right\\} \U {\alpha \in  I}$ and
-   $\lambda \U \alpha \in \mathbb{K}$ such that
+    <div id="text1" class="myText">
+        <p>This is text 1.</p>
+    </div>
 
-   <div>
-    $$\begin{aligned}
-               Kx=\left(\sum\U {\alpha \in I}^{\infty} \lambda \U \alpha \phi\U \alpha\otimes \phi\U \alpha\right) x  =\sum\U {\alpha \in  I} \lambda \U \alpha \left\langle x,\phi\U \alpha\right\rangle\phi\U \alpha .
+    <div id="text2" class="myText">
+        <p>This is text 2. **Proposition 6** . Let $X,Y$ be two metric spaces, then the following
+        are equivalent
 
-   \end{aligned}$$
-   </div>
-   </div>
+        a)  $K \in \mathcal{K}(X,Y)$.
+
+        b)  $K(B\U X)$ is relatively compact where
+            $B\U X=\\{ x \in X : \lVert x \rVert<1\\}$ is the unit ball in $X$.
+
+        c)  From every sequence $Kx\U n$ where $x\U n \in B\U X$ one can extract a
+            subsequence $K {x\U {n\U j}}$ converging in $Y$.</p>
+    </div>
