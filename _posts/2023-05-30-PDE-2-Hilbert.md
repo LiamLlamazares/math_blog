@@ -1338,5 +1338,29 @@ We delay the proof till another day, in the meantime, see
 </div>
 
 <div id="text2" class="myText">
-        <p>Text 2</p>
+Consider the unit ball $B\U X$ in $X$. Then $K(B\U X)$ is
+relatively compact. So $K(B\U X)$ is totally bounded and given
+$\epsilon >0$ we can form a finite $\epsilon$ net $Kx\U 1,\ldots,Kx\U m$ of
+$K(B\U X)$. By pointwise convergence, we can now take $n\U 0$ large enough
+so that for all $N \geq n\U 0$
+
+<div>
+$$\begin{aligned}
+          \lVert K(x\U j)-K\U N(x\U j) \rVert , \quad\forall j=1,\ldots,m.
+
+\end{aligned}$$
+</div>
+
+Now for any $x\in B\U X$ we can find $x\U j$ such that
+$\lVert Tx\U j-Tx \rVert< \epsilon$. Using the triangle inequality
+
+
+<div>
+$$\begin{aligned}
+          \lVert Kx-K\U N x \rVert \leq \lVert Kx-K x\U j \rVert+ \lVert K x\U j-K\U N x\U {j} \rVert+ \lVert K\U N x\U j-K\U N x \rVert < 3\epsilon .
+
+\end{aligned}$$
+</div>
+
+This concludes the proof.
 </div>
