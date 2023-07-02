@@ -1326,12 +1326,17 @@ We delay the proof till another day, in the meantime, see
 [3](https://math24.files.wordpress.com/2013/02/partial-differential-equations-by-evans.pdf) page 725.
 
 
-<button class="myButton" onclick="toggleText('text1')">Hint</button>
+<div>
+<button class="myButton" onclick="toggleText('text1')">Hint me</button>
+</div>
+<div>
    <button class="myButton" onclick="toggleText('text2')">Button 2</button>
-    <div id="text1" class="myText">
-        <p>This is text 1. Please work</p>
-    </div>
+</div>
 
-    <div id="text2" class="myText">
+<div id="text1" class="myText">
+        <p>This is text 1. Please work</p>
+</div>
+
+<div id="text2" class="myText">
         <p>Text 2</p>
-    </div>
+</div>
