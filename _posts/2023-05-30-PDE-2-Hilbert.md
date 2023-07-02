@@ -1333,14 +1333,5 @@ We delay the proof till another day, in the meantime, see
     </div>
 
     <div id="text2" class="myText">
-        <p>This is text 2. Let $X,Y$ be two metric spaces, then the following
-        are equivalent
-
-        a)  $K \in \mathcal{K}(X,Y)$.
-
-        b)  $K(B\U X)$ is relatively compact where
-            $B\U X=\\{ x \in X : \lVert x \rVert<1\\}$ is the unit ball in $X$.
-
-        c)  From every sequence $Kx\U n$ where $x\U n \in B\U X$ one can extract a
-            subsequence $K {x\U {n\U j}}$ converging in $Y$.</p>
+        <p>Text 2</p>
     </div>
