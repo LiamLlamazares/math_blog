@@ -10,9 +10,6 @@ authorpost: L.Llamazares
 <style>
         #myDIV {
             width: 100%;
-            padding: 50px 0;
-            text-align: center;
-            background-color: lightblue;
             margin-top: 20px;
             display: none; /* Added to hide the text by default */
         }
@@ -1360,13 +1357,16 @@ We delay the proof till another day, in the meantime, see
 <button onclick="myFunction()">Hint</button>
 
    <div id="myDIV">
-       <p>  Furthermore, it holds that style stuff for sure
+   **Theorem 9** (Spectral theorem). Let $K \in \mathcal{K}(H)$ be compact
+   and self adjoint on a Hilbert space $H$. Then $T$ diagonalizes in an
+   orthonormal basis. That is, there exists an orthonormal basis
+   $\left\\{\phi\U \alpha\right\\} \U {\alpha \in  I}$ and
+   $\lambda \U \alpha \in \mathbb{K}$ such that
 
-       a)  $\mathbf{ker}(T)$ is finite dimensional2.
+   <div>
+    $$\begin{aligned}
+               Kx=\left(\sum\U {\alpha \in I}^{\infty} \lambda \U \alpha \phi\U \alpha\otimes \phi\U \alpha\right) x  =\sum\U {\alpha \in  I} \lambda \U \alpha \left\langle x,\phi\U \alpha\right\rangle\phi\U \alpha .
 
-       b)  $T$ is closed.
-
-       c)  $\Im (T)=\mathbf{ker}(T^\star )^\perp$.
-
-       d)  $\mathrm{dim}(\mathbf{ker}(T))=\mathrm{dim}(\mathbf{ker}(T^\star ))$</p>
+   \end{aligned}$$
+   </div>
    </div>
