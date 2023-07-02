@@ -1325,42 +1325,42 @@ d)  $\mathrm{dim}(\mathbf{ker}(T))=\mathrm{dim}(\mathbf{ker}(T^\star ))$
 We delay the proof till another day, in the meantime, see
 [3](https://math24.files.wordpress.com/2013/02/partial-differential-equations-by-evans.pdf) page 725.
 
+<body>
+    <div class="exercise-container">
+        <button class="exercise-button" onclick="toggleExercise(this)">Exercise 1</button>
+        <div class="exercise-text">
+            <p>This is the content of Exercise 1.</p>
+            <p>Here is some more text.</p>
+        </div>
+    </div>
 
-<div>
-<button class="myButton" onclick="toggleText('text1')">Hint me</button>
-</div>
-<div>
-   <button class="myButton" onclick="toggleText('text2')">Button 2</button>
-</div>
+    <div class="exercise-container">
+        <button class="exercise-button" onclick="toggleExercise(this)">Exercise 2</button>
+        <div class="exercise-text">
+        Consider the unit ball $B\U X$ in $X$. Then $K(B\U X)$ is
+        relatively compact. So $K(B\U X)$ is totally bounded and given
+        $\epsilon >0$ we can form a finite $\epsilon$ net $Kx\U 1,\ldots,Kx\U m$ of
+        $K(B\U X)$. By pointwise convergence, we can now take $n\U 0$ large enough
+        so that for all $N \geq n\U 0$
 
-<div id="text1" class="myText">
-        <p>This is text 1. Please work</p>
-</div>
+        <div>
+        $$\begin{aligned}
+                  \lVert K(x\U j)-K\U N(x\U j) \rVert , \quad\forall j=1,\ldots,m.
 
-<div id="text2" class="myText">
-Consider the unit ball $B\U X$ in $X$. Then $K(B\U X)$ is
-relatively compact. So $K(B\U X)$ is totally bounded and given
-$\epsilon >0$ we can form a finite $\epsilon$ net $Kx\U 1,\ldots,Kx\U m$ of
-$K(B\U X)$. By pointwise convergence, we can now take $n\U 0$ large enough
-so that for all $N \geq n\U 0$
+        \end{aligned}$$
+        </div>
 
-<div>
-$$\begin{aligned}
-          \lVert K(x\U j)-K\U N(x\U j) \rVert , \quad\forall j=1,\ldots,m.
-
-\end{aligned}$$
-</div>
-
-Now for any $x\in B\U X$ we can find $x\U j$ such that
-$\lVert Tx\U j-Tx \rVert< \epsilon$. Using the triangle inequality
+        Now for any $x\in B\U X$ we can find $x\U j$ such that
+        $\lVert Tx\U j-Tx \rVert< \epsilon$. Using the triangle inequality
 
 
-<div>
-$$\begin{aligned}
-          \lVert Kx-K\U N x \rVert \leq \lVert Kx-K x\U j \rVert+ \lVert K x\U j-K\U N x\U {j} \rVert+ \lVert K\U N x\U j-K\U N x \rVert < 3\epsilon .
+        <div>
+        $$\begin{aligned}
+                  \lVert Kx-K\U N x \rVert \leq \lVert Kx-K x\U j \rVert+ \lVert K x\U j-K\U N x\U {j} \rVert+ \lVert K\U N x\U j-K\U N x \rVert < 3\epsilon .
 
-\end{aligned}$$
-</div>
+        \end{aligned}$$
+        </div>
 
-This concludes the proof.
-</div>
+        This concludes the proof.
+        </div>
+    </div>

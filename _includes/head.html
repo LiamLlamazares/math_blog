@@ -185,38 +185,39 @@
 
 
 <style>
-        .myButton {
-            background-color: #4CAF50;
-            color: white;
-            padding: 8px 16px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease-in;
-        }
+    .exercise-container {
+        margin-bottom: 20px;
+    }
 
-        .myButton:hover {
-            background-color: #45a049;
-        }
+    .exercise-button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in;
+    }
 
-        .myText {
-            color: inherit;
-            font-family: inherit;
-            font-size: inherit;
-            font-weight: inherit;
-            word-wrap: break-word; /* Added to allow word wrapping */
-            display: none; /* Added to hide the text by default */
-        }
-    </style>
+    .exercise-button:hover {
+        background-color: #45a049;
+    }
+
+    .exercise-text {
+        display: none;
+        margin-top: 10px;
+        padding: 10px;
+        background-color: #f0f0f0;
+    }
+
+    .exercise-container.active .exercise-text {
+        display: block;
+    }
+</style>
 
     <script>
-            function toggleText(textId) {
-                var x = document.getElementById(textId);
-                if (x.style.display === "none") {
-                    x.style.display = "block";
-                } else {
-                    x.style.display = "none";
-                }
-            }
-        </script>
-</head>
+        function toggleExercise(button) {
+            var exerciseContainer = button.parentNode;
+            exerciseContainer.classList.toggle("active");
+        }
+    </script>
