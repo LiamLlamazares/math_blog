@@ -674,7 +674,19 @@ $p\U j(x)\neq 0$. Then
 </div>
 
 
-is a translation invariant metric on $E$. In the case of the Schwartz
+is a translation invariant metric on $E$.
+
+**Exercise 1.** Show that
+<div>
+ $$d(x_n, x)\to 0 \iff p\U j(x_n-x)}\to 0 \quad \forall j \in \mathbb{N}.$$
+</div>
+
+And if $d'$ is any other distance verifying the above then $d,d'$ induce the same topology on $E$.
+
+
+**Hint:** For uniqueness use that the topology of a first countable space is completely determined by sequential convergence.  
+
+In the case of the Schwartz
 space $\mathcal{S}(\mathbb{R}^d\to\mathbb{C})$ we give it the topology
 induced by
 
