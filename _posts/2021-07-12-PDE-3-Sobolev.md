@@ -573,7 +573,7 @@ $$\begin{aligned}
 </div>
 
 And give it the
-[weak-$\star$](https://en.wikipedia.org/wiki/Weak_topology) topology.
+[weak-$\star $](https://en.wikipedia.org/wiki/Weak_topology) topology.
 
 
 
@@ -731,7 +731,7 @@ and set
 
 <div>
 $$\begin{aligned}
-\varphi\U n :=  g\star\phi\U n.
+\varphi\U n :=  g\star \phi\U n.
 \end{aligned}$$
 </div>
 
@@ -769,7 +769,7 @@ $$\begin{aligned}
 </div>
 
 Where $\varphi \in C\U c^\infty(U)$ has support $K$
-(remember we are considering the weak-$\star$ topology on
+(remember we are considering the weak-$\star $ topology on
 $\mathcal{D}'(U)$). ◻
 
 
@@ -1081,7 +1081,7 @@ Then
 
 <div>
 $$\begin{aligned}
-D^\alpha (v\staru)= v\star D^\alpha u
+D^\alpha (v\star u)= v\star  D^\alpha u
 \end{aligned}$$
 </div>
 
@@ -1095,8 +1095,8 @@ follows from the second as, by Fubini,
 
 <div>
 $$\begin{aligned}
-& (v\staru,D^\alpha\varphi )  = \int\U {\mathbb{R}^d}v(y)\left(\int\U {\mathbb{R}^d}D^\alpha \varphi(x) u(x-y) \,\mathrm{d}x \right) \,\mathrm{d}y \\&
-=(-1)^{\left| \alpha \right| } \int\U {\mathbb{R}^d}v(y)  \left(\int\U {\mathbb{R}^d}\varphi(x) D^\alpha u(x-y) \,\mathrm{d}x \right) \,\mathrm{d}y             =(-1)^{\left| \alpha \right| }(v\starD^\alpha u, \varphi).
+& (v\star u,D^\alpha\varphi )  = \int\U {\mathbb{R}^d}v(y)\left(\int\U {\mathbb{R}^d}D^\alpha \varphi(x) u(x-y) \,\mathrm{d}x \right) \,\mathrm{d}y \\&
+=(-1)^{\left| \alpha \right| } \int\U {\mathbb{R}^d}v(y)  \left(\int\U {\mathbb{R}^d}\varphi(x) D^\alpha u(x-y) \,\mathrm{d}x \right) \,\mathrm{d}y             =(-1)^{\left| \alpha \right| }(v\star D^\alpha u, \varphi).
 \end{aligned}$$
 </div>
 
@@ -1176,7 +1176,7 @@ approximation to unity. Then
 
 <div>
 $$\begin{aligned}
-u=\lim\U {n \to \infty} \tilde{u}\star\phi\U n  \in W^{k,p}(V) , \quad\forall V \Subset U.
+u=\lim\U {n \to \infty} \tilde{u}\star \phi\U n  \in W^{k,p}(V) , \quad\forall V \Subset U.
 \end{aligned}$$
 </div>
 
@@ -1195,12 +1195,12 @@ $$\begin{aligned}
 
 Proof. Given a compactly embedded set $V \Subset U$ we can take $n$
 large enough so that $V+  B \left(0, \frac{1}{n}\right) \subset U$ and
-as a result, the convolution $\varphi\U n:= \tilde{u} \star \phi\U n$ verifies
+as a result, the convolution $\varphi\U n:= \tilde{u} \star  \phi\U n$ verifies
 (see Observation [6](#local smoothing))
 
 <div>
 $$\begin{aligned}
-\varphi\U n= u\star \phi\U n \quad  \text{ on  } V .
+\varphi\U n= u\star  \phi\U n \quad  \text{ on  } V .
 \end{aligned}$$
 </div>
 
@@ -1210,7 +1210,7 @@ $\left| \alpha \right| \leq k$
 
 <div>
 $$\begin{aligned}
-D^\alpha \varphi\U n = D^\alpha u \star \phi\U n \quad \text{ on } V.
+D^\alpha \varphi\U n = D^\alpha u \star  \phi\U n \quad \text{ on } V.
 \end{aligned}$$
 </div>
 
@@ -1264,7 +1264,7 @@ included subset. ◻
 
 **Observation 3**. Note that, without further assumptions on $U$ it is
 impossible to get a global approximation by smooth functions defined on
-all of $\mathbb{R}^d$. This is because, the convolution $f\star \phi\U n$ can
+all of $\mathbb{R}^d$. This is because, the convolution $f\star  \phi\U n$ can
 only be defined on
 
 <div>
@@ -1299,7 +1299,7 @@ $\phi\U n$ we obtain that, by the triangle inequality
 
 <div>
 $$\begin{aligned}
-u= \lim\U {n \to \infty}(u\star\phi\U n)\eta  \U n \in W^{k,p}(\mathbb{R}^d).
+u= \lim\U {n \to \infty}(u\star \phi\U n)\eta  \U n \in W^{k,p}(\mathbb{R}^d).
 \end{aligned}$$
 </div>
 
@@ -1348,7 +1348,7 @@ such that
 
 <div>
 $$\begin{aligned}
-\left\lVert \phi\U {n\U i}\star(\rho\U i u)-\rho\U i u \right\rVert\U {W^{k,p}(U)}=\left\lVert \phi\U {n\U i}\star(\rho\U i u)-\rho\U i u \right\rVert\U {V\U {i+1}}\leq \frac{\epsilon }{2^i} .
+\left\lVert \phi\U {n\U i}\star (\rho\U i u)-\rho\U i u \right\rVert\U {W^{k,p}(U)}=\left\lVert \phi\U {n\U i}\star (\rho\U i u)-\rho\U i u \right\rVert\U {V\U {i+1}}\leq \frac{\epsilon }{2^i} .
 \end{aligned}$$
 </div>
 
@@ -1357,7 +1357,7 @@ Now we obtain the global approximation by taking
 
 <div>
 $$\begin{aligned}
-\varphi:= \sum\U {i=1}^\infty \phi\U {n\U i}\star (\rho\U i u) \in C\U {\mathrm{loc}}^\infty(U) .
+\varphi:= \sum\U {i=1}^\infty \phi\U {n\U i}\star  (\rho\U i u) \in C\U {\mathrm{loc}}^\infty(U) .
 \end{aligned}$$
 </div>
 
@@ -1366,7 +1366,7 @@ As then
 <div>
 $$\begin{aligned}
 \left\lVert \varphi-u \right\rVert
-\U {W^{k,p}(U)}\leq\sum\U {i=1}^\infty \left\lVert \phi\U {n\U i}\star(\rho\U i u)-\rho\U i u  \right\rVert\U {W^{k,p}(U)}\leq \sum\U {i=1}^\infty \frac{\epsilon }{2^i}=\epsilon   .
+\U {W^{k,p}(U)}\leq\sum\U {i=1}^\infty \left\lVert \phi\U {n\U i}\star (\rho\U i u)-\rho\U i u  \right\rVert\U {W^{k,p}(U)}\leq \sum\U {i=1}^\infty \frac{\epsilon }{2^i}=\epsilon   .
 \end{aligned}$$
 </div>
 
@@ -1499,7 +1499,7 @@ $\phi\U n$
 
 <div>
 $$\begin{aligned}
-u\U n(x):= u\left(x+ \frac{2}{n}e\U d \right); \quad \varphi\U n:= u\U n \star\phi\U n .
+u\U n(x):= u\left(x+ \frac{2}{n}e\U d \right); \quad \varphi\U n:= u\U n \star \phi\U n .
 \end{aligned}$$
 </div>
 
@@ -1512,7 +1512,7 @@ large enough
 
 <div>
 $$\begin{aligned}
-\left\lVert u -\varphi\U n \right\rVert\U {W^{k,p}(W\U 0)}\leq \left\lVert u -u\U n \right\rVert\U {W^{k,p}(W\U 0)}+\left\lVert u\U n -u\U n\star\phi\U n \right\rVert\U {W^{k,p}(W\U 0)}\leq \epsilon.
+\left\lVert u -\varphi\U n \right\rVert\U {W^{k,p}(W\U 0)}\leq \left\lVert u -u\U n \right\rVert\U {W^{k,p}(W\U 0)}+\left\lVert u\U n -u\U n\star \phi\U n \right\rVert\U {W^{k,p}(W\U 0)}\leq \epsilon.
 \end{aligned}$$
 </div>
 
@@ -2114,7 +2114,7 @@ $u$ is. For example, such a relationship could look like
 <div>
 $$\begin{align}
 \label{example}
-\left\lVert u \right\rVert\U {W^{ l,p^\star }(\Omega)}\leq \left\lVert u \right\rVert\U {W^{k,p}(\Omega)}.\end{align}$$
+\left\lVert u \right\rVert\U {W^{ l,p^\star  }(\Omega)}\leq \left\lVert u \right\rVert\U {W^{k,p}(\Omega)}.\end{align}$$
 </div>
 
 
@@ -2125,26 +2125,26 @@ relationship to hold it is necessary that
 <div>
 $$\begin{align}
 \label{conjugate}
-l-     \frac{d}{p^\star}=k-\frac{d}{p}  .\end{align}$$
+l-     \frac{d}{p^\star }=k-\frac{d}{p}  .\end{align}$$
 </div>
 
 The case
 $k=l+1$ gives rise to the following definition
 
 
-**Definition 14**. The **Sobolev conjugate** of $1\leq p<d$ is $p^\star$
+**Definition 14**. The **Sobolev conjugate** of $1\leq p<d$ is $p^\star $
 defined by
 
 <div>
 $$\begin{aligned}
-\frac{1}{p^\star}= \frac{1}{p} -\frac{1}{d} .
+\frac{1}{p^\star }= \frac{1}{p} -\frac{1}{d} .
 \end{aligned}$$
 </div>
 
 
 
 
-Note that $p<p^\star$. The idea behind inequalities such as
+Note that $p<p^\star $. The idea behind inequalities such as
 (\ref{example})  is
 to cash in some differentiability for some integrability. The main
 results used to do this are based on the fundamental theorem of
@@ -2224,7 +2224,7 @@ holds that
 
 <div>
 $$\begin{aligned}
-\left\lVert u \right\rVert\U {L^{p^\star}(\mathbb{R}^d)}\lesssim  \left\lVert \nabla u \right\rVert\U {L^p (\mathbb{R}^d)}.
+\left\lVert u \right\rVert\U {L^{p^\star }(\mathbb{R}^d)}\lesssim  \left\lVert \nabla u \right\rVert\U {L^p (\mathbb{R}^d)}.
 \end{aligned}$$
 </div>
 
@@ -2266,7 +2266,7 @@ It remains to choose $m$ such that
 
 <div>
 $$\begin{aligned}
-\frac{md}{d-1}= (m-1)p' \implies m= \frac{(d-1)p^\star}{d} =\frac{dp -p}{d-p} \geq 1.
+\frac{md}{d-1}= (m-1)p' \implies m= \frac{(d-1)p^\star }{d} =\frac{dp -p}{d-p} \geq 1.
 \end{aligned}$$
 </div>
 
@@ -2276,7 +2276,7 @@ Substituting into
 
 <div>
 $$\begin{aligned}
-\left\lVert u \right\rVert\U {L^{ p^\star}(\mathbb{R}^d)}^{m}\lesssim \left\lVert u \right\rVert\U {L^{p^\star}(\mathbb{R}^d)}^{m-1}\left\lVert \nabla u \right\rVert\U {L^{p}(\mathbb{R}^d \to  \mathbb{R}^d)} .
+\left\lVert u \right\rVert\U {L^{ p^\star }(\mathbb{R}^d)}^{m}\lesssim \left\lVert u \right\rVert\U {L^{p^\star }(\mathbb{R}^d)}^{m-1}\left\lVert \nabla u \right\rVert\U {L^{p}(\mathbb{R}^d \to  \mathbb{R}^d)} .
 \end{aligned}$$
 </div>
 
@@ -2284,12 +2284,12 @@ This concludes the proof. ◻
 
 
  <a name="est12">
-**Exercise 24** </a> . Given $p<\frac{d}{k}$ define $p^{k\star}$ by
-$\frac{1}{p^{k\star}}=\frac{1}{p}-\frac{k}{d}$. Then,
+**Exercise 24** </a> . Given $p<\frac{d}{k}$ define $p^{k\star }$ by
+$\frac{1}{p^{k\star }}=\frac{1}{p}-\frac{k}{d}$. Then,
 
 <div>
 $$\begin{aligned}
-\left\lVert u \right\rVert\U {L^{p^{k\star}}(\mathbb{R}^d)} \lesssim  \left\lVert \nabla^k u \right\rVert\U {L^p(\mathbb{R}^d)}    \end{aligned}$$
+\left\lVert u \right\rVert\U {L^{p^{k\star }}(\mathbb{R}^d)} \lesssim  \left\lVert \nabla^k u \right\rVert\U {L^p(\mathbb{R}^d)}    \end{aligned}$$
 </div>
 
 
@@ -2523,14 +2523,14 @@ inclusions are continuous
 
 <div>
 $$\begin{aligned}
-& W^{k,p}(\Omega) \hookrightarrow L^q(\Omega) ,           \quad\forall q \in [1,p^{k\star})    & \text{ and }     p<\frac{d}{k}  \\
+& W^{k,p}(\Omega) \hookrightarrow L^q(\Omega) ,           \quad\forall q \in [1,p^{k\star })    & \text{ and }     p<\frac{d}{k}  \\
 & W^{k,p}(\Omega) \hookrightarrow L^q(\Omega) ,           \quad\forall q \in [p,\infty) & \text{ and }   p=\frac{d}{k}  \\
 & W^{k,p}(\Omega) \hookrightarrow C^{k,\gamma }(\overline{\Omega}) \hookrightarrow C^{k}(\overline{\Omega}) ,  \quad                         & \text{ and }  p>\frac{d}{k}    \end{aligned}$$
 </div>
 
 
-Where $p^{k\star}$ is defined by the relation
-$\frac{1}{p^{k\star}}=\frac{1}{p}-\frac{k}{d}$ and $\gamma =1 -\frac{p}{d}$.
+Where $p^{k\star }$ is defined by the relation
+$\frac{1}{p^{k\star }}=\frac{1}{p}-\frac{k}{d}$ and $\gamma =1 -\frac{p}{d}$.
 Furthermore, the first, second, fourth, and third composed with fourth
 inclusions are
 [compact](https://en.wikipedia.org/wiki/Compact_embedding).
@@ -2563,12 +2563,12 @@ $$\begin{aligned}
 Where the above is known to be true for
 smooth functions by the fundamental theorem of calculus and extends
 by density to $W^{k,p}(\Omega)$ (we recall translation is continuous
-on $L^p$ for $p<\infty$). The above also holds for $p^{k\star}$ and
-since $p<q<p^{k\star}$ we can write
+on $L^p$ for $p<\infty$). The above also holds for $p^{k\star }$ and
+since $p<q<p^{k\star }$ we can write
 
 <div>
 $$\begin{aligned}
-\frac{1}{q}=\frac{\alpha}{p}+\frac{1-\alpha}{p^{k\star}}   .\end{aligned}$$
+\frac{1}{q}=\frac{\alpha}{p}+\frac{1-\alpha}{p^{k\star }}   .\end{aligned}$$
 </div>
 
 
@@ -2578,7 +2578,7 @@ we obtain that
 
 <div>
 $$\begin{aligned}
-\left\lVert \tau\U h u-u \right\rVert\U {L^q(\Omega)}\leq \left\lVert \nabla u \right\rVert\U {L^p(\Omega)}^\alpha\left\lVert \nabla u \right\rVert\U {L^{p^{k\star}}(\Omega)}^{1-\alpha}\left| h \right| , \quad\forall u \in W^{1,p}(\Omega) .
+\left\lVert \tau\U h u-u \right\rVert\U {L^q(\Omega)}\leq \left\lVert \nabla u \right\rVert\U {L^p(\Omega)}^\alpha\left\lVert \nabla u \right\rVert\U {L^{p^{k\star }}(\Omega)}^{1-\alpha}\left| h \right| , \quad\forall u \in W^{1,p}(\Omega) .
 \end{aligned}$$
 </div>
 
@@ -2687,13 +2687,13 @@ analysis.
 
 
 **Definition 16** (Convolution of functions). Given $f$ and $g$ we
-define the convolution of $f,g$ to be the function $f \starg$
+define the convolution of $f,g$ to be the function $f \star g$
 
 
 <div>
 $$\begin{align}
 \label{convo}
-f \starg := \int f(y)g(x-y) \,\mathrm{d}y
+f \star g := \int f(y)g(x-y) \,\mathrm{d}y
 \end{align}$$
 </div>
 
@@ -2701,7 +2701,7 @@ f \starg := \int f(y)g(x-y) \,\mathrm{d}y
 
 
 The definition given by (\ref{convo})  is purposefully vague. We still need to specify what
-spaces $f,g$ belong to so that $f\starg$ is a well-defined element (of a
+spaces $f,g$ belong to so that $f\star g$ is a well-defined element (of a
 further unspecified space). This can be done as follows.
 
  <a name="Young">
@@ -2709,11 +2709,11 @@ further unspecified space). This can be done as follows.
 definition in (\ref{convo})  and let $p,q,r \in  [1, \infty]$. Then it holds that
 
 1.  If $f \in L^1(\mathbb{R}^d)$ and $g \in L^p(\mathbb{R}^d)$ then
-$f\starg \in L^p(\mathbb{R}^d)$ with
+$f\star g \in L^p(\mathbb{R}^d)$ with
 
 <div>
 $$\begin{aligned}
-\left\lVert f\starg \right\rVert\U {L^p(\mathbb{R}^d)}\leq \left\lVert f \right\rVert\U {L^1(\mathbb{R}^d)}\left\lVert g \right\rVert\U {L^p(\mathbb{R}^d)}.
+\left\lVert f\star g \right\rVert\U {L^p(\mathbb{R}^d)}\leq \left\lVert f \right\rVert\U {L^1(\mathbb{R}^d)}\left\lVert g \right\rVert\U {L^p(\mathbb{R}^d)}.
 \end{aligned}$$
 </div>
 
@@ -2727,18 +2727,18 @@ $$\begin{aligned}
 \end{aligned}$$
 </div>
 
-Then $f\starg \in L^r(\mathbb{R}^d)$ with
+Then $f\star g \in L^r(\mathbb{R}^d)$ with
 
 
 <div>
 $$\begin{aligned}
-\left\lVert f\starg \right\rVert\U {L^r(\mathbb{R}^d)}\leq \left\lVert f \right\rVert\U {L^p(\mathbb{R}^d)}\left\lVert g \right\rVert\U {L^q(\mathbb{R}^d)}.
+\left\lVert f\star g \right\rVert\U {L^r(\mathbb{R}^d)}\leq \left\lVert f \right\rVert\U {L^p(\mathbb{R}^d)}\left\lVert g \right\rVert\U {L^q(\mathbb{R}^d)}.
 \end{aligned}$$
 </div>
 
 
 
-In any of the above cases $f\starg=g\starf$.
+In any of the above cases $f\star g=g\star f$.
 
 
 
@@ -2753,7 +2753,7 @@ $$\begin{aligned}
 </div>
 
 To see the second point fix $f$ and define the
-linear operator $T\U fg:= f\starg$. Then, for $g \in  L^1(\mathbb{R}^d)$ and
+linear operator $T\U fg:= f\star g$. Then, for $g \in  L^1(\mathbb{R}^d)$ and
 $g \in  L^{p'}(\mathbb{R}^d)$ respectively
 
 <div>
@@ -2775,7 +2775,7 @@ signed) measure $\mu$ and $f$ is bounded, then
 
 <div>
 $$\begin{aligned}
-f\star\mu(x):= f\starg(x)= \int\U {\mathbb{R}^d}f(x-y) g(y)\,\mathrm{d}y = \int\U {\mathbb{R}^d} f(x-y)\,\mathrm{d}\mu (y) .\end{aligned}$$
+f\star \mu(x):= f\star g(x)= \int\U {\mathbb{R}^d}f(x-y) g(y)\,\mathrm{d}y = \int\U {\mathbb{R}^d} f(x-y)\,\mathrm{d}\mu (y) .\end{aligned}$$
 </div>
 
 
@@ -2788,7 +2788,7 @@ $f \in L^p(\mathbb{R}^d)$ then we define the convolution
 
 <div>
 $$\begin{aligned}
-f\star\mu (x) :=\int\U {\mathbb{R}^d} f(x-y)\,\mathrm{d}\mu (y) \in L^p(\mathbb{R}^d).
+f\star \mu (x) :=\int\U {\mathbb{R}^d} f(x-y)\,\mathrm{d}\mu (y) \in L^p(\mathbb{R}^d).
 \end{aligned}$$
 </div>
 
@@ -2800,7 +2800,7 @@ well-defined with
 
 <div>
 $$\begin{aligned}
-\left\lVert f\star \mu  \right\rVert\U {L^p(\mathbb{R}^d)} \leq \left\lVert f \right\rVert\U {L^p(\mathbb{R}^d)} \left\lVert \mu  \right\rVert\U {TV} .\end{aligned}$$
+\left\lVert f\star  \mu  \right\rVert\U {L^p(\mathbb{R}^d)} \leq \left\lVert f \right\rVert\U {L^p(\mathbb{R}^d)} \left\lVert \mu  \right\rVert\U {TV} .\end{aligned}$$
 </div>
 
 
@@ -2810,7 +2810,7 @@ measures $\mu,\nu$ then we obtain that for bounded $h$
 <div>
 $$\begin{align}
 \label{push}
-(h, \mu \star\nu) & := \int\U {\mathbb{R}^d} h(x) f\starg(x) \,\mathrm{d}x = \int\U {\mathbb{R}^d}\int\U {\mathbb{R}^d}  h(x+y) f(x)  g(y)\,\mathrm{d}x \,\mathrm{d}y\\
+(h, \mu \star \nu) & := \int\U {\mathbb{R}^d} h(x) f\star g(x) \,\mathrm{d}x = \int\U {\mathbb{R}^d}\int\U {\mathbb{R}^d}  h(x+y) f(x)  g(y)\,\mathrm{d}x \,\mathrm{d}y\\
 & = \int\U {\mathbb{R}^d \times\mathbb{R}^d} f(x+y) \,\mathrm{d}(\mu \otimes \nu)(x,y)\notag .\end{align}$$
 </div>
 
@@ -2822,11 +2822,11 @@ product measure $\mu \otimes \nu$ with the sum $S(x,y)$.
 
 **Definition 18** (Convolution of measures). Let $\mu ,\nu$ be two
 finite signed measures on $\mathcal{B}(\mathbb{R}^d)$. Then the
-convolution of $\mu \star\nu$ is the pushforward
+convolution of $\mu \star \nu$ is the pushforward
 
 <div>
 $$\begin{aligned}
-\mu \star\nu := S\# (\mu \otimes\nu).
+\mu \star \nu := S\# (\mu \otimes\nu).
 \end{aligned}$$
 </div>
 
@@ -2837,14 +2837,14 @@ The language of random variables can give some good motivation for this
 
 
 **Example 3**. Let $X,Y$ be random variables with law $\mu ,\nu$ then
-$X+Y$ has law $\mu \star\nu$. Furthermore, if $X, Y$ are independent and
+$X+Y$ has law $\mu \star \nu$. Furthermore, if $X, Y$ are independent and
 $\mu,\nu$ are absolutely continuous with densities $f,g$ then $X+Y$ is
-absolutely continuous with density $f\starg$.
+absolutely continuous with density $f\star g$.
 
 
 
 Proof. The first part is by definition of pushforward. To show that
-$\mu \star\nu$ has density $f\starg$ it suffices to read the reasoning in
+$\mu \star \nu$ has density $f\star g$ it suffices to read the reasoning in
 equation (\ref{push})
 backward. ◻
 
@@ -2859,7 +2859,7 @@ well-defined. Then
 
 <div>
 $$\begin{aligned}
-\mathbf{supp}(f\starg)=\mathbf{supp}(f)+\mathbf{supp}(g); \quad \mathbf{supp}(\mu\star\nu )=\mathbf{supp}(\mu )+\mathbf{supp}(\nu).
+\mathbf{supp}(f\star g)=\mathbf{supp}(f)+\mathbf{supp}(g); \quad \mathbf{supp}(\mu\star \nu )=\mathbf{supp}(\mu )+\mathbf{supp}(\nu).
 \end{aligned}$$
 </div>
 
@@ -2896,11 +2896,11 @@ g(x) \quad & x \not\in U
 </div>
 
 Then, the convolution
-$\tilde{f}\starg$ is well defined and equal to
+$\tilde{f}\star g$ is well defined and equal to
 
 <div>
 $$\begin{aligned}
-\tilde{f}\star\phi(x) = \int\U {B(x,\epsilon )\cap U} f(y)\phi(x-y) \,\mathrm{d}y+\int\U {B(x,\epsilon )\cap U^c} g(y)\phi(x-y) \,\mathrm{d}y .\end{aligned}$$
+\tilde{f}\star \phi(x) = \int\U {B(x,\epsilon )\cap U} f(y)\phi(x-y) \,\mathrm{d}y+\int\U {B(x,\epsilon )\cap U^c} g(y)\phi(x-y) \,\mathrm{d}y .\end{aligned}$$
 </div>
 
 
@@ -2918,7 +2918,7 @@ With
 
 <div>
 $$\begin{aligned}
-\tilde{f}\star\phi(x) = \int\U {B(x,\epsilon )} f(y)\phi(x-y) \,\mathrm{d}y , \quad\forall x \in  U\U \epsilon   .\end{aligned}$$
+\tilde{f}\star \phi(x) = \int\U {B(x,\epsilon )} f(y)\phi(x-y) \,\mathrm{d}y , \quad\forall x \in  U\U \epsilon   .\end{aligned}$$
 </div>
 
 
@@ -2927,11 +2927,11 @@ For this reason, we will employ the following notation.
  <a name="Convolution support">
 **Definition 19** </a> . Given $f \in L^p(U)$ and $\phi\in L^1(\mathbb{R}^d)$
 with $\mathbf{supp}(\phi)\subset  \overline{B(0,\epsilon ) }$ we define
-$f\star\phi \in L^p(U\U \epsilon )$ as
+$f\star \phi \in L^p(U\U \epsilon )$ as
 
 <div>
 $$\begin{aligned}
-f\star\phi(x):= \int\U {B(x,\epsilon )}f(y)\phi(x-y) \,\mathrm{d}y .
+f\star \phi(x):= \int\U {B(x,\epsilon )}f(y)\phi(x-y) \,\mathrm{d}y .
 \end{aligned}$$
 </div>
 
@@ -2944,11 +2944,11 @@ A similar reason to previously leads us to the following definition
 
 **Definition 20**. Let $T \in \mathcal{D}'(\mathbb{R}^d)$ and
 $\varphi \in C\U c^\infty(\mathbb{R}^d)$. Then we define the convolution
-$T\star\varphi \in \mathcal{D}^\star(\mathbb{R}^d)$ by
+$T\star \varphi \in \mathcal{D}^\star (\mathbb{R}^d)$ by
 
 <div>
 $$\begin{aligned}
-T\star\varphi(\phi):=T(\widetilde{\varphi}\star\phi) \quad \text{ where } \widetilde{\varphi}(x):=\varphi(-x) .\end{aligned}$$
+T\star \varphi(\phi):=T(\widetilde{\varphi}\star \phi) \quad \text{ where } \widetilde{\varphi}(x):=\varphi(-x) .\end{aligned}$$
 </div>
 
 
@@ -2967,12 +2967,12 @@ smooth:
 1.  Let
 $\varphi \in \mathcal{D}(\mathbb{R}^d), w \in \mathcal{D}'(\mathbb{R}^d)$
 then
-$\omega \star \varphi \in  C^\infty \U {\mathrm{loc}}(\mathbb{R}^d)$.
+$\omega \star  \varphi \in  C^\infty \U {\mathrm{loc}}(\mathbb{R}^d)$.
 
 2.  Let
 $\varphi \in \mathcal{S}(\mathbb{R}^d), w \in \mathcal{S}'(\mathbb{R}^d)$
 then
-$\omega \star \varphi \in  C^\infty \U {\mathrm{loc}}(\mathbb{R}^d)$.
+$\omega \star  \varphi \in  C^\infty \U {\mathrm{loc}}(\mathbb{R}^d)$.
 
 
 The previous definitions all go through word by word in the case where
@@ -2983,7 +2983,7 @@ $\mu$. For example
 
 <div>
 $$\begin{aligned}
-f\starg(x):= \int\U {G}f(y)g(x-y) \,\mathrm{d}\mu (y).\end{aligned}$$
+f\star g(x):= \int\U {G}f(y)g(x-y) \,\mathrm{d}\mu (y).\end{aligned}$$
 </div>
 
 A
@@ -2993,12 +2993,12 @@ $G=\mathbb{Z}^d$ with the counting measure. These respectively give
 
 <div>
 $$\begin{aligned}
-f\starg(x)=\int\U {\mathbb{T}^d}f(y)g(x-y) \,\mathrm{d}y; \quad      f\starg(k):= \sum\U {j\in \mathbb{Z}^d} f(j)g(k-j)  .\end{aligned}$$
+f\star g(x)=\int\U {\mathbb{T}^d}f(y)g(x-y) \,\mathrm{d}y; \quad      f\star g(k):= \sum\U {j\in \mathbb{Z}^d} f(j)g(k-j)  .\end{aligned}$$
 </div>
 
 
 The same results are also obtained. In fact, save the commutation
-$f\starg=g\starf$, the above results hold even if $G$ is not Abelian. In this
+$f\star g=g\star f$, the above results hold even if $G$ is not Abelian. In this
 case, one considers the [left or right Haar
 measure](https://en.wikipedia.org/wiki/Haar_measure#:~:text=%5Bedit%5D-,There,-is%2C%20up).
 See for example [8](
@@ -3070,14 +3070,14 @@ $$\begin{align}
 
 
 By Proposition [4](#Young)
-$(L^1(\mathbb{R}^d),\star)$ is a [Banach
+$(L^1(\mathbb{R}^d),\star )$ is a [Banach
 algebra](https://en.wikipedia.org/wiki/Banach_algebra). However, it is a
 non-unital one. That is there does not exist an element $e$ such that
 
 
 <div>
 $$\begin{aligned}
-f\stare=f , \quad\forall f \in L^1(\mathbb{R}^d).\end{aligned}$$
+f\star e=f , \quad\forall f \in L^1(\mathbb{R}^d).\end{aligned}$$
 </div>
 
 
@@ -3128,7 +3128,7 @@ approximation to unity $\phi\U n$. Then it holds that
 
 <div>
 $$\begin{aligned}
-\lim\U {n \to \infty}g\star\phi\U n=g \in  C\U c(\mathbb{R}^d);\quad \lim\U {n \to \infty}f\star\phi\U n=f \in  L^p(\mathbb{R}^d).
+\lim\U {n \to \infty}g\star \phi\U n=g \in  C\U c(\mathbb{R}^d);\quad \lim\U {n \to \infty}f\star \phi\U n=f \in  L^p(\mathbb{R}^d).
 \end{aligned}$$
 </div>
 
@@ -3141,7 +3141,7 @@ supported on $B(0,1/n)$.
 
 <div>
 $$\begin{aligned}
-g\star\phi\U n(x)-g(x) & = \int\U {B(0, \frac{1}{n})}(g(x-y)-g(x)) \phi\U n(y) \,\mathrm{d}y
+g\star \phi\U n(x)-g(x) & = \int\U {B(0, \frac{1}{n})}(g(x-y)-g(x)) \phi\U n(y) \,\mathrm{d}y
 .
 \end{aligned}$$
 </div>
@@ -3152,7 +3152,7 @@ Now taking norms and $n$ large enough gives
 <div>
 $$\begin{align}
 \label{nm}
-\left\lVert g\star\phi\U n-g \right\rVert\U {L^\infty(\mathbb{R}^d)} \leq \int\U {B(0, \frac{1}{n})} \left\lVert g(\cdot -y) -g \right\rVert\U {L^\infty(\mathbb{R}^d)} \phi\U n(y) \,\mathrm{d}y\leq \epsilon   .
+\left\lVert g\star \phi\U n-g \right\rVert\U {L^\infty(\mathbb{R}^d)} \leq \int\U {B(0, \frac{1}{n})} \left\lVert g(\cdot -y) -g \right\rVert\U {L^\infty(\mathbb{R}^d)} \phi\U n(y) \,\mathrm{d}y\leq \epsilon   .
 \end{align}$$
 </div>
 
@@ -3172,14 +3172,14 @@ $$\begin{aligned}
 
 
 
-Now, since $K\U n:=\mathbf{supp}(g\star \phi\U n) \subset K + B(0, 1 /n)$, whose
+Now, since $K\U n:=\mathbf{supp}(g\star  \phi\U n) \subset K + B(0, 1 /n)$, whose
 measure is bounded by some $M>0$, the inequality in
 (\ref{nm})  shows that
 
 
 <div>
 $$\begin{aligned}
-\left\lVert g\star\phi\U n-g \right\rVert\U {L^p(\mathbb{R}^d)}^p \leq \int\U {K\U n} \epsilon^p   \,\mathrm{d}y\leq M\epsilon^p  .
+\left\lVert g\star \phi\U n-g \right\rVert\U {L^p(\mathbb{R}^d)}^p \leq \int\U {K\U n} \epsilon^p   \,\mathrm{d}y\leq M\epsilon^p  .
 \end{aligned}$$
 </div>
 
@@ -3188,7 +3188,7 @@ convolution inequality [4](#Young) gives
 
 <div>
 $$\begin{aligned}
-\left\lVert f\star\phi\U n-f \right\rVert\U {L^p(\mathbb{R}^d)} & \leq\left\lVert (f-g)\star\phi\U n \right\rVert\U {L^p(\mathbb{R}^d)}+\left\lVert g\star\phi\U n-g \right\rVert\U {L^p(\mathbb{R}^d)} \\
+\left\lVert f\star \phi\U n-f \right\rVert\U {L^p(\mathbb{R}^d)} & \leq\left\lVert (f-g)\star \phi\U n \right\rVert\U {L^p(\mathbb{R}^d)}+\left\lVert g\star \phi\U n-g \right\rVert\U {L^p(\mathbb{R}^d)} \\
 & +\left\lVert g-f \right\rVert\U {L^p(\mathbb{R}^d)}\leq \epsilon + M^{\frac{1}{p}}\epsilon +\epsilon .
 \end{aligned}$$
 </div>
@@ -3205,16 +3205,16 @@ following two results.
 **Proposition 7** </a>  (Smoothing effect). Let
 $f \in L^1\U {\text{loc}}(\mathbb{R}^d)$ and
 $\phi \in C\U c^\infty(\mathbb{R}^d)$. Then
-$f\star\phi \in C^\infty(\mathbb{R}^d)$ with
+$f\star \phi \in C^\infty(\mathbb{R}^d)$ with
 
 <div>
 $$\begin{aligned}
-D^\alpha(f \star\phi)=f\starD^\alpha \phi , \quad\forall \alpha \in \mathbb{N}^d.
+D^\alpha(f \star \phi)=f\star D^\alpha \phi , \quad\forall \alpha \in \mathbb{N}^d.
 \end{aligned}$$
 </div>
 
 Furthermore, if $f$ is compactly supported then
-$f\star\phi \in  C\U c^\infty(\mathbb{R}^d)$.
+$f\star \phi \in  C\U c^\infty(\mathbb{R}^d)$.
 
 
 
@@ -3236,12 +3236,12 @@ Where $K$ is the support of $\varphi$. ◻
  <a name="local smoothing">
 **Observation 6** </a>  (Local smoothing). The smoothing effect also holds
 when $f$ is only defined on some open set $U$. Then, with the notation
-of Definition [19](#Convolution support), $f\star\phi \in C^\infty(U\U \epsilon )$
+of Definition [19](#Convolution support), $f\star \phi \in C^\infty(U\U \epsilon )$
 with an identical proof showing
 
 <div>
 $$\begin{aligned}
-D^\alpha(f \star\phi)=f\starD^\alpha \phi \text{ on } U\U \epsilon .
+D^\alpha(f \star \phi)=f\star D^\alpha \phi \text{ on } U\U \epsilon .
 \end{aligned}$$
 </div>
 
@@ -3290,7 +3290,7 @@ $V\U n\subset U$ (see Example [5](#bump example2)). Convolve to get
 
 <div>
 $$\begin{aligned}
-\varphi\U n:=(f \eta\U n )\star\rho \U n.\end{aligned}$$
+\varphi\U n:=(f \eta\U n )\star \rho \U n.\end{aligned}$$
 </div>
 
 Show as in Theorem
@@ -3361,7 +3361,7 @@ $\varphi\U n$ be an approximation to unity. Then
 
 <div>
 $$\begin{aligned}
-\lim\U {n \to \infty} T\star \phi\U n= T \in \mathcal{D}'(\mathbb{R}^d).
+\lim\U {n \to \infty} T\star  \phi\U n= T \in \mathcal{D}'(\mathbb{R}^d).
 \end{aligned}$$
 </div>
 
@@ -3410,7 +3410,7 @@ there exists a continuous function $f \in C\U c(\mathbb{R}^n)$ such that
 $0\leq\varphi \leq 1$ and $\varphi$ is $1$ on $K$. If we now take an
 approximation of unity $\left\\{\phi\U n\right\\}\U {n=1}^\infty$ and choose
 $N$ large enough so that $\min \left\\{d\U U,d\U V\right\\} > \frac{1}{N}$ we
-can obtain the desired function as $\eta=f\star\phi\U {N}$. ◻
+can obtain the desired function as $\eta=f\star \phi\U {N}$. ◻
 
 
 
