@@ -28,9 +28,9 @@ authorpost: L.Llamazares
 </div>
 
 
-    Where $q\equiv q(d,k,p)$ decreases with the dimension $d$, increases
-    with differentiability $k$ and integrability $p$, and is larger than
-    $p$.
+Where $q\equiv q(d,k,p)$ decreases with the dimension $d$, increases
+with differentiability $k$ and integrability $p$, and is larger than
+$p$.
 
 # Why should I care?
 
@@ -2528,13 +2528,13 @@ unit ball in each of the embedded spaces is
 </div>
 
 
-    is equicontinuous. So by Arzelà--Ascoli we may extract a sequence
-    $u\U {n}$ such that $D^\alpha u\U n$ converges uniformly to some
-    $u^{(\alpha)}$. By the fundamental theorem of calculus we conclude
-    that $u^{(\alpha)}=D^\alpha u^{(0)}$ and as a result
-    $u\U n \to u \in C^k(\overline{\Omega})$. That is, the unit ball
-    $B\U 1 \subset C^{k,\gamma }$ is sequentially compact and thus compact
-    when embedded in $C^k(\overline{\Omega})$. This proves this point.
+is equicontinuous. So by Arzelà--Ascoli we may extract a sequence
+$u\U {n}$ such that $D^\alpha u\U n$ converges uniformly to some
+$u^{(\alpha)}$. By the fundamental theorem of calculus we conclude
+that $u^{(\alpha)}=D^\alpha u^{(0)}$ and as a result
+$u\U n \to u \in C^k(\overline{\Omega})$. That is, the unit ball
+$B\U 1 \subset C^{k,\gamma }$ is sequentially compact and thus compact
+when embedded in $C^k(\overline{\Omega})$. This proves this point.
 
 4.  The composition of the inclusions on the last line is compact as the
     composition of a compact and a continuous operator is compact. This
