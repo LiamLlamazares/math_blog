@@ -227,6 +227,7 @@ boundary of $U$.
 
 ## A second approach
 
+
 Alternatively, we could also define
 
 <div>
@@ -344,22 +345,34 @@ topology that makes $X$ into a topological vector space
 ([TVS](https://en.wikipedia.org/wiki/Topological\U vector\U space)).
 
 
-
-Hint 1. The fact that $(X,\tau\U \mathcal{P})$ is a TVS follows from the
+</body>			
+<div class="exercise-container">
+<button class="exercise-button"
+onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+The fact that $(X,\tau\U \mathcal{P})$ is a TVS follows from the
 triangle inequality and homogeneity of seminorms. The fact that it is
 the coarsest that makes $\rho$ continuous is that
 $\rho^{-1}(B\U \epsilon)$ must be an open neighborhood of the origin and
 in a TVS, by continuity of the sum, translation of an open set must be
 open.
-
+</div>
+</div>
 
  <a name="convex ex">
 **Exercise 2** </a> . Show that $(X,\tau\U \mathcal{P})$ is locally convex.
 That is, every point has a local basis of convex sets
 
 
+</body>			
+<div class="exercise-container">
+<button class="exercise-button"
+onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+Show that $\rho^{-1}(B\U \epsilon)$ is convex.
+</div>
+</div>
 
-Hint 2. Show that $\rho^{-1}(B\U \epsilon)$ is convex.
 
 
  <a name="convergence TVS">
