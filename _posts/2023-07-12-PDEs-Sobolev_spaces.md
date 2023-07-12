@@ -135,8 +135,12 @@ context.
 
 # Introduction
 
-In practice, one often wants to solve a differential equation
-
+Hi everyone, welcome back to another post on our series on PDEs. This
+post goes into some depth on the main space of functions we will work
+with. Since the post is rather long (yes it has appendices, no that
+wasn't planned) I decided to include a pdf at the end of the post in
+case it is easier to navigate. That said, in the future we will want to
+solve a differential equation of the form
 
 <div>
 $$\begin{align}
@@ -3223,7 +3227,7 @@ $f\star \phi \in  C\U c^\infty(\mathbb{R}^d)$.
 Proof. By induction, it suffices to consider the case
 $D^\alpha = \partial \U i$ for some $1 \leq i \leq d$. This case can be
 proved by a [differentiation under the integral
-sign](https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=Proposition%202%20(-,Differentiation,-under%20the%20integral)
+sign](https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=Proposition%202%20)
 as, given $\left| x \right|\leq M$
 
 <div>
@@ -3685,4 +3689,4 @@ In the above case, the topological and manifold boundaries of $\Omega$
 necessarily coincide as homeomorphisms map topological boundaries to
 topological boundaries.
 
-A (possibly not updated) pdf of version of this page is provided [here](/assets/latex_docs/[PDEs]/Sobolev spaces.pdf).
+A (possibly not updated) pdf of version of this page is provided [here](/assets/latex_docs/PDEs/Sobolev spaces.pdf).
