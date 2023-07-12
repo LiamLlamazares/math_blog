@@ -1,9 +1,9 @@
 ---
 layout: post
 title: Sobolev spaces
-subtitle: Denisty, trace and embeddings
-thumbnail-img: /assets/img/Narici.jpg
-share-img: /assets/img/Narici.jpg
+subtitle: Density, trace and embeddings
+thumbnail-img: /assets/img/sobolev_leoni.jpg
+share-img: /assets/img/sobolev_leoni.jpg
 tags: [PDEs]
 authorpost: L.Llamazares
 ---
@@ -3684,4 +3684,4 @@ In the above case, the topological and manifold boundaries of $\Omega$
 necessarily coincide as homeomorphisms map topological boundaries to
 topological boundaries.
 
-A pdf of version of this page is provided [here](/assets/latex_docs/PDEs/Sobolev spaces.pdf)
+A (possibly not updated) pdf of version of this page is provided [here](/assets/latex_docs/[PDEs]/Sobolev spaces.pdf).
