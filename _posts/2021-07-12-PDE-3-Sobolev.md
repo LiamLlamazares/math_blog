@@ -28,9 +28,9 @@ authorpost: L.Llamazares
 </div>
 
 
-Where $q\equiv q(d,k,p)$ decreases with the dimension $d$, increases
-with differentiability $k$ and integrability $p$, and is larger than
-$p$.
+  Where $q\equiv q(d,k,p)$ decreases with the dimension $d$, increases
+  with differentiability $k$ and integrability $p$, and is larger than
+  $p$.
 
 # Why should I care?
 
@@ -344,7 +344,7 @@ topology that makes $X$ into a topological vector space
 ([TVS](https://en.wikipedia.org/wiki/Topological\U vector\U space)).
 
 
- hint
+
 Hint 1. The fact that $(X,\tau\U \mathcal{P})$ is a TVS follows from the
 triangle inequality and homogeneity of seminorms. The fact that it is
 the coarsest that makes $\rho$ continuous is that
@@ -358,7 +358,7 @@ open.
 That is, every point has a local basis of convex sets
 
 
- hint
+
 Hint 2. Show that $\rho^{-1}(B\U \epsilon)$ is convex.
 
 
@@ -378,7 +378,7 @@ determined by the following property.
 
 
 
- hint
+
 Hint 3. The topology of any topological space is completely determined
 by the convergence of nets. So it is enough to show that the property
 holds. The implication holds by the continuity of $\rho$, the reverse
@@ -392,7 +392,7 @@ $x+\rho(B\U \epsilon)$.
 space.
 
 
- hint
+
 Hint 4. The topology is
 [metrizable](https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=together-,with,-a%20countable%20family)
 as the family of seminorms is countable Use Exercise
@@ -428,7 +428,7 @@ topology the smooth topology.
 **Exercise 5**. Give an infinite restrictable family of seminorms.
 
 
- hint
+
 Hint 5. Valid answers include all the $L^p(U)$ and $C^k(U)$ norms.
 
 
@@ -437,7 +437,7 @@ Hint 5. Valid answers include all the $L^p(U)$ and $C^k(U)$ norms.
 is a locally convex topological vector space (LCTVS).
 
 
- hint
+
 Hint 6. See Exercises [1](#TVS ex)-[2](#convex ex)
 
 
@@ -456,7 +456,7 @@ $f$ are in $K$ and
 
 
 
- hint
+
 Hint 7. Given any sequence
 $\mathbf{a}=\left\\{a\U j\right\\}\U {j\in \mathbb{N}} \in \mathbb{R}\U +$ and
 an increasing set of compact sets $K\U j$ with
@@ -480,7 +480,7 @@ the proof.
 smooth topology is complete.
 
 
- hint
+
 Hint 8. Given a Cauchy net $\varphi\U {\bullet} \in C\U c^\infty(U)$ show
 as in Exercise [7](#local convergence) that the support of $\varphi\U {\bullet}$
 cannot escape a compact set $K$. Conclude using the completeness on
@@ -492,7 +492,7 @@ $C\U c^\infty(K)$ and Exercise [3](#convergence TVS).
 is Hausdorff.
 
 
- hint
+
 Hint 9. The initial topology of a set of functions that separates
 points is Hausdorff.
 
@@ -522,7 +522,7 @@ by this family of seminorms. This has the following problem.
 by $\left\lVert \cdot  \right\rVert\U j$ is not complete.
 
 
- hint
+
 Hint 10. Construct a sequence that is Cauchy with respect to every
 $\left\lVert \cdot  \right\rVert\U j$ whose support escapes to infinity.
 
@@ -631,7 +631,7 @@ $q \leq p$.
 space.
 
 
- hint
+
 Hint 11. The topology is
 [metrizable](https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=together-,with,-a%20countable%20family)
 as the family of seminorms is countable. By Exercise
@@ -748,7 +748,7 @@ or $C^\infty(U)$ can also be considered as distributions.
 $\mathcal{D}'(U)$ .
 
 
- hint
+
 Hint 12. Show that an approximation to the identity converges to a
 Dirac delta $\delta \U 0 \in \mathcal{D}'(U)$. However
 $\delta \U 0 \not\in L^1\U {\mathrm{loc}}(U)$.
@@ -845,7 +845,7 @@ everywhere. In particular, if $f$ is continuous, the (distributional)
 support of $f$ coincides with the classical support of $f$.
 
 
- hint
+
 Hint 13. We saw in Theorem [1](#motivation) that $f$ is $0$ almost everywhere on some open
 set if and only if it integrates to $0$ against any test function on the
 open set. This shows the first part and the second follows immediately.
@@ -874,7 +874,7 @@ $\alpha$-th derivative by
 **Exercise 14**. Show that $D^\alpha w \in\mathcal{D}'(U)$.
 
 
- hint
+
 Hint 14. Show that $D^\alpha$ is continuous on $\mathcal{D}(U)$ by
 using that $\left\lVert \cdot  \right\rVert\U {C^k(U)}$ are restrictable
 seminorms. Conclude by using that $D^\alpha$ defined on
@@ -891,7 +891,7 @@ corresponds to that of classical derivative.
 derivatives $u^{(i)}$. Then $u^{(i)}= \partial\U i u$.
 
 
- hint
+
 Hint 15. By definition of weak derivatives and the chain rule, we have
 the distributional equality
 
@@ -1339,7 +1339,7 @@ $C^\infty\U {\mathrm{loc}}(U)\cap W^{k,p}(U)$ with the
 $\left\lVert \cdot  \right\rVert\U {W^{k,p}(U)}$ norm.
 
 
- hint
+
 Hint 16. Use that $W^{k,p}(U)$ is complete and that the completion of
 a metric space is unique.
 
@@ -1376,7 +1376,7 @@ $u \circ\Phi \in W^{k,p}(V)$ and the usual chain rule holds. For example
 
 
 
- hint
+
 Hint 17. Give yourself an $\epsilon$ of room. By induction, it
 suffices to consider the case $k=1$.We can approximate $u$ on each
 compact $K \subset U$ by a sequence of functions
@@ -1399,7 +1399,7 @@ diffeomorphic so that composition with $\Phi$ is continuous.
 $\Phi \in C^k(\mathbb{R}^d)$ and do not impose invertibility.
 
 
- hint
+
 Hint 18. Divide by zero.
 
 
@@ -1702,7 +1702,7 @@ $W^{k,p}(\Omega),C^{k}(\Omega)$ are equal to the restriction of
 functions in $W^{k,p}(\mathbb{R}^d),C^{k}(\mathbb{R}^d)$ respectively.
 
 
- hint
+
 Hint 19. Given $u \in W^{k,p}(\Omega)$ we can extend it to
 $Eu \in W^{k,p}(\mathbb{R}^d)$ by the just proved extension theorem
 [7](#extension). By
@@ -1774,7 +1774,7 @@ by $\Phi : U \simeq U'$ where necessarily the boundary is preserved
 [7](#extension) to extend
 $u':= u\circ \Phi$ to $\widetilde{u}'$ with compact support
 $K \subset \mathbb{R}^d$ we obtain by the [divergence
-theorem](https://en.wikipedia.org/wiki/Divergence_theorem#:~:text=space%5Bedit%5D-,We,-are%20going%20to%20prove)
+theorem](https://en.wikipedia.org/wiki/Divergence\U theorem#:~:text=space%5Bedit%5D-,We,-are%20going%20to%20prove)
 
 
 <div>
@@ -1929,7 +1929,7 @@ $W^{k,p}(U)$.
 
 
 
- hint
+
 Hint 20. Use the continuity of the trace operator.
 
 
@@ -1980,7 +1980,7 @@ even for non-smooth unbounded domains.
   is a linear with $\left\lVert E \right\rVert=1$.
 
 
- hint
+
 Hint 21. It is immediate that
 $\left\lVert \widetilde{u} \right\rVert\U {W^{k,p}(\mathbb{R}^d)}=\left\lVert \widetilde{u} \right\rVert\U {W^{k,p}(U)}$
 for $u \in C\U c^\infty(U)$. As a result, we can extend $E$ by density to
@@ -2008,7 +2008,7 @@ consider $u \in  W^{1,p}\U 0(U), v \in W^{1,p'}(U)$ then
 
 
 
- hint
+
 Hint 22. Give yourself an epsilon of room and take limits.
 
 
@@ -2027,9 +2027,9 @@ $u \in  W^{1,p}(\Omega), v \in W^{1,p'}(\Omega)$ then
 normal vector to $\partial \Omega$.
 
 
- hint
+
 Hint 23. Give yourself an epsilon of room, apply the [divergence
-theorem](https://en.wikipedia.org/wiki/Divergence_theorem#:~:text=space%5Bedit%5D-,We,-are%20going%20to%20prove)
+theorem](https://en.wikipedia.org/wiki/Divergence\U theorem#:~:text=space%5Bedit%5D-,We,-are%20going%20to%20prove)
 and take limits.
 
 
@@ -2224,7 +2224,7 @@ $\frac{1}{p^{k}}=\frac{1}{p}-\frac{k}{d}$. Then,
 
 
 
- hint
+
 Hint 24. Apply induction on $k$ using Theorem
 [10](#est1).
 
@@ -2278,7 +2278,7 @@ gives
   We also trivially have
 $\left\lVert u \right\rVert\U {L^d(\mathbb{R}^d)} \leq\left\lVert u \right\rVert\U {W^{1,d}(\mathbb{R}^d)}$
 so by
-[interpolation](https://en.wikipedia.org/wiki/Riesz%E2%80%93Thorin_theorem#:~:text=%5Bedit%5D-,First,-we%20need%20the)
+[interpolation](https://en.wikipedia.org/wiki/Riesz%E2%80%93Thorin\U theorem#:~:text=%5Bedit%5D-,First,-we%20need%20the)
 we can extend the inequality to
 
 <div>
@@ -2330,7 +2330,7 @@ in (\ref{22}) ) shows that
 
 
 
- hint
+
 Hint 25. Use induction on $k$ with Theorem
 [11](#estt2).
 
@@ -2412,7 +2412,7 @@ $\gamma=1-\frac{d}{p}$. Then, the following inclusion is continuous
 
 
 
- hint
+
 Hint 26. This holds for the case $k=1$. We now proceed by induction.
 Since $\nabla u \in W^{k-1,p}(\mathbb{R}^d \to  \mathbb{R}^d)$ by
 hypothesis of induction we obtain
@@ -2467,7 +2467,7 @@ unit ball in each of the embedded spaces is
 [equicontinuous](https://en.wikipedia.org/wiki/Equicontinuity).
 
 1.  For the first inclusion we will use
-    [Fréchet--Kolmogorov's](https://en.wikipedia.org/wiki/Fr%C3%A9chet%E2%80%93Kolmogorov_theorem)
+    [Fréchet--Kolmogorov's](https://en.wikipedia.org/wiki/Fr%C3%A9chet%E2%80%93Kolmogorov\U theorem)
     theorem. First we note that we can suppose $q>p$ as
     $L^q(\Omega) \hookrightarrow L^p(\Omega)$. Let $B\U 1$ be the unit
     ball in $W^{k,p}(\Omega)$. By continuity of the inclusion $B\U 1$ is
@@ -2493,7 +2493,7 @@ unit ball in each of the embedded spaces is
 
 
     By
-    [interpolation](https://en.wikipedia.org/wiki/Riesz%E2%80%93Thorin_theorem#:~:text=the%20sumset%20formulation.-,Riesz%E2%80%93Thorin,-interpolation%20theorem%C2%A0%E2%80%94%C2%A0)
+    [interpolation](https://en.wikipedia.org/wiki/Riesz%E2%80%93Thorin\U theorem#:~:text=the%20sumset%20formulation.-,Riesz%E2%80%93Thorin,-interpolation%20theorem%C2%A0%E2%80%94%C2%A0)
     we obtain that
 
 <div>
@@ -2508,7 +2508,7 @@ unit ball in each of the embedded spaces is
 2.  The compactness of the second inclusion is proved identically.
 
 3.  For the compactness of the last inclusion we use [Arzelà--Ascoli
-    theorem](https://en.wikipedia.org/wiki/Arzel%C3%A0%E2%80%93Ascoli_theorem#:~:text=%2C%20%C2%A7IV.6.7)
+    theorem](https://en.wikipedia.org/wiki/Arzel%C3%A0%E2%80%93Ascoli\U theorem#:~:text=%2C%20%C2%A7IV.6.7)%3A-,Let,-X%20be%20a)
     on a "derivative by derivative basis". By definition of Hölder norm,
 
 
@@ -2685,7 +2685,7 @@ $g \in  L^{p'}(\mathbb{R}^d)$ respectively
   Where the first inequality is point one and the
 second follows from Cauchy Schwartz. Now applying [Riesz-Thorin's
 interpolation
-theorem]( https://en.wikipedia.org/wiki/Riesz%E2%80%93Thorin_theorem#:~:text=the%20sumset%20formulation.-,Riesz%E2%80%93Thorin,-interpolation%20theorem%C2%A0%E2%80%94%C2%A0)
+theorem]( https://en.wikipedia.org/wiki/Riesz%E2%80%93Thorin\U theorem#:~:text=the%20sumset%20formulation.-,Riesz%E2%80%93Thorin,-interpolation%20theorem%C2%A0%E2%80%94%C2%A0)
 concludes the proof. ◻
 
 
@@ -3201,7 +3201,7 @@ Proof. This follows immediately from Proposition
 
 
 
- hint
+
 Hint 27. Let $f$ be the non-smooth function to approximate, multiply
 it first by a mollifier $\eta\U n \in C\U c^\infty(U)$ equal to $1$ in
 $V\U n\subset U$ (see Example [5](#bump example2)). Convolve to get
@@ -3269,7 +3269,7 @@ case.
 
 
 Note that the second part of Corollary [1](#Stone) also follows from the [Stone-Weierstrass
-theorem](https://en.wikipedia.org/wiki/Stone%E2%80%93Weierstrass_theorem).
+theorem](https://en.wikipedia.org/wiki/Stone%E2%80%93Weierstrass\U theorem).
 Similar results hold in the space of distributions.
 
 
@@ -3396,12 +3396,12 @@ Partitions of unity are often used in differential geometry as follows
 In addition to the approximation and extension theorems in Section
 [8](#extension section), partitions of unity can be used to show
 that: every manifold has a [Riemannian
-metric](https://en.wikipedia.org/wiki/Riemannian_manifold), show that a
+metric](https://en.wikipedia.org/wiki/Riemannian\U manifold), show that a
 function is smooth on some none-open set $S \subset M$ iff it is the
 restriction of a smooth function defined on a neighborhood of $S$, prove
 the existence of an outward pointing vector on manifolds with boundary,
 define integration over an orientable manifold $M$, prove [Stoke's
-theorem](https://en.wikipedia.org/wiki/Generalized_Stokes_theorem).
+theorem](https://en.wikipedia.org/wiki/Generalized\U Stokes\U theorem).
 
  <a name="partition">
 **Theorem 17** </a> . Let $M$ be a smooth manifold (in particular we assume
@@ -3463,7 +3463,7 @@ an extension $\widetilde{f}\in C^k(\mathbb{R}^d)$ of $f$ which is equal
 to $f$ on $S$.
 
 
- hint
+
 Hint 28. Use a partition of unity.
 
 
@@ -3518,7 +3518,7 @@ $\left.\Phi\U \alpha\right|\U {\partial M}$ makes $\partial M$ a $d-1$
 dimensional manifold without boundary.
 
 
- hint
+
 Hint 29. By definition of boundary
 
 <div>
