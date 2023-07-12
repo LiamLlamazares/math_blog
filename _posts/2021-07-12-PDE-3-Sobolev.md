@@ -2730,13 +2730,13 @@ measures $\mu,\nu$ then we obtain that for bounded $h$
 <div>
  $$\begin{align}
 \label{push}
-    (h, \mu \nu) & := \int\U {\mathbb{R}^d} h(x) fg(x) \,\mathrm{d}x = \int\U {\mathbb{R}^d}\int\U {\mathbb{R}^d}  h(x+y) f(x)  g(y)\,\mathrm{d}x \,\mathrm{d}y\notag \\
-                  & = \int\U {\mathbb{R}^d \times\mathbb{R}^d} f(x+y) \,\mathrm{d}(\mu \otimes \nu)(x,y).
+    (h, \mu \nu) & := \int\U {\mathbb{R}^d} h(x) fg(x) \,\mathrm{d}x = \int\U {\mathbb{R}^d}\int\U {\mathbb{R}^d}  h(x+y) f(x)  g(y)\,\mathrm{d}x \,\mathrm{d}y\\
+                  & = \int\U {\mathbb{R}^d \times\mathbb{R}^d} f(x+y) \,\mathrm{d}(\mu \otimes \nu)(x,y)\notag .
 \end{align}$$
 </div>
 
 
-That is, the convolution of push me $\mu$ with $\nu$ is the
+That is, the convolution of $\mu$ with $\nu$ is the
 [pushforward](https://en.wikipedia.org/wiki/Pushforward\U measure) of the
 product measure $\mu \otimes \nu$ with the sum $S(x,y)$.
 
