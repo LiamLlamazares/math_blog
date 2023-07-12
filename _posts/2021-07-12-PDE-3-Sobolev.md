@@ -2110,7 +2110,7 @@ from induction on $d$ . We write $(x\U 1,\ldots x\U {d+1})=(x',x\U {d+1})$
 <div>
  $$\begin{align}
 \label{induc}
-        & \left\lVert F\U {d+1} \right\rVert\U {L^{p /d}(\mathbb{R}^{d+1})}  =\left(\int\U {\mathbb{R}}\left(\int\U {\mathbb{R}^d} F\U d(x)^{\frac{p}{d}} f\U {d+1}(x')^{\frac{p}{d}} \,\mathrm{d}x'  \right)  \,\mathrm{d}x\U {d+1} \right)^{\frac{d}{p} }          \notag       \\
+        & \left\lVert F\U {d+1} \right\rVert\U {L^{p /d}(\mathbb{R}^{d+1})}  =\left(\int\U {\mathbb{R}}\left(\int\U {\mathbb{R}^d} F\U d(x)^{\frac{p}{d}} f\U {d+1}(x')^{\frac{p}{d}} \,\mathrm{d}x'  \right)  \,\mathrm{d}x\U {d+1} \right)^{\frac{d}{p} }          \\
          & \leq \left(\int\U {\mathbb{R}}         \left(\int\U {\mathbb{R}^d} F\U d(x)^{\frac{p}{d-1}} \,\mathrm{d}x'  \right)^{\frac{d-1}{d}}\,\mathrm{d}x\U {d+1} \right)^{\frac{d}{p} }\left\lVert f\U {d+1} \right\rVert\U {L^p(\mathbb{R}^d)}      \notag               \\
          & \leq \left(\int\U {\mathbb{R}} \prod\U {i=1}^d\|f\U i(x\U {d+1})\|\U {L^p\left(\mathbb{R}^{d}\right)}^{\frac{p}{d}} \,\mathrm{d}x\U {d+1}\right)^{\frac{d}{p}}\left\lVert f\U {d+1} \right\rVert\U {L^p(\mathbb{R}^{d})}    \end{align}$$
 </div>
@@ -2122,7 +2122,7 @@ Hölder's
 
 <div>
  $$\begin{aligned}
-    \left\lVert g\U 1\cdots g\U n  \right\rVert\U {L^1} \leq \left\lVert g\U 1 \right\rVert\U {L^{p\U 1}}\cdots\left\lVert g\U 1 \right\rVert\U {L^{p\U n}}; \quad  \frac{1}{p\U 1}+\cdots \frac{1}{p\U n}=1   .\end{aligned}$$
+    \left\lVert g\U 1\cdots g\U n  \right\rVert\U {L^1} \leq \left\lVert g\U 1 \right\rVert\U {L^{p\U 1}}\cdots\left\lVert g\U 1 \right\rVert\U {L^{p\U n}}; \quad  \frac{1}{p\U 1}+\cdots \frac{1}{p\U n}=1\notag          .\end{aligned}$$
 </div>
 
 
@@ -2731,8 +2731,7 @@ measures $\mu,\nu$ then we obtain that for bounded $h$
  $$\begin{align}
 \label{push}
     (h, \mu \nu) & := \int\U {\mathbb{R}^d} h(x) fg(x) \,\mathrm{d}x = \int\U {\mathbb{R}^d}\int\U {\mathbb{R}^d}  h(x+y) f(x)  g(y)\,\mathrm{d}x \,\mathrm{d}y\\
-                  & = \int\U {\mathbb{R}^d \times\mathbb{R}^d} f(x+y) \,\mathrm{d}(\mu \otimes \nu)(x,y)\notag .
-\end{align}$$
+                  & = \int\U {\mathbb{R}^d \times\mathbb{R}^d} f(x+y) \,\mathrm{d}(\mu \otimes \nu)(x,y)\notag .\end{align}$$
 </div>
 
 
@@ -3575,9 +3574,8 @@ only one of the following two hold
 <div>
  $$\begin{align}
 \label{alt3}
-   (M \setminus \partial M) \cap U\U \alpha & =\left\{x \in U\U \alpha : x\U d>\gamma\U \alpha(x\U 1,\ldots,x\U {d-1}) \right\}\notag
-                 \\
-                 (M \setminus \partial M) \cap U\U \alpha & =\left\{x \in U\U \alpha : x\U d<\gamma\U \alpha(x\U 1,\ldots,x\U {d-1}) \right\}\end{align}$$
+   (M \setminus \partial M) \cap U\U \alpha & =\left\{x \in U\U \alpha : x\U d>\gamma\U \alpha(x\U 1,\ldots,x\U {d-1}) \right\}                 \\
+                 (M \setminus \partial M) \cap U\U \alpha & =\left\{x \in U\U \alpha : x\U d<\gamma\U \alpha(x\U 1,\ldots,x\U {d-1}) \right\}\notag.\end{align}$$
 </div>
 
 
