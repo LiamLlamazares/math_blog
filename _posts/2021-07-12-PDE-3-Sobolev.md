@@ -192,9 +192,8 @@ $H^s(\mathbb{R}^d)$ by:
     checking if
 
 <div>
- $$\begin{aligalign  \label{nm hs}
-                  \left\lVert \tilde{u} \right\rVert\U {H^s(\mathbb{R}^d)}^2= \int\U {\mathbb{R}^d}\left\langle\xi \right\rangle^{2s}\widehat{\tilde{u}}(\xi )^2 \,\mathrm{d}\xi < \infty.
-              \end{align}$$
+ $$\begin{aligned}
+                  \left\lVert \tilde{u} \right\rVert\U {H^s(\mathbb{R}^d)}^2= \int\U {\mathbb{R}^d}\left\langle\xi \right\rangle^{2s}\widehat{\tilde{u}}(\xi )^2 \,\mathrm{d}\xi < \infty\end{aligned}$$
 </div>
 
 
@@ -219,13 +218,12 @@ holds that $\tilde{u}= {1}\U {(0,1)}$ with
 
 
 
-As we can see, by substituting in
-(\ref{nm hs}) , our naive
-definition of $H^s(U)$ gives that $u \in H^s((0,1))$ if and only if
-$s< \frac{1}{2}$. Thus, our program of extending $u$ by zero and
-studying the regularity of the extension is not going to work. The
-reason for this is that, by extending by zero we introduce a
-discontinuity on $\tilde{u}$ at the boundary of $U$.
+As we can see, by substituting in our naive definition of $H^s(U)$ gives
+that $u \in H^s((0,1))$ if and only if $s< \frac{1}{2}$. Thus, our
+program of extending $u$ by zero and studying the regularity of the
+extension is not going to work. The reason for this is that, by
+extending by zero we introduce a discontinuity on $\tilde{u}$ at the
+boundary of $U$.
 
 ## A second approach
 
@@ -2110,16 +2108,17 @@ from induction on $d$ . We write $(x\U 1,\ldots x\U {d+1})=(x',x\U {d+1})$
 
 
 <div>
- $$\begin{aligned}
-         & \left\lVert F\U {d+1} \right\rVert\U {L^{p /d}(\mathbb{R}^{d+1})}  =\left(\int\U {\mathbb{R}}\left(\int\U {\mathbb{R}^d} F\U d(x)^{\frac{p}{d}} f\U {d+1}(x')^{\frac{p}{d}} \,\mathrm{d}x'  \right)  \,\mathrm{d}x\U {d+1} \right)^{\frac{d}{p} }          \notag       \\
+ $$\begin{align}
+\label{induc}
+        & \left\lVert F\U {d+1} \right\rVert\U {L^{p /d}(\mathbb{R}^{d+1})}  =\left(\int\U {\mathbb{R}}\left(\int\U {\mathbb{R}^d} F\U d(x)^{\frac{p}{d}} f\U {d+1}(x')^{\frac{p}{d}} \,\mathrm{d}x'  \right)  \,\mathrm{d}x\U {d+1} \right)^{\frac{d}{p} }          \notag       \\
          & \leq \left(\int\U {\mathbb{R}}         \left(\int\U {\mathbb{R}^d} F\U d(x)^{\frac{p}{d-1}} \,\mathrm{d}x'  \right)^{\frac{d-1}{d}}\,\mathrm{d}x\U {d+1} \right)^{\frac{d}{p} }\left\lVert f\U {d+1} \right\rVert\U {L^p(\mathbb{R}^d)}      \notag               \\
-         & \leq \left(\int\U {\mathbb{R}} \prod\U {i=1}^d\|f\U i(x\U {d+1})\|\U {L^p\left(\mathbb{R}^{d}\right)}^{\frac{p}{d}} \,\mathrm{d}x\U {d+1}\right)^{\frac{d}{p}}\left\lVert f\U {d+1} \right\rVert\U {L^p(\mathbbalign)}\label{induc}
-    \end{align}$$
+         & \leq \left(\int\U {\mathbb{R}} \prod\U {i=1}^d\|f\U i(x\U {d+1})\|\U {L^p\left(\mathbb{R}^{d}\right)}^{\frac{p}{d}} \,\mathrm{d}x\U {d+1}\right)^{\frac{d}{p}}\left\lVert f\U {d+1} \right\rVert\U {L^p(\mathbb{R}^{d})}    \end{align}$$
 </div>
 
-  Where in the first inequality we applied
-Cauchy-Schwartz with $q= d /(d-1), q' =d$. Now applying the general
-version of Hölder's
+
+Where in the first inequality we applied Cauchy-Schwartz with
+$q= d /(d-1), q' =d$. Now applying the general version of
+Hölder's
 
 <div>
  $$\begin{aligned}
@@ -3573,10 +3572,11 @@ and depending on the sign of $\partial \U d \Phi$ on $U\U \alpha$, one and
 only one of the following two hold
 
 <div>
- $$\begin{aligned}
-    (M \setminus \partial M) \cap U\U \alpha & =\left\{x \in U\U \alpha : x\U d>\gamma\U \alpha(x\U 1,\ldots,x\U {d-1}) \right\}\notag
+ $$\begin{align}
+\label{alt3}
+   (M \setminus \partial M) \cap U\U \alpha & =\left\{x \in U\U \alpha : x\U d>\gamma\U \alpha(x\U 1,\ldots,x\U {d-1}) \right\}\notag
                  \\
-                 (M \setminus \partial M) \cap U\U \alpha & =\left\{x \in U\U \alpha : x\U d<\gamma\U \alpha(x\U 1,\ldots,x\U {d-1}) align}.\label{alt3}\end{align}$$
+                 (M \setminus \partial M) \cap U\U \alpha & =\left\{x \in U\U \alpha : x\U d<\gamma\U \alpha(x\U 1,\ldots,x\U {d-1}) \right\}\end{align}$$
 </div>
 
 
