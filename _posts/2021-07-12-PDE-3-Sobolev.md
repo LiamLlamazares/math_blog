@@ -28,9 +28,9 @@ authorpost: L.Llamazares
 </div>
 
 
-  Where $q\equiv q(d,k,p)$ decreases with the dimension $d$, increases
-  with differentiability $k$ and integrability $p$, and is larger than
-  $p$.
+    Where $q\equiv q(d,k,p)$ decreases with the dimension $d$, increases
+    with differentiability $k$ and integrability $p$, and is larger than
+    $p$.
 
 # Why should I care?
 
@@ -227,7 +227,6 @@ boundary of $U$.
 
 ## A second approach
 
-
 Alternatively, we could also define
 
 <div>
@@ -344,10 +343,9 @@ by $\mathcal{P}$, Show that $\tau\U {\mathcal{P}}$ is the coarsest
 topology that makes $X$ into a topological vector space
 ([TVS](https://en.wikipedia.org/wiki/Topological\U vector\U space)).
 
-		
+
 <div class="exercise-container">
-<button class="exercise-button"
-onclick="toggleExercise(this)">Hint</button>
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
 <div class="exercise-text">
 The fact that $(X,\tau\U \mathcal{P})$ is a TVS follows from the
 triangle inequality and homogeneity of seminorms. The fact that it is
@@ -364,14 +362,11 @@ That is, every point has a local basis of convex sets
 
 
 <div class="exercise-container">
-<button class="exercise-button"
-onclick="toggleExercise(this)">Hint</button>
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
 <div class="exercise-text">
 Show that $\rho^{-1}(B\U \epsilon)$ is convex.
 </div>
 </div>
-
-
 
  <a name="convergence TVS">
 **Exercise 3** </a> . Show that the topology $(X,\tau\U \mathcal{P})$ is
@@ -389,13 +384,16 @@ determined by the following property.
 
 
 
-
-Hint 3. The topology of any topological space is completely determined
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+The topology of any topological space is completely determined
 by the convergence of nets. So it is enough to show that the property
 holds. The implication holds by the continuity of $\rho$, the reverse
 follows from being able to fit $x\U \bullet$ into any basic set
 $x+\rho(B\U \epsilon)$.
-
+</div>
+</div>
 
  exercise
 **Exercise 4**. Show that $C\U c^\infty(K)$ is complete and thus a
@@ -403,8 +401,10 @@ $x+\rho(B\U \epsilon)$.
 space.
 
 
-
-Hint 4. The topology is
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+The topology is
 [metrizable](https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=together-,with,-a%20countable%20family)
 as the family of seminorms is countable Use Exercise
 [3](#convergence TVS)
@@ -421,7 +421,8 @@ that
 
   To do so use the fundamental theorem of calculus and
 induction.
-
+</div>
+</div>
 
 Using $C\U c^\infty(K)$ as a stepping stone we can build a topology on
 $C\U c^\infty(U)$. We use the approach in [Terence Tao's blog post on
@@ -439,18 +440,24 @@ topology the smooth topology.
 **Exercise 5**. Give an infinite restrictable family of seminorms.
 
 
-
-Hint 5. Valid answers include all the $L^p(U)$ and $C^k(U)$ norms.
-
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+Valid answers include all the $L^p(U)$ and $C^k(U)$ norms.
+</div>
+</div>
 
  exercise
 **Exercise 6**. Show that $C\U c^\infty(\Omega)$ with the smooth topology
 is a locally convex topological vector space (LCTVS).
 
 
-
-Hint 6. See Exercises [1](#TVS ex)-[2](#convex ex)
-
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+See Exercises [1](#TVS ex)-[2](#convex ex)
+</div>
+</div>
 
  <a name="local convergence">
 **Exercise 7** </a>  (Smooth convergence is equal to local convergence). Show
@@ -467,8 +474,10 @@ $f$ are in $K$ and
 
 
 
-
-Hint 7. Given any sequence
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+Given any sequence
 $\mathbf{a}=\left\\{a\U j\right\\}\U {j\in \mathbb{N}} \in \mathbb{R}\U +$ and
 an increasing set of compact sets $K\U j$ with
 $U=\bigcup\U {j\in \mathbb{N}} K\U j$ show that
@@ -484,29 +493,36 @@ the support of $\varphi\U n$ escaping to infinity? Now knowing all
 functions are supported in some $K$ use that
 $\left\lVert \cdot  \right\rVert\U {C^k(K)}$ is restrictable to conclude
 the proof.
-
+</div>
+</div>
 
  exercise
 **Exercise 8** (Completeness). Show that $C\U c^\infty(\Omega)$ with the
 smooth topology is complete.
 
 
-
-Hint 8. Given a Cauchy net $\varphi\U {\bullet} \in C\U c^\infty(U)$ show
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+Given a Cauchy net $\varphi\U {\bullet} \in C\U c^\infty(U)$ show
 as in Exercise [7](#local convergence) that the support of $\varphi\U {\bullet}$
 cannot escape a compact set $K$. Conclude using the completeness on
 $C\U c^\infty(K)$ and Exercise [3](#convergence TVS).
-
+</div>
+</div>
 
  exercise
 **Exercise 9**. Show that $C\U c^\infty(\Omega)$ with the smooth topology
 is Hausdorff.
 
 
-
-Hint 9. The initial topology of a set of functions that separates
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+The initial topology of a set of functions that separates
 points is Hausdorff.
-
+</div>
+</div>
 
  observation
 **Observation 1**. The topology on $C\U c^\infty(U)$ is not metrizable
@@ -533,10 +549,13 @@ by this family of seminorms. This has the following problem.
 by $\left\lVert \cdot  \right\rVert\U j$ is not complete.
 
 
-
-Hint 10. Construct a sequence that is Cauchy with respect to every
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+Construct a sequence that is Cauchy with respect to every
 $\left\lVert \cdot  \right\rVert\U j$ whose support escapes to infinity.
-
+</div>
+</div>
 
 Using the smooth topology we can now work with the dual of
 $C\U c^\infty(U)$
@@ -642,8 +661,10 @@ $q \leq p$.
 space.
 
 
-
-Hint 11. The topology is
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+The topology is
 [metrizable](https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=together-,with,-a%20countable%20family)
 as the family of seminorms is countable. By Exercise
 [3](#convergence TVS)
@@ -651,7 +672,8 @@ if $f\U n \in L^p\U {\mathrm{loc}}(U)$ is Cauchy then $f\U n$ is Cauchy for
 all $L^p(K)$ $D^\alpha \varphi\U n$ so converges to some $f\U K \in L^p(K)$.
 Show that $f\U K= \left.f\right|\U {K}$ where $f \in L^p\U {\mathrm{loc}}(U)$
 to conclude the proof.
-
+</div>
+</div>
 
  <a name="motivation">
 **Theorem 1** </a>  (Locally integrable functions as distributions). The
@@ -759,11 +781,14 @@ or $C^\infty(U)$ can also be considered as distributions.
 $\mathcal{D}'(U)$ .
 
 
-
-Hint 12. Show that an approximation to the identity converges to a
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+Show that an approximation to the identity converges to a
 Dirac delta $\delta \U 0 \in \mathcal{D}'(U)$. However
 $\delta \U 0 \not\in L^1\U {\mathrm{loc}}(U)$.
-
+</div>
+</div>
 
 ## Support of a distribution
 
@@ -856,11 +881,14 @@ everywhere. In particular, if $f$ is continuous, the (distributional)
 support of $f$ coincides with the classical support of $f$.
 
 
-
-Hint 13. We saw in Theorem [1](#motivation) that $f$ is $0$ almost everywhere on some open
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+We saw in Theorem [1](#motivation) that $f$ is $0$ almost everywhere on some open
 set if and only if it integrates to $0$ against any test function on the
 open set. This shows the first part and the second follows immediately.
-
+</div>
+</div>
 
 # Sobolev spaces
 
@@ -885,14 +913,17 @@ $\alpha$-th derivative by
 **Exercise 14**. Show that $D^\alpha w \in\mathcal{D}'(U)$.
 
 
-
-Hint 14. Show that $D^\alpha$ is continuous on $\mathcal{D}(U)$ by
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+Show that $D^\alpha$ is continuous on $\mathcal{D}(U)$ by
 using that $\left\lVert \cdot  \right\rVert\U {C^k(U)}$ are restrictable
 seminorms. Conclude by using that $D^\alpha$ defined on
 $\mathcal{D}'(U)$ is the
 [adjoint](https://en.wikipedia.org/wiki/Transpose\U of\U a\U linear\U map) of
 $D^\alpha$ defined on $\mathcal{D}(U)$
-
+</div>
+</div>
 
 A prerequisite for the definition to make sense is that the notion
 corresponds to that of classical derivative.
@@ -902,8 +933,10 @@ corresponds to that of classical derivative.
 derivatives $u^{(i)}$. Then $u^{(i)}= \partial\U i u$.
 
 
-
-Hint 15. By definition of weak derivatives and the chain rule, we have
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+By definition of weak derivatives and the chain rule, we have
 the distributional equality
 
 <div>
@@ -913,7 +946,8 @@ the distributional equality
 </div>
 
   The result follows by the injectivity of $T$.
-
+</div>
+</div>
 
  <a name="sobolev def">
 **Definition 10** </a>  (Sobolev spaces). Given an open set
@@ -1350,10 +1384,13 @@ $C^\infty\U {\mathrm{loc}}(U)\cap W^{k,p}(U)$ with the
 $\left\lVert \cdot  \right\rVert\U {W^{k,p}(U)}$ norm.
 
 
-
-Hint 16. Use that $W^{k,p}(U)$ is complete and that the completion of
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+Use that $W^{k,p}(U)$ is complete and that the completion of
 a metric space is unique.
-
+</div>
+</div>
 
 Before Theorem [5](#Meyers) was
 proved, both our original definition
@@ -1387,8 +1424,10 @@ $u \circ\Phi \in W^{k,p}(V)$ and the usual chain rule holds. For example
 
 
 
-
-Hint 17. Give yourself an $\epsilon$ of room. By induction, it
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+Give yourself an $\epsilon$ of room. By induction, it
 suffices to consider the case $k=1$.We can approximate $u$ on each
 compact $K \subset U$ by a sequence of functions
 $u\U n \in C\U c^\infty(\mathbb{R}^d)$. For $u\U n$ the equality
@@ -1399,7 +1438,8 @@ continuous in $u\in W^{1,p}(\Omega)$ so we may pass to the limit and
 obtain (\ref{chain})  for
 $u$ on $K$. Since $K$ was any, the equality also holds on the whole of
 $U$.
-
+</div>
+</div>
 
 In Exercise [17](#change of variables) it is important that $\Phi$ is
 diffeomorphic so that composition with $\Phi$ is continuous.
@@ -1410,9 +1450,12 @@ diffeomorphic so that composition with $\Phi$ is continuous.
 $\Phi \in C^k(\mathbb{R}^d)$ and do not impose invertibility.
 
 
-
-Hint 18. Divide by zero.
-
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+Divide by zero.
+</div>
+</div>
 
 Now we provide a final global approximation result in the case where the
 domain is smooth (see Appendix [14](#boundary) for a review on manifolds with boundary) and
@@ -1713,13 +1756,16 @@ $W^{k,p}(\Omega),C^{k}(\Omega)$ are equal to the restriction of
 functions in $W^{k,p}(\mathbb{R}^d),C^{k}(\mathbb{R}^d)$ respectively.
 
 
-
-Hint 19. Given $u \in W^{k,p}(\Omega)$ we can extend it to
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+Given $u \in W^{k,p}(\Omega)$ we can extend it to
 $Eu \in W^{k,p}(\mathbb{R}^d)$ by the just proved extension theorem
 [7](#extension). By
 definition $u= \left.Eu\right|\U {\Omega}$. The case
 $u \in C^k(\mathbb{R}^d)$ is identical.
-
+</div>
+</div>
 
 Using extensions also gives us a way to define the Sobolev spaces
 $H^s(\Omega)$ when the exponent $s$ is real valued.
@@ -1940,9 +1986,12 @@ $W^{k,p}(U)$.
 
 
 
-
-Hint 20. Use the continuity of the trace operator.
-
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+Use the continuity of the trace operator.
+</div>
+</div>
 
 The converse to Exercise [20](#trace 0) holds but is far from trivial.
 
@@ -1991,13 +2040,16 @@ even for non-smooth unbounded domains.
   is a linear with $\left\lVert E \right\rVert=1$.
 
 
-
-Hint 21. It is immediate that
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+It is immediate that
 $\left\lVert \widetilde{u} \right\rVert\U {W^{k,p}(\mathbb{R}^d)}=\left\lVert \widetilde{u} \right\rVert\U {W^{k,p}(U)}$
 for $u \in C\U c^\infty(U)$. As a result, we can extend $E$ by density to
 the closure $C\U c^\infty(U)$ in $W^{k,p}(U)$. Which by definition is
 $W^{k,p}\U 0(U)$.
-
+</div>
+</div>
 
  observation
 **Observation 4**. The fact that we can extend functions in
@@ -2019,9 +2071,12 @@ consider $u \in  W^{1,p}\U 0(U), v \in W^{1,p'}(U)$ then
 
 
 
-
-Hint 22. Give yourself an epsilon of room and take limits.
-
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+Give yourself an epsilon of room and take limits.
+</div>
+</div>
 
  exercise
 **Exercise 23** (Integration by parts 2). Let $\Omega$ be a **bounded**
@@ -2038,11 +2093,14 @@ $u \in  W^{1,p}(\Omega), v \in W^{1,p'}(\Omega)$ then
 normal vector to $\partial \Omega$.
 
 
-
-Hint 23. Give yourself an epsilon of room, apply the [divergence
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+Give yourself an epsilon of room, apply the [divergence
 theorem](https://en.wikipedia.org/wiki/Divergence\U theorem#:~:text=space%5Bedit%5D-,We,-are%20going%20to%20prove)
 and take limits.
-
+</div>
+</div>
 
 # Sobolev embeddings and inequalities
 
@@ -2235,10 +2293,13 @@ $\frac{1}{p^{k}}=\frac{1}{p}-\frac{k}{d}$. Then,
 
 
 
-
-Hint 24. Apply induction on $k$ using Theorem
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+Apply induction on $k$ using Theorem
 [10](#est1).
-
+</div>
+</div>
 
 The result can also be further
 [generalized](https://en.wikipedia.org/wiki/Gagliardo%E2%80%93Nirenberg\U interpolation\U inequality)
@@ -2341,10 +2402,13 @@ in (\ref{22}) ) shows that
 
 
 
-
-Hint 25. Use induction on $k$ with Theorem
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+Use induction on $k$ with Theorem
 [11](#estt2).
-
+</div>
+</div>
 
 Note that the constant in our above estimate blows up on iterating. As a
 result, we do not expect
@@ -2423,8 +2487,10 @@ $\gamma=1-\frac{d}{p}$. Then, the following inclusion is continuous
 
 
 
-
-Hint 26. This holds for the case $k=1$. We now proceed by induction.
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+This holds for the case $k=1$. We now proceed by induction.
 Since $\nabla u \in W^{k-1,p}(\mathbb{R}^d \to  \mathbb{R}^d)$ by
 hypothesis of induction we obtain
 
@@ -2443,7 +2509,8 @@ hypothesis of induction we obtain
 </div>
 
 
-
+</div>
+</div>
 
 Combining the three results gives
 
@@ -2539,13 +2606,13 @@ unit ball in each of the embedded spaces is
 </div>
 
 
-is equicontinuous. So by Arzelà--Ascoli we may extract a sequence
-$u\U {n}$ such that $D^\alpha u\U n$ converges uniformly to some
-$u^{(\alpha)}$. By the fundamental theorem of calculus we conclude
-that $u^{(\alpha)}=D^\alpha u^{(0)}$ and as a result
-$u\U n \to u \in C^k(\overline{\Omega})$. That is, the unit ball
-$B\U 1 \subset C^{k,\gamma }$ is sequentially compact and thus compact
-when embedded in $C^k(\overline{\Omega})$. This proves this point.
+    is equicontinuous. So by Arzelà--Ascoli we may extract a sequence
+    $u\U {n}$ such that $D^\alpha u\U n$ converges uniformly to some
+    $u^{(\alpha)}$. By the fundamental theorem of calculus we conclude
+    that $u^{(\alpha)}=D^\alpha u^{(0)}$ and as a result
+    $u\U n \to u \in C^k(\overline{\Omega})$. That is, the unit ball
+    $B\U 1 \subset C^{k,\gamma }$ is sequentially compact and thus compact
+    when embedded in $C^k(\overline{\Omega})$. This proves this point.
 
 4.  The composition of the inclusions on the last line is compact as the
     composition of a compact and a continuous operator is compact. This
@@ -3212,8 +3279,10 @@ Proof. This follows immediately from Proposition
 
 
 
-
-Hint 27. Let $f$ be the non-smooth function to approximate, multiply
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+Let $f$ be the non-smooth function to approximate, multiply
 it first by a mollifier $\eta\U n \in C\U c^\infty(U)$ equal to $1$ in
 $V\U n\subset U$ (see Example [5](#bump example2)). Convolve to get
 
@@ -3225,7 +3294,8 @@ $V\U n\subset U$ (see Example [5](#bump example2)). Convolve to get
   Show as in Theorem
 [15](#density thm) that
 $\varphi\U n$ converges appropriately.
-
+</div>
+</div>
 
 The above can be generalized to non-Euclidean spaces
 
@@ -3474,9 +3544,12 @@ an extension $\widetilde{f}\in C^k(\mathbb{R}^d)$ of $f$ which is equal
 to $f$ on $S$.
 
 
-
-Hint 28. Use a partition of unity.
-
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+Use a partition of unity.
+</div>
+</div>
 
 A manifold with boundary $M$ is just a generalization of
 $\mathcal{H}^d$, where we impose that $M$ is "locally equal" to
@@ -3529,8 +3602,10 @@ $\left.\Phi\U \alpha\right|\U {\partial M}$ makes $\partial M$ a $d-1$
 dimensional manifold without boundary.
 
 
-
-Hint 29. By definition of boundary
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+By definition of boundary
 
 <div>
  $$\begin{align}
@@ -3541,7 +3616,8 @@ Hint 29. By definition of boundary
 
   And the coordinate changes are $C^k$ as the
 restriction of a $C^k$ map is $C^k$.
-
+</div>
+</div>
 
 In our case we will always take $M$ to be a subset of $\mathbb{R}^d$, in
 this case, different variations of the above definition are possible.
