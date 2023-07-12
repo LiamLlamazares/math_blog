@@ -3574,7 +3574,7 @@ only one of the following two hold
 
 <div>
  $$\begin{aligned}
-    (M \setminus \partial M) \cap U\U \alpha & =\left\{x \in U\U \alpha : x\U d>\gamma\U \alpha(x\U 1,\ldots,x\U {d-1})align\}\label{alt2}
+    (M \setminus \partial M) \cap U\U \alpha & =\left\{x \in U\U \alpha : x\U d>\gamma\U \alpha(x\U 1,\ldots,x\U {d-1}) \right\}\notag
                  \\
                  (M \setminus \partial M) \cap U\U \alpha & =\left\{x \in U\U \alpha : x\U d<\gamma\U \alpha(x\U 1,\ldots,x\U {d-1}) align}.\label{alt3}\end{align}$$
 </div>
