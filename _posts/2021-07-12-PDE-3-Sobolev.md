@@ -344,8 +344,7 @@ by $\mathcal{P}$, Show that $\tau\U {\mathcal{P}}$ is the coarsest
 topology that makes $X$ into a topological vector space
 ([TVS](https://en.wikipedia.org/wiki/Topological\U vector\U space)).
 
-
-</body>			
+		
 <div class="exercise-container">
 <button class="exercise-button"
 onclick="toggleExercise(this)">Hint</button>
@@ -364,7 +363,6 @@ open.
 That is, every point has a local basis of convex sets
 
 
-</body>			
 <div class="exercise-container">
 <button class="exercise-button"
 onclick="toggleExercise(this)">Hint</button>
