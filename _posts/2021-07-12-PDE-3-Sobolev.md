@@ -2508,7 +2508,7 @@ unit ball in each of the embedded spaces is
 2.  The compactness of the second inclusion is proved identically.
 
 3.  For the compactness of the last inclusion we use [Arzelà--Ascoli
-    theorem](https://en.wikipedia.org/wiki/Arzel%C3%A0%E2%80%93Ascoli_theorem#:~:text=%2C%20%C2%A7IV.6.7)%3A-,Let,-X%20be%20a)
+    theorem](https://en.wikipedia.org/wiki/Arzel%C3%A0%E2%80%93Ascoli_theorem#:~:text=%2C%20%C2%A7IV.6.7)
     on a "derivative by derivative basis". By definition of Hölder norm,
 
 
