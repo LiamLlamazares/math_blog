@@ -14,9 +14,10 @@ authorpost: L.Llamazares
 are **complete** spaces of **weakly differentiable** functions.
 
 -   **Smooth functions are dense** in $W^{k,p}(\Omega)$ if $\Omega$ is
-smooth and bounded. This lets us perform formal manipulations as if
-everything is smooth and then take limits. In particular, we can
-**extend and restrict** functions to $\partial \Omega$.
+bounded and has $C^1$ boundary. This lets us manipulate Sobolev
+functions as if they were smooth and then take limits. In
+particular, we can **extend and restrict** functions to
+$\partial \Omega$.
 
 -   Functions in $W^{k,p}(\Omega)$ enjoy various inequalities. Cashing
 in differentiability for integrability we can **compactly embed**
