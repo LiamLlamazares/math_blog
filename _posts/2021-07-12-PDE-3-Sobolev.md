@@ -3683,5 +3683,5 @@ boundary.
 In the above case, the topological and manifold boundaries of $\Omega$
 necessarily coincide as homeomorphisms map topological boundaries to
 topological boundaries.
-A pdf of version of this page is provided below:
-<object data="/assets/blank.pdf" width="1000" height="1000" type='application/pdf'></object>
+
+A pdf of version of this page is provided [here](assets\latex_docs\PDEs\Sobolev spaces.pdf)
