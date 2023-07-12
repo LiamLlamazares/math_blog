@@ -1774,7 +1774,7 @@ by $\Phi : U \simeq U'$ where necessarily the boundary is preserved
 [7](#extension) to extend
 $u':= u\circ \Phi$ to $\widetilde{u}'$ with compact support
 $K \subset \mathbb{R}^d$ we obtain by the [divergence
-theorem](https://en.wikipedia.org/wiki/Divergence\U theorem#:~:text=space%5Bedit%5D-,We,-are%20going%20to%20prove)
+theorem](https://en.wikipedia.org/wiki/Divergence_theorem#:~:text=space%5Bedit%5D-,We,-are%20going%20to%20prove)
 
 
 <div>
@@ -2029,7 +2029,7 @@ normal vector to $\partial \Omega$.
 
  hint
 Hint 23. Give yourself an epsilon of room, apply the [divergence
-theorem](https://en.wikipedia.org/wiki/Divergence\U theorem#:~:text=space%5Bedit%5D-,We,-are%20going%20to%20prove)
+theorem](https://en.wikipedia.org/wiki/Divergence_theorem#:~:text=space%5Bedit%5D-,We,-are%20going%20to%20prove)
 and take limits.
 
 
@@ -2278,7 +2278,7 @@ gives
   We also trivially have
 $\left\lVert u \right\rVert\U {L^d(\mathbb{R}^d)} \leq\left\lVert u \right\rVert\U {W^{1,d}(\mathbb{R}^d)}$
 so by
-[interpolation](https://en.wikipedia.org/wiki/Riesz%E2%80%93Thorin\U theorem#:~:text=%5Bedit%5D-,First,-we%20need%20the)
+[interpolation](https://en.wikipedia.org/wiki/Riesz%E2%80%93Thorin_theorem#:~:text=%5Bedit%5D-,First,-we%20need%20the)
 we can extend the inequality to
 
 <div>
@@ -2467,7 +2467,7 @@ unit ball in each of the embedded spaces is
 [equicontinuous](https://en.wikipedia.org/wiki/Equicontinuity).
 
 1.  For the first inclusion we will use
-    [Fréchet--Kolmogorov's](https://en.wikipedia.org/wiki/Fr%C3%A9chet%E2%80%93Kolmogorov\U theorem)
+    [Fréchet--Kolmogorov's](https://en.wikipedia.org/wiki/Fr%C3%A9chet%E2%80%93Kolmogorov_theorem)
     theorem. First we note that we can suppose $q>p$ as
     $L^q(\Omega) \hookrightarrow L^p(\Omega)$. Let $B\U 1$ be the unit
     ball in $W^{k,p}(\Omega)$. By continuity of the inclusion $B\U 1$ is
@@ -2493,7 +2493,7 @@ unit ball in each of the embedded spaces is
 
 
     By
-    [interpolation](https://en.wikipedia.org/wiki/Riesz%E2%80%93Thorin\U theorem#:~:text=the%20sumset%20formulation.-,Riesz%E2%80%93Thorin,-interpolation%20theorem%C2%A0%E2%80%94%C2%A0)
+    [interpolation](https://en.wikipedia.org/wiki/Riesz%E2%80%93Thorin_theorem#:~:text=the%20sumset%20formulation.-,Riesz%E2%80%93Thorin,-interpolation%20theorem%C2%A0%E2%80%94%C2%A0)
     we obtain that
 
 <div>
@@ -2508,7 +2508,7 @@ unit ball in each of the embedded spaces is
 2.  The compactness of the second inclusion is proved identically.
 
 3.  For the compactness of the last inclusion we use [Arzelà--Ascoli
-    theorem](https://en.wikipedia.org/wiki/Arzel%C3%A0%E2%80%93Ascoli\U theorem#:~:text=%2C%20%C2%A7IV.6.7)%3A-,Let,-X%20be%20a)
+    theorem](https://en.wikipedia.org/wiki/Arzel%C3%A0%E2%80%93Ascoli_theorem#:~:text=%2C%20%C2%A7IV.6.7)%3A-,Let,-X%20be%20a)
     on a "derivative by derivative basis". By definition of Hölder norm,
 
 
@@ -2685,7 +2685,7 @@ $g \in  L^{p'}(\mathbb{R}^d)$ respectively
   Where the first inequality is point one and the
 second follows from Cauchy Schwartz. Now applying [Riesz-Thorin's
 interpolation
-theorem]( https://en.wikipedia.org/wiki/Riesz%E2%80%93Thorin\U theorem#:~:text=the%20sumset%20formulation.-,Riesz%E2%80%93Thorin,-interpolation%20theorem%C2%A0%E2%80%94%C2%A0)
+theorem]( https://en.wikipedia.org/wiki/Riesz%E2%80%93Thorin_theorem#:~:text=the%20sumset%20formulation.-,Riesz%E2%80%93Thorin,-interpolation%20theorem%C2%A0%E2%80%94%C2%A0)
 concludes the proof. ◻
 
 
@@ -3269,7 +3269,7 @@ case.
 
 
 Note that the second part of Corollary [1](#Stone) also follows from the [Stone-Weierstrass
-theorem](https://en.wikipedia.org/wiki/Stone%E2%80%93Weierstrass\U theorem).
+theorem](https://en.wikipedia.org/wiki/Stone%E2%80%93Weierstrass_theorem).
 Similar results hold in the space of distributions.
 
 
@@ -3396,12 +3396,12 @@ Partitions of unity are often used in differential geometry as follows
 In addition to the approximation and extension theorems in Section
 [8](#extension section), partitions of unity can be used to show
 that: every manifold has a [Riemannian
-metric](https://en.wikipedia.org/wiki/Riemannian\U manifold), show that a
+metric](https://en.wikipedia.org/wiki/Riemannian_manifold), show that a
 function is smooth on some none-open set $S \subset M$ iff it is the
 restriction of a smooth function defined on a neighborhood of $S$, prove
 the existence of an outward pointing vector on manifolds with boundary,
 define integration over an orientable manifold $M$, prove [Stoke's
-theorem](https://en.wikipedia.org/wiki/Generalized\U Stokes\U theorem).
+theorem](https://en.wikipedia.org/wiki/Generalized_Stokes_theorem).
 
  <a name="partition">
 **Theorem 17** </a> . Let $M$ be a smooth manifold (in particular we assume
