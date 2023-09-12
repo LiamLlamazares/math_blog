@@ -347,7 +347,7 @@ minutes before checking the hints.
 **Exercise 1** </a> . Write $\tau\U {\mathcal{P}}$ for the topology generated
 by $\mathcal{P}$, Show that $\tau\U {\mathcal{P}}$ is the coarsest
 topology that makes $X$ into a topological vector space
-([TVS](https://en.wikipedia.org/wiki/Topological_vector_space)).
+([TVS](https://en.wikipedia.org/wiki/Topological_vector_space)) and such that all seminorms in $ {\mathcal{P}}$ are continuous .
 
 
 <div class="exercise-container">
@@ -455,7 +455,7 @@ Valid answers include all the $L^p(U)$ and $C^k(U)$ norms.
 </div>
 
 
-**Exercise 6**. Show that $C\U c^\infty(\Omega)$ with the smooth topology
+**Exercise 6**. Show that $C\U c^\infty(U)$ with the smooth topology
 is a locally convex topological vector space (LCTVS).
 
 
@@ -943,7 +943,7 @@ derivatives $u^{(i)}$. Then $u^{(i)}= \partial\U i u$.
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
 <div class="exercise-text">
-By definition of weak derivatives and the chain rule, we have
+By definition of weak derivatives and integration by parts, we have
 the distributional equality
 
 <div>
