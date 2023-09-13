@@ -2569,8 +2569,7 @@ $$\begin{aligned}
 Where the above is known to be true for
 smooth functions by the fundamental theorem of calculus and extends
 by density to $W^{k,p}(\Omega)$ (we recall translation is continuous
-on $L^p$ for $p<\infty$). The above also holds for $p^{k\star }$ and
-since $p<q<p^{k\star }$ we can write
+on $L^p$ for $p<\infty$). Now, since $p<q<p^{k\star }$ we can write
 
 <div>
 $$\begin{aligned}
@@ -2578,13 +2577,13 @@ $$\begin{aligned}
 </div>
 
 
-By
-[interpolation](https://en.wikipedia.org/wiki/Riesz%E2%80%93Thorin_theorem#:~:text=the%20sumset%20formulation.-,Riesz%E2%80%93Thorin,-interpolation%20theorem%C2%A0%E2%80%94%C2%A0)
+Applying
+[interpolation](https://en.wikipedia.org/wiki/Riesz%E2%80%93Thorin_theorem#:~:text=the%20sumset%20formulation.-,Riesz%E2%80%93Thorin,-interpolation%20theorem%C2%A0%E2%80%94%C2%A0), 
 we obtain that
 
 <div>
 $$\begin{aligned}
-\left\lVert \tau\U h u-u \right\rVert\U {L^q(\Omega)}\leq \left\lVert \nabla u \right\rVert\U {L^p(\Omega)}^\alpha\left\lVert \nabla u \right\rVert\U {L^{p^{k\star }}(\Omega)}^{1-\alpha}\left| h \right| , \quad\forall u \in W^{1,p}(\Omega) .
+\left\lVert \tau\U h u-u \right\rVert\U {L^q(\Omega)}\leq \left\lVert \nabla u \right\rVert\U {L^p(\Omega)}^\alpha\left\lVert u \right\rVert\U {L^{p^{k\star }}(\Omega)}^{1-\alpha}\left| h \right| , \quad\forall u \in W^{1,p}(\Omega) .
 \end{aligned}$$
 </div>
 
