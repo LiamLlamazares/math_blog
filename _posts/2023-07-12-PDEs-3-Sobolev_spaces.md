@@ -2504,7 +2504,7 @@ hypothesis of induction we obtain
 
 <div>
 $$\begin{aligned}
-\nabla u \in C^{k-1,\widetilde{\gamma }}(\mathbb{R}^d \to \mathbb{R}^d); \quad \widetilde{\gamma }:= k-1 -\frac{d}{p} .
+\nabla u \in C^{k-1,\gamma}(\mathbb{R}^d \to \mathbb{R}^d).
 \end{aligned}$$
 </div>
 
@@ -2512,7 +2512,7 @@ In consequence,
 
 <div>
 $$\begin{aligned}
-u \in C^{k-1+1,\widetilde{\gamma}+1}(\mathbb{R}^d )=C^{k,\gamma}(\mathbb{R}^d ) .
+u \in C^{k-1+1,\gamma}(\mathbb{R}^d )=C^{k,\gamma}(\mathbb{R}^d ) .
 \end{aligned}$$
 </div>
 
