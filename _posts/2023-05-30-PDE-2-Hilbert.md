@@ -573,7 +573,7 @@ isometry
 basis is isometric to $\ell ^2(\mathbb{N})$. However, the identification
 is not "canonical" as it depends on the bases chosen. The next example
 is all pervasive (in fact it has [even invaded our
-blog](https://nowheredifferentiable.com/2023-01-29-PDE-1/))
+blog](https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=to%20spherical%20coordinates.%20%E2%97%BB-,The%20Fourier,-transform%20on)
 
 
 **Example 3** (Plancherel). The Hilbert space of square integrable
