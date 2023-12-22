@@ -2553,7 +2553,7 @@ unit ball in each of the embedded spaces is
 [equicontinuous](https://en.wikipedia.org/wiki/Equicontinuity).
 <ol>
 <li>  For the first inclusion we will use
-[Fréchet--Kolmogorov's](https://en.wikipedia.org/wiki/Fr%C3%A9chet%E2%80%93Kolmogorov_theorem)
+<a href="https://en.wikipedia.org/wiki/Fr%C3%A9chet%E2%80%93Kolmogorov_theorem">Fréchet--Kolmogorov's</a>
 theorem. First we note that we can suppose $q>p$ as
 $L^q(\Omega) \hookrightarrow L^p(\Omega)$. Let $B\U 1$ be the unit
 ball in $W^{k,p}(\Omega)$. By continuity of the inclusion $B\U 1$ is
@@ -2578,7 +2578,7 @@ $$\begin{aligned}
 
 
 Applying
-[interpolation](https://en.wikipedia.org/wiki/Riesz%E2%80%93Thorin_theorem#:~:text=the%20sumset%20formulation.-,Riesz%E2%80%93Thorin,-interpolation%20theorem%C2%A0%E2%80%94%C2%A0), 
+<a href="https://en.wikipedia.org/wiki/Riesz%E2%80%93Thorin_theorem#:~:text=the%20sumset%20formulation.-,Riesz%E2%80%93Thorin,-interpolation%20theorem%C2%A0%E2%80%94%C2%A0">interpolation<a/>, 
 we obtain that
 
 <div>
@@ -2593,8 +2593,8 @@ first case.
 
 <li>  The compactness of the second inclusion is proved identically.</li>
 
-<li>  For the compactness of the last inclusion we use [Arzelà--Ascoli
-theorem](https://en.wikipedia.org/wiki/Arzel%C3%A0%E2%80%93Ascoli_theorem#:~:text=%2C%20%C2%A7IV.6.7)
+<li>  For the compactness of the last inclusion we use <a href="https://en.wikipedia.org/wiki/Arzel%C3%A0%E2%80%93Ascoli_theorem#:~:text=%2C%20%C2%A7IV.6.7"Arzelà--Ascoli
+<a/>
 on a "derivative by derivative basis". By definition of Hölder norm,
 
 
