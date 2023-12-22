@@ -1192,7 +1192,7 @@ so that for all $N \geq n\U 0$
 
 <div>
  $$\begin{aligned}
-            \lVert Kx\U j-K\U Nx\U j \rVert , \quad\forall j=1,\ldots,m.
+            \lVert Kx\U j-K\U Nx\U j \rVert < \epsilon , \quad\forall j=1,\ldots,m.
 
 \end{aligned}$$
 </div>
