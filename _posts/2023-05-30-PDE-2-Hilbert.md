@@ -139,10 +139,6 @@ all $\lambda \in \mathbb{K}$
     $x=0$.
 
 
-
-**Definition 2**.
-
-
 In what follows we will take always take the base field to be
 $\mathbb{K}$, that is, we will consider real and complex vector spaces
 as the theory is the same. In the real case, the conjugate function just
