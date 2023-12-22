@@ -2123,7 +2123,7 @@ $$\begin{align}
 </div>
 
 
-By considering the rescaling $u(\lambda x)$, performing a change of
+Where $p^\star$ is a function of the remaining coefficients $l,q,p$. By considering the rescaling $u(\lambda x)$, performing a change of
 variables, and taking $\lambda$ to $\infty$ we see that for such a
 relationship to hold it is necessary that
 
