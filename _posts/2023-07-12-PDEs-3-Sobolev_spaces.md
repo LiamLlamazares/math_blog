@@ -2551,8 +2551,8 @@ together with the extension theorem [7](#extension).
 The compactness of the embeddings requires reduce to showing that the
 unit ball in each of the embedded spaces is
 [equicontinuous](https://en.wikipedia.org/wiki/Equicontinuity).
-
-1.  For the first inclusion we will use
+<ol>
+<li>  For the first inclusion we will use
 [Fréchet--Kolmogorov's](https://en.wikipedia.org/wiki/Fr%C3%A9chet%E2%80%93Kolmogorov_theorem)
 theorem. First we note that we can suppose $q>p$ as
 $L^q(\Omega) \hookrightarrow L^p(\Omega)$. Let $B\U 1$ be the unit
@@ -2589,10 +2589,11 @@ $$\begin{aligned}
 
 This shows equicontinuity and concludes the
 first case.
+</li>
 
-2.  The compactness of the second inclusion is proved identically.
+<li>  The compactness of the second inclusion is proved identically.</li>
 
-3.  For the compactness of the last inclusion we use [Arzelà--Ascoli
+<li>  For the compactness of the last inclusion we use [Arzelà--Ascoli
 theorem](https://en.wikipedia.org/wiki/Arzel%C3%A0%E2%80%93Ascoli_theorem#:~:text=%2C%20%C2%A7IV.6.7)
 on a "derivative by derivative basis". By definition of Hölder norm,
 
@@ -2620,10 +2621,13 @@ that $u^{(\alpha)}=D^\alpha u^{(0)}$ and as a result
 $u\U n \to u \in C^k(\overline{\Omega})$. That is, the unit ball
 $B\U 1 \subset C^{k,\gamma }$ is sequentially compact and thus compact
 when embedded in $C^k(\overline{\Omega})$. This proves this point.
+</li>
 
-4.  The composition of the inclusions on the last line is compact as the
+<li>  The composition of the inclusions on the last line is compact as the
 composition of a compact and a continuous operator is compact. This
 concludes the proof.
+</li>
+</ol>
 
 ◻
 
