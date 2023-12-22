@@ -2537,26 +2537,26 @@ $$\begin{aligned}
 
 Where $p^{k\star }$ is defined by the relation
 $\frac{1}{p^{k\star }}=\frac{1}{p}-\frac{k}{d}$ and $\gamma =1 -\frac{p}{d}$.
-Furthermore, the first, second, fourth, and third composed with fourth
+Furthermore, the first, second, fourth, and third composed with the fourth
 inclusions are
 [compact](https://en.wikipedia.org/wiki/Compact_embedding).
 
 
 
-Proof. The fact that the above inclusions are continuous follows by
+Proof. The fact that the above inclusions are continuous, follows by
 our three Sobolev inequalities in Exercises
 [24](#est12),[25](#est22),[26](#est32)
 together with the extension theorem [7](#extension).
 
-The compactness of the embeddings requires reduce to showing that the
+The compactness of the embeddings requires reduces to showing that the
 unit ball in each of the embedded spaces is
 [equicontinuous](https://en.wikipedia.org/wiki/Equicontinuity).
 <ol>
 <li>  For the first inclusion we will use
 <a href="https://en.wikipedia.org/wiki/Fr%C3%A9chet%E2%80%93Kolmogorov_theorem">Fréchet--Kolmogorov's</a>
-theorem. First we note that we can suppose $q>p$ as
+theorem. First, we note that we can suppose $q>p$ as
 $L^q(\Omega) \hookrightarrow L^p(\Omega)$. Let $B\U 1$ be the unit
-ball in $W^{k,p}(\Omega)$. By continuity of the inclusion $B\U 1$ is
+ball in $W^{k,p}(\Omega)$. By continuity of the inclusion, $B\U 1$ is
 bounded in $L^q(\Omega)$ and it only remains to show that $B\U 1$ is
 equicontinuous. We have that
 
@@ -2594,7 +2594,7 @@ first case.
 <li>  The compactness of the second inclusion is proved identically.</li>
 
 <li>  For the compactness of the last inclusion we use <a href="https://en.wikipedia.org/wiki/Arzel%C3%A0%E2%80%93Ascoli_theorem#:~:text=%2C%20%C2%A7IV.6.7"Arzelà--Ascoli
-<a/>
+</a>
 on a "derivative by derivative basis". By definition of Hölder norm,
 
 
