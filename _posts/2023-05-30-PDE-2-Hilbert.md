@@ -14,7 +14,7 @@ authorpost: L.Llamazares
     correspond to an infinite dimensional version of $\mathbb{R}^n$ or
     $\mathbb{C}^n$.
 
--   Much of Euclidean geometry carries over to Hilbert spaces including
+-   Much of Euclidean geometry carries over to Hilbert spaces, including
     orthogonality, projections, orthonormal basis, and Pythagoras'
     theorem.
 
@@ -36,7 +36,7 @@ the conjugate of $\lambda$.
 
 Given a subset $A$ of some topological space, it is also common to write
 $\overline{A}$ for the closure of $A$. Though this is a slight abuse of
-notation we will do the same as the meaning will always be clear from
+notation we will do the same, as the meaning will always be clear from
 context.
 
 Given two topological vector spaces $X, Y$ we write $\mathcal{L}(X, Y)$
@@ -48,11 +48,11 @@ for the space of continuous linear functions to the base field of $X$.
 In writing the next post in the series of PDEs I realized that there
 were many results from functional analysis which had not been discussed
 and would be necessary. As such, this post is meant as a short, yet
-rather longer than I intended, introduction to the basic theory that
+rather longer than I intended, an introduction to the basic theory that
 will be required.
 
 I'm going to assume you know nothing (please don't feel insulted) and go
-over the main ideas and results. Much of the material may be familiar so
+over the main ideas and results. Much of the material may be familiar, so
 please feel free to skim briefly through the results or skip entirely.
 There is a lot of theory to cover so the proofs will only be sketched.
 For more details see for example [1](https://books.google.co.uk/books?hl=en&lr=&id=wCHtLumoGY4C&oi=fnd&pg=PR3&dq=narici+bachman&ots=vxU8cRul6s&sig=tGyszvXv-1psk-qyJ8ruM6S7l5I&redir\U esc=y#v=onepage&q=narici%20bachman&f=false).
@@ -139,7 +139,7 @@ all $\lambda \in \mathbb{K}$
     $x=0$.
 
 
-In what follows we will take always take the base field to be
+In what follows we will always take the base field to be
 $\mathbb{K}$, that is, we will consider real and complex vector spaces
 as the theory is the same. In the real case, the conjugate function just
 being the identity. Note that the first two properties also imply
@@ -355,7 +355,7 @@ Note that the imposition that $V$ is closed in Theorem
 [2](#complement theorem) is necessary. Finite-dimensional
 subspaces are always closed, but infinite-dimensional subspaces may not
 be. For example, consider $H=L^2(I)$ for some bounded $I$ and take $V$
-to polynomials on $I$ . By the
+to polynomials on $I$. By the
 [Stone-Weierstrass](https://en.wikipedia.org/wiki/Stone%E2%80%93Weierstrass\U theorem)
 theorem $V$ is dense in $H$. That is $H=\overline{V}$, whereas
 
@@ -464,7 +464,7 @@ just a consequence of the definition of absolute summability. ◻
 
 
 Now that we made sense of the sum over a potentially uncountable number
-of basis elements in (\ref{sum}) , it remains to address the question of the existence of
+of basis elements in (\ref{sum}), it remains to address the question of the existence of
 orthonormal basis.
 
  <a name="existence">
@@ -474,7 +474,7 @@ an orthonormal basis $\mathcal{B}$.
 
 
 Proof. The proof is formally identical to the proof that every vector
-space has a basis space . Let $\mathcal{A}$ be the collection of all
+space has a basis space. Let $\mathcal{A}$ be the collection of all
 orthonormal subsets of $H$. That is, $\mathcal{A}$ is comprised of sets
 of the form
 
@@ -497,8 +497,8 @@ we have the bound
 \end{aligned}$$
 </div>
 
-  As a result by [Zorn's
-lemma](https://en.wikipedia.org/wiki/Zorn%27s\U lemma) there exists a
+  As a result, by [Zorn's
+lemma](https://en.wikipedia.org/wiki/Zorn%27s_lemma) there exists a
 maximal element $\mathcal{B}$. If $\mathcal{B}$ is not complete (that is
 (\ref{sum})  doesn't hold),
 then there exists $f \in \overline{\mathcal{B}}^\perp$. By taking
@@ -513,8 +513,8 @@ Hilbert spaces.
 
  <a name="Parseval">
 **Theorem 4** </a>  (Parseval). Let $H$ be a Hilbert space with orthonormal
-basis $\mathcal{B}=\left\\{\phi\U \alpha\right\\}\U {\alpha\in I}$. Then for
-every $f \in  H$ it holds that
+basis $\mathcal{B}=\left\\{\phi\U \alpha\right\\}\U {\alpha\in I}$. Then, for
+every $f \in  H$, it holds that
 
 <div>
  $$\begin{aligned}
@@ -549,7 +549,7 @@ assumption is $H$. By Corollary [1](#cor) we conclude that
 \end{aligned}$$
 </div>
 
-  This proves the first part of the theorem. The second
+  This proves the first part of the theorem. The second,
 follows by the first together with the orthonormality of
 $\phi\U \alpha$. ◻
 
@@ -572,8 +572,8 @@ is all pervasive (in fact it has [even invaded our
 blog](https://nowheredifferentiable.com/2023-01-29-PDE-1/))
 
 
-**Example 3** (Plancherel). The Hilbert space of square integrable
-complex valued periodic functions
+**Example 3** (Plancherel). The Hilbert space of square-integrable
+complex-valued periodic functions
 $L^2(\mathbb{R}^d /\mathbb{Z}^d \to \mathbb{C})$ has orthonormal basis
 
 
@@ -801,7 +801,7 @@ words
 
 
 **Definition 7**. Given $T \in \mathcal{L}(H)$ we denote by $T^\star $ the
-unique element verifying (\ref{adjoint})  . If $T=T^\star $ we say that $T$ is self adjoint.
+unique element verifying (\ref{adjoint})  . If $T=T^\star $ we say that $T$ is selfadjoint.
 
 
 If we think in terms of complex numbers, the adjoint of an element
@@ -903,7 +903,7 @@ Furthermore, the solution operator $\mathcal{L}^{-1}$ is continuous with
 
 
 Proof. For each fixed $u \in H$, we have that
-$\ell\U u :=B(\cdot ,u) \in  H'$. As a result by Riesz's representation
+$\ell\U u :=B(\cdot ,u) \in  H'$. As a result, by Riesz's representation
 theorem (Theorem [5](#riesz theorem)) there exists a unique $f\U {\ell \U u} \in H$
 such that
 
@@ -950,7 +950,7 @@ $\mathcal{L}$ is injective as if $\mathcal{L}u=0$ then
 \end{aligned}$$
 </div>
 
-  We now prove surjectivity of $\mathcal{L}$. Consider
+  We now prove the surjectivity of $\mathcal{L}$. Consider
 $u \in  \Im(\mathcal{L})^\perp$, then it holds that
 
 <div>
@@ -965,7 +965,7 @@ $u \in  \Im(\mathcal{L})^\perp$, then it holds that
 orthogonal complement theorem [1](#cor) that $\overline{\Im(\mathcal{L})}=0$. Thus, if we show
 that $\mathcal{L}$ is closed invertibility follows. The estimate in
 (\ref{est})  together with
-Cauchy Schwartz show that for all $u \in H$
+Cauchy Schwartz shows that for all $u \in H$
 
 <div>
  $$\begin{aligned}
@@ -1080,7 +1080,7 @@ for all bounded $B \subset  X$.
 
 
 The above will be abbreviated $K \in  \mathcal{K}(X,Y)$. Note that,
-since every compact set is bounded $K$ must be bounded and thus
+since every compact set is bounded, $K$ must be bounded and thus
 continuous. That is
 
 <div>
@@ -1091,7 +1091,7 @@ continuous. That is
 practice, the following equivalent characterizations are useful.
 
  <a name="equivalent">
-**Proposition 6** </a> . Let $X,Y$ be two metric spaces, then the following
+**Proposition 6** </a> . Let $X, Y$ be two metric spaces, then the following
 are equivalent
 
 a)  $K \in \mathcal{K}(X,Y)$.
@@ -1104,14 +1104,14 @@ c)  From every sequence $Kx\U n$ where $x\U n \in B\U X$ one can extract a
 
 
 
-Proof. The prove the first two points are equivalent we observe that
+Proof. To prove the first two points are equivalent, we observe that
 every bounded set $B \subset  X$ is contained in $\lambda B\U X$ for
 $\lambda$ big enough. A general fact from topology is that closed
 subsets of compact sets are compact. This is enough to conclude the
 equivalence.
 
-To prove that the last two points are equivalent we recall that in
-metric spaces compact is equvalent to sequentially compact. ◻
+To prove that the last two points are equivalent, we recall that in
+metric spaces, compactness is equivalent to sequentially compactness. ◻
 
 
 An important property of compact operators is that they are preserved by
@@ -1135,13 +1135,13 @@ $\mathcal{K}(X,Y)$ as a subspace is as follows
 
 
 **Proposition 8**. Let $X,Y$ be metric spaces then $\mathcal{K}(X,Y)$
-is a vector space. Furthermore, if $Y$ is completee then
+is a vector space. Furthermore, if $Y$ is complete then
 $\mathcal{K}(X,Y)$ is closed in $\mathcal{L}(X,Y)$. That is, if $K\U n$
 are compact and $K\U n \to K \in \mathcal{L}(X,Y)$ then $K$ is compact.
 
 
 
-Proof. The first part again follows fromb the last equivalent
+Proof. The first part again follows from the last equivalent
 characterization in Proposition [6](#equivalent). The second part relies on the fact that in
 complete spaces compact and [totally
 bounded](https://en.wikipedia.org/wiki/Totally\U bounded\U space#:~:text=not%20in%20general.-,In,-metric%20spaces%5B)
@@ -1150,14 +1150,14 @@ are equivalent. ◻
 
 The reason we are interested in compact operators is that they are
 particularly simple. Note that every finite-dimensional operator (that
-is operators whose image is finite-dimensional) is compact by the
+is, operators whose image is finite-dimensional) is compact by the
 Heine-Borel theorem. In fact, a good way of thinking of compact
-operators is to see them as finite-dimensional operators . Or more
+operators is to see them as finite-dimensional operators. Or more
 precisely, as the limit of them
 
 
-**Proposition 9**. Let $K \in  \mathcal{K}(X,H)$ where $H$ is a
-separable Hilbert space . Then there exists a sequence of
+**Proposition 9**. Let $K \in  \mathcal{K}(X, H)$ where $H$ is a
+separable Hilbert space. Then, there exists a sequence of
 finite-dimensional operators $K\U n$ such that
 
 <div>
@@ -1179,7 +1179,7 @@ pointwise convergence holds
 
 <div>
  $$\begin{aligned}
-            K\U n x \to Kx , \quad\forall x \in  H.
+            K\U n x \to Kx, \quad\forall x \in  H.
 
 \end{aligned}$$
 </div>
@@ -1230,9 +1230,9 @@ $s >0$ it holds that the natural inclusion
   is compact for all $\sigma >0$.
 
 
-For the proof of a more general version see [2](https://books.google.co.uk/books?id=wI4fAwAAQBAJ&printsec=frontcover&hl=fr&source=gbs\U ge\U summary\U r&cad=0#v=onepage&q&f=false) page
+For the proof of a more general version, see [2](https://books.google.co.uk/books?id=wI4fAwAAQBAJ&printsec=frontcover&hl=fr&source=gbs\U ge\U summary\U r&cad=0#v=onepage&q&f=false) page
 334. It is important to observe the restriction that $U$ is bounded is
-necessary and the theorem no longer holds if $U$ is replaced by
+necessary, and the theorem no longer holds if $U$ is replaced by
 $\mathbb{R}^n$.
 
  <a name="addd">
@@ -1257,7 +1257,7 @@ Rellich-Kondrachov's theorem [8](#Rellich) and the preservation of compact opera
 continuous ones (Proposition [7](#comp)). ◻
 
 
-Compact operators also have a nice spectral theory. Where we recall that
+Compact operators also have a nice spectral theory. We recall that
 the spectrum of an operator $T$ is defined as
 
 <div>
@@ -1268,11 +1268,11 @@ the spectrum of an operator $T$ is defined as
 </div>
 
   Firstly, the spectrum of a compact operator is equal to
-it's eigenvalues. Secondly the following holds
+its eigenvalues. Secondly, the following holds
 
 
 **Theorem 9** (Spectral theorem). Let $K \in \mathcal{K}(H)$ be compact
-and self adjoint on a Hilbert space $H$. Then $T$ diagonalizes in an
+and selfadjoint on a Hilbert space $H$. Then $T$ diagonalizes in an
 orthonormal basis. That is, there exists an orthonormal basis
 $\left\\{\phi\U \alpha\right\\} \U {\alpha \in  I}$ and
 $\lambda \U \alpha \in \mathbb{K}$ such that
@@ -1287,17 +1287,17 @@ $\lambda \U \alpha \in \mathbb{K}$ such that
 
 
 
-A more general result is possible but requires more theory so we reserve
+A more general result is possible but requires more theory, so we reserve
 it for another day. That said, this type of discrete representation of
-$T$ is very useful and links up with the theory of trace class and
-Hilbert-Schmidt operators which we will discuss more in the future.
+$K$ is very useful and links up with the theory of trace class and
+Hilbert-Schmidt operators, which we will discuss more in the future.
 
-To end it all off we state without proof a theorem that will be useful
+To end it all off, we state without proof a theorem that will be useful
 in proving properties about the solution space to the solution of PDEs
 
 
 **Theorem 10** (Fredholm alternative). Let $H$ be a Hilbert space and
-$K \in \mathcal{K}(H)$. Consider $T:= Id-K$ then it holds that
+$K \in \mathcal{K}(H)$. Consider $T:= \mathbf{Id}-K$ then it holds that
 
 
 <div>
