@@ -1230,8 +1230,7 @@ $s >0$ it holds that the natural inclusion
   is compact for all $\sigma >0$.
 
 
-For the proof of a more general version, see [2](https://books.google.co.uk/books?id=wI4fAwAAQBAJ&printsec=frontcover&hl=fr&source=gbs\U ge\U summary\U r&cad=0#v=onepage&q&f=false) page
-334. It is important to observe the restriction that $U$ is bounded is
+For the proof of a more general version, seepage 334 of [2](https://books.google.co.uk/books?id=wI4fAwAAQBAJ&printsec=frontcover&hl=fr&source=gbs\U ge\U summary\U r&cad=0#v=onepage&q&f=false). It is important to observe the restriction that $U$ is bounded is
 necessary, and the theorem no longer holds if $U$ is replaced by
 $\mathbb{R}^n$.
 
