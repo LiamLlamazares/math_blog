@@ -1237,12 +1237,21 @@ $\mathbb{R}^n$.
  <a name="addd">
 **Corollary 2** </a>  (Adding differentiability is compact). Let
 $U \subset \mathbb{R}^n$ be a bounded open domain in $\mathbb{R}^n$ with
-smooth boundary and $s, \sigma >0$, then every continuous operator
+smooth boundary and $s, \sigma >0$, then given a continuous operator
 
 
 <div>
  $$\begin{aligned}
-            T:H^{s+ \sigma }(U) \hookrightarrow H^s(U)
+            T:H^{s}(U) \hookrightarrow H^{s+ \sigma}(U)
+
+\end{aligned}$$
+</div>
+
+The operator
+
+<div>
+ $$\begin{aligned}
+            T:H^{s}(U) \hookrightarrow H^{s}(U),\quad f\to Tf
 
 \end{aligned}$$
 </div>
