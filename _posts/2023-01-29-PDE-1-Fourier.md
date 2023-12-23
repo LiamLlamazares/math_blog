@@ -516,7 +516,7 @@ with:
 
 
 This is indeed smooth as, by the rapid decay of $a$, we may
-[differentiate under the integral sign](https://nowheredifferentiable.com/2023-01-29-PDE-1/#derivativedistr:~:text=and%20the-,fact%20that,-%2C%20in%20first%20countable) (we recall that sums are
+[differentiate under the integral sign](#diff) (we recall that sums are
 just integrals against discrete measures) to commute all derivatives
 with the above sum to obtain that
 
@@ -610,7 +610,7 @@ $$S_Rf(x):=\int_{[-R,R]^d}\hat{f}(\xi)e^{-2\pi i\xi\cdot x}d\xi;\quad S_Nf(x):=\
 We can speak both of $L^p$ and almost everywhere convergence.
 
 
-**Theorem ([M. Riesz]((https://link.springer.com/article/10.1007/BF01171098))).** It holds that for all $f\in L^p(\mathbb{R}^d)$
+**Theorem ([M. Riesz](https://link.springer.com/article/10.1007/BF01171098).** It holds that for all $f\in L^p(\mathbb{R}^d)$
 <div>
 $$\lim_{R\to\infty}\|S_Rf-f\|_{L^p(\mathbb{R}^d\to \mathbb{C}^m)}=0$$
 </div>
@@ -682,7 +682,7 @@ is a translation invariant metric on $E$.
 
 **Exercise 1.** Show that
 <div>
- $$d(x_n, x)\to 0 \iff p\U j(x_n-x)}\to 0 \quad \forall j \in \mathbb{N}.$$
+ $d(x \U n, x)\to 0 \iff p\U j(x \U n-x)}\to 0 \quad \forall j \in \mathbb{N}.$$
 </div>
 
 And if $d'$ is any other distance verifying the above, then $d,d'$ induces the same topology on $E$.
