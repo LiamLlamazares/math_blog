@@ -11,45 +11,45 @@ authorpost: L.Llamazares
 
 #  Three line summary
 
--   The Fourier transform defines a [linear isometry](https://nowheredifferentiable.com/2023-01-29-PDE-1/#derivativedistr:~:text=the%20following%20result.-,Proposition%204,-(Plancherel%E2%80%99s%20theorem).) on the space of
+-   The Fourier transform defines a linear isometry on the space of
     square-integrable complex-valued functions and has as inverse the
     inverse Fourier transform. This allows us to write these
-    functions as a [superposition of harmonic functions](https://nowheredifferentiable.com/2023-01-29-PDE-1/#derivativedistr:~:text=and%20where%20now-,Plancherel%E2%80%99s,-theorem%20gives%20that).
+    functions as a superposition of harmonic functions.
 
 -   Linear differential operators act as a simple polynomial
     multiplication on the frequency domain. Smooth functions have
-    Fourier transforms that decay quickly and [vice-versa](hhttps://nowheredifferentiable.com/2023-01-29-PDE-1/#:~:text=its%20inverse.%20The-,following,-proposition%20holds.). This
+    Fourier transforms that decay quickly and vice-versa. This
     correspondence also allows us to introduce fractional differential
-    operators and pseudo differential operators such as
-    [$\sqrt{-\Delta }$](https://nowheredifferentiable.com/2023-01-29-PDE-1/#derivativedistr:~:text=exercise-,Exercise,-1.%20How%20should).
+    operators and pseudo differential operators, such as
+    $\sqrt{-\Delta }$.
 
 -   The Sobolev spaces $H^s$ and tempered distributions $\mathcal{S}'$
-    are complete spaces of functions to which we can [extend differential
-    operators](https://nowheredifferentiable.com/2023-01-29-PDE-1/#derivativedistr:~:text=1-,and,-the%20(weak)).
+    are complete spaces of functions to which we can extend differential
+    operators.
 
 # Introduction
 
 Hi everyone, welcome to the first post in a new series focusing on
 partial differential equations (PDEs). In this post, we'll introduce
 some of the key analytical tools used to solve them. These tools will
-play a prominent role in the future posts of this series and in other
+play a prominent role in future posts in this series and in other
 series to come. We'll begin by introducing some notation and necessary
 preliminaries on integration. Next, we will introduce the Fourier
 transform, which is the fundamental object of harmonic analysis and
 plays a fundamental role in partial differential equations (PDEs),
 probability theory, and number theory. In particular, we will show in
-future posts how many linear PDEs such as the heat equation can be
+future posts how many linear PDEs, such as the heat equation, can be
 solved using it.\
 \
 After this, we'll discuss the generalization of what it means to solve a
-PDE. To do so we will need to introduce the space of (tempered)
+PDE. To do so, we will need to introduce the space of (tempered)
 distributions $\mathcal{S}'$ and Sobolev spaces $H^s$. These two spaces
 will be crucial in allowing us to extend the concept of solution to
 [PDE](https://nowheredifferentiable.com/2023-01-29-PDE-1/#derivativedistr:~:text=which%20this%20achieved-,Definition%206,-.%20Consider%20a%20mapping) to these spaces and use their completeness to prove the
 existence, uniqueness, and regularity of solutions.\
 \
 Much of the material here contained can be found in my [undergraduate
-thesis](https://gredos.usal.es/bitstream/handle/10366/145629/TFG%20LIAM%20LLAMAZARES.pdf?sequence=1) on the Navier Stokes equations which in turn are based on
+thesis](https://gredos.usal.es/bitstream/handle/10366/145629/TFG%20LIAM%20LLAMAZARES.pdf?sequence=1) on the Navier Stokes equations, which in turn are based on
 [Terence Tao's excellent notes](https://terrytao.wordpress.com/2018/09/16/254a-notes-1-local-well-posedness-of-the-navier-stokes-equations/).
 
 
@@ -58,9 +58,9 @@ thesis](https://gredos.usal.es/bitstream/handle/10366/145629/TFG%20LIAM%20LLAMAZ
 We write $L^p(\mathbb{R}^d)$ and $L^p(\mathbb{R}^d\to\mathbb{C}^m)$ to
 denote the space of equivalence classes of $p$ integrable functions from
 $\mathbb{R}^d$ to $\mathbb{R}$ and $\mathbb{C}^m$ respectively. Given
-a function defined on a factor space $u:X\times Y\rightarrow Z$ we shall
+a function defined on a factor space $u: X\times Y\rightarrow Z$, we shall
 use $u(x)$ to stand for the slightly more cumbersome
-$u(x,\cdot ):Y\rightarrow Z$. Given
+$u(x,\cdot ): Y\rightarrow Z$. Given
 $\alpha=(\alpha\U 1,...,\alpha\U d)\in\mathbb{N}^d$ we shall write as is
 standard
 
@@ -84,7 +84,7 @@ $\left\langle x\right\rangle$ will signify
 
 Finally, we will employ the notation $f\lesssim g$ to mean that there
 exists some constant $C$ such that $f\leq Cg$. If the value of $C$
-depends on some other parameter such as the dimension $d$ we shall make
+depends on some other parameter such as the dimension $d$, we shall make
 this explicit by writing $f\lesssim\U d g$.
 
 ## Some useful results on integration
@@ -123,7 +123,7 @@ $t\U 0\in T$ we have that
 </div>
 
 
-In consequence, if $f(x)$ is continuous so is $\int\U X f(t,x) \mu(dx)$.
+In consequence, if $f(x)$ is continuous, so is $\int\U X f(t,x) \mu(dx)$.
 
 
 
@@ -155,7 +155,7 @@ a Banach space. Consider
 <div>
  $$\norm{\partial\U {t}{f}(t,x)}\leq g(x)\quad \forall{(t,x)}\in {U\times E}.$$
 </div>
-Then it holds that
+Then, it holds that
 <div>
  $$\partial\U {t}{\int\U X f(t)\mu(dx)}=\int\U X \partial\U {t}f(t) \mu(dx).$$
 </div>
@@ -166,7 +166,7 @@ Then it holds that
 
 **Proof.** First, we show that the integral on the left-hand side of the
 equation above makes sense. Let $t\in U$ be any, then by the mean value
-inequality we have that
+inequality, we have that
 
 
 <div>
@@ -179,34 +179,34 @@ the integral
 
 <div>
  $$\begin{gathered}
-        \lim\U {t \to t\U 0}\frac{\int\U {X} f(t)\mu (dx)-\int\U {X}f(t\U 0) \mu (dx)}{t-t\U 0}  =\lim\U {t \to t\U 0}\int\U {X}    \frac{f(t)-f(t\U 0)}{t-t\U 0} \mu (dx) \\=\int\U {X}\lim\U {t \to t\U 0} \frac{f(t)-f(t\U 0)}{t-t\U 0} \mu (dx) =\int\U {X}\partial \U t f(t) \mu(dx).
+        \lim\U {t \to t\U 0}\frac{\int\U {X} f(t)\mu (dx)-\int\U {X}f(t\U 0) \mu (dx)}{t-t\U 0}  =\lim\U {t \to t\U 0}\int\U {X}    \frac{f(t)-f(t\U 0)}{t-t\U 0} \mu (dx) \\=\int\U {X}\lim\U {t \to t\U 0} \frac{f(t)-f(t\U 0)}{t-t\U 0} \mu (dx) =\int\U {X}\partial \U t f(t) \mu(dx),
     \end{gathered}$$
 </div>
 
-  Where in the first equality we also used the
+  where in the first equality, we also used the
 [linearity of the Bochner integral](https://nowheredifferentiable.com/2022-05-27-The-Bochner-integral/#:~:text=The%20typical%20properties) and in the last equality we
 used that by hypothesis $f(x)$ is everywhere differentiable. This
 concludes the proof. ◻
 
 
-In the literature the usual hypothesis is that $\partial \U t f$ is
-integrable everywhere (see for example [1](https://books.google.co.uk/books/about/Integraci%C3%B3n_de_funciones_de_varias_vari.html?id=uuHbOgAACAAJ&redir_esc=y) page 108), however as we
-have seen it is sufficient to require the integrability at a point. Finally we end this section with a lemma that will be useful for the convergence of certain integrals and series.
+In the literature, the usual hypothesis is that $\partial \U t f$ is
+integrable everywhere (see, for example [1](https://books.google.co.uk/books/about/Integraci%C3%B3n_de_funciones_de_varias_vari.html?id=uuHbOgAACAAJ&redir_esc=y) page 108), however as we
+have seen it is sufficient to require the integrability at a point. Finally, we end this section with a lemma that will be useful for the convergence of certain integrals and series.
 
 **Lemma 0.** Let $s\in \mathbb{N}$ then
 $$
 \int_{\mathbb{R}^d}\langle{x}\rangle^{-s}dx<\infty\iff s>d\iff\sum_{k\in\Z^d}\langle{k}\rangle^{-s}<\infty
 $$
 
-**Proof.** The equivalence of these two statements is a consequence of fact that $\langle{x}\rangle^{-s}$ is monotone decreasing. To  prove the first part of the proposition it is sufficient to apply a change to spherical coordinates. ◻
+**Proof.** The equivalence of these two statements is a consequence of the fact that $\langle{x}\rangle^{-s}$ is monotone decreasing. To prove the first part of the proposition, it is sufficient to apply a change to spherical coordinates. ◻
 
 # The Fourier transform on $\mathbb{R}^d$
 
 These preliminaries out of the way, we now get to our first main
 section. We assume the reader has encountered the Fourier transform
-before, and limit ourselves to giving a rundown of the theory and main
+before and limit ourselves to giving a rundown of the theory and main
 ideas, taking the reader through a basic definition to an extension of
-it. To make the Fourier transform an isometry we will use the following
+it. To make the Fourier transform an isometry, we will use the following
 convention.
 
 
@@ -296,7 +296,7 @@ $f\in L^1(\mathbb{R}^d\to\mathbb{R}^d)$ decays to 0 at infinity by the
 integrable function is not itself integrable. That is,
 $L^1(\mathbb{R}^d\to\mathbb{C}^m)$ is not closed under the Fourier
 transform. We now introduce a space that is closed under the Fourier
-transform; the Schwartz space, which can be thought of as the space of
+transform, the Schwartz space, which can be thought of as the space of
 infinitely regular functions with infinite decay:
 
 
@@ -324,7 +324,7 @@ $f\in\mathcal{S}(\mathbb{R}^d\to\mathbb{C}^m)$
 
 
 Hence, the Fourier transform and the inverse Fourier transform restrict
-to endomorphisms of the Schwartz space which we will denote respectively
+to endomorphisms of the Schwartz space, which we will denote respectively
 by
 
 <div>
@@ -332,7 +332,7 @@ by
 </div>
 
 
-The next item on the agenda is Plancherel's theorem which is proven via
+The next item on the agenda is Plancherel's theorem, which is proven via
 the following lemma, in which we shall use the
 notation
 
@@ -352,7 +352,7 @@ $f,g\in \mathcal{S}(\mathbb{R}^d\to\mathbb{C}^m)$
 (ii) $\mathcal{F}\U \mathcal{S}^{-1} \mathcal{F}\U \mathcal{S}f=\mathcal{F}\U \mathcal{S}\mathcal{F}\U \mathcal{S}^{-1}  f=f$
 
 
-The first point can be proved by a direct application of Fubini. The
+A direct application of Fubini can prove the first point. The
 second point is trickier and is the crux of why we call $\mathcal{F}^{-1}$
 the inverse Fourier transform. The proof can be found in [2](https://link.springer.com/book/10.1007/978-1-4419-7055-8) pages
 222-226. From $(i)$ and $(ii)$ we deduce immediately that, given a
@@ -372,7 +372,7 @@ That is, the restrictions of $\mathcal{F}\U 1$ and $\mathcal{F}^{-1}\U 1$
 </div>
 
 
-are linear unitary operators which are the inverse the one to the other.
+are linear unitary operators, which are the inverse of one to the other.
 We obtain the following result.
 
 
@@ -389,7 +389,7 @@ With $\mathcal{F}\mathcal{F}^{-1}=\mathcal{F}^{-1}\mathcal{F}=Id$.
 
 
 
-**Proof.** This is a immediate result of the density of
+**Proof.** This is an immediate result of the density of
 $\mathcal{S}(\mathbb{R}^d\to\mathbb{C}^m)$ in the larger
 $L^2(\mathbb{R}^d\to\mathbb{C}^m)$ and the completeness of
 $L^2(\mathbb{R}^d\to\mathbb{C}^m)$ together with $(ii)$ and [Plancherel](https://nowheredifferentiable.com/2023-01-29-PDE-1/#derivativedistr:~:text=to%20the%20other.-,We%20obtain,-the%20following%20result). As, by a simple limiting argument, it is easy to see that
@@ -409,7 +409,7 @@ we have that
 </div>
 
 
-This indeed holds as can be seen by taking a sequence of functions
+This indeed holds, as can be seen by taking a sequence of functions
 $\lbrace f\U n\rbrace\U {n=1}^\infty\in\mathcal{S}(\mathbb{R}^d\to\mathbb{C}^m)$
 converging to $f$ in $L^1(\mathbb{R}^d\to\mathbb{C}^m)$ and in
 $L^2(\mathbb{R}^d\to\mathbb{C}^m)$. As then $\mathcal{F}\U 1 f\U n$
@@ -441,7 +441,7 @@ define the $k$-th Fourier coefficient of $f$ as:
 
 We thus obtain a function $\hat{f}$ on $\mathbb{Z}^d$ which we shall
 call the Fourier series of $f$ and a continuous linear function which we
-shall denote as in the euclidean case:
+shall denote as in the Euclidean case:
 
 
 <div>
@@ -450,7 +450,7 @@ shall denote as in the euclidean case:
 
 
 where $l^{\infty}(\mathbb{Z}^d\to\mathbb{C}^m)$ is the set of bounded
-sequences from $\mathbb{Z}^d$ to $\mathbb{C}^m$. As before we have the
+sequences from $\mathbb{Z}^d$ to $\mathbb{C}^m$. As before, we have the
 following result:
 
 
@@ -495,7 +495,7 @@ before, an induced map:
 sequences from $\mathbb{Z}^d$ to $\mathbb{C}^m$ that are of rapid
 decrease (this space now plays the role of the Schwartz space
 $\mathcal{S}(\mathbb{R}^d\to\mathbb{C}^m)$). Similarly to the
-non-periodic case we now define
+non-periodic case, we now define
 
 
 <div>
@@ -522,7 +522,7 @@ with the above sum to obtain that
 </div>
 
 
-It is now possible to prove as with the euclidean case that
+It is now possible to prove, as with the Euclidean case, that
 
 
 <div>
@@ -538,7 +538,7 @@ and that analogously given $f$ smooth, and $a$ of rapid decrease
 </div>
 
 
-See for example [2](https://link.springer.com/book/10.1007/978-1-4419-7055-8) pages 197-206. We conclude that
+See, for example, [2](https://link.springer.com/book/10.1007/978-1-4419-7055-8) pages 197-206. We conclude that
 $\mathcal{F}\U {C^\infty}$ are unitary linear functions and that hence:
 
 
@@ -557,7 +557,7 @@ with $\mathcal{F}\mathcal{F}^{-1}=\mathcal{F}^{-1}\mathcal{F}=Id.$
 
 We note that, as for the Euclidean case, given
 $f\in L^2(\mathbb{T}^d\to\mathbb{C}^m)\cap L^1(\mathbb{T}^d\to\mathbb{C}^m)$
-by an identical argument it holds that
+by an identical argument, it holds that
 
 
 <div>
@@ -574,8 +574,8 @@ and where now Plancherel's theorem gives that, for such $f$:
 </div>
 
 ## Other settings for the Fourier transform
-The study of the Fourier transform is a vast subject and cannot be covered in a single blog post. We have chosen to focs on the case of functions with domain on euclidean space $\mathbb{R}^d$ or the torus $\mathbb{T}^d$
-and studied the $L^2$ theory. However, one may also define the Fourier transform when the domain is a group $G$. In this case the notions of characters (for abelian groups) and representations (for non-abelian groups) appear. If
+The study of the Fourier transform is a vast subject and cannot be covered in a single blog post. We have chosen to focus on the case of functions with domain on Euclidean space $\mathbb{R}^d$ or the torus $\mathbb{T}^d$
+and studied the $L^2$ theory. However, one may also define the Fourier transform when the domain is a group $G$. In this case, the notions of characters (for abelian groups) and representations (for non-abelian groups) appear. If
 $G$ is [locally compact](https://en.wikipedia.org/wiki/Locally_compact_space), [abelian](https://en.wikipedia.org/wiki/Abelian_group) and [Haussdorff](https://en.wikipedia.org/wiki/Hausdorff_space) (LCA) one defines the *Pontryagin dual* (or group of characters) of $G$ as
 
 <div>
@@ -593,7 +593,7 @@ From here one can proceed as previously to extend the Fourier transform on $G$ t
 $$\widehat{\mathbb{R}^d}=\left\{e^{2\pi i\xi \cdot}:\xi\in\R^d\right\}\quad;\widehat{\mathbb{T}^d}=\left\{e^{2\pi ik \cdot}:k\in\Z^d\right\}.$$
 </div>
 This helps shed light on why in the euclidean case we obtain an integral and in the periodic case we obtain a sum. It is also possible to study the $L^p$ theory of the
-Fourier transform for general $p$. The case $p=2$ is greatly facilitated by the fact that $L^2(G), L^2(\hat{G})$ are Hilbert spaces. But for $p\neq 2$ this does not hold. The theory in this setting relies heavily on interpolation theory as one must use the [Riesz Thorin theorem](https://en.wikipedia.org/wiki/Riesz%E2%80%93Thorin_theorem) to obtain the Haussdorff Young inequality
+Fourier transform for general $p$. The case $p=2$ is greatly facilitated by the fact that $L^2(G), L^2(\hat{G})$ are Hilbert spaces. But for $p\neq 2$, this does not hold. The theory in this setting relies heavily on interpolation theory as one must use the [Riesz Thorin theorem](https://en.wikipedia.org/wiki/Riesz%E2%80%93Thorin_theorem) to obtain the Haussdorff Young inequality
 
 <div>
 $$\|\mathcal{F}{f}\|_{L^q(\mathbb{R}^d\to \mathbb{C}^m)}\leq \|{f}\|_{L^p(\mathbb{R}^d\to \mathbb{C}^m)},\quad \forall 1\leq p\leq 2, $$
@@ -633,15 +633,15 @@ $$\lim_{R\to\infty}S_Rf=f, \quad \text{almost everywhere}$$
 if and only if $1<p\leq\infty$.
 
 
-There exist counterexamples at the boundary case $p=1$. As Kolmogorov showed, the Fourier series may be made to diverge almost everywhere (see [4](https://iopscience.iop.org/article/10.1070/RM1983v038n04ABEH004205/pdf) Theorem 3.1). With this, we conclude this section.
+Counterexamples exist at the boundary case $p=1$. As Kolmogorov showed, the Fourier series may be made to diverge almost everywhere (see [4](https://iopscience.iop.org/article/10.1070/RM1983v038n04ABEH004205/pdf) Theorem 3.1). With this, we conclude this section.
 
 
 # Distributions and Sobolev Spaces
 
 Here we will quickly recall the concepts of tempered distributions and
 Sobolev spaces, which are concepts of utmost importance in the field of
-PDEs and Fourier analysis. The idea is as follows, given a topological
-vector space $V$ we denote the dual of $V$ by
+PDEs and Fourier analysis. The idea is as follows: given a topological
+vector space $V$, we denote the dual of $V$ by
 
 
 <div>
@@ -681,10 +681,10 @@ is a translation invariant metric on $E$.
  $$d(x_n, x)\to 0 \iff p\U j(x_n-x)}\to 0 \quad \forall j \in \mathbb{N}.$$
 </div>
 
-And if $d'$ is any other distance verifying the above then $d,d'$ induce the same topology on $E$.
+And if $d'$ is any other distance verifying the above, then $d,d'$ induces the same topology on $E$.
 
 
-**Hint:** For uniqueness use that the topology of a first countable space is completely determined by sequential convergence.  
+**Hint:** For uniqueness, use the fact that the topology of a first countable space is completely determined by sequential convergence.  
 
 In the case of the Schwartz
 space $\mathcal{S}(\mathbb{R}^d\to\mathbb{C})$ we give it the topology
@@ -696,7 +696,7 @@ induced by
 </div>
 
 
-Though other families of semi-norms the reader may be familiar with such
+Though other families of semi-norms, the reader may be familiar with such
 as
 
 
@@ -707,7 +707,7 @@ as
 
 induce equivalent topologies. We note that with this metric
 $\mathcal{S}(\mathbb{R}^d\to\mathbb{C})$ is complete. For a quick
-proof based on the fundamental theorem of calculus see for example
+proof based on the fundamental theorem of calculus, see, for example
 [3](https://books.google.co.uk/books/about/Integraci%C3%B3n\U de\U funciones\U de\U varias\U vari.html?id=uuHbOgAACAAJ&redir\U esc=y) page 237.
 
 
@@ -736,8 +736,7 @@ where given $u\in \mathcal{S}(\mathbb{R}^d\to\mathbb{C})$ we define
 
 Let us write $T^t$ for the transpose of a linear function $T$ and recall
 that the Fourier transform is an endomorphism of the Schwartz space.
-Then, given two Schwartz functions $u,v$ we have already seen that, by a
-simple application of Fubini,
+Then, given two Schwartz functions $u,v$, we have already seen that, by a simple application of Fubini,
 
 
 <div>
@@ -801,7 +800,7 @@ Just as one would desire.
 Two other operations that are permitted on
 $\mathcal{S}(\mathbb{R}^d\to\mathbb{C})$ are multiplication by
 functions of polynomial growth $p$ and the application of the inverse
-Fourier transform which we shall, as for $L^2$ functions, denote by
+Fourier transform, which we shall, as for $L^2$ functions, denote by
 $\mathcal{F}^{-1}$. Both definitions are once again being given by
 duality.
 
@@ -812,7 +811,7 @@ duality.
 
 
 
-Before ending our discussion of (scalar) tempered distributions we
+Before ending our discussion of (scalar) tempered distributions, we
 comment on some generalizations. We first note that the previous
 discussion works equivalently for vector-valued distributions, i.e.
 elements of the dual to $\mathcal{S}(\mathbb{R}^d\to\mathbb{C}^m)$,
@@ -841,7 +840,7 @@ with $T\U f$ defined by
 </div>
 
 
-In both cases we have that, by duality, due to the [formulas derived
+In both cases, we have that, by duality, due to the [formulas derived
 previously](https://nowheredifferentiable.com/2023-01-29-PDE-1/#derivativedistr:~:text=.-,By,-applying%20Proposition), given a tempered distribution $w$ and
 $\alpha\in \mathbb{N}^d$
 
@@ -856,7 +855,7 @@ $\alpha\in \mathbb{N}^d$
 As we have observed [before](https://nowheredifferentiable.com/2023-01-29-PDE-1/#derivativedistr:~:text=are-,multiplication,-by%20functions%20of) multiplication by functions of
 polynomial growth is a well-defined operation on
 $\mathcal{S}(\mathbb{R}^d\to\mathbb{C}^m)$ so the above expressions
-are also well defined. A quick verification also shows that, since
+are also well-defined. A quick verification also shows that since
 Plancherel's theorem holds for all Schwartz functions,
 
 
@@ -883,7 +882,7 @@ countable family of semi-norms:
 
 and denote its dual by $\mathcal{S}'(\mathbb{T}^d\to\mathbb{C}^m).$
 Note that, as the domain is bounded, multiplication by polynomials to
-ensure rapid decrease is redundant. By defining as is natural the
+ensure rapid decrease is redundant. By defining, as is natural, the
 Fourier series of a periodic distribution $w$ by the sequence (which can
 be shown to be of polynomial growth)
 
@@ -911,7 +910,7 @@ analogous to the ones seen in the section on the Fourier transform for
 
 
 
-To prove it all we have to do is apply Plancherel on $u$ and move terms
+To prove it, all we have to do is apply Plancherel on $u$ and move terms
 around via duality,
 
 <div>
@@ -920,10 +919,10 @@ around via duality,
 </div>
 
 
-This proves the first part and the second can be proved directly by
+This proves the first part, and the second can be proved directly by
 considering the relevant definitions.\
 \
-To sum up what we have seen, due to the natural inclusion of integrable
+To sum up, what we have seen, due to the natural inclusion of integrable
 functions in the space of tempered distributions and the analogous
 inclusion in the periodic case, the notion of Fourier transform and
 differentiation extends to the larger space of tempered distributions.
@@ -973,7 +972,7 @@ with
 </div>
 
   As
-a result we deduce that for any
+a result, we deduce that for any
 $f \in \mathcal{S}'(\mathbb{R}^d\to \mathbb{C}^n)$ the equation $Pw=f$
 has as its unique solution
 
@@ -1018,8 +1017,8 @@ $L^2(\mathbb{R}^d\to\mathbb{C}^m)$ and we give it the norm:
 Note that it is not enough to require $\abs{\alpha}=k$ as, for example,
 the tempered distribution
 $1 \in \mathcal{S}'(\mathbb{R}^d\to\mathbb{C})$ has a derivative equal
-to zero however is not itself in $L^2(\mathbb{R}^d\to\mathbb{C})$. Now,
-since, as [the Fourier transform is an automorphism](https://nowheredifferentiable.com/2023-01-29-PDE-1/#derivativedistr:~:text=also%20shows%20that%2C-,since,-Plancherel%E2%80%99s%20theorem%20holds) of
+to zero however, it is not itself in $L^2(\mathbb{R}^d\to\mathbb{C})$. Now,
+ as [the Fourier transform is an automorphism](https://nowheredifferentiable.com/2023-01-29-PDE-1/#derivativedistr:~:text=also%20shows%20that%2C-,since,-Plancherel%E2%80%99s%20theorem%20holds) of
 $\mathcal{S}'(\mathbb{R}^d\to\mathbb{C}^m)$, by using the [previously derived formula](https://nowheredifferentiable.com/2023-01-29-PDE-1/#derivativedistr:~:text=In%20both-,cases,-we%20have%20that)
 we deduce that
 
@@ -1047,8 +1046,8 @@ $L^2(\mathbb{R}^d\to\mathbb{C}^m)$, the same reasoning gives
 </div>
 
 
-From the two equations above we deduce that if we define for a given
-real number $s$ (including negative numbers!) the $s$-th order Sobolev
+From the two equations above, we deduce that if we define for a given
+real number $s$ (including negative numbers!), the $s$-th order Sobolev
 space as
 
 
@@ -1072,11 +1071,11 @@ characterizing them and giving a neat expression for their norm.
 Nonetheless, it will always be useful to retain the first definition
 based on derivatives, as it carries with it the motivation behind the
 definition of Sobolev spaces. As was the case with tempered
-distributions we can extend the concept of Sobolev space to periodic
+distributions, we can extend the concept of Sobolev space to periodic
 domains by defining given an integer $k$ the Sobolev space
 $H^k(\mathbb{T}^d\to\mathbb{C}^m)$ as the space of square-integrable
 $\mathbb{Z}^d$ periodic functions with distributional derivatives
-themselves square integrable. Explicitly we define:
+themselves square integrable. Explicitly, we define:
 
 <div>
  $$\begin{gathered}
@@ -1095,7 +1094,7 @@ Fourier transform of periodic functions, we deduce that
 </div>
 
 
-which leads us as in the previous case to define for $s\in\mathbb{R}$
+which leads us, as in the previous case, to define for $s\in\mathbb{R}$
 the more general Sobolev space
 
 
@@ -1114,7 +1113,7 @@ and to give it the norm
 
 where of course the two definitions coincide for
 $s\in\mathbb{N}$. Note that, by the previous discussion, we have that
-both in the euclidean and periodic case
+both in the Euclidean and periodic case
 
 <div>
  $$\begin{aligned}
@@ -1136,7 +1135,7 @@ a Hilbert space with the inner product given by
 
 
 This gives one access to all the power of functional analysis and is
-invaluable in proofs. However, at the end of the day wishes to prove
+invaluable in proofs. However, at the end of the day, one would like to prove
 that solutions with smooth initial data are themselves smooth in a
 classical sense. This can be done by showing that the solution belongs
 to a Sobolev space of high enough order together with the following two
@@ -1176,8 +1175,8 @@ and [Lemma 0](https://nowheredifferentiable.com/2023-01-29-PDE-1/#HsisL1periodic
 
   converges
 absolutely (and uniformly) to some $g$. Since by Plancherel's Theorem, the above sum
-also converges in $L^2(\mathbb{T}^d\to\mathbb{C}^m)$ to $f$ we deduce
-that $f=g$ (for example
+also converges in $L^2(\mathbb{T}^d\to\mathbb{C}^m)$ to $f$, we deduce
+that $f=g$ (for example,
 by taking a subsequence of the above sum that converges almost
 everywhere to $f$). Therefore
 
@@ -1216,9 +1215,9 @@ $f\in C^r(\mathbb{T}^d\to\mathbb{C}^m)$.
 
 
 
-**Proof.** Using our knowlege of [how the derivative transports functions through sobolev space](https://nowheredifferentiable.com/2023-01-29-PDE-1/#derivativedistr:~:text=the%20previous%20discussion%2C-,we%20have%20that,-both%20in%20the), we may apply the
+**Proof.** Using our knowledge of [how the derivative transports functions through sobolev space](https://nowheredifferentiable.com/2023-01-29-PDE-1/#derivativedistr:~:text=the%20previous%20discussion%2C-,we%20have%20that,-both%20in%20the), we may apply the
 previous proposition to deduce that $D^\alpha f$ is continuous for all
-$\abs{\alpha}\leq r$. Therefore it suffices to show that for
+$\abs{\alpha}\leq r$. Therefore, it suffices to show that for
 $\abs{\alpha}\leq r$ the distributional derivatives $D^\alpha f$ are
 also the classical derivatives of $f$ which we denote by $f\U \alpha$. By
 the hypothesis placed on $f$, we have that the series
@@ -1249,11 +1248,11 @@ Now, note that by using our calculations for the [Fourier transform of the deriv
 
 
 holds in $L^2(\mathbb{T}^d\to\mathbb{C}^m)$. From these last two
-equalities, we deduce that $f\U \alpha=D^\alpha f$ almost everywhere which
+equalities, we deduce that $f\U \alpha=D^\alpha f$ almost everywhere, which
 concludes our proof. ◻
 
 
-As before the previous results also have a euclidean analog whose proof
+As before, the previous results also have a Euclidean analogue whose proof
 is identical in replacing all of the above sums over $\mathbb{Z}^d$
 with integrals over $\mathbb{R}^d$. Finally, we conclude this post with
 a neat little trick. Given smooth $f$ and some differential operator
@@ -1265,7 +1264,7 @@ $\mathcal{L}=\sum\U {\alpha} D^\alpha=p(D)$ we have that
 </div>
 
 
-The term $p$ is called a Fourier multiplier and there is no
+The term $p$ is called a Fourier multiplier, and there is no
 need to limit ourselves to polynomials. In fact, we may make the general
 definition that for a function of two variables $p$
 
@@ -1297,7 +1296,7 @@ result, we define for all $s\in \mathbb{R}$
 
 
 
-This post is already getting a bit long (if you've stuck in till the end
+This post is already getting a bit long (if you've held on till the end
 I salute you), so we leave it off here with a neat little exercise (our
 first of this blog)
 
@@ -1321,6 +1320,6 @@ defines a linear bijective isometry
 
 
 
-In our future post we will discuss the well posedness of second order
-elliptic equations, and if we have time discuss the heat equation and
-how the Fourier transform affords provides us with an elegant solution.
+In our future post, we will discuss the well-posedness of second-order
+elliptic equations, and if we have time, discuss the heat equation and
+how the Fourier transformation provides us with an elegant solution.
