@@ -1151,7 +1151,7 @@ results.
 
 
  <a name="lemma 2">
- **Lemma 2 (Continuity of Holder functions).**</a> Given
+ **Lemma 2 (Sobolev embedding).**</a> Given
 $f\in H^{s}(\mathbb{T}^d\to\mathbb{C}^m)$ with $s>d/2$. Then the
 Fourier series of $f$ is absolutely convergent and
 $f\in C(\mathbb{T}^d\to\mathbb{C}^m)$ with the bound
