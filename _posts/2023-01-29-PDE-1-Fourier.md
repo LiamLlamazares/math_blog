@@ -194,7 +194,8 @@ In the literature, the usual hypothesis is that $\partial \U t f$ is
 integrable everywhere (see, for example [1](https://books.google.co.uk/books/about/Integraci%C3%B3n_de_funciones_de_varias_vari.html?id=uuHbOgAACAAJ&redir_esc=y) page 108), however as we
 have seen it is sufficient to require the integrability at a point. Finally, we end this section with a lemma that will be useful for the convergence of certain integrals and series.
 
-**Lemma 0.** Let $s\in \mathbb{N}$ then
+ <a name="lemma 0">
+ **Lemma 0.**</a> Let $s\in \mathbb{N}$ then
 $$
 \int_{\mathbb{R}^d}\langle{x}\rangle^{-s}dx<\infty\iff s>d\iff\sum_{k\in\Z^d}\langle{k}\rangle^{-s}<\infty
 $$
@@ -1165,7 +1166,7 @@ $f\in C(\mathbb{T}^d\to\mathbb{C}^m)$ with the bound
 
 
 **Proof.** The proof is an application of the Cauchy-Schwartz inequality
-and [Lemma 0](https://nowheredifferentiable.com/2023-01-29-PDE-1/#HsisL1periodic:~:text=the%20convergence%20of-,certain,-integrals%20and%20series). We have that
+and [Lemma 0](#lemma 0). We have that
 
 <div>
  $$\begin{gathered}
