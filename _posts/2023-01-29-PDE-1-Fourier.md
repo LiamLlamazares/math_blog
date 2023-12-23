@@ -1026,7 +1026,7 @@ the tempered distribution
 $1 \in \mathcal{S}'(\mathbb{R}^d\to\mathbb{C})$ has a derivative equal
 to zero however, it is not itself in $L^2(\mathbb{R}^d\to\mathbb{C})$. Now,
  as [the Fourier transform is an automorphism](#planch) of
-$\mathcal{S}'(\mathbb{R}^d\to\mathbb{C}^m)$, by using the [previously derived formula](#formula)
+$\mathcal{S}'(\mathbb{R}^d\to\mathbb{C}^m)$, by using the previously derived formula (\ref{formula})
 we deduce that
 
 
