@@ -97,8 +97,8 @@ functions valued in a Banach space $E$. Though for now, we will only
 need the case $E=\mathbb{R}$. On first reading, this can be assumed for
 commodity.
 
-
-**Proposition 1 (Continuity of the integral)**. Let $(X,\mu )$ be a
+ <a name="cont">
+**Proposition 1 (Continuity of the integral)**</a>. Let $(X,\mu )$ be a
 measure space, $T$ a first countable metric space, $(E,\norm{})$ a
 Banach space and
 
@@ -279,7 +279,7 @@ inequality as
 
 
 and similarly for the inverse. The second point follows by
-[differentiation under the integral](# diff). The third point can be proved
+[differentiation under the integral](#diff). The third point can be proved
 by using integration by parts and the observation that every absolutely
 continuous function must go to zero at infinity. ◻
 
@@ -312,7 +312,7 @@ $\mathcal{S}(\mathbb{R}^d\to\mathbb{C}^m)$ is:
 
 
 
-By applying [Proposition $1$](https://nowheredifferentiable.com/2023-01-29-PDE-1/#HsisL1periodic:~:text=.-,On%20first,-reading%2C%20this%20can) we deduce that, given
+By applying [Proposition $1$](#cont) we deduce that, given
 $f\in\mathcal{S}(\mathbb{R}^d\to\mathbb{C}^m)$
 
 
