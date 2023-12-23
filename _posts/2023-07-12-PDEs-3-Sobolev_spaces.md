@@ -1000,7 +1000,8 @@ And now generate the topology by local seminorms analogously to
 $L^p\U {\mathrm{loc}}(U)$.
 
 
-**Theorem 2** (Completeness of Sobolev spaces). For all
+ <a name="completeness">
+**Theorem 2** </a> (Completeness of Sobolev spaces). For all
 $k \in \mathbb{N}$ and $p \in [1,\infty]$ both $W^{k,p}(U)$ and
 $W^{k,p}\U {\mathrm{loc}}(U)$ are Banach spaces. If $p \in (1,\infty)$
 these spaces are also reflexive.
@@ -2628,6 +2629,110 @@ concludes the proof.
 
 ◻
 
+As a particular case of the above we obtain the following simpler
+looking corollary
+
+ <a name="easy">
+**Corollary 0** </a>
+Let $q< p^{k\star }$, then it
+holds that following inclusion is compact
+
+<div>
+$$\begin{aligned}
+W^{k,p}(\Omega) \hookrightarrow L^q(\Omega).
+
+\end{aligned}$$
+</div>
+
+In particular, for all $p \in [1, \infty]$, the
+following inclusion is compact
+
+<div>
+$$\begin{aligned}
+W^{k,p}(\Omega) \hookrightarrow L^p(\Omega).
+
+\end{aligned}$$
+</div>
+
+
+
+
+
+Proof. For any of the cases in [Rellich-Kondrachov's theorem](rellich), the
+condition on $q$ holds. The first part of the result then follows as
+$C^k(\overline{\Omega}) \hookrightarrow L^q(\Omega)$ and the second part
+from the fact that $p< p^{k^\star }$. ◻
+
+
+Compact embeddings in spaces of higher order can be obtained through the
+following.
+
+ <a name="higher">
+**Proposition 0** </a>
+Let $k,l \in \N\U 0$ and $p,q \in [1,\infty]$ be such that
+
+
+<div>
+$$\begin{aligned}
+W^{k,p}(\Omega)\hookrightarrow L^q(\Omega)
+
+\end{aligned}$$
+</div>
+
+is compact. Then, the inclusion
+
+<div>
+$$\begin{aligned}
+W^{k+l,p}(\Omega)\hookrightarrow W^{l,q}(\Omega)
+
+\end{aligned}$$
+</div>
+
+is also compact.
+
+
+
+Proof. Let $u\U n \in W^{k+l,p}(U)$ be a bounded sequence. By assumption
+$W^{k,p}(\Omega)$ is compact in $L^q(\Omega)$, so we may extract a
+subsequence $u\U {n\U k}$ such that, for $\abs{\alpha} \leq l$,
+
+
+<div>
+$$\begin{aligned}
+\lim\U {k \to \infty}D^\alpha u\U {n\U k} = u^{(\alpha)} \in L^q(\Omega) .
+
+\end{aligned}$$
+</div>
+
+Using the same technique as in Theorem [2](completeness)  shows that $u^{(\alpha)}= D^{\alpha}u$. This
+shows that $u\U {n\U k} \to u$ in $W^{l,q}(\Omega)$ and, by the equivalence
+of compactness and sequential compactness, concludes the proof. ◻
+
+
+This result can be combined directly with [Rellich-Kondrachov](rellich)  or any
+other embedding. For example, when combined with [Corollary 0](simple embedding)  we get the following.
+
+ <a name="higher 2">
+**Corollary 0.1** </a>
+Let $q< p^{k\star }$, then it holds that following inclusion is compact
+
+
+<div>
+$$\begin{aligned}
+W^{k+l,p}(\Omega) \hookrightarrow W^{l,q}(\Omega).
+
+\end{aligned}$$
+</div>
+
+In particular, for all $p \in [1, \infty]$, the
+following inclusion is compact
+
+<div>
+$$\begin{aligned}
+W^{k+l,p}(\Omega) \hookrightarrow W^{l,p}(\Omega).
+
+\end{aligned}$$
+</div>
 
 The main utility of all these compact embeddings is that given a
 sequence $u\U n$ whose derivatives are bounded in certain $L^p$ norms we
