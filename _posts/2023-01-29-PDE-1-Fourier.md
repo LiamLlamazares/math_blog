@@ -494,10 +494,10 @@ before, an induced map:
 
 
 <div>
- $$f\mapsto \hat{f}.$$
+ $$f\mapsto \hat{f}$$
 </div>
 
-  Where $s(\mathbb{Z}^d\to\mathbb{C}^m)$ are the
+  where $s(\mathbb{Z}^d\to\mathbb{C}^m)$ are the
 sequences from $\mathbb{Z}^d$ to $\mathbb{C}^m$ that are of rapid
 decrease (this space now plays the role of the Schwartz space
 $\mathcal{S}(\mathbb{R}^d\to\mathbb{C}^m)$). Similarly to the
@@ -858,7 +858,7 @@ $\alpha\in \mathbb{N}^d$
 </div>
 
 
-As we have observed [before](https://nowheredifferentiable.com/2023-01-29-PDE-1/#derivativedistr:~:text=are-,multiplication,-by%20functions%20of) multiplication by functions of
+As we have observed before, multiplication by functions of
 polynomial growth is a well-defined operation on
 $\mathcal{S}(\mathbb{R}^d\to\mathbb{C}^m)$ so the above expressions
 are also well-defined. A quick verification also shows that since
@@ -874,7 +874,7 @@ Plancherel's theorem holds for all Schwartz functions,
 
 Finally, in addition to "changing the image" of our distributions, we
 may also "change the domain" by considering, for example, periodic
-tempered distributions. Where now, as we saw in the section on the
+tempered distributions, where now, as we saw in the section on the
 Fourier transform, $C^\infty(\mathbb{T}^d\to\mathbb{C}^m)$ takes the
 place of the Schwartz space and where we place on
 $C^\infty(\mathbb{T}^d\to\mathbb{C}^m)$ the topology defined by the
@@ -969,7 +969,7 @@ solutions in the case where
 $P: C^\infty(\mathbb{T}^d\to\mathbb{C}^m)\to C^\infty(\mathbb{T}^d\to\mathbb{C}^n)$.
 
 
-**Example 1.** Set $P=\Delta$, [as we have seen previously](https://nowheredifferentiable.com/2023-01-29-PDE-1/#derivativedistr:~:text=In%20both-,cases,-we%20have%20that)
+**Example 1.** Set $P=\Delta$, as we have seen previously
 $\Delta$ extends to $S:=\mathcal{S}'(\mathbb{R}^d\to\mathbb{C}^m)$
 with
 
@@ -996,17 +996,18 @@ Sobolev spaces form a particular case of tempered distributions that we
 interpret as being smooth and integrable up to sufficient orders.
 
 
-**Definition 7.** Given $k\in\mathbb{N}^+$ we define the Sobolev
+ <a name="def 7">
+ **Definition 7.**</a> Given $k\in\mathbb{N}^+$ we define the Sobolev
 space $H^k(\mathbb{R}^d\to\mathbb{C}^m)$ as:
 
 <div>
  $$\begin{gathered}
-        H^k(\mathbb{R}^d\to\mathbb{C}^m):=\\ \lbrace f\in L^2(\mathbb{R}^d\to\mathbb{C}^m): D^\alpha f\in L^2(\mathbb{R}^d\to\mathbb{C}^m)\hookrightarrow\mathcal{S}'(\mathbb{R}^d\to\mathbb{C}^m)\quad\forall\hspace{2pt}\abs{\alpha}\leq k\rbrace.
+        H^k(\mathbb{R}^d\to\mathbb{C}^m):=\\ \lbrace f\in L^2(\mathbb{R}^d\to\mathbb{C}^m): D^\alpha f\in L^2(\mathbb{R}^d\to\mathbb{C}^m)\hookrightarrow\mathcal{S}'(\mathbb{R}^d\to\mathbb{C}^m)\quad\forall\hspace{2pt}\abs{\alpha}\leq k\rbrace,
     \end{gathered}$$
 </div>
 
-  Where, we consider
-$L^2(\mathbb{R}^d\to\mathbb{C}^m)$ as a [subspace](https://nowheredifferentiable.com/2023-01-29-PDE-1/#:~:text=One%20may-,verify,-that%20we%20have) of
+  where we consider
+$L^2(\mathbb{R}^d\to\mathbb{C}^m)$ as a subspace of
 $\mathcal{S}'(\mathbb{R}^d\to\mathbb{C}^m)$.
 
 
@@ -1024,8 +1025,8 @@ Note that it is not enough to require $\abs{\alpha}=k$ as, for example,
 the tempered distribution
 $1 \in \mathcal{S}'(\mathbb{R}^d\to\mathbb{C})$ has a derivative equal
 to zero however, it is not itself in $L^2(\mathbb{R}^d\to\mathbb{C})$. Now,
- as [the Fourier transform is an automorphism](https://nowheredifferentiable.com/2023-01-29-PDE-1/#derivativedistr:~:text=also%20shows%20that%2C-,since,-Plancherel%E2%80%99s%20theorem%20holds) of
-$\mathcal{S}'(\mathbb{R}^d\to\mathbb{C}^m)$, by using the [previously derived formula](https://nowheredifferentiable.com/2023-01-29-PDE-1/#derivativedistr:~:text=In%20both-,cases,-we%20have%20that)
+ as [the Fourier transform is an automorphism](#planch) of
+$\mathcal{S}'(\mathbb{R}^d\to\mathbb{C}^m)$, by using the [previously derived formula](#formula)
 we deduce that
 
 
@@ -1070,7 +1071,7 @@ and give it the norm
 </div>
 
 
-then our new definition is equivalent to the [previous one](https://nowheredifferentiable.com/2023-01-29-PDE-1/#derivativedistr:~:text=integrable%20up%20to-,sufficient,-orders%20(linkme3).) when
+then our new definition is equivalent to the [previous one](#def 7) when
 $s$ is a positive integer. We have thus found how to generalize the
 concept of Sobolev space to all real orders and obtained a useful way of
 characterizing them and giving a neat expression for their norm.
