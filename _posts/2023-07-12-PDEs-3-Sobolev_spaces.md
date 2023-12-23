@@ -2576,7 +2576,7 @@ $$\begin{aligned}
 
 
 Applying
-<a href="https://en.wikipedia.org/wiki/Riesz%E2%80%93Thorin_theorem#:~:text=the%20sumset%20formulation.-,Riesz%E2%80%93Thorin,-interpolation%20theorem%C2%A0%E2%80%94%C2%A0">interpolation<a/>, 
+<a href="https://en.wikipedia.org/wiki/Riesz%E2%80%93Thorin_theorem#:~:text=the%20sumset%20formulation.-,Riesz%E2%80%93Thorin,-interpolation%20theorem%C2%A0%E2%80%94%C2%A0">interpolation</a>, 
 we obtain that
 
 <div>
