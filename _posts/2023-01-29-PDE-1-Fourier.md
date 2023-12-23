@@ -45,7 +45,7 @@ After this, we'll discuss the generalization of what it means to solve a
 PDE. To do so, we will need to introduce the space of (tempered)
 distributions $\mathcal{S}'$ and Sobolev spaces $H^s$. These two spaces
 will be crucial in allowing us to extend the concept of solution to
-[PDE](https://nowheredifferentiable.com/2023-01-29-PDE-1/#derivativedistr:~:text=which%20this%20achieved-,Definition%206,-.%20Consider%20a%20mapping) to these spaces and use their completeness to prove the
+PDE to these spaces and use their completeness to prove the
 existence, uniqueness, and regularity of solutions.\
 \
 Much of the material here contained can be found in my [undergraduate
@@ -130,7 +130,7 @@ In consequence, if $f(x)$ is continuous, so is $\int\U X f(t,x) \mu(dx)$.
 **Proof.** The proof is an application of the dominated convergence
 theorem to the sequence of functions $f\U n:=f(t\U n)$ where
 $t_n$ is some sequence converging to $t$ and the fact
-that, in first countable spaces, [sequential continuity](https://en.wiktionary.org/wiki/sequential_continuity#:~:text=sequential%20continuity%20(uncountable),that%20it%20preserves%20sequential%20convergence.) is
+that, in first countable spaces, sequential continuity is
 equivalent to continuity. ◻
 
 
@@ -278,7 +278,7 @@ inequality as
 
 
 and similarly for the inverse. The second point follows by
-[differentiation under the integral](https://nowheredifferentiable.com/2023-01-29-PDE-1/#derivativedistr:~:text=and%20the-,fact%20that,-%2C%20in%20first%20countable). The third point can be proved
+[differentiation under the integral](https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=equivalent%20to%20continuity.%C2%A0%E2%97%BB-,Proposition%202,-(Differentiation%20under%20the). The third point can be proved
 by using integration by parts and the observation that every absolutely
 continuous function must go to zero at infinity. ◻
 
