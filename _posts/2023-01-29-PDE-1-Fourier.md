@@ -235,7 +235,8 @@ identical results modulo constants. Let us introduce the notation
 (on $L^1$) and its inverse. The following proposition holds.
 
 
-**Proposition 3 ( Properties of $\mathcal{F}\U 1$)**. Given
+ <a name="prop 3">
+ **Proposition 3 ( Properties of $\mathcal{F}\U 1$)**</a>. Given
 $f\in L^1(\mathbb{R}^d\to\mathbb{C}^m)$
 
 1.  The Fourier transform $\mathcal{F}\U 1$ is a continuous linear
@@ -345,7 +346,8 @@ notation
 for the inner product on $L^2(\mathbb{R}^d\to\mathbb{C}^m)$.
 
 
-**Lemma 1** (Plancherel for Schwartz functions). Given
+ <a name="planch">
+ **Lemma 1** (Plancherel for Schwartz functions)</a>. Given
 $f,g\in \mathcal{S}(\mathbb{R}^d\to\mathbb{C}^m)$
 
 (i) $\left\langle\mathcal{F}\U \mathcal{S}f,g\right\rangle\U {L^2(\mathbb{R}^d\to\mathbb{C}^m)}=\left\langle f,\mathcal{F}\U \mathcal{S}^{-1}g\right\rangle\U {L^2(\mathbb{R}^d\to\mathbb{C}^m)};\quad\left\langle\mathcal{F}\U \mathcal{S}^{-1}f,g\right\rangle\U {L^2(\mathbb{R}^d\to\mathbb{C}^m)}=\left\langle f,\mathcal{F}\U \mathcal{S}g\right\rangle\U {L^2(\mathbb{R}^d\to\mathbb{C}^m)}$
@@ -377,7 +379,8 @@ are linear unitary operators, which are the inverse of one to the other.
 We obtain the following result.
 
 
-**Proposition 4 (Plancherel's theorem)**. $\mathcal{F}\U \mathcal{S}$
+ <a name="plancherel theorem">
+ **Proposition 4 (Plancherel's theorem)**</a>. $\mathcal{F}\U \mathcal{S}$
 and $\mathcal{F}\U \mathcal{S}^{-1}$ may be extended to unitary operators:
 
 
@@ -393,7 +396,7 @@ With $\mathcal{F}\mathcal{F}^{-1}=\mathcal{F}^{-1}\mathcal{F}=Id$.
 **Proof.** This is an immediate result of the density of
 $\mathcal{S}(\mathbb{R}^d\to\mathbb{C}^m)$ in the larger
 $L^2(\mathbb{R}^d\to\mathbb{C}^m)$ and the completeness of
-$L^2(\mathbb{R}^d\to\mathbb{C}^m)$ together with $(ii)$ and [Plancherel](https://nowheredifferentiable.com/2023-01-29-PDE-1/#derivativedistr:~:text=to%20the%20other.-,We%20obtain,-the%20following%20result). As, by a simple limiting argument, it is easy to see that
+$L^2(\mathbb{R}^d\to\mathbb{C}^m)$ together with $(ii)$ and [Plancherel for Schwartz functions](#planch). As, by a simple limiting argument, it is easy to see that
 continuous extensions of continuous linear operators preserve the norm
 and the inverses of the operators in question. ◻
 
@@ -414,9 +417,9 @@ This indeed holds, as can be seen by taking a sequence of functions
 $\lbrace f\U n\rbrace\U {n=1}^\infty\in\mathcal{S}(\mathbb{R}^d\to\mathbb{C}^m)$
 converging to $f$ in $L^1(\mathbb{R}^d\to\mathbb{C}^m)$ and in
 $L^2(\mathbb{R}^d\to\mathbb{C}^m)$. As then $\mathcal{F}\U 1 f\U n$
-converges uniformly to $\mathcal{F}\U 1f$ by point $1$ of [Proposition 3](https://nowheredifferentiable.com/2023-01-29-PDE-1/#derivativedistr:~:text=inverse.%20The%20following-,proposition,-holds.)
+converges uniformly to $\mathcal{F}\U 1f$ by point $1$ of [Proposition 3](#prop 3)
 and in $L^2(\mathbb{R}^d\to\mathbb{C}^m)$ to $\mathcal{F}f$ by
-[Plancherel](https://nowheredifferentiable.com/2023-01-29-PDE-1/#derivativedistr:~:text=obtain%20the%20following-,result,-.), from where we deduce that as desired
+[Plancherel](#plancherel theorem), from where we deduce that as desired
 $\mathcal{F}\U 1f=\mathcal{F}f$.
 
 # The Fourier transform of periodic functions
