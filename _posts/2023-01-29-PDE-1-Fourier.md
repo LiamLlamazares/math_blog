@@ -307,7 +307,9 @@ $\mathcal{S}(\mathbb{R}^d\to\mathbb{C}^m)$ is:
 
 
 <div>
- $$\mathcal{S}(\mathbb{R}^d\to\mathbb{C}^m):=\lbrace f\in\mathbb{C}^\infty(\mathbb{R}^d\to\mathbb{C}^m):x^\alpha D^\beta f\in L^\infty(\mathbb{R}^d\to\mathbb{C}^m)\quad\forall\hspace{2pt}\alpha,\beta\in \mathbb{N}^d\rbrace.$$
+ $$\begin{align}
+    \label{formula}
+    \mathcal{S}(\mathbb{R}^d\to\mathbb{C}^m):=\lbrace f\in\mathbb{C}^\infty(\mathbb{R}^d\to\mathbb{C}^m):x^\alpha D^\beta f\in L^\infty(\mathbb{R}^d\to\mathbb{C}^m)\quad\forall\hspace{2pt}\alpha,\beta\in \mathbb{N}^d\rbrace.\end{align}$$
 </div>
 
 
@@ -844,8 +846,8 @@ with $T\U f$ defined by
 </div>
 
 
-In both cases, we have that, by duality, due to the [formulas derived
-previously](https://nowheredifferentiable.com/2023-01-29-PDE-1/#derivativedistr:~:text=.-,By,-applying%20Proposition), given a tempered distribution $w$ and
+In both cases, we have that, by duality, due to the formulas derived in 
+(\ref{formula}), given a tempered distribution $w$ and
 $\alpha\in \mathbb{N}^d$
 
 <div>
