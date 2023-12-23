@@ -135,7 +135,8 @@ equivalent to continuity. ◻
 
 
 
-**Proposition 2 (Differentiation under the integral sign)**. Let $X$ be
+ <a name="diff">
+ **Proposition 2 (Differentiation under the integral sign)**</a>. Let $X$ be
 a measure space, $U$ be a convex open interval of $\mathbb{R}$, and $E$
 a Banach space. Consider
 
@@ -278,7 +279,7 @@ inequality as
 
 
 and similarly for the inverse. The second point follows by
-[differentiation under the integral](https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=equivalent%20to%20continuity.%C2%A0%E2%97%BB-,Proposition%202,-(Differentiation%20under%20the). The third point can be proved
+[differentiation under the integral](# diff). The third point can be proved
 by using integration by parts and the observation that every absolutely
 continuous function must go to zero at infinity. ◻
 
