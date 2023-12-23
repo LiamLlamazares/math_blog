@@ -459,8 +459,8 @@ where $l^{\infty}(\mathbb{Z}^d\to\mathbb{C}^m)$ is the set of bounded
 sequences from $\mathbb{Z}^d$ to $\mathbb{C}^m$. As before, we have the
 following result:
 
-
-**Proposition 5**. Given $f\in L^1(\mathbb{T}^d\to\mathbb{C}^m)$ if
+ <a name="decay">
+**Proposition 5**</a>. Given $f\in L^1(\mathbb{T}^d\to\mathbb{C}^m)$ if
 $f$ is absolutely continuous in $x\U j$ for almost every
 $x\U 1,...x\U {j-1},x\U {j+1},...,x\U d$ then
 
@@ -910,8 +910,8 @@ analogous to the ones seen in the section on the Fourier transform for
 "periodic\" distributions as well. Namely:
 
 <div>
- $$\label{derivativedistr}
-    w=\sum\U {k\in\mathbb{Z}^d}\hat{w}(k)e^{2\pi i k x};\quad\widehat{D^\alpha w}(k)=(2\pi ik)^\alpha\hat{w}(k).$$
+ $$\begin{align}\label{periodic}
+    w=\sum\U {k\in\mathbb{Z}^d}\hat{w}(k)e^{2\pi i k x};\quad\widehat{D^\alpha w}(k)=(2\pi ik)^\alpha\hat{w}(k).\end{align}$$
 </div>
 
 
@@ -1091,8 +1091,8 @@ themselves square integrable. Explicitly, we define:
 </div>
 
 
-Using the same method as before, this time by [**Proposition 4**](https://nowheredifferentiable.com/2023-01-29-PDE-1/#derivativedistr:~:text=the%20following%20result.-,Proposition%204,-(Plancherel%E2%80%99s%20theorem).) and
- the [correspondence between regularity and decay](https://nowheredifferentiable.com/2023-01-29-PDE-1/#derivativedistr:~:text=we%20have%20the-,following%20result,-%3A) for the
+Using the same method as before, this time by [Plancherel](#plancherel theorem) and
+ the [correspondence between regularity and decay](#decay) for the
 Fourier transform of periodic functions, we deduce that
 
 
@@ -1149,7 +1149,8 @@ to a Sobolev space of high enough order together with the following two
 results.
 
 
-**Lemma 2 (Continuity of Holder functions).** Given
+ <a name="lemma 2">
+ **Lemma 2 (Continuity of Holder functions).**</a> Given
 $f\in H^{s}(\mathbb{T}^d\to\mathbb{C}^m)$ with $s>d/2$. Then the
 Fourier series of $f$ is absolutely convergent and
 $f\in C(\mathbb{T}^d\to\mathbb{C}^m)$ with the bound
@@ -1222,7 +1223,7 @@ $f\in C^r(\mathbb{T}^d\to\mathbb{C}^m)$.
 
 
 
-**Proof.** Using our knowledge of [how the derivative transports functions through sobolev space](https://nowheredifferentiable.com/2023-01-29-PDE-1/#derivativedistr:~:text=the%20previous%20discussion%2C-,we%20have%20that,-both%20in%20the), we may apply the
+**Proof.** Using our knowledge of how the derivative transports functions through sobolev space, we may apply the
 previous proposition to deduce that $D^\alpha f$ is continuous for all
 $\abs{\alpha}\leq r$. Therefore, it suffices to show that for
 $\abs{\alpha}\leq r$ the distributional derivatives $D^\alpha f$ are
@@ -1235,7 +1236,7 @@ the hypothesis placed on $f$, we have that the series
 </div>
 
 
-is absolutely convergent (by [Lemma 2](https://nowheredifferentiable.com/2023-01-29-PDE-1/#derivativedistr:~:text=Lemma%202%20(-,Continuity,-of%20Holder%20functions)), and hence, we may commute the
+is absolutely convergent (by [Lemma 2](#lemma 2), and hence, we may commute the
 derivatives of $f$ with the sum in its Fourier series to deduce the
 point-wise equality
 
@@ -1245,7 +1246,7 @@ point-wise equality
 </div>
 
 
-Now, note that by using our calculations for the [Fourier transform of the derivative of periodic distributions](https://nowheredifferentiable.com/2023-01-29-PDE-1/#derivativedistr:~:text=Fourier%20transform%20for%20%E2%80%9Cperiodic%22%20distributions)
+Now, note that by using our calculations for the Fourier transform of the derivative of periodic distributions in (\ref{periodic})
  we also have that the equality
 
 
