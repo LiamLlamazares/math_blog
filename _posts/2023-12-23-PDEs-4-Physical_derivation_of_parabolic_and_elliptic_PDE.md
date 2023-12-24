@@ -447,4 +447,4 @@ However, the mathematical theory of nonlinear PDE is much more
 complicated (think Navier Stokes). The linear case, which we begin to
 develop in the next post, will keep us busy for a while.
 
-A (possibly not updated) pdf of version of this page is provided [here](/assets/latex_docs/PDEs/Physical derivation of parabolic and elliptic PDE.pdf).
+A (possibly not updated) pdf of version of this page is provided [here](/assets/latex_docs/PDEs/Physical_PDE.pdf).
