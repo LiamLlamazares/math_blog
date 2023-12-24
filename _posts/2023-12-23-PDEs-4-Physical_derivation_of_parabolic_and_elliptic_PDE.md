@@ -190,7 +190,7 @@ $$\begin{aligned}
 Then
 
 <div>
-$$\begin{aligalign  \label{diffusion}
+$$\begin{align}  \label{diffusion}
 \mathbf{F}\U {\text{diffusion}} = -\mathbf{A}\nabla u=-  \lambda \U j(\nabla u\cdot \mathbf{e}\U j )\mathbf{e}\U j .
 
 \end{align}$$
@@ -364,7 +364,7 @@ b)  Robin boundary condition: Here, it is imposed that
 
 
 <div>
-$$\begin{aligalign  \label{Robin}
+$$\begin{align}  \label{Robin}
 -\mathbf{F}\cdot  \mathbf{n} =g \text{  on } \partial \Omega,
 
 \end{align}$$
