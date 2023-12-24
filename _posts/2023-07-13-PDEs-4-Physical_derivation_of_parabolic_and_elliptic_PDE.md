@@ -21,12 +21,12 @@ diffusion, advection, reaction and sources.
 Following the convention in fluid mechanics, vectors in $\mathbb{R}^d$
 are written in bold to differentiate them from scalars in $\mathbb{R}$.
 Given $u \in C^1(\mathbb{R}^d)$ and
-$\bm{v} \in C^1(\mathbb{R}^d \to \mathbb{R}^d)$ we write the gradient
+$\mathbf{v} \in C^1(\mathbb{R}^d \to \mathbb{R}^d)$ we write the gradient
 and divergence as
 
 <div>
 $$\begin{aligned}
-\nabla u :=(\partial \U 1 u,\ldots, \partial \U d u), \quad \nabla \cdot \bm{v}:= \sum\U {i=1}^{d} \partial \U i v\U i.
+\nabla u :=(\partial \U 1 u,\ldots, \partial \U d u), \quad \nabla \cdot \mathbf{v}:= \sum\U {i=1}^{d} \partial \U i v\U i.
 \end{aligned}$$
 </div>
 
@@ -49,7 +49,7 @@ We begin by giving a physical derivation of the parabolic equation
 <div>
 $$\begin{align}
 \label{PDE}
-\partial\U t u-\nabla \cdot (\bm{A}\nabla u) +\bm{b} \cdot \nabla u + cu = f,
+\partial\U t u-\nabla \cdot (\mathbf{A}\nabla u) +\mathbf{b} \cdot \nabla u + cu = f,
 \end{align}$$
 </div>
 
@@ -57,7 +57,7 @@ and its stationary version
 
 <div>
 $$\begin{aligned}
--\nabla \cdot (\bm{A}\nabla u) +\bm{b} \cdot \nabla u + cu =f,
+-\nabla \cdot (\mathbf{A}\nabla u) +\mathbf{b} \cdot \nabla u + cu =f,
 \end{aligned}$$
 </div>
 
@@ -73,13 +73,13 @@ reasoning is used. All functions are supposed smooth and integrable as
 needed. This disclaimer out of the way, let's consider a spatial domain
 $\Omega \subset \mathbb{R}^d$ filled with fluid in which some solute is
 dissolved. Our goal is to describe the concentration (density) of the
-solute $u(t,\bm{x})$ as the system evolves in time and space. We know
+solute $u(t,\mathbf{x})$ as the system evolves in time and space. We know
 that the amount of fluid within any subregion $V \subset  \Omega$ is
 
 
 <div>
 $$\begin{aligned}
-m(t)=\int\U {V} u(t,\bm{x}) \,\mathrm{d}\bm{x}  .
+m(t)=\int\U {V} u(t,\mathbf{x}) \,\mathrm{d}\mathbf{x}  .
 \end{aligned}$$
 </div>
 
@@ -96,35 +96,35 @@ m(t+h)=m(t)+ \text{mass that entered at time } t .
 </div>
 
 The solute can only enter $V$ if there is some external
-source, such as a pipe adding a mass $f(t,\bm{x})$ of solute at point
-$\bm{x}$, or by flowing its boundary $\partial V$. We now consider this
-second case. Let $\bm{F}(t,\bm{x} )$ describe the magnitude and velocity
-of the flow (flux) of the solute and consider a point $\bm{x}$ on the
-boundary. If the flux $\bm{F}(t,\bm{x} )$ is orthogonal to the outward
-pointing unit normal $\bm{n}(\bm{x})$ at $\bm{x}$ (that is, tangent to
-$\partial  V$ at $\bm{x}$), no fluid enters $V$ through $\bm{x}$.
-Whereas if the flux is parallel to $\bm{n}(\bm{x})$, all of the flow at
-$\bm{x}$ enters $V$ if $\bm{F}(t,\bm{x})$ is pointed in the opposite or
-leaves if $\bm{F}(t,\bm{x})$ and $\bm{n}(\bm{x})$ have the same
+source, such as a pipe adding a mass $f(t,\mathbf{x})$ of solute at point
+$\mathbf{x}$, or by flowing its boundary $\partial V$. We now consider this
+second case. Let $\mathbf{F}(t,\mathbf{x} )$ describe the magnitude and velocity
+of the flow (flux) of the solute and consider a point $\mathbf{x}$ on the
+boundary. If the flux $\mathbf{F}(t,\mathbf{x} )$ is orthogonal to the outward
+pointing unit normal $\mathbf{n}(\mathbf{x})$ at $\mathbf{x}$ (that is, tangent to
+$\partial  V$ at $\mathbf{x}$), no fluid enters $V$ through $\mathbf{x}$.
+Whereas if the flux is parallel to $\mathbf{n}(\mathbf{x})$, all of the flow at
+$\mathbf{x}$ enters $V$ if $\mathbf{F}(t,\mathbf{x})$ is pointed in the opposite or
+leaves if $\mathbf{F}(t,\mathbf{x})$ and $\mathbf{n}(\mathbf{x})$ have the same
 direction. Otherwise, we get something in between, depending on the
-angle that $\bm{F}(t,\bm{x})$ and $\bm{n}(\bm{x})$ form. This situation
+angle that $\mathbf{F}(t,\mathbf{x})$ and $\mathbf{n}(\mathbf{x})$ form. This situation
 can be described as follows
 
 <div>
 $$\begin{aligned}
-m(t+h)=m(t) +h \left( \int\U {V} f(t,\bm{x} ) \,\mathrm{d}x- \int\U {\partial V} \bm{F}(t, \bm{x})\cdot \bm{n}(\bm{x} )    \,\mathrm{d}\bm{x}  \right),
+m(t+h)=m(t) +h \left( \int\U {V} f(t,\mathbf{x} ) \,\mathrm{d}x- \int\U {\partial V} \mathbf{F}(t, \mathbf{x})\cdot \mathbf{n}(\mathbf{x} )    \,\mathrm{d}\mathbf{x}  \right),
 \end{aligned}$$
 </div>
 
 where the minus sign means that if the solute is flowing
-in the same direction as $\bm{n}$, mass decreases, and if it flows in
-the opposite direction, mass increases, as $\bm{n}(\bm{x})$ points
+in the same direction as $\mathbf{n}$, mass decreases, and if it flows in
+the opposite direction, mass increases, as $\mathbf{n}(\mathbf{x})$ points
 outwards. Rearranging terms and taking limits when $h$ goes to zero
 gives
 
 <div>
 $$\begin{aligned}
-\partial \U t m(t)=\int\U {V}f(t,\bm{x} ) \,\mathrm{d}\bm{x}   -\int\U {\partial V}  \bm{F}(t, \bm{x})\cdot \bm{n}(\bm{x} )    \,\mathrm{d}\bm{x}  .
+\partial \U t m(t)=\int\U {V}f(t,\mathbf{x} ) \,\mathrm{d}\mathbf{x}   -\int\U {\partial V}  \mathbf{F}(t, \mathbf{x})\cdot \mathbf{n}(\mathbf{x} )    \,\mathrm{d}\mathbf{x}  .
 \end{aligned}$$
 </div>
 
@@ -138,7 +138,7 @@ gives
 <div>
 $$\begin{align}
 \label{balance integral}
-\int\U {V}\partial \U t u(t,\bm{x} )  \,\mathrm{d}\bm{x} = \int\U {V}f(t,\bm{x} ) \,\mathrm{d}x -\int\U {V}  \nabla \cdot  \bm{F}(t, \bm{x})\   \,\mathrm{d}\bm{x}
+\int\U {V}\partial \U t u(t,\mathbf{x} )  \,\mathrm{d}\mathbf{x} = \int\U {V}f(t,\mathbf{x} ) \,\mathrm{d}x -\int\U {V}  \nabla \cdot  \mathbf{F}(t, \mathbf{x})\   \,\mathrm{d}\mathbf{x}
 \end{align}$$
 </div>
 
@@ -152,12 +152,12 @@ integrands must be equal (almost) everywhere, that is
 <div>
 $$\begin{align}
 \label{balance}
-\partial \U t u(t,\bm{x} )   = f(t,\bm{x})-\nabla \cdot  \bm{F}(t, \bm{x})
+\partial \U t u(t,\mathbf{x} )   = f(t,\mathbf{x})-\nabla \cdot  \mathbf{F}(t, \mathbf{x})
 \end{align}$$
 </div>
 
 We would now like to express the flux in terms of the
-properties of the fluid and domain. We recall that $\bm{F}$ determines
+properties of the fluid and domain. We recall that $\mathbf{F}$ determines
 the magnitude and direction of the flow of the solute. We distinguish
 two possible reasons for the movement of the solute.
 
@@ -168,21 +168,21 @@ gradient of the density, that is
 
 <div>
 $$\begin{aligned}
-\bm{F}\U {\text{diffusion}} = -\bm{A}\nabla u  .
+\mathbf{F}\U {\text{diffusion}} = -\mathbf{A}\nabla u  .
 
 \end{aligned}$$
 </div>
 
-Here, $\bm{A}(\bm{x} ) \in \mathbb{R}^{d\times d}\U +$
+Here, $\mathbf{A}(\mathbf{x} ) \in \mathbb{R}^{d\times d}\U +$
 is called the diffusivity, diffusion coefficient or viscosity
 depending on the context and is a positive definite matrix. The
 diffusivity encodes the preference of the solute to flow in one
 direction or another depending on the properties of the domain
-itself. If $\bm{A}$ has orthonormal eigensystem
+itself. If $\mathbf{A}$ has orthonormal eigensystem
 
 <div>
 $$\begin{aligned}
-\{(\bm{e\U 1},\lambda \U 1 ),(\bm{e}\U 2, \lambda \U 2 ),\ldots, (\bm{e}\U 3 ,\lambda \U d)\} .
+\{(\mathbf{e\U 1},\lambda \U 1 ),(\mathbf{e}\U 2, \lambda \U 2 ),\ldots, (\mathbf{e}\U 3 ,\lambda \U d)\} .
 
 \end{aligned}$$
 </div>
@@ -191,28 +191,28 @@ Then
 
 <div>
 $$\begin{aligalign  \label{diffusion}
-\bm{F}\U {\text{diffusion}} = -\bm{A}\nabla u=-  \lambda \U j(\nabla u\cdot \bm{e}\U j )\bm{e}\U j .
+\mathbf{F}\U {\text{diffusion}} = -\mathbf{A}\nabla u=-  \lambda \U j(\nabla u\cdot \mathbf{e}\U j )\mathbf{e}\U j .
 
 \end{align}$$
 </div>
 
 That is, the solute diffuses in the direction of
-$\bm{e}\U j$ with speed proportional to $\lambda\U j$. For example, if
-$\bm{A}$ is a constant multiple of the identity, there is no
+$\mathbf{e}\U j$ with speed proportional to $\lambda\U j$. For example, if
+$\mathbf{A}$ is a constant multiple of the identity, there is no
 preferred direction of flow. In this case, one says that the flow is
 homogeneous. The minus sign in
-(\ref{diffusion})  together with the imposition that $\bm{A}$ is
+(\ref{diffusion})  together with the imposition that $\mathbf{A}$ is
 positive definite means that diffusion occurs from areas of lower to
 higher concentration.
 
 If diffusion is the only cause of movement in the fluid,
-$\bm{F}= - \bm{A}\nabla u$ and substituting into the balance
+$\mathbf{F}= - \mathbf{A}\nabla u$ and substituting into the balance
 equation (\ref{balance})  gives the (non-homogeneous) heat equation
 
 
 <div>
 $$\begin{aligned}
-\partial\U tu= \nabla \cdot (\bm{A}\nabla u)+f .
+\partial\U tu= \nabla \cdot (\mathbf{A}\nabla u)+f .
 
 \end{aligned}$$
 </div>
@@ -221,12 +221,12 @@ $$\begin{aligned}
 
 b)  Advection: Another possible cause for the flow of the solute
 within $\Omega$ is that the fluid itself is moving with some
-velocity $\bm{v}$, transporting along the particles of the solute.
+velocity $\mathbf{v}$, transporting along the particles of the solute.
 The flux due to advection is
 
 <div>
 $$\begin{aligned}
-\bm{F}\U {\text{advection} }= u \bm{v} .
+\mathbf{F}\U {\text{advection} }= u \mathbf{v} .
 
 \end{aligned}$$
 </div>
@@ -238,7 +238,7 @@ component:
 
 <div>
 $$\begin{aligned}
-\bm{F}=\bm{F}\U {\text{diffusion} }+ \bm{F}\U {\text{advection} } =- \bm{A}\nabla u+ u \bm{v}   .
+\mathbf{F}=\mathbf{F}\U {\text{diffusion} }+ \mathbf{F}\U {\text{advection} } =- \mathbf{A}\nabla u+ u \mathbf{v}   .
 \end{aligned}$$
 </div>
 
@@ -249,7 +249,7 @@ gives
 <div>
 $$\begin{align}
 \label{balance2}
-\partial\U t u=\nabla \cdot (\bm{A}\nabla u) -\nabla \cdot  (u \bm{v})+ f.
+\partial\U t u=\nabla \cdot (\mathbf{A}\nabla u) -\nabla \cdot  (u \mathbf{v})+ f.
 \end{align}$$
 </div>
 
@@ -267,31 +267,31 @@ our balance equation (\ref{balance2})  gives
 
 <div>
 $$\begin{aligned}
-\underbrace{\partial\U t u}\U {\text{Rate of change} }= \underbrace{\nabla \cdot (\bm{A}\nabla u)}\U {\text{Diffusion}} - \underbrace{\nabla \cdot ( \bm{v}u)}\U {\text{Advection}} -\underbrace{ru}\U {\text{Reaction}}  +\underbrace{f}\U {\text{Source}},
+\underbrace{\partial\U t u}\U {\text{Rate of change} }= \underbrace{\nabla \cdot (\mathbf{A}\nabla u)}\U {\text{Diffusion}} - \underbrace{\nabla \cdot ( \mathbf{v}u)}\U {\text{Advection}} -\underbrace{ru}\U {\text{Reaction}}  +\underbrace{f}\U {\text{Source}},
 \end{aligned}$$
 </div>
 
-where all terms are functions of $t,\bm{x}$. Applying
+where all terms are functions of $t,\mathbf{x}$. Applying
 the chain rule we may decompose
 
 <div>
 $$\begin{aligned}
-\nabla \cdot ( \bm{v}u)= \bm{v}\cdot \nabla u+ (\nabla \cdot \bm{v})u .
+\nabla \cdot ( \mathbf{v}u)= \mathbf{v}\cdot \nabla u+ (\nabla \cdot \mathbf{v})u .
 \end{aligned}$$
 </div>
 
 The first summand represents the transport of the solute
 due to the movement of the fluid, and the second the transport due to
-the contraction of the fluid, if $\nabla \cdot \bm{v}<0$, or its
-expansion, if $\nabla \cdot \bm{v}=0$. If $\nabla \cdot \bm{v} =0$, the
+the contraction of the fluid, if $\nabla \cdot \mathbf{v}<0$, or its
+expansion, if $\nabla \cdot \mathbf{v}=0$. If $\nabla \cdot \mathbf{v} =0$, the
 fluid neither expands nor compresses and is called incompressible. In
 any case, writing (for notational consistency)
-$\bm{b} :=\bm{v}, c=r+\nabla \cdot \bm{v}$ gives
+$\mathbf{b} :=\mathbf{v}, c=r+\nabla \cdot \mathbf{v}$ gives
 
 <div>
 $$\begin{align}
 \label{parabolic}
-\partial\U t u-\nabla \cdot (\bm{A}\nabla u) +\bm{b} \cdot \nabla u + c u= f  .
+\partial\U t u-\nabla \cdot (\mathbf{A}\nabla u) +\mathbf{b} \cdot \nabla u + c u= f  .
 \end{align}$$
 </div>
 
@@ -304,7 +304,7 @@ $\partial \U t u=0$ and we obtain
 <div>
 $$\begin{align}
 \label{elliptic}
--\nabla \cdot (\bm{A}\nabla u) + \bm{b} \cdot \nabla u+cu = f,
+-\nabla \cdot (\mathbf{A}\nabla u) + \mathbf{b} \cdot \nabla u+cu = f,
 \end{align}$$
 </div>
 
@@ -321,7 +321,7 @@ In an application, the system we are studying will evolve within some
 smooth bounded domain $\Omega$. In order for a unique solution to be
 defined it is necessary to impose a boundary condition for what $u$ is
 allowed to do on $\Omega$ (as well as an initial condition
-$u(0,\bm{x})=u\U 0(\bm{x})$ in the parabolic case
+$u(0,\mathbf{x})=u\U 0(\mathbf{x})$ in the parabolic case
 (\ref{parabolic}) ).
 
 
@@ -365,13 +365,13 @@ b)  Robin boundary condition: Here, it is imposed that
 
 <div>
 $$\begin{aligalign  \label{Robin}
--\bm{F}\cdot  \bm{n} =g \text{  on } \partial \Omega,
+-\mathbf{F}\cdot  \mathbf{n} =g \text{  on } \partial \Omega,
 
 \end{align}$$
 </div>
 
-where $\bm{F}$ is the flux and in our case is
-$\bm{F}=-\bm{A} \nabla u+ \bm{v}u$. This condition imposes that a
+where $\mathbf{F}$ is the flux and in our case is
+$\mathbf{F}=-\mathbf{A} \nabla u+ \mathbf{v}u$. This condition imposes that a
 "mass" $g$ of substance (solute, heat, etc.) enters the domain at
 each point of the boundary (or leaves if the minus in
 (\ref{Robin})  is
@@ -384,23 +384,23 @@ becomes
 
 <div>
 $$\begin{aligned}
-(\bm{A} \nabla u) \cdot n=g \text{  on } \partial \Omega.
+(\mathbf{A} \nabla u) \cdot n=g \text{  on } \partial \Omega.
 
 \end{aligned}$$
 </div>
 
 The above is known as a Neumann boundary condition.
-If the material is homogeneous, that is, $\bm{A}=\bm{I}$, the
+If the material is homogeneous, that is, $\mathbf{A}=\mathbf{I}$, the
 special notation
 
 <div>
 $$\begin{aligned}
-\frac{\partial u}{\partial \bm{n}}:= \nabla u \cdot  \bm{n} =g \text{  on } \partial \Omega,
+\frac{\partial u}{\partial \mathbf{n}}:= \nabla u \cdot  \mathbf{n} =g \text{  on } \partial \Omega,
 
 \end{aligned}$$
 </div>
 
-is used. Here $\frac{\partial u}{\partial \bm{n}}$
+is used. Here $\frac{\partial u}{\partial \mathbf{n}}$
 is known as the normal derivative.
 
 d)  Mixed boundary condition: This corresponds a mix of the preceding.
@@ -410,7 +410,7 @@ imposed.
 
 <div>
 $$\begin{aligned}
-u=g\U 1 \text{  on }  \Gamma \U 1,  \text{ and }  -\bm{F} \cdot n=g\U 2 \text{  on }  \Gamma \U 2.
+u=g\U 1 \text{  on }  \Gamma \U 1,  \text{ and }  -\mathbf{F} \cdot n=g\U 2 \text{  on }  \Gamma \U 2.
 
 \end{aligned}$$
 </div>
@@ -418,7 +418,7 @@ u=g\U 1 \text{  on }  \Gamma \U 1,  \text{ and }  -\bm{F} \cdot n=g\U 2 \text{  
 
 
 e)  Periodic boundary conditions: Here the domain is an interval
-$\Omega=(\bm{a}, \bm{b})$ and we require that for all
+$\Omega=(\mathbf{a}, \mathbf{b})$ and we require that for all
 $k \in \\{1,\ldots,d\\}$
 
 <div>
@@ -429,10 +429,10 @@ u(x\U 1,\ldots,a\U k,\ldots, x\U d)=u({x}\U 1,\ldots,{b}\U k,\ldots, {x}\U d).
 </div>
 
 Equivalently, $u$ is a function of the torus
-$\mathbb{R}^d/ (\mathbb{Z}^d \cdot (\bm{b}-\bm{a}))$. These boundary
+$\mathbb{R}^d/ (\mathbb{Z}^d \cdot (\mathbf{b}-\mathbf{a}))$. These boundary
 conditions are typically used to approximate a system evolving on a
 very large domain by working only with a representative cell
-$[\bm{a},\bm{b}]$.
+$[\mathbf{a},\mathbf{b}]$.
 
 Finally, mathematically, it also makes sense to work with infinite
 domains such as the whole Euclidean space $\mathbb{R}^d$. In this case,
