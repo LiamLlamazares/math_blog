@@ -51,7 +51,7 @@
 \maketitle
 \section{ Three line summary}
 \begin{itemize}
-	\item Elliptic partial differential equations (PDE) are PDE with no time variable and whose leading order derivatives satisfify a positivity condition.
+	\item Elliptic partial differential equations (PDE) are PDE with no time variable and whose leading order derivatives satisfy a positivity condition.
 	\item Using Lax Milgram's theorem we can prove existence and uniqueness of weak (distributional) solutions if the transport term is zero.
 	\item If the transport term is non-zero solutions still exist but they are no longer unique and are determined by the kernel of the homogeneous problem.\end{itemize}
 \section{Why should I care?}
@@ -60,7 +60,7 @@ elliptic PDE. The analysis also helps contextualize and provide motivation for t
 \section{Notation}
 Given $\lambda \in \C$ we will write $\overline{\lambda }$ for the conjugate of $\lambda $. Given a subset $A$ of some topological space it is also common to write  $\overline{A}$ for the closure of $A$. Though this is a slight abuse of notation we will do the same as the meaning will always be clear from context.
 
-Given two topological vector spaces $X,Y$ we write  $\Ll(X,Y)$ for the space of countinuous linear operators from $X$ to  $Y$.
+Given two topological vector spaces $X,Y$ we write  $\Ll(X,Y)$ for the space of continuous linear operators from $X$ to  $Y$.
 
 We will use the Einstein convention that indices when they are repeated are summed over. For example we will write
 \begin{align*}
@@ -170,7 +170,7 @@ Furthermore $\Ll^{-1}: H^{-1}(U) \to H^1_0(U)$ is a continuous operator
 	\begin{align*}
 		B_\gamma  (u,v):= B(u,v) + \gamma  (u,v).
 	\end{align*}
-	The calculation procees in a similar fashion to  \eqref{b=0}, where now an additional application of Cauchy Schwartz to $\nabla u v = (\epsilon^{\frac{1}{2}} \nabla u)(\epsilon^{-\frac{1}{2}}v)$  shows that
+	The calculation proceeds in a similar fashion to  \eqref{b=0}, where now an additional application of Cauchy Schwartz to $\nabla u v = (\epsilon^{\frac{1}{2}} \nabla u)(\epsilon^{-\frac{1}{2}}v)$  shows that
 	\begin{align*}
 		B(u,u) & = \int_{U}a \nabla u \cdot \nabla u + \int_{U} b\cdot  \nabla u v +  \int_{U} cu^2 \geq \lambda \norm{\nabla u}_{L^2(U \to \R^d)}           \\
 		       & - \norm{b}_{L^\infty(U)} \qt{\epsilon \norm{\nabla u}_{L^2(U)}+ \epsilon ^{-1}\norm{u}_{L^2(U)}}- \norm{c}_{L^\infty(U)}\norm{u}_{L^2(U)} .
@@ -184,7 +184,7 @@ Furthermore $\Ll^{-1}: H^{-1}(U) \to H^1_0(U)$ is a continuous operator
 		B_\gamma (u,u)=B(u,u)+ \gamma \norm{u}_{L^2(U)} \geq\frac{\lambda}{2} \norm{\nabla u}_{L^2(U \to \R^d)}\gtrsim _U \norm{u}_{H_0^1(U)} .
 	\end{align*}
 \end{proof}
-Now that we proved solutions for our modified problem $\Ll_\gamma $ it would be nice if we could somehow ``unomodify''. We reason as follows: we have that $u$ solves our original problem  \eqref{PDE} if and only if
+Now that we proved solutions for our modified problem $\Ll_\gamma $ it would be nice if we could somehow ``unmodify''. We reason as follows: we have that $u$ solves our original problem  \eqref{PDE} if and only if
 \begin{align*}
 	\Ll_\gamma u - \gamma  u =f.
 \end{align*}

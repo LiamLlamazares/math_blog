@@ -1,18 +1,8 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{}
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
 \expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
 \expandafter\ifx\csname href\endcsname\relax
   \def\href#1#2{#2} \def\path#1{#1}\fi
-
-\bibitem{taylor2013partial}
-M.~Taylor, Partial differential equations II: Qualitative studies of linear
-  equations, Vol. 116, Springer Science \& Business Media, 2013.
-
-\bibitem{evans2022partial}
-L.~C. Evans,
-  \href{https://math24.files.wordpress.com/2013/02/partial-differential-equations-by-evans.pdf}{Partial
-  differential equations}, Vol.~19, American Mathematical Society, 2022.
-\newline\urlprefix\url{https://math24.files.wordpress.com/2013/02/partial-differential-equations-by-evans.pdf}
 
 \end{thebibliography}

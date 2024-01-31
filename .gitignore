@@ -8,6 +8,8 @@ _site
 .fls
 .log
 .gz
+.blg
+.bll
 
 # general
 .DS_Store
