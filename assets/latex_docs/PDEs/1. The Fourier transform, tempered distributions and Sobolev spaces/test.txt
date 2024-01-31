@@ -436,7 +436,7 @@ now given by $$\begin{aligned}
 \label{lpisvectordistr}
     L^p({\mathbb R}^d\to\mathbb{C}^m)\hookrightarrow{\mathcal S}'({\mathbb R}^d\to\mathbb{C}^m);\quad f\mapsto T_f\end{aligned}$$
 with $T_f$ defined by (linkme2)
-$$T_f(u):=\int_{{\mathbb R}}^d} u\cdot \bar{f}\quad\forall{u}\in {{\mathcal S}({\mathbb R}^d\to\mathbb{C}^m)}.$$
+$$T_f(u):=\int_{{\mathbb R}}^d} u\cdot \bar{f}\quad\forall{u}\in {{\mathcal S}}({\mathbb R}^d\to\mathbb{C}^m)}.$$
 In both cases we have that, by duality, due to the formulas derived
 previously (link1), given a tempered distribution $w$ and
 $\alpha\in \mathbb{N}^d$ $$\begin{aligned}
@@ -492,7 +492,7 @@ $$P:A\subset{\mathcal S}({\mathbb R}^d\to\mathbb{C}^m)\to {\mathcal S}({\mathbb 
 that extends to
 $$P:S\subset {\mathcal S}'({\mathbb R}^d\to\mathbb{C}^n)\to {\mathcal S}'({\mathbb R}^d\to\mathbb{C}^n)$$
 where $S$ is some subset of
-${{\mathcal S}'}({\mathbb R}^d\to\mathbb{C}^m)$ containing
+${{\mathcal S}}'}({\mathbb R}^d\to\mathbb{C}^m)$ containing
 ${\mathcal S}^\infty({\mathbb R}^d\to\mathbb{C}^m)$. Then, given
 $f \in {\mathcal S}'({\mathbb R}^d\to \mathbb{C}^n)$ we say that a
 *distributional solution* to $Pw=f$ is any tempered distribution
