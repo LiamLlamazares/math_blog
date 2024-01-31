@@ -59,31 +59,31 @@
 {UTF8}{gbsn}
 
 \hypertarget{three-line-summary}{%
-\section*{\texorpdfstring{ Three line summary
-}{ Three line summary }}\label{three-line-summary}}
+	\section*{\texorpdfstring{ Three line summary
+	  }{ Three line summary }}\label{three-line-summary}}
 \addcontentsline{toc}{section}{ Three line summary }
 
 \begin{itemize}
-\item
-  The \emph{Fourier transform} defines a linear isometry on the space of
-  square-integrable complex-valued functions and has as inverse the
-  \emph{inverse Fourier transform}(link). This allows us to write these
-  functions as a superposition of harmonic functions.(link)
-\item
-  Linear differential operators act as a simple polynomial
-  multiplication on the frequency domain.(link) Smooth functions have
-  Fourier transforms that decay quickly and vice-versa(link). This
-  correspondence also allows us to introduce fractional differential
-  operators and pseudo differential operators such as
-  \(\sqrt{-\Delta }\)(link).
-\item
-  The Sobolev spaces \(H^s\) and tempered distributions
-  \({\mathcal S}'\) are complete spaces of functions to which we can
-  extend differential operators.(link)
+	\item
+	      The \emph{Fourier transform} defines a linear isometry on the space of
+	      square-integrable complex-valued functions and has as inverse the
+	      \emph{inverse Fourier transform}(link). This allows us to write these
+	      functions as a superposition of harmonic functions.(link)
+	\item
+	      Linear differential operators act as a simple polynomial
+	      multiplication on the frequency domain.(link) Smooth functions have
+	      Fourier transforms that decay quickly and vice-versa(link). This
+	      correspondence also allows us to introduce fractional differential
+	      operators and pseudo differential operators such as
+	      \(\sqrt{-\Delta }\)(link).
+	\item
+	      The Sobolev spaces \(H^s\) and tempered distributions
+	      \({\mathcal S}'\) are complete spaces of functions to which we can
+	      extend differential operators.(link)
 \end{itemize}
 
 \hypertarget{introduction}{%
-\section*{Introduction}\label{introduction}}
+	\section*{Introduction}\label{introduction}}
 \addcontentsline{toc}{section}{Introduction}
 
 Hi everyone, welcome to the first post in a new series focusing on
@@ -110,7 +110,7 @@ thesis(link) on the Navier Stokes equations which in turn are based on
 Terence Tao's excellent notes(link).
 
 \hypertarget{notation}{%
-\subsection*{Notation}\label{notation}}
+	\subsection*{Notation}\label{notation}}
 \addcontentsline{toc}{subsection}{Notation}
 
 We write \(L^p({\mathbb R}^d)\) and
@@ -126,7 +126,7 @@ standard
 and whenever the expression \(D^\alpha\) appears we will assume
 implicitly that \(\alpha\in\mathbb{N}^d\). Given \(x\in{\mathbb R}^d\)
 we will write \(\abs{x}\) to denote its norm and the \emph{Japanese
-bracket} \(\left\langle x\right\rangle\) will signify
+	bracket} \(\left\langle x\right\rangle\) will signify
 \[\left\langle x\right\rangle:=(1+\abs{x}^2)^{1/2}.\]
 
 Finally, we will employ the notation \(f\lesssim g\) to mean that there
@@ -135,8 +135,8 @@ depends on some other parameter such as the dimension \(d\) we shall
 make this explicit by writing \(f\lesssim_d g\).
 
 \hypertarget{some-useful-results-on-integration}{%
-\subsection*{Some useful results on
-integration}\label{some-useful-results-on-integration}}
+	\subsection*{Some useful results on
+		integration}\label{some-useful-results-on-integration}}
 \addcontentsline{toc}{subsection}{Some useful results on integration}
 
 In PDEs, it is essential to be able to commute limits and differentials
@@ -149,14 +149,14 @@ for commodity.
 
 \leavevmode\vadjust pre{\hypertarget{commutingux20limitsux20withux20integral}{}}%
 \textbf{Proposition 1} (Continuity of the integral). \emph{Let
-\((X,\mu )\) be a measure space, \(T\) a first countable metric space,
-\((E,\norm{})\) a Banach space and \[f:T\times X\to E\] such that
-\(f(t)\) is (Bochner(link)) integrable for all \({t}\in{T}\) and such
-that \[\norm{f(t)}\leq g\in L^1(X)\quad \forall{t}\in {T}.\] Then given
-\(t_0\in T\) we have that
-\[\lim_{t\to t_0}\int_X f(t,x)\mu(dx) =\int_X\lim_{t\to t_0}f(t,x)\mu(dx) .\]
-In consequence, if \(f(x)\) is continuous so is
-\(\int_X f(t,x) \mu(dx)\).}
+	\((X,\mu )\) be a measure space, \(T\) a first countable metric space,
+	\((E,\norm{})\) a Banach space and \[f:T\times X\to E\] such that
+	\(f(t)\) is (Bochner(link)) integrable for all \({t}\in{T}\) and such
+	that \[\norm{f(t)}\leq g\in L^1(X)\quad \forall{t}\in {T}.\] Then given
+	\(t_0\in T\) we have that
+	\[\lim_{t\to t_0}\int_X f(t,x)\mu(dx) =\int_X\lim_{t\to t_0}f(t,x)\mu(dx) .\]
+	In consequence, if \(f(x)\) is continuous so is
+	\(\int_X f(t,x) \mu(dx)\).}
 
 \emph{Proof.} The proof is an application of the dominated convergence
 theorem(link) to the sequence of functions \(f_n:=f(t_n)\) where
@@ -167,19 +167,19 @@ equivalent to continuity.~◻
 \leavevmode\vadjust pre{\hypertarget{derivationundertheintsign}{}}%
 \textbf{Proposition 2} ({Differentiation under the integral sign}).
 \emph{Let \(X\) be a measure space, \(U\) be a convex open interval of
-\({\mathbb R}\), and \(E\) a Banach space. Consider \[f:U\times X\to E\]
-such that:}
+	\({\mathbb R}\), and \(E\) a Banach space. Consider \[f:U\times X\to E\]
+	such that:}
 
 \begin{itemize}
-\item
-  \emph{\(f(t)\) is measurable for every \(t\in U\) and integrable for
-  some \(t_0\in U\).}
-\item
-  \emph{For each \(x\in X\) we have that \(f(x)\) is differentiable and
-  there exists an integrable function \(g: X\to{\mathbb R}\) such that
-  \[\norm{\partial_{t}{f}(t,x)}\leq g(x)\quad \forall{(t,x)}\in {U\times E}.\]
-  Then it holds that
-  \[\partial_{t}{\int_X f(t)\mu(dx)}=\int_X \partial_{t}f(t) \mu(dx).\]}
+	\item
+	      \emph{\(f(t)\) is measurable for every \(t\in U\) and integrable for
+		      some \(t_0\in U\).}
+	\item
+	      \emph{For each \(x\in X\) we have that \(f(x)\) is differentiable and
+		      there exists an integrable function \(g: X\to{\mathbb R}\) such that
+		      \[\norm{\partial_{t}{f}(t,x)}\leq g(x)\quad \forall{(t,x)}\in {U\times E}.\]
+		      Then it holds that
+		      \[\partial_{t}{\int_X f(t)\mu(dx)}=\int_X \partial_{t}f(t) \mu(dx).\]}
 \end{itemize}
 
 \emph{Proof.} First, we show that the integral on the left-hand side of
@@ -188,8 +188,8 @@ value inequality we have that
 \[\frac{f(t)-f(t_0)}{t-t_0}\leq \sup_{s \in U}\norm{\partial _t f(s)}\leq g \in L^1(X).\]
 Thus, we may apply the previous proposition to commute the limit with
 the integral \[\begin{gathered}
-        \lim_{t \to t_0}\frac{\int_{X} f(t)\mu (dx)-\int_{X}f(t_0) \mu (dx)}{t-t_0}  =\lim_{t \to t_0}\int_{X}    \frac{f(t)-f(t_0)}{t-t_0} \mu (dx) \\=\int_{X}\lim_{t \to t_0} \frac{f(t)-f(t_0)}{t-t_0} \mu (dx) =\int_{X}\partial _t f(t) \mu(dx).
-    \end{gathered}\] Where in the first equality we also used the
+		\lim_{t \to t_0}\frac{\int_{X} f(t)\mu (dx)-\int_{X}f(t_0) \mu (dx)}{t-t_0}  =\lim_{t \to t_0}\int_{X}    \frac{f(t)-f(t_0)}{t-t_0} \mu (dx) \\=\int_{X}\lim_{t \to t_0} \frac{f(t)-f(t_0)}{t-t_0} \mu (dx) =\int_{X}\partial _t f(t) \mu(dx).
+	\end{gathered}\] Where in the first equality we also used the
 linearity of the Bochner integral (link) and in the last equality we
 used that by hypothesis \(f(x)\) is everywhere differentiable. This
 concludes the proof.~◻
@@ -210,10 +210,10 @@ it. To make the Fourier transform an isometry we will use the following
 convention.
 
 \textbf{Definition 1}. \emph{Given
-\(f\in L^1({\mathbb R}^d\to\mathbb{C}^m)\) the \emph{Fourier transform}
-of \(f\) and the \emph{inverse Fourier transform of} \(f\) are defined
-respectively by
-\[\hat{f}(\xi):=\int_{{\mathbb R}}^d}f(x)e^{-2\pi i\xi\cdot  x} dx, \quad \check{f}(\xi):=\int_{{\mathbb R}}^d}f(x)e^{2\pi i\xi\cdot  x} dx\]}
+	\(f\in L^1({\mathbb R}^d\to\mathbb{C}^m)\) the \emph{Fourier transform}
+	of \(f\) and the \emph{inverse Fourier transform of} \(f\) are defined
+	respectively by
+	\[\hat{f}(\xi):=\int_{{\mathbb R}}^d}f(x)e^{-2\pi i\xi\cdot  x} dx, \quad \check{f}(\xi):=\int_{{\mathbb R}}^d}f(x)e^{2\pi i\xi\cdot  x} dx\]}
 
 Other exponents such as \(e^{-ix}, e^{-\pi i x}\) can also be used with
 identical results modulo constants. Let us introduce the notation
@@ -225,17 +225,17 @@ identical results modulo constants. Let us introduce the notation
 \emph{Given \(f\in L^1({\mathbb R}^d\to\mathbb{C}^m)\)}
 
 \begin{enumerate}
-\item
-  \emph{The Fourier transform \(\mathcal{F}_1\) is a continuous linear
-  operators
-  \[\mathcal{F}_1:L^1({\mathbb R}^d\to\mathbb{C}^m) \to L^\infty({\mathbb R}^d\to\mathbb{C}^m)\].}
-\item
-  \emph{If \(x^\alpha f(x)\in L^1({\mathbb R}^d\to\mathbb{C}^m)\)
-  then:\[D^\alpha \hat{f}(\xi)=(-2\pi i)^\abs{\alpha}\widehat{x^{\alpha} f}(\xi)\qquad\forall \xi\in{\mathbb R}^d.\]}
-\item
-  \emph{If \(f\) is absolutely continuous in \(x_j\) for almost every
-  \(x_1,...x_{j-1},x_{j+1},...,x_d\) then then
-  \[\widehat{\partial x_j f}(\xi)=2\pi i\xi_j\widehat{ f}(\xi)\qquad\forall \xi\in{\mathbb R}^d.\]}
+	\item
+	      \emph{The Fourier transform \(\mathcal{F}_1\) is a continuous linear
+		      operators
+		      \[\mathcal{F}_1:L^1({\mathbb R}^d\to\mathbb{C}^m) \to L^\infty({\mathbb R}^d\to\mathbb{C}^m)\].}
+	\item
+	      \emph{If \(x^\alpha f(x)\in L^1({\mathbb R}^d\to\mathbb{C}^m)\)
+		      then:\[D^\alpha \hat{f}(\xi)=(-2\pi i)^\abs{\alpha}\widehat{x^{\alpha} f}(\xi)\qquad\forall \xi\in{\mathbb R}^d.\]}
+	\item
+	      \emph{If \(f\) is absolutely continuous in \(x_j\) for almost every
+	      \(x_1,...x_{j-1},x_{j+1},...,x_d\) then then
+	      \[\widehat{\partial x_j f}(\xi)=2\pi i\xi_j\widehat{ f}(\xi)\qquad\forall \xi\in{\mathbb R}^d.\]}
 \end{enumerate}
 
 \emph{Proof.} The proof of the first point is an application of the
@@ -264,15 +264,15 @@ infinitely regular functions with infinite decay:
 
 \leavevmode\vadjust pre{\hypertarget{Schwartzux20spaceux20definition}{}}%
 \textbf{Definition 2}. \emph{The \emph{Schwartz space}
-\(\mathcal{S}({\mathbb R}^d\to\mathbb{C}^m)\) is:
-\[\mathcal{S}({\mathbb R}^d\to\mathbb{C}^m):=\lbrace f\in\mathbb{C}^\infty({\mathbb R}^d\to\mathbb{C}^m):x^\alpha D^\beta f\in L^\infty({\mathbb R}^d\to\mathbb{C}^m)\quad\forall\hspace{2pt}\alpha,\beta\in \mathbb{N}^d\rbrace.\]}
+	\(\mathcal{S}({\mathbb R}^d\to\mathbb{C}^m)\) is:
+	\[\mathcal{S}({\mathbb R}^d\to\mathbb{C}^m):=\lbrace f\in\mathbb{C}^\infty({\mathbb R}^d\to\mathbb{C}^m):x^\alpha D^\beta f\in L^\infty({\mathbb R}^d\to\mathbb{C}^m)\quad\forall\hspace{2pt}\alpha,\beta\in \mathbb{N}^d\rbrace.\]}
 
 By applying Proposition \(1\) (link) we deduce that, given
 \(f\in\mathcal{S}({\mathbb R}^d\to\mathbb{C}^m)\) (linkme1)
 \[\begin{aligned}
-\label{rdft}
-    \xi^\alpha D^\beta \hat{f}(\xi)   & =(-2\pi i)^{\abs{\beta}}\xi^{\alpha}\widehat{x^{\beta}f}=\frac{(-2\pi i)^{\abs{\beta}}}{(2\pi i)^{\abs{\alpha}}}\widehat{D^{\alpha}x^{\beta}f}\in L^\infty({\mathbb R}^d\to\mathbb{C}^m) \\
-    \xi^\alpha D^\beta \check{f}(\xi) & =\frac{(2\pi i)^{\abs{\beta}}}{(-2\pi i)^{\abs{\alpha}}}\widehat{D^{\alpha}x^{\beta}f}\in L^\infty({\mathbb R}^d\to\mathbb{C}^m).\end{aligned}\]
+		\label{rdft}
+		\xi^\alpha D^\beta \hat{f}(\xi)   & =(-2\pi i)^{\abs{\beta}}\xi^{\alpha}\widehat{x^{\beta}f}=\frac{(-2\pi i)^{\abs{\beta}}}{(2\pi i)^{\abs{\alpha}}}\widehat{D^{\alpha}x^{\beta}f}\in L^\infty({\mathbb R}^d\to\mathbb{C}^m) \\
+		\xi^\alpha D^\beta \check{f}(\xi) & =\frac{(2\pi i)^{\abs{\beta}}}{(-2\pi i)^{\abs{\alpha}}}\widehat{D^{\alpha}x^{\beta}f}\in L^\infty({\mathbb R}^d\to\mathbb{C}^m).\end{aligned}\]
 Hence, the Fourier transform and the inverse Fourier transform restrict
 to endomorphisms of the Schwartz space which we will denote respectively
 by
@@ -285,16 +285,16 @@ for the inner product on \(L^2({\mathbb R}^d\to\mathbb{C}^m)\).
 \leavevmode\vadjust pre{\hypertarget{Planncherellemma}{}}%
 \textbf{Lemma 1} (\textbf{Plancherel for Schwartz functions}).
 \emph{Given \(f,g\in \mathcal{S}({\mathbb R}^d\to\mathbb{C}^m)\) (i)
-\(\left\langle\mathcal{F}_\mathcal{S}f,g\right\rangle_{L^2({\mathbb R}^d\to\mathbb{C}^m)}=\left\langle f,\mathcal{F}_\mathcal{S}^*g\right\rangle_{L^2({\mathbb R}^d\to\mathbb{C}^m)};\quad\left\langle\mathcal{F}_\mathcal{S}^*f,g\right\rangle_{L^2({\mathbb R}^d\to\mathbb{C}^m)}=\left\langle f,\mathcal{F}_\mathcal{S}g\right\rangle_{L^2({\mathbb R}^d\to\mathbb{C}^m)}\)
-(ii)
-\(\mathcal{F}_\mathcal{S}^*\mathcal{F}_\mathcal{S}f=\mathcal{F}_\mathcal{S}\mathcal{F}_\mathcal{S}^*f=f\)}
+	\(\left\langle\mathcal{F}_\mathcal{S}f,g\right\rangle_{L^2({\mathbb R}^d\to\mathbb{C}^m)}=\left\langle f,\mathcal{F}_\mathcal{S}^*g\right\rangle_{L^2({\mathbb R}^d\to\mathbb{C}^m)};\quad\left\langle\mathcal{F}_\mathcal{S}^*f,g\right\rangle_{L^2({\mathbb R}^d\to\mathbb{C}^m)}=\left\langle f,\mathcal{F}_\mathcal{S}g\right\rangle_{L^2({\mathbb R}^d\to\mathbb{C}^m)}\)
+	(ii)
+	\(\mathcal{F}_\mathcal{S}^*\mathcal{F}_\mathcal{S}f=\mathcal{F}_\mathcal{S}\mathcal{F}_\mathcal{S}^*f=f\)}
 
 The first point can be proved by a direct application of Fubini. The
 second point is trickier and is the crux of why we call
 \(\mathcal{F}^*\) the \emph{inverse} Fourier transform. The proof can be
 found in \cite{Tay} pages 222-226. From \((i)\) and \((ii)\) we deduce
 immediately that, given a Schwartz function \(f\), \[\label{Plancherel}
-    \norm{f}_{L^2({\mathbb R}^d\to\mathbb{C}^m)}=\norm{\mathcal{F}_\mathcal{S}f}_{L^2({\mathbb R}^d\to\mathbb{C}^m)}=\norm{\mathcal{F}_\mathcal{S}^*f}_{L^2({\mathbb R}^d\to\mathbb{C}^m)}\]
+	\norm{f}_{L^2({\mathbb R}^d\to\mathbb{C}^m)}=\norm{\mathcal{F}_\mathcal{S}f}_{L^2({\mathbb R}^d\to\mathbb{C}^m)}=\norm{\mathcal{F}_\mathcal{S}^*f}_{L^2({\mathbb R}^d\to\mathbb{C}^m)}\]
 That is, the restrictions of \(\mathcal{F}_1\) and \(\mathcal{F}^*_1\)
 \[\mathcal{F}_\mathcal{S},\mathcal{F}_\mathcal{S}^*:\mathcal{S}({\mathbb R}^d\to\mathbb{C}^m)\to\mathcal{S}({\mathbb R}^d\to\mathbb{C}^m)\]
 are linear unitary operators which are the inverse the one to the other.
@@ -303,9 +303,9 @@ We obtain the following result.
 \leavevmode\vadjust pre{\hypertarget{Plancherelux27sux20Theorem}{}}%
 \textbf{Proposition 4} (\textbf{Plancherel's theorem}).
 \emph{\(\mathcal{F}_\mathcal{S}\) and \(\mathcal{F}_\mathcal{S}^*\) may
-be extended to unitary operators:
-\[\mathcal{F},\mathcal{F}^*:L^2({\mathbb R}^d\to\mathbb{C}^m)\to L^2({\mathbb R}^d\to\mathbb{C}^m)\]
-With \(\mathcal{F}\mathcal{F}^*=\mathcal{F}^*\mathcal{F}=Id\).}
+	be extended to unitary operators:
+	\[\mathcal{F},\mathcal{F}^*:L^2({\mathbb R}^d\to\mathbb{C}^m)\to L^2({\mathbb R}^d\to\mathbb{C}^m)\]
+	With \(\mathcal{F}\mathcal{F}^*=\mathcal{F}^*\mathcal{F}=Id\).}
 
 \emph{Proof.} This is a immediate result of the density of
 \(\mathcal{S}({\mathbb R}^d\to\mathbb{C}^m)\) in the larger
@@ -331,8 +331,8 @@ by Proposition 2 (link), from where we deduce that as desired
 \(\mathcal{F}_1f=\mathcal{F}f\).
 
 \hypertarget{the-fourier-transform-of-periodic-functions}{%
-\section{The Fourier transform of periodic
-functions}\label{the-fourier-transform-of-periodic-functions}}
+	\section{The Fourier transform of periodic
+	  functions}\label{the-fourier-transform-of-periodic-functions}}
 
 We now extend our previous results to \({\mathbb Z}^d\) periodic
 functions, though, for any period, analogous results may be achieved. By
@@ -342,9 +342,9 @@ will work with functions \(f:{\mathbb T}^d\to\mathbb{C}^m.\) As we will
 see strikingly similar results are achieved in this setting
 
 \textbf{Definition 3}. \emph{Given
-\(f\in L^1({\mathbb T}^d\to\mathbb{C}^m)\) we define the \emph{\(k\)-th
-Fourier coefficient} of \(f\) as:
-\[\hat{f}(k):=\int_{{\mathbb T}}^d}f(x)e^{-2\pi ik\cdot x}dx.\]}
+	\(f\in L^1({\mathbb T}^d\to\mathbb{C}^m)\) we define the \emph{\(k\)-th
+		Fourier coefficient} of \(f\) as:
+	\[\hat{f}(k):=\int_{{\mathbb T}}^d}f(x)e^{-2\pi ik\cdot x}dx.\]}
 
 We thus obtain a function \(\hat{f}\) on \({\mathbb Z}^d\) which we
 shall call the Fourier series of \(f\) and a continuous linear function
@@ -363,7 +363,7 @@ continuous in \(x_j\) for almost every
 
 In particular if \(f\in C^\infty({\mathbb T}^d\to\mathbb{C}^m)\) we have
 that: \[\label{rgivesdpft}
-    \widehat{D^\alpha f}(k)=(2\pi ik)^\alpha\hat{f}(k),\] and as a
+	\widehat{D^\alpha f}(k)=(2\pi ik)^\alpha\hat{f}(k),\] and as a
 result we have that \(\hat{f}\) is of rapid decrease (i.e. \(\hat{f}\)
 decreases faster than the inverse of any polynomial). We thus have, as
 before, an induced map:
@@ -380,7 +380,7 @@ This is indeed smooth as, by the rapid decay of \(a\), we may
 differentiate under the integral sign(link) (we recall that sums are
 just integrals against discrete measures) to commute all derivatives
 with the above sum to obtain that \[\label{dgivesrpft}
-    D^\alpha \check{a}(x)=\sum_{k\in{\mathbb Z}^d}(2\pi ik)^\alpha a(k)e^{2\pi ik\cdot x}\quad\forall{a}\in {s({\mathbb Z}^d\to\mathbb{C}^m)}.\]
+	D^\alpha \check{a}(x)=\sum_{k\in{\mathbb Z}^d}(2\pi ik)^\alpha a(k)e^{2\pi ik\cdot x}\quad\forall{a}\in {s({\mathbb Z}^d\to\mathbb{C}^m)}.\]
 It is now possible to prove as with the euclidean case that
 \[\mathcal{F}_{C^\infty}\mathcal{F}^*_{C^\infty}=\mathcal{F}^*_{C^\infty}\mathcal{F}_{C^\infty}=Id,\]
 and that analogously given \(f\) smooth, and \(a\) of rapid decrease
@@ -391,9 +391,9 @@ See for example \cite{Tay} pages 197-206. We conclude that
 \leavevmode\vadjust pre{\hypertarget{Plancherelperiodictheorem}{}}%
 \textbf{Proposition 6} (\textbf{Plancherel's (periodic) theorem}).
 \emph{\(\mathcal{F}_{C^\infty}\) and \(\mathcal{F}_{C^\infty}^*\) may be
-extended to unitary operators:
-\[\mathcal{F}:L^2({\mathbb T}^d\to\mathbb{C}^m)\to l^2({\mathbb T}^d\to\mathbb{C}^m);\quad \mathcal{F}^*:l^2({\mathbb Z}^d\to\mathbb{C}^m)\to L^2({\mathbb R}^d\to\mathbb{C}^m)\]
-with \(\mathcal{F}\mathcal{F}^*=\mathcal{F}^*\mathcal{F}=Id.\)}
+	extended to unitary operators:
+	\[\mathcal{F}:L^2({\mathbb T}^d\to\mathbb{C}^m)\to l^2({\mathbb T}^d\to\mathbb{C}^m);\quad \mathcal{F}^*:l^2({\mathbb Z}^d\to\mathbb{C}^m)\to L^2({\mathbb R}^d\to\mathbb{C}^m)\]
+	with \(\mathcal{F}\mathcal{F}^*=\mathcal{F}^*\mathcal{F}=Id.\)}
 
 We note that, as for the Euclidean case, given
 \(f\in L^2({\mathbb T}^d\to\mathbb{C}^m)\cap L^1({\mathbb T}^d\to\mathbb{C}^m)\)
@@ -401,11 +401,11 @@ by an identical argument it holds that
 \[\mathcal{F}f(k)=\mathcal{F}_1f(k)=\int_{{\mathbb R}}^d}f(x)e^{-2\pi ik\cdot x}\]
 and where now Plancherel's theorem gives that, for such \(f\):
 \[\label{Plancerelpft}
-    f(x)=\sum_{k\in{\mathbb Z}^d}\hat{f}(k)e^{2\pi ik\cdot x}.\]
+	f(x)=\sum_{k\in{\mathbb Z}^d}\hat{f}(k)e^{2\pi ik\cdot x}.\]
 
 \hypertarget{distributions-and-sobolev-spaces}{%
-\section{Distributions and Sobolev
-Spaces}\label{distributions-and-sobolev-spaces}}
+	\section{Distributions and Sobolev
+	  Spaces}\label{distributions-and-sobolev-spaces}}
 
 Here we will quickly recall the concepts of tempered distributions and
 Sobolev spaces, which are concepts of utmost importance in the field of
@@ -425,11 +425,11 @@ introduce a topology on \(E\). In general, given a real vector space
 \(\lbrace p_j\rbrace_{j=0}^\infty\) with the property that: given
 \(x\neq 0\), there exists \(j\) such that \(p_j(x)\neq 0\). Then
 \[\label{seminormsgivemetric}
-    d(x,y):=\sum_{j=0}^\infty 2^{-j}\frac{p_j(x-y)}{1+p_j(x-y)}\quad \forall{x,y}\in {E}\]
+	d(x,y):=\sum_{j=0}^\infty 2^{-j}\frac{p_j(x-y)}{1+p_j(x-y)}\quad \forall{x,y}\in {E}\]
 is a translation invariant metric on \(E\). In the case of the Schwartz
 space \({\mathcal S}({\mathbb R}^d\to\mathbb{C})\) we give it the
 topology induced by \[\label{seminornormsSchwartz}
-    p_k(u):=\sum_{\abs{\alpha}\leq k} \sup_{x\in{\mathbb R}^d}\left\langle x\right\rangle^k \abs{D^\alpha u(x)}.\]
+	p_k(u):=\sum_{\abs{\alpha}\leq k} \sup_{x\in{\mathbb R}^d}\left\langle x\right\rangle^k \abs{D^\alpha u(x)}.\]
 Though other families of semi-norms the reader may be familiar with such
 as
 \[p_{k,\alpha}:=\sup_{x\in{\mathbb R}^d}\abs{x}^k \abs{D^\alpha u(x)};\quad\text{or}\quad p'_{k,\alpha}:=\sup_{x\in{\mathbb R}^d}(1+\abs{x})^k \abs{D^\alpha u(x)}\]
@@ -439,13 +439,13 @@ proof based on the fundamental theorem of calculus see for example
 \cite{Foll} page 237.
 
 \textbf{Definition 4}. \emph{The space of \emph{tempered distributions}
-is the dual space to \({\mathcal S}({\mathbb R}^d\to\mathbb{C})\) with
-the topology generated by \(p_k)\). We write it
-\({\mathcal S}'({\mathbb R}^d\to\mathbb{C})\).}
+	is the dual space to \({\mathcal S}({\mathbb R}^d\to\mathbb{C})\) with
+	the topology generated by \(p_k)\). We write it
+	\({\mathcal S}'({\mathbb R}^d\to\mathbb{C})\).}
 
 One may verify that we have the inclusion \[\begin{aligned}
-\label{lpisdistr}
-    L^p({\mathbb R}^d\to\mathbb{C})\hookrightarrow{\mathcal S}'({\mathbb R}^d\to\mathbb{C});\quad f\mapsto T_f\end{aligned}\]
+		\label{lpisdistr}
+		L^p({\mathbb R}^d\to\mathbb{C})\hookrightarrow{\mathcal S}'({\mathbb R}^d\to\mathbb{C});\quad f\mapsto T_f\end{aligned}\]
 where given \(u\in {\mathcal S}({\mathbb R}^d\to\mathbb{C})\) we define
 \[T_f(u):=\left\langle u,f\right\rangle:=\int_{{\mathbb R}}^d} u\overline{f}.\]
 Let us write \(T^t\) for the transpose of a linear function \(T\) and
@@ -460,11 +460,11 @@ This gives us a way of extending the Fourier transform and
 differentiation to the space of tempered distributions.
 
 \textbf{Definition 5}. \emph{Given
-\(w\in\mathcal{S}'({\mathbb R}^d\to\mathbb{C})\) and
-\(\alpha\in\mathbb{N}^d\) we define the \emph{(distributional) Fourier
-transform} of \(w\) by \[\mathcal{F}w:= w\circ \mathcal{F}^{-1}\] and
-the \emph{(weak) \(\alpha\)'th} derivative of \(w\) by
-\[D^\alpha w:= w\circ((-1)^\abs{\alpha}D^\alpha).\]}
+	\(w\in\mathcal{S}'({\mathbb R}^d\to\mathbb{C})\) and
+	\(\alpha\in\mathbb{N}^d\) we define the \emph{(distributional) Fourier
+		transform} of \(w\) by \[\mathcal{F}w:= w\circ \mathcal{F}^{-1}\] and
+	the \emph{(weak) \(\alpha\)'th} derivative of \(w\) by
+	\[D^\alpha w:= w\circ((-1)^\abs{\alpha}D^\alpha).\]}
 
 The method we used above to extend \(\mathcal{F}, D^\alpha\) is called
 the \emph{duality method} and appears very frequently. Another way of
@@ -472,7 +472,7 @@ writing the above definition is:
 \[(u, \mathcal{F}w):=(\mathcal{F}^{-1} u, w);\quad(u,D^\alpha w):=(-1)^\abs{\alpha}(D^\alpha u,w)\]
 Due to our previous discussion, we have that with this definition
 \[\label{ftlpdistr}
-    \mathcal{F}T_u=T_{\mathcal{F}u};\quad D^\alpha T_{u}=T_{D^\alpha u}\quad\forall u\in {\mathcal S}({\mathbb R}^d).\]
+	\mathcal{F}T_u=T_{\mathcal{F}u};\quad D^\alpha T_{u}=T_{D^\alpha u}\quad\forall u\in {\mathcal S}({\mathbb R}^d).\]
 Just as one would desire.
 
 Two other operations that are permitted on
@@ -490,23 +490,23 @@ elements of the dual to \(\mathcal{S}({\mathbb R}^d\to\mathbb{C}^m)\),
 which we shall denote by\[\mathcal{S}'({\mathbb R}^d\to\mathbb{C}^m)\]
 where the only change is that the inclusion of integrable functions is
 now given by \[\begin{aligned}
-\label{lpisvectordistr}
-    L^p({\mathbb R}^d\to\mathbb{C}^m)\hookrightarrow{\mathcal S}'({\mathbb R}^d\to\mathbb{C}^m);\quad f\mapsto T_f\end{aligned}\]
+		\label{lpisvectordistr}
+		L^p({\mathbb R}^d\to\mathbb{C}^m)\hookrightarrow{\mathcal S}'({\mathbb R}^d\to\mathbb{C}^m);\quad f\mapsto T_f\end{aligned}\]
 with \(T_f\) defined by (linkme2)
-\[T_f(u):=\int_{{\mathbb R}}^d} u\cdot \bar{f}\quad\forall{u}\in {{\mathcal S}({\mathbb R}^d\to\mathbb{C}^m)}.\]
+\[T_f(u):=\int_{{\mathbb R}}^d} u\cdot \bar{f}\quad\forall{u}\in {{\mathcal S}}({\mathbb R}^d\to\mathbb{C}^m)}.\]
 In both cases we have that, by duality, due to the formulas derived
 previously (link1), given a tempered distribution \(w\) and
 \(\alpha\in \mathbb{N}^d\) \[\begin{aligned}
-\label{derivativedistronperiodic}
-    D^\alpha\mathcal{F}w =(-2\pi i)^{\abs{\alpha}}\mathcal{F}x^\alpha w;\quad
-    \mathcal{F}D^{\alpha} w= (2\pi i)^{\abs{\alpha}}x^\alpha\mathcal{F}w.\end{aligned}\]
+		\label{derivativedistronperiodic}
+		D^\alpha\mathcal{F}w =(-2\pi i)^{\abs{\alpha}}\mathcal{F}x^\alpha w;\quad
+		\mathcal{F}D^{\alpha} w= (2\pi i)^{\abs{\alpha}}x^\alpha\mathcal{F}w.\end{aligned}\]
 As we have observed before (link) multiplication by functions of
 polynomial growth is a well-defined operation on
 \({\mathcal S}({\mathbb R}^d\to\mathbb{C}^m)\) so the above expressions
 are also well defined. A quick verification also shows that, since
 Plancherel's theorem holds for all Schwartz functions,
 \[\label{planchereldistr}
-    \mathcal{F}^{-1}\mathcal{F}w=\mathcal{F}\mathcal{F}^{-1}w=w.\]
+	\mathcal{F}^{-1}\mathcal{F}w=\mathcal{F}\mathcal{F}^{-1}w=w.\]
 
 Finally, in addition to ``changing the image'' of our distributions, we
 may also ``change the domain'' by considering, for example, periodic
@@ -522,16 +522,16 @@ ensure rapid decrease is redundant. By defining as is natural the
 Fourier series of a periodic distribution \(w\) by the sequence (which
 can be shown to be of polynomial growth)
 \[\label{fouriercoeffperiodicdist}
-    \hat{w}(k):=(e^{-2\pi ikx},w)\quad k\in{\mathbb Z}^d\] and its
+	\hat{w}(k):=(e^{-2\pi ikx},w)\quad k\in{\mathbb Z}^d\] and its
 \(\alpha\)-th distributional derivative by
 \[(u,D^\alpha w):=(-1)^\abs{\alpha}(D^\alpha u,w)\] we derive formulas
 analogous to the ones seen in the section on the Fourier transform for
 ``periodic" distributions as well. Namely: \[\label{derivativedistr}
-    w=\sum_{k\in{\mathbb Z}^d}\hat{w}(k)e^{2\pi i k x};\quad\widehat{D^\alpha w}(k)=(2\pi ik)^\alpha\hat{w}(k).\]
+	w=\sum_{k\in{\mathbb Z}^d}\hat{w}(k)e^{2\pi i k x};\quad\widehat{D^\alpha w}(k)=(2\pi ik)^\alpha\hat{w}(k).\]
 
 To prove it all we have to do is apply Plancherel on \(u\) and move
 terms around via duality, \[\begin{gathered}
-    (u,w)=(\sum_{k\in {\mathbb Z}^d}\hat{u}(k)e^{2\pi ik\cdot x},w )=\sum_{k\in {\mathbb Z}^d}  \hat{u}(k)\hat{w}(k)\\=\sum_{k\in {\mathbb Z}^d}  \left(\int_{{\mathbb T}}^d} u(x)e^{-2\pi i\omega\cdot  x}dx\right)\hat{w}(k)=\int_{{\mathbb T}}^d} u(x)\left(\sum_{k\in {\mathbb Z}^d} \hat{w}(k) e^{-2\pi i\omega\cdot  x}\right)dx.\end{gathered}\]
+		(u,w)=(\sum_{k\in {\mathbb Z}^d}\hat{u}(k)e^{2\pi ik\cdot x},w )=\sum_{k\in {\mathbb Z}^d}  \hat{u}(k)\hat{w}(k)\\=\sum_{k\in {\mathbb Z}^d}  \left(\int_{{\mathbb T}}^d} u(x)e^{-2\pi i\omega\cdot  x}dx\right)\hat{w}(k)=\int_{{\mathbb T}}^d} u(x)\left(\sum_{k\in {\mathbb Z}^d} \hat{w}(k) e^{-2\pi i\omega\cdot  x}\right)dx.\end{gathered}\]
 This proves the first part and the second can be proved directly by
 considering the relevant definitions.\\
 \strut \\
@@ -545,11 +545,11 @@ will prove of great use when obtaining ``distributional solutions'' to
 some PDEs. We now give the general method by which this achieved
 
 \textbf{Definition 6}. \emph{Consider a mapping
-\[P:A\subset{\mathcal S}({\mathbb R}^d\to\mathbb{C}^m)\to {\mathcal S}({\mathbb R}^d\to\mathbb{C}^m)\]
-that extends to
-\[P:S\subset {\mathcal S}'({\mathbb R}^d\to\mathbb{C}^n)\to {\mathcal S}'({\mathbb R}^d\to\mathbb{C}^n)\]
-where \(S\) is some subset of
-\({{\mathcal S}'}({\mathbb R}^d\to\mathbb{C}^m)\) containing
+	\[P:A\subset{\mathcal S}({\mathbb R}^d\to\mathbb{C}^m)\to {\mathcal S}({\mathbb R}^d\to\mathbb{C}^m)\]
+	that extends to
+	\[P:S\subset {\mathcal S}'({\mathbb R}^d\to\mathbb{C}^n)\to {\mathcal S}'({\mathbb R}^d\to\mathbb{C}^n)\]
+	where \(S\) is some subset of
+	\({{\mathcal S}}'}({\mathbb R}^d\to\mathbb{C}^m)\) containing
 \({\mathcal S}^\infty({\mathbb R}^d\to\mathbb{C}^m)\). Then, given
 \(f \in {\mathcal S}'({\mathbb R}^d\to \mathbb{C}^n)\) we say that a
 \emph{distributional solution} to \(Pw=f\) is any tempered distribution
@@ -571,7 +571,7 @@ result we deduce that for any
 \[w=\mathcal{F}^{-1}\left(\frac{-f}{4\pi \abs{\xi }^2 }\right).\]}
 
 \hypertarget{sobolev-spaces}{%
-\section{Sobolev spaces}\label{sobolev-spaces}}
+	\section{Sobolev spaces}\label{sobolev-spaces}}
 
 Sobolev spaces form a particular case of tempered distributions that we
 interpret as being smooth and integrable up to sufficient orders
@@ -579,12 +579,12 @@ interpret as being smooth and integrable up to sufficient orders
 
 \leavevmode\vadjust pre{\hypertarget{sobolevdef}{}}%
 \textbf{Definition 7}. \emph{Given \(k\in\mathbb{N}^+\) we define the
-\emph{Sobolev space} \(H^k({\mathbb R}^d\to\mathbb{C}^m)\) as:
-\[\begin{gathered}
-        H^k({\mathbb R}^d\to\mathbb{C}^m):=\\ \lbrace f\in L^2({\mathbb R}^d\to\mathbb{C}^m): D^\alpha f\in L^2({\mathbb R}^d\to\mathbb{C}^m)\hookrightarrow{\mathcal S}'({\mathbb R}^d\to\mathbb{C}^m)\quad\forall\hspace{2pt}\abs{\alpha}\leq k\rbrace.
-    \end{gathered}\] Where, we consider
-\(L^2({\mathbb R}^d\to\mathbb{C}^m)\) as a subspace of
-\({\mathcal S}'({\mathbb R}^d\to\mathbb{C}^m)\) (see linkto2).}
+	\emph{Sobolev space} \(H^k({\mathbb R}^d\to\mathbb{C}^m)\) as:
+	\[\begin{gathered}
+			H^k({\mathbb R}^d\to\mathbb{C}^m):=\\ \lbrace f\in L^2({\mathbb R}^d\to\mathbb{C}^m): D^\alpha f\in L^2({\mathbb R}^d\to\mathbb{C}^m)\hookrightarrow{\mathcal S}'({\mathbb R}^d\to\mathbb{C}^m)\quad\forall\hspace{2pt}\abs{\alpha}\leq k\rbrace.
+		\end{gathered}\] Where, we consider
+	\(L^2({\mathbb R}^d\to\mathbb{C}^m)\) as a subspace of
+	\({\mathcal S}'({\mathbb R}^d\to\mathbb{C}^m)\) (see linkto2).}
 
 We may interpret the Sobolev space \(H^k({\mathbb R}^d\to\mathbb{C}^m)\)
 as the space of \(k\) times differentiable functions in
@@ -600,11 +600,11 @@ the Fourier transform is an automorphism of
 (link) we deduce that
 \[D^\alpha f\in L^2({\mathbb R}^d\to\mathbb{C}^m)\iff \mathcal{F}(D^\alpha f)=\abs{(2\pi i\xi )^{\alpha}} \hat{f}(\xi)\in L^2({\mathbb R}^d\to\mathbb{C}^m)\]
 from which we deduce that \[\label{sobolevcondition}
-    f\in H^k({\mathbb R}^d\to\mathbb{C}^m)\iff \sum_{\abs{\alpha}\leq k} \abs{(2\pi i\xi )^{\alpha}}\hat{f}(\xi)\sim_k \left\langle\xi\right\rangle^k\hat{f}\in L^2({\mathbb R}^d\to\mathbb{C}^m)\]
+	f\in H^k({\mathbb R}^d\to\mathbb{C}^m)\iff \sum_{\abs{\alpha}\leq k} \abs{(2\pi i\xi )^{\alpha}}\hat{f}(\xi)\sim_k \left\langle\xi\right\rangle^k\hat{f}\in L^2({\mathbb R}^d\to\mathbb{C}^m)\]
 In fact, since the Fourier transform is a unitary transformation on
 \(L^2({\mathbb R}^d\to\mathbb{C}^m)\), the same reasoning gives
 \[\label{sobolevnorm}
-    \norm{f}_{H^k({\mathbb R}^d\to\mathbb{C}^m)}\sim_k \norm{\left\langle\xi\right\rangle^k\hat{f}(\xi)}_{L^2({\mathbb R}^d\to\mathbb{C}^m)}\]
+	\norm{f}_{H^k({\mathbb R}^d\to\mathbb{C}^m)}\sim_k \norm{\left\langle\xi\right\rangle^k\hat{f}(\xi)}_{L^2({\mathbb R}^d\to\mathbb{C}^m)}\]
 From the two equations above we deduce that if we define for a given
 real number \(s\) (including negative numbers!) the \(s\)-th order
 Sobolev space as
@@ -623,8 +623,8 @@ domains by defining given an integer \(k\) the Sobolev space
 \(H^k({\mathbb T}^d\to\mathbb{C}^m)\) as the space of square-integrable
 \({\mathbb Z}^d\) periodic functions with distributional derivatives
 themselves square integrable. Explicitly we define: \[\begin{gathered}
-\label{sobolevdef2}
-    H^k({\mathbb T}^d\to\mathbb{C}^m):=\\\lbrace f\in L^2({\mathbb T}^d\to\mathbb{C}^m): D^\alpha f\in L^2({\mathbb T}^d\to\mathbb{C}^m)\hookrightarrow{\mathcal S}'({\mathbb T}^d\to\mathbb{C}^m)\quad\forall\hspace{2pt}\abs{\alpha}\leq k\rbrace\end{gathered}\]
+		\label{sobolevdef2}
+		H^k({\mathbb T}^d\to\mathbb{C}^m):=\\\lbrace f\in L^2({\mathbb T}^d\to\mathbb{C}^m): D^\alpha f\in L^2({\mathbb T}^d\to\mathbb{C}^m)\hookrightarrow{\mathcal S}'({\mathbb T}^d\to\mathbb{C}^m)\quad\forall\hspace{2pt}\abs{\alpha}\leq k\rbrace\end{gathered}\]
 Using the same method as before, this time by Proposition 4 (link) and
 equation of the correspondence between regularity and decay for the
 Fourier transform of periodic functions (link), we deduce that
@@ -633,18 +633,18 @@ which leads us as in the previous case to define for \(s\in{\mathbb R}\)
 the more general Sobolev space
 \[H^s({\mathbb T}^d\to\mathbb{C}^m):=\lbrace f\in L^2({\mathbb R}^d\to\mathbb{C}^m): \left\langle k\right\rangle^{s}\hat{f}(k)\in l^2({\mathbb Z}^d\to\mathbb{C}^m)\rbrace\]
 and to give it the norm \[\label{sobolevgeneraldef}
-    \norm{f}_{H^s({\mathbb T}^d\to\mathbb{C}^m)}:=\left(\sum_{k\in{\mathbb Z}^d}\left\langle k\right\rangle^{2s}\abs{\hat{f}(k)}^2\right)^{\frac{1}{2}}\]
+	\norm{f}_{H^s({\mathbb T}^d\to\mathbb{C}^m)}:=\left(\sum_{k\in{\mathbb Z}^d}\left\langle k\right\rangle^{2s}\abs{\hat{f}(k)}^2\right)^{\frac{1}{2}}\]
 where of course the definitions in (link) and (link) coincide for
 \(s\in\mathbb{N}\). Note that, by the previous discussion, we have that
 both in the euclidean and periodic case \[\begin{aligned}
-\label{Sobolev derivatives embedding}
-    f\in H^s({\mathbb R}^d\to\mathbb{C}^m)  & \iff  D^\alpha f\in H^{s-\abs{\alpha}}({\mathbb R}^d\to\mathbb{C}^m)\qquad\forall\abs{\alpha}\leq s  \\
-    f\in H^s({\mathbb T}^d\to\mathbb{C}^m) & \iff  D^\alpha f\in H^{s-\abs{\alpha}}({\mathbb T}^d\to\mathbb{C}^m)\qquad\forall\abs{\alpha}\leq s\end{aligned}\]
+		\label{Sobolev derivatives embedding}
+		f\in H^s({\mathbb R}^d\to\mathbb{C}^m) & \iff  D^\alpha f\in H^{s-\abs{\alpha}}({\mathbb R}^d\to\mathbb{C}^m)\qquad\forall\abs{\alpha}\leq s \\
+		f\in H^s({\mathbb T}^d\to\mathbb{C}^m) & \iff  D^\alpha f\in H^{s-\abs{\alpha}}({\mathbb T}^d\to\mathbb{C}^m)\qquad\forall\abs{\alpha}\leq s\end{aligned}\]
 One major advantage of working with the Sobolev spaces \(H^s\) is that,
 differently to the classical space of smooth functions \(C^s\), they
 form a Hilbert space with the inner product given by \[\begin{aligned}
-    \left\langle f,g\right\rangle_{H^s({\mathbb R}^d\to\mathbb{C}^m)}  & :=\int_{{\mathbb R}}^d}\left\langle\xi \right\rangle^{2s}\hat{f}(\xi )\overline{\hat{g}(\xi )} d\xi \\
-    \left\langle f,g\right\rangle_{H^s({\mathbb T}^d\to\mathbb{C}^m)} & :=\sum_{k\in {\mathbb Z}^d} \left\langle k \right\rangle^{2s}\hat{f}(k)\overline{\widehat{g}(k )}.\end{aligned}\]
+		\left\langle f,g\right\rangle_{H^s({\mathbb R}^d\to\mathbb{C}^m)} & :=\int_{{\mathbb R}}^d}\left\langle\xi \right\rangle^{2s}\hat{f}(\xi )\overline{\hat{g}(\xi )} d\xi \\
+		\left\langle f,g\right\rangle_{H^s({\mathbb T}^d\to\mathbb{C}^m)} & :=\sum_{k\in {\mathbb Z}^d} \left\langle k \right\rangle^{2s}\hat{f}(k)\overline{\widehat{g}(k )}.\end{aligned}\]
 This gives one access to all the power of functional analysis and is
 invaluable in proofs. However, at the end of the day wishes to prove
 that solutions with smooth initial data are themselves smooth in a
@@ -662,10 +662,10 @@ Fourier series of \(f\) is absolutely convergent and
 inequality and
 (\protect\hyperlink{HsisL1periodic}{{[}HsisL1periodic{]}}). We have that
 \[\begin{gathered}
-        \sum_{k\in{\mathbb Z}^d}\abs{\hat{f}(k)}=\sum_{k\in{\mathbb Z}^d} \left\langle k\right\rangle^{-s}\left\langle k\right\rangle^{s}\abs{\hat{f}(k)}\leq\left(\sum_{k\in{\mathbb Z}^d} \frac{\left\langle k\right\rangle^{-2s}}{2}\right)^{\frac{1}{2}}\left(\sum_{k\in{\mathbb Z}^d}\frac{\left\langle k\right\rangle^{2s}}{2}\abs{\hat{f}(k)}^2\right)^{\frac{1}{2}}\\
-        \lesssim_{d,s}\norm{f}_{H^s(\mathbb{T}^d\to\mathbb{C}^m)}<\infty.
-    \end{gathered}\] In consequence, the sum \[\label{Fourier sum}
-        \sum_{k\in{\mathbb Z}^d}\hat{f}(k)e^{2\pi ik\cdot x}\] converges
+		\sum_{k\in{\mathbb Z}^d}\abs{\hat{f}(k)}=\sum_{k\in{\mathbb Z}^d} \left\langle k\right\rangle^{-s}\left\langle k\right\rangle^{s}\abs{\hat{f}(k)}\leq\left(\sum_{k\in{\mathbb Z}^d} \frac{\left\langle k\right\rangle^{-2s}}{2}\right)^{\frac{1}{2}}\left(\sum_{k\in{\mathbb Z}^d}\frac{\left\langle k\right\rangle^{2s}}{2}\abs{\hat{f}(k)}^2\right)^{\frac{1}{2}}\\
+		\lesssim_{d,s}\norm{f}_{H^s(\mathbb{T}^d\to\mathbb{C}^m)}<\infty.
+	\end{gathered}\] In consequence, the sum \[\label{Fourier sum}
+	\sum_{k\in{\mathbb Z}^d}\hat{f}(k)e^{2\pi ik\cdot x}\] converges
 absolutely (and uniformly). Since by Plancherel's Theorem, the above sum
 also converges in \(L^2({\mathbb T}^d\to\mathbb{C}^m)\) to \(f\) we
 deduce that \protect\hyperlink{Fourierux20sum}{{[}Fourier sum{]}}
@@ -677,7 +677,7 @@ which is
 \[\leq\sum_{k\in{\mathbb Z}^d}\norm{\hat{f}(k)e^{2\pi ik\cdot x}}_{L^\infty({\mathbb T}^d\to\mathbb{C}^m)}=\sum_{k\in{\mathbb Z}^d}\abs{\hat{f}(k)}\lesssim_{d,s}\norm{f}_{H^s({\mathbb T}^d\to\mathbb{C}^m)}.\]
 The continuity of \(f\) follows from the point-wise equality
 \[\label{pointwise convergence Fourier sum}
-        f(x)=\sum_{k\in{\mathbb Z}^d}\hat{f}(k)e^{2\pi ik\cdot x}=\int_{{\mathbb Z}^d} \hat{f}(k)e^{2\pi ik\cdot x} dk\]
+	f(x)=\sum_{k\in{\mathbb Z}^d}\hat{f}(k)e^{2\pi ik\cdot x}=\int_{{\mathbb Z}^d} \hat{f}(k)e^{2\pi ik\cdot x} dk\]
 together with the monotone convergence theorem applied to
 \({\mathbb Z}^d\) with the counting measure \(dk\).~◻
 
@@ -685,8 +685,8 @@ As a corollary of this, we have the following two results
 
 \leavevmode\vadjust pre{\hypertarget{characterizationux20smoothux20functionsux20inux20Sobolevux20space}{}}%
 \textbf{Proposition 7} (\textbf{Sobolev embedding}). \emph{Let
-\(f\in H^s({\mathbb T}^d\to\mathbb{C}^m)\) where \(s>\frac{d}{2}+k\).
-Then \(f\in C^k({\mathbb T}^d\to\mathbb{C}^m)\).}
+	\(f\in H^s({\mathbb T}^d\to\mathbb{C}^m)\) where \(s>\frac{d}{2}+k\).
+	Then \(f\in C^k({\mathbb T}^d\to\mathbb{C}^m)\).}
 
 \emph{Proof.} By
 (\protect\hyperlink{Sobolevux20derivativesux20embeddingux20periodic}{{[}Sobolev derivatives embedding periodic{]}}),
@@ -733,10 +733,10 @@ I salute you), so we leave it off here with a neat little exercise (our
 first of this blog)
 
 \textbf{Exercise 1}. \emph{How should we define
-\[T:=\left(1-\frac{\Delta}{4\pi ^2}  \right)^\frac{s}{2}\text{?}\] Once
-you do so show that for all \(s,k \in {\mathbb R}\), the operator \(T\)
-defines a linear bijective isometry
-\[T: H^k({\mathbb R}^d\to\mathbb{C}^m)\to H^{k-s}({\mathbb R}^d\to\mathbb{C}^m).\]}
+	\[T:=\left(1-\frac{\Delta}{4\pi ^2}  \right)^\frac{s}{2}\text{?}\] Once
+	you do so show that for all \(s,k \in {\mathbb R}\), the operator \(T\)
+	defines a linear bijective isometry
+	\[T: H^k({\mathbb R}^d\to\mathbb{C}^m)\to H^{k-s}({\mathbb R}^d\to\mathbb{C}^m).\]}
 
 In our future post we will discuss the well posedness of second order
 elliptic equations, and if we have time discuss the heat equation and
