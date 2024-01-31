@@ -1,0 +1,9 @@
+{
+  "grammarly.selectors": [
+    {
+      "language": "markdown",
+      "scheme": "file",
+      "pattern": "_posts/2023-05-30-PDE-2-Hilbert.md"
+    }
+  ]
+}

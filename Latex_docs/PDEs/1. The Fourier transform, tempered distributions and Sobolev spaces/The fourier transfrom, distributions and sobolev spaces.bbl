@@ -1,0 +1,27 @@
+\begin{thebibliography}{1}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\href#1#2{#2} \def\path#1{#1}\fi
+
+\bibitem{FF}
+J.~A.~F. Aguirre, F.~J.~F. Ib{\'a}{\~n}ez,
+  \href{https://books.google.co.uk/books/about/Integraci%C3%B3n_de_funciones_de_varias_vari.html?id=uuHbOgAACAAJ&redir_esc=y}{Integraci{\'o}n
+  de funciones de varias variables}, Ediciones Pir{\'a}mide, 2002.
+\newline\urlprefix\url{https://books.google.co.uk/books/about/Integraci%C3%B3n_de_funciones_de_varias_vari.html?id=uuHbOgAACAAJ&redir_esc=y}
+
+\bibitem{Tay}
+M.~Taylor,
+  \href{https://link.springer.com/book/10.1007/978-1-4419-7055-8}{Partial
+  Differential Equations I: Basic Theory}, 1996.
+\newline\urlprefix\url{https://link.springer.com/book/10.1007/978-1-4419-7055-8}
+
+\bibitem{Foll}
+G.~B. Folland,
+  \href{https://books.google.co.uk/books?id=wI4fAwAAQBAJ&printsec=frontcover&hl=fr&source=gbs_ge_summary_r&cad=0#v=onepage&q&f=false}{Real
+  analysis: modern techniques and their applications}, Vol.~40, John Wiley \&
+  Sons, 1999.
+\newline\urlprefix\url{https://books.google.co.uk/books?id=wI4fAwAAQBAJ&printsec=frontcover&hl=fr&source=gbs_ge_summary_r&cad=0#v=onepage&q&f=false}
+
+\end{thebibliography}

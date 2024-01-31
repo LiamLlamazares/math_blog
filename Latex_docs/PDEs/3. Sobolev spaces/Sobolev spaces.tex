@@ -1,0 +1,1643 @@
+\documentclass[12pt]{article}
+\special{papersize=3in,5in}
+\usepackage[utf8]{inputenc}
+%PACKAGES
+\usepackage{CJKutf8}
+\usepackage[T1]{fontenc}
+\makeatletter
+\def\ps@pprintTitle{%
+	\let\@oddhead\@empty
+	\let\@evenhead\@empty
+	\let\@oddfoot\@empty
+	\let\@evenfoot\@oddfoot
+}
+\usepackage{amssymb,amsmath, physics,amsthm,xcolor,graphicx}
+\usepackage[shortlabels]{enumitem}
+\newtheorem{observation}{Observation}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{example}{Example}
+\newtheorem{lemma}{Lemma}
+\newtheorem{definition}{Definition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{assumption}{Assumption}
+\newtheorem{exercise}{Exercise}
+\theoremstyle{remark}
+\newtheorem*{hint}{Hint}
+\newcommand{\red}[1]{{\color{red}#1}}
+\usepackage[colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,
+	urlcolor=cyan,
+	pdfpagemode=FullScreen,]{hyperref}
+\newlist{todolist}{itemize}{2}\setlist[todolist]{label=$\square$}
+\bibliographystyle{elsarticle-num}
+\newcommand{\fk}[1]{\mathfrak{#1}}\newcommand{\wh}[1]{\widehat{#1}}
+\newcommand{\br}[1]{\left\langle#1\right\rangle} \newcommand{\set}[1]{\left\{#1\right\}} \newcommand{\qp}[1]{\left(#1\right)}\newcommand{\qb}[1]{\left[#1\right]}
+\newcommand{\qt}[1]{\left(#1\right)}
+\newcommand{\Id}{\mathbf{I}}\renewcommand{\ker}{\mathbf{ker}}\newcommand{\supp}[1]{\mathbf{supp}(#1)}\renewcommand{\tr}[1]{\mathrm{tr}\left(#1\right)}
+\renewcommand{\norm}[1]{\left\lVert #1 \right\rVert}\renewcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\U}{_}\renewcommand{\star}{*}
+\renewcommand{\Im}{\mathbf{Im}}
+\newcommand{\iso}{\xrightarrow{\sim}}
+\newcommand{\tl}[1]{\widetilde{#1}}
+\newcommand{\A}{\mathbb{A}}\newcommand{\C}{\mathbb{C}}\newcommand{\E}{\mathbb{E}}\newcommand{\F}{\mathbb{F}}\newcommand{\II}{\mathbb{I}}\newcommand{\K}{\mathbb{K}}\newcommand{\LL}{\mathbb{L}}\newcommand{\M}{\mathbb{M}}\newcommand{\N}{\mathbb{N}}\newcommand{\PP}{\mathbb{P}}\newcommand{\Q}{\mathbb{Q}}\newcommand{\R}{\mathbb{R}}\newcommand{\T}{\mathbb{T}}\newcommand{\W}{\mathbb{W}}\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Aa}{\mathcal{A}}\newcommand{\Bb}{\mathcal{B}}\newcommand{\Cc}{\mathcal{C}}\newcommand{\Dd}{\mathcal{D}}\newcommand{\Ee}{\mathcal{E}}\newcommand{\Ff}{\mathcal{F}}\newcommand{\Gg}{\mathcal{G}}\newcommand{\Hh}{\mathcal{H}}\newcommand{\Kk}{\mathcal{K}}\newcommand{\Ll}{\mathcal{L}}\newcommand{\Mm}{\mathcal{M}}\newcommand{\Nn}{\mathcal{N}}\newcommand{\Pp}{\mathcal{P}}\newcommand{\Qq}{\mathcal{Q}}\newcommand{\Rr}{\mathcal{R}}\newcommand{\Ss}{\mathcal{S}}\newcommand{\Tt}{\mathcal{T}}\newcommand{\Uu}{\mathcal{U}}\newcommand{\Ww}{\mathcal{W}}\newcommand{\XX}{\mathcal {X}}\newcommand{\Zz}{\mathcal{Z}}
+\renewcommand{\d}{\,\mathrm{d}}
+\newcommand\restr[2]{\left.#1\right|_{#2}}
+\pagestyle{empty}
+\setlength{\parindent}{0in}
+
+\begin{document}
+
+\title{Sobolev spaces}
+\author{Liam Llamazares}
+\date{06/08/2023}
+\maketitle
+\section{ Three line summary}
+\begin{itemize}
+	\item Given open $U \subset \R^d$ the Sobolev spaces $W^{k,p}(U)$ are \textbf{complete} spaces of \textbf{ weakly differentiable} functions.
+	\item \textbf{Smooth functions are dense} in  $W^{k,p}(\Omega)$ if $\Omega$  is bounded and has $C^1$ boundary. This lets us manipulate Sobolev functions as if they were smooth and then take limits. In particular, we can \textbf{extend and restrict} functions to $\partial \Omega$.
+	\item Functions in $W^{k,p}(\Omega)$ enjoy various inequalities. Cashing in differentiability for integrability we can \textbf{compactly embed}
+	      \begin{align*}
+		      W^{k,p}(\Omega) \hookrightarrow L^q(\Omega).
+	      \end{align*}
+	      Where $q\equiv q(d,k,p)$ decreases with the dimension $d$, increases with differentiability $k$ and integrability $p$, and is larger than $p$.
+\end{itemize}
+\section{Why should I care?}
+Sobolev spaces allow us to extend the notion of differentiability to a wider class of functions. The fact that these spaces are complete and compactly embedded in $L^q$ spaces is an important tool to extract convergent sub-sequences. This is useful when solving differential equations as a common technique is to take a Cauchy sequence whose limit is the solution to the equation.
+\section{Notation}
+\begin{itemize}
+	\item     In this post we will be dealing with functions over a variety of domains. To facilitate interpretation of the notation we will stick to the convention that $K$ is a compact set, $U, V$ are open sets, and $\Omega$ is an open bounded set with $C^1$ boundary.
+	\item Given a topological space $X$ and a subset  $A \subset X$ we abbreviate $A$ is dense in  $X$ with the topology of  $X$ by
+	      \begin{align*}
+		      \overline{A}=X.
+	      \end{align*}
+	      We stress that in practice $X$ may be itself a subset of some larger space  $Y$ (for example $X= H^s(\R^d)$ and $ Y= L^p(\R^d)$) . However, the above notation will always mean the closure with the topology of  $X$ and not  $Y$.
+	\item A related notation is we will write given $a_n \in  A$
+	      \begin{align*}
+		      \lim_{n \to \infty}a_n =x \in X.
+	      \end{align*}
+	      To mean the limit in the topology of $X$.
+
+	\item     Given two sets $A,B$ we write  $A \Subset B$ and say that \textbf{$A$ is compactly included in  $B$} if $\overline{A}$ is compact and \textbf{strictly} included in $B$.
+	\item We also write
+	      \begin{align*}
+		      A+B=\set{x+y:x \in A, y \in  B} .
+	      \end{align*}
+
+	\item Given a topological vector space $X$ we write $X'$ for the dual of  $X $ and denote given  $ \in X', \varphi \in X$ the duality pairing as
+	      \begin{align*}
+		      (\varphi,w):= w(\varphi) .
+	      \end{align*}
+	\item We will always write $\alpha$ for a multi-index $\alpha \in \N^d$ and use the notation
+	      \begin{align*}
+		      D^\alpha f := \partial _1^{\alpha_1}\cdots \partial _d^{\alpha_d}.
+	      \end{align*}
+	      In the case $\alpha =0$ we use the convention $D^0 =f$.
+	\item Given  a space of functions $X$ with domain $A$ and $B \subset A $ we write
+	      \begin{align*}
+		      \restr{X}{B}:=\set{\restr{f}{B}: f\in X} .
+	      \end{align*}
+	\item Given two quantities $M,N$ we write $M \lesssim N$ to mean that there exists some constant $C$ independent of  $M$ and  $N$ such that  $M \leq C N$.
+	\item We write $B_r(x)$ for the ball centered at  $x$ with radius  $r$ and  $B_r$ if $x=0$. The space where the ball is contained depending on context.
+
+\end{itemize}
+\section{Introduction}
+Hi everyone, welcome back to another post on our series on PDEs. This post goes into some depth on the main space of functions we will work with. Since the post is rather long (yes it has appendices, no that wasn't planned) I decided to include a pdf at the end of the post in case it is easier to navigate. That said, in the future we will want to solve a differential equation of the form
+\begin{align}\label{PDE1}
+	\Ll u = f\quad  \mathrm{ on  }\quad  D .
+\end{align}
+Where $D$ is some domain in $\R^d$. In a previous post on the \href{https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=Sobolev%20spaces-,Sobolev,-spaces%20form%20a}{Fourier transform} we saw how to define the Sobolev spaces $H^s(D)$ when $D$ is the whole Euclidean space $\R^d$ or the torus $\T^d$. These spaces correspond to $s$-times weakly differentiable functions and we saw how these spaces could help us solve \eqref{PDE1}. However, in practice $D$ may be an open set in $\R^d$ or even some $d$-dimensional manifold with a boundary condition
+\begin{align}\label{bc}
+	\restr{u}{\partial  D}= g.
+\end{align}
+Note that equation \eqref{bc} is a priori ill-defined as the Lebesgue measure of $\partial D \subset \R^d $ is zero.     Thus, it is necessary to extend the theory to a wider class of domains and to explain what we mean by the restriction of a function to its boundary of definition.
+\subsection{A first attempt}
+Suppose for example $D=U$ is an open set and $u: U \to \R$. Then, we can try to define $H^s(U)$ using our knowledge of $H^s(\R^d)$ by:
+\begin{enumerate}
+	\item Extending $u$ by zero outside of $U$ to form
+	      \begin{align*}
+		      \tilde{u}(x):=\begin{cases}
+			                    u(x) & \quad x \in U     \\
+			                    0    & \quad x \not\in U
+		                    \end{cases}.
+	      \end{align*}
+	\item Studying if $\tilde{u} \in  H^s(\R^d)$. That is, as we saw in the \href{https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=fact%2C%20since%20the-,Fourier,-transform%20is%20a}{previous post}, checking if
+	      \begin{align*}
+		      \norm{\tilde{u}}_{H^s(\R^d)}^2= \int_{\R^d}\br{\xi }^{2s}\wh{\tilde{u}}(\xi )^2 \d \xi < \infty
+	      \end{align*}
+	\item Saying that $u \in H^s(U)$ if and only if $\tilde{u} \in H^s(\R^d)$.
+\end{enumerate}
+However, this runs into problems as is shown in the following example:
+\begin{example}
+	Let $U=(0,1)$ and take $u: (0,1) \to \R$ defined to be identically equal to  $1$. Note that  $u \in C^\infty(U)$ so we expect that $u \in H^s((0,1))$ for all $s \in \R$. However, it holds that $\tilde{u}= {1}_{(0,1)}$ with
+	\begin{align*}
+		\wh{\tilde{u}}(\xi )=\frac{1-e^{-2 \pi i \xi }}{2 \pi i \xi }.
+	\end{align*}
+\end{example}
+As we can see, by substituting in our naive definition of $H^s(U)$ gives that $u \in H^s((0,1))$ if and only if $s< \frac{1}{2}$. Thus, our program of extending $u$ by zero and studying the regularity of the extension is not going to work. The reason for this is that, by extending by zero we introduce a discontinuity on $\tilde{u}$ at the boundary of $U$.
+\subsection{A second approach}
+Alternatively, we could also define
+\begin{align*}
+	H^s(U)= \restr{H^s(\R^d)}{U}:= \set{\restr{f}{u}: f \in H^s(\R^d)} .
+\end{align*}
+As we will see later (Corollary \ref{restriction}) this is a better approach. However, it is not optimal as it requires some conditions on $U$. For example, if $U$ is not smooth we cannot assert that  $\restr{C^\infty(\R^d)}{U}= C^\infty(U)$.
+
+\section{Test functions and distributions}%
+\subsection{Seminorms and their topologies}
+We need a new approach. Motivated as in the previous post by \href{https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=is%20called%20the-,duality,-method%20and%20appears}{duality} we should begin by defining what is meant by a weak derivative of a function $u$ in $L^p(U)$. If $u,\varphi$ are smooth functions then we have by integration by parts
+\begin{align*}
+	(\varphi, D^\alpha u):= \int_{D} \varphi D^\alpha u  = (-1)^{\abs{\alpha} }\int_{D}(D^{\alpha} \varphi) u + \text{ boundary effects}  .
+\end{align*}
+In the previous post, we used that
+\begin{itemize}
+	\item If $D =\R^d$ we can take as our test functions $\varphi \in  \Ss(\R^d)$ and use that $\varphi$ multiplied by any function in $L^2$ ($u$ and its derivatives) vanish at infinity to get rid of the boundary effects.
+	\item If $D =\T^d$ we can take as our test functions $\varphi \in  C^\infty(\T^d)$ as the boundary effect of periodic functions cancels out.
+\end{itemize}
+To obtain this cancellation on a general open $D$ we need to impose that our test function  $\varphi$ vanishes in a neighborhood of the boundary. That is we need our test functions to have compact support.
+\begin{definition}
+	Let $U$ be an open set, then we define  $C_c^\infty(U)$ to be the space of smooth functions whose support is some compact set $K \subset U$.     \end{definition}
+Another notation for $C^\infty_c(U)$ is $\Dd(U)$ and it is often called the space of \textbf{test functions} for reasons we will later see.  Given a compact subset $K \subset U$  we define for each $k \in \N$
+
+\begin{definition}
+	Given a compact subset $K$ of an open set  $U$ we define
+	\begin{align*}
+		C_c^\infty(K):= \set{\varphi \in C_c^\infty(U): \supp{\varphi} \subset K } .
+	\end{align*}
+	We endow  $C_c^\infty(K)$ with the \href{https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=together-,with,-a%20countable%20family}{topology generated  by the countable family of seminorms}
+	\begin{align}\label{local smooth norms}
+		\norm{\varphi}_{C^k(K)}:= \sup_{x \in K} \sum_{\abs{\alpha}\leq k } \abs{D^\alpha \varphi}, \quad  k \in \N_{0}
+	\end{align}
+\end{definition}
+Later we will need to generate topologies when the family of seminorms is uncountable.
+\begin{definition}
+	Let $X$ be a vector space and let $\rho \in \mathcal{P}$ be a family of seminorms on $X$. Then we define the \textbf{topology generated by $\mathcal{P}$} to be the topology generated by the local basis
+	\begin{align*}
+		x+\set{\rho^{-1}(B_\epsilon): \epsilon>0}
+	\end{align*}
+\end{definition}
+The above topology is equivalent to the initial topology generated by the family
+\begin{align*}
+	\set{\rho(\cdot-x): x\in X, \rho \in \Pp}.
+\end{align*}
+We include some exercises to help the reader get more used to the topology that arises. I recommended trying to solve them for a few minutes before checking the hints.
+\begin{exercise}\label{TVS ex}
+	Write $\tau_{\Pp}$ for the topology generated by $\Pp$, Show that $\tau_{\Pp}$ is the coarsest topology that makes $X$ into a topological vector space (\href{https://en.wikipedia.org/wiki/Topological_vector_space}{TVS}).
+\end{exercise}
+\begin{hint}
+	The fact that $(X,\tau_\mathcal{P})$ is a TVS follows from the triangle inequality and homogeneity of seminorms. The fact that it is the coarsest that makes $\rho$ continuous is that $\rho^{-1}(B_\epsilon)$ must be an open neighborhood of the origin and in a TVS, by continuity of the sum, translation of an open set must be open.
+\end{hint}
+\begin{exercise}\label{convex ex}
+	Show that $(X,\tau_\mathcal{P})$ is locally convex. That is, every point has a local basis of convex sets
+\end{exercise}
+\begin{hint}
+	Show that $\rho^{-1}(B_\epsilon)$ is convex.
+\end{hint}
+\begin{exercise}\label{convergence TVS}
+	Show that the topology $(X,\tau_\mathcal{P})$ is determined by the following property.
+	\begin{itemize}
+		\item  Given a \href{https://en.wikipedia.org/wiki/Net_(mathematics)#:~:text=%5Bedit%5D-,Any,-function%20whose%20domain}{net} $x_\bullet\in (X,\tau_\Pp)$  it holds that
+		      \begin{align*}
+			      \lim x_\bullet =x \in  X  \iff      \rho(x_\bullet-x)\to 0 \quad\forall \rho \in \Pp.
+		      \end{align*}
+	\end{itemize}
+\end{exercise}
+\begin{hint}
+	The topology of any topological space is completely determined by the convergence of nets. So it is enough to show that the property holds. The implication holds by the continuity of  $\rho$, the reverse follows from being able to fit $x_\bullet$ into any basic set $x+\rho(B_\epsilon)$.
+\end{hint}
+\begin{exercise}
+	Show that $C_c^\infty(K)$ is complete and thus a \href{https://en.wikipedia.org/wiki/Fr%C3%A9chet_space#:~:text=locally%20convex%20metrizable%20topological%20vector%20space}{Fréchet} space.
+\end{exercise}
+\begin{hint}
+	The topology is \href{https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=together-,with,-a%20countable%20family}{metrizable} as the family of seminorms is countable
+	Use Exercise \ref{convergence TVS}  to show that if $\varphi_n \in C_c^\infty(K)$ is Cauchy then the sequence of derivatives $D^\alpha \varphi_n $ converge uniformly to $\varphi^{(\alpha)} \in C_c^0(K)$ for all $\alpha$. It remains to show that
+	\begin{align*}
+		\varphi^{(0)}= \lim_{n \to \infty} \varphi_n \in  C_c^\infty(K).
+	\end{align*}
+	To do so use the fundamental theorem of calculus and induction.
+\end{hint}
+Using $C_c^\infty(K)$ as a stepping stone we can build a topology on $C_c^\infty(U)$. We use the approach in \href{https://terrytao.wordpress.com/2009/04/19/245c-notes-3-distributions/#:~:text=is%20clearly%20a-,vector,-space.%20Now%20we}{Terence Tao's blog post on distributions}. Let us call a seminorm on $C_c^\infty(U)$ \textbf{restrictable} if it is a continuous function on $C_c^\infty(K)$ for all $K \subset U$.     \begin{definition}        The topology on $C_c^\infty(U)$ is the one generated by all the restrictable seminorms on $C_c^\infty(U)$. We call this topology the \textbf{smooth topology}.
+\end{definition}
+\begin{exercise}
+	Give an infinite restrictable family of seminorms.
+\end{exercise}
+\begin{hint}
+	Valid answers include all the $L^p(U)$ and $C^k(U)$ norms.
+\end{hint}
+
+
+
+\begin{exercise}
+	Show that  $C_c^\infty(\Omega)$ with the smooth topology is a locally convex topological vector space (LCTVS).
+\end{exercise}
+\begin{hint}
+	See Exercises \ref{TVS ex}-\ref{convex ex}
+\end{hint}
+\begin{exercise}[Smooth convergence is equal to local convergence]\label{local convergence}
+	Show that $\varphi_n \to \varphi \in \Dd(U)$ if and only if
+	there exists a compact set $K$ such that for all $n$ the support of $f_n$ and $f$ are in  $K$ and
+	\begin{align*}
+		\lim_{n \to \infty}\varphi_n  =\varphi \in  C_c^\infty(K).
+	\end{align*}
+
+\end{exercise}
+\begin{hint}
+	Given any sequence $\mathbf{a}=\set{a_j}_{j\in \mathbb{N}} \in \R_+$ and an increasing set of compact sets $K_j$ with $U=\bigcup_{j\in \mathbb{N}} K_j$ show that
+	\begin{align*}
+		p_{\mathbf{a}}(\varphi):=\sup _{j \in \N}{a_j} \sum_{|\alpha| \leq j}\norm{D^\alpha \varphi(x)}_{L^\infty(U\setminus K_j)}.
+	\end{align*}
+	Is a restrictable seminorm. Why does this prevent the support of $\varphi_n$ escaping to infinity? Now knowing all functions are supported in some $K$ use that $\norm{\cdot }_{C^k(K)}$ is restrictable to conclude the proof.
+\end{hint}
+\begin{exercise}[Completeness]
+	Show that $C_c^\infty(\Omega)$ with the smooth topology is complete.
+\end{exercise}
+\begin{hint}
+	Given a Cauchy net $\varphi_{\bullet} \in C_c^\infty(U)$ show as in Exercise \ref{local convergence} that the support of  $\varphi_{\bullet}$ cannot escape a compact set $K$. Conclude using the completeness on  $C_c^\infty(K)$ and Exercise \ref{convergence TVS}.
+\end{hint}
+\begin{exercise}
+	Show that $C_c^\infty(\Omega)$ with the smooth topology is Hausdorff.
+\end{exercise}
+\begin{hint}
+	The initial topology of a set of functions that separates points is Hausdorff.
+\end{hint}
+
+\begin{observation}
+	The topology on $C_c^\infty(U)$ is \textbf{not} metrizable (note the family of seminorms used to generate it is not countable) and as a result $C_c^\infty(U)$ \textbf{is not} a Fréchet space. This and more can be found in \cite{leoni2017first} page 286.
+\end{observation}
+The construction of the topology on $C_c^\infty(U)$ is a bit technical a more intuitive construction would be to define the family of seminorms
+\begin{align*}
+	\norm{\varphi}_j := \sup_{\abs{\alpha} \leq j}  \norm{D^\alpha \varphi}_{L^\infty(U)}.
+\end{align*}
+And then define the topology on $C_c^\infty(U)$ to be the one generated by this family of seminorms. This has the following problem.
+\begin{exercise}
+	Show that $C_c^\infty(U)$ with the topology generated by $\norm{\cdot }_j$ is not complete.
+\end{exercise}
+\begin{hint}
+	Construct a  sequence that is Cauchy with respect to every $\norm{\cdot }_j$ whose support escapes to infinity.
+\end{hint}
+Using the smooth topology we can now work with the dual of $C_c^\infty(U)$
+\begin{definition}
+	We define the space of \textbf{distributions} to be
+	\begin{align*}
+		\Dd'(U):= (C_c^\infty(U))'.
+	\end{align*}
+	And give it the \href{https://en.wikipedia.org/wiki/Weak_topology}{weak-$\star$} topology.
+\end{definition}
+\begin{observation}
+	The inclusions
+	\begin{align*}
+		C_c^\infty(U) \hookrightarrow C_c^\infty(\R^d) \hookrightarrow \Ss(\R^d)
+	\end{align*}
+	are continuous. As a result, $\Ss'(\R^d) \hookrightarrow \Dd'(U)$. That is, distributions are a larger or more general class than tempered distributions.
+\end{observation}
+Of course, not all smooth functions have compact support. Other (in this case Fréchet) spaces of smooth functions are
+\begin{align*}
+	C^\infty(U)                & :=\set{\varphi: \norm{\varphi}_j:= \sup_{\abs{\alpha} \leq j}  \norm{D^\alpha \varphi}_{L^\infty(U)}<\infty,\quad \forall k \in \mathbb{N} }                  \\
+	C^\infty_{\mathrm{loc}}(U) & :=\set{\varphi: \norm{\varphi}_{k,K}:= \sup_{\abs{\alpha} \leq k}  \norm{D^\alpha \varphi}_{L^\infty(K)}<\infty,\quad \forall k \in \mathbb{N}, K \subset U }
+\end{align*}
+Where, we give them respectively the topologies generated by $\norm{\cdot}_k$ and $\norm{\cdot}_{k,K}$.
+
+
+An equivalent characterization of $\Dd'(U)$ (see \cite{taylor2013partial} page 241
+) is that,  $\omega \in  \Dd'(U)$ if and only if for all $\varphi \in C_c^\infty(U)$ the operator $\varphi w$ defined by \begin{align}\label{equiv}
+	(f, \varphi w):= (\varphi f, w), \quad\forall f \in C^\infty(U),
+\end{align}
+is continuous on $C^\infty(U)$.
+\subsection{Locally integrable functions as distributions}%
+In our post on the Fourier transform \href{https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=One-,may,-verify%20that%20we}{we saw} that integrable functions could naturally be considered as tempered distributions. The analogous is true for distributions. In this case, since our test functions are compactly supported, the functions we pair them up with only need to be locally integrable. We recall the definition
+
+\begin{definition}
+	Given $p\in [1,\infty]$ we write $L^p_{\mathrm{loc}}(U)$ for the space of \textbf{locally $p$ integrable functions},
+	\begin{align*}
+		L^p_{\mathrm{loc}}(U):= \set{f: \norm{f}_{L^p(K)}< \infty, \,\text{   for all compact }  K \subset U}.
+	\end{align*}
+	And endow it with the \href{https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=together-,with,-a%20countable%20family}{topology generated by the family of seminorms}
+	\begin{align*}
+		\rho_{K_n,p}(f):= \norm{f}_{L^p(K_n)}.
+	\end{align*}
+	Where $K_n$ are selected such that
+	$\bigcup_{n \in \N} K_n =U$.
+\end{definition}
+Note that $L^q_{\mathrm{loc}}(U) \subset L^p_{\mathrm{loc} }(U)$ for all $q \leq p$.
+\begin{exercise}
+	Show that $L^p_{\mathrm{loc} }(U)$ is a Fréchet space.
+\end{exercise}
+\begin{hint}
+	The topology is \href{https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=together-,with,-a%20countable%20family}{metrizable} as the family of seminorms is countable. By Exercise \ref{convergence TVS}  if $f_n \in L^p_{\mathrm{loc}}(U)$ is Cauchy then $f_n$ is Cauchy for all  $L^p(K)$ $D^\alpha \varphi_n $ so converges to some $f_K \in L^p(K)$. Show that $f_K= \restr{f}{K}$ where $f \in L^p_{\mathrm{loc}}(U)$    to conclude the proof.
+\end{hint}
+\begin{theorem}[Locally integrable functions as distributions]\label{motivation}
+	The mapping
+	\begin{align*}
+		T:L^1_{\mathrm{loc}}(U) & \hookrightarrow  \Dd'(U) \\
+		u                       & \longmapsto     T_u
+		.\end{align*}
+	Defined by
+	\begin{align}\label{duality}
+		(\varphi,T_u):= \int_{U}\varphi u   , \quad\forall \varphi\in C_c^\infty(U).
+	\end{align}
+	Is injective and continuous.    \end{theorem}
+\begin{proof}
+	We begin by showing that $T_u \in \Dd '(U)$. Firstly, the integral in \eqref{duality} is finite as $\varphi$ has compact support. Secondly, if we write $K$ for the support of  $\varphi$,   it holds that
+	\begin{align*}
+		(f,\varphi u)= \int_{K}\varphi f u \leq \norm{u}_{L^1(K)} \norm{\varphi f}_{C^0_c(K)} .
+	\end{align*}
+	Which, by our equivalent characterization of $\Dd'(U)$  in \eqref{equiv} shows that $T_u \in  \Dd'(U)$. We now show that the identification is injective.  That is, if
+	\begin{align*}
+		\int_{U}\varphi u=0 , \quad\forall \varphi \in C_c^\infty(U) .
+	\end{align*}
+	Then $u=0$. Consider a compact set $K \subset U$ and write  $g$ for the extension of $\mathrm{sign}(u) $ by zero outside of  $K$. Clearly $g \subset L^1(\R^d)$. Consider an approximation to the identity $\phi_n $ (see Appendix \ref{smooth section} ) and set
+	\begin{align*}
+		\varphi_n :=  g*\phi_n.
+	\end{align*}
+	By the approximation and smoothing of Propositions \ref{app pn}-\ref{smooth} we obtain a bounded sequence with $\varphi_n \subset C_c^\infty(U)$ for $n$ large enough and such that
+	\begin{align*}
+		\lim_{n \to \infty}\varphi_n =g \in L^1(\R^d) ; \quad \norm{\varphi_n}_{L^\infty(\R^d)} \leq \norm{g}_{L^\infty(\R^d)}=1.
+	\end{align*}
+	By the first part of the above, we may take a subsequence $\varphi_{n_k}$ converging to $g$ almost everywhere, and by the second we may apply the dominated convergence theorem to obtain that
+	\begin{align*}
+		0= \lim_{k \to \infty}\int_{U}\varphi_{n_k} u=\int_{K}\abs{u}.
+	\end{align*}
+	As a result, $u=0$ vanishes on  $K$. Since $K$ was any compact subset of $U$  and every open set can be written as a union of compact sets we conclude that $u=0$ as desired.
+	The continuity of  $T$ follows from the estimate
+	\begin{align*}
+		(\varphi,T_{u} -T_v)\leq \norm{\varphi}_{C_c^k(K)}\norm{u-v}_{L^1_{\mathrm{loc}}(U)}.
+	\end{align*}
+	Where $\varphi \in C_c^\infty(U)$ has support $K$ (remember we are considering the weak-$\star$ topology on $\Dd'(U)$).
+\end{proof}
+Due to the above immersion, we will naturally consider $L^1_{\mathrm{loc}}(U)$ as a subspace of $\Dd'(U)$.    In particular, any subspaces of $L^1_{\mathrm{loc} }(U)$ such as $L^p(U)$ or  $C^\infty(U)$ can also be considered as distributions. \begin{exercise}
+	Show that the $L^1_{\mathrm{loc}}(U)$ is not closed in $\Dd'(U)$  .\end{exercise}
+\begin{hint}
+	Show that an approximation to the identity converges to a Dirac delta $ \delta _0 \in \Dd'(U)$. However $\delta _0 \not\in L^1_{\mathrm{loc}}(U) $.
+\end{hint}
+\subsection{Support of a distribution}
+In the continuous case, the support of a function is well-defined as the smallest closed set outside of which the set is zero. However, when working with an equivalence class of functions the definition must be amended (consider for example the support of $0=1_{\Q}$). This is resolved by the following definitions.
+\begin{definition} We say that a distribution $w \in \Dd'(U)$ \textbf{vanishes} on $V \subset U$ if
+	\begin{align*}
+		(\varphi, w)=0 , \quad\forall \varphi \in C_c^\infty(U) \text{ with } \supp{\varphi} \subset V  .
+	\end{align*}
+	And write
+	\begin{align*}
+		w =0 \text{ on } V.
+	\end{align*}
+
+\end{definition}
+If a function vanishes on a collection of sets it also vanishes on their union, this extends to distributions.
+\begin{lemma}\label{biggest vanish}
+	Let  $\set{U_\alpha}_{\alpha \subset I} $ be a collection of open sets in $U$ and suppose that
+	\begin{align*}
+		w=0 \text{ on  } U_\alpha , \quad\forall \alpha \in I.
+	\end{align*}
+	Then $w$ vanished on  $U:=\bigcup_{\alpha \in  I}U_\alpha$.
+\end{lemma}
+\begin{proof}
+	Let $\varphi$ have support in $U$. Then,     by compactness, we can extract a finite covering $\set{U_i}_{i=1}^n $ of $\supp{\varphi} $. Let $\set{\rho _i}_{i=1}^n $ be a partition of unity  subordinate to $U_i$ (see Appendix \ref{local to global}). Then
+	\begin{align*}
+		(\varphi,\omega)=\qt{\sum_{i=1}^n \rho _i \varphi,w }=\sum_{i=1}^n (\rho _i \varphi,w )=0 .
+	\end{align*}
+	Since $\varphi$ was any test function supported in $U$ this concludes the proof.
+\end{proof}
+By the just proved Lemma \ref{biggest vanish} we see that there is a largest set on which $w$ vanishes. As a result, we can make the following definition.
+\begin{definition}\label{support def}
+	Let $w \in C_c^\infty(U)$ and let  $V$ be the largest open set on which  $w$ vanishes. Then, we define the \textbf{support} of $w$ as
+	\begin{align*}
+		\supp{w}= V^c .
+	\end{align*}
+\end{definition}
+Since $L^1_{\mathrm{loc}}(U)$ is naturally included in  $\Dd'(U)$ we obtain in particular the definition of support of a function $f \in L^1_{\mathrm{loc}}(U)$.
+\begin{exercise}
+	If  $f \in L^1_{\mathrm{loc}}(U)$ the support of $f$ is the complementary of the largest open set on which  $f$ is  $0$ almost everywhere. In particular, if $f$ is continuous, the (distributional) support of  $f$ coincides with the classical support of  $f$. \end{exercise}
+\begin{hint}
+	We saw in Theorem \ref{motivation} that $f$ is  $0$ almost everywhere on some open set if and only if it integrates to $0$ against any test function on the open set. This shows the first part and the second follows immediately.
+\end{hint}
+
+\section{Sobolev spaces}
+Now that we have built the space of distributions we can define weak derivatives of test functions just as we did with tempered distributions.
+\begin{definition}
+	Given $w \in \Dd'(U)$ we define the \textbf{(weak) $\alpha$-th derivative} by
+	\begin{align*}
+		(u,D^\alpha \omega):=(-1)^{\abs{\alpha} }(D^\alpha u, \omega).
+	\end{align*}
+\end{definition}
+\begin{exercise} Show that $D^\alpha w \in\Dd'(U)$.
+\end{exercise}
+\begin{hint}
+	Show that $D^\alpha$ is continuous on $\Dd(U)$ by using that $\norm{\cdot }_{C^k(U)}$ are restrictable seminorms. Conclude by using that $D^\alpha$ defined on $\Dd'(U)$ is the \href{https://en.wikipedia.org/wiki/Transpose_of_a_linear_map}{adjoint} of $D^\alpha$ defined on $\Dd(U)$
+\end{hint}
+
+A prerequisite for the definition to make sense is that the notion corresponds to that of classical derivative.
+\begin{exercise} Let $u \in C_{\mathrm{loc}}^1(U)$ have classical derivatives $u^{(i)}$. Then $u^{(i)}= \partial_i u $.
+\end{exercise}
+\begin{hint}
+	By definition of weak derivatives and the chain rule, we have the distributional equality
+	\begin{align*}
+		T_{u^{(i)}}-T_{\partial _i u}=T_{u^{(i)}-\partial _i u}=0 \in \Dd'(U)   .
+	\end{align*}
+	The result follows by the injectivity of $T$.
+\end{hint}
+\begin{definition}[Sobolev spaces]\label{sobolev def}
+	Given an open set $U \subset \R^d$, $k \in \N$ and $p \in [1,\infty]$  we define the \textbf{Sobolev space}
+	\begin{align*}
+		W^{k,p}(U):=\set{ u: D^{\alpha}u \in L^p(U) \hookrightarrow \Dd'(\R^d), \quad\forall \abs{\alpha}\leq k   } .
+	\end{align*}
+	Where $L^p(U)$ is identified as a subspace of  $\Dd'(U)$ by Theorem \ref{motivation}. We give $W^{k,p}(U)$ the norm
+	\begin{align*}
+		\norm{u}_{W^{k,p}(U)}&:=\sum_{\abs{\alpha}\leq k } \norm{D^\alpha u}_{L^p(U)}.        \end{align*}
+\end{definition}
+That is, $W^{k,p}(U)$ is the space of $k$-times (weakly) differentiable functions with derivatives in $L^p(U)$. An equivalent norm that is also sometimes used is
+\begin{align*}
+	\norm{u}_{W^{k,p}(U)}\sim \sum_{j=1}^k \norm{\nabla^j u}_{L^p(U\to \R^{d^j})} .
+\end{align*}
+
+
+
+The local Sobolev spaces $W^{k,p}_{\mathrm{loc}}(U)$ are defined similarly, where we now only require that
+\begin{align*}
+	D^\alpha u \in L^p_{\text{loc}}(U) , \quad\forall \abs{\alpha}\leq k .
+\end{align*}
+And now generate the topology by local seminorms analogously to $L^p_{\mathrm{loc}}(U)$.
+
+
+
+\begin{theorem}[Completeness of Sobolev spaces]\label{completeness} For all  $k \in \N$ and $p \in [1,\infty]$ both  $W^{k,p}(U)$ and $W^{k,p}_{\mathrm{loc}}(U)$ are Banach spaces. If $p \in (1,\infty)$ these spaces are also reflexive.
+\end{theorem}
+\begin{proof}
+	Let $\set{u_n}_{n=1}^\infty  $ be a Cauchy sequence in  $W^{k,p}(U)$. Then, by definition of the norm on $W^{k,p}(U)$ the sequence of derivatives $D^\alpha u_n$ is Cauchy in $L^p(U)$ for  each $\abs{\alpha}\leq k $ and since $L^p(U)$ is complete, converge to some functions $u^{\alpha}$
+	\begin{align*}
+		\lim_{n \to \infty} D^\alpha u_n = u^{(\alpha)} \in L^p(U) , \quad\forall \abs{\alpha} \leq k  .
+	\end{align*}
+	To conclude, it suffices to show that  $u:= u^{(0)}$ verifies
+	\begin{align*}
+		D^\alpha u= u^{(\alpha)}.
+	\end{align*}
+	This holds as, for every test function $\varphi \in  \Dd(U)$
+	\begin{align*}
+		\int_{U} u^{(\alpha)}\varphi =\lim_{n \to \infty}\int_{U} u_n^{(\alpha)}\varphi=\lim_{n \to \infty}(-1)^{\abs{\alpha} }\int_{U} u_nD^\alpha\varphi=(-1)^{\abs{\alpha} }\int_{U} uD^\alpha\varphi  .
+	\end{align*}
+	Where the first and last inequality follows from the continuous immersion of $L^p(U)$ in $\Dd'(U)$ (Hölder's inequality). Reflexivity follows from the fact that the mapping
+	\begin{align*}
+		T: W^{k,p}(U) & \longrightarrow (L^p(U))_{\abs{\alpha}\leq k }
+		\\
+		u             & \longmapsto     (D^{\alpha}(u))_{\abs{\alpha}\leq k }
+		.\end{align*}
+	Is an isometry, so $\Im(T)$ is closed in the reflexive Banach space $(L^p(U))_{\abs{\alpha}\leq k }
+	$ and thus reflexive (see \cite{brezis2011functional} page 70).
+	The case of $W^{k,p}_{\mathrm{loc}}(U)$ is proved identically now working with the local seminorms.
+\end{proof}
+We now show some relevant properties of the weak derivative all of which are to be expected knowing the classical case. These can be greatly generalized with tools we will later develop.
+\begin{proposition}[Properties]\label{properties}Let $u \in W^{k,p}(U)$. Then it holds that
+	\begin{enumerate}
+
+		\item Leibniz rule: given $\varphi \in C^1(U)$ it holds that
+		      \begin{align*}
+			      \partial _{i} (u \varphi)= \partial_i u \varphi+ u \partial _i \varphi .
+		      \end{align*}
+
+		\item The translation $\tau_y u(x):=u(x-y) \in W^{k,p}(U)$ with $D^\alpha \tau_y u = \tau_y D^\alpha u$.
+		\item  Let $u \in W^{k,p}(\R^d)$ and $v \in L^1(\R^d)$. Then
+		      \begin{align*}
+			      D^\alpha (v*u)= v* D^\alpha u
+		      \end{align*}
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	Points 1 and 2 follow by the definition of weak derivative and the relevant properties for classical derivatives. The third property follows from the second as, by Fubini,
+	\begin{align*}
+		 & (v*u,D^\alpha\varphi )  = \int_{\R^d}v(y)\qt{\int_{\R^d}D^\alpha \varphi(x) u(x-y) \d x } \d y \\&
+		=(-1)^{\abs{\alpha} } \int_{\R^d}v(y)  \qt{\int_{\R^d}\varphi(x) D^\alpha u(x-y) \d x } \d y             =(-1)^{\abs{\alpha} }(v*D^\alpha u, \varphi).
+	\end{align*}
+\end{proof}
+A natural question is what relationship there is between Sobolev functions and classical derivatives. For example, in $1$ dimension a classical result is that  $u \in W^{1,1}(a,b)$ if and only if $u$ is absolutely continuous and has derivative almost everywhere. A more general result is as follows.
+\begin{proposition}[Absolute continuity on lines] The following are equivalent
+	\begin{itemize}
+		\item $u \in W^{1,p}_{\mathrm{loc}}(U)$.
+		\item $u \in L^p_{\mathrm{loc}}(U)$ is almost everywhere differentiable with classical derivatives $u^{(i)} \in L^p_{\mathrm{loc}}(U)$ and, given $V \Subset U$ it holds that $u$ is absolutely continuous on almost all (with respect to the Lebesgue measure on $\R^{d-1}$) line segments in $V$ parallel to the coordinate axis.
+	\end{itemize}
+	The above holds true if we replace $W^{1,p}_{\mathrm{loc}}(U),L^p_{\mathrm{loc}}(U)$ with their none local counterparts $W^{1,p}(U),L^p(U)$.
+\end{proposition}
+We omit the proof which can be found in \cite{Juha} pages $39-43$. The next exercise show that, perhaps somewhat unexpectedly, to have $u \in  W^{1,p}(U)$ it is not sufficient to require that $u$ is differentiable almost everywhere with integrable derivatives.
+\begin{example}
+	The \href{https://en.wikipedia.org/wiki/Cantor_function}{devil's staircase} $c$ is differentiable almost everywhere with $c'=0$. \end{example}
+As a result, if $c \in W^{1,p}(0,1)$ then $u$ would be constant (which it is not). In fact, $c \not\in W^{1,p}(0,1)$ as it is not absolutely continuous.
+
+
+
+
+\section{Smooth approximation of Sobolev functions}
+The definition of weak derivative requires one to integrate against smooth functions whenever trying to prove some property holds. This is somewhat cumbersome. One would much rather
+\begin{enumerate}
+	\item Work pretending all Sobolev functions are (classically) smooth.
+	\item Manipulate them according to the standard rules of calculus.
+	\item Obtain a result that holds for all Sobolev functions (and not just the classically smooth ones).\end{enumerate}
+This process can be rigorously justified by the density of various spaces of smooth functions in Sobolev spaces. Or to use Tao's terminology, by giving ourselves \href{https://terrytao.wordpress.com/2009/02/28/tricks-wiki-give-yourself-an-epsilon-of-room/}{an epsilon of room}.
+
+In this section, we prove the relevant results. These rely heavily on the analogous density results for functions in $L^p(U)$ (see Appendix \ref{smooth section}). As a result, they will not when $p=\infty$. We start without making any assumptions on $U$ and obtain two local-type results. Throughout this section we will often be switching between different open sets and, if following the proofs, making some drawings is recommended.
+\begin{theorem}[Local approximation by smooth functions]\label{local} Let  $u \in W^{k,p}(U)$ for $p < \infty$, denote its extension by zero $\tilde{u}$  and let $\set{\phi_n}_{n=1}^\infty $ be an approximation to unity. Then
+	\begin{align*}
+		u=\lim_{n \to \infty} \tilde{u}*\phi_n  \in W^{k,p}(V) , \quad\forall V \Subset U.
+	\end{align*}
+	As a result, for any $V \Subset U$,
+	\begin{align*}
+		\overline{\restr{C_c^\infty(\R^d)}{V}}=\restr{W^{k,p}(U)}{V}\quad \text{ and } \quad \overline{\restr{C_c^\infty(\R^d)}{U}}=W_{\mathrm{loc}}^{k,p}(U)
+	\end{align*}
+
+\end{theorem}
+\begin{proof}
+	Given a compactly embedded set $V \Subset U$ we can take $n$ large enough so that  $V+  B \qt{0, \frac{1}{n}} \subset U$ and as a result, the convolution  $\varphi_n:= \tilde{u} * \phi_n$  verifies (see Observation \ref{local smoothing})
+	\begin{align*}
+		\varphi_n= u* \phi_n \quad  \text{ on  } V .
+	\end{align*}
+	Thus, by the third property \ref{properties}, for all $\abs{\alpha} \leq k $
+	\begin{align*}
+		D^\alpha \varphi_n = D^\alpha u * \phi_n \quad \text{ on } V.
+	\end{align*}
+	Taking limits we conclude from Proposition \ref{app pn} that
+	\begin{align*}
+		\lim_{n \to \infty}D^\alpha \varphi_n =D^\alpha u \in L^p(V) .
+	\end{align*}
+	To conclude density of $C_c^\infty(\R^d)$ in $\restr{W^{k,p}(U)}{V}$  consider $K$ such that
+	\begin{align*}
+		V \subset K; \quad  K+ B_{1 /n}\subset U.
+	\end{align*}
+	And a bump function $\eta_V \in C_c^\infty(\R^d)$ that is equal to $1$ on  $V$ and is supported in $K$ (this is possible by Uryshon's lemma and a convolution). Then,
+	\begin{align*}
+		\varphi_{V,n}:= \varphi_n \eta _V \in C_c^\infty(\R^d); \quad \lim_{n \to \infty}\varphi_{V,n}=u \in W^{k,p}(V).
+	\end{align*}
+	The density of $C_c^\infty(\R^d)$ in  $W^{k,p}_{\mathrm{loc}}(U)$ follows by taking $V_n$ converging to  $U$ and  $u_n:= \varphi_{V_n,n}$ as then, for every compactly included $W \Subset  U$
+	\begin{align*}
+		\lim_{n \to \infty}u_{n}=u \in W^{k,p}(W) .
+	\end{align*}
+	This concludes the proof as by Exercise \ref{convergence TVS} local convergence is equivalent to convergence on every compactly included subset.
+\end{proof}
+\begin{observation}
+	Note that, without further assumptions on $U$ it is impossible to get a global approximation by smooth functions defined on all of $\R^d$. This is because, the convolution $f* \phi_n$ can only be defined on
+	\begin{align*}
+		U_{1/n}:= \set{x \in U: d(x,\partial U)> \frac{1}{n}} .
+	\end{align*}
+\end{observation}
+The above issue disappears when $U =\R^d$. This shows that
+\begin{theorem}[Global approximation in $\R^d$]\label{approx rd} It holds that for all $p<\infty$,
+	\begin{align*}
+		\overline{C_c^\infty(\R^n)}=W^{k,p}(\R^d).
+	\end{align*}
+\end{theorem}
+\begin{proof}
+	Let $\eta   \in C_c^\infty(\R^d)$ be equal to  $1$ on  $B_1$ and set $\eta  _n(x):=\eta  (x /n)$.  Then, given $u \in W^{k,p}(\R^n)$ and a smooth approximation to unity $\phi_n$ we obtain that, by the triangle inequality
+	\begin{align*}
+		u= \lim_{n \to \infty}(u*\phi_n)\eta  _n \in W^{k,p}(\R^d).
+	\end{align*}
+\end{proof}
+
+
+
+The following Theorem shows a global-type approximation.
+\begin{theorem}[Meyers-Serrin: local till boundary approximation]\label{Meyers}
+	Let $U \subset \R^d$ be open, then for all $p<\infty$
+	\begin{align*}
+		\overline{C^\infty_{\mathrm{loc}}(U)\cap W^{k,p}(U)}=W^{k,p}(U).
+	\end{align*}
+\end{theorem}
+\begin{proof}The proof is an instructive way of using a partition of unity to piece together a local result (in this case Theorem \ref{local}) to get a global one. Let $\epsilon >0$ and consider an open covering $\set{V_i}_{i=0}^\infty $ of $U$ with $V_0 =\emptyset$ and $V_{i} \Subset V_{i+1}$. By Theorem \ref{partition} we may obtain a partition of unity $\rho _i$ subordinate to the ``rings'' $U_{i}:= V_{i+1}\setminus \overline{V_{i-1}}$ (the trickery with the indices is so that the $U_i$ actually  cover $U$). Where we relabel so that
+	\begin{align*}
+		\supp{\rho _i}\subset U_i .
+	\end{align*}
+	We have that $\rho_i u \in C_c^\infty({V_{i+1}})$ with $V_{i+1} \Subset U$ so by the local approximation in Theorem \ref{local} we can find $n_i$ such that
+	\begin{align*}
+		\norm{\phi_{n_i}*(\rho_i u)-\rho_i u}_{W^{k,p}(U)}=\norm{\phi_{n_i}*(\rho_i u)-\rho_i u}_{V_{i+1}}\leq \frac{\epsilon }{2^i} .
+	\end{align*}
+	Now we obtain the global approximation by taking
+	\begin{align*}
+		\varphi:= \sum_{i=1}^\infty \phi_{n_i}* (\rho_i u) \in C_{\mathrm{loc}}^\infty(U) .
+	\end{align*}
+	As then
+	\begin{align*}
+		\norm{\varphi-u}
+		_{W^{k,p}(U)}\leq\sum_{i=1}^\infty \norm{\phi_{n_i}*(\rho_i u)-\rho_i u }_{W^{k,p}(U)}\leq \sum_{i=1}^\infty \frac{\epsilon }{2^i}=\epsilon   .
+	\end{align*}
+\end{proof}
+Note that Theorem \ref{Meyers} is not strictly stronger than theorem \ref{local} as it is not, in general, possible to extend functions in $C^\infty_{\mathrm{loc}}(U)$ to $C_c^\infty(\R^n)$. As a corollary of Meyers-Serrin's theorem, we obtain an equivalent definition of $W^{k,p}(U)$.
+\begin{exercise}\label{eq def} Let $U \subset \R^d$ be an open set and $p<\infty$. Then $W^{k,p}(U)$ is equal to the completion of  $C^\infty_{\mathrm{loc}}(U)\cap W^{k,p}(U)$ with the $\norm{\cdot }_{W^{k,p}(U)}$ norm.
+\end{exercise}
+\begin{hint}
+	Use that $W^{k,p}(U)$ is complete and that the completion of a metric space is unique.
+\end{hint}
+
+Before  Theorem \ref{Meyers} was proved, both our original definition  \ref{sobolev def} (distributions with derivatives in $L^p(U)$) and the one in Corollary \ref{eq def} (closure of smooth functions with Sobolev norm) were used as the definition of $W^{k,p}(U)$. But it was unclear which was the ``correct'' Sobolev space. This debate was settled by Meyers and Serrin who proved that, as we just showed, both are equal.
+
+We now show an example of how these kinds of density results can be useful. The following generalizes the second point of Proposition \ref{properties}
+\begin{exercise}[Change of variables]\label{change of variables}
+	Let $V,U$ be open in  $\R^d$ and $\Phi: V \simeq U$ be bijective with $ \Phi \in C^k(V \to \R^d), \Phi^{-1} \in C^1(U\to \R^d)$. Then for any $u \in  W^{k,p}(U)$ it holds that $u \circ\Phi \in W^{k,p}(V)$ and the usual chain rule holds. For example
+	\begin{align}\label{chain}
+		\partial _i (u\circ \Phi) = \sum_{j=1}^d (\partial _i \Phi_j)(\partial _j u_j)\circ \Phi_j  .
+	\end{align}
+\end{exercise}
+\begin{hint}
+	Give yourself an $\epsilon $ of room.
+	By induction, it suffices to consider the case $k=1$.We can approximate $u$ on each compact  $K \subset U$ by a sequence of functions $u_n \in C_c^\infty(\R^d)$. For $u_n$ the equality \ref{chain} holds. Furthermore, by a change of variables, \eqref{chain} is continuous in $u\in W^{1,p}(\Omega)$ so we may pass to the limit and obtain \eqref{chain} for $u$ on $K$. Since $K$ was any, the equality also holds on the whole of $U$.
+\end{hint}
+In Exercise \ref{change of variables} it is important that $\Phi$ is diffeomorphic so that composition with $\Phi$ is continuous.
+\begin{exercise}
+	Show that the conclusion of Exercise \ref{change of variables} is false if we only assume that $\Phi \in C^k(\R^d)$ and do not impose invertibility.
+\end{exercise}
+\begin{hint}
+	Divide by zero.
+\end{hint}
+
+Now we provide a final global approximation result in the case where the domain is smooth (see Appendix \ref{boundary} for a review on manifolds with boundary) and bounded.
+\begin{theorem}[Global, smooth on boundary approximation]\label{global} Let  $\Omega$ be a \textbf{bounded} open domain with  \textbf{$C^1$ boundary}, then for all $p<\infty$.
+	\begin{align*}
+		\overline{\restr{C_c^\infty(\R^d)}{\Omega}}= W^{k,p}(\Omega).
+	\end{align*}
+\end{theorem}
+\begin{proof}
+	The idea will be to locally translate points close to the boundary further into $\Omega$ so that we can convolve with an approximation of unity and then recover the global case with a partition of unity. We begin by ``straightening the boundary''. That is, since $ \partial \Omega$ is $C^1$,  given $x_0 \in \partial  \Omega$ there exists an open set $V \subset \R^d$ and a function  $\gamma \in  C^1(\R^{d-1})$ such that, relabeling  and flipping the last coordinate axis if necessary
+	\begin{align*}
+		V \cap \Omega = \set{x \in V :x_d  >\gamma (x_1,\ldots,x_{d-1})}  .
+	\end{align*}
+	By considering a translation in the last coordinate $e_d=(0,\ldots,0,1)$ and its mollification by an approximation of unity $\phi_n$
+	\begin{align*}
+		u_n(x):= u\qt{x+ \frac{2}{n}e_d }; \quad \varphi_n:= u_n *\phi_n .
+	\end{align*}
+	For $n$ big enough we have that  $\varphi$ is well defined ans smooth on $W_0:=B_{\frac{1}{n}}(x_0)$. Since translation is continuous on $L^p(U)$ for  $p \in [1,\infty)$ and by the behavior of differentiation with convolution  (see Proposition \ref{properties}), for $n$ large enough
+	\begin{align*}
+		\norm{u -\varphi_n}_{W^{k,p}(W_0)}\leq \norm{u -u_n}_{W^{k,p}(W_0)}+\norm{u_n -u_n*\phi_n}_{W^{k,p}(W_0)}\leq \epsilon.
+	\end{align*}
+	Now, since $\Omega$ is bounded $\partial \Omega$ is compact we may extract a finite covering $\set{W_i:=B_{\frac{1}{n_i}}(x_i)}_{i=0}^n $ of  $\partial \Omega$ and functions $\set{\varphi_i}_{i=1}^n$ smooth on $W_i$ such that
+	\begin{align*}
+		\norm{u -\varphi_n}_{W^{k,p}(W_i)}\leq \frac{\epsilon}{n+2}  .
+	\end{align*}
+
+	Now we take an open set $W_{n+1} \Subset \Omega$ such that $\set{W_i}_{i=0}^{n+1} $ cover $\Omega$. By the local approximation of Theorem \ref{local} we know we can approximate  $u$ on  $W_{n+1}$ by some $\varphi_{n+1} \in C_c^\infty(\R^d)$
+	\begin{align*}
+		\norm{u-\varphi_{n+1}}_{W^{k,p}(W_{n+1})}\leq\frac{\epsilon}{n+2} .
+	\end{align*}
+	Finally, we take a smooth partition of unity $\set{\rho _i}_{i=0}^{n+1}$ subordinate to $\set{W_i}_{i=0}^{n+1} $ and a bump function $\eta \in C_c^\infty(\R^d)$ which is equal to $1$ on  $\Omega$ and is supported on $\bigcup_{i=0}^{n+1} W_i$ (see example \ref{bump example2}) and set
+	\begin{align*}
+		\varphi:= \eta \sum_{i=0}^{n+1} \rho _i \varphi_i \in  C^\infty_c(\Omega) .
+	\end{align*}
+	This gives the desired approximation
+	\begin{align*}
+		\norm{u-\varphi}_{W^{k,p}(\Omega)} \leq \sum_{i=0}^{n+1} \norm{\rho _i(u-\varphi_i)}_{W^{k,p}(W_i)} \leq  \epsilon  .
+	\end{align*}
+	This concludes the proof.
+\end{proof}
+In contrast to Theorem \ref{Meyers}, Theorem \ref{global} shows that Sobolev functions on smooth bounded domains can be approximated by functions that are also \textbf{smooth on the boundary} of the domain $\Omega$. This will prove fundamental in the next section. Both to extend them to the whole of $\R^d$ and to restrict them to $\partial \Omega$.
+\section{Extensions and restrictions}\label{extension section}
+Using the approximation of Sobolev functions by functions smooth on the boundary we can extend  functions in $W^{k,p}(\Omega)$ to the whole of  $\R^d$. However, the extension is not unique.
+\begin{theorem}[Extension theorem]\label{extension}
+	Let $\Omega\subset \R^d$ be a \textbf{bounded} open set with \textbf{$C^k$} \textbf{ boundary } where $k \in \N_+$.  Then for all $ p \in [1,\infty)$ . Then, given an open set $W$ with $\Omega \Subset W$ there exists a continuous operator
+	\begin{align*}
+		E: W^{k,p}(\Omega)\to W^{k,p}(\R^d); \quad E: C^{k}(\Omega)\to C^k(\R^d).
+	\end{align*}
+	such that
+	\begin{align*}
+		Eu = \begin{cases}
+			     u \quad & \text{ on  }  \Omega \\
+			     0 \quad & \text{ on }  W^c
+		     \end{cases}.
+	\end{align*}
+	We call $E u$ an  \textbf{extension}  of $u$ to $\R^n$.
+\end{theorem}
+\begin{proof}
+	We work first in the upper half-space (the canonical example of a manifold with boundary)
+	\begin{align*}
+		\Hh^d =\set{x=(x_1,\ldots,x_d) \in \R^d : x_d \geq 0} .
+	\end{align*}
+	That is, we suppose that there is some open set $\Omega' \subset  \R^d$ such that
+	\begin{align*}
+		\Omega=\Omega' \cap \Hh^d_{>0}.
+	\end{align*}
+	Where
+	\begin{align*}
+		\quad \Hh^d_{>0} =\mathrm{int}(\Hh^d)=\set{x=(x_1,\ldots,x_d) \in \R^d : x_d >0} .
+	\end{align*}
+	By Theorem \ref{global} we also give ourselves an epsilon of room by supposing that $u \in C^k(\overline{\Omega})$. We define the extension of $u$ to $\Omega'$ as
+	\begin{align*}
+		Eu(x) = \begin{cases}
+			        u(x) \quad                                 & x_{d}                                 \geq 0      \\
+			        \sum_{j=1}^{k+1} a_j  u_j(x - j e_d) \quad & x_d                                           < 0
+		        \end{cases}.
+	\end{align*}
+	We will have $Eu \in C^k(\Omega')$ as long as we can get the derivatives to match up on the boundary $\{x_d=0\}\cap \overline{\Omega'}$. That is,  as long as $a_j$ verify
+	\begin{align*}
+		\sum_{j=1}^{k+1}(-j)^l a_j =1 , \quad l=0,1,\ldots,k .
+	\end{align*}
+	The above is a system of $k+1$ equations with $k+1$-unknowns $a_j$. Its matrix is the \href{https://en.wikipedia.org/wiki/Vandermonde_matrix}{Vandermonde matrix} (which is invertible). As a result, the system may be solved to extend $u$. By the form of $Eu$ we have the bound
+	\begin{align*}
+		\norm{Eu}_{W^{k,p}(\Omega')} \leq c\norm{u}_{W^{k,p}(\Omega)} .
+	\end{align*}
+	Where $c:= (k+1)^{l+1}\max \set{1,\norm{a}_\infty}$. Working now in the general case for $\Omega$, we may cover the compact $\overline{\Omega}$ by a finite amount of bounded open sets $\Omega_i \subset W$ such that
+	\begin{align*}
+		\Phi_i : \Omega_i \xrightarrow{\sim} \Omega_i'\quad \text{and}  \quad \Phi_i : \Omega_i \cap \Omega \xrightarrow{\sim} \Omega_i' \cap \Hh^d .
+	\end{align*}
+	Where $\Omega_i'$ are open in  $\R^{d}$ and $\Phi_i$ are $C^k$ diffeomorphisms. By the previous case, we can extend  $u'_i:=u \circ \Phi_i^{-1} \in C^k (\Omega_i' \cap \Hh^d)$ to functions $\widetilde{u'_i} \in C^k(\Omega_i')$ and then transform back to the original space to get
+	\begin{align*}
+		\tilde{u_i}:= \widetilde{u'_i} \circ \Phi_i \in C^k(\Omega_i).
+	\end{align*}
+	Where
+	\begin{align}\label{bound}
+		\norm{\tilde{u_i}}_{W^{k,p}(\Omega_i)}\lesssim  \norm{u_i}_{W^{k,p}(\Omega)}.
+	\end{align}
+	The hidden constant depending only on  $c,\norm{\Phi_i}_{C^k(\Omega_i)}\norm{\Phi_i^{-1}}_{C^k(\Omega_i')}$. Next, using a partition of unity subordinate to $\set{\Omega_i}_{i=1}^n $ we glue the local extensions together to form an extension to all of $\Omega$
+	\begin{align*}
+		\tilde{u}:= \sum_{i=1}^n \rho _i{u_i} \in C^k(\Omega).
+	\end{align*}
+	The desired extension can now be obtained by multiplying $\tilde{u}$ with a bump function $\eta$ that is supported in $W$ and equal to  $1$ on  $\Omega$.
+	\begin{align*}
+		Eu := \eta \tilde{u} \in C^k(\R^d).
+	\end{align*}
+	By \eqref{bound} we have that
+	\begin{align*}
+		\norm{E u}_{W^{k,p}(\R^d)} \lesssim  \norm{u}_{W^{k,p}(\Omega)}.
+	\end{align*}
+	As a result, $E$ is a (bounded) linear operator. So far we had considered $u \in  C^k(\overline{\Omega})$. Now, since by Theorem \ref{global} the space  $C^k(\overline{\Omega})$ is dense in $W^{k,p}(\Omega)$ we may extend  $E$ to a linear operator on the whole of $W^{k,p}(\Omega)$. A verification shows that $E$ is also bounded as an operator from  $C^k(\Omega)$ to  $C^k(\R^d)$. This concludes the proof.
+\end{proof}
+\begin{exercise}[Restriction]\label{restriction} Under the conditions of Theorem \ref{extension} it holds that
+	\begin{align*}
+		W^{k,p}(\Omega)= \restr{W^{k,p}(\R^d)}{\Omega}; \quad C^{k}(\Omega)= \restr{C^{k}(\R^d)}{\Omega}.
+	\end{align*}
+	That is, functions in $W^{k,p}(\Omega),C^{k}(\Omega)$ are equal to the restriction of functions in $W^{k,p}(\R^d),C^{k}(\R^d)$ respectively.
+\end{exercise}
+\begin{hint}
+	Given $u \in W^{k,p}(\Omega)$ we can extend it to $Eu \in W^{k,p}(\R^d)$ by the just proved extension theorem \ref{extension}. By definition $u= \restr{Eu}{\Omega}$. The case $u \in C^k(\R^d)$ is identical.
+\end{hint}
+Using extensions also gives us a way to define the Sobolev spaces $H^s(\Omega)$ when the exponent $s$ is real valued.
+\begin{definition}
+	Given a \textbf{bounded} open set $\Omega$ with \textbf{boundary} of type $C^k$ with $k \in \N_+$, we define for all real $s \in [0,k]$
+	\begin{align*}
+		H^s(\Omega):=\restr{H^s(\R^d)}{\Omega} .
+	\end{align*}
+\end{definition}
+To further generalize this definition to domains where restriction is not possible one needs to use \href{https://en.wikipedia.org/wiki/Interpolation_space}{complex interpolation} (see for example \cite{taylor2013partial} pages 321-333).
+
+\section{Trace theorem}
+As we already discussed, a PDE often incorporates boundary information such as $\restr{u}{\partial \Omega}=0$. This is well defined if $u$ is continuous, however, if  $u \in  W^{k,p}(U)$, and is thus only defined \textbf{almost everywhere}, then $\restr{u}{\partial  U}$ is a priori not well defined. The following theorem remedies this issue.
+\begin{theorem}[Trace]\label{trace} Let $\Omega $ be a \textbf{bounded} open set of $\R^d$ with $C^1$  \textbf{boundary}. Then, there exists a continuous linear operator
+	\begin{align*}
+		T: W^{1,p}(U)\to L^p(\partial U) .
+	\end{align*}
+	Such that $ Tu =\restr{u}{\partial \Omega} $ for all $u \in C(\overline{\Omega}) \cap W^{1,p}(\Omega)$.
+\end{theorem}
+\begin{proof}
+	As in previous results, the trick is to suppose first $u$ is smooth, work locally, and then obtain a global result using a partition of unity and the density in Theorem \ref{global}. \\
+
+	Given $x_0 \in \partial  \Omega$ we take a open set $U \subset \R^d$ containing $x_0$. Flattening out the boundary by $\Phi : U \simeq U'$ where necessarily the boundary is preserved
+	\begin{align*}
+		\Phi: U \cap  \partial \Omega\iso U' \cap \partial  \Hh^d,
+	\end{align*}
+	and using the extension theorem \ref{extension} to extend $u':= u\circ \Phi$ to $\widetilde{u}'$ with compact support $K \subset \R^d $  we obtain by the \href{https://en.wikipedia.org/wiki/Divergence_theorem#:~:text=space%5Bedit%5D-,We,-are%20going%20to%20prove}{divergence theorem}
+	\begin{align*}
+		\int_{U'\cap \partial \Hh^d}\abs{u'}^p  \leq\int_{\partial \Hh^d} \abs{\widetilde{u}'}^p=\int_{\Hh^d} \partial_{d} \abs{\widetilde{u}'}^p\leq\int_{\Hh^d} p\abs{\widetilde{u}'}^{p-1}\abs{\partial_{d} u}   \lesssim \norm{\widetilde{u}'}_{W^{1,p}(\Hh^d)}^p  .
+	\end{align*}
+	Where in the second inequality we used the chain rule and in the last Hölder's inequality.
+	Since $\Phi^{-1}$ is $C^k$ and by the continuity of the extension we obtain what we are looking for in
+	\begin{align}\label{estimate local}
+		\norm{u}_{L^p(U \cap \partial \Hh^d)}\lesssim \norm{\widetilde{u}'}_{W^{1,p}(\Hh^d)}\lesssim \norm{u'}_{W^{1,p}(U'\cap \Hh^d)}\lesssim  \norm{u}_{W^{1,p}(U\cap \Omega)}
+	\end{align}
+	We had supposed $u$ smooth, now taking a finite covering $\set{U_i}_{i=1}^n $ of $\partial  \Omega$ (this is possible by compactness of $\partial  \Omega$) and taking a subordinate partition of unity  $\rho _i$ we conclude from \eqref{estimate local}  that
+	\begin{align*}
+		\int_{\partial \Omega} \abs{u}^p  =\sum_{i=1}^n \int_{ U_i \cap \partial \Omega} \abs{u}^p \lesssim \sum_{i=1}^n \norm{u}_{W^{1,p}(U_i \cap \Omega)}^p =\norm{u}_{W^{1,p}(U)}^p .
+	\end{align*}
+	That is,
+	\begin{align*}
+		\norm{T u}_{L^p( \partial \Omega)}\lesssim  \norm{u}_{W^{1,p}(U)} .
+	\end{align*}
+	Using Theorem \ref{global} to extend $T$ continuously to $W^{k,p}(\Omega)= \overline{\restr{C_c^\infty(\R^d)}{\Omega}}$ concludes the proof.
+\end{proof}
+\begin{definition}
+	We define the \textbf{trace} of $u \in W^{k,p}(\Omega)$ as $Tu$. We also use the notation
+	\begin{align*}
+		\restr{u}{\partial \Omega}:= Tu.
+	\end{align*}
+\end{definition}
+To get an estimate on the trace we paid $1$-degree of regularity. We can do better and only pay ${1}/{p}$ degrees of regularity. This uses the theory of \href{https://en.wikipedia.org/wiki/Trace_operator#For_p_=_1:~:text=%5Bedit%5D-,A%20more,-concrete%20representation%20of}{Sobolev–Slobodeckij spaces} which we will not develop here. In the case $p=2$ we can use Hölder spaces $H^s(\Omega)$ to get the improved result.
+\begin{theorem}
+	For all real $s> 1 /2$ the trace operator is a continuous operator
+	\begin{align*}
+		T: H^s(\Omega) \to H^{s -\frac{1}{2}}(\Omega).
+	\end{align*}
+\end{theorem}
+\begin{proof}
+	Straightening out the boundary and using the extension operator as in the trace theorem \ref{trace}, it is sufficient to work in the case where $u$ is smooth and defined on  $\Hh^{d}$.  By Fourier inversion, if we write $\xi=(\xi',\xi _d) $
+	\begin{align*}
+		\wh{Tu}(\xi ')=\int_{\R}\wh{u}(\xi) \d \xi _d .
+	\end{align*}
+	So, by Cauchy Schwartz
+	\begin{align}\label{f1}
+		\abs{\wh{Tu}(\xi )}^2\leq \int_{\R}\abs{\wh{u}(\xi)}^2\br{\xi }^{2s} \d \xi _d \int_{\R}\br{\xi }^{-2s} \d \xi _d.
+	\end{align}
+	The change of variables $\xi _d \to \br{\xi '}\xi _d$ shows that
+	\begin{align}\label{f2}
+		\int_{\R}\br{\xi }^{-2s} \d \xi _d=\br{\xi' }^{-2(s-\frac{1}{2})} \int_{\R}\br{\xi _d}^{-2s}\d \xi _d\lesssim  \br{\xi' }^{-2(s-\frac{1}{2})}
+	\end{align}
+	Where in the inequality it was used that $s> 1 /2$.     We deduce from \eqref{f1} and \eqref{f2} on taking norms that
+	\begin{align*}
+		\norm{u}_{H^{s-1 /2}(\R^{d-1})} \lesssim  \norm{u}_{H^s(\R^d)}.
+	\end{align*}
+	Which concludes the proof.
+\end{proof}
+
+
+
+A particularly useful space of functions related to the trace operator is the following
+\begin{definition}
+	We define the space of \textbf{functions with trace zero} as
+	\begin{align*}
+		W^{k,p}_0(U):=\overline{C_c^\infty(U)}\subset W^{k,p}(U).
+	\end{align*}
+	Where the closure is with respect to the topology on $W^{k,p}(U)$.
+\end{definition}
+\begin{exercise}\label{trace 0}
+	Show that for all $u \in W^{k,p}_0(\Omega)$
+	\begin{align*}
+		\restr{u}{\partial \Omega}=0.
+	\end{align*}
+\end{exercise}
+\begin{hint}
+	Use the continuity of the trace operator.
+\end{hint}
+The converse to Exercise \ref{trace 0} holds but is far from trivial.
+\begin{proposition}
+	Let $\Omega$ be a \textbf{bounded} open set with $C^1$  \textbf{boundary}. Then
+	\begin{align*}
+		W^{k,p}_0(\Omega)=\set{u \in W^{k,p}(U): Tu=0} .
+	\end{align*}
+\end{proposition}
+The proof is very technical, see \cite{evans2022partial} page 274 for the details.\\
+
+Being able to approximate functions in $W_0^{k,p}(U)$ by smooth functions compactly supported  \textbf{inside of} $U$  gives us many more tools. For example, a function $u$ in $W^{k,p}_0(U)$ can be extended by zero to obtain an element $\tl{u}$ in $W^{k,p}(\R^d)$ even for non-smooth unbounded domains.
+\begin{exercise}[Extension trace 0]
+	Let $U$ be an open set,     and define
+	\begin{align*}
+		\widetilde{u}:=\begin{cases}
+			               u & \text{ on } U   \\
+			               0 & \text{ on } U^c
+		               \end{cases}.
+	\end{align*}
+	Then
+	\begin{align*}
+		E: W_0^{k,p}(U) \to W^{k,p}(\R^d); \quad  u \to \widetilde{u}
+	\end{align*}
+	is a linear with $\norm{E}=1$.
+\end{exercise}
+\begin{hint}
+	It is immediate that $\norm{\widetilde{u}}_{W^{k,p}(\R^d)}=\norm{\widetilde{u}}_{W^{k,p}(U)}$ for $u \in C_c^\infty(U)$. As a result, we can extend $E$ by density to the closure $C_c^\infty(U)$ in $W^{k,p}(U)$. Which by definition is  $W^{k,p}_0(U)$.
+\end{hint}
+\begin{observation}
+	The fact that we can extend functions in $W^{k,p}_0(U)$ for arbitrary  $U$ allows one to derive results that when stated for the whole of $W^{k,p}(U)$ require $U$ to be smooth so that it is possible to extend $U$.
+\end{observation}
+\begin{exercise}[Integration by parts 1] Let $U$ be any open set and consider $u \in  W^{1,p}_0(U), v \in W^{1,p'}(U)$ then
+	\begin{align*}
+		\int_{U} (\partial _iu) v = -\int_{U}u \partial _i v  .
+	\end{align*}
+\end{exercise}
+\begin{hint}
+	Give yourself an epsilon of room and take limits.
+\end{hint}
+\begin{exercise}[Integration by parts 2] Let $\Omega $ be a \textbf{bounded} open set of $\R^d$ with $C^1$  \textbf{boundary} and consider $u \in  W^{1,p}(\Omega), v \in W^{1,p'}(\Omega)$ then
+	\begin{align*}
+		\int_{\Omega} (\partial _iu) v = -\int_{\Omega}u \partial _i v+ \int_{\partial \Omega} u v \textbf{n}_i  \d   .
+	\end{align*}
+	Where $\textbf{n} $ is the outward pointing unit normal vector to $\partial \Omega$.
+\end{exercise}
+\begin{hint}
+	Give yourself an epsilon of room, apply the \href{https://en.wikipedia.org/wiki/Divergence_theorem#:~:text=space%5Bedit%5D-,We,-are%20going%20to%20prove}{divergence theorem} and take limits.
+\end{hint}
+
+
+\section{Sobolev embeddings and inequalities}
+Sobolev inequalities are relationships that bound the norm of $u$ in different function spaces depending on how differentiable and integrable $u$ is. For example, such a relationship could look like
+\begin{align}\label{example}
+	\norm{u}_{W^{ l,p^* }(\Omega)}\leq \norm{u}_{W^{k,p}(\Omega)}.
+\end{align}
+By considering the rescaling $u(\lambda x)$, performing a change of variables, and taking $\lambda $ to $\infty$ we see that for such a relationship to hold it is necessary that
+\begin{align}\label{conjugate}
+	l-     \frac{d}{p^*}=k-\frac{d}{p}  .
+\end{align}
+The case $k=l+1$ gives rise to the following definition
+\begin{definition}
+	The \textbf{Sobolev conjugate } of $1\leq p<d$ is $p^*$ defined by
+	\begin{align*}
+		\frac{1}{p^*}= \frac{1}{p} -\frac{1}{d} .
+	\end{align*}
+\end{definition}
+Note that $p<p^*$. The idea behind inequalities such as \eqref{example}  is to cash in some differentiability for some integrability. The main results used to do this are based on the fundamental theorem of calculus. First, we need the following lemma.
+\begin{lemma}[Loomis-Whitney inequality]\label{whitney} Let $d \geq 1$, let $f_1, \ldots, f_d \in L^p\left(\mathbb{R}^{d-1}\right)$ for some $p \in (0,\infty]$, and define
+	\begin{align*}
+		F_d\left(x_1, \ldots, x_d\right):=\prod_{i=1}^d f_i\left(x_1, \ldots, x_{i-1}, x_{i+1}, \ldots, x_d\right).
+	\end{align*}
+	Then,
+	\begin{align}\label{loomis ineq}
+		\norm{F_d}_{L^{p}/({d-1})}\leq\prod_{i=1}^d\left\|f_i\right\|_{L^p\left(\mathbb{R}^{d-1}\right)} .
+	\end{align}
+\end{lemma}
+\begin{proof}
+	The case $d=2$ is immediate by Fubini. The general case follows from induction on  $d$ . We write $(x_1,\ldots x_{d+1})=(x',x_{d+1})$
+	\begin{align}\label{induc}
+		 & \norm{F_{d+1}}_{L^{p /d}(\R^{d+1})}  =\qt{\int_{\R}\qt{\int_{\R^d} F_d(x)^{\frac{p}{d}} f_{d+1}(x')^{\frac{p}{d}} \d x'  }  \d x_{d+1} }^{\frac{d}{p} }          \\
+		 & \leq \qt{\int_{\R}         \qt{\int_{\R^d} F_d(x)^{\frac{p}{d-1}} \d x'  }^{\frac{d-1}{d}}\d x_{d+1} }^{\frac{d}{p} }\norm{f_{d+1}}_{L^p(\R^d)}      \notag      \\
+		 & \leq \qt{\int_{\R} \prod_{i=1}^d\left\|f_i(x_{d+1})\right\|_{L^p\left(\mathbb{R}^{d}\right)}^{\frac{p}{d}} \d x_{d+1}}^{\frac{d}{p}}\norm{f_{d+1}}_{L^p(\R^{d})}\end{align}
+	Where in the first inequality we applied Cauchy-Schwartz with $q= d /(d-1), q' =d$. Now applying the general version of Hölder's\begin{align*}
+		\norm{g_1\cdots g_n }_{L^1} \leq \norm{g_1}_{L^{p_1}}\cdots\norm{g_1}_{L^{p_n}}; \quad  \frac{1}{p_1}+\cdots \frac{1}{p_n}=1\notag          .
+	\end{align*}
+
+
+	to $g_i:= \norm{f_i(\cdot )}^{\frac{p}{d}}_{L^p(\R^{d})} \in L^{d}(\R)$ gives
+
+	\begin{align*}
+		\int_{\R}\prod_{i=1}^{d}g_i \leq \prod_{i=1}^{d} \norm{g_i}_{L^d(\R)}    .
+	\end{align*}
+	Substituting into \eqref{induc} concludes the proof.
+\end{proof}
+Using the Loomis-Whitney inequality and the fundamental theory of calculus gives us our first Sobolev inequality
+
+
+
+\begin{theorem}[Sobolev-Gagliardo-Niremberg]\label{est1} Given $1 \leq p<d$ it holds that
+	\begin{align}
+		\norm{u}_{L^{p^*}(\R^d)}\lesssim  \norm{\nabla u}_{L^p (\R^d)}.
+	\end{align}
+\end{theorem}
+\begin{proof}
+	By density (see Theorem \ref{approx rd}), it is enough to take $u \in C_c^\infty(\R^d)$. Applying the fundamental theorem of calculus gives
+	\begin{align*}
+		\abs{u}^m=\int_{-\infty}^\cdot \partial _i \abs{u}^m \d x_i  \leq \int_{\R}\abs{u}^{m-1}\abs{\partial _i u} \d x_i=: f_i , \quad\forall i=1,\ldots,d.
+	\end{align*}
+	Multiplying all these inequalities together gives
+	\begin{align*}
+		\abs{u}^{md} \leq \prod_{i=1}^{d} f_i   .
+	\end{align*}
+	Applying the Loomis-Whitney inequality \eqref{loomis ineq}  ``with $p=1$'' and Hölder's inequality shows
+	\begin{align}\label{hard}
+		\norm{u}_{L^{ md /(d-1)}(\R^d)}^{md}\lesssim  \prod_{i=1}^{d}  \norm{u^{m-1}\partial_iu}_{L^1(\R^d)} \leq \norm{u}_{L^{(m-1)p'}(\R^d)}^{(m-1)d}\norm{\nabla u}_{L^{p}(\R^d \to  \R^d)}^d
+	\end{align}
+	It remains to choose $m$ such that
+	\begin{align*}
+		\frac{md}{d-1}= (m-1)p' \implies m= \frac{(d-1)p^*}{d} =\frac{dp -p}{d-p} \geq 1.
+	\end{align*}
+	Substituting into \eqref{hard} gives
+	\begin{align*}
+		\norm{u}_{L^{ p^*}(\R^d)}^{m}\lesssim \norm{u}_{L^{p^*}(\R^d)}^{m-1}\norm{\nabla u}_{L^{p}(\R^d \to  \R^d)} .
+	\end{align*}
+	This concludes the proof.
+\end{proof}
+\begin{exercise}\label{est12}
+	Given $ p<\frac{d}{k}$ define    $p^{k*}$ by $\frac{1}{p^{k*}}=\frac{1}{p}-\frac{k}{d}$. Then,        \begin{align*}
+		\norm{u}_{L^{p^{k*}}(\R^d)} \lesssim  \norm{\nabla^k u}_{L^p(\R^d)}    \end{align*}
+\end{exercise}
+\begin{hint}
+	Apply induction on $k$ using Theorem \ref{est1}.
+\end{hint}
+
+The result can also be further \href{https://en.wikipedia.org/wiki/Gagliardo%E2%80%93Nirenberg_interpolation_inequality}{generalized}
+An estimate for the endpoint $d=p$ can also be achieved
+\begin{theorem}\label{estt2}
+	It holds that
+	\begin{align*}
+		W^{1,d}(\R^d) \hookrightarrow L^q(\R^d) , \quad\forall  q \in [d,+\infty)
+	\end{align*}
+\end{theorem}
+\begin{proof}
+	Setting $p=d$ in our estimate  \eqref{hard} gives
+	\begin{align*}
+		\norm{u}_{L^{ m d/(d-1)}(\R^d)}^{m}\lesssim  \norm{u}_{L^{(m-1)d /(d-1)}(\R^d)}^{m-1}\norm{\nabla u}_{L^{d}(\R^d \to  \R^d)} .
+	\end{align*}
+	Applying Young's product inequality with $p = \frac{m}{m-1}, p'= m$ and using that raising to a power is convex gives
+	\begin{align}\label{22}
+		\norm{u}_{L^{ m d/(d-1)}(\R^d)}\lesssim \norm{u}_{L^{(m-1)d/(d-1)}(\R^d)}+\norm{\nabla u}_{L^{d}(\R^d \to  \R^d)} , \quad\forall  m \geq 1.
+	\end{align}
+	Taking $m=d$ above gives
+	\begin{align*}
+		\norm{u}_{L^{d^2 /(d-1)}(\R^d)} \lesssim  \norm{u}_{W^{1,d}(\R^d)}.
+	\end{align*}
+	We also trivially have $\norm{u}_{L^d(\R^d)} \leq\norm{u}_{W^{1,d}(\R^d)} $ so by \href{https://en.wikipedia.org/wiki/Riesz%E2%80%93Thorin_theorem#:~:text=%5Bedit%5D-,First,-we%20need%20the}{interpolation} we can extend the inequality to
+	\begin{align}\label{step 1}
+		\norm{u}_{L^{q}(\R^d)} \lesssim  \norm{u}_{W^{1,d}(\R^d)} , \quad\forall q \in \qb{d,\frac{d^2}{d-1}}.
+	\end{align}
+	We now iterate, taking $m=d+1$ gives
+	\begin{align*}
+		\norm{u}_{L^{ (d+1)d/(d-1)}(\R^d)}\lesssim \norm{u}_{L^{d^2/(d-1)}(\R^d)}+\norm{\nabla u}_{L^{d}(\R^d \to  \R^d)}             \end{align*}
+	Which combined with \eqref{step 1} and interpolating gives
+	\begin{align*}
+		\norm{u}_{L^{q}(\R^d)} \lesssim  \norm{u}_{W^{1,d}(\R^d)} , \quad\forall q \in \qb{d,\frac{(d+1)d}{d-1}}.
+	\end{align*}
+	Iterating this process (taking $m=d+2,\ldots, m=d+k$ in \eqref{22}) shows that    \begin{align*}
+		\norm{u}_{L^{q}(\R^d)} \lesssim  \norm{u}_{W^{1,d}(\R^d)} , \quad\forall q \in \qb{d+k,\frac{(d+k)d}{d-1}}.
+	\end{align*}
+	From this, we conclude the result.     \end{proof}
+\begin{exercise}\label{est22}
+	It holds that
+	\begin{align*}
+		W^{k,\frac{d}{k}}(\R^d) \hookrightarrow L^q(\R^d) , \quad\forall  q \in [d /k,+\infty)
+	\end{align*}
+\end{exercise}
+\begin{hint}
+	Use induction on $k$  with Theorem \ref{estt2}.
+\end{hint}
+
+Note that the constant in our above estimate blows up on iterating. As a result, we do not expect
+\begin{align*}
+	W^{1,d}(\R^d) \hookrightarrow L^\infty(\R^d).
+\end{align*}
+This holds if and only if $d=1$. Otherwise, we require more integrability. However, this extra integrability can be converted into regularity in the style of \href{https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=.%C2%A0%E2%97%BB-,As%20a%20corollary,-of%20this%2C%20we}{Sobolev spaces}. First, we recall the following definition
+\begin{definition}
+	Let $U \subset \R^d$ be open and $\gamma \in \R_+$, we define the \textbf{Holder space}
+	\begin{align*}
+		C^{k,\gamma }(\R^d):= \set{u \in C^k(U): \norm{u}_{C^{k,\gamma }(U)}<\infty} .
+	\end{align*}
+	Where the Holder norm is defined as
+	\begin{align*}
+		\norm{u}_{C^{0,\gamma }(U)} & := \sup_{x \neq y \in \R^d} \frac{\abs{u(x)-u(y)} }{\abs{x-y}^\gamma  }                \\
+		\norm{u}_{C^{k,\gamma }(U)} & :=\norm{u}_{C^{k}(U)}+\sum_{\abs{\alpha}= k } \norm{D^\alpha u}_{C^{0,\gamma }(U)}   .
+	\end{align*}
+\end{definition}
+For $\gamma =1$ the $C^{k,\gamma }$ is the space of functions with bounded derivatives up to order $k$ and whose $k$-th order derivatives are Lipschitz continuous.
+
+
+\begin{theorem}[Morrey]\label{est3}
+	Let $p>d$ and set $\gamma=1-\frac{d}{p}$. Then, the following inclusion is continuous
+	\begin{align*}
+		W^{1,p}(\R^d) \hookrightarrow C^{0,\gamma }(\R^d).
+	\end{align*}
+
+
+\end{theorem}
+The proof is technical and can be found in \cite{brezis2011functional} page 282.
+
+
+As is logical, as $p$ approaches  $d$ from above the extra differentiability we get goes to  $0$. Furthermore, no matter how much integrability we cash in, we can never get more differentiability than we started with, so $\gamma \to 1$ as $p \to \infty$.\begin{exercise}[Sobolev regularity]\label{est32}
+	Let $p>d$ and set $\gamma=1-\frac{d}{p}$. Then, the following inclusion is continuous
+	\begin{align*}
+		W^{k,p}(\R^d) \hookrightarrow C^{k,\gamma }(\R^d).
+	\end{align*}
+\end{exercise}
+\begin{hint}
+	This holds for the case $k=1$. We now proceed by induction. Since $\nabla u \in W^{k-1,p}(\R^d \to  \R^d)$ by hypothesis of induction we obtain
+	\begin{align*}
+		\nabla u \in C^{k-1,\widetilde{\gamma }}(\R^d \to \R^d); \quad \widetilde{\gamma }:= k-1 -\frac{d}{p} .
+	\end{align*}
+	In consequence,
+	\begin{align*}
+		u \in C^{k-1+1,\widetilde{\gamma}+1}(\R^d )=C^{k,\gamma}(\R^d ) .
+	\end{align*}
+\end{hint}
+Combining the three results gives
+\begin{theorem}[Rellich-Kondrachov]\label{rellich}
+	Let $\Omega$ either be $\R^d$ or \textbf{bounded} with $C^k$ boundary, then following  inclusions are continuous
+	\begin{align*}
+		 & W^{k,p}(\Omega) \hookrightarrow L^q(\Omega) ,           \quad\forall q \in [1,p^{k*})                              & \text{ and }     p<\frac{d}{k} \\
+		 & W^{k,p}(\Omega) \hookrightarrow L^q(\Omega) ,           \quad\forall q \in [p,\infty)                              & \text{ and }   p=\frac{d}{k}   \\
+		 & W^{k,p}(\Omega) \hookrightarrow C^{k,\gamma }(\overline{\Omega}) \hookrightarrow C^{k}(\overline{\Omega}) ,  \quad & \text{ and }  p>\frac{d}{k}\end{align*}
+	Where $p^{k*}$ is defined by the relation $\frac{1}{p^{k*}}=\frac{1}{p}-\frac{k}{d}$ and $\gamma =1 -\frac{p}{d}$. Furthermore, the first, second, fourth, and third composed with fourth inclusions are \href{https://en.wikipedia.org/wiki/Compact_embedding}{compact}.
+\end{theorem}
+\begin{proof}
+	The fact that the above inclusions are continuous follows by our three Sobolev inequalities in Exercises \ref{est12},\ref{est22},\ref{est32} together with the extension theorem \ref{extension}.
+
+	The compactness of the embeddings requires reduce to showing that the unit ball in each of the embedded spaces is \href{https://en.wikipedia.org/wiki/Equicontinuity}{equicontinuous}.
+	\begin{enumerate}
+		\item     For the first inclusion we will use \href{https://en.wikipedia.org/wiki/Fr%C3%A9chet%E2%80%93Kolmogorov_theorem}{Fréchet–Kolmogorov's} theorem. First we note that we can suppose $q>p$ as  $L^q(\Omega) \hookrightarrow L^p(\Omega)$. Let $B_1$ be the unit ball in $W^{k,p}(\Omega)$. By continuity of the inclusion $B_1$ is bounded in $L^q(\Omega)$ and it only remains to show that  $B_1$ is equicontinuous. We have that
+		      \begin{align*}
+			      \norm{\tau_h u-u}_{L^p(\Omega)}\leq \norm{\nabla u}_{L^p(\Omega)}\abs{h} , \quad\forall u \in W^{1,p}(\Omega) .
+		      \end{align*}
+		      Where the above is known to be true for smooth functions by the fundamental theorem of calculus and extends by density to $W^{k,p}(\Omega)$ (we recall translation is continuous on $L^p$ for  $p<\infty$). The above also holds for $p^{k*}$ and since $p<q<p^{k*}$ we can write
+		      \begin{align*}
+			      \frac{1}{q}=\frac{\alpha}{p}+\frac{1-\alpha}{p^{k*}}   .
+		      \end{align*}
+		      By \href{https://en.wikipedia.org/wiki/Riesz%E2%80%93Thorin_theorem#:~:text=the%20sumset%20formulation.-,Riesz%E2%80%93Thorin,-interpolation%20theorem%C2%A0%E2%80%94%C2%A0}{interpolation} we obtain that
+		      \begin{align*}
+			      \norm{\tau_h u-u}_{L^q(\Omega)}\leq \norm{\nabla u}_{L^p(\Omega)}^\alpha\norm{\nabla u}_{L^{p^{k*}}(\Omega)}^{1-\alpha}\abs{h} , \quad\forall u \in W^{1,p}(\Omega) .
+		      \end{align*}
+		      This shows equicontinuity and concludes the first case.
+
+		\item The compactness of the second inclusion is proved identically.
+		\item For the compactness of the last inclusion we use \href{https://en.wikipedia.org/wiki/Arzel%C3%A0%E2%80%93Ascoli_theorem#:~:text=%2C%20%C2%A7IV.6.7}{Arzelà–Ascoli theorem} on a ``derivative by derivative basis''. By definition of Hölder norm,
+		      \begin{align*}
+			      \abs{D^\alpha u(x)- D^\alpha u(y)} & \lesssim  \norm{u}_{C^{k}(\R^d)}\abs{x-y} ,                 &  & \quad\forall \abs{\alpha}<k  \\
+			      \abs{D^\alpha u(x)- D^\alpha u(y)} & \lesssim  \norm{u}_{C^{k,\gamma }(\R^d)}\abs{x-y}^\gamma  , &  & \quad\forall \abs{\alpha}=k.
+		      \end{align*}
+		      As a result, for each $\abs{\alpha}\leq k$ the family
+		      \begin{align*}
+			      A_\alpha:=\set{D^\alpha u: u \in B_1 \subset C^{k,\gamma }(\overline{\Omega})},
+		      \end{align*}
+		      is equicontinuous. So by Arzelà–Ascoli we may extract a sequence $u_{n}$ such that $D^\alpha u_n$ converges uniformly to some $u^{(\alpha)}$. By the fundamental theorem of calculus we conclude that $u^{(\alpha)}=D^\alpha u^{(0)}$ and as a result $u_n \to u \in C^k(\overline{\Omega})$. That is, the unit ball $B_1 \subset C^{k,\gamma }$ is sequentially compact and thus compact when embedded in  $C^k(\overline{\Omega})$. This proves this point.
+
+		\item The composition of the inclusions on the last line is compact as the composition of a compact and a continuous operator is compact.    This concludes the proof.
+	\end{enumerate}
+\end{proof}
+As a particular case of the above we obtain the following simpler looking corollary
+\begin{corollary}\label{simple embedding}
+	Let $q< p^{k*}$, then it holds that following inclusion is compact
+	\begin{align*}
+		W^{k,p}(\Omega) \hookrightarrow L^q(\Omega).
+	\end{align*}
+	In particular, for all $p \in [1, \infty]$, the following inclusion is compact
+	\begin{align*}
+		W^{k,p}(\Omega) \hookrightarrow L^p(\Omega).
+	\end{align*}
+\end{corollary}
+\begin{proof}
+	For any of the cases in Rellich-Kondrachov's theorem \ref{rellich}, the condition on $q$ holds. The first part of the result then follows as  $C^k(\overline{\Omega}) \hookrightarrow L^q(\Omega)$ and the second part from the fact that  $p< p^{k^*}$.
+\end{proof}
+Compact embeddings in spaces of higher order can be obtained through the following.
+\begin{proposition}[Higher degree embeddings]
+	Let  $k,l \in \N_0$ and $p,q \in [1,\infty]$ be such that
+	\begin{align*}
+		W^{k,p}(\Omega)\hookrightarrow L^q(\Omega)
+	\end{align*}
+	is compact. Then, the inclusion
+	\begin{align*}
+		W^{k+l,p}(\Omega)\hookrightarrow W^{l,q}(\Omega)
+	\end{align*}
+	is also compact.
+\end{proposition}
+\begin{proof}
+	Let $u_n \in W^{k+l,p}(U)$ be a bounded sequence. By assumption $ W^{k,p}(\Omega)$ is compact in  $L^q(\Omega)$, so we may extract a subsequence $u_{n_k}$ such that, for  $\abs{\alpha} \leq l $,
+	\begin{align*}
+		\lim_{k \to \infty}D^\alpha u_{n_k} = u^{(\alpha)} \in L^q(\Omega) .
+	\end{align*}
+	Using the same technique as in Theorem \ref{completeness} shows that $u^{(\alpha)}= D^{\alpha}u$. This shows that $u_{n_k} \to u$ in $W^{l,q}(\Omega)$ and, by the equivalence of compactness and sequential compactness, concludes the proof.
+\end{proof}
+This result can be combined directly with Rellich-Kondrachov \ref{rellich} or any other embedding. For example, when combined with Corollary \ref{simple embedding} we get
+\begin{corollary}
+	Let $q< p^{k*}$, then it holds that following inclusion is compact
+	\begin{align*}
+		W^{k+l,p}(\Omega) \hookrightarrow W^{l,q}(\Omega).
+	\end{align*}
+	In particular, for all $p \in [1, \infty]$, the following inclusion is compact
+	\begin{align*}
+		W^{k+l,p}(\Omega) \hookrightarrow W^{l,p}(\Omega).
+	\end{align*}
+\end{corollary}
+
+
+
+
+
+The main utility of all these compact embeddings is that given a sequence $u_n$ whose derivatives are bounded in certain  $L^p$ norms we can extract convergent subsequences in appropriate spaces. We end this post (modulo appendices) with one of the most useful inequalities which we will make use of in future posts.
+\begin{theorem}[Poincaré inequality] Let $u \in W^{1,p}_0(U)$ where $U$ is bounded in one direction. Then
+	\begin{align*}
+		\norm{u}_{W^{1,p}(U)}\leq C\norm{\nabla u}_{W^{1,p}(U \to \R^d)}.
+	\end{align*}
+\end{theorem}
+\begin{proof}
+	By density (which holds by definition of $W^{k,p}_0(U)$) of it is sufficient to reason for $u \in C_c^\infty(U)$ and pass to the limit. By relabeling we may suppose $U$ is bounded along the $x_d$ axis. That is, for some finite $a<b$
+	\begin{align*}
+		U \subset \R^{d-1} \times [a,b].
+	\end{align*}
+	The idea is to use the fundamental theorem of calculus together with the compact support of $u$. This allows us to rewrite
+	\begin{align*}
+		\abs{u(x)}= \abs{\int_{a}^{x_d} \partial_d u(x',t) \d t} \leq \qt{\int_{\R}\abs{\partial _d u(x',t)}^p \d t}^\frac{1}{p}(x_d-a)^{\frac{1}{p'}}  .
+	\end{align*}
+	Taking $L^p(\R^d)$ norms above gives
+	\begin{align*}
+		\norm{u}_{L^p(\R^d)}\leq \norm{\partial _du}_{L^p(\R^d)}\frac{p'}{p+p'}(b-a)^{\frac{p+p'}{p'}} \lesssim  \norm{\nabla u}_{L^p(\R^d \to \R^d)} .
+	\end{align*}
+	This concludes the proof.    \end{proof}
+
+
+\appendix
+\section{Convolutions and regularization}
+The convolution of two functions $f,g$ can be thought of as ``blurring''  $f$ by averaging it against $g$. In the case where  $g$ is smooth, this blurring has the effect of smoothing out any sharp edges and irregularities in  $f$. This allows us to approximate irregular functions by smooth ones and serves as an important technical tool in our analysis.
+
+\begin{definition}[Convolution of functions]
+	Given $f$ and $g$ we define the \textbf{convolution} of $f,g$ to be
+	the function $f *g $
+	\begin{align}\label{convo}
+		f *g := \int f(y)g(x-y) \d y
+	\end{align}
+\end{definition}
+The definition given by \eqref{convo} is purposefully vague. We still need to specify what spaces $f,g$ belong to so that  $f*g$ is a well-defined element (of a further unspecified space). This can be done as follows.
+\begin{proposition}[Young's convolution inequality]\label{Young}
+	Consider the definition in \eqref{convo} and let $p,q,r \in  [1, \infty]$. Then it holds that
+	\begin{enumerate}
+		\item If $f \in L^1(\R^d)$ and $g \in L^p(\R^d)$ then $f*g \in L^p(\R^d)$ with
+		      \begin{align*}
+			      \norm{f*g}_{L^p(\R^d)}\leq \norm{f}_{L^1(\R^d)}\norm{g}_{L^p(\R^d)}.
+		      \end{align*}
+		\item  Suppose that
+		      \begin{align*}
+			      \frac{1}{p}+\frac{1}{q}=1+\frac{1}{r}; \quad f \in L^p(\R^d); \quad g \in L^q(\R^d)    .
+		      \end{align*}
+		      Then $f*g \in L^r(\R^d)$ with
+		      \begin{align*}
+			      \norm{f*g}_{L^r(\R^d)}\leq \norm{f}_{L^p(\R^d)}\norm{g}_{L^q(\R^d)}.
+		      \end{align*}
+	\end{enumerate}
+	\item In any of the above cases $f*g=g*f$.
+\end{proposition}
+\begin{proof}
+	The first point follows from the triangle inequality for the Bochner integral (in this context this is also called Minkowski's integral inequality) as
+	\begin{align*}
+		\norm{\int_{\R^d}f(y)g(\cdot -y) \d y}_{L^p(\R^d)}\leq\int_{\R^d}\norm{f(y)g(\cdot -y) \d y}_{L^p(\R^d)}= \norm{f}_{L^1(\R^d)} \norm{g}_{L^p(\R^d)}.
+	\end{align*}
+	To see the second point fix $f$ and define the linear operator $T_fg:= f*g$. Then, for $g \in  L^1(\R^d)$ and $g \in  L^{p'}(\R^d)$ respectively
+	\begin{align*}
+		\norm{T_f g}_{L^p(\R^d)} \leq \norm{f}_{L^p(\R^d)} \norm{g}_{L^1(\R^d)}; \quad    \norm{T_f g}_{L^\infty(\R^d)} \leq \norm{f}_{L^p(\R^d)} \norm{g}_{L^{p'}(\R^d)};  .
+	\end{align*}
+	Where the first inequality is point one and the second follows from Cauchy Schwartz. Now applying \href{ https://en.wikipedia.org/wiki/Riesz%E2%80%93Thorin_theorem#:~:text=the%20sumset%20formulation.-,Riesz%E2%80%93Thorin,-interpolation%20theorem%C2%A0%E2%80%94%C2%A0}{Riesz-Thorin's interpolation theorem} concludes the proof.
+\end{proof}
+
+The definition of convolution can be extended to even more settings, for example, suppose that $g $ is the density of some finite (possibly signed) measure $\mu$ and  $f$ is bounded, then
+\begin{align*}
+	f*\mu(x):= f*g(x)= \int_{\R^d}f(x-y) g(y)\d y = \int_{\R^d} f(x-y)\d \mu (y) .
+\end{align*}
+\begin{definition}[Convolution of function with measure]
+	Let $\mu $ be a finite signed Borel measure on $\R^d$ and  $f \in L^p(\R^d)$ then we define the convolution
+	\begin{align*}
+		f*\mu (x) :=\int_{\R^d} f(x-y)\d \mu (y) \in L^p(\R^d).
+	\end{align*}
+\end{definition}
+Note that, once more by the triangle inequality, the convolution is well-defined with
+\begin{align*}
+	\norm{f* \mu }_{L^p(\R^d)} \leq \norm{f}_{L^p(\R^d)} \norm{\mu }_{TV} .
+\end{align*}
+Now, if we consider $f,g$ to be the densities of some finite (signed) measures  $\mu,\nu$ then we obtain that for bounded $h$
+\begin{align}\label{push}
+	(h, \mu *\nu) & := \int_{\R^d} h(x) f*g(x) \d x = \int_{\R^d}\int_{\R^d}  h(x+y) f(x)  g(y)\d x \d y \\
+	              & = \int_{\R^d \times\R^d} f(x+y) \d (\mu \otimes \nu)(x,y)\notag .
+\end{align}
+That is, the convolution of $\mu$ with $\nu$ is the \href{https://en.wikipedia.org/wiki/Pushforward_measure}{pushforward}  of the product measure $\mu \otimes \nu$ with the sum $S(x,y)$.
+\begin{definition}[Convolution of measures]
+	Let $\mu ,\nu$ be two finite signed measures on $\Bb(\R^d)$. Then the convolution of  $\mu *\nu$ is the pushforward
+	\begin{align*}
+		\mu *\nu := S\# (\mu \otimes\nu).
+	\end{align*}
+\end{definition}
+The language of random variables can give some good motivation for this
+\begin{example}
+	Let $X,Y$ be random variables with law  $\mu ,\nu$ then $X+Y$ has law  $\mu *\nu$. Furthermore, if $X, Y$ are independent and $\mu,\nu$ are absolutely continuous with densities $f,g$ then $X+Y$ is absolutely continuous with density $f*g$.
+\end{example}
+\begin{proof}
+	The first part is by definition of pushforward. To show that  $\mu *\nu$ has density $f*g$  it suffices to read the reasoning in equation  \eqref{push} backward.
+\end{proof}
+Through the random variable interpretation, we also see that if $\mu,\nu$ have all their mass in $A, B$ then their convolution must have all its mass in  $A+B$. That is,
+\begin{lemma}\label{Support}
+	Let $f,g,\mu,\nu$ be such that the convolution is well-defined. Then
+	\begin{align*}
+		\supp{f*g}=\supp{f}+\supp{g}; \quad \supp{\mu*\nu }=\supp{\mu }+\supp{\nu}.
+	\end{align*}
+\end{lemma}
+\begin{proof}
+	This follows directly from the definition of convolution.
+\end{proof}
+One technical point is that to define the convolution of two objects it is required that they be defined globally. For example if $U \subsetneq \R^d $, we can't convolve $f \in L^p(\R^d)$ with $g \in L_1(U)$ as the integral
+\begin{align*}
+	\int_{\R^d}f(y)g(x-y) \d y
+\end{align*}
+requires we evaluate $f$ on all of  $\R^d$. One workaround is, if $\phi\in L^1(\R^d)$ with $\supp{\phi}\subset  \overline{B(0,\epsilon ) }$ we can extend $f$ to be equal to  some $ g \in L^p(\R)$ outside of $U$
+\begin{align*}
+	\tilde{f}(x)=\begin{cases}
+		             f(x) \quad & x \in U     \\
+		             g(x) \quad & x \not\in U
+	             \end{cases}.
+\end{align*}
+Then, the convolution $\tilde{f}*g$ is well defined and equal to
+\begin{align*}
+	\tilde{f}*\phi(x) = \int_{B(x,\epsilon )\cap U} f(y)\phi(x-y) \d y+\int_{B(x,\epsilon )\cap U^c} g(y)\phi(x-y) \d y .
+\end{align*}
+As we can see, the convolution in general depends on how we extend $f$ outside of $U$. However, it is independent of the extension for $x$ in
+\begin{align*}
+	U_\epsilon :=\set{x \in  U : d(x,\partial U)< \epsilon }.
+\end{align*}
+With
+\begin{align*}
+	\tilde{f}*\phi(x) = \int_{B(x,\epsilon )} f(y)\phi(x-y) \d y , \quad\forall x \in  U_\epsilon   .
+\end{align*}
+For this reason, we will employ the following notation.
+\begin{definition}\label{Convolution support}
+	Given $f \in L^p(U)$ and $\phi\in L^1(\R^d)$ with $\supp{\phi}\subset  \overline{B(0,\epsilon ) }$ we define $f*\phi \in L^p(U_\epsilon )$ as
+	\begin{align*}
+		f*\phi(x):= \int_{B(x,\epsilon )}f(y)\phi(x-y) \d y .
+	\end{align*}
+\end{definition}
+Convolution of distributions with test functions can also be considered. A similar reason to previously leads us to the following definition
+\begin{definition}
+	Let $T \in \Dd'(\R^d)$ and $\varphi \in C_c^\infty(\R^d)$. Then we define the convolution $T*\varphi \in \Dd^*(\R^d)$ by
+	\begin{align*}
+		T*\varphi(\phi):=T(\tl{\varphi}*\phi) \quad \text{ where } \tl{\varphi}(x):=\varphi(-x) .
+	\end{align*}
+\end{definition}
+In the above we can also swap all occurrences of $C_c^\infty(\R^d)$ and $\Dd'(\R^d)$ by $\Ss(\R^d)$ and $\Ss'(\R^d)$ respectively. An interesting fact is that the convolution of a distribution with a function is itself a function.
+\begin{proposition}Convolution of distribution and test function is smooth:
+	\begin{enumerate}        \item Let $\varphi \in \Dd(\R^d), w \in \Dd'(\R^d) $ then $\omega * \varphi \in  C^\infty _{\mathrm{loc}}(\R^d)$.
+		\item  Let $\varphi \in \Ss(\R^d), w \in \Ss'(\R^d) $ then $\omega * \varphi \in  C^\infty _{\mathrm{loc}}(\R^d)$.
+	\end{enumerate}
+\end{proposition}
+The previous definitions all go through word by word in the case where we substitute the domain from Euclidean space  $\R^d$ to a \href{https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=Since-,every,-locally%20compact%20Hausdorff}{LCA group with Haar measure} $\mu $. For example
+\begin{align*}
+	f*g(x):= \int_{G}f(y)g(x-y) \d \mu (y).
+\end{align*}
+A typical case is when $G=\T^d$ with the Lebesgue measure or $G=\Z^d$ with the counting measure. These respectively give
+\begin{align*}
+	f*g(x)=\int_{\T^d}f(y)g(x-y) \d y; \quad      f*g(k):= \sum_{j\in \Z^d} f(j)g(k-j)  .
+\end{align*}
+The same results are also obtained. In fact, save the commutation $f*g=g*f$, the above results hold even if $G$ is not Abelian. In this case, one considers the \href{https://en.wikipedia.org/wiki/Haar_measure#:~:text=%5Bedit%5D-,There,-is%2C%20up}{left or right Haar measure}. See for example \cite{fremlin2006measure} 444R.
+\section{Smoothing in $L^p$}\label{smooth section}
+In this section, we examine how convolution can be used to approximate functions by smoother ones. This is of great practical use as it allows us to
+\begin{enumerate}
+	\item Consider an appropriate space of functions for our problem, smooth or otherwise.
+	\item Perform formal manipulations using the standard rules of calculus as if all functions in this space were smooth and compactly supported until we obtain a desired result.
+	\item Pass to the limit to recover the expression for the whole class of functions.
+\end{enumerate}
+A crucial tool in this program is the following:
+\begin{definition}\label{app def}
+	We say that a family of functions $\{\phi_n\}_{n= 1}^\infty \subset L^1(\R^d)$ is an \textbf{approximation to unity} if
+	\begin{itemize}
+		\item Norm 1: $\norm{\phi_n}_{L^1(\R^d)}=1$.
+		\item Decreasing support: $\supp{\phi_n} \subset B(0, 1 /n)$.
+	\end{itemize}
+	If $\phi_n \in C_c^\infty(\R^d)$ we say that $\phi_n$ are smooth.
+\end{definition}
+\begin{observation}
+	The above definition is frequently also given letting the index set range over $\epsilon \in \R_+$ and taking $\supp{\phi_\epsilon } \subset B(0,\epsilon )$. This is equivalent and simply leads to taking $\epsilon \to 0$ instead of $n \to \infty$. \end{observation}
+The first question is whether a smooth approximation to the identity exists. In the following example, we answer this in the affirmative.
+\begin{example}
+	Let $\varphi \in C_c^\infty(\R^d)$ then
+	\begin{align*}
+		\phi_n:= \frac{n^d }{\norm{\varphi}_{L^1(\R^d)}}\varphi(nx)
+	\end{align*}
+	is a smooth approximation of the identity. Additionally,
+	\begin{align}\label{bump example}
+		\varphi(x):=  \exp({\frac{1}{\abs{x}^2-1}}) 1_{B(0,1)} \in C_c^\infty(\R^d)
+	\end{align}
+\end{example}
+
+By Proposition \ref{Young} $(L^1(\R^d),*)$ is a \href{https://en.wikipedia.org/wiki/Banach_algebra}{Banach algebra}. However, it is a non-unital one. That is there does not exist an element $e$ such that
+\begin{align*}
+	f*e=f , \quad\forall f \in L^1(\R^d).
+\end{align*}
+However, we will soon see that in a limiting sense, an identity for the convolution exists. First, we need the following lemma.
+\begin{lemma}\label{Uryshon}
+	The space $C_c(\R^d)$ is dense in $L^p(\R^d)$ for all $p \in [1,\infty)$.
+\end{lemma}
+\begin{proof}
+	Consider $f \in  L^p(\R^d)$. If $f =1_A$ for some measurable set $A$ with finite measure then, by the outer and inner regularity of the Lebesgue measure we may take $U, K$ open and compact respectively with  $U \subset A \subset K$ and
+	\begin{align*}
+		\lambda  (K)-\lambda  (A) <\epsilon .
+	\end{align*}
+	Where we wrote $\mu $ for the Lebesgue measure on $\R^d$.
+	By \href{https://en.wikipedia.org/wiki/Urysohn%27s_lemma#:~:text=for%20any%20two-,non%2Dempty,-closed%20disjoint%20subsets}{Urysohn's lemma} there exists a continuous function $\varphi \in C_c(U)$ such that $\varphi \leq 1$ and $\varphi$ is $1$ on  $K$. Then,
+	\begin{align*}
+		\norm{f- \varphi}_{L^p(\R^d)} \leq \epsilon .
+	\end{align*}
+	Since the space of simple functions is dense in $L^p(\R^d)$ this concludes the proof.
+\end{proof}
+
+The name ``approximation of unity'' in Definition \ref{app def} is justified by the following proposition.
+\begin{proposition}\label{app pn}
+	Let $f \in L^p(\R^d)$ where $p \in [1,\infty)$ and consider $g \in C_c(\R^d)$ and an approximation to unity $\phi_n$. Then it holds that
+	\begin{align*}
+		\lim_{n \to \infty}g*\phi_n=g \in  C_c(\R^d);\quad \lim_{n \to \infty}f*\phi_n=f \in  L^p(\R^d).
+	\end{align*}
+\end{proposition}
+\begin{proof}
+	Consider $\epsilon >0$. Using that $\phi_n$ has mass $1$ and is supported on  $B(0,1/n)$.
+	\begin{align*}
+		g*\phi_n(x)-g(x) & = \int_{B(0, \frac{1}{n})}(g(x-y)-g(x)) \phi_n(y) \d y
+		.
+	\end{align*}
+	Now taking norms and $n$ large enough gives
+	\begin{align}\label{nm}
+		\norm{g*\phi_n-g}_{L^\infty(\R^d)} \leq \int_{B(0, \frac{1}{n})} \norm{g(\cdot -y) -g}_{L^\infty(\R^d)} \phi_n(y) \d y\leq \epsilon   .
+	\end{align}
+	Where in the last inequality we used that $g$ is uniformly continuous and $\phi_n$ has mass $1$. Since $\epsilon >0$ was any, this shows the first part of the proposition.
+
+	We now prove the second part. By Lemma \ref{Uryshon} we can choose $g $ such that
+	\begin{align*}
+		\norm{g-f}_{L^p(\R^d)}<\epsilon .
+	\end{align*}
+
+
+	Now, since $K_n:=\supp{g* \phi_n} \subset K + B(0, 1 /n)$, whose measure is bounded by some $M>0$, the inequality in  \eqref{nm} shows that
+	\begin{align*}
+		\norm{g*\phi_n-g}_{L^p(\R^d)}^p \leq \int_{K_n} \epsilon^p   \d y\leq M\epsilon^p  .
+	\end{align*}
+	Now using the triangle inequality and  Young's convolution inequality \ref{Young} gives
+	\begin{align*}
+		\norm{f*\phi_n-f}_{L^p(\R^d)} & \leq\norm{(f-g)*\phi_n}_{L^p(\R^d)}+\norm{g*\phi_n-g}_{L^p(\R^d)}          \\
+		                              & +\norm{g-f}_{L^p(\R^d)}\leq \epsilon + M^{\frac{1}{p}}\epsilon +\epsilon .
+	\end{align*}
+	This shows the second part and concludes the proof.
+\end{proof}
+The question is why would we want to approximate a function by its convolutions with some smooth functions the answer is given in the following two results.
+\begin{proposition}[Smoothing effect]\label{smooth}
+	Let $f \in L^1_{\text{loc}}(\R^d)$ and $\phi \in C_c^\infty(\R^d)$. Then $f*\phi \in C^\infty(\R^d)$ with
+	\begin{align*}
+		D^\alpha(f *\phi)=f*D^\alpha \phi , \quad\forall \alpha \in \N^d.
+	\end{align*}
+	Furthermore, if $f$ is compactly supported then  $f*\phi \in  C_c^\infty(\R^d)$.
+\end{proposition}
+\begin{proof}
+	By induction, it suffices to consider the case $D^\alpha = \partial _i$ for some $1 \leq i \leq d$. This case can be proved by a \href{https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=Proposition%202%20}{differentiation under the integral sign} as, given $\abs{x}\leq M$
+	\begin{align*}
+		\partial _{x_i} f(y)\phi(x-y) \leq f(y)\norm{\phi}_{C^\infty(K)} 1_{K+B(0,M)}(y) \in L^1(\R^d)
+	\end{align*}
+	Where $K$ is the support of  $\varphi$.
+\end{proof}
+\begin{observation}[Local smoothing]\label{local smoothing}
+	The smoothing effect also holds when $f$ is only defined on some open set $U$. Then, with the notation of Definition \ref{Convolution support}, $f*\phi \in C^\infty(U_\epsilon )    $ with an identical proof showing
+	\begin{align*}
+		D^\alpha(f *\phi)=f*D^\alpha \phi \text{ on } U_\epsilon .
+	\end{align*}
+\end{observation}
+
+
+
+
+\begin{theorem}\label{density thm}It holds that
+	\begin{align*}
+		\overline{C_c^\infty(\R^d)}= L^p(\R^d); \quad \overline{C_c^\infty(\R^d)} = C_c(\R^d).
+	\end{align*}
+	Where the closures are respectively in the $L^p(\R^d)$ and the uniform topology $($given by $\norm{\cdot }_{\infty})$.
+\end{theorem}
+\begin{proof}
+	This follows immediately from Proposition \ref{app pn} and Proposition \ref{smooth}.
+\end{proof}
+\begin{exercise}Let $U$ be an open subset of  $\R^d$, show that
+	\begin{align*}
+		\overline{C_c^\infty(U)}= L^p(U); \quad \overline{C_c^\infty(U)} = C_c(U).
+	\end{align*}
+\end{exercise}
+\begin{hint}
+	Let $f$ be the non-smooth function to approximate, multiply it first by a mollifier $\eta_n \in C_c^\infty(U)$ equal to $1$ in $ V_n\subset U$ (see Example \ref{bump example2}). Convolve to get
+	\begin{align*}
+		\varphi_n:=(f \eta_n )*\rho _n.
+	\end{align*}
+	Show as in Theorem \ref{density thm} that $\varphi_n$ converges appropriately.
+\end{hint}
+The above can be generalized to non-Euclidean spaces
+\begin{theorem}
+	Let $(X,\mu )$ be a measure space such that $X$ is locally convex and Hausdorff and  $\mu $ is inner and outer regular. Then
+	\begin{align*}
+		\overline{C_c(X)} =L^p(X).
+	\end{align*}
+	Suppose additionally that $X$ is a group, that $\mu $ is the left or right Haar measure, and that there exists an approximation to unity $\phi_n$ on $X$. Then
+	\begin{align*}
+		\overline{C_c^\infty(X)} =L^p(X);\quad \overline{C_c^\infty(X)} =C_c(X).
+	\end{align*}
+\end{theorem}
+
+\begin{proof}
+	The first part can be proved by the same method as in Lemma \ref{Uryshon} (note that Uryshon's lemma \href{https://planetmath.org/ApplicationsOfUrysohnsLemmaToLocallyCompactHausdorffSpaces}{still holds} for LCH spaces). The second part follows by copying the proof of Propositions \ref{app pn} and \ref{smooth}.
+\end{proof}
+The assumption of the existence of an approximation of unity is perhaps the most delicate, but it can be applied for example in the following case.
+\begin{corollary}\label{Stone}
+	It holds that
+	\begin{align*}
+		\overline{C^\infty(\T^d)}= L^p(\T^d); \quad \overline{C^\infty(\T^d)} = C(\T^d).
+	\end{align*}
+\end{corollary}
+Note that the second part of Corollary \ref{Stone} also follows from the \href{https://en.wikipedia.org/wiki/Stone%E2%80%93Weierstrass_theorem}{Stone-Weierstrass theorem}.
+Similar results hold in the space of distributions.    \begin{proposition}
+	Let $T\in \Dd'(\R^d)$ and $\varphi_n$ be an approximation to unity. Then
+	\begin{align*}
+		\lim_{n \to \infty} T* \phi_n= T \in \Dd'(\R^d).
+	\end{align*}
+	As a result, $\overline{C_c^\infty(\R^d)}=\Dd'(\R^d)$.
+\end{proposition}
+The proof can be found in \cite{leoni2017first} page 308.
+
+
+\section{Global to local and back again}\label{local to global}
+Often it is advantageous to work locally and then reason in the general case by some kind of approximation. A useful tool in this respect are \textbf{bump functions}.
+\begin{definition}
+	A \textbf{bump function} (also called \textbf{cutoff function}) is a function $\eta \in C_c^\infty(\R^n)$.
+\end{definition}
+Constructing bump functions that have some desired support is a tool we use frequently throughout. Here we provide two examples to show how this may be done. Other constructions are of course possible.
+\begin{example}\label{bump example2}
+	Given two open sets $V,U$ with  $V \Subset U$ there exists $\eta \in C_c^\infty(\R^d)$ with support in $U$, equal to  $1$ on  $V$ and with $0\leq \eta \leq 1$.
+\end{example}
+\begin{proof}
+	Since $V \Subset U$, there exists a compact  $K$ with
+	\begin{align*}
+		V \subset K \subset U;\quad d_u:=d(U,K)>0; \quad d_V:=d(V,K)>0.
+	\end{align*}
+
+	Now, by \href{https://en.wikipedia.org/wiki/Urysohn%27s_lemma#:~:text=for%20any%20two-,non%2Dempty,-closed%20disjoint%20subsets}{Urysohn's lemma} there exists a continuous function  $f \in C_c(\R^n)$ such that $0\leq\varphi \leq 1$ and $\varphi$ is $1$ on  $K$.  If we now take an approximation of unity $\set{\phi_n}_{n=1}^\infty $  and choose $N$ large enough so that $\min \set{d_U,d_V} > \frac{1}{N}$ we can obtain the desired function as $ \eta=f*\phi_{N}$.
+\end{proof}
+\begin{example}
+	There exists a sequence of $\eta_n \in C_c^\infty(\R^d)$ such  that
+	\begin{align*}
+		\eta_n(x) =\begin{cases}
+			           1 \text{ if } & \abs{x}\leq n  \\
+			           0 \text{ if } & \abs{x}\geq 2n \\
+		           \end{cases}.
+	\end{align*}
+	And $\norm{\eta_n}_{C^k(\R^d)} \leq \norm{\eta_1} $.
+\end{example}
+\begin{proof}
+	Let $\eta_1 \in C_c^\infty(\R^d)$ be any (for example that of \eqref{bump example}). Then we can take $\eta_n(x):=\eta(x /n)$.
+\end{proof}
+In the opposite direction. One is often in the situation where it is possible to derive some local properties for a given object (think manifolds). To recover a global result one needs some way to piece together the local results. A useful tool in this respect is \textbf{partitions of unity}.
+\begin{definition}
+	Given a manifold $M$ and an o pen covering $\{U_\alpha\}_{\alpha \in  J}$ of $M$ we say that  $\{\rho_i\}_{i\in  I}$ is a \textbf{partition of unity on $\{U_\alpha\}_{\alpha \in  J}$} if:
+	\begin{enumerate}
+		\item  $\supp{\rho_i}\subset U_\alpha $ for some $\alpha \in J$.
+		\item For each $x \in M$, it holds that $x \in \supp{\rho_\alpha}$ for only a finite amount of $\alpha \in I$.
+		\item $\sum_{i \in I}\rho _i =1.$
+	\end{enumerate}
+\end{definition}
+Partitions of unity are often used in differential geometry as follows
+\begin{enumerate}
+	\item Work in some open subset $\R^n$ (or the upper half space $\R^n_+$ if our manifold has boundary) to prove the existence of some object $g$ with desired properties.
+	\item  Cover the manifold $M$ with coordinate charts $U_\alpha$ and translate the euclidean result via the identification with $U_\alpha$ to obtain locally defined $g_\alpha$.
+	\item Obtain a globally defined object $g$ by using the partition of unity to piece together the local objects
+	      \begin{align*}
+		      g=\sum_{\alpha \in I}\rho_\alpha g_\alpha .
+	      \end{align*}
+\end{enumerate}
+In addition to the approximation and extension theorems in Section \ref{extension section}, partitions of unity can be used to show that: every manifold has a \href{https://en.wikipedia.org/wiki/Riemannian_manifold}{Riemannian metric}, show that a function is smooth on some none-open set $S \subset M$ iff it is the restriction of a smooth function defined on a neighborhood of $S$, prove the existence of an outward pointing vector on manifolds with boundary, define integration over an orientable manifold $M$, prove \href{https://en.wikipedia.org/wiki/Generalized_Stokes_theorem}{Stoke's theorem}.
+
+
+
+\begin{theorem}\label{partition}
+	Let $M$ be a smooth manifold (in particular we assume $M$ is Hausdorff), then every open covering $ \set{U_\alpha}_{\alpha \in  J} $ has a partition of unity $\set{\rho _n}_{n=1}^\infty $.
+\end{theorem}
+The proof is based on the existence of bump functions (something we have already proved for $\R^d$) and is straightforward in the case that $M$ is compact. The general case can be reduced to the compact setting by obtaining a covering by relatively compact open sets $\set{U_i}_{i=0}^\infty $ of $M$ such that \begin{align*}
+	V_{i} \Subset V_{i+1}.
+\end{align*}
+And then working with the compact $\overline{V_{i+1}} \setminus V_{i} $.    See \cite{tu2011manifolds} Appendix C for the details.
+
+
+
+\section{Manifolds with boundary}\label{boundary}
+We will be defining differential equations on open domains $\Omega \subset \R^n$. In this case $\overline{\Omega}$ will be a ``manifold with boundary'' whose regularity will determine what results we have access to. The prototypical example of a manifold with a boundary is the upper half space
+\begin{align*}
+	\Hh^d:=\set{x=(x_1,\ldots,x_d)\in \R^d: x_d \geq 0} .
+\end{align*}
+Here the inequality is not strict so that the boundary of $\Hh^d$ is included in itself. Since $\Hh^d$ is not open we need to define what is meant by saying that a function is differentiable on such a set.
+\begin{definition}\label{smooth non open}
+	Let $S \subset \R^d$ be an arbitrary set. We say that a function $f:S \to \R$ is  \textbf{$k$-times differentiable at $p$} if there exists a function $\tl{f}:\R^d \to \R$ which is $k$ times differentiable at  $p$ and such that $\tl{f}=f$ on $S$.
+\end{definition}
+\begin{definition}
+	If $f$ is  $k$-times differentiable at every point of  $S$ we say that $f \in C^k(S)$.
+\end{definition}
+\begin{exercise}\label{ext}
+	Show that $f\in  C^k(S)$ if and only if there exists an extension $\tl{f}\in C^k(\R^d)$ of $f$ which is equal to $f$ on $S$.
+\end{exercise}
+\begin{hint}
+	Use a partition of unity.
+\end{hint}
+
+A manifold with boundary $M$ is just a generalization of $\Hh^d$, where we impose that $M$ is ``locally equal'' to $\Hh^d$. That is, there exists a covering of $M$ by open sets  $V_\alpha$ and a collection of homeomorphisms with the \textbf{subspace topology} from $\Hh^d$
+\begin{align}\label{chart}
+	\Phi_\alpha : V_\alpha \iso  \Phi(V_\alpha).
+\end{align}
+And where for compatibility we impose that for each $\alpha,\beta $ the function
+\begin{align}\label{diff}
+	\Phi_\beta \circ\Phi_\alpha^{-1}: \Phi_\alpha(V_\alpha\cap V_\beta ) \longmapsto \Phi_\beta (V_\alpha\cap V_\beta ).
+\end{align}
+Are diffeomorphisms on $\Hh^d$ (again with the subspace topology). Here $\Aa=\set{(U_\alpha,\Phi_\alpha)} $ is an \textbf{atlas} of $M$. We say that $\Aa$ is $C^k$ if the diffeomorphisms in \eqref{diff} are $C^k$ (see Definition \ref{smooth non open}).
+
+\begin{definition}
+	We say that $(M,\Aa)$ is a \textbf{$C^k$ manifold with boundary} if $M$ is a second countable Hausdorff space and $\Aa$ is a $C^k$ atlas.
+\end{definition}
+The boundary of $M$ is its points that are mapped to the boundary $\set{x_d=0} $ in $\Hh^d$.
+\begin{definition}
+	Given a point $p \in M$ we say that $p$ is a \textbf{boundary point} if for some (and thus every chart) $\Phi_\alpha(p) \in \partial \Hh ^{d}$. We call the set of all boundary points the \textbf{boundary} of $M$ and denote it by $\partial M$.
+\end{definition}
+\begin{exercise}
+	Show that the restricted atlas $\restr{\Phi_\alpha}{\partial M}$ makes $\partial M$ a $d-1$ dimensional manifold \textbf{without} boundary.
+\end{exercise}
+\begin{hint}
+	By definition of boundary
+	\begin{align}\label{chart2}
+		\restr{\Phi_\alpha}{\partial M}: V_\alpha \cap M \to \partial \Hh^{d-1} \simeq \R^{d-1}.
+	\end{align}
+	And the coordinate changes are $C^k$ as the restriction of a $C^k$ map is $C^k$.
+\end{hint}
+
+In our case we will always take $M$ to be a subset of  $\R^d$, in this case, different variations of the above definition are possible. For example, by the inverse function theorem and Exercise \ref{ext}, we can extend the functions $\Phi_\alpha$ to diffeomorphisms on $U_\alpha$ \textbf{open in $\R^d$} so that \eqref{chart}-\eqref{chart2} now read
+\begin{align}\label{alt0}
+	\Phi_\alpha : U_\alpha \iso  \Phi(U_\alpha); \quad    \Phi_\alpha : U_\alpha \cap M \iso  \Phi_\alpha(U_\alpha) \cap \Hh^d .
+\end{align}
+Additionally, by the implicit function theorem there exists for each coordinate set $U_\alpha$  functions $\gamma_\alpha \in C^k(\R^{d-1}) $ such that, relabeling the coordinates and decreasing the size of $U_\alpha$ if necessary,
+\begin{align}\label{alt1}
+	\partial M \cap U_\alpha & =\set{x \in U_\alpha : x_d=\gamma_\alpha(x_1,\ldots,x_{d-1}) }
+\end{align}
+Let us write $x=(x',x_d)$, by the Taylor expansion
+\begin{align*}
+	\Phi_\alpha(x',\gamma _\alpha(x')+\epsilon)=\Phi_\alpha(x)+\frac{\partial \Phi}{\partial x_d}(x)\epsilon +O(\norm{\epsilon }^2)  .
+\end{align*}
+We deduce that,  once more reducing the size of $U_\alpha$ if necessary and depending on the sign of $\partial _d \Phi$ on $U_\alpha$, one and only one of the following two hold
+\begin{align}\label{alt3}
+	(M \setminus \partial M) \cap U_\alpha & =\set{x \in U_\alpha : x_d>\gamma_\alpha(x_1,\ldots,x_{d-1}) }        \\
+	(M \setminus \partial M) \cap U_\alpha & =\set{x \in U_\alpha : x_d<\gamma_\alpha(x_1,\ldots,x_{d-1}) }\notag.
+\end{align}
+The equivalent formulations in \eqref{alt0} and in \eqref{alt1}-\eqref{alt3} are used in the main exposition. Finally, in our case, we will typically take $M =\overline{\Omega}$ where $\Omega \subset \R^d$ is some open set. In this case, we adopt the following terminology.
+\begin{definition}
+	We say that an open set $\Omega\subset \R^d$ has \textbf{$C^k$ boundary} of  $\overline{\Omega}$ is a $C^k$ manifold with boundary.
+\end{definition}
+In the above case, the topological and manifold boundaries of $\Omega$ necessarily coincide as homeomorphisms map topological boundaries to topological boundaries.
+
+
+
+
+
+
+
+
+
+
+\bibliography{biblio.bib}
+\end{document}
