@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex Elliptic_PDE_1"] 1706717824 "Elliptic_PDE_1.aux" "Elliptic_PDE_1.bbl" "Elliptic_PDE_1" 1706717941 0
+["bibtex Elliptic_PDE_1"] 1706719420 "Elliptic_PDE_1.aux" "Elliptic_PDE_1.bbl" "Elliptic_PDE_1" 1706719423 0
   "./biblio.bib" 1692221800 10638 684f3fc67b9ae2f11980c67571edfe69 ""
   "C:/Users/liaml/AppData/Roaming/MiKTeX/bibtex/bst/elsarticle/elsarticle-num.bst" 1606130968 29462 43db4fe246825ec69ed81b2463c17f04 ""
-  "Elliptic_PDE_1.aux" 1706717940 1154 138a8da37c945bb8928d56884ea904e8 "pdflatex"
+  "Elliptic_PDE_1.aux" 1706719421 1154 138a8da37c945bb8928d56884ea904e8 "pdflatex"
   (generated)
   "Elliptic_PDE_1.bbl"
   "Elliptic_PDE_1.blg"
   (rewritten before read)
-["pdflatex"] 1706717938 "c:/Users/liaml/Documentos/LiamLlamazares.github.io/assets/latex_docs/PDEs/5. Existence elliptic/Elliptic_PDE_1.tex" "Elliptic_PDE_1.pdf" "Elliptic_PDE_1" 1706717941 0
+["pdflatex"] 1706719420 "c:/Users/liaml/Documentos/LiamLlamazares.github.io/assets/latex_docs/PDEs/5. Existence elliptic/Elliptic_PDE_1.tex" "Elliptic_PDE_1.pdf" "Elliptic_PDE_1" 1706719423 0
   "C:/Users/liaml/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1705360314 94439 75c7519cf2ed88b72b9665aa102cbef9 ""
   "C:/Users/liaml/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1200.pk" 1690620574 31952 757548367705bc05b3344f6a05279eb9 ""
   "C:/Users/liaml/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1728.pk" 1690611072 49100 9791c8872e08a8bb348d698ad32ad595 ""
@@ -119,11 +119,11 @@
   "C:/Users/liaml/AppData/Roaming/MiKTeX/tex/latex/physics/physics.sty" 1356002062 29610 a9597219b282d9c78b02393dcd7d4322 ""
   "C:/Users/liaml/AppData/Roaming/MiKTeX/tex/latex/refcount/refcount.sty" 1576433952 9878 9e94e8fa600d95f9c7731bb21dfb67a4 ""
   "C:/Users/liaml/AppData/Roaming/MiKTeX/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1657797096 9714 ba3194bd52c8499b3f1e3eb91d409670 ""
-  "Elliptic_PDE_1.aux" 1706717940 1154 138a8da37c945bb8928d56884ea904e8 "pdflatex"
-  "Elliptic_PDE_1.bbl" 1706717825 287 3878827962be5d70daebf15e197c8d1b "bibtex Elliptic_PDE_1"
-  "Elliptic_PDE_1.out" 1706717940 475 ab0fb161b1661adb5d577fd6f0dd494f "pdflatex"
-  "Elliptic_PDE_1.tex" 1706717938 13822 a49266120cc249d21ce296dcf265d57a ""
-  "c:/Users/liaml/Documentos/LiamLlamazares.github.io/assets/latex_docs/PDEs/5. Existence elliptic/Elliptic_PDE_1.tex" 1706717938 13822 a49266120cc249d21ce296dcf265d57a ""
+  "Elliptic_PDE_1.aux" 1706719421 1154 138a8da37c945bb8928d56884ea904e8 "pdflatex"
+  "Elliptic_PDE_1.bbl" 1706719420 287 3878827962be5d70daebf15e197c8d1b "bibtex Elliptic_PDE_1"
+  "Elliptic_PDE_1.out" 1706719421 475 ab0fb161b1661adb5d577fd6f0dd494f "pdflatex"
+  "Elliptic_PDE_1.tex" 1706719416 13996 3cdf1030074a77f9213aef2e8294b734 ""
+  "c:/Users/liaml/Documentos/LiamLlamazares.github.io/assets/latex_docs/PDEs/5. Existence elliptic/Elliptic_PDE_1.tex" 1706719416 13996 3cdf1030074a77f9213aef2e8294b734 ""
   (generated)
   "Elliptic_PDE_1.aux"
   "Elliptic_PDE_1.log"
