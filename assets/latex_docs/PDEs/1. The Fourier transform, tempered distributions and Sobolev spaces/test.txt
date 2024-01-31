@@ -285,7 +285,7 @@ strikingly similar results are achieved in this setting
 ::: definition
 **Definition 3**. *Given $f\in L^1({\mathbb T}^d\to\mathbb{C}^m)$ we
 define the *$k$-th Fourier coefficient* of $f$ as:
-$$\hat{f}(k):=\int_{{\mathbb T}^d}f(x)e^{-2\pi ik\cdot x}dx.$$*
+$$\hat{f}(k):=\int_{{\mathbb T}}^d}f(x)e^{-2\pi ik\cdot x}dx.$$*
 :::
 
 We thus obtain a function $\hat{f}$ on ${\mathbb Z}^d$ which we shall
@@ -473,7 +473,7 @@ analogous to the ones seen in the section on the Fourier transform for
 
 To prove it all we have to do is apply Plancherel on $u$ and move terms
 around via duality, $$\begin{gathered}
-    (u,w)=(\sum_{k\in {\mathbb Z}^d}\hat{u}(k)e^{2\pi ik\cdot x},w )=\sum_{k\in {\mathbb Z}^d}  \hat{u}(k)\hat{w}(k)\\=\sum_{k\in {\mathbb Z}^d}  \left(\int_{{\mathbb T}^d} u(x)e^{-2\pi i\omega\cdot  x}dx\right)\hat{w}(k)=\int_{{\mathbb T}^d} u(x)\left(\sum_{k\in {\mathbb Z}^d} \hat{w}(k) e^{-2\pi i\omega\cdot  x}\right)dx.\end{gathered}$$
+    (u,w)=(\sum_{k\in {\mathbb Z}^d}\hat{u}(k)e^{2\pi ik\cdot x},w )=\sum_{k\in {\mathbb Z}^d}  \hat{u}(k)\hat{w}(k)\\=\sum_{k\in {\mathbb Z}^d}  \left(\int_{{\mathbb T}}^d} u(x)e^{-2\pi i\omega\cdot  x}dx\right)\hat{w}(k)=\int_{{\mathbb T}}^d} u(x)\left(\sum_{k\in {\mathbb Z}^d} \hat{w}(k) e^{-2\pi i\omega\cdot  x}\right)dx.\end{gathered}$$
 This proves the first part and the second can be proved directly by
 considering the relevant definitions.\
 \
