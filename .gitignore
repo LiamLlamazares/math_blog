@@ -11,6 +11,7 @@ _site
 .blg
 .bll
 .gz
+.latexmk
 
 # general
 .DS_Store
