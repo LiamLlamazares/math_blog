@@ -1,0 +1,292 @@
+@book{murphy2014c,
+  title={C*-algebras and operator theory},
+  author={Murphy, Gerald J},
+  year={2014},
+  publisher={Academic press}
+}
+@book{conway2019course,
+  title={A course in functional analysis},
+  author={Conway, John B},
+  volume={96},
+  year={2019},
+  publisher={Springer}
+}
+@book{lototsky2017stochastic,
+  title={Stochastic partial differential equations},
+  author={Lototsky, Sergey V and Rozovsky, Boris L and others},
+  year={2017},
+  publisher={Springer}
+}
+
+@article{Lindgren2011AnEL,
+  title={An explicit link between Gaussian fields and Gaussian Markov random fields: the stochastic partial differential equation approach},
+  author={Finn Lindgren and H{\aa}vard Rue and Johan Lindstr{\"o}m},
+  journal={Journal of the Royal Statistical Society: Series B (Statistical Methodology)},
+  year={2011},
+  volume={73}
+}
+@book{hirzebruch1971einfuhrung,
+  title={Einf{\"u}hrung in die Funktionalanalysis},
+  author={Hirzebruch, Friedrich and Scharlau, Winfried},
+  volume={296},
+  year={1971},
+  publisher={BI-Wissenschaftsverlag}
+}
+@book{reed1972methods,
+  title={Methods of modern mathematical physics},
+  author={Reed, Michael and Simon, Barry and Simon, Barry and Simon, Barry},
+  volume={1},
+  year={1972},
+  publisher={Elsevier}
+}
+@article{Karatzas1987BrownianMA,
+  title={Brownian Motion and Stochastic Calculus},
+  author={Ioannis Karatzas},
+  journal={Elearn},
+  year={1987},
+  url = {https://link.springer.com/book/10.1007/978-1-4612-0949-2}
+}
+@inproceedings{Lalley2013NOTESOT,
+  title={NOTES ON THE IT{\^O} CALCULUS},
+  author={Steven P. Lalley},
+  year={2013},
+  url = {http://galton.uchicago.edu/~lalley/Courses/385/Old/ItoIntegral-2012.pdf}
+}
+ @misc{Continuousextension,
+    author = "{Wikipedia}",
+    title = "Continuous linear extension",
+    year = "2022",
+    url = {"https://en.wikipedia.org/wiki/Continuous_linear_extension"},
+    note = "[Online; accessed 16-February-2022]"
+  }
+@misc{heston,
+    author = {},
+    title = {{H}eston Model Simulation with Python},
+    year = 2021,
+    url = {https://www.codearmo.com/python-tutorial/heston-model-simulation-python},
+    note = {accessed: 2022-01-24}
+}
+
+@article{heston_better,
+  title={Simulating from the {H}eston model: A gamma approximation scheme},
+  author={Jean-François B{\'e}gin and Myl{\`e}ne B{\'e}dard and Patrice Gaillardetz},
+  journal={Monte Carlo Methods and Applications},
+  year={2015},
+  volume={21},
+  pages={205 - 231},
+  url = {https://www.hairer.org/notes/SPDEs.pdf}
+}
+@book{nunno2008malliavin,
+  title={Malliavin calculus for L{\'e}vy processes with applications to finance},
+  author={Nunno, Giulia Di and {\O}ksendal, Bernt and Proske, Frank},
+  year={2008},
+  publisher={Springer},
+  url = {https://link.springer.com/book/10.1007/978-3-540-78572-9}
+}
+@misc{Bochner,
+    author = {Liam Llamazares},
+    title = {The Bochner integral},
+    year = 2022,
+    url = {https://liamllamazares.github.io/2022-05-27-The-Bochner-integral/},
+}
+@misc{Chaosblog,
+    author = {Liam Llamazares},
+    title = {The Chaos Expansion},
+    year = 2022,
+    url = {https://liamllamazares.github.io/2022-05-26-Malliavin-Calculus-1/},
+}
+@misc{Itointblog,
+    author = {Liam Llamazares},
+    title = {The Ito integral},
+    year = 2022,
+    url = {https://liamllamazares.github.io/2022-05-26-The-Ito-integral/},
+}
+@book{ash2000probability,
+  title={Probability and measure theory},
+  author={Ash, Robert B and Robert, B and Doleans-Dade, Catherine A and Catherine, A},
+  year={2000},
+  publisher={Academic press},
+  url = {https://www.elsevier.com/books/probability-and-measure-theory/ash/978-0-08-051487-1}
+}
+@misc{Skorohodblog,
+    author = {Liam Llamazares},
+    title = {The Skorohod integral},
+    year = 2022,
+    url = {https://nowheredifferentiable.com/2022-05-29-Malliavin-Calculus-2/},
+}
+
+@book{adler2007random,
+  title={Random fields and geometry},
+  author={Adler, Robert J and Taylor, Jonathan E and others},
+  volume={80},
+  year={2007},
+  publisher={Springer},
+  url = {https://www.dcs.warwick.ac.uk/~feng/papers/Random_Fields_and_Geometry_%5BAdler%5D.pdf}
+}
+@book{lindgren2012stationary,
+  title={Stationary stochastic processes: theory and applications},
+  author={Lindgren, Georg},
+  year={2012},
+  publisher={CRC Press},
+  url = {https://www.amazon.co.uk/Stationary-Stochastic-Processes-Applications-Statistical/dp/1466557796}
+}
+@incollection{oksendal2003stochastic,
+  title={Stochastic differential equations},
+  author={{\O}ksendal, Bernt},
+  booktitle={Stochastic differential equations},
+  pages={65--84},
+  year={2003},
+  publisher={Springer}
+}
+@article{worsley1992three,
+  title={A three-dimensional statistical analysis for CBF activation studies in human brain},
+  author={Worsley, Keith J and Evans, Alan C and Marrett, Sean and Neelin, P},
+  journal={Journal of Cerebral Blood Flow \& Metabolism},
+  volume={12},
+  number={6},
+  pages={900--918},
+  year={1992},
+  publisher={SAGE Publications Sage UK: London, England}
+}
+@article{Zheng2015ConditionalRF,
+  title={Conditional Random Fields as Recurrent Neural Networks},
+  author={Shuai Zheng and Sadeep Jayasumana and Bernardino Romera-Paredes and Vibhav Vineet and Zhizhong Su and Dalong Du and Chang Huang and Philip H. S. Torr},
+  journal={2015 IEEE International Conference on Computer Vision (ICCV)},
+  year={2015},
+  pages={1529-1537}
+}
+@article{lindgren2011explicit,
+  title={An explicit link between Gaussian fields and Gaussian Markov random fields: the stochastic partial differential equation approach},
+  author={Lindgren, Finn and Rue, H{\aa}vard and Lindstr{\"o}m, Johan},
+  journal={Journal of the Royal Statistical Society: Series B (Statistical Methodology)},
+  volume={73},
+  number={4},
+  pages={423--498},
+  year={2011},
+  publisher={Wiley Online Library}
+}
+@article{lindgren2022spde,
+  title={The SPDE approach for Gaussian and non-Gaussian fields: 10 years and still running},
+  author={Lindgren, Finn and Bolin, David and Rue, H{\aa}vard},
+  journal={Spatial Statistics},
+  pages={100599},
+  year={2022},
+  publisher={Elsevier}
+}
+@book{yaglom1987correlation,
+  title={Correlation Theory of Stationary and Related Random Functions, Volume I: Basic Results},
+  author={Yaglom, Akiva M},
+  volume={131},
+  year={1987},
+  publisher={Springer}
+}
+@book{yaglom1962introduction,
+  title={An introduction to the theory of stationary random functions},
+  author={Yaglom, Akiva M},
+  year={1962},
+  publisher={Prentice Hall, Englewood Cliffs.}
+}
+@book{duoandikoetxea2001fourier,
+  title={Fourier analysis},
+  author={Duoandikoetxea, Javier and Zuazo, Javier Duoandikoetxea},
+  volume={29},
+  year={2001},
+  publisher={American Mathematical Soc.}
+}
+@book{ccinlar2011probability,
+  title={Probability and stochastics},
+  author={{\c{C}}inlar, Erhan and E. {\dh}C{\i}nlar},
+  volume={261},
+  year={2011},
+  publisher={Springer}
+}
+@article{bochner1933monotone,
+  title={Monotone funktionen, stieltjessche integrale und harmonische analyse},
+  author={Bochner, Salomon},
+  journal={Mathematische Annalen},
+  volume={108},
+  number={1},
+  pages={378--410},
+  year={1933},
+  publisher={Springer}
+}
+@inproceedings{yaglom1961second,
+  title={Second-order homogeneous random fields},
+  author={Yaglom, Akiva M and others},
+  booktitle={Proc. 4th Berkeley Sympos. Math. Statist. and Prob},
+  volume={2},
+  pages={593--622},
+  year={1961}
+}
+@book{taylor2013partial,
+  title={Partial differential equations II: Qualitative studies of linear equations},
+  author={Taylor, Michael},
+  volume={116},
+  year={2013},
+  publisher={Springer Science \& Business Media}
+}
+@article{whittle1963stochastic,
+  title={Stochastic-processes in several dimensions},
+  author={Whittle, Peter},
+  journal={Bulletin of the International Statistical Institute},
+  volume={40},
+  number={2},
+  pages={974--994},
+  year={1963},
+  publisher={INT STATISTICAL INSTITUTE 428 PRINSES BEATRIXLAEN, VOORBURG, NETHERLANDS}
+}
+@book{liu2015stochastic,
+  title={Stochastic partial differential equations: an introduction},
+  author={Liu, Wei and R{\"o}ckner, Michael},
+  year={2015},
+  publisher={Springer}
+}
+@article{hairer2009introduction,
+  title={An introduction to stochastic PDEs},
+  author={Hairer, Martin},
+  journal={arXiv preprint arXiv:0907.4178},
+  year={2009}
+}
+@book{Foll,
+  title={Real analysis: modern techniques and their applications},
+  author={Folland, Gerald B},
+  volume={40},
+  year={1999},
+  publisher={John Wiley \& Sons},
+  url= {https://books.google.co.uk/books?id=wI4fAwAAQBAJ&printsec=frontcover&hl=fr&source=gbs_ge_summary_r&cad=0#v=onepage&q&f=false}
+
+}
+@article{becnel2004schwartz,
+  title={The Schwartz space: A background to white noise analysis},
+  author={Becnel, Jeremy J and Sengupta, Ambar N},
+  journal={preprint of University of Louisana},
+  year={2004},
+  publisher={Citeseer},
+  url = {https://link.springer.com/book/10.1007/978-1-4612-0949-2}
+}
+@book{gel2016generalized,
+  title={Generalized Functions, Volume 4: Applications of Harmonic Analysis},
+  author={Gel, IM and Vilenkin, N Ya},
+  year={2016},
+  publisher={American Mathematical Society}
+}
+@book{Tay,
+  title={Partial Differential Equations I: Basic Theory},
+  author={Michael Taylor},
+  year={1996},
+  url={https://link.springer.com/book/10.1007/978-1-4419-7055-8}
+}
+@book{Foll,
+  title={Real analysis: modern techniques and their applications},
+  author={Folland, Gerald B},
+  volume={40},
+  year={1999},
+  publisher={John Wiley \& Sons}
+}
+@book{FF,
+  title={Integraci{\'o}n de funciones de varias variables},
+  author={Aguirre, Jos{\'e} A Facenda and Ib{\'a}{\~n}ez, Francisco Jos{\'e} Freniche},
+  year={2002},
+  publisher={Ediciones Pir{\'a}mide},
+  url={https://books.google.co.uk/books/about/Integraci%C3%B3n_de_funciones_de_varias_vari.html?id=uuHbOgAACAAJ&redir_esc=y}
+}

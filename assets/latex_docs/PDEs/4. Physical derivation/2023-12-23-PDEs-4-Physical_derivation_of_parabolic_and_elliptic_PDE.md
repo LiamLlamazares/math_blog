@@ -8,7 +8,7 @@ tags: [PDEs]
 authorpost: L.Llamazares
 ---
 
-# Summary
+#  Summary
 
 Partial differential equations (PDEs) are a fundamental tool that can be
 used to describe the evolution and stationary state of a physical
@@ -45,6 +45,7 @@ follow.
 
 We begin by giving a physical derivation of the parabolic equation
 
+
 <div>
 $$\begin{align}
 \label{PDE}
@@ -75,6 +76,7 @@ dissolved. Our goal is to describe the concentration (density) of the
 solute $u(t,\mathbf{x})$ as the system evolves in time and space. We know
 that the amount of fluid within any subregion $V \subset  \Omega$ is
 
+
 <div>
 $$\begin{aligned}
 m(t)=\int\U {V} u(t,\mathbf{x}) \,\mathrm{d}\mathbf{x}  .
@@ -85,6 +87,7 @@ This mass changes as the solute moves around $\Omega$.
 By conservation of mass, the mass of solute $m(t+h)$ at a small instant
 of time later is equal to the mass $m(t)$ present at time $t$ plus the
 mass of any other solute that entered the domain in that small time
+
 
 <div>
 $$\begin{aligned}
@@ -130,6 +133,8 @@ of the density over $V$. Using this and the [divergence
 theorem](https://en.wikipedia.org/wiki/Divergence_theorem#:~:text=%5Bedit%5D-,For,-bounded%20open%20subsets)
 gives
 
+
+
 <div>
 $$\begin{align}
 \label{balance integral}
@@ -139,8 +144,10 @@ $$\begin{align}
 
 This is the integral form of the balance equation. To
 obtain the non-integral form, note that, since
-(\ref{balance integral}) holds for all $V \subset  U$, the
+(\ref{balance integral})  holds for all $V \subset  U$, the
 integrands must be equal (almost) everywhere, that is
+
+
 
 <div>
 $$\begin{align}
@@ -154,7 +161,7 @@ properties of the fluid and domain. We recall that $\mathbf{F}$ determines
 the magnitude and direction of the flow of the solute. We distinguish
 two possible reasons for the movement of the solute.
 
-a) Diffusion: This is the process that causes the solute to move from
+a)  Diffusion: This is the process that causes the solute to move from
 areas of lower to higher concentration. A possible physical
 approximation is to consider the diffusion to be proportional to the
 gradient of the density, that is
@@ -164,7 +171,6 @@ $$\begin{aligned}
 \mathbf{F}\U {\text{diffusion}} = -\mathbf{A}\nabla u  .
 
 \end{aligned}$$
-
 </div>
 
 Here, $\mathbf{A}(\mathbf{x} ) \in \mathbb{R}^{d\times d}\U +$
@@ -179,7 +185,6 @@ $$\begin{aligned}
 \{(\mathbf{e\U 1},\lambda \U 1 ),(\mathbf{e}\U 2, \lambda \U 2 ),\ldots, (\mathbf{e}\U 3 ,\lambda \U d)\} .
 
 \end{aligned}$$
-
 </div>
 
 Then
@@ -189,7 +194,6 @@ $$\begin{align}  \label{diffusion}
 \mathbf{F}\U {\text{diffusion}} = -\mathbf{A}\nabla u=-  \lambda \U j(\nabla u\cdot \mathbf{e}\U j )\mathbf{e}\U j .
 
 \end{align}$$
-
 </div>
 
 That is, the solute diffuses in the direction of
@@ -197,23 +201,25 @@ $\mathbf{e}\U j$ with speed proportional to $\lambda\U j$. For example, if
 $\mathbf{A}$ is a constant multiple of the identity, there is no
 preferred direction of flow. In this case, one says that the flow is
 homogeneous. The minus sign in
-(\ref{diffusion}) together with the imposition that $\mathbf{A}$ is
+(\ref{diffusion})  together with the imposition that $\mathbf{A}$ is
 positive definite means that diffusion occurs from areas of lower to
 higher concentration.
 
 If diffusion is the only cause of movement in the fluid,
 $\mathbf{F}= - \mathbf{A}\nabla u$ and substituting into the balance
-equation (\ref{balance}) gives the (non-homogeneous) heat equation
+equation (\ref{balance})  gives the (non-homogeneous) heat equation
+
 
 <div>
 $$\begin{aligned}
 \partial\U tu= \nabla \cdot (\mathbf{A}\nabla u)+f .
 
 \end{aligned}$$
-
 </div>
 
-b) Advection: Another possible cause for the flow of the solute
+
+
+b)  Advection: Another possible cause for the flow of the solute
 within $\Omega$ is that the fluid itself is moving with some
 velocity $\mathbf{v}$, transporting along the particles of the solute.
 The flux due to advection is
@@ -223,8 +229,9 @@ $$\begin{aligned}
 \mathbf{F}\U {\text{advection} }= u \mathbf{v} .
 
 \end{aligned}$$
-
 </div>
+
+
 
 The flux is thus made up of the sum of a diffusion and advection
 component:
@@ -256,7 +263,7 @@ in $u$, equal to $-ru$ where the sign of $r$ determines whether the
 concentration of solute decreases (if $r>0$, as in the previous
 scenarios) or increases (if $r<0$, for example, $u$ could represent the
 concentration of a population of algae). Adding this reaction term to
-our balance equation (\ref{balance2}) gives
+our balance equation (\ref{balance2})  gives
 
 <div>
 $$\begin{aligned}
@@ -289,7 +296,7 @@ $$\begin{align}
 </div>
 
 Equation
-(\ref{parabolic}) is a prototypical parabolic equation. Suppose now
+(\ref{parabolic})  is a prototypical parabolic equation. Suppose now
 that our system has and reaches an equilibrium state (a state in which
 the concentration of solute stays constant in time once reached). Then
 $\partial \U t u=0$ and we obtain
@@ -317,6 +324,7 @@ allowed to do on $\Omega$ (as well as an initial condition
 $u(0,\mathbf{x})=u\U 0(\mathbf{x})$ in the parabolic case
 (\ref{parabolic}) ).
 
+
 **Example 1**. Consider the Poisson equation
 
 <div>
@@ -325,17 +333,17 @@ $$\begin{align}
 \Delta u=f.
 
 \end{align}$$
-
 </div>
 
 If $u$ solves
 (\ref{Poisson}) ,
-then $u+p$ also solves (\ref{Poisson}) where $p$ is any polynomial of degree $0$ or $1$.
+then $u+p$ also solves (\ref{Poisson})  where $p$ is any polynomial of degree $0$ or $1$.
+
 
 There are multiple types of boundary conditions which can be specified,
 each one corresponding to a particular behaviour of the system.
 
-a) Dirichlet boundary condition: This is the additional imposition
+a)  Dirichlet boundary condition: This is the additional imposition
 that
 
 <div>
@@ -343,7 +351,6 @@ $$\begin{aligned}
 u=g \text{ on } \partial\Omega,
 
 \end{aligned}$$
-
 </div>
 
 where $g$ is some function defined on
@@ -353,24 +360,24 @@ post](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/).
 In the context of the diffusion of heat, $\Omega$ could be a rod
 which is kept at a constant temperature at its endpoints.
 
-b) Robin boundary condition: Here, it is imposed that
+b)  Robin boundary condition: Here, it is imposed that
+
 
 <div>
 $$\begin{align}  \label{Robin}
 -\mathbf{F}\cdot  \mathbf{n} =g \text{  on } \partial \Omega,
 
 \end{align}$$
-
 </div>
 
 where $\mathbf{F}$ is the flux and in our case is
 $\mathbf{F}=-\mathbf{A} \nabla u+ \mathbf{v}u$. This condition imposes that a
 "mass" $g$ of substance (solute, heat, etc.) enters the domain at
 each point of the boundary (or leaves if the minus in
-(\ref{Robin}) is
+(\ref{Robin})  is
 omitted).
 
-c) Neumann boundary condition: This is a particular case of the Robin
+c)  Neumann boundary condition: This is a particular case of the Robin
 boundary condition where there is no diffusion. In this case,
 (\ref{Robin})
 becomes
@@ -380,7 +387,6 @@ $$\begin{aligned}
 (\mathbf{A} \nabla u) \cdot n=g \text{  on } \partial \Omega.
 
 \end{aligned}$$
-
 </div>
 
 The above is known as a Neumann boundary condition.
@@ -392,13 +398,12 @@ $$\begin{aligned}
 \frac{\partial u}{\partial \mathbf{n}}:= \nabla u \cdot  \mathbf{n} =g \text{  on } \partial \Omega,
 
 \end{aligned}$$
-
 </div>
 
 is used. Here $\frac{\partial u}{\partial \mathbf{n}}$
 is known as the normal derivative.
 
-d) Mixed boundary condition: This corresponds a mix of the preceding.
+d)  Mixed boundary condition: This corresponds a mix of the preceding.
 That is, $\partial \Omega$ is partitioned into
 $\Gamma \U 1, \Gamma \U 2$, and the following boundary conditions are
 imposed.
@@ -408,10 +413,11 @@ $$\begin{aligned}
 u=g\U 1 \text{  on }  \Gamma \U 1,  \text{ and }  -\mathbf{F} \cdot n=g\U 2 \text{  on }  \Gamma \U 2.
 
 \end{aligned}$$
-
 </div>
 
-e) Periodic boundary conditions: Here the domain is an interval
+
+
+e)  Periodic boundary conditions: Here the domain is an interval
 $\Omega=(\mathbf{a}, \mathbf{b})$ and we require that for all
 $k \in \\{1,\ldots,d\\}$
 
@@ -420,7 +426,6 @@ $$\begin{aligned}
 u(x\U 1,\ldots,a\U k,\ldots, x\U d)=u({x}\U 1,\ldots,{b}\U k,\ldots, {x}\U d).
 
 \end{aligned}$$
-
 </div>
 
 Equivalently, $u$ is a function of the torus
@@ -442,4 +447,4 @@ However, the mathematical theory of nonlinear PDE is much more
 complicated (think Navier Stokes). The linear case, which we begin to
 develop in the next post, will keep us busy for a while.
 
-A (possibly not updated) pdf of version of this page is provided [here](/assets/pdfs/PDEs/Physical_PDE.pdf).
+A (possibly not updated) pdf of version of this page is provided [here](/assets/latex_docs/PDEs/Physical_PDE.pdf).

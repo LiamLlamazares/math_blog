@@ -1,0 +1,29 @@
+This is a list of tips of how to write with vim
+
+1. To delete a line press dd
+2. Go to the top with gg and bottom with G
+
+3.To skip a block of code press{ up } down
+4.To do a command many times put a number infront of it like with 10{.
+5. Undo with uandredo with C-r.
+6.To paste use p.
+7.To select stuff visually press V and then go up and down.
+8. To add line below and above o, O.
+9.To delete a block of test d{}, alterbatively
+10. VISUAL MODE MOST USEFUL TO DELETE, V FOR LINES, v FOR MORE PRECISION
+11. TO MOVE ACROSS LINES w & bcapital W to only see spaces.
+12. :+number (0,.., 100,...) to move to line.
+13. Tove cursor all theway to the beginning press 0, 0+w to go to non empty symbol
+14. t or f + character to find character in line and go to it.
+15. % To switch between beginning and last parentheis.
+16.Combine d% to delete stuff between [arenthesis]
+17. D DELETES EVERYTHING TO RIGHT OF CURSOR. C TO GO TO INSERT.
+18. c+t+} TO CHANGE EVERYTHING UNTIL THE SYMBOL (IE },),...,f,J,...)
+19.* To switch between instances of something.
+20. TO GO TO THE END OF LINE + INSERT A, to move 1 a.
+21 . TO REDO COMMAND, i.e change till } and then redo
+
+{Hi}
+sdfsdfs  {Hi}
+22. To change words use cw or ****bcw**** caw.
+23. r to replaceletter.
