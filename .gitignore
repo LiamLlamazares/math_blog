@@ -10,6 +10,7 @@ _site
 .gz
 .blg
 .bll
+.gz
 
 # general
 .DS_Store
