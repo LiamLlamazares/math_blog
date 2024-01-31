@@ -71,7 +71,7 @@ concludes the proof. ◻
 Ok, now we know the support of Malliavin differentiable functions are
 nicely shaped intervals. But what about densities, when can we guarantee
 their existence? Consider for example the simplest of all cases,
-$X=x\in {\mathbb R}$. That is $X$ always takes the value $x$. Then $X$
+$X=x\in {\mathbb{R}}$. That is $X$ always takes the value $x$. Then $X$
 is Malliavin differentiable, however, it admits no density (no, the
 $\delta$ function does not count as a density). Let's consider a case
 that is a bit less trivial, set
@@ -120,7 +120,7 @@ $$p(x):=\mathbb{E}\qty[1_{X\leq x}\delta \qty(\frac{DX}{\norm{DX}_{H}^2}) ].$$*
 :::
 
 ::: proof
-*Proof.* Let us consider $g\in C_c^\infty({\mathbb R})$ and set as
+*Proof.* Let us consider $g\in C_c^\infty({\mathbb{R}})$ and set as
 before $$\varphi(X):=\int_{-\infty}^x g(x)dx.$$ Then by the chain rule
 (link) and the fundamental theorem of calculus, we have that
 $$\left\langle D\varphi(X),\frac{DX}{\norm{DX}^2_{H}}\right\rangle_{H}=g(X).$$
@@ -128,10 +128,10 @@ By taking expectations on both sides, and using that the Skorohod
 integral is the adjoint (link) of the Malliavin derivative, and Fubini
 we obtain $$\begin{aligned}
              & \mathbb{E}[g(x)]=\mathbb{E}\qty[\left\langle D\varphi(X),\frac{DX}{\norm{DX}^2_{H}}\right\rangle_{H}]=\mathbb{E}\qty[\varphi(X)\delta\qty(\frac{DX}{\norm{DX}_{H}^2})]                                 \\
-             & =\mathbb{E}\qty[\qty(\int_{{\mathbb R}}1_{X\leq x} g(x)dx)\delta\qty(\frac{DX}{\norm{DX}^2_{H}})]=\int_{{\mathbb R}}g(x)\mathbb{E}\qty[1_{X\leq x}\delta \qty(\frac{DX}{\norm{DX}_{H}^2}) ] \\&=\int_{{\mathbb R}}g(x)p(x).
+             & =\mathbb{E}\qty[\qty(\int_{{\mathbb{R}}}1_{X\leq x} g(x)dx)\delta\qty(\frac{DX}{\norm{DX}^2_{H}})]=\int_{{\mathbb{R}}}g(x)\mathbb{E}\qty[1_{X\leq x}\delta \qty(\frac{DX}{\norm{DX}_{H}^2}) ] \\&=\int_{{\mathbb{R}}}g(x)p(x).
         \end{aligned}$$ Since $g$ was any smooth function this concludes
 the proof (as we can always approximate indicator functions
-$1_A\in L^2({\mathbb R})$ by smooth functions). ◻
+$1_A\in L^2({\mathbb{R}})$ by smooth functions). ◻
 :::
 
 To show the differentiability of $p(x)$ we need the following lemma
@@ -140,7 +140,7 @@ which will let us transfer- derivatives onto the density $p$.
 ::: lemma
 **Lemma 1** (Integration by parts). *Let $X\in \mathbb{D}^{\infty}$ be
 such that $\norm{DX}_{H}>0$ almost everywhere. Then, given any
-$Y\in \mathbb{D}^\infty$ and $\varphi \in C_b^\infty({\mathbb R})$,
+$Y\in \mathbb{D}^\infty$ and $\varphi \in C_b^\infty({\mathbb{R}})$,
 there exists $H_{k}(X,Y)\in \mathbb{D}^\infty$ such that
 $$\mathbb{E}[\varphi^{(k)}(X)Y]=\mathbb{E}[\varphi(X)H_k(X,Y)].$$*
 
@@ -184,19 +184,19 @@ reference="dens exists"} we know that $X$ has a density $p(x)$. To show
 that $p$ is smooth, by Sobolev embedding (link) it is sufficient to show
 that $p$ is weakly differentiable with order $n$ for all
 $n \in \mathbb{N}$. That is, for all
-$\varphi\in C_b^\infty({\mathbb R})$ there exists a function $p^{(n)}$
+$\varphi\in C_b^\infty({\mathbb{R}})$ there exists a function $p^{(n)}$
 such that
-$$\mathbb{E}[\varphi^{(n)}(X)]=\int_{{\mathbb R}}\varphi^{(n)}(x)p(x) dx=(-1)^n\int_{{\mathbb R}}\varphi(x) p^{(n)}(x) dx.$$
+$$\mathbb{E}[\varphi^{(n)}(X)]=\int_{{\mathbb{R}}}\varphi^{(n)}(x)p(x) dx=(-1)^n\int_{{\mathbb{R}}}\varphi(x) p^{(n)}(x) dx.$$
 Where the first equality just holds by definition of density, so we only
 have to prove the second. The idea will be to integrate by parts, using
 the previous lemma to move derivatives off $\varphi$ and onto $1$ (as
 strange as that may sound). We know that for any smooth
-$\phi\in C_b^\infty({\mathbb R})$
+$\phi\in C_b^\infty({\mathbb{R}})$
 $$\mathbb{E}[\phi^{(n+1)}(X)]=E[\phi'(X)H_n(X,1)].$$ If we apply this to
 $\phi(x):=\int_{-\infty}^x \varphi(y) dy$ where $\varphi$ is any
-function in $C_c^\infty({\mathbb R})$ (and in particular
+function in $C_c^\infty({\mathbb{R}})$ (and in particular
 $\varphi=\phi'$) we obtain that, by Fubini, $$\begin{gathered}
-            \mathbb{E}[\varphi^{(n)}(X)]=E[\varphi(X)H_n(X,1)]= E\qty[\qty(\int_{{\mathbb R}}1_{[-\infty,X]}(x) \varphi(x)dx) H_n(X,1)]\\=\int_{{\mathbb R}}\varphi(x)\mathbb{E}\qty[1_{[-\infty,X]}(x)H_n(X,1)] dx=:(-1)^n \int_{R}\varphi(x) p^{(n)}(x) d
+            \mathbb{E}[\varphi^{(n)}(X)]=E[\varphi(X)H_n(X,1)]= E\qty[\qty(\int_{{\mathbb{R}}}1_{[-\infty,X]}(x) \varphi(x)dx) H_n(X,1)]\\=\int_{{\mathbb{R}}}\varphi(x)\mathbb{E}\qty[1_{[-\infty,X]}(x)H_n(X,1)] dx=:(-1)^n \int_{R}\varphi(x) p^{(n)}(x) d
         \end{gathered}$$ This proves the theorem. ◻
 :::
 
