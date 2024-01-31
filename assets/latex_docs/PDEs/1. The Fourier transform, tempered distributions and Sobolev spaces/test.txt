@@ -151,7 +151,7 @@ convention.
 **Definition 1**. *Given $f\in L^1({\mathbb R}^d\to\mathbb{C}^m)$ the
 *Fourier transform* of $f$ and the *inverse Fourier transform of* $f$
 are defined respectively by
-$$\hat{f}(\xi):=\int_{{\mathbb R}^d}f(x)e^{-2\pi i\xi\cdot  x} dx, \quad \check{f}(\xi):=\int_{{\mathbb R}^d}f(x)e^{2\pi i\xi\cdot  x} dx$$*
+$$\hat{f}(\xi):=\int_{{\mathbb R}}^d}f(x)e^{-2\pi i\xi\cdot  x} dx, \quad \check{f}(\xi):=\int_{{\mathbb R}}^d}f(x)e^{2\pi i\xi\cdot  x} dx$$*
 :::
 
 Other exponents such as $e^{-ix}, e^{-\pi i x}$ can also be used with
@@ -178,7 +178,7 @@ $f\in L^1({\mathbb R}^d\to\mathbb{C}^m)$*
 ::: proof
 *Proof.* The proof of the first point is an application of the triangle
 inequality as
-$$\abs{\hat{f}(\xi )}=\abs{\int_{{\mathbb R}^d}f(x)e^{2\pi i x\cdot \xi } dx}\leq\int_{{\mathbb R}^d}\abs{f(x)}dx\quad\forall \xi \in {\mathbb R}^d.$$
+$$\abs{\hat{f}(\xi )}=\abs{\int_{{\mathbb R}}^d}f(x)e^{2\pi i x\cdot \xi } dx}\leq\int_{{\mathbb R}}^d}\abs{f(x)}dx\quad\forall \xi \in {\mathbb R}^d.$$
 and similarly for the inverse. The second point follows by
 differentiation under the integral(link). The third point can be proved
 by using integration by parts and the observation that every absolutely
@@ -219,7 +219,7 @@ by
 $$\mathcal{F}_\mathcal{S},\mathcal{F}^*_\mathcal{S}:\mathcal{S}({\mathbb R}^d\to\mathbb{C}^m)\to\mathcal{S}({\mathbb R}^d\to\mathbb{C}^m).$$
 The next item on the agenda is Plancherel's theorem which is proven via
 the following lemma, in which we shall use the
-notation$$\left\langle f,g\right\rangle_{L^2({\mathbb R}^d\to\mathbb{C}^m)}:=\int_{{\mathbb R}^d}f(x)\cdot  \overline{g(x)} dx$$
+notation$$\left\langle f,g\right\rangle_{L^2({\mathbb R}^d\to\mathbb{C}^m)}:=\int_{{\mathbb R}}^d}f(x)\cdot  \overline{g(x)} dx$$
 for the inner product on $L^2({\mathbb R}^d\to\mathbb{C}^m)$.
 
 ::: {#Planncherellemma .lemma}
@@ -263,7 +263,7 @@ $\mathcal{F}$ coincides with our initial definition when reasonable.
 That is, whether given a function
 $f \in L^1({\mathbb R}^d\to\mathbb{C}^m)\cap L^2({\mathbb R}^d\to\mathbb{C}^m)$
 we have that
-$$\mathcal{F}f(\xi)=\mathcal{F}_1f(\xi)=\int_{{\mathbb R}^d}f(x)e^{-2\pi ix\cdot \xi} dx\qquad\forall \xi\in{\mathbb R}^d.$$
+$$\mathcal{F}f(\xi)=\mathcal{F}_1f(\xi)=\int_{{\mathbb R}}^d}f(x)e^{-2\pi ix\cdot \xi} dx\qquad\forall \xi\in{\mathbb R}^d.$$
 This indeed holds as can be seen by taking a sequence of functions
 $\lbrace f_n\rbrace_{n=1}^\infty\in{\mathcal S}({\mathbb R}^d\to\mathbb{C}^m)$
 converging to $f$ in $L^1({\mathbb R}^d\to\mathbb{C}^m)$ and in
@@ -341,7 +341,7 @@ with $\mathcal{F}\mathcal{F}^*=\mathcal{F}^*\mathcal{F}=Id.$*
 We note that, as for the Euclidean case, given
 $f\in L^2({\mathbb T}^d\to\mathbb{C}^m)\cap L^1({\mathbb T}^d\to\mathbb{C}^m)$
 by an identical argument it holds that
-$$\mathcal{F}f(k)=\mathcal{F}_1f(k)=\int_{{\mathbb R}^d}f(x)e^{-2\pi ik\cdot x}$$
+$$\mathcal{F}f(k)=\mathcal{F}_1f(k)=\int_{{\mathbb R}}^d}f(x)e^{-2\pi ik\cdot x}$$
 and where now Plancherel's theorem gives that, for such $f$:
 $$\label{Plancerelpft}
     f(x)=\sum_{k\in{\mathbb Z}^d}\hat{f}(k)e^{2\pi ik\cdot x}.$$
@@ -389,7 +389,7 @@ One may verify that we have the inclusion $$\begin{aligned}
 \label{lpisdistr}
     L^p({\mathbb R}^d\to\mathbb{C})\hookrightarrow{\mathcal S}'({\mathbb R}^d\to\mathbb{C});\quad f\mapsto T_f\end{aligned}$$
 where given $u\in {\mathcal S}({\mathbb R}^d\to\mathbb{C})$ we define
-$$T_f(u):=\left\langle u,f\right\rangle:=\int_{{\mathbb R}^d} u\overline{f}.$$
+$$T_f(u):=\left\langle u,f\right\rangle:=\int_{{\mathbb R}}^d} u\overline{f}.$$
 Let us write $T^t$ for the transpose of a linear function $T$ and recall
 that the Fourier transform is an endomorphism of the Schwartz space.
 Then, given two Schwartz functions $u,v$ we have already seen that, by a
@@ -436,7 +436,7 @@ now given by $$\begin{aligned}
 \label{lpisvectordistr}
     L^p({\mathbb R}^d\to\mathbb{C}^m)\hookrightarrow{\mathcal S}'({\mathbb R}^d\to\mathbb{C}^m);\quad f\mapsto T_f\end{aligned}$$
 with $T_f$ defined by (linkme2)
-$$T_f(u):=\int_{{\mathbb R}^d} u\cdot \bar{f}\quad\forall{u}\in {{\mathcal S}({\mathbb R}^d\to\mathbb{C}^m)}.$$
+$$T_f(u):=\int_{{\mathbb R}}^d} u\cdot \bar{f}\quad\forall{u}\in {{\mathcal S}({\mathbb R}^d\to\mathbb{C}^m)}.$$
 In both cases we have that, by duality, due to the formulas derived
 previously (link1), given a tempered distribution $w$ and
 $\alpha\in \mathbb{N}^d$ $$\begin{aligned}
@@ -586,7 +586,7 @@ both in the euclidean and periodic case $$\begin{aligned}
 One major advantage of working with the Sobolev spaces $H^s$ is that,
 differently to the classical space of smooth functions $C^s$, they form
 a Hilbert space with the inner product given by $$\begin{aligned}
-    \left\langle f,g\right\rangle_{H^s({\mathbb R}^d\to\mathbb{C}^m)}  & :=\int_{{\mathbb R}^d}\left\langle\xi \right\rangle^{2s}\hat{f}(\xi )\overline{\hat{g}(\xi )} d\xi \\
+    \left\langle f,g\right\rangle_{H^s({\mathbb R}^d\to\mathbb{C}^m)}  & :=\int_{{\mathbb R}}^d}\left\langle\xi \right\rangle^{2s}\hat{f}(\xi )\overline{\hat{g}(\xi )} d\xi \\
     \left\langle f,g\right\rangle_{H^s({\mathbb T}^d\to\mathbb{C}^m)} & :=\sum_{k\in {\mathbb Z}^d} \left\langle k \right\rangle^{2s}\hat{f}(k)\overline{\widehat{g}(k )}.\end{aligned}$$
 This gives one access to all the power of functional analysis and is
 invaluable in proofs. However, at the end of the day wishes to prove
