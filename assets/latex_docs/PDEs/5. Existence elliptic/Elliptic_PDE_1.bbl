@@ -1,8 +1,26 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
 \expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
 \expandafter\ifx\csname href\endcsname\relax
   \def\href#1#2{#2} \def\path#1{#1}\fi
+
+\bibitem{brezis2011functional}
+H.~Brezis, H.~Br{\'e}zis, Functional analysis, Sobolev spaces and partial
+  differential equations, Vol.~2, Springer, 2011.
+
+\bibitem{taylor2013partial}
+M.~Taylor, Partial differential equations II: Qualitative studies of linear
+  equations, Vol. 116, Springer Science \& Business Media, 2013.
+
+\bibitem{di2012hitchhiker's}
+E.~Di~Nezza, G.~Palatucci, E.~Valdinoci,
+  \href{https://www.sciencedirect.com/science/article/pii/S0007449711001254}{Hitchhiker's
+  guide to the fractional sobolev spaces}, Bulletin des sciences
+  math{\'e}matiques 136~(5) (2012) 521--573.
+\newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S0007449711001254}
+
+\bibitem{leoni2017first}
+G.~Leoni, A first course in Sobolev spaces, American Mathematical Soc., 2017.
 
 \end{thebibliography}

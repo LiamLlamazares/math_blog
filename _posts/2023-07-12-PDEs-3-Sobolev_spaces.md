@@ -118,7 +118,7 @@ $$\begin{aligned}
   there exists some constant $C$ independent of $M$ and $N$ such that
   $M \leq C N$.
 
-- We write $B\U r(x)$ for the ball centered at $x$ with radius $r$ and
+- We write $B\U r(x)$ for the ball centred at $x$ with radius $r$ and
   $B\U r$ if $x=0$. The space where the ball is contained will depend on
   context.
 
@@ -322,7 +322,7 @@ topology that makes $X$ into a topological vector space
 The fact that $(X,\tau\U \mathcal{P})$ is a TVS follows from the
 triangle inequality and homogeneity of seminorms. The fact that it is
 the coarsest that makes $\rho$ continuous is that
-$\rho^{-1}(B\U \epsilon)$ must be an open neighborhood of the origin and
+$\rho^{-1}(B\U \epsilon)$ must be an open neighbourhood of the origin and
 in a TVS, by continuity of the sum, translation of an open set must be
 open.
 </div>
@@ -1334,7 +1334,7 @@ approximation of unity and then recover the global case with a partition
 of unity. We begin by "straightening the boundary". That is, since
 $\partial \Omega$ is $C^1$, given $x\U 0 \in \partial  \Omega$ there
 exists an open set $V \subset \mathbb{R}^d$ and a function
-$\gamma \in  C^1(\mathbb{R}^{d-1})$ such that, relabeling and flipping
+$\gamma \in  C^1(\mathbb{R}^{d-1})$ such that, relabelling and flipping
 the last coordinate axis, if necessary
 
 <div>
@@ -1355,7 +1355,7 @@ u\U n(x):= u\left(x+ \frac{2}{n}e\U d \right); \quad \varphi\U n:= u\U n \star \
 
 For $n$ big enough we have that $\varphi$ is well
 defined ans smooth on $W\U 0:=B\U {\frac{1}{n}}(x\U 0)$. Since translation is
-continuous on $L^p(U)$ for $p \in [1,\infty)$ and by the behavior of
+continuous on $L^p(U)$ for $p \in [1,\infty)$ and by the behaviour of
 differentiation with convolution (see Proposition
 [1](#properties)), for $n$
 large enough
@@ -2483,7 +2483,7 @@ $$\begin{aligned}
 
 Proof. By density (which holds by definition of $W^{k,p}\U 0(U)$) of it
 is sufficient to reason for $u \in C\U c^\infty(U)$ and pass to the limit.
-By relabeling, we may suppose $U$ is bounded along the $x\U d$ axis. That
+By relabelling, we may suppose $U$ is bounded along the $x\U d$ axis. That
 is, for some finite $a<b$
 
 <div>
@@ -3288,13 +3288,13 @@ $$\begin{align}
 
 Are diffeomorphisms on $\mathcal{H}^d$ (again with the subspace
 topology). Here $\mathcal{A}=\left\\{(U\U \alpha,\Phi\U \alpha)\right\\}$ is
-an **atlas** of $M$. We say that $\mathcal{A}$ is $C^k$ if the
-diffeomorphisms in (\ref{diff}) are $C^k$ (see Definition
+an **atlas** of $M$. We say that $\mathcal{A}$ is $C^{k,\gamma }$ if the
+diffeomorphisms in (\ref{diff}) are $C^{k,\gamma }$ (see Definition
 [24](#smooth non open)).
 
-**Definition 26**. We say that $(M,\mathcal{A})$ is a **$C^k$ manifold
+**Definition 26**. We say that $(M,\mathcal{A})$ is a **$C^{k,\gamma }$ manifold
 with boundary** if $M$ is a second countable Hausdorff space and
-$\mathcal{A}$ is a $C^k$ atlas.
+$\mathcal{A}$ is a $C^{k,\gamma }$ atlas.
 
 The boundary of $M$ is its points that are mapped to the boundary
 $\left\\{x\U d=0\right\\}$ in $\mathcal{H}^d$.
@@ -3341,7 +3341,7 @@ $$\begin{align}
 
 Additionally, by the implicit function theorem, there exists for each
 coordinate set $U\U \alpha$ functions
-$\gamma\U \alpha \in C^k(\mathbb{R}^{d-1})$ such that, relabeling the
+$\gamma\U \alpha \in C^k(\mathbb{R}^{d-1})$ such that, relabelling the
 coordinates and decreasing the size of $U\U \alpha$ if necessary,
 
 <div>
