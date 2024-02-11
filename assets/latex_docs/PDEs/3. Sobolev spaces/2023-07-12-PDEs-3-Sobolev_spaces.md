@@ -8,26 +8,24 @@ tags: [PDEs]
 authorpost: L.Llamazares
 ---
 
-#  Three line summary
+# Three line summary
 
--   Given open $U \subset \mathbb{R}^d$ the Sobolev spaces $W^{k,p}(U)$
-are **complete** spaces of **weakly differentiable** functions.
+- Given open $U \subset \mathbb{R}^d$ the Sobolev spaces $W^{k,p}(U)$
+  are **complete** spaces of **weakly differentiable** functions.
 
--   **Smooth functions are dense** in $W^{k,p}(\Omega)$ if $\Omega$ is
-bounded and has $C^1$ boundary. This lets us manipulate Sobolev
-functions as if they were smooth and then take limits. In
-particular, we can **extend and restrict** functions to
-$\partial \Omega$.
+- **Smooth functions are dense** in $W^{k,p}(\Omega)$ if $\Omega$ is
+  bounded and has $C^1$ boundary. This lets us manipulate Sobolev
+  functions as if they were smooth and then take limits. In
+  particular, we can **extend and restrict** functions to
+  $\partial \Omega$.
 
--   Functions in $W^{k,p}(\Omega)$ enjoy various inequalities. Cashing
-in differentiability for integrability we can **compactly embed**
-
+- Functions in $W^{k,p}(\Omega)$ enjoy various inequalities. Cashing
+  in differentiability for integrability we can **compactly embed**
 
 <div>
 $$\begin{aligned}
 W^{k,p}(\Omega) \hookrightarrow L^q(\Omega).\end{aligned}$$
 </div>
-
 
 Where $q\equiv q(d,k,p)$ decreases with the dimension $d$, increases
 with differentiability $k$ and integrability $p$, and is larger than
@@ -44,14 +42,13 @@ is the solution to the equation.
 
 # Notation
 
--   In this post we will be dealing with functions over a variety of
-domains. To facilitate interpretation of the notation we will stick
-to the convention that $K$ is a compact set, $U, V$ are open sets,
-and $\Omega$ is an open bounded set with $C^1$ boundary.
+- In this post we will be dealing with functions over a variety of
+  domains. To facilitate interpretation of the notation we will stick
+  to the convention that $K$ is a compact set, $U, V$ are open sets,
+  and $\Omega$ is an open bounded set with $C^1$ boundary.
 
--   Given a topological space $X$ and a subset $A \subset X$ we
-abbreviate $A$ is dense in $X$ with the topology of $X$ by
-
+- Given a topological space $X$ and a subset $A \subset X$ we
+  abbreviate $A$ is dense in $X$ with the topology of $X$ by
 
 <div>
 $$\begin{aligned}
@@ -65,8 +62,7 @@ $X= H^s(\mathbb{R}^d)$ and $Y= L^p(\mathbb{R}^d)$) . However, the
 above notation will always mean the closure with the topology of $X$
 and not $Y$.
 
--   A related notation is we will write given $a\U n \in  A$
-
+- A related notation is we will write given $a\U n \in  A$
 
 <div>
 $$\begin{aligned}
@@ -76,11 +72,11 @@ $$\begin{aligned}
 
 To mean the limit in the topology of $X$.
 
--   Given two sets $A,B$ we write $A \Subset B$ and say that **$A$ is
-compactly included in $B$** if $\overline{A}$ is compact and
-**strictly** included in $B$.
+- Given two sets $A,B$ we write $A \Subset B$ and say that **$A$ is
+  compactly included in $B$** if $\overline{A}$ is compact and
+  **strictly** included in $B$.
 
--   We also write
+- We also write
 
 <div>
 $$\begin{aligned}
@@ -88,11 +84,8 @@ A+B=\left\{x+y:x \in A, y \in  B\right\} .
 \end{aligned}$$
 </div>
 
-
-
--   Given a topological vector space $X$ we write $X'$ for the dual of
-$X$ and denote given $\in X', \varphi \in X$ the duality pairing as
-
+- Given a topological vector space $X$ we write $X'$ for the dual of
+  $X$ and denote given $\in X', \varphi \in X$ the duality pairing as
 
 <div>
 $$\begin{aligned}
@@ -100,10 +93,8 @@ $$\begin{aligned}
 \end{aligned}$$
 </div>
 
-
-
--   We will always write $\alpha$ for a multi-index
-$\alpha \in \mathbb{N}^d$ and use the notation
+- We will always write $\alpha$ for a multi-index
+  $\alpha \in \mathbb{N}^d$ and use the notation
 
 <div>
 $$\begin{aligned}
@@ -114,8 +105,8 @@ D^\alpha f := \partial \U 1^{\alpha\U 1}\cdots \partial \U d^{\alpha\U d}.
 In the case $\alpha =0$ we use the
 convention $D^0 =f$.
 
--   Given a space of functions $X$ with domain $A$ and $B \subset A$ we
-write
+- Given a space of functions $X$ with domain $A$ and $B \subset A$ we
+  write
 
 <div>
 $$\begin{aligned}
@@ -123,15 +114,13 @@ $$\begin{aligned}
 \end{aligned}$$
 </div>
 
+- Given two quantities $M,N$ we write $M \lesssim N$ to mean that
+  there exists some constant $C$ independent of $M$ and $N$ such that
+  $M \leq C N$.
 
-
--   Given two quantities $M,N$ we write $M \lesssim N$ to mean that
-there exists some constant $C$ independent of $M$ and $N$ such that
-$M \leq C N$.
-
--   We write $B\U r(x)$ for the ball centered at $x$ with radius $r$ and
-$B\U r$ if $x=0$. The space where the ball is contained depending on
-context.
+- We write $B\U r(x)$ for the ball centered at $x$ with radius $r$ and
+  $B\U r$ if $x=0$. The space where the ball is contained depending on
+  context.
 
 # Introduction
 
@@ -166,7 +155,7 @@ $$\begin{align}
 </div>
 
 Note that equation
-(\ref{bc})  is a priori
+(\ref{bc}) is a priori
 ill-defined as the Lebesgue measure of $\partial D \subset \mathbb{R}^d$
 is zero. Thus, it is necessary to extend the theory to a wider class of
 domains and to explain what we mean by the restriction of a function to
@@ -189,25 +178,20 @@ u(x) & \quad x \in U     \\
 \end{aligned}$$
 </div>
 
-
-
 2.  Studying if $\tilde{u} \in  H^s(\mathbb{R}^d)$. That is, as we saw
-in the [previous
-post](https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=fact%2C%20since%20the-,Fourier,-transform%20is%20a),
-checking if
+    in the [previous
+    post](https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=fact%2C%20since%20the-,Fourier,-transform%20is%20a),
+    checking if
 
 <div>
 $$\begin{aligned}
 \left\lVert \tilde{u} \right\rVert\U {H^s(\mathbb{R}^d)}^2= \int\U {\mathbb{R}^d}\left\langle\xi \right\rangle^{2s}\widehat{\tilde{u}}(\xi )^2 \,\mathrm{d}\xi < \infty\end{aligned}$$
 </div>
 
-
-
 3.  Saying that $u \in H^s(U)$ if and only if
-$\tilde{u} \in H^s(\mathbb{R}^d)$.
+    $\tilde{u} \in H^s(\mathbb{R}^d)$.
 
 However, this runs into problems as is shown in the following example:
-
 
 **Example 1**. Let $U=(0,1)$ and take $u: (0,1) \to \mathbb{R}$ defined
 to be identically equal to $1$. Note that $u \in C^\infty(U)$ so we
@@ -219,9 +203,6 @@ $$\begin{aligned}
 \widehat{\tilde{u}}(\xi )=\frac{1-e^{-2 \pi i \xi }}{2 \pi i \xi }.
 \end{aligned}$$
 </div>
-
-
-
 
 As we can see, by substituting in our naive definition of $H^s(U)$ gives
 that $u \in H^s((0,1))$ if and only if $s< \frac{1}{2}$. Thus, our
@@ -238,7 +219,6 @@ Alternatively, we could also define
 $$\begin{aligned}
 H^s(U)= \left.H^s(\mathbb{R}^d)\right|\U {U}:= \left\{\left.f\right|\U {u}: f \in H^s(\mathbb{R}^d)\right\} .\end{aligned}$$
 </div>
-
 
 As we will see later (Corollary [19](#restriction)) this is a better approach. However, it is not
 optimal as it requires some conditions on $U$. For example, if $U$ is
@@ -260,33 +240,29 @@ $$\begin{aligned}
 (\varphi, D^\alpha u):= \int\U {D} \varphi D^\alpha u  = (-1)^{\left| \alpha \right| }\int\U {D}(D^{\alpha} \varphi) u + \text{ boundary effects}  .\end{aligned}$$
 </div>
 
-
 In the previous post, we used that
 
--   If $D =\mathbb{R}^d$ we can take as our test functions
-$\varphi \in  \mathcal{S}(\mathbb{R}^d)$ and use that $\varphi$
-multiplied by any function in $L^2$ ($u$ and its derivatives) vanish
-at infinity to get rid of the boundary effects.
+- If $D =\mathbb{R}^d$ we can take as our test functions
+  $\varphi \in  \mathcal{S}(\mathbb{R}^d)$ and use that $\varphi$
+  multiplied by any function in $L^2$ ($u$ and its derivatives) vanish
+  at infinity to get rid of the boundary effects.
 
--   If $D =\mathbb{T}^d$ we can take as our test functions
-$\varphi \in  C^\infty(\mathbb{T}^d)$ as the boundary effect of
-periodic functions cancels out.
+- If $D =\mathbb{T}^d$ we can take as our test functions
+  $\varphi \in  C^\infty(\mathbb{T}^d)$ as the boundary effect of
+  periodic functions cancels out.
 
 To obtain this cancellation on a general open $D$ we need to impose that
 our test function $\varphi$ vanishes in a neighborhood of the boundary.
 That is we need our test functions to have compact support.
 
-
 **Definition 1**. Let $U$ be an open set, then we define
 $C\U c^\infty(U)$ to be the space of smooth functions whose support is
 some compact set $K \subset U$.
-
 
 Another notation for $C^\infty\U c(U)$ is $\mathcal{D}(U)$ and it is often
 called the space of **test functions** for reasons we will later see.
 Given a compact subset $K \subset U$ we define for each
 $k \in \mathbb{N}$
-
 
 **Definition 2**. Given a compact subset $K$ of an open set $U$ we
 define
@@ -301,7 +277,6 @@ We endow $C\U c^\infty(K)$ with the [topology
 generated by the countable family of
 seminorms](https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=together-,with,-a%20countable%20family)
 
-
 <div>
 $$\begin{align}
 \label{local smooth norms}
@@ -309,12 +284,8 @@ $$\begin{align}
 \end{align}$$
 </div>
 
-
-
-
 Later we will need to generate topologies when the family of seminorms
 is uncountable.
-
 
 **Definition 3**. Let $X$ be a vector space and let
 $\rho \in \mathcal{P}$ be a family of seminorms on $X$. Then we define
@@ -327,9 +298,6 @@ x+\left\{\rho^{-1}(B\U \epsilon): \epsilon>0\right\}
 \end{aligned}$$
 </div>
 
-
-
-
 The above topology is equivalent to the initial topology generated by
 the family
 
@@ -337,7 +305,6 @@ the family
 $$\begin{aligned}
 \left\{\rho(\cdot-x): x\in X, \rho \in \mathcal{P}\right\}.\end{aligned}$$
 </div>
-
 
 We include some exercises to help the reader get more used to the
 topology that arises. I recommended trying to solve them for a few
@@ -348,7 +315,6 @@ minutes before checking the hints.
 by $\mathcal{P}$, Show that $\tau\U {\mathcal{P}}$ is the coarsest
 topology that makes $X$ into a topological vector space
 ([TVS](https://en.wikipedia.org/wiki/Topological_vector_space)).
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -366,7 +332,6 @@ open.
 **Exercise 2** </a> . Show that $(X,\tau\U \mathcal{P})$ is locally convex.
 That is, every point has a local basis of convex sets
 
-
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
 <div class="exercise-text">
@@ -378,18 +343,15 @@ Show that $\rho^{-1}(B\U \epsilon)$ is convex.
 **Exercise 3** </a> . Show that the topology $(X,\tau\U \mathcal{P})$ is
 determined by the following property.
 
--   Given a
-[net](https://en.wikipedia.org/wiki/Net_(mathematics)#:~:text=%5Bedit%5D-,Any,-function%20whose%20domain)
-$x\U \bullet\in (X,\tau\U \mathcal{P})$ it holds that
+- Given a
+  [net](<https://en.wikipedia.org/wiki/Net_(mathematics)#:~:text=%5Bedit%5D-,Any,-function%20whose%20domain>)
+  $x\U \bullet\in (X,\tau\U \mathcal{P})$ it holds that
 
 <div>
 $$\begin{aligned}
 \lim x\U \bullet =x \in  X  \iff      \rho(x\U \bullet-x)\to 0 \quad\forall \rho \in \mathcal{P}.
 \end{aligned}$$
 </div>
-
-
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -402,11 +364,9 @@ $x+\rho(B\U \epsilon)$.
 </div>
 </div>
 
-
 **Exercise 4**. Show that $C\U c^\infty(K)$ is complete and thus a
 [Fréchet](https://en.wikipedia.org/wiki/Fr%C3%A9chet_space#:~:text=locally%20convex%20metrizable%20topological%20vector%20space)
 space.
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -428,6 +388,7 @@ $$\begin{aligned}
 
 To do so use the fundamental theorem of calculus and
 induction.
+
 </div>
 </div>
 
@@ -437,15 +398,11 @@ distributions](https://terrytao.wordpress.com/2009/04/19/245c-notes-3-distributi
 Let us call a seminorm on $C\U c^\infty(U)$ **restrictable** if it is a
 continuous function on $C\U c^\infty(K)$ for all $K \subset U$.
 
-
 **Definition 4**. The topology on $C\U c^\infty(U)$ is the one generated
 by all the restrictable seminorms on $C\U c^\infty(U)$. We call this
 topology the **smooth topology**.
 
-
-
 **Exercise 5**. Give an infinite restrictable family of seminorms.
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -454,10 +411,8 @@ Valid answers include all the $L^p(U)$ and $C^k(U)$ norms.
 </div>
 </div>
 
-
 **Exercise 6**. Show that $C\U c^\infty(\Omega)$ with the smooth topology
 is a locally convex topological vector space (LCTVS).
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -478,9 +433,6 @@ $$\begin{aligned}
 \end{aligned}$$
 </div>
 
-
-
-
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
 <div class="exercise-text">
@@ -500,13 +452,12 @@ the support of $\varphi\U n$ escaping to infinity? Now knowing all
 functions are supported in some $K$ use that
 $\left\lVert \cdot  \right\rVert\U {C^k(K)}$ is restrictable to conclude
 the proof.
-</div>
-</div>
 
+</div>
+</div>
 
 **Exercise 8** (Completeness). Show that $C\U c^\infty(\Omega)$ with the
 smooth topology is complete.
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -518,10 +469,8 @@ $C\U c^\infty(K)$ and Exercise [3](#convergence TVS).
 </div>
 </div>
 
-
 **Exercise 9**. Show that $C\U c^\infty(\Omega)$ with the smooth topology
 is Hausdorff.
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -531,30 +480,24 @@ points is Hausdorff.
 </div>
 </div>
 
-
 **Observation 1**. The topology on $C\U c^\infty(U)$ is **not**
 metrizable (note the family of seminorms used to generate it is not
 countable) and as a result $C\U c^\infty(U)$ **is not** a Fréchet space.
 This and more can be found in [1](https://bookstore.ams.org/gsm-105#:~:text=A%20First%20Course%20in%20Sobolev%20Spaces&text=Sobolev%20spaces%20are%20a%20fundamental,BV%20functions%20of%20one%20variable.) page 286.
 
-
 The construction of the topology on $C\U c^\infty(U)$ is a bit technical a
 more intuitive construction would be to define the family of seminorms
-
 
 <div>
 $$\begin{aligned}
 \left\lVert \varphi \right\rVert\U j := \sup\U {\left| \alpha \right| \leq j}  \left\lVert D^\alpha \varphi \right\rVert\U {L^\infty(U)}.\end{aligned}$$
 </div>
 
-
 And then define the topology on $C\U c^\infty(U)$ to be the one generated
 by this family of seminorms. This has the following problem.
 
-
 **Exercise 10**. Show that $C\U c^\infty(U)$ with the topology generated
 by $\left\lVert \cdot  \right\rVert\U j$ is not complete.
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -567,9 +510,7 @@ $\left\lVert \cdot  \right\rVert\U j$ whose support escapes to infinity.
 Using the smooth topology we can now work with the dual of
 $C\U c^\infty(U)$
 
-
 **Definition 5**. We define the space of **distributions** to be
-
 
 <div>
 $$\begin{aligned}
@@ -579,8 +520,6 @@ $$\begin{aligned}
 
 And give it the
 [weak-$\star $](https://en.wikipedia.org/wiki/Weak_topology) topology.
-
-
 
 **Observation 2**. The inclusions
 
@@ -595,7 +534,6 @@ $\mathcal{S}'(\mathbb{R}^d) \hookrightarrow \mathcal{D}'(U)$. That is,
 distributions are a larger or more general class than tempered
 distributions.
 
-
 Of course, not all smooth functions have compact support. Other (in this
 case Fréchet) spaces of smooth functions are
 
@@ -604,7 +542,6 @@ $$\begin{aligned}
 C^\infty(U)                & :=\left\{\varphi: \left\lVert \varphi \right\rVert\U j:= \sup\U {\left| \alpha \right| \leq j}  \left\lVert D^\alpha \varphi \right\rVert\U {L^\infty(U)}<\infty,\quad \forall k \in \mathbb{N} \right\}                 \\
 C^\infty\U {\mathrm{loc}}(U) & :=\left\{\varphi: \left\lVert \varphi \right\rVert\U {k,K}:= \sup\U {\left| \alpha \right| \leq k}  \left\lVert D^\alpha \varphi \right\rVert\U {L^\infty(K)}<\infty,\quad \forall k \in \mathbb{N}, K \subset U \right\}\end{aligned}$$
 </div>
-
 
 Where, we give them respectively the topologies generated by
 $\left\lVert \cdot \right\rVert\U k$ and
@@ -621,7 +558,6 @@ $$\begin{align}
 (f, \varphi w):= (\varphi f, w), \quad\forall f \in C^\infty(U),\end{align}$$
 </div>
 
-
 is continuous on $C^\infty(U)$.
 
 ## Locally integrable functions as distributions
@@ -633,7 +569,6 @@ distributions. The analogous is true for distributions. In this case,
 since our test functions are compactly supported, the functions we pair
 them up with only need to be locally integrable. We recall the
 definition
-
 
 **Definition 6**. Given $p\in [1,\infty]$ we write
 $L^p\U {\mathrm{loc}}(U)$ for the space of **locally $p$ integrable
@@ -649,7 +584,6 @@ And endow it with the [topology generated by the
 family of
 seminorms](https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=together-,with,-a%20countable%20family)
 
-
 <div>
 $$\begin{aligned}
 \rho\U {K\U n,p}(f):= \left\lVert f \right\rVert\U {L^p(K\U n)}.
@@ -659,14 +593,11 @@ $$\begin{aligned}
 Where $K\U n$ are selected such that
 $\bigcup\U {n \in \mathbb{N}} K\U n =U$.
 
-
 Note that $L^q\U {\mathrm{loc}}(U) \subset L^p\U {\mathrm{loc} }(U)$ for all
 $q \leq p$.
 
-
 **Exercise 11**. Show that $L^p\U {\mathrm{loc} }(U)$ is a Fréchet
 space.
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -704,12 +635,9 @@ $$\begin{align}
 
 Is injective and continuous.
 
-
-
 Proof. We begin by showing that $T\U u \in \mathcal{D}'(U)$. Firstly,
-the integral in (\ref{duality})  is finite as $\varphi$ has compact support.
+the integral in (\ref{duality}) is finite as $\varphi$ has compact support.
 Secondly, if we write $K$ for the support of $\varphi$, it holds that
-
 
 <div>
 $$\begin{aligned}
@@ -718,7 +646,7 @@ $$\begin{aligned}
 </div>
 
 Which, by our equivalent characterization of
-$\mathcal{D}'(U)$ in (\ref{equiv})  shows that $T\U u \in  \mathcal{D}'(U)$. We now show
+$\mathcal{D}'(U)$ in (\ref{equiv}) shows that $T\U u \in  \mathcal{D}'(U)$. We now show
 that the identification is injective. That is, if
 
 <div>
@@ -744,7 +672,6 @@ By the approximation and smoothing of Propositions
 [6](#app pn)-[7](#smooth) we obtain a bounded sequence with
 $\varphi\U n \subset C\U c^\infty(U)$ for $n$ large enough and such that
 
-
 <div>
 $$\begin{aligned}
 \lim\U {n \to \infty}\varphi\U n =g \in L^1(\mathbb{R}^d) ; \quad \left\lVert \varphi\U n \right\rVert\U {L^\infty(\mathbb{R}^d)} \leq \left\lVert g \right\rVert\U {L^\infty(\mathbb{R}^d)}=1.
@@ -754,7 +681,6 @@ $$\begin{aligned}
 By the first part of the above, we may take a
 subsequence $\varphi\U {n\U k}$ converging to $g$ almost everywhere, and by
 the second we may apply the dominated convergence theorem to obtain that
-
 
 <div>
 $$\begin{aligned}
@@ -777,16 +703,13 @@ Where $\varphi \in C\U c^\infty(U)$ has support $K$
 (remember we are considering the weak-$\star $ topology on
 $\mathcal{D}'(U)$). ◻
 
-
 Due to the above immersion, we will naturally consider
 $L^1\U {\mathrm{loc}}(U)$ as a subspace of $\mathcal{D}'(U)$. In
 particular, any subspaces of $L^1\U {\mathrm{loc} }(U)$ such as $L^p(U)$
 or $C^\infty(U)$ can also be considered as distributions.
 
-
 **Exercise 12**. Show that the $L^1\U {\mathrm{loc}}(U)$ is not closed in
 $\mathcal{D}'(U)$ .
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -805,7 +728,6 @@ working with an equivalence class of functions the definition must be
 amended (consider for example the support of $0=1\U {\mathbb{Q}}$). This
 is resolved by the following definitions.
 
-
 **Definition 7**. We say that a distribution $w \in \mathcal{D}'(U)$
 **vanishes** on $V \subset U$ if
 
@@ -823,9 +745,6 @@ w =0 \text{ on } V.
 \end{aligned}$$
 </div>
 
-
-
-
 If a function vanishes on a collection of sets it also vanishes on their
 union, this extends to distributions.
 
@@ -842,8 +761,6 @@ w=0 \text{ on  } U\U \alpha , \quad\forall \alpha \in I.
 Then $w$ vanished on
 $U:=\bigcup\U {\alpha \in  I}U\U \alpha$.
 
-
-
 Proof. Let $\varphi$ have support in $U$. Then, by compactness, we can
 extract a finite covering $\left\\{U\U i\right\\}\U {i=1}^n$ of
 $\mathbf{supp}(\varphi)$. Let $\left\\{\rho \U i\right\\}\U {i=1}^n$ be a
@@ -859,7 +776,6 @@ $$\begin{aligned}
 Since $\varphi$ was any test function supported in
 $U$ this concludes the proof. ◻
 
-
 By the just proved Lemma [1](#biggest vanish) we see that there is a largest set on which
 $w$ vanishes. As a result, we can make the following definition.
 
@@ -874,19 +790,14 @@ $$\begin{aligned}
 \end{aligned}$$
 </div>
 
-
-
-
 Since $L^1\U {\mathrm{loc}}(U)$ is naturally included in $\mathcal{D}'(U)$
 we obtain in particular the definition of support of a function
 $f \in L^1\U {\mathrm{loc}}(U)$.
-
 
 **Exercise 13**. If $f \in L^1\U {\mathrm{loc}}(U)$ the support of $f$ is
 the complementary of the largest open set on which $f$ is $0$ almost
 everywhere. In particular, if $f$ is continuous, the (distributional)
 support of $f$ coincides with the classical support of $f$.
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -903,7 +814,6 @@ Now that we have built the space of distributions we can define weak
 derivatives of test functions just as we did with tempered
 distributions.
 
-
 **Definition 9**. Given $w \in \mathcal{D}'(U)$ we define the **(weak)
 $\alpha$-th derivative** by
 
@@ -913,12 +823,7 @@ $$\begin{aligned}
 \end{aligned}$$
 </div>
 
-
-
-
-
 **Exercise 14**. Show that $D^\alpha w \in\mathcal{D}'(U)$.
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -935,10 +840,8 @@ $D^\alpha$ defined on $\mathcal{D}(U)$
 A prerequisite for the definition to make sense is that the notion
 corresponds to that of classical derivative.
 
-
 **Exercise 15**. Let $u \in C\U {\mathrm{loc}}^1(U)$ have classical
 derivatives $u^{(i)}$. Then $u^{(i)}= \partial\U i u$.
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -953,6 +856,7 @@ T\U {u^{(i)}}-T\U {\partial \U i u}=T\U {u^{(i)}-\partial \U i u}=0 \in \mathcal
 </div>
 
 The result follows by the injectivity of $T$.
+
 </div>
 </div>
 
@@ -975,9 +879,6 @@ $$\begin{aligned}
 \left\lVert u \right\rVert\U {W^{k,p}(U)}&:=\sum\U {\left| \alpha \right|\leq k } \left\lVert D^\alpha u \right\rVert\U {L^p(U)}.        \end{aligned}$$
 </div>
 
-
-
-
 That is, $W^{k,p}(U)$ is the space of $k$-times (weakly) differentiable
 functions with derivatives in $L^p(U)$. An equivalent norm that is also
 sometimes used is
@@ -987,8 +888,6 @@ $$\begin{aligned}
 \left\lVert u \right\rVert\U {W^{k,p}(U)}\sim \sum\U {j=1}^k \left\lVert \nabla^j u \right\rVert\U {L^p(U\to \mathbb{R}^{d^j})} .\end{aligned}$$
 </div>
 
-
-
 The local Sobolev spaces $W^{k,p}\U {\mathrm{loc}}(U)$ are defined
 similarly, where we now only require that
 
@@ -997,18 +896,14 @@ $$\begin{aligned}
 D^\alpha u \in L^p\U {\text{loc}}(U) , \quad\forall \left| \alpha \right|\leq k .\end{aligned}$$
 </div>
 
-
 And now generate the topology by local seminorms analogously to
 $L^p\U {\mathrm{loc}}(U)$.
-
 
  <a name="completeness">
 **Theorem 2** </a> (Completeness of Sobolev spaces). For all
 $k \in \mathbb{N}$ and $p \in [1,\infty]$ both $W^{k,p}(U)$ and
 $W^{k,p}\U {\mathrm{loc}}(U)$ are Banach spaces. If $p \in (1,\infty)$
 these spaces are also reflexive.
-
-
 
 Proof. Let $\left\\{u\U n\right\\}\U {n=1}^\infty$ be a Cauchy sequence in
 $W^{k,p}(U)$. Then, by definition of the norm on $W^{k,p}(U)$ the
@@ -1044,7 +939,6 @@ Where the first and last inequality follows from the
 continuous immersion of $L^p(U)$ in $\mathcal{D}'(U)$ (Hölder's
 inequality). Reflexivity follows from the fact that the mapping
 
-
 <div>
 $$\begin{aligned}
 T: W^{k,p}(U) & \longrightarrow (L^p(U))\U {\left| \alpha \right|\leq k }
@@ -1059,7 +953,6 @@ and thus reflexive (see [3](https://link.springer.com/book/10.1007/978-0-387-709
 $W^{k,p}\U {\mathrm{loc}}(U)$ is proved identically now working with the
 local seminorms. ◻
 
-
 We now show some relevant properties of the weak derivative all of which
 are to be expected knowing the classical case. These can be greatly
 generalized with tools we will later develop.
@@ -1070,30 +963,23 @@ that
 
 1.  Leibniz rule: given $\varphi \in C^1(U)$ it holds that
 
-
 <div>
 $$\begin{aligned}
 \partial \U {i} (u \varphi)= \partial\U i u \varphi+ u \partial \U i \varphi .
 \end{aligned}$$
 </div>
 
-
-
 2.  The translation $\tau\U y u(x):=u(x-y) \in W^{k,p}(U)$ with
-$D^\alpha \tau\U y u = \tau\U y D^\alpha u$.
+    $D^\alpha \tau\U y u = \tau\U y D^\alpha u$.
 
 3.  Let $u \in W^{k,p}(\mathbb{R}^d)$ and $v \in L^1(\mathbb{R}^d)$.
-Then
+    Then
 
 <div>
 $$\begin{aligned}
 D^\alpha (v\star u)= v\star  D^\alpha u
 \end{aligned}$$
 </div>
-
-
-
-
 
 Proof. Points 1 and 2 follow by the definition of weak derivative and
 the relevant properties for classical derivatives. The third property
@@ -1108,41 +994,36 @@ $$\begin{aligned}
 
 ◻
 
-
 A natural question is what relationship there is between Sobolev
 functions and classical derivatives. For example, in $1$ dimension a
 classical result is that $u \in W^{1,1}(a,b)$ if and only if $u$ is
 absolutely continuous and has derivative almost everywhere. A more
 general result is as follows.
 
-
 **Proposition 2** (Absolute continuity on lines). The following are
 equivalent
 
--   $u \in W^{1,p}\U {\mathrm{loc}}(U)$.
+- $u \in W^{1,p}\U {\mathrm{loc}}(U)$.
 
--   $u \in L^p\U {\mathrm{loc}}(U)$ is almost everywhere differentiable
-with classical derivatives $u^{(i)} \in L^p\U {\mathrm{loc}}(U)$ and,
-given $V \Subset U$ it holds that $u$ is absolutely continuous on
-almost all (with respect to the Lebesgue measure on
-$\mathbb{R}^{d-1}$) line segments in $V$ parallel to the coordinate
-axis.
+- $u \in L^p\U {\mathrm{loc}}(U)$ is almost everywhere differentiable
+  with classical derivatives $u^{(i)} \in L^p\U {\mathrm{loc}}(U)$ and,
+  given $V \Subset U$ it holds that $u$ is absolutely continuous on
+  almost all (with respect to the Lebesgue measure on
+  $\mathbb{R}^{d-1}$) line segments in $V$ parallel to the coordinate
+  axis.
 
 The above holds true if we replace
 $W^{1,p}\U {\mathrm{loc}}(U),L^p\U {\mathrm{loc}}(U)$ with their none local
 counterparts $W^{1,p}(U),L^p(U)$.
-
 
 We omit the proof which can be found in [4](https://math.aalto.fi/~jkkinnun/files/sobolev_spaces.pdf) pages $39-43$. The next
 exercise show that, perhaps somewhat unexpectedly, to have
 $u \in  W^{1,p}(U)$ it is not sufficient to require that $u$ is
 differentiable almost everywhere with integrable derivatives.
 
-
 **Example 2**. The [devil's
 staircase](https://en.wikipedia.org/wiki/Cantor_function) $c$ is
 differentiable almost everywhere with $c'=0$.
-
 
 As a result, if $c \in W^{1,p}(0,1)$ then $u$ would be constant (which
 it is not). In fact, $c \not\in W^{1,p}(0,1)$ as it is not absolutely
@@ -1159,7 +1040,7 @@ somewhat cumbersome. One would much rather
 2.  Manipulate them according to the standard rules of calculus.
 
 3.  Obtain a result that holds for all Sobolev functions (and not just
-the classically smooth ones).
+    the classically smooth ones).
 
 This process can be rigorously justified by the density of various
 spaces of smooth functions in Sobolev spaces. Or to use Tao's
@@ -1188,16 +1069,11 @@ u=\lim\U {n \to \infty} \tilde{u}\star \phi\U n  \in W^{k,p}(V) , \quad\forall V
 
 As a result, for any $V \Subset U$,
 
-
 <div>
 $$\begin{aligned}
 \overline{\left.C\U c^\infty(\mathbb{R}^d)\right|\U {V}}=\left.W^{k,p}(U)\right|\U {V}\quad \text{ and } \quad \overline{\left.C\U c^\infty(\mathbb{R}^d)\right|\U {U}}=W\U {\mathrm{loc}}^{k,p}(U)
 \end{aligned}$$
 </div>
-
-
-
-
 
 Proof. Given a compactly embedded set $V \Subset U$ we can take $n$
 large enough so that $V+  B \left(0, \frac{1}{n}\right) \subset U$ and
@@ -1222,7 +1098,6 @@ D^\alpha \varphi\U n = D^\alpha u \star  \phi\U n \quad \text{ on } V.
 
 Taking limits we conclude from Proposition
 [6](#app pn) that
-
 
 <div>
 $$\begin{aligned}
@@ -1266,8 +1141,6 @@ This concludes the proof as by Exercise
 local convergence is equivalent to convergence on every compactly
 included subset. ◻
 
-
-
 **Observation 3**. Note that, without further assumptions on $U$ it is
 impossible to get a global approximation by smooth functions defined on
 all of $\mathbb{R}^d$. This is because, the convolution $f\star  \phi\U n$ can
@@ -1278,9 +1151,6 @@ $$\begin{aligned}
 U\U {1/n}:= \left\{x \in U: d(x,\partial U)> \frac{1}{n}\right\} .
 \end{aligned}$$
 </div>
-
-
-
 
 The above issue disappears when $U =\mathbb{R}^d$. This shows that
 
@@ -1293,10 +1163,6 @@ $$\begin{aligned}
 \overline{C\U c^\infty(\mathbb{R}^n)}=W^{k,p}(\mathbb{R}^d).
 \end{aligned}$$
 </div>
-
-
-
-
 
 Proof. Let $\eta   \in C\U c^\infty(\mathbb{R}^d)$ be equal to $1$ on
 $B\U 1$ and set $\eta  \U n(x):=\eta  (x /n)$. Then, given
@@ -1311,23 +1177,17 @@ u= \lim\U {n \to \infty}(u\star \phi\U n)\eta  \U n \in W^{k,p}(\mathbb{R}^d).
 
 ◻
 
-
 The following Theorem shows a global-type approximation.
 
  <a name="Meyers">
 **Theorem 5** </a>  (Meyers-Serrin: local till boundary approximation). Let
 $U \subset \mathbb{R}^d$ be open, then for all $p<\infty$
 
-
 <div>
 $$\begin{aligned}
 \overline{C^\infty\U {\mathrm{loc}}(U)\cap W^{k,p}(U)}=W^{k,p}(U).
 \end{aligned}$$
 </div>
-
-
-
-
 
 Proof. The proof is an instructive way of using a partition of unity
 to piece together a local result (in this case Theorem
@@ -1360,7 +1220,6 @@ $$\begin{aligned}
 
 Now we obtain the global approximation by taking
 
-
 <div>
 $$\begin{aligned}
 \varphi:= \sum\U {i=1}^\infty \phi\U {n\U i}\star  (\rho\U i u) \in C\U {\mathrm{loc}}^\infty(U) .
@@ -1378,7 +1237,6 @@ $$\begin{aligned}
 
 ◻
 
-
 Note that Theorem [5](#Meyers)
 is not strictly stronger than theorem [3](#local) as it is not, in general, possible to extend
 functions in $C^\infty\U {\mathrm{loc}}(U)$ to $C\U c^\infty(\mathbb{R}^n)$.
@@ -1390,7 +1248,6 @@ definition of $W^{k,p}(U)$.
 $p<\infty$. Then $W^{k,p}(U)$ is equal to the completion of
 $C^\infty\U {\mathrm{loc}}(U)\cap W^{k,p}(U)$ with the
 $\left\lVert \cdot  \right\rVert\U {W^{k,p}(U)}$ norm.
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -1421,16 +1278,12 @@ $\Phi \in C^k(V \to \mathbb{R}^d), \Phi^{-1} \in C^1(U\to \mathbb{R}^d)$.
 Then for any $u \in  W^{k,p}(U)$ it holds that
 $u \circ\Phi \in W^{k,p}(V)$ and the usual chain rule holds. For example
 
-
 <div>
 $$\begin{align}
 \label{chain}
 \partial \U i (u\circ \Phi) = \sum\U {j=1}^d (\partial \U i \Phi\U j)(\partial \U j u\U j)\circ \Phi\U j  .
 \end{align}$$
 </div>
-
-
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -1452,11 +1305,9 @@ $U$.
 In Exercise [17](#change of variables) it is important that $\Phi$ is
 diffeomorphic so that composition with $\Phi$ is continuous.
 
-
 **Exercise 18**. Show that the conclusion of Exercise
 [17](#change of variables) is false if we only assume that
 $\Phi \in C^k(\mathbb{R}^d)$ and do not impose invertibility.
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -1479,10 +1330,6 @@ $$\begin{aligned}
 \overline{\left.C\U c^\infty(\mathbb{R}^d)\right|\U {\Omega}}= W^{k,p}(\Omega).
 \end{aligned}$$
 </div>
-
-
-
-
 
 Proof. The idea will be to locally translate points close to the
 boundary further into $\Omega$ so that we can convolve with an
@@ -1534,8 +1381,6 @@ $$\begin{aligned}
 \end{aligned}$$
 </div>
 
-
-
 Now we take an open set $W\U {n+1} \Subset \Omega$ such that
 $\left\\{W\U i\right\\}\U {i=0}^{n+1}$ cover $\Omega$. By the local
 approximation of Theorem [3](#local) we know we can approximate $u$ on $W\U {n+1}$ by some
@@ -1563,7 +1408,6 @@ $$\begin{aligned}
 
 This gives the desired approximation
 
-
 <div>
 $$\begin{aligned}
 \left\lVert u-\varphi \right\rVert\U {W^{k,p}(\Omega)} \leq \sum\U {i=0}^{n+1} \left\lVert \rho \U i(u-\varphi\U i) \right\rVert\U {W^{k,p}(W\U i)} \leq  \epsilon  .
@@ -1572,14 +1416,13 @@ $$\begin{aligned}
 
 This concludes the proof. ◻
 
-
 In contrast to Theorem [5](#Meyers), Theorem [6](#global) shows that Sobolev functions on smooth bounded
 domains can be approximated by functions that are also **smooth on the
 boundary** of the domain $\Omega$. This will prove fundamental in the
 next section. Both to extend them to the whole of $\mathbb{R}^d$ and to
 restrict them to $\partial \Omega$.
 
-# <a name="extension section">  Extensions and restrictions  </a>
+# <a name="extension section"> Extensions and restrictions </a>
 
 Using the approximation of Sobolev functions by functions smooth on the
 boundary we can extend functions in $W^{k,p}(\Omega)$ to the whole of
@@ -1590,7 +1433,6 @@ $\mathbb{R}^d$. However, the extension is not unique.
 a **bounded** open set with **$C^k$** **boundary** where
 $k \in \mathbb{N}\U +$. Then for all $p \in [1,\infty)$ . Then, given an
 open set $W$ with $\Omega \Subset W$ there exists a continuous operator
-
 
 <div>
 $$\begin{aligned}
@@ -1611,8 +1453,6 @@ u \quad & \text{ on  }  \Omega \\
 
 We call $E u$ an **extension** of $u$ to
 $\mathbb{R}^n$.
-
-
 
 Proof. We work first in the upper half-space (the canonical example of
 a manifold with boundary)
@@ -1656,7 +1496,6 @@ u(x) \quad                                 & x\U {d}                            
 We will have $Eu \in C^k(\Omega')$ as long as we can
 get the derivatives to match up on the boundary
 $\\{x\U d=0\\}\cap \overline{\Omega'}$. That is, as long as $a\U j$ verify
-
 
 <div>
 $$\begin{aligned}
@@ -1731,7 +1570,7 @@ Eu := \eta \tilde{u} \in C^k(\mathbb{R}^d).
 \end{aligned}$$
 </div>
 
-By (\ref{bound})  we have that
+By (\ref{bound}) we have that
 
 <div>
 $$\begin{aligned}
@@ -1746,7 +1585,6 @@ $C^k(\overline{\Omega})$ is dense in $W^{k,p}(\Omega)$ we may extend $E$
 to a linear operator on the whole of $W^{k,p}(\Omega)$. A verification
 shows that $E$ is also bounded as an operator from $C^k(\Omega)$ to
 $C^k(\mathbb{R}^d)$. This concludes the proof. ◻
-
 
  <a name="restriction">
 **Exercise 19** </a>  (Restriction). Under the conditions of Theorem
@@ -1763,7 +1601,6 @@ That is, functions in
 $W^{k,p}(\Omega),C^{k}(\Omega)$ are equal to the restriction of
 functions in $W^{k,p}(\mathbb{R}^d),C^{k}(\mathbb{R}^d)$ respectively.
 
-
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
 <div class="exercise-text">
@@ -1778,7 +1615,6 @@ $u \in C^k(\mathbb{R}^d)$ is identical.
 Using extensions also gives us a way to define the Sobolev spaces
 $H^s(\Omega)$ when the exponent $s$ is real valued.
 
-
 **Definition 11**. Given a **bounded** open set $\Omega$ with
 **boundary** of type $C^k$ with $k \in \mathbb{N}\U +$, we define for all
 real $s \in [0,k]$
@@ -1788,9 +1624,6 @@ $$\begin{aligned}
 H^s(\Omega):=\left.H^s(\mathbb{R}^d)\right|\U {\Omega} .
 \end{aligned}$$
 </div>
-
-
-
 
 To further generalize this definition to domains where restriction is
 not possible one needs to use [complex
@@ -1819,15 +1652,12 @@ T: W^{1,p}(U)\to L^p(\partial U) .
 Such that $Tu =\left.u\right|\U {\partial \Omega}$ for
 all $u \in C(\overline{\Omega}) \cap W^{1,p}(\Omega)$.
 
-
-
 Proof. As in previous results, the trick is to suppose first $u$ is
 smooth, work locally, and then obtain a global result using a partition
 of unity and the density in Theorem [6](#global).\
 Given $x\U 0 \in \partial  \Omega$ we take a open set
 $U \subset \mathbb{R}^d$ containing $x\U 0$. Flattening out the boundary
 by $\Phi : U \simeq U'$ where necessarily the boundary is preserved
-
 
 <div>
 $$\begin{aligned}
@@ -1841,7 +1671,6 @@ $u':= u\circ \Phi$ to $\widetilde{u}'$ with compact support
 $K \subset \mathbb{R}^d$ we obtain by the [divergence
 theorem](https://en.wikipedia.org/wiki/Divergence_theorem#:~:text=space%5Bedit%5D-,We,-are%20going%20to%20prove)
 
-
 <div>
 $$\begin{aligned}
 \int\U {U'\cap \partial \mathcal{H}^d}\left| u' \right|^p  \leq\int\U {\partial \mathcal{H}^d} \left| \widetilde{u}' \right|^p=\int\U {\mathcal{H}^d} \partial\U {d} \left| \widetilde{u}' \right|^p\leq\int\U {\mathcal{H}^d} p\left| \widetilde{u}' \right|^{p-1}\left| \partial\U {d} u \right|   \lesssim \left\lVert \widetilde{u}' \right\rVert\U {W^{1,p}(\mathcal{H}^d)}^p  .
@@ -1851,7 +1680,6 @@ $$\begin{aligned}
 Where in the second inequality we used the chain
 rule and in the last Hölder's inequality. Since $\Phi^{-1}$ is $C^k$ and
 by the continuity of the extension we obtain what we are looking for in
-
 
 <div>
 $$\begin{align}
@@ -1864,7 +1692,7 @@ We had supposed $u$ smooth, now taking a finite
 covering $\left\\{U\U i\right\\}\U {i=1}^n$ of $\partial  \Omega$ (this is
 possible by compactness of $\partial  \Omega$) and taking a subordinate
 partition of unity $\rho \U i$ we conclude from
-(\ref{estimate local})  that
+(\ref{estimate local}) that
 
 <div>
 $$\begin{aligned}
@@ -1884,8 +1712,6 @@ Using Theorem [6](#global) to extend $T$ continuously to
 $W^{k,p}(\Omega)= \overline{\left.C\U c^\infty(\mathbb{R}^d)\right|\U {\Omega}}$
 concludes the proof. ◻
 
-
-
 **Definition 12**. We define the **trace** of $u \in W^{k,p}(\Omega)$
 as $Tu$. We also use the notation
 
@@ -1895,16 +1721,12 @@ $$\begin{aligned}
 \end{aligned}$$
 </div>
 
-
-
-
 To get an estimate on the trace we paid $1$-degree of regularity. We can
 do better and only pay ${1}/{p}$ degrees of regularity. This uses the
 theory of [Sobolev--Slobodeckij
 spaces](https://en.wikipedia.org/wiki/Trace_operator#For_p_=_1:~:text=%5Bedit%5D-,A%20more,-concrete%20representation%20of)
 which we will not develop here. In the case $p=2$ we can use Hölder
 spaces $H^s(\Omega)$ to get the improved result.
-
 
 **Theorem 9**. For all real $s> 1 /2$ the trace operator is a
 continuous operator
@@ -1914,10 +1736,6 @@ $$\begin{aligned}
 T: H^s(\Omega) \to H^{s -\frac{1}{2}}(\Omega).
 \end{aligned}$$
 </div>
-
-
-
-
 
 Proof. Straightening out the boundary and using the extension operator
 as in the trace theorem [8](#trace), it is sufficient to work in the case where $u$ is
@@ -1942,7 +1760,6 @@ $$\begin{align}
 The change of variables
 $\xi \U d \to \left\langle\xi '\right\rangle\xi \U d$ shows that
 
-
 <div>
 $$\begin{align}
 \label{f2}
@@ -1951,8 +1768,8 @@ $$\begin{align}
 </div>
 
 Where in the inequality it was used that $s> 1 /2$.
-We deduce from (\ref{f1})  and
-(\ref{f2})  on taking norms
+We deduce from (\ref{f1}) and
+(\ref{f2}) on taking norms
 that
 
 <div>
@@ -1963,10 +1780,8 @@ $$\begin{aligned}
 
 Which concludes the proof. ◻
 
-
 A particularly useful space of functions related to the trace operator
 is the following
-
 
 **Definition 13**. We define the space of **functions with trace zero**
 as
@@ -1980,19 +1795,14 @@ W^{k,p}\U 0(U):=\overline{C\U c^\infty(U)}\subset W^{k,p}(U).
 Where the closure is with respect to the topology on
 $W^{k,p}(U)$.
 
-
  <a name="trace 0">
 **Exercise 20** </a> . Show that for all $u \in W^{k,p}\U 0(\Omega)$
-
 
 <div>
 $$\begin{aligned}
 \left.u\right|\U {\partial \Omega}=0.
 \end{aligned}$$
 </div>
-
-
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -2003,18 +1813,14 @@ Use the continuity of the trace operator.
 
 The converse to Exercise [20](#trace 0) holds but is far from trivial.
 
-
-**Proposition 3**. Let $\Omega$ be a **bounded** open set with $C^1$
+**Proposition 3**. Let $U$ be a **bounded** open set with $C^1$
 **boundary**. Then
 
 <div>
 $$\begin{aligned}
-W^{k,p}\U 0(\Omega)=\left\{u \in W^{k,p}(U): Tu=0\right\} .
+W^{k,p}\U 0(U)=\left\{u \in W^{k,p}(U): Tu=0\right\} .
 \end{aligned}$$
 </div>
-
-
-
 
 The proof is very technical, see [6](https://math24.files.wordpress.com/2013/02/partial-differential-equations-by-evans.pdf) page 274 for the
 details.\
@@ -2023,10 +1829,8 @@ functions compactly supported **inside of** $U$ gives us many more
 tools. For example, a function $u$ in $W^{k,p}\U 0(U)$ can be extended by
 zero to obtain an element $\widetilde{u}$ in $W^{k,p}(\mathbb{R}^d)$
 even for non-smooth unbounded domains.
-
-
-**Exercise 21** (Extension trace 0). Let $U$ be an open set, and define
-
+<a name="extensiontrace">
+**Exercise 21** (Extension trace 0). </a> Let $U$ be an open set, and define
 
 <div>
 $$\begin{aligned}
@@ -2047,7 +1851,6 @@ E: W\U 0^{k,p}(U) \to W^{k,p}(\mathbb{R}^d); \quad  u \to \widetilde{u}
 
 is a linear with $\left\lVert E \right\rVert=1$.
 
-
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
 <div class="exercise-text">
@@ -2058,14 +1861,11 @@ the closure $C\U c^\infty(U)$ in $W^{k,p}(U)$. Which by definition is
 $W^{k,p}\U 0(U)$.
 </div>
 </div>
-
-
-**Observation 4**. The fact that we can extend functions in
+<a name="traceobs">
+**Observation 4**.</a> The fact that we can extend functions in
 $W^{k,p}\U 0(U)$ for arbitrary $U$ allows one to derive results that when
 stated for the whole of $W^{k,p}(U)$ require $U$ to be smooth so that it
 is possible to extend $U$.
-
-
 
 **Exercise 22** (Integration by parts 1). Let $U$ be any open set and
 consider $u \in  W^{1,p}\U 0(U), v \in W^{1,p'}(U)$ then
@@ -2076,16 +1876,12 @@ $$\begin{aligned}
 \end{aligned}$$
 </div>
 
-
-
-
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
 <div class="exercise-text">
 Give yourself an epsilon of room and take limits.
 </div>
 </div>
-
 
 **Exercise 23** (Integration by parts 2). Let $\Omega$ be a **bounded**
 open set of $\mathbb{R}^d$ with $C^1$ **boundary** and consider
@@ -2099,7 +1895,6 @@ $$\begin{aligned}
 
 Where $\textbf{n}$ is the outward pointing unit
 normal vector to $\partial \Omega$.
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -2116,13 +1911,11 @@ Sobolev inequalities are relationships that bound the norm of $u$ in
 different function spaces depending on how differentiable and integrable
 $u$ is. For example, such a relationship could look like
 
-
 <div>
 $$\begin{align}
 \label{example}
 \left\lVert u \right\rVert\U {W^{ l,p^\star  }(\Omega)}\leq \left\lVert u \right\rVert\U {W^{k,p}(\Omega)}.\end{align}$$
 </div>
-
 
 By considering the rescaling $u(\lambda x)$, performing a change of
 variables, and taking $\lambda$ to $\infty$ we see that for such a
@@ -2137,7 +1930,6 @@ l-     \frac{d}{p^\star }=k-\frac{d}{p}  .\end{align}$$
 The case
 $k=l+1$ gives rise to the following definition
 
-
 **Definition 14**. The **Sobolev conjugate** of $1\leq p<d$ is $p^\star $
 defined by
 
@@ -2147,11 +1939,8 @@ $$\begin{aligned}
 \end{aligned}$$
 </div>
 
-
-
-
 Note that $p<p^\star $. The idea behind inequalities such as
-(\ref{example})  is
+(\ref{example}) is
 to cash in some differentiability for some integrability. The main
 results used to do this are based on the fundamental theorem of
 calculus. First, we need the following lemma.
@@ -2176,13 +1965,8 @@ $$\begin{align}
 \end{align}$$
 </div>
 
-
-
-
-
 Proof. The case $d=2$ is immediate by Fubini. The general case follows
 from induction on $d$ . We write $(x\U 1,\ldots x\U {d+1})=(x',x\U {d+1})$
-
 
 <div>
 $$\begin{align}
@@ -2191,7 +1975,6 @@ $$\begin{align}
 & \leq \left(\int\U {\mathbb{R}}         \left(\int\U {\mathbb{R}^d} F\U d(x)^{\frac{p}{d-1}} \,\mathrm{d}x'  \right)^{\frac{d-1}{d}}\,\mathrm{d}x\U {d+1} \right)^{\frac{d}{p} }\left\lVert f\U {d+1} \right\rVert\U {L^p(\mathbb{R}^d)}      \notag               \\
 & \leq \left(\int\U {\mathbb{R}} \prod\U {i=1}^d\|f\U i(x\U {d+1})\|\U {L^p\left(\mathbb{R}^{d}\right)}^{\frac{p}{d}} \,\mathrm{d}x\U {d+1}\right)^{\frac{d}{p}}\left\lVert f\U {d+1} \right\rVert\U {L^p(\mathbb{R}^{d})}    \end{align}$$
 </div>
-
 
 Where in the first inequality we applied Cauchy-Schwartz with
 $q= d /(d-1), q' =d$. Now applying the general version of
@@ -2202,13 +1985,9 @@ $$\begin{aligned}
 \left\lVert g\U 1\cdots g\U n  \right\rVert\U {L^1} \leq \left\lVert g\U 1 \right\rVert\U {L^{p\U 1}}\cdots\left\lVert g\U 1 \right\rVert\U {L^{p\U n}}; \quad  \frac{1}{p\U 1}+\cdots \frac{1}{p\U n}=1\notag          .\end{aligned}$$
 </div>
 
-
-
 to
 $g\U i:= \left\lVert f\U i(\cdot ) \right\rVert^{\frac{p}{d}}\U {L^p(\mathbb{R}^{d})} \in L^{d}(\mathbb{R})$
 gives
-
-
 
 <div>
 $$\begin{aligned}
@@ -2217,9 +1996,8 @@ $$\begin{aligned}
 </div>
 
 Substituting into
-(\ref{induc})  concludes
+(\ref{induc}) concludes
 the proof. ◻
-
 
 Using the Loomis-Whitney inequality and the fundamental theory of
 calculus gives us our first Sobolev inequality
@@ -2234,10 +2012,6 @@ $$\begin{aligned}
 \end{aligned}$$
 </div>
 
-
-
-
-
 Proof. By density (see Theorem [4](#approx rd)), it is enough to take
 $u \in C\U c^\infty(\mathbb{R}^d)$. Applying the fundamental theorem of
 calculus gives
@@ -2250,7 +2024,6 @@ $$\begin{aligned}
 
 Multiplying all these inequalities together gives
 
-
 <div>
 $$\begin{aligned}
 \left| u \right|^{md} \leq \prod\U {i=1}^{d} f\U i   .
@@ -2258,8 +2031,7 @@ $$\begin{aligned}
 </div>
 
 Applying the Loomis-Whitney inequality
-(\ref{loomis ineq})  "with $p=1$" and Hölder's inequality shows
-
+(\ref{loomis ineq}) "with $p=1$" and Hölder's inequality shows
 
 <div>
 $$\begin{align}
@@ -2277,8 +2049,7 @@ $$\begin{aligned}
 </div>
 
 Substituting into
-(\ref{hard})  gives
-
+(\ref{hard}) gives
 
 <div>
 $$\begin{aligned}
@@ -2288,7 +2059,6 @@ $$\begin{aligned}
 
 This concludes the proof. ◻
 
-
  <a name="est12">
 **Exercise 24** </a> . Given $p<\frac{d}{k}$ define $p^{k\star }$ by
 $\frac{1}{p^{k\star }}=\frac{1}{p}-\frac{k}{d}$. Then,
@@ -2297,9 +2067,6 @@ $\frac{1}{p^{k\star }}=\frac{1}{p}-\frac{k}{d}$. Then,
 $$\begin{aligned}
 \left\lVert u \right\rVert\U {L^{p^{k\star }}(\mathbb{R}^d)} \lesssim  \left\lVert \nabla^k u \right\rVert\U {L^p(\mathbb{R}^d)}    \end{aligned}$$
 </div>
-
-
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -2322,13 +2089,8 @@ W^{1,d}(\mathbb{R}^d) \hookrightarrow L^q(\mathbb{R}^d) , \quad\forall  q \in [d
 \end{aligned}$$
 </div>
 
-
-
-
-
 Proof. Setting $p=d$ in our estimate
-(\ref{hard})  gives
-
+(\ref{hard}) gives
 
 <div>
 $$\begin{aligned}
@@ -2370,14 +2132,12 @@ $$\begin{align}
 
 We now iterate, taking $m=d+1$ gives
 
-
 <div>
 $$\begin{aligned}
 \left\lVert u \right\rVert\U {L^{ (d+1)d/(d-1)}(\mathbb{R}^d)}\lesssim \left\lVert u \right\rVert\U {L^{d^2/(d-1)}(\mathbb{R}^d)}+\left\lVert \nabla u \right\rVert\U {L^{d}(\mathbb{R}^d \to  \mathbb{R}^d)}             \end{aligned}$$
 </div>
 
-
-Which combined with (\ref{step 1})  and interpolating gives
+Which combined with (\ref{step 1}) and interpolating gives
 
 <div>
 $$\begin{aligned}
@@ -2388,7 +2148,6 @@ $$\begin{aligned}
 Iterating this process (taking $m=d+2,\ldots, m=d+k$
 in (\ref{22}) ) shows that
 
-
 <div>
 $$\begin{aligned}
 \left\lVert u \right\rVert\U {L^{q}(\mathbb{R}^d)} \lesssim  \left\lVert u \right\rVert\U {W^{1,d}(\mathbb{R}^d)} , \quad\forall q \in \left[d+k,\frac{(d+k)d}{d-1}\right].
@@ -2396,7 +2155,6 @@ $$\begin{aligned}
 </div>
 
 From this, we conclude the result. ◻
-
 
  <a name="est22">
 **Exercise 25** </a> . It holds that
@@ -2406,9 +2164,6 @@ $$\begin{aligned}
 W^{k,\frac{d}{k}}(\mathbb{R}^d) \hookrightarrow L^q(\mathbb{R}^d) , \quad\forall  q \in [d /k,+\infty)
 \end{aligned}$$
 </div>
-
-
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -2426,17 +2181,14 @@ $$\begin{aligned}
 W^{1,d}(\mathbb{R}^d) \hookrightarrow L^\infty(\mathbb{R}^d).\end{aligned}$$
 </div>
 
-
 This holds if and only if $d=1$. Otherwise, we require more
 integrability. However, this extra integrability can be converted into
 regularity in the style of [Sobolev
 spaces](https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=.%C2%A0%E2%97%BB-,As%20a%20corollary,-of%20this%2C%20we).
 First, we recall the following definition
 
-
 **Definition 15**. Let $U \subset \mathbb{R}^d$ be open and
 $\gamma \in \mathbb{R}\U +$, we define the **Holder space**
-
 
 <div>
 $$\begin{aligned}
@@ -2446,16 +2198,12 @@ C^{k,\gamma }(\mathbb{R}^d):= \left\{u \in C^k(U): \left\lVert u \right\rVert\U 
 
 Where the Holder norm is defined as
 
-
 <div>
 $$\begin{aligned}
 \left\lVert u \right\rVert\U {C^{0,\gamma }(U)} & := \sup\U {x \neq y \in \mathbb{R}^d} \frac{\left| u(x)-u(y) \right| }{\left| x-y \right|^\gamma  }          \\
 \left\lVert u \right\rVert\U {C^{k,\gamma }(U)} & :=\left\lVert u \right\rVert\U {C^{k}(U)}+\sum\U {\left| \alpha \right|= k } \left\lVert D^\alpha u \right\rVert\U {C^{0,\gamma }(U)}   .
 \end{aligned}$$
 </div>
-
-
-
 
 For $\gamma =1$ the $C^{k,\gamma }$ is the space of functions with
 bounded derivatives up to order $k$ and whose $k$-th order derivatives
@@ -2471,11 +2219,7 @@ W^{1,p}(\mathbb{R}^d) \hookrightarrow C^{0,\gamma }(\mathbb{R}^d).
 \end{aligned}$$
 </div>
 
-
-
-
-The proof is technical and can be found in [7](https://link.springer.com/book/10.1007/978-0-387-70914-7) page
-282.
+The proof is technical and can be found in [7](https://link.springer.com/book/10.1007/978-0-387-70914-7) page 282.
 
 As is logical, as $p$ approaches $d$ from above the extra
 differentiability we get goes to $0$. Furthermore, no matter how much
@@ -2486,15 +2230,11 @@ we started with, so $\gamma \to 1$ as $p \to \infty$.
 **Exercise 26** </a>  (Sobolev regularity). Let $p>d$ and set
 $\gamma=1-\frac{d}{p}$. Then, the following inclusion is continuous
 
-
 <div>
 $$\begin{aligned}
 W^{k,p}(\mathbb{R}^d) \hookrightarrow C^{k,\gamma }(\mathbb{R}^d).
 \end{aligned}$$
 </div>
-
-
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -2517,7 +2257,6 @@ u \in C^{k-1+1,\widetilde{\gamma}+1}(\mathbb{R}^d )=C^{k,\gamma}(\mathbb{R}^d ) 
 \end{aligned}$$
 </div>
 
-
 </div>
 </div>
 
@@ -2535,14 +2274,11 @@ $$\begin{aligned}
 & W^{k,p}(\Omega) \hookrightarrow C^{k,\gamma }(\overline{\Omega}) \hookrightarrow C^{k}(\overline{\Omega}) ,  \quad                         & \text{ and }  p>\frac{d}{k}    \end{aligned}$$
 </div>
 
-
 Where $p^{k\star }$ is defined by the relation
 $\frac{1}{p^{k\star }}=\frac{1}{p}-\frac{k}{d}$ and $\gamma =1 -\frac{p}{d}$.
 Furthermore, the first, second, fourth, and third composed with fourth
 inclusions are
 [compact](https://en.wikipedia.org/wiki/Compact_embedding).
-
-
 
 Proof. The fact that the above inclusions are continuous follows by
 our three Sobolev inequalities in Exercises
@@ -2554,12 +2290,12 @@ unit ball in each of the embedded spaces is
 [equicontinuous](https://en.wikipedia.org/wiki/Equicontinuity).
 
 1.  For the first inclusion we will use
-[Fréchet--Kolmogorov's](https://en.wikipedia.org/wiki/Fr%C3%A9chet%E2%80%93Kolmogorov_theorem)
-theorem. First we note that we can suppose $q>p$ as
-$L^q(\Omega) \hookrightarrow L^p(\Omega)$. Let $B\U 1$ be the unit
-ball in $W^{k,p}(\Omega)$. By continuity of the inclusion $B\U 1$ is
-bounded in $L^q(\Omega)$ and it only remains to show that $B\U 1$ is
-equicontinuous. We have that
+    [Fréchet--Kolmogorov's](https://en.wikipedia.org/wiki/Fr%C3%A9chet%E2%80%93Kolmogorov_theorem)
+    theorem. First we note that we can suppose $q>p$ as
+    $L^q(\Omega) \hookrightarrow L^p(\Omega)$. Let $B\U 1$ be the unit
+    ball in $W^{k,p}(\Omega)$. By continuity of the inclusion $B\U 1$ is
+    bounded in $L^q(\Omega)$ and it only remains to show that $B\U 1$ is
+    equicontinuous. We have that
 
 <div>
 $$\begin{aligned}
@@ -2578,7 +2314,6 @@ $$\begin{aligned}
 \frac{1}{q}=\frac{\alpha}{p}+\frac{1-\alpha}{p^{k\star }}   .\end{aligned}$$
 </div>
 
-
 By
 [interpolation](https://en.wikipedia.org/wiki/Riesz%E2%80%93Thorin_theorem#:~:text=the%20sumset%20formulation.-,Riesz%E2%80%93Thorin,-interpolation%20theorem%C2%A0%E2%80%94%C2%A0)
 we obtain that
@@ -2595,9 +2330,8 @@ first case.
 2.  The compactness of the second inclusion is proved identically.
 
 3.  For the compactness of the last inclusion we use [Arzelà--Ascoli
-theorem](https://en.wikipedia.org/wiki/Arzel%C3%A0%E2%80%93Ascoli_theorem# <a name="simple embedding label="simple embedding""> :~:text=%2C%20%C2%A7IV.6.7)
-on a "derivative by derivative basis". By definition of Hölder norm,
-
+    theorem](https://en.wikipedia.org/wiki/Arzel%C3%A0%E2%80%93Ascoli_theorem# <a name="simple embedding label="simple embedding""> :~:text=%2C%20%C2%A7IV.6.7)
+    on a "derivative by derivative basis". By definition of Hölder norm,
 
 <div>
 $$\begin{aligned}
@@ -2614,7 +2348,6 @@ $$\begin{aligned}
 A\U \alpha:=\left\{D^\alpha u: u \in B\U 1 \subset C^{k,\gamma }(\overline{\Omega})\right\},\end{aligned}$$
 </div>
 
-
 is equicontinuous. So by Arzelà--Ascoli we may extract a sequence
 $u\U {n}$ such that $D^\alpha u\U n$ converges uniformly to some
 $u^{(\alpha)}$. By the fundamental theorem of calculus we conclude
@@ -2624,11 +2357,10 @@ $B\U 1 \subset C^{k,\gamma }$ is sequentially compact and thus compact
 when embedded in $C^k(\overline{\Omega})$. This proves this point.
 
 4.  The composition of the inclusions on the last line is compact as the
-composition of a compact and a continuous operator is compact. This
-concludes the proof.
+    composition of a compact and a continuous operator is compact. This
+    concludes the proof.
 
 ◻
-
 
 As a particular case of the above we obtain the following simpler
 looking corollary
@@ -2643,6 +2375,7 @@ $$\begin{aligned}
 W^{k,p}(\Omega) \hookrightarrow L^q(\Omega).
 
 \end{aligned}$$
+
 </div>
 
 In particular, for all $p \in [1, \infty]$, the
@@ -2653,17 +2386,13 @@ $$\begin{aligned}
 W^{k,p}(\Omega) \hookrightarrow L^p(\Omega).
 
 \end{aligned}$$
+
 </div>
-
-
-
-
 
 Proof. For any of the cases in [Rellich-Kondrachov's theorem](rellich), the
 condition on $q$ holds. The first part of the result then follows as
 $C^k(\overline{\Omega}) \hookrightarrow L^q(\Omega)$ and the second part
 from the fact that $p< p^{k^\star }$. ◻
-
 
 Compact embeddings in spaces of higher order can be obtained through the
 following.
@@ -2672,12 +2401,12 @@ following.
 **Proposition 0** </a>
 Let $k,l \in \N\U 0$ and $p,q \in [1,\infty]$ be such that
 
-
 <div>
 $$\begin{aligned}
 W^{k,p}(\Omega)\hookrightarrow L^q(\Omega)
 
 \end{aligned}$$
+
 </div>
 
 is compact. Then, the inclusion
@@ -2687,42 +2416,40 @@ $$\begin{aligned}
 W^{k+l,p}(\Omega)\hookrightarrow W^{l,q}(\Omega)
 
 \end{aligned}$$
+
 </div>
 
 is also compact.
 
-
-
 Proof. Let $u\U n \in W^{k+l,p}(U)$ be a bounded sequence. By assumption
 $W^{k,p}(\Omega)$ is compact in $L^q(\Omega)$, so we may extract a
 subsequence $u\U {n\U k}$ such that, for $\abs{\alpha} \leq l$,
-
 
 <div>
 $$\begin{aligned}
 \lim\U {k \to \infty}D^\alpha u\U {n\U k} = u^{(\alpha)} \in L^q(\Omega) .
 
 \end{aligned}$$
+
 </div>
 
-Using the same technique as in Theorem [2](completeness)  shows that $u^{(\alpha)}= D^{\alpha}u$. This
+Using the same technique as in Theorem [2](completeness) shows that $u^{(\alpha)}= D^{\alpha}u$. This
 shows that $u\U {n\U k} \to u$ in $W^{l,q}(\Omega)$ and, by the equivalence
 of compactness and sequential compactness, concludes the proof. ◻
 
-
-This result can be combined directly with [Rellich-Kondrachov](rellich)  or any
-other embedding. For example, when combined with [Corollary 0](simple embedding)  we get the following.
+This result can be combined directly with [Rellich-Kondrachov](rellich) or any
+other embedding. For example, when combined with [Corollary 0](simple embedding) we get the following.
 
  <a name="higher 2">
 **Corollary 0.1** </a>
 Let $q< p^{k\star }$, then it holds that following inclusion is compact
-
 
 <div>
 $$\begin{aligned}
 W^{k+l,p}(\Omega) \hookrightarrow W^{l,q}(\Omega).
 
 \end{aligned}$$
+
 </div>
 
 In particular, for all $p \in [1, \infty]$, the
@@ -2733,10 +2460,8 @@ $$\begin{aligned}
 W^{k+l,p}(\Omega) \hookrightarrow W^{l,p}(\Omega).
 
 \end{aligned}$$
+
 </div>
-
-
-
 
 The main utility of all these compact embeddings is that given a
 sequence $u\U n$ whose derivatives are bounded in certain $L^p$ norms we
@@ -2744,6 +2469,12 @@ can extract convergent subsequences in appropriate spaces. We end this
 post (modulo appendices) with one of the most useful inequalities which
 we will make use of in future posts
 
+<a name="Rellich trace 0 ">
+**Theorem 14** </a>  (Rellich for trace 0 and irregular domain). Let $U\subset \mathbb{R}^d$ be a bounded
+domain. Then, the conclusions of Theorem [13](rellich), Proposition
+[0](higher), and Corollary [0.1](higher 2) hold for the space hold if we swap everywhere $W^{k,p}(\Omega)$ for $W^{k,p}\U 0(U)$ and $W^{k+l,p}(\Omega)$ for $W^{k+l,p}\U 0(U)$.
+
+Proof. The proof follows by combining the aforementioned results with the Extension result in Exercise [21](extensiontrace). See also Observation [4](traceobs). ◻
 
 **Theorem 14** (Poincaré inequality). Let $u \in W^{1,p}\U 0(U)$ where
 $U$ is bounded in one direction. Then
@@ -2753,10 +2484,6 @@ $$\begin{aligned}
 \left\lVert u \right\rVert\U {W^{1,p}(U)}\leq C\left\lVert \nabla u \right\rVert\U {W^{1,p}(U \to \mathbb{R}^d)}.
 \end{aligned}$$
 </div>
-
-
-
-
 
 Proof. By density (which holds by definition of $W^{k,p}\U 0(U)$) of it
 is sufficient to reason for $u \in C\U c^\infty(U)$ and pass to the limit.
@@ -2781,7 +2508,6 @@ $$\begin{aligned}
 
 Taking $L^p(\mathbb{R}^d)$ norms above gives
 
-
 <div>
 $$\begin{aligned}
 \left\lVert u \right\rVert\U {L^p(\mathbb{R}^d)}\leq \left\lVert \partial \U du \right\rVert\U {L^p(\mathbb{R}^d)}\frac{p'}{p+p'}(b-a)^{\frac{p+p'}{p'}} \lesssim  \left\lVert \nabla u \right\rVert\U {L^p(\mathbb{R}^d \to \mathbb{R}^d)} .
@@ -2789,7 +2515,6 @@ $$\begin{aligned}
 </div>
 
 This concludes the proof. ◻
-
 
 # Convolutions and regularization
 
@@ -2800,10 +2525,8 @@ irregularities in $f$. This allows us to approximate irregular functions
 by smooth ones and serves as an important technical tool in our
 analysis.
 
-
 **Definition 16** (Convolution of functions). Given $f$ and $g$ we
 define the **convolution** of $f,g$ to be the function $f \star g$
-
 
 <div>
 $$\begin{align}
@@ -2812,10 +2535,7 @@ f \star g := \int f(y)g(x-y) \,\mathrm{d}y
 \end{align}$$
 </div>
 
-
-
-
-The definition given by (\ref{convo})  is purposefully vague. We still need to specify what
+The definition given by (\ref{convo}) is purposefully vague. We still need to specify what
 spaces $f,g$ belong to so that $f\star g$ is a well-defined element (of a
 further unspecified space). This can be done as follows.
 
@@ -2824,15 +2544,13 @@ further unspecified space). This can be done as follows.
 definition in (\ref{convo})  and let $p,q,r \in  [1, \infty]$. Then it holds that
 
 1.  If $f \in L^1(\mathbb{R}^d)$ and $g \in L^p(\mathbb{R}^d)$ then
-$f\star g \in L^p(\mathbb{R}^d)$ with
+    $f\star g \in L^p(\mathbb{R}^d)$ with
 
 <div>
 $$\begin{aligned}
 \left\lVert f\star g \right\rVert\U {L^p(\mathbb{R}^d)}\leq \left\lVert f \right\rVert\U {L^1(\mathbb{R}^d)}\left\lVert g \right\rVert\U {L^p(\mathbb{R}^d)}.
 \end{aligned}$$
 </div>
-
-
 
 2.  Suppose that
 
@@ -2844,18 +2562,13 @@ $$\begin{aligned}
 
 Then $f\star g \in L^r(\mathbb{R}^d)$ with
 
-
 <div>
 $$\begin{aligned}
 \left\lVert f\star g \right\rVert\U {L^r(\mathbb{R}^d)}\leq \left\lVert f \right\rVert\U {L^p(\mathbb{R}^d)}\left\lVert g \right\rVert\U {L^q(\mathbb{R}^d)}.
 \end{aligned}$$
 </div>
 
-
-
 In any of the above cases $f\star g=g\star f$.
-
-
 
 Proof. The first point follows from the triangle inequality for the
 Bochner integral (in this context this is also called Minkowski's
@@ -2880,9 +2593,8 @@ $$\begin{aligned}
 Where the first inequality is point one and the
 second follows from Cauchy Schwartz. Now applying [Riesz-Thorin's
 interpolation
-theorem]( https://en.wikipedia.org/wiki/Riesz%E2%80%93Thorin_theorem#:~:text=the%20sumset%20formulation.-,Riesz%E2%80%93Thorin,-interpolation%20theorem%C2%A0%E2%80%94%C2%A0)
+theorem](https://en.wikipedia.org/wiki/Riesz%E2%80%93Thorin_theorem#:~:text=the%20sumset%20formulation.-,Riesz%E2%80%93Thorin,-interpolation%20theorem%C2%A0%E2%80%94%C2%A0)
 concludes the proof. ◻
-
 
 The definition of convolution can be extended to even more settings, for
 example, suppose that $g$ is the density of some finite (possibly
@@ -2893,22 +2605,15 @@ $$\begin{aligned}
 f\star \mu(x):= f\star g(x)= \int\U {\mathbb{R}^d}f(x-y) g(y)\,\mathrm{d}y = \int\U {\mathbb{R}^d} f(x-y)\,\mathrm{d}\mu (y) .\end{aligned}$$
 </div>
 
-
-
-
 **Definition 17** (Convolution of function with measure). Let $\mu$ be
 a finite signed Borel measure on $\mathbb{R}^d$ and
 $f \in L^p(\mathbb{R}^d)$ then we define the convolution
-
 
 <div>
 $$\begin{aligned}
 f\star \mu (x) :=\int\U {\mathbb{R}^d} f(x-y)\,\mathrm{d}\mu (y) \in L^p(\mathbb{R}^d).
 \end{aligned}$$
 </div>
-
-
-
 
 Note that, once more by the triangle inequality, the convolution is
 well-defined with
@@ -2917,7 +2622,6 @@ well-defined with
 $$\begin{aligned}
 \left\lVert f\star  \mu  \right\rVert\U {L^p(\mathbb{R}^d)} \leq \left\lVert f \right\rVert\U {L^p(\mathbb{R}^d)} \left\lVert \mu  \right\rVert\U {TV} .\end{aligned}$$
 </div>
-
 
 Now, if we consider $f,g$ to be the densities of some finite (signed)
 measures $\mu,\nu$ then we obtain that for bounded $h$
@@ -2929,11 +2633,9 @@ $$\begin{align}
 & = \int\U {\mathbb{R}^d \times\mathbb{R}^d} f(x+y) \,\mathrm{d}(\mu \otimes \nu)(x,y)\notag .\end{align}$$
 </div>
 
-
 That is, the convolution of $\mu$ with $\nu$ is the
 [pushforward](https://en.wikipedia.org/wiki/Pushforward_measure) of the
 product measure $\mu \otimes \nu$ with the sum $S(x,y)$.
-
 
 **Definition 18** (Convolution of measures). Let $\mu ,\nu$ be two
 finite signed measures on $\mathcal{B}(\mathbb{R}^d)$. Then the
@@ -2945,24 +2647,17 @@ $$\begin{aligned}
 \end{aligned}$$
 </div>
 
-
-
-
 The language of random variables can give some good motivation for this
-
 
 **Example 3**. Let $X,Y$ be random variables with law $\mu ,\nu$ then
 $X+Y$ has law $\mu \star \nu$. Furthermore, if $X, Y$ are independent and
 $\mu,\nu$ are absolutely continuous with densities $f,g$ then $X+Y$ is
 absolutely continuous with density $f\star g$.
 
-
-
 Proof. The first part is by definition of pushforward. To show that
 $\mu \star \nu$ has density $f\star g$ it suffices to read the reasoning in
 equation (\ref{push})
 backward. ◻
-
 
 Through the random variable interpretation, we also see that if
 $\mu,\nu$ have all their mass in $A, B$ then their convolution must have
@@ -2978,12 +2673,7 @@ $$\begin{aligned}
 \end{aligned}$$
 </div>
 
-
-
-
-
 Proof. This follows directly from the definition of convolution. ◻
-
 
 One technical point is that to define the convolution of two objects it
 is required that they be defined globally. For example if
@@ -3001,7 +2691,6 @@ $\phi\in L^1(\mathbb{R}^d)$ with
 $\mathbf{supp}(\phi)\subset  \overline{B(0,\epsilon ) }$ we can extend
 $f$ to be equal to some $g \in L^p(\mathbb{R})$ outside of $U$
 
-
 <div>
 $$\begin{aligned}
 \tilde{f}(x)=\begin{cases}
@@ -3018,16 +2707,13 @@ $$\begin{aligned}
 \tilde{f}\star \phi(x) = \int\U {B(x,\epsilon )\cap U} f(y)\phi(x-y) \,\mathrm{d}y+\int\U {B(x,\epsilon )\cap U^c} g(y)\phi(x-y) \,\mathrm{d}y .\end{aligned}$$
 </div>
 
-
 As we can see, the convolution in general depends on how we extend $f$
 outside of $U$. However, it is independent of the extension for $x$ in
-
 
 <div>
 $$\begin{aligned}
 U\U \epsilon :=\left\{x \in  U : d(x,\partial U)< \epsilon \right\}.\end{aligned}$$
 </div>
-
 
 With
 
@@ -3035,7 +2721,6 @@ With
 $$\begin{aligned}
 \tilde{f}\star \phi(x) = \int\U {B(x,\epsilon )} f(y)\phi(x-y) \,\mathrm{d}y , \quad\forall x \in  U\U \epsilon   .\end{aligned}$$
 </div>
-
 
 For this reason, we will employ the following notation.
 
@@ -3050,12 +2735,8 @@ f\star \phi(x):= \int\U {B(x,\epsilon )}f(y)\phi(x-y) \,\mathrm{d}y .
 \end{aligned}$$
 </div>
 
-
-
-
 Convolution of distributions with test functions can also be considered.
 A similar reason to previously leads us to the following definition
-
 
 **Definition 20**. Let $T \in \mathcal{D}'(\mathbb{R}^d)$ and
 $\varphi \in C\U c^\infty(\mathbb{R}^d)$. Then we define the convolution
@@ -3066,29 +2747,24 @@ $$\begin{aligned}
 T\star \varphi(\phi):=T(\widetilde{\varphi}\star \phi) \quad \text{ where } \widetilde{\varphi}(x):=\varphi(-x) .\end{aligned}$$
 </div>
 
-
-
-
 In the above we can also swap all occurrences of
 $C\U c^\infty(\mathbb{R}^d)$ and $\mathcal{D}'(\mathbb{R}^d)$ by
 $\mathcal{S}(\mathbb{R}^d)$ and $\mathcal{S}'(\mathbb{R}^d)$
 respectively. An interesting fact is that the convolution of a
 distribution with a function is itself a function.
 
-
 **Proposition 5**. Convolution of distribution and test function is
 smooth:
 
 1.  Let
-$\varphi \in \mathcal{D}(\mathbb{R}^d), w \in \mathcal{D}'(\mathbb{R}^d)$
-then
-$\omega \star  \varphi \in  C^\infty \U {\mathrm{loc}}(\mathbb{R}^d)$.
+    $\varphi \in \mathcal{D}(\mathbb{R}^d), w \in \mathcal{D}'(\mathbb{R}^d)$
+    then
+    $\omega \star  \varphi \in  C^\infty \U {\mathrm{loc}}(\mathbb{R}^d)$.
 
 2.  Let
-$\varphi \in \mathcal{S}(\mathbb{R}^d), w \in \mathcal{S}'(\mathbb{R}^d)$
-then
-$\omega \star  \varphi \in  C^\infty \U {\mathrm{loc}}(\mathbb{R}^d)$.
-
+    $\varphi \in \mathcal{S}(\mathbb{R}^d), w \in \mathcal{S}'(\mathbb{R}^d)$
+    then
+    $\omega \star  \varphi \in  C^\infty \U {\mathrm{loc}}(\mathbb{R}^d)$.
 
 The previous definitions all go through word by word in the case where
 we substitute the domain from Euclidean space $\mathbb{R}^d$ to a [LCA
@@ -3105,35 +2781,32 @@ A
 typical case is when $G=\mathbb{T}^d$ with the Lebesgue measure or
 $G=\mathbb{Z}^d$ with the counting measure. These respectively give
 
-
 <div>
 $$\begin{aligned}
 f\star g(x)=\int\U {\mathbb{T}^d}f(y)g(x-y) \,\mathrm{d}y; \quad      f\star g(k):= \sum\U {j\in \mathbb{Z}^d} f(j)g(k-j)  .\end{aligned}$$
 </div>
 
-
 The same results are also obtained. In fact, save the commutation
 $f\star g=g\star f$, the above results hold even if $G$ is not Abelian. In this
 case, one considers the [left or right Haar
 measure](https://en.wikipedia.org/wiki/Haar_measure#:~:text=%5Bedit%5D-,There,-is%2C%20up).
-See for example [8](
-https://www.gbv.de/dms/goettingen/377412414.pdf) 444R.
+See for example [8](https://www.gbv.de/dms/goettingen/377412414.pdf) 444R.
 
-# <a name="smooth section">  Smoothing in $L^p$  </a>
+# <a name="smooth section"> Smoothing in $L^p$ </a>
 
 In this section, we examine how convolution can be used to approximate
 functions by smoother ones. This is of great practical use as it allows
 us to
 
 1.  Consider an appropriate space of functions for our problem, smooth
-or otherwise.
+    or otherwise.
 
 2.  Perform formal manipulations using the standard rules of calculus as
-if all functions in this space were smooth and compactly supported
-until we obtain a desired result.
+    if all functions in this space were smooth and compactly supported
+    until we obtain a desired result.
 
 3.  Pass to the limit to recover the expression for the whole class of
-functions.
+    functions.
 
 A crucial tool in this program is the following:
 
@@ -3142,14 +2815,12 @@ A crucial tool in this program is the following:
 $\\{\phi\U n\\}\U {n= 1}^\infty \subset L^1(\mathbb{R}^d)$ is an
 **approximation to unity** if
 
--   Norm 1: $\left\lVert \phi\U n \right\rVert\U {L^1(\mathbb{R}^d)}=1$.
+- Norm 1: $\left\lVert \phi\U n \right\rVert\U {L^1(\mathbb{R}^d)}=1$.
 
--   Decreasing support: $\mathbf{supp}(\phi\U n) \subset B(0, 1 /n)$.
+- Decreasing support: $\mathbf{supp}(\phi\U n) \subset B(0, 1 /n)$.
 
 If $\phi\U n \in C\U c^\infty(\mathbb{R}^d)$ we say that $\phi\U n$ are
 smooth.
-
-
 
 **Observation 5**. The above definition is frequently also given
 letting the index set range over $\epsilon \in \mathbb{R}\U +$ and taking
@@ -3157,22 +2828,17 @@ $\mathbf{supp}(\phi\U \epsilon ) \subset B(0,\epsilon )$. This is
 equivalent and simply leads to taking $\epsilon \to 0$ instead of
 $n \to \infty$.
 
-
 The first question is whether a smooth approximation to the identity
 exists. In the following example, we answer this in the affirmative.
 
-
 **Example 4**. Let $\varphi \in C\U c^\infty(\mathbb{R}^d)$ then
-
 
 <div>
 $$\begin{aligned}
 \phi\U n:= \frac{n^d }{\left\lVert \varphi \right\rVert\U {L^1(\mathbb{R}^d)}}\varphi(nx)\end{aligned}$$
 </div>
 
-
 is a smooth approximation of the identity. Additionally,
-
 
 <div>
 $$\begin{align}
@@ -3181,20 +2847,15 @@ $$\begin{align}
 \end{align}$$
 </div>
 
-
-
-
 By Proposition [4](#Young)
 $(L^1(\mathbb{R}^d),\star )$ is a [Banach
 algebra](https://en.wikipedia.org/wiki/Banach_algebra). However, it is a
 non-unital one. That is there does not exist an element $e$ such that
 
-
 <div>
 $$\begin{aligned}
 f\star e=f , \quad\forall f \in L^1(\mathbb{R}^d).\end{aligned}$$
 </div>
-
 
 However, we will soon see that in a limiting sense, an identity for the
 convolution exists. First, we need the following lemma.
@@ -3202,8 +2863,6 @@ convolution exists. First, we need the following lemma.
  <a name="Uryshon">
 **Lemma 4** </a> . The space $C\U c(\mathbb{R}^d)$ is dense in
 $L^p(\mathbb{R}^d)$ for all $p \in [1,\infty)$.
-
-
 
 Proof. Consider $f \in  L^p(\mathbb{R}^d)$. If $f =1\U A$ for some
 measurable set $A$ with finite measure then, by the outer and inner
@@ -3231,7 +2890,6 @@ $$\begin{aligned}
 Since the space of simple functions is dense in
 $L^p(\mathbb{R}^d)$ this concludes the proof. ◻
 
-
 The name "approximation of unity" in Definition
 [21](#app def) is justified by
 the following proposition.
@@ -3247,10 +2905,6 @@ $$\begin{aligned}
 \end{aligned}$$
 </div>
 
-
-
-
-
 Proof. Consider $\epsilon >0$. Using that $\phi\U n$ has mass $1$ and is
 supported on $B(0,1/n)$.
 
@@ -3262,7 +2916,6 @@ g\star \phi\U n(x)-g(x) & = \int\U {B(0, \frac{1}{n})}(g(x-y)-g(x)) \phi\U n(y) 
 </div>
 
 Now taking norms and $n$ large enough gives
-
 
 <div>
 $$\begin{align}
@@ -3285,12 +2938,9 @@ $$\begin{aligned}
 \end{aligned}$$
 </div>
 
-
-
 Now, since $K\U n:=\mathbf{supp}(g\star  \phi\U n) \subset K + B(0, 1 /n)$, whose
 measure is bounded by some $M>0$, the inequality in
-(\ref{nm})  shows that
-
+(\ref{nm}) shows that
 
 <div>
 $$\begin{aligned}
@@ -3311,7 +2961,6 @@ $$\begin{aligned}
 This shows the second part and concludes the
 proof. ◻
 
-
 The question is why would we want to approximate a function by its
 convolutions with some smooth functions the answer is given in the
 following two results.
@@ -3331,8 +2980,6 @@ D^\alpha(f \star \phi)=f\star D^\alpha \phi , \quad\forall \alpha \in \mathbb{N}
 Furthermore, if $f$ is compactly supported then
 $f\star \phi \in  C\U c^\infty(\mathbb{R}^d)$.
 
-
-
 Proof. By induction, it suffices to consider the case
 $D^\alpha = \partial \U i$ for some $1 \leq i \leq d$. This case can be
 proved by a [differentiation under the integral
@@ -3347,7 +2994,6 @@ $$\begin{aligned}
 
 Where $K$ is the support of $\varphi$. ◻
 
-
  <a name="local smoothing">
 **Observation 6** </a>  (Local smoothing). The smoothing effect also holds
 when $f$ is only defined on some open set $U$. Then, with the notation
@@ -3359,9 +3005,6 @@ $$\begin{aligned}
 D^\alpha(f \star \phi)=f\star D^\alpha \phi \text{ on } U\U \epsilon .
 \end{aligned}$$
 </div>
-
-
-
 
  <a name="density thm">
 **Theorem 15** </a> . It holds that
@@ -3376,25 +3019,17 @@ Where the closures are respectively in the
 $L^p(\mathbb{R}^d)$ and the uniform topology $($given by
 $\left\lVert \cdot  \right\rVert\U {\infty})$.
 
-
-
 Proof. This follows immediately from Proposition
 [6](#app pn) and Proposition
 [7](#smooth). ◻
 
-
-
 **Exercise 27**. Let $U$ be an open subset of $\mathbb{R}^d$, show that
-
 
 <div>
 $$\begin{aligned}
 \overline{C\U c^\infty(U)}= L^p(U); \quad \overline{C\U c^\infty(U)} = C\U c(U).
 \end{aligned}$$
 </div>
-
-
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -3411,15 +3046,14 @@ $$\begin{aligned}
 Show as in Theorem
 [15](#density thm) that
 $\varphi\U n$ converges appropriately.
+
 </div>
 </div>
 
 The above can be generalized to non-Euclidean spaces
 
-
 **Theorem 16**. Let $(X,\mu )$ be a measure space such that $X$ is
 locally convex and Hausdorff and $\mu$ is inner and outer regular. Then
-
 
 <div>
 $$\begin{aligned}
@@ -3437,10 +3071,6 @@ $$\begin{aligned}
 \end{aligned}$$
 </div>
 
-
-
-
-
 Proof. The first part can be proved by the same method as in Lemma
 [4](#Uryshon) (note that
 Uryshon's lemma [still
@@ -3448,7 +3078,6 @@ holds](https://planetmath.org/ApplicationsOfUrysohnsLemmaToLocallyCompactHausdor
 for LCH spaces). The second part follows by copying the proof of
 Propositions [6](#app pn) and
 [7](#smooth). ◻
-
 
 The assumption of the existence of an approximation of unity is perhaps
 the most delicate, but it can be applied for example in the following
@@ -3463,13 +3092,9 @@ $$\begin{aligned}
 \end{aligned}$$
 </div>
 
-
-
-
 Note that the second part of Corollary [1](#Stone) also follows from the [Stone-Weierstrass
 theorem](https://en.wikipedia.org/wiki/Stone%E2%80%93Weierstrass_theorem).
 Similar results hold in the space of distributions.
-
 
 **Proposition 8**. Let $T\in \mathcal{D}'(\mathbb{R}^d)$ and
 $\varphi\U n$ be an approximation to unity. Then
@@ -3483,19 +3108,16 @@ $$\begin{aligned}
 As a result,
 $\overline{C\U c^\infty(\mathbb{R}^d)}=\mathcal{D}'(\mathbb{R}^d)$.
 
-
 The proof can be found in [9](https://bookstore.ams.org/gsm-105#:~:text=A%20First%20Course%20in%20Sobolev%20Spaces&text=Sobolev%20spaces%20are%20a%20fundamental,BV%20functions%20of%20one%20variable.) page 308.
 
-# <a name="local to global">  Global to local and back again  </a>
+# <a name="local to global"> Global to local and back again </a>
 
 Often it is advantageous to work locally and then reason in the general
 case by some kind of approximation. A useful tool in this respect are
 **bump functions**.
 
-
 **Definition 22**. A **bump function** (also called **cutoff
 function**) is a function $\eta \in C\U c^\infty(\mathbb{R}^n)$.
-
 
 Constructing bump functions that have some desired support is a tool we
 use frequently throughout. Here we provide two examples to show how this
@@ -3506,18 +3128,13 @@ may be done. Other constructions are of course possible.
 exists $\eta \in C\U c^\infty(\mathbb{R}^d)$ with support in $U$, equal to
 $1$ on $V$ and with $0\leq \eta \leq 1$.
 
-
-
 Proof. Since $V \Subset U$, there exists a compact $K$ with
-
 
 <div>
 $$\begin{aligned}
 V \subset K \subset U;\quad d\U u:=d(U,K)>0; \quad d\U V:=d(V,K)>0.
 \end{aligned}$$
 </div>
-
-
 
 Now, by [Urysohn's
 lemma](https://en.wikipedia.org/wiki/Urysohn%27s_lemma#:~:text=for%20any%20two-,non%2Dempty,-closed%20disjoint%20subsets)
@@ -3526,8 +3143,6 @@ $0\leq\varphi \leq 1$ and $\varphi$ is $1$ on $K$. If we now take an
 approximation of unity $\left\\{\phi\U n\right\\}\U {n=1}^\infty$ and choose
 $N$ large enough so that $\min \left\\{d\U U,d\U V\right\\} > \frac{1}{N}$ we
 can obtain the desired function as $\eta=f\star \phi\U {N}$. ◻
-
-
 
 **Example 6**. There exists a sequence of
 $\eta\U n \in C\U c^\infty(\mathbb{R}^d)$ such that
@@ -3544,18 +3159,14 @@ $$\begin{aligned}
 And
 $\left\lVert \eta\U n \right\rVert\U {C^k(\mathbb{R}^d)} \leq \left\lVert \eta\U 1 \right\rVert$.
 
-
-
 Proof. Let $\eta\U 1 \in C\U c^\infty(\mathbb{R}^d)$ be any (for example
 that of (\ref{bump example}) ). Then we can take $\eta\U n(x):=\eta(x /n)$. ◻
-
 
 In the opposite direction. One is often in the situation where it is
 possible to derive some local properties for a given object (think
 manifolds). To recover a global result one needs some way to piece
 together the local results. A useful tool in this respect is
 **partitions of unity**.
-
 
 **Definition 23**. Given a manifold $M$ and an o pen covering
 $\\{U\U \alpha\\}\U {\alpha \in  J}$ of $M$ we say that $\\{\rho\U i\\}\U {i\in  I}$
@@ -3564,32 +3175,29 @@ is a **partition of unity on $\\{U\U \alpha\\}\U {\alpha \in  J}$** if:
 1.  $\mathbf{supp}(\rho\U i)\subset U\U \alpha$ for some $\alpha \in J$.
 
 2.  For each $x \in M$, it holds that
-$x \in \mathbf{supp}(\rho\U \alpha)$ for only a finite amount of
-$\alpha \in I$.
+    $x \in \mathbf{supp}(\rho\U \alpha)$ for only a finite amount of
+    $\alpha \in I$.
 
 3.  $\sum\U {i \in I}\rho \U i =1.$
-
 
 Partitions of unity are often used in differential geometry as follows
 
 1.  Work in some open subset $\mathbb{R}^n$ (or the upper half space
-$\mathbb{R}^n\U +$ if our manifold has boundary) to prove the
-existence of some object $g$ with desired properties.
+    $\mathbb{R}^n\U +$ if our manifold has boundary) to prove the
+    existence of some object $g$ with desired properties.
 
 2.  Cover the manifold $M$ with coordinate charts $U\U \alpha$ and
-translate the euclidean result via the identification with
-$U\U \alpha$ to obtain locally defined $g\U \alpha$.
+    translate the euclidean result via the identification with
+    $U\U \alpha$ to obtain locally defined $g\U \alpha$.
 
 3.  Obtain a globally defined object $g$ by using the partition of unity
-to piece together the local objects
+    to piece together the local objects
 
 <div>
 $$\begin{aligned}
 g=\sum\U {\alpha \in I}\rho\U \alpha g\U \alpha .
 \end{aligned}$$
 </div>
-
-
 
 In addition to the approximation and extension theorems in Section
 [8](#extension section), partitions of unity can be used to show
@@ -3607,7 +3215,6 @@ $M$ is Hausdorff), then every open covering
 $\left\\{U\U \alpha\right\\}\U {\alpha \in  J}$ has a partition of unity
 $\left\\{\rho \U n\right\\}\U {n=1}^\infty$.
 
-
 The proof is based on the existence of bump functions (something we have
 already proved for $\mathbb{R}^d$) and is straightforward in the case
 that $M$ is compact. The general case can be reduced to the compact
@@ -3623,7 +3230,7 @@ And then working with the
 compact $\overline{V\U {i+1}} \setminus V\U {i}$. See [10](https://link.springer.com/chapter/10.1007/978-1-4419-7400-6_3)
 Appendix C for the details.
 
-# <a name="boundary">  Manifolds with boundary  </a>
+# <a name="boundary"> Manifolds with boundary </a>
 
 We will be defining differential equations on open domains
 $\Omega \subset \mathbb{R}^n$. In this case $\overline{\Omega}$ will be
@@ -3635,7 +3242,6 @@ boundary is the upper half space
 $$\begin{aligned}
 \mathcal{H}^d:=\left\{x=(x\U 1,\ldots,x\U d)\in \mathbb{R}^d: x\U d \geq 0\right\} .\end{aligned}$$
 </div>
-
 
 Here the inequality is not strict so that the boundary of
 $\mathcal{H}^d$ is included in itself. Since $\mathcal{H}^d$ is not open
@@ -3649,17 +3255,13 @@ at $p$** if there exists a function
 $\widetilde{f}:\mathbb{R}^d \to \mathbb{R}$ which is $k$ times
 differentiable at $p$ and such that $\widetilde{f}=f$ on $S$.
 
-
-
 **Definition 25**. If $f$ is $k$-times differentiable at every point of
 $S$ we say that $f \in C^k(S)$.
-
 
  <a name="ext">
 **Exercise 28** </a> . Show that $f\in  C^k(S)$ if and only if there exists
 an extension $\widetilde{f}\in C^k(\mathbb{R}^d)$ of $f$ which is equal
 to $f$ on $S$.
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -3680,7 +3282,6 @@ $$\begin{align}
 \Phi\U \alpha : V\U \alpha \xrightarrow{\sim}\Phi(V\U \alpha).\end{align}$$
 </div>
 
-
 And where for compatibility we impose that for each $\alpha,\beta$ the
 function
 
@@ -3690,34 +3291,27 @@ $$\begin{align}
 \Phi\U \beta \circ\Phi\U \alpha^{-1}: \Phi\U \alpha(V\U \alpha\cap V\U \beta ) \longmapsto \Phi\U \beta (V\U \alpha\cap V\U \beta ).\end{align}$$
 </div>
 
-
 Are diffeomorphisms on $\mathcal{H}^d$ (again with the subspace
 topology). Here $\mathcal{A}=\left\\{(U\U \alpha,\Phi\U \alpha)\right\\}$ is
 an **atlas** of $M$. We say that $\mathcal{A}$ is $C^k$ if the
-diffeomorphisms in (\ref{diff})  are $C^k$ (see Definition
+diffeomorphisms in (\ref{diff}) are $C^k$ (see Definition
 [24](#smooth non open)).
-
 
 **Definition 26**. We say that $(M,\mathcal{A})$ is a **$C^k$ manifold
 with boundary** if $M$ is a second countable Hausdorff space and
 $\mathcal{A}$ is a $C^k$ atlas.
 
-
 The boundary of $M$ is its points that are mapped to the boundary
 $\left\\{x\U d=0\right\\}$ in $\mathcal{H}^d$.
-
 
 **Definition 27**. Given a point $p \in M$ we say that $p$ is a
 **boundary point** if for some (and thus every chart)
 $\Phi\U \alpha(p) \in \partial \mathcal{H}^{d}$. We call the set of all
 boundary points the **boundary** of $M$ and denote it by $\partial M$.
 
-
-
 **Exercise 29**. Show that the restricted atlas
 $\left.\Phi\U \alpha\right|\U {\partial M}$ makes $\partial M$ a $d-1$
 dimensional manifold **without** boundary.
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -3733,6 +3327,7 @@ $$\begin{align}
 
 And the coordinate changes are $C^k$ as the
 restriction of a $C^k$ map is $C^k$.
+
 </div>
 </div>
 
@@ -3741,7 +3336,7 @@ this case, different variations of the above definition are possible.
 For example, by the inverse function theorem and Exercise
 [28](#ext), we can extend the
 functions $\Phi\U \alpha$ to diffeomorphisms on $U\U \alpha$ **open in
-$\mathbb{R}^d$** so that (\ref{chart}) -(\ref{chart2})  now read
+$\mathbb{R}^d$** so that (\ref{chart}) -(\ref{chart2}) now read
 
 <div>
 $$\begin{align}
@@ -3749,12 +3344,10 @@ $$\begin{align}
 \Phi\U \alpha : U\U \alpha \xrightarrow{\sim}\Phi(U\U \alpha); \quad    \Phi\U \alpha : U\U \alpha \cap M \xrightarrow{\sim}\Phi\U \alpha(U\U \alpha) \cap \mathcal{H}^d .\end{align}$$
 </div>
 
-
 Additionally, by the implicit function theorem there exists for each
 coordinate set $U\U \alpha$ functions
 $\gamma\U \alpha \in C^k(\mathbb{R}^{d-1})$ such that, relabeling the
 coordinates and decreasing the size of $U\U \alpha$ if necessary,
-
 
 <div>
 $$\begin{align}
@@ -3762,14 +3355,12 @@ $$\begin{align}
 \partial M \cap U\U \alpha & =\left\{x \in U\U \alpha : x\U d=\gamma\U \alpha(x\U 1,\ldots,x\U {d-1}) \right\}\end{align}$$
 </div>
 
-
 Let us write $x=(x',x\U d)$, by the Taylor expansion
 
 <div>
 $$\begin{aligned}
 \Phi\U \alpha(x',\gamma \U \alpha(x')+\epsilon)=\Phi\U \alpha(x)+\frac{\partial \Phi}{\partial x\U d}(x)\epsilon +O(\left\lVert \epsilon  \right\rVert^2)  .\end{aligned}$$
 </div>
-
 
 We deduce that, once more reducing the size of $U\U \alpha$ if necessary
 and depending on the sign of $\partial \U d \Phi$ on $U\U \alpha$, one and
@@ -3782,17 +3373,14 @@ $$\begin{align}
 (M \setminus \partial M) \cap U\U \alpha & =\left\{x \in U\U \alpha : x\U d<\gamma\U \alpha(x\U 1,\ldots,x\U {d-1}) \right\}\notag.\end{align}$$
 </div>
 
-
-The equivalent formulations in (\ref{alt0})  and in (\ref{alt1}) -(\ref{alt3})  are used in the main exposition. Finally, in our case,
+The equivalent formulations in (\ref{alt0}) and in (\ref{alt1}) -(\ref{alt3}) are used in the main exposition. Finally, in our case,
 we will typically take $M =\overline{\Omega}$ where
 $\Omega \subset \mathbb{R}^d$ is some open set. In this case, we adopt
 the following terminology.
 
-
 **Definition 28**. We say that an open set $\Omega\subset \mathbb{R}^d$
 has **$C^k$ boundary** of $\overline{\Omega}$ is a $C^k$ manifold with
 boundary.
-
 
 In the above case, the topological and manifold boundaries of $\Omega$
 necessarily coincide as homeomorphisms map topological boundaries to
