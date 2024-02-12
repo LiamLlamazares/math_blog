@@ -2472,7 +2472,7 @@ Using Observation [4](#traceobs) we can also obtain Sobolev embeddings for non-s
 domain. Then, the conclusions of Theorem [13](rellich), Proposition
 [0](higher), and Corollary [0.1](higher 2) hold for the space hold if we swap everywhere $W^{k,p}(\Omega)$ for $W^{k,p}\U 0(U)$ and $W^{k+l,p}(\Omega)$ for $W^{k+l,p}\U 0(U)$.
 
-Proof. The proof follows by combining the aforementioned results with the Extension result in Exercise [21](extensiontrace). ◻
+Proof. The proof follows in an identical method as the aforementioned results as we still have density of smooth functions $W^{k,p}\U 0(U)$ and the extension theorem, now given by Exercise [21](extensiontrace). ◻
 
 The main utility of all these compact embeddings is that given a
 sequence $u\U n$ whose derivatives are bounded in certain $L^p$ norms we
