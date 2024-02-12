@@ -2467,7 +2467,8 @@ W^{k+l,p}(\Omega) \hookrightarrow W^{l,p}(\Omega).
 
 </div>
 Using Observation [4](#traceobs) we can also obtain Sobolev embeddings for non-smooth domains if we consider Sobolev spaces with trace $0$.
-**Theorem 14** </a>  (Rellich for trace 0 and irregular domain). Let $U\subset \mathbb{R}^d$ be a bounded
+
+**Theorem 14** (Rellich for trace 0 and irregular domain). Let $U\subset \mathbb{R}^d$ be a bounded
 domain. Then, the conclusions of Theorem [13](rellich), Proposition
 [0](higher), and Corollary [0.1](higher 2) hold for the space hold if we swap everywhere $W^{k,p}(\Omega)$ for $W^{k,p}\U 0(U)$ and $W^{k+l,p}(\Omega)$ for $W^{k+l,p}\U 0(U)$.
 
