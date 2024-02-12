@@ -2274,7 +2274,7 @@ $$\begin{aligned}
 
 Where $p^{k\star }$ is defined by the relation
 $\frac{1}{p^{k\star }}=\frac{1}{p}-\frac{k}{d}$ and $\gamma =1 -\frac{p}{d}$.
-Furthermore, the first, second, fourth, and third composed with the fourth
+Furthermore, in second case (when $\Omega$ is **bounded**) the first, second, fourth, and third composed with the fourth
 inclusions are
 [compact](https://en.wikipedia.org/wiki/Compact_embedding).
 
