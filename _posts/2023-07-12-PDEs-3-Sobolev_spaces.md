@@ -182,8 +182,7 @@ $$
 </li>
 
 <li>Studying if $\tilde{u} \in  H^s(\mathbb{R}^d)$. That is, as we saw
-  in the [previous
-  post](https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=fact%2C%20since%20the-,Fourier,-transform%20is%20a),
+  in the <a href="https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=fact%2C%20since%20the-,Fourier,-transform%20is%20a">previous post</a>,
   checking if
 
 $$
@@ -245,21 +244,21 @@ have by integration by parts
 
 <div>
 $$\begin{aligned}
-(\varphi, D^\alpha u):= \int\U {D} \varphi D^\alpha u  = (-1)^{\left| \alpha \right| }\int\U {D}(D^{\alpha} \varphi) u + \text{ boundary effects}  .\end{aligned}$$
+(\varphi, D^\alpha u):= \int\U {U} \varphi D^\alpha u  = (-1)^{\left| \alpha \right| }\int\U {U}(D^{\alpha} \varphi) u + \text{ boundary effects}  .\end{aligned}$$
 </div>
 
 In the previous post, we used that:
 
-- If $D =\mathbb{R}^d$ we can take as our test functions
+- If $U =\mathbb{R}^d$ we can take as our test functions
   $\varphi \in  \mathcal{S}(\mathbb{R}^d)$ and use that $\varphi$
   multiplied by any function in $L^2$ ($u$ and its derivatives) vanish
   at infinity to get rid of the boundary effects.
 
-- If $D =\mathbb{T}^d$ we can take as our test functions
+- If $U =\mathbb{T}^d$ we can take as our test functions
   $\varphi \in  C^\infty(\mathbb{T}^d)$ as the boundary effect of
   periodic functions cancels out.
 
-To obtain this cancellation on a general open $D$, we need to impose that
+To obtain this cancellation on a general open $U$, we need to impose that
 our test function $\varphi$ vanishes in a neighbourhood of the boundary.
 That is, we need our test functions to have compact support.
 
