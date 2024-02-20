@@ -639,7 +639,7 @@ $$\begin{align}
 \end{align}$$
 </div>
 
-s injective and continuous.
+is injective and continuous.
 
 Proof. We begin by showing that $T\U u \in \mathcal{D}'(U)$. Firstly,
 the integral in (\ref{duality}) is finite as $\varphi$ has compact support.
@@ -807,7 +807,7 @@ support of $f$ coincides with the classical support of $f$.
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
 <div class="exercise-text">
-We saw in Theorem [1](#motivation) that $f$ is $0$ almost everywhere on some open
+We saw in Theorem <a href="#motivation">1</a> that $f$ is $0$ almost everywhere on some open
 set if and only if it integrates to $0$ against any test function on the
 open set. This shows the first part, and the second follows immediately.
 </div>
@@ -837,7 +837,7 @@ Show that $D^\alpha$ is continuous on $\mathcal{D}(U)$ by
 using that $\left\lVert \cdot  \right\rVert\U {C^k(U)}$ are restrictable
 seminorms. Conclude by using that $D^\alpha$ defined on
 $\mathcal{D}'(U)$ is the
-[adjoint](https://en.wikipedia.org/wiki/Transpose_of_a_linear_map) of
+<a href="https://en.wikipedia.org/wiki/Transpose_of_a_linear_map">adjoint</a> of
 $D^\alpha$ defined on $\mathcal{D}(U)$
 </div>
 </div>
@@ -1592,7 +1592,7 @@ $C^k(\mathbb{R}^d)$. This concludes the proof. ◻
 
  <a name="restriction">
 **Exercise 19** </a>  (Restriction). Under the conditions of Theorem
-[7](#extension) it holds
+<a href="#extension"7></a> it holds
 that
 
 <div>
@@ -1727,7 +1727,7 @@ $$\begin{aligned}
 
 To get an estimate on the trace, we paid $1$-degree of regularity. We can
 do better and only pay ${1}/{p}$ degrees of regularity. This uses the
-theory of [Sobolev--Slobodeckij
+theory of [Besov
 spaces](https://en.wikipedia.org/wiki/Trace_operator#For_p_=_1:~:text=%5Bedit%5D-,A%20more,-concrete%20representation%20of)
 which we will not develop here. In the case $p=2$, we can use Hölder
 spaces $H^s(\Omega)$ to get the improved result.

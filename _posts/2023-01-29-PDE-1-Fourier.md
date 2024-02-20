@@ -210,29 +210,31 @@ for the Fourier transform
  <a name="prop 3">
  **Proposition 3 ( Properties of $\mathcal{F}\U 1$)**</a>. Given
 $f\in L^1(\mathbb{R}^d\to\mathbb{C}^m)$
-
-1.  The Fourier transform $\mathcal{F}\U 1$ is a continuous linear
+<ol>
+<li>The Fourier transform $\mathcal{F}\U 1$ is a continuous linear
     operators
 
 <div>
  $$\mathcal{F}\U 1:L^1(\mathbb{R}^d\to\mathbb{C}^m) \to L^\infty(\mathbb{R}^d\to\mathbb{C}^m)$$
 </div>
+</li>
 
 .
 
-2.  If $x^\alpha f(x)\in L^1(\mathbb{R}^d\to\mathbb{C}^m)$
-    then:
+<li>If $x^\alpha f(x)\in L^1(\mathbb{R}^d\to\mathbb{C}^m)$
+then:
 
 <div>
  $$D^\alpha \hat{f}(\xi)=(-2\pi i)^{\abs{\alpha}}\widehat{x^{\alpha} f}(\xi)\qquad\forall \xi\in\mathbb{R}^d.$$
 </div>
-
-3.  If $f$ is absolutely continuous in $x\U j$ for almost every
+</li>
+<li> If $f$ is absolutely continuous in $x\U j$ for almost every
     $x\U 1,...x\U {j-1},x\U {j+1},...,x\U d$ then then
 
 <div>
  $$\widehat{\partial x\U j f}(\xi)=2\pi i\xi\U j\widehat{ f}(\xi)\qquad\forall \xi\in\mathbb{R}^d.$$
 </div>
+</li>
 
 **Proof.** The proof of the first point is an application of the triangle
 inequality as
@@ -240,6 +242,7 @@ inequality as
 <div>
  $$\abs{\hat{f}(\xi )}=\abs{\int\U {\mathbb{R}^d}f(x)e^{2\pi i x\cdot \xi } dx}\leq\int\U {\mathbb{R}^d}\abs{f(x)}dx\quad\forall \xi \in \mathbb{R}^d.$$
 </div>
+</ol>
 
 and similarly for the inverse. The second point follows by
 [differentiation under the integral](#diff). The third point can be proved
