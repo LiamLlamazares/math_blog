@@ -871,10 +871,10 @@ $L^2(\mathbb{R}^d\to\mathbb{C}^m)$ and we give it the norm:
  $$\norm{f}\U {H^k(\mathbb{R}^d\to\mathbb{C}^m)}:=\sum\U {\abs{\alpha}\leq k}\norm{D^\alpha f}\U {L^2(\mathbb{R}^d\to\mathbb{C}^m)}\qquad f\in H^k(\mathbb{R}^d\to\mathbb{C}^m).$$
 </div>
 
-Note that it is not enough to require $\abs{\alpha}=k$ as, for example,
+Note that it is not enough to require $\abs{\alpha}=k$ in the formula above. For example,
 the tempered distribution
 $1 \in \mathcal{S}'(\mathbb{R}^d\to\mathbb{C})$ has a derivative equal
-to zero however, it is not itself in $L^2(\mathbb{R}^d\to\mathbb{C})$. Now,
+to zero however, it is not itself in $L^2(\mathbb{R}^d\to\mathbb{C})$. That is, $1\notin H^1(\mathbb{R}^d)$ Now,
 as [the Fourier transform is an automorphism](#planch) of
 $\mathcal{S}'(\mathbb{R}^d\to\mathbb{C}^m)$, by using the previously derived formula (\ref{formula})
 we deduce that
