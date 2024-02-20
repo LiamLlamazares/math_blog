@@ -592,7 +592,7 @@ $$\begin{align}
 
 is a translation invariant metric on $E$.
 
-**Exercise 1.** Show that $d(x \U n, x)\to 0$ if and only if $p\U j(x \U n-x)}\to 0$ for all $j \in \mathbb{N}$. Also show that, if $d'$ is any other distance verifying the above, then $d,d'$ induces the same topology on $E$.
+**Exercise 1.** Show that $d(x \U n, x)\to 0$ if and only if $p\U j(x \U n-x)\to 0$ for all $j \in \mathbb{N}$. Also show that, if $d'$ is any other distance verifying the above, then $d,d'$ induces the same topology on $E$.
 
 **Hint:** For uniqueness, use the fact that the topology of a first countable space is completely determined by sequential convergence.
 
@@ -1110,7 +1110,7 @@ This post is already getting a bit long (if you've held on till the end
 I salute you), so we leave it off here with a neat little exercise (our
 first of this blog)
 
-**Exercise 1.** How should we define
+**Exercise 2.** How should we define
 
 <div>
  $$T:=\left(1-\frac{\Delta}{4\pi ^2}  \right)^\frac{s}{2}\text{?}$$
