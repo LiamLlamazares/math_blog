@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2024.1.16)  20 FEB 2024 17:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2024.1.16)  15 FEB 2024 14:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/liaml/Documentos/LiamLlamazares.github.io/assets/latex_docs/PDEs/5. Existence elliptic/Elliptic_PDE_1.tex"
-(c:/Users/liaml/Documentos/LiamLlamazares.github.io/assets/latex_docs/PDEs/5. Existence elliptic/Elliptic_PDE_1.tex
+**"c:/Users/liaml/Documentos/LiamLlamazares.github.io/assets/latex_docs/PDEs/5. Existence elliptic/a.tex"
+(c:/Users/liaml/Documentos/LiamLlamazares.github.io/assets/latex_docs/PDEs/5. Existence elliptic/a.tex
 LaTeX2e <2023-11-01>
 L3 programming layer <2024-01-04>
 (C:\Users\liaml\AppData\Roaming\MiKTeX\tex/latex/koma-script\scrartcl.cls
@@ -679,36 +679,55 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 \c@observation=\count324
 \c@assumption=\count325
 \c@exercise=\count326
- (Elliptic_PDE_1.aux)
-\openout1 = `Elliptic_PDE_1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-Package scrbase Info: activating english \abstractname on input line 120.
-Package scrbase Info: activating english \partname on input line 120.
-Package scrbase Info: activating english \figurename on input line 120.
-Package scrbase Info: activating english \tablename on input line 120.
-Package scrbase Info: activating english \contentsname on input line 120.
-Package scrbase Info: activating english \listfigurename on input line 120.
-Package scrbase Info: activating english \listtablename on input line 120.
-Package scrbase Info: activating english \refname on input line 120.
-Package scrbase Info: activating english \indexname on input line 120.
+
+c:/Users/liaml/Documentos/LiamLlamazares.github.io/assets/latex_docs/PDEs/5. Existence elliptic/a.tex:72: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.72 [
+      object Object]
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+c:/Users/liaml/Documentos/LiamLlamazares.github.io/assets/latex_docs/PDEs/5. Existence elliptic/a.tex:75: Too many }'s.
+l.75 ...le} \newcommand{\set}[1]{\left\{#1\right}}
+                                                   \newcommand{\qp}[1]{\left(#1
+You've closed more groups than you opened.
+Such booboos are generally harmless, so keep going.
+
+(a.aux)
+\openout1 = `a.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+Package scrbase Info: activating english \abstractname on input line 121.
+Package scrbase Info: activating english \partname on input line 121.
+Package scrbase Info: activating english \figurename on input line 121.
+Package scrbase Info: activating english \tablename on input line 121.
+Package scrbase Info: activating english \contentsname on input line 121.
+Package scrbase Info: activating english \listfigurename on input line 121.
+Package scrbase Info: activating english \listtablename on input line 121.
+Package scrbase Info: activating english \refname on input line 121.
+Package scrbase Info: activating english \indexname on input line 121.
  (C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count327
@@ -729,9 +748,9 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 
-Package todonotes Warning: The length marginparwidth is less than 2cm and will most likely cause issues with the appearance of inserted todonotes. The issue can be solved by adding a line like \setlength {\marginparwidth }{2cm} prior to loading the todonotes package. on input line 120.
+Package todonotes Warning: The length marginparwidth is less than 2cm and will most likely cause issues with the appearance of inserted todonotes. The issue can be solved by adding a line like \setlength {\marginparwidth }{2cm} prior to loading the todonotes package. on input line 121.
 
-Package hyperref Info: Link coloring ON on input line 120.
+Package hyperref Info: Link coloring ON on input line 121.
 Class scrartcl Info: loading recommended package `bookmark'.
 (scrartcl)           Using `bookmark' together with `hyperref' is recommended,
 (scrartcl)           because of handling of possible bookmark level gaps.
@@ -739,101 +758,38 @@ Class scrartcl Info: loading recommended package `bookmark'.
 (scrartcl)           `bookmarkpackage=false' before \begin{document} and
 (scrartcl)           you can avoid this message adding:
 (scrartcl)             \usepackage{bookmark}
-(scrartcl)           before \begin{document} on input line 120.
+(scrartcl)           before \begin{document} on input line 121.
 (C:\Users\liaml\AppData\Roaming\MiKTeX\tex/latex/bookmark\bookmark.sty
 Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)
  (C:\Users\liaml\AppData\Roaming\MiKTeX\tex/latex/bookmark\bkm-pdftex.def
 File: bkm-pdftex.def 2020-11-06 v1.29 bookmark driver for pdfTeX (HO)
 \BKM@id=\count333
-))
-LaTeX Font Info:    Trying to load font information for T1+cmss on input line 124.
+)) [1
+
+{C:/Users/liaml/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+LaTeX Font Info:    Trying to load font information for T1+cmss on input line 125.
  (C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmss.fd
 File: t1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-)
-LaTeX Font Info:    Trying to load font information for U+msa on input line 134.
- (C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 134.
- (C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+) [2
 
-
-{C:/Users/liaml/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2] [3] [4] [5]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 416.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 416.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 416.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 416.
-
-[6]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 450.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 450.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 450.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\Omega' on input line 450.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 450.
-
-[7] [8] [9] [10]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 643.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 643.
-
-[11] [12] (Elliptic_PDE_1.bbl
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 12.
- (C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
-File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-)
-Overfull \hbox (44.54073pt too wide) in paragraph at lines 9--13
-\T1/cmr/m/n/10.95 URL [][]$\T1/cmtt/m/n/10.95 https : / / math24 . files . wordpress . com / 2013 / 02 / partial-[]differential-[]equations-[]by-[]evans .
- []
-
-) [13] (Elliptic_PDE_1.aux)
+] (a.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2020/03/25>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 28496 strings out of 474486
- 557187 string characters out of 5743755
- 1946528 words of memory out of 5000000
- 50218 multiletter control sequences out of 15000+600000
- 578384 words of font info for 87 fonts, out of 8000000 for 9000
+ 28146 strings out of 474486
+ 550488 string characters out of 5743755
+ 1927528 words of memory out of 5000000
+ 50006 multiletter control sequences out of 15000+600000
+ 563000 words of font info for 43 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,18n,107p,11007b,600s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1095.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1200.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1440.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx2074.pk><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Elliptic_PDE_1.pdf (13 pages, 388143 bytes).
+ 108i,7n,107p,10994b,484s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1440.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx2074.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk>
+Output written on a.pdf (2 pages, 20583 bytes).
 PDF statistics:
- 755 PDF objects out of 1000 (max. 8388607)
- 97 named destinations out of 1000 (max. 500000)
- 133 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 85 PDF objects out of 1000 (max. 8388607)
+ 4 named destinations out of 1000 (max. 500000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

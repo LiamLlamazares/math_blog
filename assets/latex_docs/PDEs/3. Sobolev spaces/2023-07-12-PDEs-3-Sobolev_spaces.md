@@ -118,7 +118,7 @@ $$\begin{aligned}
   there exists some constant $C$ independent of $M$ and $N$ such that
   $M \leq C N$.
 
-- We write $B\U r(x)$ for the ball centered at $x$ with radius $r$ and
+- We write $B\U r(x)$ for the ball centred at $x$ with radius $r$ and
   $B\U r$ if $x=0$. The space where the ball is contained depending on
   context.
 
@@ -128,7 +128,7 @@ Hi everyone, welcome back to another post on our series on PDEs. This
 post goes into some depth on the main space of functions we will work
 with. Since the post is rather long (yes it has appendices, no that
 wasn't planned) I decided to include a pdf at the end of the post in
-case it is easier to navigate. That said, in the future we will want to
+case it is easier to navigate. However, it won't be updated if any new material is added. That said, in the future we will want to
 solve a differential equation of the form
 
 <div>
@@ -159,7 +159,7 @@ Note that equation
 ill-defined as the Lebesgue measure of $\partial D \subset \mathbb{R}^d$
 is zero. Thus, it is necessary to extend the theory to a wider class of
 domains and to explain what we mean by the restriction of a function to
-its boundary of definition.
+the boundary of its domain.
 
 ## A first attempt
 
@@ -169,24 +169,24 @@ $H^s(\mathbb{R}^d)$ by:
 
 1.  Extending $u$ by zero outside of $U$ to form
 
-<div>
-$$\begin{aligned}
+$$
+\begin{aligned}
 \tilde{u}(x):=\begin{cases}
 u(x) & \quad x \in U     \\
 0    & \quad x \not\in U
 \end{cases}.
-\end{aligned}$$
-</div>
+\end{aligned}
+$$
 
 2.  Studying if $\tilde{u} \in  H^s(\mathbb{R}^d)$. That is, as we saw
     in the [previous
     post](https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=fact%2C%20since%20the-,Fourier,-transform%20is%20a),
     checking if
 
-<div>
-$$\begin{aligned}
-\left\lVert \tilde{u} \right\rVert\U {H^s(\mathbb{R}^d)}^2= \int\U {\mathbb{R}^d}\left\langle\xi \right\rangle^{2s}\widehat{\tilde{u}}(\xi )^2 \,\mathrm{d}\xi < \infty\end{aligned}$$
-</div>
+$$
+\begin{aligned}
+\left\lVert \tilde{u} \right\rVert\U {H^s(\mathbb{R}^d)}^2= \int\U {\mathbb{R}^d}\left\langle\xi \right\rangle^{2s}\widehat{\tilde{u}}(\xi )^2 \,\mathrm{d}\xi < \infty\end{aligned}
+$$
 
 3.  Saying that $u \in H^s(U)$ if and only if
     $\tilde{u} \in H^s(\mathbb{R}^d)$.

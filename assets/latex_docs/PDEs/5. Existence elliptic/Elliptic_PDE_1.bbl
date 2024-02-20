@@ -5,6 +5,12 @@
 \expandafter\ifx\csname href\endcsname\relax
   \def\href#1#2{#2} \def\path#1{#1}\fi
 
+\bibitem{evans2022partial}
+L.~C. Evans,
+  \href{https://math24.files.wordpress.com/2013/02/partial-differential-equations-by-evans.pdf}{Partial
+  differential equations}, Vol.~19, American Mathematical Society, 2022.
+\newline\urlprefix\url{https://math24.files.wordpress.com/2013/02/partial-differential-equations-by-evans.pdf}
+
 \bibitem{brezis2011functional}
 H.~Brezis, H.~Br{\'e}zis, Functional analysis, Sobolev spaces and partial
   differential equations, Vol.~2, Springer, 2011.
@@ -19,6 +25,18 @@ E.~Di~Nezza, G.~Palatucci, E.~Valdinoci,
   guide to the fractional sobolev spaces}, Bulletin des sciences
   math{\'e}matiques 136~(5) (2012) 521--573.
 \newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S0007449711001254}
+
+\bibitem{triebel1992theory}
+H.~Triebel,
+  \href{https://link.springer.com/book/10.1007/978-3-0346-0419-2}{Theory of
+  Function Spaces II}, Vol.~84, Birkh{\"a}user, 1992.
+\newline\urlprefix\url{https://link.springer.com/book/10.1007/978-3-0346-0419-2}
+
+\bibitem{taira2004semigroups}
+K.~Taira,
+  \href{https://link.springer.com/content/pdf/10.1007/978-3-662-43696-7_6.pdf}{Semigroups,
+  boundary value problems and Markov processes}, Springer, 2004.
+\newline\urlprefix\url{https://link.springer.com/content/pdf/10.1007/978-3-662-43696-7_6.pdf}
 
 \bibitem{leoni2017first}
 G.~Leoni, A first course in Sobolev spaces, American Mathematical Soc., 2017.

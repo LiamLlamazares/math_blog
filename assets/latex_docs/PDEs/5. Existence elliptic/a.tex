@@ -1,0 +1,127 @@
+\documentclass[
+    a4paper,
+    DIV=14,
+    abstract=true,
+    numbers=noenddot
+]
+{scrartcl}
+
+\usepackage{
+    amsmath,
+    amssymb,
+    amsthm,
+    array,
+    authblk,
+    bm,
+    dsfont, % for 1 vector or indicator function
+    graphicx,
+    mathtools,
+    nicefrac,
+    physics,
+    tabularx,
+    tcolorbox,
+    todonotes,
+    tikz,
+    xcolor,
+    float,
+}
+\usepackage[shortlabels]{enumitem}
+
+\usepackage[T1]{fontenc}
+
+\usepackage[pdffitwindow=false,
+    plainpages=false,
+    pdfpagelabels=true,
+    pdfpagemode=UseOutlines,
+    pdfpagelayout=SinglePage,
+    bookmarks=false,
+    colorlinks=true,
+    hyperfootnotes=false,
+    linkcolor=blue,
+    urlcolor=blue!30!black,
+    citecolor=green!50!black]{hyperref}
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{observation}{Observation}
+\newtheorem{assumption}{Assumption}
+
+\newtheorem{exercise}{Exercise}
+
+\newtheorem*{hint}{Hint}
+
+\newenvironment{exerciseandhint}[2]
+{\begin{exercise} #1
+
+    \emph{Hint: #2}}
+    {\end{exercise}}
+
+\newcommand{\red}[1]{{\color{red}#1}}
+\newcommand{\td}{\todo[inline,color=green!40]}
+
+\bibliographystyle{elsarticle-num}
+\newcommand{\fk}[1]{\mathfrak{#1}}
+\newcommand{\wh}[1]{\widehat{#1}}
+\newcommand{\tl}[1]{\widetilde{#1}}
+
+\newcommand{\br}[1]{\left\langle#1\right\rangle}
+\newcommand{\set}[1]{\left\{#1\right\{}
+\newcommand{\qp}[1]{\left(#1\right)}\newcommand{\qb}[1]{\left[#1\right]}
+\newcommand{\qt}[1]{\left(#1\right)}
+\newcommand{\Id}{\bm{I}}\renewcommand{\ker}{\bm{ker}}\newcommand{\supp}[1]{\bm{supp}(#1)}\renewcommand{\tr}[1]{\mathrm{tr}\left(#1\right)}
+\renewcommand{\norm}[1]{\left\lVert #1 \right\rVert}\renewcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\U}{}\renewcommand{\star}{*}
+\renewcommand{\Im}{\bm{Im}}
+\newcommand{\iso}{\xrightarrow{\sim}}
+\renewcommand{\d}{\,\mathrm{d}}\newcommand{\dx}{\,\mathrm{d}x}
+\newcommand{\dy}{\,\mathrm{d}y}
+\newcommand\restr[2]{\left.#1\right|{#2}}
+\newcommand{\rm}[1]{\mathrm{#1}}
+
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Aa}{\mathcal{A}}
+\newcommand{\Bb}{\mathcal{B}}
+\newcommand{\Cc}{\mathcal{C}}
+\newcommand{\Dd}{\mathcal{D}}
+\newcommand{\Ff}{\mathcal{F}}
+\newcommand{\Gg}{\mathcal{G}}
+\newcommand{\Hh}{\mathcal{H}}
+\newcommand{\Kk}{\mathcal{K}}
+\newcommand{\Ll}{\mathcal{L}}
+\newcommand{\Mm}{\mathcal{M}}
+\newcommand{\Nn}{\mathcal{N}}
+\newcommand{\Oo}{\mathcal{O}}
+\newcommand{\Pp}{\mathcal{P}}
+\newcommand{\Qq}{\mathcal{Q}}
+\newcommand{\Rr}{\mathcal{R}}
+\newcommand{\Ss}{\mathcal{S}}
+\newcommand{\Tt}{\mathcal{T}}
+\newcommand{\Uu}{\mathcal{U}}
+\newcommand{\Vv}{\mathcal{V}}
+\newcommand{\Ww}{\mathcal{W}}
+\newcommand{\Xx}{\mathcal{X}}
+\newcommand{\Yy}{\mathcal{Y}}
+\newcommand{\Zz}{\mathcal{Z}}
+
+\begin{document}
+\title{Title}
+\author{Author Name}
+\date{\today}
+\maketitle
+\section{Section Name}
+
+\end{document}
