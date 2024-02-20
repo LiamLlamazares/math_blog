@@ -240,7 +240,7 @@ then:
 inequality as
 
 <div>
- $$\abs{\hat{f}(\xi )}=\abs{\int\U {\mathbb{R}^d}f(x)e^{2\pi i x\cdot \xi } dx}\leq\int\U {\mathbb{R}^d}\abs{f(x)}dx\quad\forall \xi \in \mathbb{R}^d.$$
+ $$\abs{\hat{f}(\xi )}=\abs{\int\U {\mathbb{R}^d}f(x)e^{2\pi i x\cdot \xi } dx}\leq\int\U {\mathbb{R}^d}\abs{f(x)}dx\quad\forall \xi \in \mathbb{R}^d,$$
 </div>
 </ol>
 
@@ -324,10 +324,10 @@ Schwartz function $f$,
 That is, the restrictions of $\mathcal{F}\U 1$ and $\mathcal{F}^{-1}\U 1$
 
 <div>
- $$\mathcal{F}\U \mathcal{S},\mathcal{F}\U \mathcal{S}^{-1}:\mathcal{S}(\mathbb{R}^d\to\mathbb{C}^m)\to\mathcal{S}(\mathbb{R}^d\to\mathbb{C}^m)$$
+ $$\mathcal{F}\U \mathcal{S},\mathcal{F}\U \mathcal{S}^{-1}:\mathcal{S}(\mathbb{R}^d\to\mathbb{C}^m)\to\mathcal{S}(\mathbb{R}^d\to\mathbb{C}^m),$$
 </div>
 
-are linear unitary operators, which are the inverse of one to the other.
+are linear unitary operators (we say an operator $T$ is unitary if $\| T\| =1$), which are the inverse of one to the other.
 We obtain the following result.
 
  <a name="plancherel theorem">
@@ -585,8 +585,9 @@ with the property that: given $x\neq 0$, there exists $j$ such that
 $p\U j(x)\neq 0$. Then
 
 <div>
- $$\label{seminormsgivemetric}
-    d(x,y):=\sum\U {j=0}^\infty 2^{-j}\frac{p\U j(x-y)}{1+p\U j(x-y)}\quad \forall{x,y}\in {E}$$
+$$\begin{align}
+    d(x,y):=\sum \U {j=0}^\infty 2^{-j}\frac{p \U j(x-y)}{1+p \U j(x-y)}\quad \forall{x,y}\in {E}
+\end{align}$$
 </div>
 
 is a translation invariant metric on $E$.
