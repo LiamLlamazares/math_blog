@@ -262,7 +262,7 @@ To obtain this cancellation on a general open $U$, we need to impose that
 our test function $\varphi$ vanishes in a neighbourhood of the boundary.
 That is, we need our test functions to have compact support.
 
-**Definition 1**. Let $U$ be an open set, then we define
+**Definition 1**. Let $U\subset \mathbb{R}^d$ be an open set, e define
 $C\U c^\infty(U)$ to be the space of smooth functions whose support is
 some compact set $K \subset U$.
 
@@ -291,8 +291,8 @@ $$\begin{align}
 \end{align}$$
 </div>
 
-Later, we will need to generate topologies when the family of seminorms
-is uncountable.
+Later on, we will need to generate topologies when the family of seminorms
+is uncountable. For this, we need the following definition.
 
 **Definition 3**. Let $X$ be a vector space, and let
 $\rho \in \mathcal{P}$ be a family of seminorms on $X$. Then we define
@@ -462,7 +462,7 @@ the proof.
 </div>
 </div>
 
-**Exercise 8** (Completeness). Show that $C\U c^\infty(\Omega)$ with the
+**Exercise 8** (Completeness). Show that $C\U c^\infty(U)$ with the
 smooth topology is complete.
 
 <div class="exercise-container">
@@ -475,7 +475,7 @@ $C\U c^\infty(K)$ and Exercise [3](#convergence TVS).
 </div>
 </div>
 
-**Exercise 9**. Show that $C\U c^\infty(\Omega)$ with the smooth topology
+**Exercise 9**. Show that $C\U c^\infty(U)$ with the smooth topology
 is Hausdorff.
 
 <div class="exercise-container">
@@ -516,7 +516,7 @@ $\left\lVert \cdot  \right\rVert\U j$ whose support escapes to infinity.
 Using the smooth topology, we can now work with the dual of
 $C\U c^\infty(U)$
 
-**Definition 5**. We define the space of **distributions** to be
+**Definition 5**. We define the space of **distributions** to be the dual of $C\U c^\infty(U)$,
 
 <div>
 $$\begin{aligned}
@@ -537,7 +537,7 @@ C\U c^\infty(U) \hookrightarrow C\U c^\infty(\mathbb{R}^d) \hookrightarrow \math
 
 are continuous. As a result,
 $\mathcal{S}'(\mathbb{R}^d) \hookrightarrow \mathcal{D}'(U)$. That is,
-distributions are a larger or more general class than tempered
+distributions are a larger (more general) space than that of tempered
 distributions.
 
 Of course, not all smooth functions have compact support. Other (in this
@@ -568,7 +568,7 @@ is continuous on $C^\infty(U)$.
 
 ## Locally integrable functions as distributions
 
-In our post on the Fourier transform [we
+Now that we've defined our space of distributions we would like to see what some of them look like. In our post on the Fourier transform [we
 saw](https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=One-,may,-verify%20that%20we)
 that integrable functions could naturally be considered as tempered
 distributions. The analogous is true for distributions. In this case,
@@ -609,7 +609,7 @@ space.
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
 <div class="exercise-text">
 The topology is
-[metrizable](https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=together-,with,-a%20countable%20family)
+<a href="https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=together-,with,-a%20countable%20family">metrizable</a>
 as the family of seminorms is countable. By Exercise
 [3](#convergence TVS)
 if $f\U n \in L^p\U {\mathrm{loc}}(U)$ is Cauchy then $f\U n$ is Cauchy for
