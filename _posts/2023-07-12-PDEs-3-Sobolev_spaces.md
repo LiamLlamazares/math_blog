@@ -134,29 +134,29 @@ solve a differential equation of the form
 <div>
 $$\begin{align}
 \label{PDE1}
-\mathcal{L}u = f\quad  \mathrm{ on  }\quad  D .\end{align}$$
+\mathcal{L}u = f\quad  \mathrm{ on  }\quad  U .\end{align}$$
 </div>
 
 Where
-$D$ is some domain in $\mathbb{R}^d$. In a previous post on the [Fourier
+$U$ is some domain in $\mathbb{R}^d$. In a previous post on the [Fourier
 transform](https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=Sobolev%20spaces-,Sobolev,-spaces%20form%20a)
-we saw how to define the Sobolev spaces $H^s(D)$ when $D$ is the whole
+we saw how to define the Sobolev spaces $H^s(U)$ when $U$ is the whole
 Euclidean space $\mathbb{R}^d$ or the torus $\mathbb{T}^d$. These spaces
 correspond to $s$-times weakly differentiable functions, and we saw how
 these spaces could help us solve
 (\ref{PDE1}) . However, in
-practice $D$ may be an open set in $\mathbb{R}^d$ or even some
+practice $U$ may be an arbitrary open set in $\mathbb{R}^d$ or even some
 $d$-dimensional manifold with a boundary condition
 
 <div>
 $$\begin{align}
 \label{bc}
-\left.u\right|\U {\partial  D}= g.\end{align}$$
+\left.u\right|\U {\partial  U}= g.\end{align}$$
 </div>
 
 Note that equation
 (\ref{bc}) is a priori
-ill-defined as the Lebesgue measure of $\partial D \subset \mathbb{R}^d$
+ill-defined as the Lebesgue measure of $\partial U \subset \mathbb{R}^d$
 is zero. Thus, it is necessary to extend the theory to a wider class of
 domains and to explain what we mean by the restriction of a function to
 its boundary of definition.
@@ -167,29 +167,37 @@ Suppose, for example, that $D=U$ is an open set and $u: U \to \mathbb{R}$.
 Then, we can try to define $H^s(U)$ using our knowledge of
 $H^s(\mathbb{R}^d)$ by:
 
-1.  Extending $u$ by zero outside of $U$ to form
+<ol>
+<li>Extending $u$ by zero outside of $U$ to form
 
-<div>
-$$\begin{aligned}
+$$
+\begin{aligned}
 \tilde{u}(x):=\begin{cases}
 u(x) & \quad x \in U     \\
 0    & \quad x \not\in U
 \end{cases}.
-\end{aligned}$$
-</div>
+\end{aligned}
+$$
 
-2.  Studying if $\tilde{u} \in  H^s(\mathbb{R}^d)$. That is, as we saw
-    in the [previous
-    post](https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=fact%2C%20since%20the-,Fourier,-transform%20is%20a),
-    checking if
+</li>
 
-<div>
-$$\begin{aligned}
-\left\lVert \tilde{u} \right\rVert\U {H^s(\mathbb{R}^d)}^2= \int\U {\mathbb{R}^d}\left\langle\xi \right\rangle^{2s}\widehat{\tilde{u}}(\xi )^2 \,\mathrm{d}\xi < \infty\end{aligned}$$
-</div>
+<li>Studying if $\tilde{u} \in  H^s(\mathbb{R}^d)$. That is, as we saw
+  in the [previous
+  post](https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=fact%2C%20since%20the-,Fourier,-transform%20is%20a),
+  checking if
 
-3.  Saying that $u \in H^s(U)$ if and only if
-    $\tilde{u} \in H^s(\mathbb{R}^d)$.
+$$
+\begin{aligned}
+\left\lVert \tilde{u} \right\rVert \U {H^s(\mathbb{R}^d)}^2= \int \U {\mathbb{R}^d}\left\langle\xi \right\rangle^{2s}\widehat{\tilde{u}}(\xi )^2 \,\mathrm{d}\xi < \infty
+\end{aligned}
+$$
+
+</li>
+
+<li>Saying that $u \in H^s(U)$ if and only if
+  $\tilde{u} \in H^s(\mathbb{R}^d)$.
+</li>
+</ol>
 
 However, this runs into problems, as is shown in the following example:
 

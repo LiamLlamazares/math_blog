@@ -185,7 +185,8 @@ $$
 
 $$
 \begin{aligned}
-\left\lVert \tilde{u} \right\rVert\U {H^s(\mathbb{R}^d)}^2= \int\U {\mathbb{R}^d}\left\langle\xi \right\rangle^{2s}\widehat{\tilde{u}}(\xi )^2 \,\mathrm{d}\xi < \infty\end{aligned}
+\left\lVert \tilde{u} \right\rVert\U{H^s(\mathbb{R}^d)}^2= \int_{\mathbb{R}^d}\left\langle\xi \right\rangle^{2s}\widehat{\tilde{u}}(\xi )^2 \,\mathrm{d}\xi < \infty
+\end{aligned}
 $$
 
 3.  Saying that $u \in H^s(U)$ if and only if
