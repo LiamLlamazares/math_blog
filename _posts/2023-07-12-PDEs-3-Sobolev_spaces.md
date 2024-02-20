@@ -611,7 +611,7 @@ space.
 The topology is
 <a href="https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=together-,with,-a%20countable%20family">metrizable</a>
 as the family of seminorms is countable. By Exercise
-[3](#convergence TVS)
+<a href="#convergence TVS">3</a>
 if $f\U n \in L^p\U {\mathrm{loc}}(U)$ is Cauchy then $f\U n$ is Cauchy for
 all $L^p(K)$ $D^\alpha \varphi\U n$ so converges to some $f\U K \in L^p(K)$.
 Show that $f\U K= \left.f\right|\U {K}$ where $f \in L^p\U {\mathrm{loc}}(U)$
