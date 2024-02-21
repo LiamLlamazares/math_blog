@@ -802,24 +802,25 @@ as if they had Fourier transforms and were smooth. As we shall see, this
 will prove of great use when obtaining "distributional solutions" to
 some PDEs. We now give the general method by which this achieved
 
-**Definition 6.** Consider a mapping
+**Definition 6.** Consider a mapping $\mathcal{L}$
 
 <div>
- $$P:A\subset\mathcal{S}(\mathbb{R}^d\to\mathbb{C}^m)\to \mathcal{S}(\mathbb{R}^d\to\mathbb{C}^n)$$
+ $$\mathcal{L}:\mathcal{S}(\mathbb{R}^d\to\mathbb{C}^n)\to \mathcal{S}(\mathbb{R}^d\to\mathbb{C}^n)$$,
+</div>
+with adjoint $\mathcal{L}^*$. That is,  
+<div>
+ $$\label{adjoint}
+    (\mathcal{L}u,v)=(u,\mathcal{L}^*v)\quad\forall u,v\in \mathcal{S}(\mathbb{R}^d\to\mathbb{C}^n).$$
 </div>
 
-that extends to
+Then, given $f \in \mathcal{S}'(\mathbb{R}^d\to \mathbb{C}^n)$ we say that a
+distributional solution to $\mathcal{L}u=f$ is any tempered distribution
+$u\in \mathcal{S}'(\mathbb{R}^d\to\mathbb{C}^n)$ verifying
 
 <div>
- $$P:S\subset \mathcal{S}'(\mathbb{R}^d\to\mathbb{C}^m)\to \mathcal{S}'(\mathbb{R}^d\to\mathbb{C}^n)$$
+ $$\label{distrsol}
+    (\mathcal{L}^*v,u)=(v,f)\quad\forall u\in \mathcal{S}(\mathbb{R}^d\to\mathbb{C}^n).$$
 </div>
-
-where $S$ is some subset of
-${\mathcal{S}'}(\mathbb{R}^d\to\mathbb{C}^m)$ containing
-$A$. Then, given
-$f \in \mathcal{S}'(\mathbb{R}^d\to \mathbb{C}^n)$ we say that a
-distributional solution to $Pw=f$ is any tempered distribution
-$w\in S$ verifying $Pw=f$.
 
 In the above definition, $P$ typically defines a linear or non-linear
 differential equation. Note that the above definition may be extended
