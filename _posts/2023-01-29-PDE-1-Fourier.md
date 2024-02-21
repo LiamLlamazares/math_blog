@@ -805,7 +805,7 @@ some PDEs. We now give the general method by which this achieved
 **Definition 6.** Consider a mapping $\mathcal{L}$
 
 <div>
- $$\mathcal{L}:\mathcal{S}(\mathbb{R}^d\to\mathbb{C}^n)\to \mathcal{S}(\mathbb{R}^d\to\mathbb{C}^n)$$,
+ $$\mathcal{L}:\mathcal{S}(\mathbb{R}^d\to\mathbb{C}^n)\to \mathcal{S}(\mathbb{R}^d\to\mathbb{C}^n),$$
 </div>
 with adjoint $\mathcal{L}^*$. That is,  
 <div>
