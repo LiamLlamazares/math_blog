@@ -881,14 +881,14 @@ $\mathcal{S}'(\mathbb{R}^d\to\mathbb{C}^m)$, by using the previously derived for
 we deduce that
 
 <div>
- $$D^\alpha f\in L^2(\mathbb{R}^d\to\mathbb{C}^m)\iff \mathcal{F}(D^\alpha f)=\abs{(2\pi i\xi )^{\alpha}} \hat{f}(\xi)\in L^2(\mathbb{R}^d\to\mathbb{C}^m)$$
+ $$D^\alpha f\in L^2(\mathbb{R}^d\to\mathbb{C}^m)\iff \mathcal{F}(D^\alpha f)=\abs{(2\pi i\xi )^{\alpha}} \hat{f}(\xi)\in L^2(\mathbb{R}^d\to\mathbb{C}^m).$$
 </div>
 
-from which we deduce that
+As a result, we ontain that
 
 <div>
  $$\label{sobolevcondition}
-    f\in H^k(\mathbb{R}^d\to\mathbb{C}^m)\iff \sum\U {\abs{\alpha}\leq k} \abs{(2\pi i\xi )^{\alpha}}\hat{f}(\xi)\sim\U k \left\langle\xi\right\rangle^k\hat{f}\in L^2(\mathbb{R}^d\to\mathbb{C}^m)$$
+    f\in H^k(\mathbb{R}^d\to\mathbb{C}^m)\iff \sum\U {\abs{\alpha}\leq k} \abs{(2\pi i\xi )^{\alpha}}\hat{f}(\xi)\sim\U k \left\langle\xi\right\rangle^k\hat{f}\in L^2(\mathbb{R}^d\to\mathbb{C}^m).$$
 </div>
 
 In fact, since the Fourier transform is a unitary transformation on
@@ -896,7 +896,7 @@ $L^2(\mathbb{R}^d\to\mathbb{C}^m)$, the same reasoning gives
 
 <div>
  $$\label{sobolevnorm}
-    \norm{f}\U {H^k(\mathbb{R}^d\to\mathbb{C}^m)}\sim\U k \norm{\left\langle\xi\right\rangle^k\hat{f}(\xi)}\U {L^2(\mathbb{R}^d\to\mathbb{C}^m)}$$
+    \norm{f}\U {H^k(\mathbb{R}^d\to\mathbb{C}^m)}\sim\U k \norm{\left\langle\xi\right\rangle^k\hat{f}(\xi)}\U {L^2(\mathbb{R}^d\to\mathbb{C}^m)}.$$
 </div>
 
 From the two equations above, we deduce that if we define for a given
@@ -904,13 +904,13 @@ real number $s$ (including negative numbers!), the $s$-th order Sobolev
 space as
 
 <div>
- $$H^s(\mathbb{R}^d\to\mathbb{C}^m):=\lbrace f\in \mathcal{S}'(\mathbb{R}^d\to\mathbb{C}^m): \left\langle\xi\right\rangle^s\hat{f}(\xi)\in L^2(\mathbb{R}^d\to\mathbb{C}^m)\rbrace$$
+ $$H^s(\mathbb{R}^d\to\mathbb{C}^m):=\lbrace f\in \mathcal{S}'(\mathbb{R}^d\to\mathbb{C}^m): \left\langle\xi\right\rangle^s\hat{f}(\xi)\in L^2(\mathbb{R}^d\to\mathbb{C}^m)\rbrace,$$
 </div>
 
 and give it the norm
 
 <div>
- $$\norm{f}\U {H^s(\mathbb{R}^d\to\mathbb{C}^m)}:= \norm{\left\langle\xi\right\rangle^s\hat{f}(\xi)}\U {L^2(\mathbb{R}^d\to\mathbb{C}^m)}$$
+ $$\norm{f}\U {H^s(\mathbb{R}^d\to\mathbb{C}^m)}:= \norm{\left\langle\xi\right\rangle^s\hat{f}(\xi)}\U {L^2(\mathbb{R}^d\to\mathbb{C}^m)},$$
 </div>
 
 then our new definition is equivalent to the [previous one](#def 7) when
@@ -929,7 +929,7 @@ themselves square integrable. Explicitly, we define:
 <div>
  $$\begin{gathered}
 \label{sobolevdef2}
-    H^s(\mathbb{T}^d\to\mathbb{C}^m):=\\\lbrace f\in L^2(\mathbb{T}^d\to\mathbb{C}^m): D^\alpha f\in L^2(\mathbb{T}^d\to\mathbb{C}^m)\hookrightarrow\mathcal{S}'(\mathbb{T}^d\to\mathbb{C}^m)\quad\forall\hspace{2pt}\abs{\alpha}\leq s\rbrace\end{gathered}$$
+    H^s(\mathbb{T}^d\to\mathbb{C}^m):=\\\lbrace f\in L^2(\mathbb{T}^d\to\mathbb{C}^m): D^\alpha f\in L^2(\mathbb{T}^d\to\mathbb{C}^m)\hookrightarrow\mathcal{S}'(\mathbb{T}^d\to\mathbb{C}^m)\quad\forall\hspace{2pt}\abs{\alpha}\leq s\rbrace\end{gathered}.$$
 </div>
 
 Using the same method as before, this time by [Plancherel](#plancherel theorem) and
@@ -937,7 +937,7 @@ the [correspondence between regularity and decay](#decay) for the
 Fourier transform of periodic functions, we deduce that
 
 <div>
- $$D^\alpha f\in L^2(\mathbb{T}^d\to\mathbb{C}^m)\iff\widehat{D^\alpha f}(k)=\abs{k^\alpha}\hat{f}(k)\in l^2(\mathbb{Z}^d\to\mathbb{C}^m)$$
+ $$D^\alpha f\in L^2(\mathbb{T}^d\to\mathbb{C}^m)\iff\widehat{D^\alpha f}(k)=\abs{k^\alpha}\hat{f}(k)\in l^2(\mathbb{Z}^d\to\mathbb{C}^m),$$
 </div>
 
 which leads us, as in the previous case, to define for $s\in\mathbb{R}$
@@ -951,7 +951,7 @@ and to give it the norm
 
 <div>
  $$\label{sobolevgeneraldef}
-    \norm{f}\U {H^s(\mathbb{T}^d\to\mathbb{C}^m)}:=\left(\sum\U {k\in\mathbb{Z}^d}\left\langle k\right\rangle^{2s}\abs{\hat{f}(k)}^2\right)^{\frac{1}{2}}$$
+    \norm{f}\U {H^s(\mathbb{T}^d\to\mathbb{C}^m)}:=\left(\sum\U {k\in\mathbb{Z}^d}\left\langle k\right\rangle^{2s}\abs{\hat{f}(k)}^2\right)^{\frac{1}{2}},$$
 </div>
 
 where of course the two definitions coincide for
@@ -962,7 +962,7 @@ both in the Euclidean and periodic case
  $$\begin{aligned}
 \label{Sobolev derivatives embedding}
     f\in H^s(\mathbb{R}^d\to\mathbb{C}^m)  & \iff  D^\alpha f\in H^{s-\abs{\alpha}}(\mathbb{R}^d\to\mathbb{C}^m)\qquad\forall\abs{\alpha}\leq s  \\
-    f\in H^s(\mathbb{T}^d\to\mathbb{C}^m) & \iff  D^\alpha f\in H^{s-\abs{\alpha}}(\mathbb{T}^d\to\mathbb{C}^m)\qquad\forall\abs{\alpha}\leq s\end{aligned}$$
+    f\in H^s(\mathbb{T}^d\to\mathbb{C}^m) & \iff  D^\alpha f\in H^{s-\abs{\alpha}}(\mathbb{T}^d\to\mathbb{C}^m)\qquad\forall\abs{\alpha}\leq s\end{aligned}.$$
 </div>
 
 One major advantage of working with the Sobolev spaces $H^s$ is that,
@@ -1017,7 +1017,7 @@ by taking a subsequence of the above sum that converges almost
 everywhere to $f$). Therefore
 
 <div>
- $$\norm{f}\U {L^\infty(\mathbb{T}^d\to\mathbb{C}^m)}=\norm{\sum\U {k\in\mathbb{Z}^d}\hat{f}(k)e^{2\pi ik\cdot x}}\U {L^\infty(\mathbb{T}^d\to\mathbb{C}^m)}$$
+ $$\norm{f}\U {L^\infty(\mathbb{T}^d\to\mathbb{C}^m)}=\norm{\sum\U {k\in\mathbb{Z}^d}\hat{f}(k)e^{2\pi ik\cdot x}}\U {L^\infty(\mathbb{T}^d\to\mathbb{C}^m)},$$
 </div>
 
 which is
@@ -1053,7 +1053,7 @@ the hypothesis placed on $f$, we have that the series
  $$\sum\U {k\in\mathbb{Z}^d} (2\pi ik)^\alpha \hat{f}(k)e^{2\pi ik\cdot x}$$
 </div>
 
-is absolutely convergent (by [Lemma 2](#lemma 2), and hence, we may commute the
+is absolutely convergent (by [Lemma 2](#lemma 2)), and hence, we may commute the
 derivatives of $f$ with the sum in its Fourier series to deduce the
 point-wise equality
 
@@ -1065,7 +1065,7 @@ Now, note that by using our calculations for the Fourier transform of the deriva
 we also have that the equality
 
 <div>
- $$D^\alpha f(x)=\sum\U {k\in\mathbb{Z}^d} (2\pi ik)^\alpha \hat{f}(k)e^{2\pi ik\cdot x}$$
+ $$D^\alpha f(x)=\sum\U {k\in\mathbb{Z}^d} (2\pi ik)^\alpha \hat{f}(k)e^{2\pi ik\cdot x},$$
 </div>
 
 holds in $L^2(\mathbb{T}^d\to\mathbb{C}^m)$. From these last two
@@ -1079,7 +1079,7 @@ a neat little trick. Given smooth $f$ and some differential operator
 $\mathcal{L}=\sum\U {\alpha} D^\alpha=p(D)$ we have that
 
 <div>
- $$D^\alpha f =\mathcal{F}^{-1}(\mathcal{F}\mathcal{L}f)=\mathcal{F}^{-1}(p(2 \pi i\xi )\hat{f}(\xi ))$$
+ $$D^\alpha f =\mathcal{F}^{-1}(\mathcal{F}\mathcal{L}f)=\mathcal{F}^{-1}(p(2 \pi i\xi )\hat{f}(\xi )).$$
 </div>
 
 The term $p$ is called a Fourier multiplier, and there is no
@@ -1117,14 +1117,11 @@ first of this blog)
  $$T:=\left(1-\frac{\Delta}{4\pi ^2}  \right)^\frac{s}{2}\text{?}$$
 </div>
 
-Once
-you do so show that for all $s,r \in \mathbb{R}$, the operator $T$
+Once you do so, show that for all $s,r \in \mathbb{R}$, the operator $T$
 defines a linear bijective isometry
 
 <div>
  $$T: H^r(\mathbb{R}^d\to\mathbb{C}^m)\to H^{k-s}(\mathbb{R}^d\to\mathbb{C}^m).$$
 </div>
 
-In our future post, we will discuss the well-posedness of second-order
-elliptic equations, and if we have time, discuss the heat equation and
-how the Fourier transformation provides us with an elegant solution.
+In our future posts, we will discuss Sobolev spaces for different orders of integrability and on general domains (not just $\mathbb{R}^d$ and $\mathbb{T}^d$).
