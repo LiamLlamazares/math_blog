@@ -819,7 +819,7 @@ $w\in \mathcal{S}'(\mathbb{R}^d\to\mathbb{C}^n)$ verifying
 
 <div>
  $$\label{distrsol}
-    (\mathcal{L}^*v,u)=(v,f)\quad\forall u\in \mathcal{S}(\mathbb{R}^d\to\mathbb{C}^n).$$
+    (\mathcal{L}^*v,u)=(v,f)\quad\forall v\in \mathcal{S}(\mathbb{R}^d\to\mathbb{C}^n).$$
 </div>
 
 In the above definition, $\mathcal{L}$ typically defines a linear or non-linear
@@ -828,12 +828,12 @@ without any difficulty to the case of (periodic) distributional
 solutions in the case where
 $P: C^\infty(\mathbb{T}^d\to\mathbb{C}^m)\to C^\infty(\mathbb{T}^d\to\mathbb{C}^n)$.
 
-**Example 1.** Set $\mathcal{L}=\Delta$, as we have seen previously
+**Example 1.** Set $\mathcal{L}=1-\Delta$, as we have seen previously
 $\Delta$ extends to $S:=\mathcal{S}'(\mathbb{R}^d\to\mathbb{C}^m)$
 with
 
 <div>
- $$\mathcal{F}(\Delta \omega)=-4\pi \abs{\xi }^2\mathcal{F}w .$$
+ $$\mathcal{F}(\Delta \omega)=1+4\pi \abs{\xi }^2\mathcal{F}w .$$
 </div>
 
 As
@@ -842,7 +842,7 @@ $f \in \mathcal{S}'(\mathbb{R}^d\to \mathbb{C}^n)$ the equation $\mathcal{L}w=f$
 has as its unique solution
 
 <div>
- $$w=\mathcal{F}^{-1}\left(\frac{-f}{4\pi \abs{\xi }^2 }\right).$$
+ $$w=\mathcal{F}^{-1}\left(\frac{-\hat{f}}{1+4\pi \abs{\xi }^2 }\right).$$
 </div>
 
 # Sobolev spaces
