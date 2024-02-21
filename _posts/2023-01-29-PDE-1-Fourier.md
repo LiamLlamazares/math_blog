@@ -814,21 +814,21 @@ with adjoint $\mathcal{L}^*$. That is,
 </div>
 
 Then, given $f \in \mathcal{S}'(\mathbb{R}^d\to \mathbb{C}^n)$ we say that a
-distributional solution to $\mathcal{L}u=f$ is any tempered distribution
-$u\in \mathcal{S}'(\mathbb{R}^d\to\mathbb{C}^n)$ verifying
+distributional solution to $\mathcal{L}w=f$ is any tempered distribution
+$w\in \mathcal{S}'(\mathbb{R}^d\to\mathbb{C}^n)$ verifying
 
 <div>
  $$\label{distrsol}
     (\mathcal{L}^*v,u)=(v,f)\quad\forall u\in \mathcal{S}(\mathbb{R}^d\to\mathbb{C}^n).$$
 </div>
 
-In the above definition, $P$ typically defines a linear or non-linear
+In the above definition, $\mathcal{L}$ typically defines a linear or non-linear
 differential equation. Note that the above definition may be extended
 without any difficulty to the case of (periodic) distributional
 solutions in the case where
 $P: C^\infty(\mathbb{T}^d\to\mathbb{C}^m)\to C^\infty(\mathbb{T}^d\to\mathbb{C}^n)$.
 
-**Example 1.** Set $P=\Delta$, as we have seen previously
+**Example 1.** Set $\mathcal{L}=\Delta$, as we have seen previously
 $\Delta$ extends to $S:=\mathcal{S}'(\mathbb{R}^d\to\mathbb{C}^m)$
 with
 
@@ -838,7 +838,7 @@ with
 
 As
 a result, we deduce that for any
-$f \in \mathcal{S}'(\mathbb{R}^d\to \mathbb{C}^n)$ the equation $Pw=f$
+$f \in \mathcal{S}'(\mathbb{R}^d\to \mathbb{C}^n)$ the equation $\mathcal{L}w=f$
 has as its unique solution
 
 <div>
