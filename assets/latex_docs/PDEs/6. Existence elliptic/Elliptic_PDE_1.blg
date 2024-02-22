@@ -6,45 +6,45 @@ The style file: elsarticle-num.bst
 Reallocating 'name_of_file' (item size: 1) to 11 items.
 Database file #1: biblio.bib
 Warning--can't use both volume and number fields in brezis2011functional
-You've used 7 entries,
+You've used 9 entries,
             2952 wiz_defined-function locations,
-            713 strings with 6211 characters,
-and the built_in function-call counts, 1754 in all, are:
-= -- 139
-> -- 37
+            724 strings with 6606 characters,
+and the built_in function-call counts, 2235 in all, are:
+= -- 178
+> -- 51
 < -- 4
-+ -- 17
-- -- 10
-* -- 99
-:= -- 230
-add.period$ -- 7
-call.type$ -- 7
-change.case$ -- 1
++ -- 23
+- -- 14
+* -- 125
+:= -- 290
+add.period$ -- 9
+call.type$ -- 9
+change.case$ -- 2
 chr.to.int$ -- 0
-cite$ -- 8
-duplicate$ -- 59
-empty$ -- 258
-format.name$ -- 12
-if$ -- 488
+cite$ -- 10
+duplicate$ -- 74
+empty$ -- 323
+format.name$ -- 17
+if$ -- 617
 int.to.chr$ -- 0
-int.to.str$ -- 7
-missing$ -- 13
-newline$ -- 33
-num.names$ -- 7
-pop$ -- 71
+int.to.str$ -- 9
+missing$ -- 16
+newline$ -- 39
+num.names$ -- 9
+pop$ -- 89
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 124
+skip$ -- 158
 stack$ -- 0
-substring$ -- 25
-swap$ -- 10
+substring$ -- 50
+swap$ -- 11
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 1
-while$ -- 9
-width$ -- 8
-write$ -- 65
+while$ -- 13
+width$ -- 10
+write$ -- 79
 (There was 1 warning)

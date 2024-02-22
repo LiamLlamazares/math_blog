@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2024.1.16)  20 FEB 2024 17:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2024.1.16)  22 FEB 2024 18:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/liaml/Documentos/LiamLlamazares.github.io/assets/latex_docs/PDEs/5. Existence elliptic/Elliptic_PDE_1.tex"
-(c:/Users/liaml/Documentos/LiamLlamazares.github.io/assets/latex_docs/PDEs/5. Existence elliptic/Elliptic_PDE_1.tex
+**"c:/Users/liaml/Documentos/LiamLlamazares.github.io/assets/latex_docs/PDEs/6. Existence elliptic/5. Fractional and negative order Sobolev spaces/main.tex"
+(c:/Users/liaml/Documentos/LiamLlamazares.github.io/assets/latex_docs/PDEs/6. Existence elliptic/5. Fractional and negative order Sobolev spaces/main.tex
 LaTeX2e <2023-11-01>
 L3 programming layer <2024-01-04>
 (C:\Users\liaml\AppData\Roaming\MiKTeX\tex/latex/koma-script\scrartcl.cls
@@ -679,8 +679,8 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 \c@observation=\count324
 \c@assumption=\count325
 \c@exercise=\count326
- (Elliptic_PDE_1.aux)
-\openout1 = `Elliptic_PDE_1.aux'.
+ (main.aux)
+\openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 120.
 LaTeX Font Info:    ... okay on input line 120.
@@ -750,90 +750,160 @@ LaTeX Font Info:    Trying to load font information for T1+cmss on input line 12
  (C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmss.fd
 File: t1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 134.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 127.
  (C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 134.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 127.
  (C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
+
+LaTeX Warning: Citation `agranovich2015sobolev' on page 1 undefined on input line 133.
+
+[1
 
 
-{C:/Users/liaml/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2] [3] [4] [5]
+{C:/Users/liaml/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+
+LaTeX Warning: Citation `di2012hitchhiker's' on page 2 undefined on input line 160.
+
+[2]
+
+LaTeX Warning: Citation `triebel1992theory' on page 3 undefined on input line 241.
+
+
+LaTeX Warning: Citation `stein1970singular' on page 3 undefined on input line 245.
+
+
+LaTeX Warning: Citation `biccari2018local' on page 3 undefined on input line 245.
+
+
+LaTeX Warning: Citation `triebel1992theory' on page 3 undefined on input line 260.
+
+
+LaTeX Warning: Citation `leoni2017first' on page 3 undefined on input line 260.
+
+
+LaTeX Warning: Citation `agranovich2015sobolev' on page 3 undefined on input line 265.
+
+
+LaTeX Warning: Citation `stein1970singular' on page 3 undefined on input line 265.
+
+[3]
+
+LaTeX Warning: Citation `stein1970singular' on page 4 undefined on input line 294.
+
+[4]
+
+LaTeX Warning: Citation `di2012hitchhiker's' on page 5 undefined on input line 333.
+
+[5]
+
+LaTeX Warning: Citation `evans2022partial' on page 6 undefined on input line 378.
+
+
+LaTeX Warning: Citation `agranovich2015sobolev' on page 6 undefined on input line 385.
+
+
+LaTeX Warning: Citation `biccari2018local' on page 6 undefined on input line 402.
+
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 416.
+(hyperref)                removing `math shift' on input line 405.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 416.
+(hyperref)                removing `superscript' on input line 405.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 416.
+(hyperref)                removing `superscript' on input line 405.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 416.
+(hyperref)                removing `math shift' on input line 405.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 405.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 405.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 405.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 405.
 
 [6]
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 450.
+LaTeX Warning: Citation `brezis2011functional' on page 7 undefined on input line 438.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 450.
+(hyperref)                removing `math shift' on input line 439.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 450.
+(hyperref)                removing `superscript' on input line 439.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\Omega' on input line 450.
+(hyperref)                removing `subscript' on input line 439.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 450.
-
-[7] [8] [9] [10]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 643.
+(hyperref)                removing `\Omega' on input line 439.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 643.
+(hyperref)                removing `math shift' on input line 439.
 
-[11] [12] (Elliptic_PDE_1.bbl
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 12.
- (C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
-File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-)
-Overfull \hbox (44.54073pt too wide) in paragraph at lines 9--13
-\T1/cmr/m/n/10.95 URL [][]$\T1/cmtt/m/n/10.95 https : / / math24 . files . wordpress . com / 2013 / 02 / partial-[]differential-[]equations-[]by-[]evans .
- []
+[7]
 
-) [13] (Elliptic_PDE_1.aux)
+LaTeX Warning: Citation `taylor2013partial' on page 8 undefined on input line 468.
+
+[8]
+
+LaTeX Warning: Citation `agranovich2015sobolev' on page 9 undefined on input line 519.
+
+
+LaTeX Warning: Citation `agranovich2015sobolev' on page 9 undefined on input line 536.
+
+[9]
+
+LaTeX Warning: Citation `agranovich2015sobolev' on page 10 undefined on input line 548.
+
+
+LaTeX Warning: Citation `leoni2017first' on page 10 undefined on input line 565.
+
+[10] (main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2020/03/25>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
  ) 
 Here is how much of TeX's memory you used:
- 28496 strings out of 474486
- 557187 string characters out of 5743755
+ 28387 strings out of 474486
+ 555180 string characters out of 5743755
  1946528 words of memory out of 5000000
- 50218 multiletter control sequences out of 15000+600000
- 578384 words of font info for 87 fonts, out of 8000000 for 9000
+ 50151 multiletter control sequences out of 15000+600000
+ 577729 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,18n,107p,11007b,600s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1095.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1200.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1440.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx2074.pk><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Elliptic_PDE_1.pdf (13 pages, 388143 bytes).
+ 108i,20n,107p,11045b,600s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1095.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1200.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1440.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx2074.pk><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (10 pages, 318851 bytes).
 PDF statistics:
- 755 PDF objects out of 1000 (max. 8388607)
- 97 named destinations out of 1000 (max. 500000)
- 133 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 550 PDF objects out of 1000 (max. 8388607)
+ 63 named destinations out of 1000 (max. 500000)
+ 109 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,0 +1,423 @@
+\documentclass[
+    a4paper,
+    DIV=14,
+    abstract=true,
+    numbers=noenddot
+]
+{scrartcl}
+
+\usepackage{
+    amsmath,
+    amssymb,
+    amsthm,
+    array,
+    authblk,
+    bm,
+    dsfont, % for 1 vector or indicator function
+    graphicx,
+    mathtools,
+    nicefrac,
+    physics,
+    tabularx,
+    tcolorbox,
+    todonotes,
+    tikz,
+    xcolor,
+    float,
+}
+\usepackage[shortlabels]{enumitem}
+
+\usepackage[T1]{fontenc}
+
+\usepackage[pdffitwindow=false,
+    plainpages=false,
+    pdfpagelabels=true,
+    pdfpagemode=UseOutlines,
+    pdfpagelayout=SinglePage,
+    bookmarks=false,
+    colorlinks=true,
+    hyperfootnotes=false,
+    linkcolor=blue,
+    urlcolor=blue!30!black,
+    citecolor=green!50!black]{hyperref}
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{observation}{Observation}
+\newtheorem{assumption}{Assumption}
+
+\newtheorem{exercise}{Exercise}
+
+\newtheorem*{hint}{Hint}
+
+\newenvironment{exerciseandhint}[2]
+{\begin{exercise} #1
+
+    \emph{Hint: #2}}
+    {\end{exercise}}
+
+\newcommand{\red}[1]{{\color{red}#1}}
+\newcommand{\td}{\todo[inline,color=green!40]}
+
+\bibliographystyle{elsarticle-num}
+\newcommand{\fk}[1]{\mathfrak{#1}}
+\newcommand{\wh}[1]{\widehat{#1}}
+\newcommand{\tl}[1]{\widetilde{#1}}
+
+\newcommand{\br}[1]{\left\langle#1\right\rangle}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\qp}[1]{\left(#1\right)}\newcommand{\qb}[1]{\left[#1\right]}
+\newcommand{\qt}[1]{\left(#1\right)}
+\newcommand{\Id}{\bm{I}}\renewcommand{\ker}{\rm{ker}}\newcommand{\supp}[1]{\bm{supp}(#1)}\renewcommand{\tr}[1]{\mathrm{tr}\left(#1\right)}
+\renewcommand{\norm}[1]{\left\lVert #1 \right\rVert}\renewcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\U}{}\renewcommand{\star}{*}
+\renewcommand{\Im}{\bm{Im}}
+\newcommand{\iso}{\xrightarrow{\sim}}
+\renewcommand{\d}{\,\mathrm{d}}\newcommand{\dx}{\,\mathrm{d}x}
+\newcommand{\dy}{\,\mathrm{d}y}
+\newcommand\restr[2]{\left.#1\right|_{#2}}
+\newcommand{\rm}[1]{\mathrm{#1}}
+
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Aa}{\mathcal{A}}
+\newcommand{\Bb}{\mathcal{B}}
+\newcommand{\Cc}{\mathcal{C}}
+\newcommand{\Dd}{\mathcal{D}}
+\newcommand{\Ff}{\mathcal{F}}
+\newcommand{\Gg}{\mathcal{G}}
+\newcommand{\Hh}{\mathcal{H}}
+\newcommand{\Kk}{\mathcal{K}}
+\newcommand{\Ll}{\mathcal{L}}
+\newcommand{\Mm}{\mathcal{M}}
+\newcommand{\Nn}{\mathcal{N}}
+\newcommand{\Oo}{\mathcal{O}}
+\newcommand{\Pp}{\mathcal{P}}
+\newcommand{\Qq}{\mathcal{Q}}
+\newcommand{\Rr}{\mathcal{R}}
+\newcommand{\Ss}{\mathcal{S}}
+\newcommand{\Tt}{\mathcal{T}}
+\newcommand{\Uu}{\mathcal{U}}
+\newcommand{\Vv}{\mathcal{V}}
+\newcommand{\Ww}{\mathcal{W}}
+\newcommand{\Xx}{\mathcal{X}}
+\newcommand{\Yy}{\mathcal{Y}}
+\newcommand{\Zz}{\mathcal{Z}}
+
+\begin{document}
+\title{Elliptic PDE I}
+\author{Liam Llamazares}
+\date{5/21/2023}
+\maketitle
+\section{ Three line summary}
+\begin{itemize}
+    \item Elliptic partial differential equations (PDE) are PDE with no time variable and whose leading order derivatives satisfy a positivity condition.
+    \item Using Lax Milgram's theorem we can prove existence and uniqueness of weak (distributional) solutions if the transport term is zero.
+    \item If the transport term is non-zero solutions still exist but they are no longer unique and are determined by the kernel of the homogeneous problem.\end{itemize}
+\section{Why should I care?}
+Many problems arising in physics such as the Laplace and Poisson equation are elliptic PDE. Furthermore, the tools used to analyze them can be extrapolated to other settings such as
+elliptic PDE. The analysis also helps contextualize and provide motivation for theoretical tools such as Hilbert spaces, compact operators and Fredholm operators.
+\section{Notation}
+Given $\alpha \in \C$ we will write $\overline{\alpha }$ for the conjugate of $\alpha $. Given a subset $S$ of some topological space it is also common to write  $\overline{S}$ for the closure of $S$. Though this is a slight abuse of notation we will do the same as the meaning will always be clear from context.
+
+Given two topological vector spaces $X,Y$ we write  $\Ll(X,Y)$ for the space of continuous linear operators from $X$ to  $Y$.
+
+We will use the Einstein convention that indices when they are repeated are summed over. For example we will write
+\begin{align*}
+    \nabla \cdot (\vb{A}\nabla)=\sum_{i=1}^n \partial_i a_{ij} \partial _j =\partial_i A_{ij} \partial _j.
+\end{align*}
+Furthermore, we will fix $U \subset \R^n$ to be an open \textbf{bounded} (this will be necessary to apply the Poincaré inequality) set in $\R^n$ with \textbf{no conditions} on the regularity of $\partial U$. If we need to impose regularity on the boundary we will write $\Omega$ instead of $U$.
+
+We will use Vinogradov notation.
+
+\section{Introduction}
+Welcome back to the second post on our series of PDE. In the \href{https://nowheredifferentiable.com/2023-01-29-PDE-1/}{first post} of the series we dealt with the Fourier transform and it's application to defining spaces of weak derivatives and weak solutions to PDE. In this post we will consider an equation of the form
+\begin{align}\label{PDE}
+    \Ll u =f; \quad \restr{u}{\partial U} =0.
+\end{align}
+Where $\Ll$ is some differential operator, $f: U \to  \R$  is some known function and $u$ is the solution we want to find. We will need the following condition on $\vb{A}$  to prove \emph{well-posedness} of \eqref{PDE}.
+\begin{definition} We say that an equation is \emph{well-posed} if
+    \begin{enumerate}
+        \item It has a solution.
+        \item The solution is unique.
+        \item The solution depends continuously on the data.
+    \end{enumerate}
+
+\end{definition}
+
+\begin{definition}
+    Given $\vb{A}: U \to \R^{d \times d}, \vb{b}: U \to \R^d$ and $c:U \to \R$ we say that the differential operator
+    \begin{align}\label{operator}
+        \Ll u:= -\nabla \cdot (\vb{A} \nabla u)+ \nabla \cdot (\vb{b} u)+c\end{align}
+    is \emph{elliptic} if there exists $\alpha>0$ such that
+    \begin{align}\label{elliptic}
+        \xi ^T\vb{A}(x) \xi  \geq \alpha \abs{\xi }^2 , \quad\forall \xi \in \R^d , \quad\forall x \in U .
+    \end{align}
+\end{definition}
+There are some points to clear up. Firstly, if this is the first time you've encountered  the ellipticity condition in \eqref{elliptic} then it may seem a bit strange.  Physically speaking, in a typical \href{https://nowheredifferentiable.com/2023-12-23-PDEs-4-Physical_derivation_of_parabolic_and_elliptic_PDE/}{derivation} of our PDE in \eqref{PDE}, $u$ is the density of some substance and $\vb{A}$ corresponds to a diffusion matrix. Due to the ellipticity condition \eqref{elliptic} says that flow occurs from the region of \href{https://nowheredifferentiable.com/2023-12-23-PDEs-4-Physical_derivation_of_parabolic_and_elliptic_PDE/#:~:text=a)-,Diffusion,-%3A%20This%20is%20the}{higher to lower density}. Mathematically speaking \eqref{elliptic} will provide the necessary bound we need to apply \href{https://nowheredifferentiable.com/2023-05-30-PDE-2-Hilbert/#:~:text=degenerate.%20As%20a-,particular,-example%2C%20a%20symmetric}{Lax Milgram's theorem}. We have not yet defined which function space our coefficients live in and what $\Ll$ acts on. It would be natural to assume that we need for $\vb{A},\vb{b}$ to be differentiable. However, the following will suffice.
+\begin{assumption}\label{Ass1}
+    We assume that  $A_{ij}, b_i, c \in L^\infty (U)$ for all $i,j=1,\ldots,d$. Furthermore, $A$ is symmetric, that is  $A_{ij}=A_{ji}$.
+\end{assumption}
+To simplify the notation we will write for the bound on $\vb{A},\vb{b},c$
+\begin{align*}
+    \norm{\vb{A}}_{L^\infty(U)}+\norm{\vb{b}}_{L^\infty(U)}+\norm{c}_{L^\infty(U)}=M
+\end{align*}
+
+The first assumption will make it easy to get bounds on $\Ll$ and the second will be necessary to apply Lax Milgram's theorem and the third will prove useful when we look at the spectral theory of $\Ll$. Now, to make sense of \eqref{PDE} we need to define what we mean by a solution. Here the theory of Sobolev Spaces and the Fourier transform prove crucial. We will work with the following space
+\begin{definition}[Negative Sobolev space]\label{dual definition 2}
+    Given $k \in \N$ we define
+    \begin{align*}
+        H^{-k}(U ):= H_0^k(U )'
+    \end{align*}
+\end{definition}
+For more details on why this notation is used see Theorem \ref{dual of integer sobolev} in the appendix.
+\begin{exercise}\label{domain L}
+    Suppose $A_{ij} \in C^{s+1}(\overline{U} ), b_i, c \in C^{s}(\overline{U} )$   for some $s \in \R$. Then, $\Ll $ defines  a bounded linear operator
+    \begin{align*}
+        \Ll : W_0^{s+2,p}(U)\to W^{s,p} (U).
+    \end{align*}
+\end{exercise}
+\begin{hint}
+    Use the chain rule to write $\Ll u$ in the form
+    \begin{align*}
+        \Ll u =\sum_{\abs{\alpha} \leq 2 } g_\alpha D^\alpha, \quad g_\alpha \in C ^{s}(U).
+    \end{align*}
+    Using the chain rule again, to show that, for $k=\left\lfloor s \right\rfloor$ and $\gamma =s-k$
+    \begin{align*}
+        \sum_{\abs{\alpha} \leq k} \Ll u = \sum_{\abs{\alpha} \leq k+2} h_\alpha D^\alpha u, \quad h_\alpha \in C^{\gamma }(U),
+    \end{align*}
+    and conclude by the definition of $W^{s,p}(U)$.
+\end{hint}
+In the particular case $s=1$,  we have that $\Ll $ maps $H_0^1(U)$ to its dual $H^{-1}(U)$. This allows us to define the weak formulation of \eqref{PDE} and study its well-posedness using Lax Milgram's theorem. We will do this in the next section.
+\section{Weak solutions and well posedness}
+We can make sense of the equation $\Ll u =f$ in a distributional (weak) sense as follows.
+By an integration by parts, if $u,v \in  C_0^\infty(U)$ then \begin{align*}
+    \int_{U} \Ll u v =\int_{U}\vb{A} \nabla u \cdot \nabla v + \int_{U} \vb{b} \cdot ( \nabla  u) v + \int_{U} cuv=: B(u,v)   .
+\end{align*}
+It is clear that $B$ is bilinear in an algebraic sense. Furthermore from Cauchy Schwartz and  the fact that $\norm{u}_{H^1(U)}\sim \norm{u}_{L^2(U)}+\norm{\nabla u}_{L^2(U\to \R^d)}$ we have the bound
+\begin{align}\label{cont B}
+    B(u,v)\lesssim M \norm{u}_{H_0^1(U)}\norm{v}_{H_0^1(U)}.
+\end{align}
+This allows us as to extend by density $B$ from $C_0^\infty(U)$ to a continuous bilinear operator on  $H^1_0(U)$. In which case, by Exercise \ref{domain L} we can consider $f \in H^{-1}(U)$. This gives the following definition.
+\begin{definition}[Weak formulation]
+    Given $f \in  H^{-1}(U)$, we say that $u~\in~H_0^1(U)$ solves \eqref{PDE} if
+    \begin{align}\label{reform}
+        B(u,v)= (v,f) , \quad\forall v \in  H^{1}_0(U).
+    \end{align}
+\end{definition}
+We recall the ``duality notation'' $(v,f):= f(v)$. We have now reformulated our problem to something that looks very similar to the setup of Lax Milgram's theorem. In fact, if we suppose $\vb{b}=0$ and $c \geq 0$ we are done.
+\begin{theorem}\label{well posed 1}
+    Suppose $\vb{b}=0$  and $c \geq 0$. Then, equation \eqref{PDE} is well posed. That is,
+    \begin{align*}
+        \Ll : H_0^1(U) \iso  H^{-1}(U),
+    \end{align*}
+    is a homeomorphism. Furthermore, $\norm{\Ll^{-1}} \lesssim_U \alpha ^{-1}$.
+\end{theorem}
+\begin{proof}
+    The continuity of $B$ was proved in  \eqref{reform}. It remains to see that $B$ is coercive. This follows from the fact that for smooth $u$
+    \begin{align}\label{b=0}
+        B(u,u) & = \int_{U}\vb{A} \nabla u \cdot \nabla u + \int_{U} cu^2 \geq \alpha \norm{\nabla u}_{L^2(U \to \R^d)} \gtrsim_U \norm{u}_{H^1_0(U)}.
+    \end{align}
+    Where in first inequality we used the ellipticity assumption on $\vb{A}$ and in the last inequality we used Poincaré's inequality. The result now follows from Lax Milgram's theorem.
+\end{proof}
+Furthermore, by \href{https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=Theorem%2014%20(-,Rellich,-for%20trace%200}{Rellich's theorem} $\Ll$ is compact and is self adjoint since $\vb{b}$ is  $0$ so there is a countable basis of eigenvalues in  $L^2(U)$. Furthermore they must me smooth by Prop  $2$ and Sobolev embedding.
+
+In the previous result, we somewhat unsatisfyingly had to assume that $ \vb{b}$ was identically zero and had to impose the extra assumption  $c \geq 0$. These extra assumptions can be done away with, but at the cost of modifying our initial problem by a correction term $\gamma $ so we can once more obtain a coercive operator $B_\gamma $
+\begin{theorem}[Modified problem]\label{mod}
+    There exists some constant $\nu \geq 0$ (depending on the coefficients) such that for all $\gamma \geq \nu$  the operator $\Ll_\gamma := \Ll + \gamma \vb{I}$ defines a homeomorphism
+    \begin{align*}
+        \Ll_\gamma : H_0^1(U) \iso  H^{-1}(U).
+    \end{align*}
+\end{theorem}
+That is, the problem $\Ll u +\gamma u =f$ is well posed for all $\gamma \geq \nu$.
+\begin{proof}
+    Once more, the proof will go through the Lax-Milgram theorem, where now we work with the bilinear operator $B_\gamma  $ associated to $\Ll_\gamma  $
+    \begin{align*}
+        B_\gamma  (u,v):= B(u,v) + \gamma  (u,v).
+    \end{align*}
+    The calculation proceeds in a similar fashion to  \eqref{b=0}, where now an additional application of Cauchy's inequality $ab\leq a^2/2+b^2/2$ $\nabla u v = (\epsilon^{\frac{1}{2}} \nabla u)(\epsilon^{-\frac{1}{2}}v)$  shows that
+    \begin{align*}
+        B(u,u) & = \int_{U}(\vb{A} \nabla u) \cdot \nabla u + \int_{U} \vb{b}\cdot  (\nabla u) u +  \int_{U} cu^2 \geq \alpha \norm{\nabla u}_{L^2(U \to \R^d)}              \\
+               & - \frac{1}{2}\norm{\vb{b}}_{L^\infty(U)} \qt{\epsilon \norm{\nabla u}_{L^2(U)}+ \epsilon ^{-1}\norm{u}_{L^2(U)}}- \norm{c}_{L^\infty(U)}\norm{u}_{L^2(U)} .
+    \end{align*}
+    Taking $\epsilon $ small enough (smaller than $ \alpha \norm{\vb{b}}_{L^\infty(U)}^{-1}$ to be precise) and gathering up terms gives
+    \begin{align}\label{b not 0}
+        B(u,u) \geq \frac{\alpha}{2} \norm{\nabla u}_{L^2(U \to \R^d)} -\nu \norm{u}_{L^2(U)}.
+    \end{align}
+    Where we defined $\nu = \norm{\vb{b}}_{L^\infty(U)} \epsilon ^{-1}+\norm{c}_{L^\infty(U)}$.The theorem now follows from the just proved \eqref{b not 0} and Poincaré's inequality as for all $\gamma \geq \nu$
+    \begin{align*}
+        B_\gamma (u,u)=B(u,u)+ \gamma \norm{u}_{L^2(U)} \geq\frac{\alpha}{2} \norm{\nabla u}_{L^2(U \to \R^d)}\gtrsim _U \norm{u}_{H_0^1(U)} .
+    \end{align*}
+\end{proof}
+We now consider $\Ll u =\lambda u+f$, which is a small generalization of our original problem \eqref{PDE}. We have that,
+\begin{align*}
+    \Ll u = \lambda u + f \iff  \Ll_\gamma u =(\gamma+\lambda)u +f.
+\end{align*}
+If we introduce the notation $\mu:=(\gamma+\lambda)$ and rename $v=\mu u +f$ we obtain that the above is equivalent to
+\begin{align*}
+    (\bm{I}- \mu \Ll_\gamma ^{-1}  )v =f.
+\end{align*}
+By Rellich-Kondrachov, we know that the inclusion $ i:H^1(U) \hookrightarrow L^2(U)$ is compact. As a result, by Theorem \ref{well posed 1}, we deduce that $\Ll_\gamma^{-1}: L^2(U) \to L^2(U)$, which we are now viewing as an operator on $L^2(U)$, is compact. More precisely $K:= i \circ \restr{\Ll_\gamma ^{-1}}{L^2(U)} $  is compact and the previous reasoning show that, given $f \in L^2(U)$, and $u \in H_0^1(U)$
+\begin{align}\label{reasoning}
+    \Ll u + \lambda u = f\iff Tu:=(\vb{I}-\mu K)u =f.
+\end{align}
+Which is exactly the form the \href{https://nowheredifferentiable.com/2023-05-30-PDE-2-Hilbert/#:~:text=Theorem%2010%20(-,Fredholm,-alternative).%20Let}{Fredholm alternative} takes. We can now state the following result.
+\begin{theorem}\label{well posednesss Fredholm}
+    Let $\Ll$ verify Assumption \ref{Ass1}, let $\lambda>0, f \in L^2(U)$ be any and consider the problems
+    \begin{align}
+        \begin{minipage}{0.3\linewidth}
+            \begin{equation}
+                \begin{cases}
+                    \Ll u = \lambda u+f \\
+                    u \in H_0^1(U)
+                \end{cases}\label{original}
+            \end{equation}
+        \end{minipage}%
+        \begin{minipage}{0.3\linewidth}
+            \begin{equation}
+                \begin{cases}
+                    \Ll u = \lambda u \\
+                    u \in H_0^1(U)
+                \end{cases}\label{originalh}
+            \end{equation}
+        \end{minipage}.
+    \end{align}
+    \begin{enumerate}
+        \item Equation \eqref{original} is well posed if and only if \eqref{originalh} has no non-zero solutions  $(\lambda \notin \sigma(\Ll))$.
+        \item The spectrum $\sigma (\Ll )$ is discrete. If $\sigma(\Ll )= \{\lambda_n \}_{n=1}^\infty$ is infinite, then $\lambda _n \to +\infty$.
+        \item The dimension of the following  spaces is equal
+              \begin{align*}
+                  N:= \set{u \in H_0^1(U): \Ll u = \lambda u}, \quad N^*:= \set{f \in L^2(U): \Ll^* f = \lambda f},
+              \end{align*}
+        \item Equation, \eqref{original} has a solution if and only if $f \in (N^*)^\perp$ $($equivalently $\br{w,f}=0$ for all $w \in N^* )$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Given $f \in L^2(U)$  Consider the following two problems
+    \begin{align}
+        \begin{minipage}{0.3\linewidth}
+            \begin{equation}
+                \begin{cases}
+                    Tv = f \\
+                    v \in L^2(U)
+                \end{cases}\label{fred}
+            \end{equation}
+        \end{minipage}%
+        \begin{minipage}{0.3\linewidth}
+            \begin{equation}
+                \begin{cases}
+                    Tv = 0 \\
+                    v \in L^2(U)
+                \end{cases}\label{fredh}
+            \end{equation}
+        \end{minipage}.
+    \end{align}
+    The reasoning in \eqref{reasoning} showed that a solution $u$ to \eqref{original} gives a solution to \eqref{fred} via the transformation $v=\mu u +f$. The converse is not clear, as given $v \in L^2(U)$  the inverse transformation $u = \mu ^{-1}(v-f)$ may not return a function in $H_0^1(U)$. However, if $v$  solves \eqref{fred}, then $u$ verifies
+    \begin{align*}
+        Tv=v-\mu K v=\mu u +f - \mu K v=f.
+    \end{align*}
+    Cancelling out the $f$ and dividing by $\mu$ we obtain that
+    \begin{align*}
+        u =Kv.
+    \end{align*}
+    By Theorem \ref{well posed 1} we know that $Kv = \Ll _\gamma ^{-1} v \in H_0^1(U)$ for all $v \in L^2(U)$ . As a result, $u$ solves \eqref{original} and   we have that \eqref{fred} has a solution if and only if \eqref{original} has a solution. Taking $f=0$ we also obtain that $u$ solves \eqref{originalh}  if and only  $v$  solves \eqref{fredh}. In conclusion,
+    \begin{align*}
+        \eqref{original} \text{ is } \rm{w.p} \iff \eqref{fred} \text{ is } \rm{w.p} \iff \ker(T) =0 \iff \ker(\Ll +\lambda )=0,
+    \end{align*}
+    where the second equivalence is the Fredholm alternative.
+
+    To see the second part, note that \eqref{fredh} has non zero solutions if and only if $\mu ^{-1} \in \sigma (K)$. Since $K$ is compact, $\sigma(K)$ is discrete and if it is infinite then its eigenvalues, which we denote by $\left\{\mu _n^{-1}\right\}_{n=1}^\infty$ go to $0$. The claim follows by the correspondence $\lambda =\mu -\gamma$.
+
+    For the final part, we note that we have already proved that $\ker(T)=N$. Additionally,
+    \begin{align*}
+        T^* =(\vb{I}-\mu K^*) =\vb{I}-\mu (\Ll^*+ \gamma  )^{-1},
+    \end{align*}
+
+    from where
+    \begin{align*}
+        \quad \ker(T^*)=\ker(\Ll^* -\lambda \vb{I})= N^*.
+    \end{align*}
+    Applying the Fredholm alternative once more concludes the proof.
+\end{proof}
+
+\begin{corollary}
+    Equation \eqref{PDE} is well posed unless the homogeneous problem $\Ll u=0$ has a non null solution (that is, $\ker(\Ll )\neq 0$). Furthermore,  $\ker(\Ll) $ and $\ker(\Ll ^*)$ have the same dimension.  And \eqref{PDE} will have a solution if and only if $f$ is orthogonal to the kernel of $\Ll^*$.
+\end{corollary}
+
+
+\begin{exercise}
+    In Theorem \ref{well posednesss Fredholm} we used that, for $\gamma $ large enough,  $K= \Ll_{\gamma }^{-1} $ is compact. However, $\Ll_{\gamma }^{-1}$ is invertible with inverse $\Ll _\gamma $. As a result $\vb{I}=\Ll _\gamma \circ \Ll _\gamma ^{-1}$  is compact. How is this possible?
+\end{exercise}
+\begin{hint}
+    In fact, $\Ll_\gamma^{-1} $ is only invertible as an operator from $H^{-1}(U) \to H^1_0(U)$. However, it is not invertible as an operator from $K:L^2(U) \to L^2(U)$. Given $f \in L^2(U)$ it is not generally possible to find an $u \in L^2(U)$ such that $\Ll_\gamma u =f$.
+\end{hint}
+\begin{exercise}
+    Where does the proof of Theorem \ref{well posednesss Fredholm} break down if we replace $U$ with $\R^d$?
+\end{exercise}
+\begin{hint}
+    Can you apply Rellich-Kondrachov to unbounded domains? What is the spectrum of the Laplacian on $\R^d$?
+\end{hint}
+\section{Higher regularity}
+We saw in Theorem \ref{well posednesss Fredholm} that given bounded coefficients $\vb{A},\vb{b},c$and $f \in L^2(U)$ the solution to \eqref{PDE} is in $H_0^1(U)$. However, since we are differentiating twice, we can expect that the solution is in fact in $H^2(U)$. This is indeed if we assume some additional regularity on the coefficients. The idea is to use difference quotients to approximate the derivatives.
+\begin{align*}
+    D_j^h u := \frac{u(x+ he_j)-u(x)}{h},\quad   e_j=(0,\ldots,\overset{(j)}{1},\ldots,0).
+\end{align*}
+The following lemma shows that, if we are able to bound these, then we can obtain the desired regularity. We show the proof for unbounded domains.
+\begin{lemma}[Difference quotients and regularity]
+    Let  $p \in (1, +\infty)$, then the following hold.
+    \begin{enumerate}
+        \item 	If $u \in L^p(\R^d)$ and for all $h$ sufficiently small $\norm{D_j^h u}_{L^p(\R^d)} \leq C$. Then $u \in W^{1,p}(\R^d)$.
+        \item  If $u \in W^{1,p}(\R^d)$. Then, for all $h$ sufficiently small $\norm{D_j^h u}_{L^p(\R^d)} \leq C\norm{\nabla u}_{L^p(\R^d)}.$
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    The idea is to use the fundamental theorem of calculus and the density of smooth functions in $L^p(\R^d)$  to bound the difference quotients. Since $L^p(\R^d)$ is reflexive, this will give a subsequence that converges weakly to some $v \in L^p(\R^d)$. We will show that $v=\nabla u$ almost everywhere.  Suppose first that $u$ is smooth. Then,
+
+\end{proof}
+
+
+\begin{theorem}[Higher regularity unbounded domain]
+    Suppose that $\vb{A}\in C^1(\R^d)$ and that $\bm{b},  \in L^\infty(\R^d \to \R^d), c \in L^\infty(\R^d)$. Then, if $u$ solves $\Ll u=f$, it holds that $u \in H^2(U)$.
+\end{theorem}
+\begin{proof}
+    The idea is to use difference quotients to approximate the second derivative. We will use the following notation
+\end{proof}
+
+
+\begin{theorem}\label{higher regularity}
+    Suppose that $\vb{A}\in C^1(U)$ and that $\vb{A}$ is uniformly elliptic. Then, the solution to \eqref{PDE} is in $H^2_{\mathrm{loc}}(U)$.
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+
+For bounded domains the proof is similar, however one has to be careful as the difference quotients may not be well defined at the boundary. As a result, it is necessary to work locally and use bump functions. This makes the proofs technically a bit messier, though the idea is the same. The proof of the following results can all be found in \cite{evans2022partial} pages (326-344).
+
+
+
+
+\appendix
+
+
+
+
+
+
+
+
+
+\bibliography{biblio.bib}
+\end{document}

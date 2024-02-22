@@ -335,6 +335,8 @@ INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecti109
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecrm0800.tfm
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecrm0600.tfm
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecsx1200.tfm
+INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecti0800.tfm
+INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecti0600.tfm
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi12.tfm
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmsy10.tfm
@@ -344,8 +346,6 @@ INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\sym
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmib10.tfm
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbsy10.tfm
-INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecti0800.tfm
-INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecti0600.tfm
 INPUT .\Elliptic_PDE_1.bbl
 INPUT .\Elliptic_PDE_1.bbl
 INPUT Elliptic_PDE_1.bbl
