@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
 \expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
@@ -53,5 +53,12 @@ H.~Brezis, H.~Br{\'e}zis, Functional analysis, Sobolev spaces and partial
 \bibitem{taylor2013partial}
 M.~Taylor, Partial differential equations II: Qualitative studies of linear
   equations, Vol. 116, Springer Science \& Business Media, 2013.
+
+\bibitem{leoni2023first}
+G.~Leoni,
+  \href{https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover}{A
+  first course in fractional Sobolev spaces}, Vol. 229, American Mathematical
+  Society, 2023.
+\newline\urlprefix\url{https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover}
 
 \end{thebibliography}

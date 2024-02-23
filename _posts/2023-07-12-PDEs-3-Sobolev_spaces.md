@@ -1438,6 +1438,7 @@ $$\begin{aligned}
 which shows that $W^{k,p}(\mathbb{R}^d) \subset L^q(\Omega)$. In the reasoning above, it is necessary for the extension to be continuous, otherwise we fail on the first $\sim$. As we saw previously, merely extending by zero will not do and in this section, we develop the necessary tools to extend Sobolev functions from a domain $\Omega$ to $\mathbb{R}^d$.
 
 For an extension to be possible, it is crucial that $\Omega$ is regular enough. We first work with the case of bounded open sets with $C^k$ boundary. Using the approximation of Sobolev functions by functions smooth on the boundary and a change of variables, we can extend functions in $W^{k,p}(\Omega)$ to the whole of $\mathbb{R}^d$. More general extensions are possible, and we discuss them later.
+
 <a name="extension domain">
 **Definition 11** </a> . Let $X(U)$ be a topological space of functions for each open $U \subset \R^d$. We say that $\Omega $ is an **extension domain** for $X$ is there exists a continuous operator
 

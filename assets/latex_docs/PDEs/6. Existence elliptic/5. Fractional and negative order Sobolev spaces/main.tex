@@ -582,9 +582,9 @@ The above results extend to Besov spaces, see \cite{agranovich2015sobolev} page 
 
 
 \subsection{Some applications}
-The following theorem can be found in \cite{agranovich2015sobolev} page 228 and serves as a generalization of the trace theorem for fractional Sobolev spaces.
+The following theorem can be found in \cite{agranovich2015sobolev} page 228 and \cite{leoni2023first} page 350 and serves as a generalization of the trace theorem for fractional Sobolev spaces.
 \begin{theorem}[Fractional trace theorem]\label{trace theorem}
-  Let $\Omega \subset \R^d$ be an open set with uniformly Lipschitz boundary. Then, for all $s>1 / p$, the trace operator $\operatorname{Tr}$ can be extended from $C_c^\infty (\R^d)$  to a bounded operator
+  Let $\Omega \subset \R^d$ be open with Lipschitz boundary. Then, for all  $p\in (1,\infty), s\in (1/p,\infty) $, the trace operator $\operatorname{Tr}$ can be extended from $C(\overline{\Omega } )$  to a bounded operator
   \begin{align*}
     \operatorname{Tr}: H^{s,p}(\Omega ) \to B^{s-1/p,p}(\partial\Omega), \quad \operatorname{Tr}: B^{s,p}(\Omega ) \to B^{s-1/p,p}(\partial\Omega).
   \end{align*}
@@ -593,6 +593,15 @@ In particular, as we have respective equalities for $W^{s,p}(\Omega )$ with $H^{
 \begin{align*}
   \operatorname{Tr}: W^{s,p}(\Omega ) \to B^{s-1/p,p}(\partial\Omega).
 \end{align*}
+In terms of extensions, the following completely characterizes the set of \href{}{extension domains} $\Omega $ for $W^{s,p}(\Omega )$.
+\begin{theorem}
+  Let $\Omega \subseteq \mathbb{R}^N$ be an open connected set, $p\in [1,+\infty]$, and $\gamma\in (0,1)$. Then $\Omega$ is an extension domain for $W^{\gamma, p}(\Omega)$ if and only if there exists a constant $C>0$ such that
+  $$
+    \mathcal{L}^N(B(x, r) \cap \Omega) \geq C r^N
+  $$
+  for all $x \in \Omega$ and all $0<r \leq 1$.
+\end{theorem}
+
 
 One can also obtain improved Sobolev embeddings for fractional Sobolev spaces. For example, see \cite{agranovich2015sobolev} page 224
 \begin{theorem}
