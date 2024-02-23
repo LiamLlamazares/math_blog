@@ -1432,7 +1432,7 @@ Many results in the theory of Sobolev spaces are proved first on $\mathbb{R}^d$ 
 
 <div>
 $$\begin{aligned}
-\norm{u}_{L^q(\Omega)} \sim  \norm{u}_{L^q(\mathbb{R}^d)} \lesssim \norm{u}_{W^{k,p}(\mathbb{R}^d)} \sim \norm{u}_{W^{k,p}(\Omega)},
+\norm{u} \U {L^q(\Omega)} \sim  \norm{u} \U {L^q(\mathbb{R}^d)} \lesssim \norm{u} \U {W^{k,p}(\mathbb{R}^d)} \sim \norm{u} \U {W^{k,p}(\Omega)},
 \end{aligned}$$
 </div>
 which shows that $W^{k,p}(\mathbb{R}^d) \subset L^q(\Omega)$. In the reasoning above, it is necessary for the extension to be continuous, otherwise we fail on the first $\sim$. As we saw previously, merely extending by zero will not do and in this section, we develop the necessary tools to extend Sobolev functions from a domain $\Omega$ to $\mathbb{R}^d$.
@@ -1455,9 +1455,9 @@ Lipschitz boundary** if there exists $\epsilon,L>0, N \in \mathbb{N}$ and an ope
 <ol>
 <li>For all $x \in \partial \Omega$ there exists a $U\U n$ such that $B\U \epsilon(x) \subset U\U n$.</li>
 <li>Every point in $\mathbb{R}^d$ is contained in at most $N$ sets $U\U n$.</li>
-<li>For each $n$ there exist local coordinates $y=\left(y^{\prime}, y_N\right) \in \mathbb{R}^{N-1} \times \mathbb{R}$ and a Lipschitz continuous function $f: \mathbb{R}^{N-1} \rightarrow \mathbb{R}$ (both depending on $n$ ), with Lipschitz constant $\operatorname{Lip} f \leq L$, such that $\Omega_n \cap \Omega=\Omega_n \cap V_n$, where $V_n$ is given in local coordinates by
+<li>For each $n$ there exist local coordinates $y=\left(y^{\prime}, y \U n\right) \in \mathbb{R}^{N-1} \times \mathbb{R}$ and a Lipschitz continuous function $f: \mathbb{R}^{N-1} \rightarrow \mathbb{R}$ (both depending on $n$ ), with Lipschitz constant $\operatorname{Lip} f \leq L$, such that $\Omega \U n \cap \Omega=\Omega \U n \cap V \U n$, where $V \U n$ is given in local coordinates by
 $$
-\left\{\left(x^{\prime}, x_d\right) \in \mathbb{R}^{N-1} \times \mathbb{R}: x_d>f\left(x^{\prime}\right)\right\} .
+\left\{\left(x^{\prime}, x \U d\right) \in \mathbb{R}^{N-1} \times \mathbb{R}: x \U d>f\left(x^{\prime}\right)\right\} .
 $$
 </li>
 </ol>
@@ -1666,7 +1666,7 @@ priori not well defined. The following theorem remedies this issue.
 
 <div>
 $$\begin{aligned}
-T: W^{1,p}(U)\to L^p_{\mathrm{loc}(\partial U) .
+T: W^{1,p}(U)\to L^p \U {\mathrm{loc}(\partial U) .
 \end{aligned}$$
 </div>
 
@@ -1733,7 +1733,7 @@ $$\begin{aligned}
 Using Theorem [6](#global) to extend $T$ continuously to
 $W^{k,p}(\Omega)= \overline{\left.C\U c^\infty(\mathbb{R}^d)\right|\U {\Omega}}$
 concludes the proof. ◻
-Note that, if $\Omega$ is bounded, then $L^p_{\mathrm{loc}}(\Omega)=L^p(Omega)$ so $Tu \in L^p(\partial \Omega)$.
+Note that, if $\Omega$ is bounded, then $L^p \U {\mathrm{loc}}(\Omega)=L^p(Omega)$ so $Tu \in L^p(\partial \Omega)$.
 **Definition 12**. We define the **trace** of $u \in W^{k,p}(\Omega)$
 as $Tu$. We also use the notation
 
