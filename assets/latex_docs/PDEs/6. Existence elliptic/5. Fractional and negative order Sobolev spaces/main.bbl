@@ -1,64 +1,58 @@
 \begin{thebibliography}{10}
-\expandafter\ifx\csname url\endcsname\relax
-  \def\url#1{\texttt{#1}}\fi
-\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
-\expandafter\ifx\csname href\endcsname\relax
-  \def\href#1#2{#2} \def\path#1{#1}\fi
 
 \bibitem{agranovich2015sobolev}
-M.~S. Agranovich,
-  \href{https://link.springer.com/book/10.1007/978-3-319-14648-5}{Sobolev
-  spaces, their generalizations and elliptic problems in smooth and Lipschitz
-  domains}, Springer, 2015.
-\newline\urlprefix\url{https://link.springer.com/book/10.1007/978-3-319-14648-5}
-
-\bibitem{di2012hitchhiker's}
-E.~Di~Nezza, G.~Palatucci, E.~Valdinoci,
-  \href{https://www.sciencedirect.com/science/article/pii/S0007449711001254}{Hitchhiker's
-  guide to the fractional sobolev spaces}, Bulletin des sciences
-  math{\'e}matiques 136~(5) (2012) 521--573.
-\newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S0007449711001254}
-
-\bibitem{triebel1992theory}
-H.~Triebel,
-  \href{https://link.springer.com/book/10.1007/978-3-0346-0419-2}{Theory of
-  Function Spaces II}, Vol.~84, Birkh{\"a}user, 1992.
-\newline\urlprefix\url{https://link.springer.com/book/10.1007/978-3-0346-0419-2}
-
-\bibitem{stein1970singular}
-E.~M. Stein, Singular integrals and differentiability properties of functions,
-  Princeton university press, 1970.
+Mikhail~S Agranovich.
+\newblock {\em Sobolev spaces, their generalizations and elliptic problems in
+  smooth and Lipschitz domains}.
+\newblock Springer, 2015.
 
 \bibitem{biccari2018local}
-U.~Biccari, M.~Warma, E.~Zuazua, Local regularity for fractional heat
-  equations, Recent Advances in PDEs: Analysis, Numerics and Control: In Honor
-  of Prof. Fern{\'a}ndez-Cara's 60th Birthday (2018) 233--249.
-
-\bibitem{leoni2017first}
-G.~Leoni,
-  \href{https://www.google.co.uk/books/edition/A_First_Course_in_Sobolev_Spaces/qoA8DwAAQBAJ?hl=en&gbpv=0}{A
-  first course in Sobolev spaces}, American Mathematical Soc., 2017.
-\newline\urlprefix\url{https://www.google.co.uk/books/edition/A_First_Course_in_Sobolev_Spaces/qoA8DwAAQBAJ?hl=en&gbpv=0}
-
-\bibitem{evans2022partial}
-L.~C. Evans,
-  \href{https://math24.files.wordpress.com/2013/02/partial-differential-equations-by-evans.pdf}{Partial
-  differential equations}, Vol.~19, American Mathematical Society, 2022.
-\newline\urlprefix\url{https://math24.files.wordpress.com/2013/02/partial-differential-equations-by-evans.pdf}
+Umberto Biccari, Mahamadi Warma, and Enrique Zuazua.
+\newblock Local regularity for fractional heat equations.
+\newblock {\em Recent Advances in PDEs: Analysis, Numerics and Control: In
+  Honor of Prof. Fern{\'a}ndez-Cara's 60th Birthday}, pages 233--249, 2018.
 
 \bibitem{brezis2011functional}
-H.~Brezis, H.~Br{\'e}zis, Functional analysis, Sobolev spaces and partial
-  differential equations, Vol.~2, Springer, 2011.
+Haim Brezis and Haim Br{\'e}zis.
+\newblock {\em Functional analysis, Sobolev spaces and partial differential
+  equations}, volume~2.
+\newblock Springer, 2011.
 
-\bibitem{taylor2013partial}
-M.~Taylor, Partial differential equations II: Qualitative studies of linear
-  equations, Vol. 116, Springer Science \& Business Media, 2013.
+\bibitem{di2012hitchhiker's}
+Eleonora Di~Nezza, Giampiero Palatucci, and Enrico Valdinoci.
+\newblock Hitchhiker's guide to the fractional sobolev spaces.
+\newblock {\em Bulletin des sciences math{\'e}matiques}, 136(5):521--573, 2012.
+
+\bibitem{evans2022partial}
+Lawrence~C Evans.
+\newblock {\em Partial differential equations}, volume~19.
+\newblock American Mathematical Society, 2022.
+
+\bibitem{leoni2017first}
+Giovanni Leoni.
+\newblock {\em A first course in Sobolev spaces}.
+\newblock American Mathematical Soc., 2017.
 
 \bibitem{leoni2023first}
-G.~Leoni,
-  \href{https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover}{A
-  first course in fractional Sobolev spaces}, Vol. 229, American Mathematical
-  Society, 2023.
-\newline\urlprefix\url{https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover}
+Giovanni Leoni.
+\newblock {\em A first course in fractional Sobolev spaces}, volume 229.
+\newblock American Mathematical Society, 2023.
+
+\bibitem{stein1970singular}
+Elias~M Stein.
+\newblock {\em Singular integrals and differentiability properties of
+  functions}.
+\newblock Princeton university press, 1970.
+
+\bibitem{taylor2013partial}
+Michael Taylor.
+\newblock {\em Partial differential equations II: Qualitative studies of linear
+  equations}, volume 116.
+\newblock Springer Science \& Business Media, 2013.
+
+\bibitem{triebel1992theory}
+Hans Triebel.
+\newblock {\em Theory of Function Spaces II}, volume~84.
+\newblock Birkh{\"a}user, 1992.
 
 \end{thebibliography}
