@@ -1662,7 +1662,7 @@ defined **almost everywhere**, then $\left.u\right|\U {\partial  U}$ is a
 priori not well defined. The following theorem remedies this issue.
 
  <a name="trace">
-**Proposition 8** </a>  (Trace). Let $\Omega \subset \mathbb{R}^d$ where $d\geq 2$be open with Lipschitz boundary and let $p\in[1,\infty). Then there exists a continuous linear operator
+**Proposition 8** </a>  (Trace). Let $\Omega \subset \mathbb{R}^d$ be open with Lipschitz boundary and let $p\in[1,\infty). Then there exists a continuous linear operator
 
 <div>
 $$\begin{aligned}
