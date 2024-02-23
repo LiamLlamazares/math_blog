@@ -1471,6 +1471,7 @@ That is, a domain is uniformly Lipschitz if it is has a locally finite covering 
 <div class="exercise-text">
 For the first part, use the fact that $\Omega$ is bounded to extract a finite subcovering. For the second use that $\partial\mathbb{R}^d=\emptyset$ and that everything is true for elements of the empty set.
 </div>
+</div>
 
 <a name="extension general">
 **Theorem 8** </a>  (General extension). Let $\Omega\subset \mathbb{R}^d$ be
