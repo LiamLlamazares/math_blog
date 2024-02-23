@@ -1462,8 +1462,8 @@ $$
 </li>
 </ol>
 That is, a domain is uniformly Lipschitz if it is has a locally finite covering which makes it of type $C^{0,1}$ (see Appendix <a href="#boundary">14</a>). Below we show two typical examples.
-<a name = "exercise lipschitz">
 
+<a name = "exercise lipschitz">
 **Exercise 19** </a> . Show that if $\Omega$ is bounded with Lipschitz boundary or if $\Omega=\mathbb{R}^d$ then it has uniformly Lipschitz boundary.
 
 <div class="exercise-container">
