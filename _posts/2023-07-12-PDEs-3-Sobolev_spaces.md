@@ -1836,17 +1836,18 @@ Use the continuity of the trace operator.
 
 The converse to Exercise [20](#trace 0) holds but is far from trivial.
 
-**Proposition 3**. Let $\Omega$ be a **bounded** open set with $C^1$
+**Proposition 3**. Let $\Omega$ be a **bounded** open set with $C^{m-1,1}$
 **boundary**. Then
 
 <div>
 $$\begin{aligned}
-W^{k,p}\U 0(\Omega)=\left\{u \in W^{k,p}(U): Tu=0\right\} .
+W^{k,p}\U 0(\Omega)=\left\{u \in W^{k,p}(U): Tu= , T\left(\frac{\partial u}{\partial \vb{n}}\right)=\ldots = T\left(\frac{\partial^{m-1} u}{\partial \vb{n}^{k-1}}\right)=0 \right\}
 \end{aligned}$$
 </div>
 
-The proof is very technical. See [6](https://math24.files.wordpress.com/2013/02/partial-differential-equations-by-evans.pdf) page 274 for the
-details.\
+The proof is very technical. See [6](https://math24.files.wordpress.com/2013/02/partial-differential-equations-by-evans.pdf) page 274 and [Leoni, 2017](https://www.google.co.uk/books/edition/A_First_Course_in_Sobolev_Spaces/qoA8DwAAQBAJ?hl=en&gbpv=0) page 596 for the
+details.
+
 Being able to approximate functions in $W\U 0^{k,p}(U)$ by smooth
 functions compactly supported **inside of** $U$ gives us many more
 tools. For example, a function $u$ in $W^{k,p}\U 0(U)$ can be extended by
