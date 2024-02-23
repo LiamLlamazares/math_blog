@@ -1452,13 +1452,16 @@ More general extensions are also possible. The following definition and Theorem 
 <a name="uniformly Lipschitz domain">
 **Definition 12** </a> . We say that an open set $\Omega \subset \mathbb{R}^d$ has **uniformly
 Lipschitz boundary** if there exists $\epsilon,L>0, N \in \mathbb{N}$ and an open covering $\left\\{U\U n\right\\}\U {n \in \mathbb{N}}$ of $\partial \Omega$ such that
-1. For all $x \in \partial \Omega$ there exists a $U\U n$ such that $B\U \epsilon(x) \subset U\U n$.
-2. Every point in $\mathbb{R}^d$ is contained in at most $N$ sets $U\U n$.
-3. For each $n$ there exist local coordinates $y=\left(y^{\prime}, y_N\right) \in \mathbb{R}^{N-1} \times \mathbb{R}$ and a Lipschitz continuous function $f: \mathbb{R}^{N-1} \rightarrow \mathbb{R}$ (both depending on $n$ ), with Lipschitz constant $\operatorname{Lip} f \leq L$, such that $\Omega_n \cap \Omega=\Omega_n \cap V_n$, where $V_n$ is given in local coordinates by
+<ol>
+<li>For all $x \in \partial \Omega$ there exists a $U\U n$ such that $B\U \epsilon(x) \subset U\U n$.</li>
+<li>Every point in $\mathbb{R}^d$ is contained in at most $N$ sets $U\U n$.</li>
+<li>For each $n$ there exist local coordinates $y=\left(y^{\prime}, y_N\right) \in \mathbb{R}^{N-1} \times \mathbb{R}$ and a Lipschitz continuous function $f: \mathbb{R}^{N-1} \rightarrow \mathbb{R}$ (both depending on $n$ ), with Lipschitz constant $\operatorname{Lip} f \leq L$, such that $\Omega_n \cap \Omega=\Omega_n \cap V_n$, where $V_n$ is given in local coordinates by
 $$
-\left\{\left(y^{\prime}, y_N\right) \in \mathbb{R}^{N-1} \times \mathbb{R}: y_N>f\left(y^{\prime}\right)\right\} .
+\left\{\left(x^{\prime}, x_d\right) \in \mathbb{R}^{N-1} \times \mathbb{R}: x_d>f\left(x^{\prime}\right)\right\} .
 $$
-That is, a domain is uniformly Lipschitz if it is has a locally finite covering which makes it of type $C^{0,1}$ (see Appendix [14](#boundary)). Below we show two typical examples.
+</li>
+</ol>
+That is, a domain is uniformly Lipschitz if it is has a locally finite covering which makes it of type $C^{0,1}$ (see Appendix <a href="#boundary">14</a>). Below we show two typical examples.
 <a name = "exercise lipschitz">
 **Exercise 19** </a> . Show that if $\Omega$ is bounded with Lipschitz boundary or if $\Omega=\mathbb{R}^d$ then it has uniformly Lipschitz boundary.
 
@@ -1728,7 +1731,7 @@ $$\begin{aligned}
 Using Theorem [6](#global) to extend $T$ continuously to
 $W^{k,p}(\Omega)= \overline{\left.C\U c^\infty(\mathbb{R}^d)\right|\U {\Omega}}$
 concludes the proof. ◻
-
+Note that, if $\Omega$ is bounded, then $L^p_{\mathrm{loc}}(\Omega)=L^p(Omega)$ so $Tu \in L^p(\partial \Omega)$.
 **Definition 12**. We define the **trace** of $u \in W^{k,p}(\Omega)$
 as $Tu$. We also use the notation
 
