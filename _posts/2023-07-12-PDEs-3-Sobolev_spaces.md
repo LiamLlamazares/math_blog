@@ -1437,8 +1437,6 @@ $$\begin{aligned}
 </div>
 which shows that $W^{k,p}(\mathbb{R}^d) \subset L^q(\Omega)$. In the reasoning above, it is necessary for the extension to be continuous, otherwise we fail on the first $\sim$. As we saw previously, merely extending by zero will not do and in this section, we develop the necessary tools to extend Sobolev functions from a domain $\Omega$ to $\mathbb{R}^d$.
 
-For an extension to be possible, it is crucial that $\Omega$ is regular enough. We first work with the case of bounded open sets with $C^k$ boundary. Using the approximation of Sobolev functions by functions smooth on the boundary and a change of variables, we can extend functions in $W^{k,p}(\Omega)$ to the whole of $\mathbb{R}^d$. More general extensions are possible, and we discuss them later.
-
 <a name="extension domain">
 **Definition 11** </a> . Let $X(U)$ be a topological space of functions for each open $U \subset \R^d$. We say that $\Omega $ is an **extension domain** for $X$ is there exists a continuous operator
 
@@ -1448,7 +1446,8 @@ E: X(\Omega ) \to X(\mathbb{R}^d),
 \end{aligned}$$
 </div>
 such that $Eu(x)=u(x)$ for almost all $x \in \Omega $. We call $E$ an **extension operator**.
-More general extensions are also possible. The following definition and Theorem can be found in[Leoni, 2017](https://www.google.co.uk/books/edition/A_First_Course_in_Sobolev_Spaces/qoA8DwAAQBAJ?hl=en&gbpv=0) Section 13.
+
+For an extension to be possible, it is crucial that $\Omega$ is regular enough. It will be sufficient to impose that $\Omega$ have uniformly Lipschitz boundary. The following definition and Theorem can be found in[Leoni, 2017](https://www.google.co.uk/books/edition/A_First_Course_in_Sobolev_Spaces/qoA8DwAAQBAJ?hl=en&gbpv=0) Section 13.
 
 <a name="uniformly Lipschitz domain">
 **Definition 12** </a> . We say that an open set $\Omega \subset \mathbb{R}^d$ has **uniformly
@@ -1473,6 +1472,8 @@ That is, a domain is uniformly Lipschitz if it is has a locally finite covering 
 For the first part, use the fact that $\Omega$ is bounded to extract a finite subcovering. For the second use that $\partial\mathbb{R}^d=\emptyset$ and that everything is true for elements of the empty set.
 </div>
 </div>
+
+The following theorem shows that if $\partial\Omega$ is uniformly Lipschitz, $\Omega is an extension domain for $W^{k,p}$. To simplify the proof we will give the proof in the case of bounded open sets with $C^k$ boundary. Using the approximation of Sobolev functions by functions smooth on the boundary and a change of variables, we can extend functions in $W^{k,p}(\Omega)$ to the whole of $\mathbb{R}^d$.
 
 <a name="extension general">
 **Theorem 8** </a>  (General extension). Let $\Omega\subset \mathbb{R}^d$ be
