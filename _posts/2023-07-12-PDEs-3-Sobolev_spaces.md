@@ -1666,7 +1666,7 @@ priori not well defined. The following theorem remedies this issue.
 
 <div>
 $$\begin{aligned}
-T: W^{1,p}(U)\to L^p \U {\mathrm{loc}(\partial U) .
+T: W^{1,p}(U)\to L^p \U {\mathrm{loc}}(\partial U) .
 \end{aligned}$$
 </div>
 
