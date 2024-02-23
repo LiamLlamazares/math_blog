@@ -1662,15 +1662,16 @@ defined **almost everywhere**, then $\left.u\right|\U {\partial  U}$ is a
 priori not well defined. The following theorem remedies this issue.
 
  <a name="trace">
-**Proposition 8** </a>  (Trace). Let $\Omega \subset \mathbb{R}^d$ be open with Lipschitz boundary and let $p\in[1,\infty). Then there exists a continuous linear operator
+**Proposition 8** </a>  (Trace). Let $\Omega \subset \mathbb{R}^d$ where $d\geq 2$be open with Lipschitz boundary and let $p\in[1,\infty). Then there exists a continuous linear operator
 
 <div>
 $$\begin{aligned}
-T: W^{1,p}(U)\to L^p \U {\mathrm{loc}}(\partial U) .
+T: W^{1,p}(\Omega)\to L^p \U {\mathrm{loc}}(\partial \Omega) .
 \end{aligned}$$
 </div>
 
-Such that $Tu =\left.u\right|\U {\partial \Omega}$ for all $u \in C(\overline{\Omega}) \cap W^{1,p}(\Omega)$.
+Such that $Tu =\left.u\right|\U {\partial \Omega}$ for
+all $u \in C(\overline{\Omega}) \cap W^{1,p}(\Omega)$.
 
 Proof. We will only prove the case where $\Omega$ is bounded and of class $C^1$. The proof of the general statement can once more be found in [Leoni, 2017](https://www.google.co.uk/books/edition/A_First_Course_in_Sobolev_Spaces/qoA8DwAAQBAJ?hl=en&gbpv=0) page 592.
 
