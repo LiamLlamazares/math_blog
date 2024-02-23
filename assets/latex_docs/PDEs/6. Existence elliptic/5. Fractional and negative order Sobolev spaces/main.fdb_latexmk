@@ -1,5 +1,13 @@
 # Fdb version 4
-["pdflatex"] 1708625406 "c:/Users/liaml/Documentos/LiamLlamazares.github.io/assets/latex_docs/PDEs/6. Existence elliptic/5. Fractional and negative order Sobolev spaces/main.tex" "main.pdf" "main" 1708625409 0
+["bibtex main"] 1708692663 "main.aux" "main.bbl" "main" 1708692667 0
+  "./biblio.bib" 1708692662 14208 887f8f26ed0f7289e23092c9ca963bf7 ""
+  "C:/Users/liaml/AppData/Roaming/MiKTeX/bibtex/bst/elsarticle/elsarticle-num.bst" 1606130968 29462 43db4fe246825ec69ed81b2463c17f04 ""
+  "main.aux" 1708692666 9601 63adb80709fec4e397a71fd8aff290b6 "pdflatex"
+  (generated)
+  "main.bbl"
+  "main.blg"
+  (rewritten before read)
+["pdflatex"] 1708692663 "c:/Users/liaml/Documentos/LiamLlamazares.github.io/assets/latex_docs/PDEs/6. Existence elliptic/5. Fractional and negative order Sobolev spaces/main.tex" "main.pdf" "main" 1708692667 0
   "C:/Users/liaml/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1707498791 94439 75c7519cf2ed88b72b9665aa102cbef9 ""
   "C:/Users/liaml/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1095.pk" 1690620576 28976 15f2d128e0a16a7158dbd1b6ad2c263b ""
   "C:/Users/liaml/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecrm1095.pk" 1690620575 26228 768cad8c0b2c83c34bc01e4e46390c9a ""
@@ -9,6 +17,7 @@
   "C:/Users/liaml/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecsx1440.pk" 1701110699 34676 f1c896f576f9eb0096123e03a701eb6d ""
   "C:/Users/liaml/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecsx2074.pk" 1701110705 52312 1271c48494d0e4dc3ed18c097c7883e8 ""
   "C:/Users/liaml/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecti1095.pk" 1701110697 35204 440947580af9fea7ff28a0ef5c1ba9bc ""
+  "C:/Users/liaml/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ectt1095.pk" 1701110841 21972 222cdb93eaf954ce85743642d383726f ""
   "C:/Users/liaml/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1705360639 24224934 5f38f311ed8193e2e5d225dc2245eaf0 ""
   "C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ecbx1095.tfm" 993058356 3228 aacd2ac2d814480e4422ad7e830fd2d4 ""
   "C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ecrm0600.tfm" 993058516 3160 116e21835795bb29209ae8bb4682382f ""
@@ -23,6 +32,7 @@
   "C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ecti0600.tfm" 993058712 2844 9478d4df495beb3586d88f9bc53af51f ""
   "C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ecti0800.tfm" 993058716 2840 b6fc7cd2d2eed024b253ee3d8fe2d4cb ""
   "C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ecti1095.tfm" 993058722 2852 cf233cde705f180d95560390f0f826e7 ""
+  "C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ectt1095.tfm" 993058742 1352 fa21dcb5ddc7d1dc47d14cd897fdeb0f ""
   "C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1233951848 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmbsy8.tfm" 1233951848 1120 200be8b775682cdf80acad4be5ef57e4 ""
   "C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
@@ -141,6 +151,7 @@
   "C:/Users/liaml/AppData/Local/Programs/MiKTeX/tex/latex/base/fontenc.sty" 1698826601 5119 50695b8f743569fbac71a83f7ef51fe2 ""
   "C:/Users/liaml/AppData/Local/Programs/MiKTeX/tex/latex/base/ifthen.sty" 1698826601 5319 5435f8f7051e23a851a1c665c5b84e22 ""
   "C:/Users/liaml/AppData/Local/Programs/MiKTeX/tex/latex/base/t1cmss.fd" 1698826601 2641 638ddbe214c47dfda2b97e60780ae6c5 ""
+  "C:/Users/liaml/AppData/Local/Programs/MiKTeX/tex/latex/base/t1cmtt.fd" 1698826601 2443 955a820f7890344dc6c6ca236a5c2990 ""
   "C:/Users/liaml/AppData/Local/Programs/MiKTeX/tex/latex/environ/environ.sty" 1399188561 4378 f429f0da968c278653359293040a8f52 ""
   "C:/Users/liaml/AppData/Local/Programs/MiKTeX/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1622999586 13886 d1306dcf79a944f6988e688c1785f9ce ""
   "C:/Users/liaml/AppData/Local/Programs/MiKTeX/tex/latex/etoolbox/etoolbox.sty" 1601894156 46845 3b58f70c6e861a13d927bff09d35ecbc ""
@@ -220,9 +231,10 @@
   "C:/Users/liaml/AppData/Roaming/MiKTeX/tex/latex/todonotes/todonotes.sty" 1675595005 21300 a6e0d5f13b9360f0419aa0d6b30a9c96 ""
   "C:/Users/liaml/AppData/Roaming/MiKTeX/tex/latex/units/nicefrac.sty" 1469025550 4163 0462ee5ab265cf59dc15a41a3b883101 ""
   "C:/Users/liaml/AppData/Roaming/MiKTeX/tex/latex/xpatch/xpatch.sty" 1585221260 8510 7803f78066c4f9d008405191a4b43073 ""
-  "c:/Users/liaml/Documentos/LiamLlamazares.github.io/assets/latex_docs/PDEs/6. Existence elliptic/5. Fractional and negative order Sobolev spaces/main.tex" 1708625397 36799 21f05f1aed08f637d288efa87ea0028e ""
-  "main.aux" 1708625409 8557 cb93974e7b09cf1f1df1eee0fdb015d4 "pdflatex"
-  "main.tex" 1708625397 36799 21f05f1aed08f637d288efa87ea0028e ""
+  "c:/Users/liaml/Documentos/LiamLlamazares.github.io/assets/latex_docs/PDEs/6. Existence elliptic/5. Fractional and negative order Sobolev spaces/main.tex" 1708692500 39578 1e47712fa2c9b7bad43c337d30b2bf58 ""
+  "main.aux" 1708692666 9601 63adb80709fec4e397a71fd8aff290b6 "pdflatex"
+  "main.bbl" 1708692663 2639 d3226bb822404baf785a5d779eb4fae7 "bibtex main"
+  "main.tex" 1708692500 39578 1e47712fa2c9b7bad43c337d30b2bf58 ""
   (generated)
   "main.aux"
   "main.log"

@@ -14,7 +14,7 @@ authorpost: L.Llamazares
   are **complete** spaces of **weakly differentiable** functions.
 
 - **Smooth functions are dense** in $W^{k,p}(\Omega)$ if $\Omega$ is
-  bounded and has $C^1$ boundary. This lets us manipulate Sobolev
+  bounded and has Lipschitz boundary. This lets us manipulate Sobolev
   functions as if they were smooth and then take limits. In
   particular, we can **extend and restrict** functions to
   $\partial \Omega$.
@@ -1428,37 +1428,52 @@ restrict them to $\partial \Omega$.
 
 # <a name="extension section"> Extensions and restrictions </a>
 
-Using the approximation of Sobolev functions by functions smooth on the
-boundary, we can extend functions in $W^{k,p}(\Omega)$ to the whole of
-$\mathbb{R}^d$. However, the extension is not unique.
-
- <a name="extension">
-**Theorem 7** </a>  (Extension theorem). Let $\Omega\subset \mathbb{R}^d$ be
-a **bounded** open set with **$C^k$** **boundary** where
-$k \in \mathbb{N}\U +$. Then for all $p \in [1,\infty)$ . Then, given an
-open set $W$ with $\Omega \Subset W$ there exists a continuous operator
+Many results in the theory of Sobolev spaces are proved first on $\mathbb{R}^d$ and then extended to more general domains by a continuous extension followed by a restriction. For example, if one can show that $W^{k,p}(\mathbb{R}^d) \in L^q(\mathbb{R}^d)$ for some $p,q,r$ then, denoting by $\tilde{u}$ the extension of $u$ to $\mathbb{R}^d$
 
 <div>
 $$\begin{aligned}
-E: W^{k,p}(\Omega)\to W^{k,p}(\mathbb{R}^d); \quad E: C^{k}(\Omega)\to C^k(\mathbb{R}^d).
+\norm{u}_{L^q(\Omega)} \sim  \norm{u}_{L^q(\mathbb{R}^d)} \lesssim \norm{u}_{W^{k,p}(\mathbb{R}^d)} \sim \norm{u}_{W^{k,p}(\Omega)},
 \end{aligned}$$
 </div>
+which shows that $W^{k,p}(\mathbb{R}^d) \subset L^q(\Omega)$. In the reasoning above, it is necessary for the extension to be continuous, otherwise we fail on the first $\sim$. As we saw previously, merely extending by zero will not do and in this section, we develop the necessary tools to extend Sobolev functions from a domain $\Omega$ to $\mathbb{R}^d$.
 
-such that
+For an extension to be possible, it is crucial that $\Omega$ is regular enough. We first work with the case of bounded open sets with $C^k$ boundary. Using the approximation of Sobolev functions by functions smooth on the boundary and a change of variables, we can extend functions in $W^{k,p}(\Omega)$ to the whole of $\mathbb{R}^d$. More general extensions are possible, and we discuss them later.
+<a name="extension domain">
+**Definition 11** </a> . Let $X(U)$ be a topological space of functions for each open $U \subset \R^d$. We say that $\Omega $ is an **extension domain** for $X$ is there exists a continuous operator
 
 <div>
 $$\begin{aligned}
-Eu = \begin{cases}
-u \quad & \text{ on  }  \Omega \\
-0 \quad & \text{ on }  W^c
-\end{cases}.
+E: X(\Omega ) \to X(\mathbb{R}^d),
 \end{aligned}$$
 </div>
+such that $Eu(x)=u(x)$ for almost all $x \in \Omega $. We call $E$ an **extension operator**.
+More general extensions are also possible. The following definition and Theorem can be found in[Leoni, 2017](https://www.google.co.uk/books/edition/A_First_Course_in_Sobolev_Spaces/qoA8DwAAQBAJ?hl=en&gbpv=0) Section 13.
 
-We call $E u$ an **extension** of $u$ to
-$\mathbb{R}^n$.
+<a name="uniformly Lipschitz domain">
+**Definition 12** </a> . We say that an open set $\Omega \subset \mathbb{R}^d$ has **uniformly
+Lipschitz boundary** if there exists $\epsilon,L>0, N \in \mathbb{N}$ and an open covering $\left\\{U\U n\right\\}\U {n \in \mathbb{N}}$ of $\partial \Omega$ such that
+1. For all $x \in \partial \Omega$ there exists a $U\U n$ such that $B\U \epsilon(x) \subset U\U n$.
+2. Every point in $\mathbb{R}^d$ is contained in at most $N$ sets $U\U n$.
+3. For each $n$ there exist local coordinates $y=\left(y^{\prime}, y_N\right) \in \mathbb{R}^{N-1} \times \mathbb{R}$ and a Lipschitz continuous function $f: \mathbb{R}^{N-1} \rightarrow \mathbb{R}$ (both depending on $n$ ), with Lipschitz constant $\operatorname{Lip} f \leq L$, such that $\Omega_n \cap \Omega=\Omega_n \cap V_n$, where $V_n$ is given in local coordinates by
+$$
+\left\{\left(y^{\prime}, y_N\right) \in \mathbb{R}^{N-1} \times \mathbb{R}: y_N>f\left(y^{\prime}\right)\right\} .
+$$
+That is, a domain is uniformly Lipschitz if it is has a locally finite covering which makes it of type $C^{0,1}$ (see Appendix [14](#boundary)). Below we show two typical examples.
+<a name = "exercise lipschitz">
+**Exercise 19** </a> . Show that if $\Omega$ is bounded with Lipschitz boundary or if $\Omega=\mathbb{R}^d$ then it has uniformly Lipschitz boundary.
 
-Proof. We work first in the upper half-space (the canonical example of
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+For the first part, use the fact that $\Omega$ is bounded to extract a finite subcovering. For the second use that $\partial\mathbb{R}^d=\emptyset$ and that everything is true for elements of the empty set.
+</div>
+
+<a name="extension general">
+**Theorem 8** </a>  (General extension). Let $\Omega\subset \mathbb{R}^d$ be
+an open set with uniformly Lipschitz boundary. Then $\Omega$ is an extension domain for $W^{k,p}(\Omega)$ and $C^k(\Omega)$ for all $p \in [1,\infty]$.
+
+Proof. We prove the result when the domain is bounded with $C^k$ boundary and when $p<\infty$. The general result can be found in [Leoni, 2017](https://www.google.co.uk/books/edition/A_First_Course_in_Sobolev_Spaces/qoA8DwAAQBAJ?hl=en&gbpv=0) page 424.
+work first in the upper half-space (the canonical example of
 a manifold with boundary)
 
 <div>
@@ -1591,9 +1606,8 @@ shows that $E$ is also bounded as an operator from $C^k(\Omega)$ to
 $C^k(\mathbb{R}^d)$. This concludes the proof. ◻
 
  <a name="restriction">
-**Exercise 19** </a>  (Restriction). Under the conditions of Theorem
-<a href="#extension"7></a> it holds
-that
+**Exercise 20** </a>  (Restriction). Under the conditions of Theorem
+<a href="#extension general">8</a>, show that
 
 <div>
 $$\begin{aligned}
@@ -1610,7 +1624,7 @@ functions in $W^{k,p}(\mathbb{R}^d),C^{k}(\mathbb{R}^d)$ respectively.
 <div class="exercise-text">
 Given $u \in W^{k,p}(\Omega)$ we can extend it to
 $Eu \in W^{k,p}(\mathbb{R}^d)$ by the just proved extension theorem
-[7](#extension). By
+<a href="#extension general">8</a>. By
 definition $u= \left.Eu\right|\U {\Omega}$. The case
 $u \in C^k(\mathbb{R}^d)$ is identical.
 </div>
@@ -1619,7 +1633,7 @@ $u \in C^k(\mathbb{R}^d)$ is identical.
 Using extensions also gives us a way to define the Sobolev spaces
 $H^s(\Omega)$ when the exponent $s$ is real valued.
 
-**Definition 11**. Given a **bounded** open set $\Omega$ with
+**Definition 11**.Let $\Omega$ be an extension domain for $W^{k,p}(\Omega)$. Then, for all real $s \in [0,k]$, we define
 **boundary** of type $C^k$ with $k \in \mathbb{N}\U +$, we define for all
 real $s \in [0,k]$
 
@@ -1643,20 +1657,19 @@ defined **almost everywhere**, then $\left.u\right|\U {\partial  U}$ is a
 priori not well defined. The following theorem remedies this issue.
 
  <a name="trace">
-**Theorem 8** </a>  (Trace). Let $\Omega$ be a **bounded** open set of
-$\mathbb{R}^d$ with $C^1$ **boundary**. Then, there exists a continuous
-linear operator
+**Proposition 8** </a>  (Trace). Let $\Omega \subset \mathbb{R}^d$ be open with Lipschitz boundary and let $p\in[1,\infty). Then there exists a continuous linear operator
 
 <div>
 $$\begin{aligned}
-T: W^{1,p}(U)\to L^p(\partial U) .
+T: W^{1,p}(U)\to L^p_{\mathrm{loc}(\partial U) .
 \end{aligned}$$
 </div>
 
-Such that $Tu =\left.u\right|\U {\partial \Omega}$ for
-all $u \in C(\overline{\Omega}) \cap W^{1,p}(\Omega)$.
+Such that $Tu =\left.u\right|\U {\partial \Omega}$ for all $u \in C(\overline{\Omega}) \cap W^{1,p}(\Omega)$.
 
-Proof. As in previous results, the trick is to suppose first $u$ is
+Proof. We will only prove the case where $\Omega$ is bounded and of class $C^1$. The proof of the general statement can once more be found in [Leoni, 2017](https://www.google.co.uk/books/edition/A_First_Course_in_Sobolev_Spaces/qoA8DwAAQBAJ?hl=en&gbpv=0) page 592.
+
+As in previous results, the trick is to suppose first $u$ is
 smooth, work locally, and then obtain a global result using a partition
 of unity and the density in Theorem [6](#global).\
 Given $x\U 0 \in \partial  \Omega$ we take a open set
@@ -1670,7 +1683,7 @@ $$\begin{aligned}
 </div>
 
 and using the extension theorem
-[7](#extension) to extend
+<a href="#extension general">8</a> to extend
 $u':= u\circ \Phi$ to $\widetilde{u}'$ with compact support
 $K \subset \mathbb{R}^d$ we obtain by the [divergence
 theorem](https://en.wikipedia.org/wiki/Divergence_theorem#:~:text=space%5Bedit%5D-,We,-are%20going%20to%20prove)
@@ -2288,7 +2301,7 @@ inclusions are
 Proof. The fact that the above inclusions are continuous, follows by
 our three Sobolev inequalities in Exercises
 [24](#est12),[25](#est22),[26](#est32)
-together with the extension theorem [7](#extension).
+together with the extension theorem <a href="#extension general">8</a>.
 
 The compactness of the embeddings requires reduces to showing that the
 unit ball in each of the embedded spaces is
@@ -3389,7 +3402,7 @@ $\Omega \subset \mathbb{R}^d$ is some open set. In this case, we adopt
 the following terminology.
 
 **Definition 28**. We say that an open set $\Omega\subset \mathbb{R}^d$
-has **$C^k$ boundary** of $\overline{\Omega}$ is a $C^k$ manifold with
+has **$C^k$ boundary** if $\overline{\Omega}$ is a $C^k$ manifold with
 boundary.
 
 In the above case, the topological and manifold boundaries of $\Omega$
