@@ -582,6 +582,7 @@ The following theorem can be found in \cite{agranovich2015sobolev} page 228 and 
     \begin{align*}
         \operatorname{Tr}: H^{s,p}(\Omega ) \to B^{s-1/p,p}(\partial\Omega), \quad \operatorname{Tr}: B^{s,p}(\Omega ) \to B^{s-1/p,p}(\partial\Omega).
     \end{align*}
+    Furthermore, given $g \in B^{s-1/p,p}(\partial\Omega)$, there exists $u \in W^{s,p}(\Omega )$ such that $\operatorname{Tr}u=g$.
 \end{theorem}
 In particular, as we have respective equalities for $W^{s,p}(\Omega )$ with $H^{s,p}(\Omega )$ and $W^{s,p}(\Omega )$ for respectively non-integer  $s$, we can also extend
 \begin{align*}
@@ -648,8 +649,29 @@ The supercritical case $s>d/p$ can be found in \cite{agranovich2015sobolev} page
     \end{align*}
     This embedding also holds for $s=d / p+k+\gamma$ provided that $\gamma $ is non-integer.
 \end{theorem}
-The extension to higher orders of regularity can be found in Section 11.4 of \cite{leoni2023first}.
+As in the non-fractional case, one can also consider higher smoothness on the right hand side (see \cite{leoni2023first} page 290).
+\begin{theorem}[Sobolev embedding into higher smoothness]\label{higher smoothness embedding}
+    Let $\Omega $ be an extension domain for $W^{s,p}$. Then, given $p_1, p_2 \in [1,\infty)$ and $0<s_1<s_2< 1$, it holds that
+    \begin{align*}
+        \norm{u}_{W^{s_1,p_1}(\Omega )}\lesssim \norm{u}_{W^{s_2,p_2}(\Omega )}, \quad\forall s_2 - \frac{d}{p_2} = s_1 - \frac{d}{p_1}.
+    \end{align*}
+\end{theorem}
+\begin{exercise}
+    Justify via a scaling argument that the condition $s_2 - \frac{d}{p_2} = s_1 - \frac{d}{p_1}$ is necessary for the embedding in Theorem \ref{higher smoothness embedding}.
+\end{exercise}
+\begin{hint}
+    Extend to a function on $\R^d$, then swap  $u$ with $u_\lambda (x):=u(\lambda x)$and apply the change of variables $(x,y)\to \lambda (x,y)$.
+\end{hint}
+Finally, interpolation results are also possible. See \cite{leoni2023first} page 300.
+\begin{theorem}
+    Let $\Omega $ be an extension domain for $W^{s,p}$ and consider $p_1,p_2 \in (1,\infty), 0 \leq s_1<s_2 \leq 1$ , and $0<\theta<1$. Then
+    \begin{align*}
+        \|u\|_{W^{*, p}(\R^d)} \lesssim\|u\|_{W^{s_1, p_1}(\R^d)}^\theta\|u\|_{W^{s_2, p_2}(\R^d)}^{1-\theta}
+    \end{align*}
 
+    for all $u \in W^{s_1, p_1}(\R^d) \cap W^{s_2, p_2}(\R^d)$, where $\frac{1}{p}=\frac{\theta}{p_1}+\frac{1-\theta}{p_2}$ and $s=\theta s_1+$ $(1-\theta) s_2.$
+\end{theorem}
+Higher order embeddings and interpolations can likewise be found in \cite{leoni2023first} Section 11.4.
 
 
 

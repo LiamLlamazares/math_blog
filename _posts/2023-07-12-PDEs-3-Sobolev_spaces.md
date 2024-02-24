@@ -1666,11 +1666,11 @@ priori not well defined. The following theorem remedies this issue.
 
 <div>
 $$\begin{aligned}
-T: W^{1,p}(\Omega)\to L^p \U {\mathrm{loc}}(\partial \Omega) .
+\operatorname{Tr}: W^{1,p}(\Omega)\to L^p \U {\mathrm{loc}}(\partial \Omega) .
 \end{aligned}$$
 </div>
 
-Such that $Tu =\left.u\right|\U {\partial \Omega}$ for
+Such that $\operatorname{Tr}(u) =\left.u\right|\U {\partial \Omega}$ for
 all $u \in C(\overline{\Omega}) \cap W^{1,p}(\Omega)$.
 
 Proof. We will only prove the case where $\Omega$ is bounded and of class $C^1$. The proof of the general statement can once more be found in [Leoni, 2017](https://www.google.co.uk/books/edition/A_First_Course_in_Sobolev_Spaces/qoA8DwAAQBAJ?hl=en&gbpv=0) page 592.
@@ -1727,20 +1727,22 @@ That is,
 
 <div>
 $$\begin{aligned}
-\left\lVert T u \right\rVert\U {L^p( \partial \Omega)}\lesssim  \left\lVert u \right\rVert\U {W^{1,p}(U)} .
+\left\lVert \operatorname{Tr}(u) \right\rVert\U {L^p( \partial \Omega)}\lesssim  \left\lVert u \right\rVert\U {W^{1,p}(U)} .
 \end{aligned}$$
 </div>
 
-Using Theorem [6](#global) to extend $T$ continuously to
+Using Theorem [6](#global) to extend $\operatorname{Tr}$ continuously to
 $W^{k,p}(\Omega)= \overline{\left.C\U c^\infty(\mathbb{R}^d)\right|\U {\Omega}}$
 concludes the proof. ◻
-Note that, if $\Omega$ is bounded, then $L^p \U {\mathrm{loc}}(\Omega)=L^p(Omega)$ so $Tu \in L^p(\partial \Omega)$.
+
+Note that, if $\Omega$ is bounded, then $L^p \U {\mathrm{loc}}(\Omega)=L^p(\Omega)$ so $Tu \in L^p(\partial \Omega)$.
+
 **Definition 12**. We define the **trace** of $u \in W^{k,p}(\Omega)$
 as $Tu$. We also use the notation
 
 <div>
 $$\begin{aligned}
-\left.u\right|\U {\partial \Omega}:= Tu.
+\left.u\right|\U {\partial \Omega}:= \operatorname{Tr}(u).
 \end{aligned}$$
 </div>
 
@@ -1756,7 +1758,7 @@ continuous operator
 
 <div>
 $$\begin{aligned}
-T: H^s(\Omega) \to H^{s -\frac{1}{2}}(\Omega).
+\operatorname{Tr}: H^s(\Omega) \to H^{s -\frac{1}{2}}(\Omega).
 \end{aligned}$$
 </div>
 
@@ -1776,7 +1778,7 @@ So, by Cauchy Schwartz
 <div>
 $$\begin{align}
 \label{f1}
-\left| \widehat{Tu}(\xi ) \right|^2\leq \int\U {\mathbb{R}}\left| \widehat{u}(\xi) \right|^2\left\langle\xi \right\rangle^{2s} \,\mathrm{d}\xi \U d \int\U {\mathbb{R}}\left\langle\xi \right\rangle^{-2s} \,\mathrm{d}\xi \U d.
+\left| \widehat{\operatorname{Tr}(u)}(\xi ) \right|^2\leq \int\U {\mathbb{R}}\left| \widehat{u}(\xi) \right|^2\left\langle\xi \right\rangle^{2s} \,\mathrm{d}\xi \U d \int\U {\mathbb{R}}\left\langle\xi \right\rangle^{-2s} \,\mathrm{d}\xi \U d.
 \end{align}$$
 </div>
 
@@ -1841,7 +1843,7 @@ The converse to Exercise [20](#trace 0) holds but is far from trivial.
 
 <div>
 $$\begin{aligned}
-W^{k,p}\U 0(\Omega)=\left\{u \in W^{k,p}(U): Tu= , T\left(\frac{\partial u}{\partial \vb{n}}\right)=\ldots = T\left(\frac{\partial^{m-1} u}{\partial \vb{n}^{k-1}}\right)=0 \right\}
+W^{k,p}\U 0(\Omega)=\left\{u \in W^{k,p}(U): \operatorname{Tr}(u)= , \operatorname{Tr}\left(\frac{\partial u}{\partial \vb{n}}\right)=\ldots = \operatorname{Tr}\left(\frac{\partial^{m-1} u}{\partial \vb{n}^{k-1}}\right)=0 \right\}
 \end{aligned}$$
 </div>
 
@@ -2390,6 +2392,7 @@ concludes the proof.
 </ol>
 
 ◻
+
 **Exercise**. Show that if $\Omega$ is unbounded then the inclusions in Theorem [13](rellich) are not compact.
 
 <div class="exercise-container">

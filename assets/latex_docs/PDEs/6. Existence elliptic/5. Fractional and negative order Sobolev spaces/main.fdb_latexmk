@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1708728810 "main.aux" "main.bbl" "main" 1708728851 0
+["bibtex main"] 1708781715 "main.aux" "main.bbl" "main" 1708782778 0
   "./biblio.bib" 1708708798 14610 9e350ad3749470aeff7a5b85adf13911 ""
   "C:/Users/liaml/AppData/Roaming/MiKTeX/bibtex/bst/elsarticle/elsarticle-num.bst" 1606130968 29462 43db4fe246825ec69ed81b2463c17f04 ""
-  "main.aux" 1708728850 10278 8093eef4668e88df8395c65652bbed99 "pdflatex"
+  "main.aux" 1708782777 10439 c59bedc2579a4a9badf3327577d8b166 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1708728847 "c:/Users/liaml/Documentos/LiamLlamazares.github.io/assets/latex_docs/PDEs/6. Existence elliptic/5. Fractional and negative order Sobolev spaces/main.tex" "main.pdf" "main" 1708728851 0
+["pdflatex"] 1708782776 "c:/Users/liaml/Documentos/LiamLlamazares.github.io/assets/latex_docs/PDEs/6. Existence elliptic/5. Fractional and negative order Sobolev spaces/main.tex" "main.pdf" "main" 1708782778 0
   "C:/Users/liaml/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1707498791 94439 75c7519cf2ed88b72b9665aa102cbef9 ""
   "C:/Users/liaml/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1095.pk" 1690620576 28976 15f2d128e0a16a7158dbd1b6ad2c263b ""
   "C:/Users/liaml/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecrm1095.pk" 1690620575 26228 768cad8c0b2c83c34bc01e4e46390c9a ""
@@ -232,10 +232,10 @@
   "C:/Users/liaml/AppData/Roaming/MiKTeX/tex/latex/todonotes/todonotes.sty" 1675595005 21300 a6e0d5f13b9360f0419aa0d6b30a9c96 ""
   "C:/Users/liaml/AppData/Roaming/MiKTeX/tex/latex/units/nicefrac.sty" 1469025550 4163 0462ee5ab265cf59dc15a41a3b883101 ""
   "C:/Users/liaml/AppData/Roaming/MiKTeX/tex/latex/xpatch/xpatch.sty" 1585221260 8510 7803f78066c4f9d008405191a4b43073 ""
-  "c:/Users/liaml/Documentos/LiamLlamazares.github.io/assets/latex_docs/PDEs/6. Existence elliptic/5. Fractional and negative order Sobolev spaces/main.tex" 1708728846 43393 f09457a023af293839f34b58673b23e7 ""
-  "main.aux" 1708728850 10278 8093eef4668e88df8395c65652bbed99 "pdflatex"
-  "main.bbl" 1708728810 3153 40b1a61b673384eec21ce831a3bddc3b "bibtex main"
-  "main.tex" 1708728846 43393 f09457a023af293839f34b58673b23e7 ""
+  "c:/Users/liaml/Documentos/LiamLlamazares.github.io/assets/latex_docs/PDEs/6. Existence elliptic/5. Fractional and negative order Sobolev spaces/main.tex" 1708782775 45032 b8f0b49d4bd908ad12b9e78c3f0d50c5 ""
+  "main.aux" 1708782777 10439 c59bedc2579a4a9badf3327577d8b166 "pdflatex"
+  "main.bbl" 1708781715 3153 40b1a61b673384eec21ce831a3bddc3b "bibtex main"
+  "main.tex" 1708782775 45032 b8f0b49d4bd908ad12b9e78c3f0d50c5 ""
   (generated)
   "main.aux"
   "main.log"
