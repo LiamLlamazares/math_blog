@@ -1640,9 +1640,7 @@ $u \in C^k(\mathbb{R}^d)$ is identical.
 Using extensions also gives us a way to define the Sobolev spaces
 $H^s(\Omega)$ when the exponent $s$ is real valued.
 
-**Definition 11**.Let $\Omega$ be an extension domain for $W^{k,p}(\Omega)$. Then, for all real $s \in [0,k]$, we define
-**boundary** of type $C^k$ with $k \in \mathbb{N}\U +$, we define for all
-real $s \in [0,k]$
+**Definition 11**.Let $\Omega$ be an extension domain for $W^{k,p}(\Omega)$. Then, for all $k \in \mathbb{N}\U +, s \in [0,k]$ we define
 
 <div>
 $$\begin{aligned}
@@ -2290,9 +2288,7 @@ u \in C^{k-1+1,\gamma}(\mathbb{R}^d )=C^{k,\gamma}(\mathbb{R}^d ) .
 Combining the three results gives
 
  <a name="rellich">
-**Theorem 13** </a>  (Rellich-Kondrachov). Let $\Omega$ either be
-$\mathbb{R}^d$ or **bounded** with $C^k$ boundary, then following
-inclusions are continuous
+**Theorem 13** </a>  (Rellich-Kondrachov). Let $\Omega$ be an extension domain for $W^{k,p}$, then the following inclusions are continuous
 
 <div>
 $$\begin{aligned}
@@ -2303,7 +2299,7 @@ $$\begin{aligned}
 
 Where $p^{k\star }$ is defined by the relation
 $\frac{1}{p^{k\star }}=\frac{1}{p}-\frac{k}{d}$ and $\gamma =1 -\frac{p}{d}$.
-Furthermore, in second case (when $\Omega$ is **bounded**) the first, second, fourth, and third composed with the fourth
+Furthermore, if $\Omega$ is **bounded** the first, second, fourth, and third composed with the fourth
 inclusions are
 [compact](https://en.wikipedia.org/wiki/Compact_embedding).
 
@@ -2394,8 +2390,17 @@ concludes the proof.
 </ol>
 
 ◻
+**Exercise**. Show that if $\Omega$ is unbounded then the inclusions in Theorem [13](rellich) are not compact.
 
-As a particular case of the above we obtain the following simpler
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+Consider a sequence of smooth functions whose support goes to infinity. For example, for $\Omega = \mathbb{R}^d$ consider the sequence $u\U n(x) = \varphi(x-n)$ where $\varphi\in C^\infty \U c(\mathbb{R}^d)$.
+
+</div>
+</div>
+
+As a particular case of Rellich's theorem [13](rellich) we obtain the following simpler
 looking corollary
 
  <a name="easy">
