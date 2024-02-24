@@ -1735,10 +1735,10 @@ Using Theorem [6](#global) to extend $\operatorname{Tr}$ continuously to
 $W^{k,p}(\Omega)= \overline{\left.C\U c^\infty(\mathbb{R}^d)\right|\U {\Omega}}$
 concludes the proof. ◻
 
-Note that, if $\Omega$ is bounded, then $L^p \U {\mathrm{loc}}(\Omega)=L^p(\Omega)$ so $Tu \in L^p(\partial \Omega)$.
+Note that, if $\Omega$ is bounded, then $L^p \U {\mathrm{loc}}(\Omega)=L^p(\Omega)$ so $\operatorname{Tr}(u) \in L^p(\partial \Omega)$.
 
 **Definition 12**. We define the **trace** of $u \in W^{k,p}(\Omega)$
-as $Tu$. We also use the notation
+as $\operatorname{Tr}(u)$. We also use the notation
 
 <div>
 $$\begin{aligned}
@@ -1769,7 +1769,7 @@ write $\xi=(\xi',\xi \U d)$
 
 <div>
 $$\begin{aligned}
-\widehat{Tu}(\xi ')=\int\U {\mathbb{R}}\widehat{u}(\xi) \,\mathrm{d}\xi \U d .
+\widehat{\operatorname{Tr}(u)}(\xi ')=\int\U {\mathbb{R}}\widehat{u}(\xi) \,\mathrm{d}\xi \U d .
 \end{aligned}$$
 </div>
 
