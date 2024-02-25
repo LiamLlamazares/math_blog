@@ -61,4 +61,11 @@ G.~Leoni,
   Society, 2023.
 \newline\urlprefix\url{https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover}
 
+\bibitem{savare1998regularity}
+G.~Savar{\'e},
+  \href{https://www.sciencedirect.com/science/article/pii/S002212369793158X/pdf?md5=c646200fe7117dd7d25d27439f36b342&pid=1-s2.0-S002212369793158X-main.pdf}{Regularity
+  results for elliptic equations in lipschitz domains}, Journal of Functional
+  Analysis 152~(1) (1998) 176--201.
+\newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S002212369793158X/pdf?md5=c646200fe7117dd7d25d27439f36b342&pid=1-s2.0-S002212369793158X-main.pdf}
+
 \end{thebibliography}

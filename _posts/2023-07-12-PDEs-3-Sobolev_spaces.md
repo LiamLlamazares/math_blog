@@ -1447,7 +1447,7 @@ E: X(\Omega ) \to X(\mathbb{R}^d),
 </div>
 such that $Eu(x)=u(x)$ for almost all $x \in \Omega $. We call $E$ an **extension operator**.
 
-For an extension to be possible, it is crucial that $\Omega$ is regular enough. It will be sufficient to impose that $\Omega$ have uniformly Lipschitz boundary. The following definition and Theorem can be found in[Leoni, 2017](https://www.google.co.uk/books/edition/A_First_Course_in_Sobolev_Spaces/qoA8DwAAQBAJ?hl=en&gbpv=0) Section 13.
+For an extension to be possible, it is crucial that $\Omega$ is regular enough. It will be sufficient to impose that $\Omega$ have uniformly Lipschitz boundary. The following definition and Theorem can be found in [Leoni, 2017](https://www.google.co.uk/books/edition/A_First_Course_in_Sobolev_Spaces/qoA8DwAAQBAJ?hl=en&gbpv=0) Section 13.
 
 <a name="uniformly Lipschitz domain">
 **Definition 12** </a> . We say that an open set $\Omega \subset \mathbb{R}^d$ has **uniformly
@@ -2087,12 +2087,12 @@ $$\begin{aligned}
 This concludes the proof. ◻
 
  <a name="est12">
-**Exercise 24** </a> . Given $p<\frac{d}{k}$ define $p^{k\star }$ by
-$\frac{1}{p^{k\star }}=\frac{1}{p}-\frac{k}{d}$. Then,
+**Exercise 24** </a> . Given $p<\frac{d}{k}$ define $p_k^\star$ by
+$\frac{1}{p_k^\star}=\frac{1}{p}-\frac{k}{d}$. Then,
 
 <div>
 $$\begin{aligned}
-\left\lVert u \right\rVert\U {L^{p^{k\star }}(\mathbb{R}^d)} \lesssim  \left\lVert \nabla^k u \right\rVert\U {L^p(\mathbb{R}^d)}    \end{aligned}$$
+\left\lVert u \right\rVert\U {L^{p_k^\star}(\mathbb{R}^d)} \lesssim  \left\lVert \nabla^k u \right\rVert\U {L^p(\mathbb{R}^d)}    \end{aligned}$$
 </div>
 
 <div class="exercise-container">
@@ -2294,13 +2294,13 @@ Combining the three results gives
 
 <div>
 $$\begin{aligned}
-& W^{k,p}(\Omega) \hookrightarrow L^q(\Omega) ,           \quad\forall q \in [1,p^{k\star })    & \text{ and }     p<\frac{d}{k}  \\
+& W^{k,p}(\Omega) \hookrightarrow L^q(\Omega) ,           \quad\forall q \in [1,p_k^\star]    & \text{ and }     p<\frac{d}{k}  \\
 & W^{k,p}(\Omega) \hookrightarrow L^q(\Omega) ,           \quad\forall q \in [p,\infty) & \text{ and }   p=\frac{d}{k}  \\
 & W^{k,p}(\Omega) \hookrightarrow C^{k,\gamma }(\overline{\Omega}) \hookrightarrow C^{k}(\overline{\Omega}) ,  \quad                         & \text{ and }  p>\frac{d}{k}    \end{aligned}$$
 </div>
 
-Where $p^{k\star }$ is defined by the relation
-$\frac{1}{p^{k\star }}=\frac{1}{p}-\frac{k}{d}$ and $\gamma =1 -\frac{p}{d}$.
+Where $p_k^\star$ is defined by the relation
+$\frac{1}{p_k^\star}=\frac{1}{p}-\frac{k}{d}$ and $\gamma =1 -\frac{p}{d}$.
 Furthermore, if $\Omega$ is **bounded** the first, second, fourth, and third composed with the fourth
 inclusions are
 [compact](https://en.wikipedia.org/wiki/Compact_embedding).
@@ -2332,11 +2332,11 @@ $$\begin{aligned}
 Where the above is known to be true for
 smooth functions by the fundamental theorem of calculus and extends
 by density to $W^{k,p}(\Omega)$ (we recall translation is continuous
-on $L^p$ for $p<\infty$). Now, since $p<q<p^{k\star }$ we can write
+on $L^p$ for $p<\infty$). Now, since $p<q<p_k^\star$ we can write
 
 <div>
 $$\begin{aligned}
-\frac{1}{q}=\frac{\alpha}{p}+\frac{1-\alpha}{p^{k\star }}   .\end{aligned}$$
+\frac{1}{q}=\frac{\alpha}{p}+\frac{1-\alpha}{p_k^\star}   .\end{aligned}$$
 </div>
 
 Applying
@@ -2345,7 +2345,7 @@ we obtain that
 
 <div>
 $$\begin{aligned}
-\left\lVert \tau\U h u-u \right\rVert\U {L^q(\Omega)}\leq \left\lVert \nabla u \right\rVert\U {L^p(\Omega)}^\alpha\left\lVert u \right\rVert\U {L^{p^{k\star }}(\Omega)}^{1-\alpha}\left| h \right| , \quad\forall u \in W^{1,p}(\Omega) .
+\left\lVert \tau\U h u-u \right\rVert\U {L^q(\Omega)}\leq \left\lVert \nabla u \right\rVert\U {L^p(\Omega)}^\alpha\left\lVert u \right\rVert\U {L^{p_k^\star}(\Omega)}^{1-\alpha}\left| h \right| , \quad\forall u \in W^{1,p}(\Omega) .
 \end{aligned}$$
 </div>
 
@@ -2408,7 +2408,7 @@ looking corollary
 
  <a name="easy">
 **Corollary 0** </a>
-Let $q< p^{k\star }$, then it
+Let $q< p_k^\star$, then it
 holds that following inclusion is compact
 
 <div>
@@ -2483,7 +2483,7 @@ other embedding. For example, when combined with [Corollary 0](simple embedding)
 
  <a name="higher 2">
 **Corollary 0.1** </a>
-Let $q< p^{k\star }$, then it holds that following inclusion is compact
+Let $q< p_k^\star$, then it holds that following inclusion is compact
 
 <div>
 $$\begin{aligned}
