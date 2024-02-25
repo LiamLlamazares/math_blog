@@ -2294,7 +2294,7 @@ Combining the three results gives
 
 <div>
 $$\begin{aligned}
-& W^{k,p}(\Omega) \hookrightarrow L^q(\Omega) ,           \quad\forall q \in [1,p_k^\star]    & \text{ and }     p<\frac{d}{k}  \\
+& W^{k,p}(\Omega) \hookrightarrow L^q(\Omega) ,           \quad\forall q \in [p,p_k^\star]    & \text{ and }     p<\frac{d}{k}  \\
 & W^{k,p}(\Omega) \hookrightarrow L^q(\Omega) ,           \quad\forall q \in [p,\infty) & \text{ and }   p=\frac{d}{k}  \\
 & W^{k,p}(\Omega) \hookrightarrow C^{k,\gamma }(\overline{\Omega}) \hookrightarrow C^{k}(\overline{\Omega}) ,  \quad                         & \text{ and }  p>\frac{d}{k}    \end{aligned}$$
 </div>
