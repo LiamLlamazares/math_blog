@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2024.1.16)  25 FEB 2024 15:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2024.1.16)  26 FEB 2024 23:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/liaml/Documentos/LiamLlamazares.github.io/assets/latex_docs/PDEs/6. Existence elliptic/5. Fractional and negative order Sobolev spaces/main.tex"
-(c:/Users/liaml/Documentos/LiamLlamazares.github.io/assets/latex_docs/PDEs/6. Existence elliptic/5. Fractional and negative order Sobolev spaces/main.tex
+**"c:/Users/liaml/Documentos/LiamLlamazares.github.io/assets/latex_docs/PDEs/5. Fractional and negative order Sobolev spaces/fractional_sobolev_spaces.tex"
+(c:/Users/liaml/Documentos/LiamLlamazares.github.io/assets/latex_docs/PDEs/5. Fractional and negative order Sobolev spaces/fractional_sobolev_spaces.tex
 LaTeX2e <2023-11-01>
 L3 programming layer <2024-01-04>
 (C:\Users\liaml\AppData\Roaming\MiKTeX\tex/latex/koma-script\scrartcl.cls
@@ -679,8 +679,8 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 \c@observation=\count324
 \c@assumption=\count325
 \c@exercise=\count326
- (main.aux)
-\openout1 = `main.aux'.
+ (fractional_sobolev_spaces.aux)
+\openout1 = `fractional_sobolev_spaces.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 120.
 LaTeX Font Info:    ... okay on input line 120.
@@ -760,106 +760,121 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 
-{C:/Users/liaml/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2] [3] [4] [5] [6] [7]
+{C:/Users/liaml/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2] [3] [4] [5]
+Overfull \hbox (18.9035pt too wide) in paragraph at lines 365--366
+[][]\T1/cmr/bx/n/10.95 Definition 4.2 \T1/cmr/m/n/10.95 (Slo-bodeckij space neg-a-tive $\OML/cmm/m/it/10.95 s$\T1/cmr/m/n/10.95 )\T1/cmr/bx/n/10.95 . []\T1/cmr/m/it/10.95 Let $\OT1/cmr/m/n/10.95 
+ \OMS/cmsy/m/n/10.95 ^^Z \U/msb/m/n/10.95 R[]$ \T1/cmr/m/it/10.95 be an ex-ten-sion do-main for $\OML/cmm/m/it/10.95 H[]\OT1/cmr/m/n/10.95 (
+)\OML/cmm/m/it/10.95 ; B[]\OT1/cmr/m/n/10.95 (
+)$\T1/cmr/m/it/10.95 .
+ []
+
+[6] [7]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 450.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 450.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 450.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 450.
+(hyperref)                removing `math shift' on input line 483.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 450.
+(hyperref)                removing `superscript' on input line 483.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 450.
+(hyperref)                removing `superscript' on input line 483.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 450.
+(hyperref)                removing `math shift' on input line 483.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 450.
+(hyperref)                removing `math shift' on input line 483.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 482.
+(hyperref)                removing `superscript' on input line 483.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 482.
+(hyperref)                removing `superscript' on input line 483.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 482.
+(hyperref)                removing `math shift' on input line 483.
+
+[8]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 514.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\Omega' on input line 482.
+(hyperref)                removing `superscript' on input line 514.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 482.
+(hyperref)                removing `subscript' on input line 514.
 
-[8] [9] [10] [11] [12] [13] (main.bbl
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\Omega' on input line 514.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 514.
+
+[9] [10] [11] [12] [13]
+<regularity_coefficient.pdf, id=251, 433.62pt x 191.71625pt>
+File: regularity_coefficient.pdf Graphic file (type pdf)
+<use regularity_coefficient.pdf>
+Package pdftex.def Info: regularity_coefficient.pdf  used on input line 739.
+(pdftex.def)             Requested size: 375.57784pt x 166.06337pt.
+ [14] (fractional_sobolev_spaces.bbl
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 13.
  (C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-Underfull \hbox (badness 10000) in paragraph at lines 38--42
-\T1/cmr/m/n/10.95 URL [][]$\T1/cmtt/m/n/10.95 https : / / www . google . co . uk / books / edition / A _ First _ Course _ in _ Sobolev _ Spaces /
- []
-
-
-Overfull \hbox (49.98466pt too wide) in paragraph at lines 44--48
-\T1/cmr/m/n/10.95 URL [][]$\T1/cmtt/m/n/10.95 https : / / math24 . files . wordpress . com / 2013 / 02 / partial-[]differential-[]equations-[]by-[]evans .
- []
-
-[14]
-Underfull \hbox (badness 10000) in paragraph at lines 58--63
+Underfull \hbox (badness 10000) in paragraph at lines 9--14
 \T1/cmr/m/n/10.95 URL [][]$\T1/cmtt/m/n/10.95 https : / / www . google . co . uk / books / edition / A _ First _ Course _ in _ Fractional _
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 58--63
+Underfull \hbox (badness 10000) in paragraph at lines 9--14
 \T1/cmtt/m/n/10.95 Sobolev _ Spa / lh2 _ EAAAQBAJ ? hl = en & gbpv = 1 & dq = giovanni + leoni + fractional + sobolev &
  []
 
+[15 <./regularity_coefficient.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 51--55
+\T1/cmr/m/n/10.95 URL [][]$\T1/cmtt/m/n/10.95 https : / / www . google . co . uk / books / edition / A _ First _ Course _ in _ Sobolev _ Spaces /
+ []
 
-Underfull \hbox (badness 10000) in paragraph at lines 65--70
+
+Overfull \hbox (49.98466pt too wide) in paragraph at lines 63--67
+\T1/cmr/m/n/10.95 URL [][]$\T1/cmtt/m/n/10.95 https : / / math24 . files . wordpress . com / 2013 / 02 / partial-[]differential-[]equations-[]by-[]evans .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 77--82
 \T1/cmr/m/n/10.95 URL [][]$\T1/cmtt/m/n/10.95 https : / / www . sciencedirect . com / science / article / pii / S002212369793158X / pdf ?
  []
 
-) [15] (main.aux)
+) [16] (fractional_sobolev_spaces.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2020/03/25>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 28491 strings out of 474486
- 557322 string characters out of 5743755
- 1945528 words of memory out of 5000000
- 50208 multiletter control sequences out of 15000+600000
+ 28501 strings out of 474486
+ 557570 string characters out of 5743755
+ 1946528 words of memory out of 5000000
+ 50212 multiletter control sequences out of 15000+600000
  578043 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,20n,107p,11045b,602s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1095.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1200.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1440.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx2074.pk><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (15 pages, 399005 bytes).
+ 108i,20n,107p,11044b,603s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1200.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1440.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\liaml\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx2074.pk><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/liaml/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on fractional_sobolev_spaces.pdf (16 pages, 426991 bytes).
 PDF statistics:
- 790 PDF objects out of 1000 (max. 8388607)
- 103 named destinations out of 1000 (max. 500000)
- 157 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 808 PDF objects out of 1000 (max. 8388607)
+ 109 named destinations out of 1000 (max. 500000)
+ 154 words of extra memory for PDF output out of 10000 (max. 10000000)
 

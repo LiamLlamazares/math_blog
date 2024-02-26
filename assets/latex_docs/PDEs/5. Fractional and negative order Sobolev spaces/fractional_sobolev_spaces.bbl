@@ -5,6 +5,13 @@
 \expandafter\ifx\csname href\endcsname\relax
   \def\href#1#2{#2} \def\path#1{#1}\fi
 
+\bibitem{leoni2023first}
+G.~Leoni,
+  \href{https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover}{A
+  first course in fractional Sobolev spaces}, Vol. 229, American Mathematical
+  Society, 2023.
+\newline\urlprefix\url{https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover}
+
 \bibitem{agranovich2015sobolev}
 M.~S. Agranovich,
   \href{https://link.springer.com/book/10.1007/978-3-319-14648-5}{Sobolev
@@ -26,19 +33,31 @@ H.~Triebel,
 \newline\urlprefix\url{https://link.springer.com/book/10.1007/978-3-0346-0419-2}
 
 \bibitem{stein1970singular}
-E.~M. Stein, Singular integrals and differentiability properties of functions,
-  Princeton university press, 1970.
+E.~M. Stein,
+  \href{https://www.degruyter.com/document/doi/10.1515/9781400883882/html}{Singular
+  integrals and differentiability properties of functions}, Princeton
+  university press, 1970.
+\newline\urlprefix\url{https://www.degruyter.com/document/doi/10.1515/9781400883882/html}
 
 \bibitem{biccari2018local}
-U.~Biccari, M.~Warma, E.~Zuazua, Local regularity for fractional heat
-  equations, Recent Advances in PDEs: Analysis, Numerics and Control: In Honor
-  of Prof. Fern{\'a}ndez-Cara's 60th Birthday (2018) 233--249.
+U.~Biccari, M.~Warma, E.~Zuazua,
+  \href{https://link.springer.com/chapter/10.1007/978-3-319-97613-6_12}{Local
+  regularity for fractional heat equations}, Recent Advances in PDEs: Analysis,
+  Numerics and Control: In Honor of Prof. Fern{\'a}ndez-Cara's 60th Birthday
+  (2018) 233--249.
+\newline\urlprefix\url{https://link.springer.com/chapter/10.1007/978-3-319-97613-6_12}
 
 \bibitem{leoni2017first}
 G.~Leoni,
   \href{https://www.google.co.uk/books/edition/A_First_Course_in_Sobolev_Spaces/qoA8DwAAQBAJ?hl=en&gbpv=0}{A
   first course in Sobolev spaces}, American Mathematical Soc., 2017.
 \newline\urlprefix\url{https://www.google.co.uk/books/edition/A_First_Course_in_Sobolev_Spaces/qoA8DwAAQBAJ?hl=en&gbpv=0}
+
+\bibitem{sawano2018theory}
+Y.~Sawano, et~al.,
+  \href{https://link.springer.com/book/10.1007/978-981-13-0836-9}{Theory of
+  Besov spaces}, Vol.~56, Springer, 2018.
+\newline\urlprefix\url{https://link.springer.com/book/10.1007/978-981-13-0836-9}
 
 \bibitem{evans2022partial}
 L.~C. Evans,
@@ -53,13 +72,6 @@ H.~Brezis, H.~Br{\'e}zis, Functional analysis, Sobolev spaces and partial
 \bibitem{taylor2013partial}
 M.~Taylor, Partial differential equations II: Qualitative studies of linear
   equations, Vol. 116, Springer Science \& Business Media, 2013.
-
-\bibitem{leoni2023first}
-G.~Leoni,
-  \href{https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover}{A
-  first course in fractional Sobolev spaces}, Vol. 229, American Mathematical
-  Society, 2023.
-\newline\urlprefix\url{https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover}
 
 \bibitem{savare1998regularity}
 G.~Savar{\'e},

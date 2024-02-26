@@ -313,10 +313,10 @@
   url       = {https://math24.files.wordpress.com/2013/02/partial-differential-equations-by-evans.pdf}
 }
 
-@article{di2012hitchhiker's,
+@article{di2012hitchhikers,
   title     = {Hitchhiker's guide to the fractional Sobolev spaces},
   author    = {Di Nezza, Eleonora and Palatucci, Giampiero and Valdinoci, Enrico},
-  journal   = {Bulletin des sciences math{\'e}matiques},
+  journal   = {Bulletin des sciences mathematiques},
   volume    = {136},
   number    = {5},
   pages     = {521--573},
@@ -351,7 +351,8 @@
   title   = {Some remarks on the space of locally Sobolev-Slobodeckij functions},
   author  = {Behzadan, A and Holst, M},
   journal = {arXiv preprint arXiv:1806.02188},
-  year    = {2018}
+  year    = {2018},
+  url     = {https://arxiv.org/pdf/1806.02188.pdf}
 }
 @article{biccari2018local,
   title     = {Local regularity for fractional heat equations},
@@ -359,13 +360,15 @@
   journal   = {Recent Advances in PDEs: Analysis, Numerics and Control: In Honor of Prof. Fern{\'a}ndez-Cara's 60th Birthday},
   pages     = {233--249},
   year      = {2018},
-  publisher = {Springer}
+  publisher = {Springer},
+  url       = {https://link.springer.com/chapter/10.1007/978-3-319-97613-6_12}
 }
 @book{stein1970singular,
   title     = {Singular integrals and differentiability properties of functions},
   author    = {Stein, Elias M},
   year      = {1970},
-  publisher = {Princeton university press}
+  publisher = {Princeton university press},
+  url       = {https://www.degruyter.com/document/doi/10.1515/9781400883882/html}
 }
 @book{agranovich2015sobolev,
   title     = {Sobolev spaces, their generalizations and elliptic problems in smooth and Lipschitz domains},
@@ -393,3 +396,14 @@
   publisher = {Elsevier},
   url       = {https://www.sciencedirect.com/science/article/pii/S002212369793158X/pdf?md5=c646200fe7117dd7d25d27439f36b342&pid=1-s2.0-S002212369793158X-main.pdf}
 }
+
+@book{sawano2018theory,
+  title     = {Theory of Besov spaces},
+  author    = {Sawano, Yoshihiro and others},
+  volume    = {56},
+  year      = {2018},
+  publisher = {Springer},
+  url       = {https://link.springer.com/book/10.1007/978-981-13-0836-9}
+}
+
+

@@ -1,18 +1,17 @@
 # Fdb version 4
-["bibtex main"] 1708873126 "main.aux" "main.bbl" "main" 1708873548 0
-  "./biblio.bib" 1708785900 15097 7439517a844343f37625909231377e0c ""
+["bibtex fractional_sobolev_spaces"] 1708991039 "fractional_sobolev_spaces.aux" "fractional_sobolev_spaces.bbl" "fractional_sobolev_spaces" 1708991039 0
+  "./biblio.bib" 1708991038 15584 a19f42a27f3662daef063ecf88d83211 ""
   "C:/Users/liaml/AppData/Roaming/MiKTeX/bibtex/bst/elsarticle/elsarticle-num.bst" 1606130968 29462 43db4fe246825ec69ed81b2463c17f04 ""
-  "main.aux" 1708873547 12862 373600972880355025350c36c2e866fe "pdflatex"
+  "fractional_sobolev_spaces.aux" 1708990988 13150 4a0e9f717c1fe2e720064211fcbb2474 "pdflatex"
   (generated)
-  "main.bbl"
-  "main.blg"
+  "fractional_sobolev_spaces.bbl"
+  "fractional_sobolev_spaces.blg"
   (rewritten before read)
-["pdflatex"] 1708873545 "c:/Users/liaml/Documentos/LiamLlamazares.github.io/assets/latex_docs/PDEs/6. Existence elliptic/5. Fractional and negative order Sobolev spaces/main.tex" "main.pdf" "main" 1708873548 0
+["pdflatex"] 1708990987 "c:/Users/liaml/Documentos/LiamLlamazares.github.io/assets/latex_docs/PDEs/5. Fractional and negative order Sobolev spaces/fractional_sobolev_spaces.tex" "fractional_sobolev_spaces.pdf" "fractional_sobolev_spaces" 1708991039 0
   "C:/Users/liaml/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1707498791 94439 75c7519cf2ed88b72b9665aa102cbef9 ""
   "C:/Users/liaml/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1095.pk" 1690620576 28976 15f2d128e0a16a7158dbd1b6ad2c263b ""
   "C:/Users/liaml/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecrm1095.pk" 1690620575 26228 768cad8c0b2c83c34bc01e4e46390c9a ""
   "C:/Users/liaml/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecrm1440.pk" 1690611074 34320 e476e2ed245ed1194169737f53ee4326 ""
-  "C:/Users/liaml/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecsx1095.pk" 1701281929 24028 58de0f560449a695b0e6ef0fc181064a ""
   "C:/Users/liaml/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecsx1200.pk" 1701110698 27340 e1c709dc9ff354c2005d4d770f8f2ca7 ""
   "C:/Users/liaml/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecsx1440.pk" 1701110699 34676 f1c896f576f9eb0096123e03a701eb6d ""
   "C:/Users/liaml/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecsx2074.pk" 1701110705 52312 1271c48494d0e4dc3ed18c097c7883e8 ""
@@ -232,12 +231,13 @@
   "C:/Users/liaml/AppData/Roaming/MiKTeX/tex/latex/todonotes/todonotes.sty" 1675595005 21300 a6e0d5f13b9360f0419aa0d6b30a9c96 ""
   "C:/Users/liaml/AppData/Roaming/MiKTeX/tex/latex/units/nicefrac.sty" 1469025550 4163 0462ee5ab265cf59dc15a41a3b883101 ""
   "C:/Users/liaml/AppData/Roaming/MiKTeX/tex/latex/xpatch/xpatch.sty" 1585221260 8510 7803f78066c4f9d008405191a4b43073 ""
-  "c:/Users/liaml/Documentos/LiamLlamazares.github.io/assets/latex_docs/PDEs/6. Existence elliptic/5. Fractional and negative order Sobolev spaces/main.tex" 1708873545 51444 04f89b0aa9f6a23eaa87843da641b94f ""
-  "main.aux" 1708873547 12862 373600972880355025350c36c2e866fe "pdflatex"
-  "main.bbl" 1708873126 3659 8580f229c52265975dee56ed1a132ce0 "bibtex main"
-  "main.tex" 1708873545 51444 04f89b0aa9f6a23eaa87843da641b94f ""
+  "c:/Users/liaml/Documentos/LiamLlamazares.github.io/assets/latex_docs/PDEs/5. Fractional and negative order Sobolev spaces/fractional_sobolev_spaces.tex" 1708987582 56157 2a8ae3e92a44efc00c94a3dd7ed39231 ""
+  "fractional_sobolev_spaces.aux" 1708990988 13150 4a0e9f717c1fe2e720064211fcbb2474 "pdflatex"
+  "fractional_sobolev_spaces.bbl" 1708991039 4247 fdb630539906a18d99c0faa09c7e235f "bibtex fractional_sobolev_spaces"
+  "fractional_sobolev_spaces.tex" 1708987582 56157 2a8ae3e92a44efc00c94a3dd7ed39231 ""
+  "regularity_coefficient.pdf" 1708986956 27767 89ee66a1ff436d4f8ba0cfb2a7131131 ""
   (generated)
-  "main.aux"
-  "main.log"
-  "main.pdf"
+  "fractional_sobolev_spaces.aux"
+  "fractional_sobolev_spaces.log"
+  "fractional_sobolev_spaces.pdf"
   (rewritten before read)

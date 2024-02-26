@@ -1,7 +1,7 @@
-PWD c:\Users\liaml\Documentos\LiamLlamazares.github.io\assets\latex_docs\PDEs\6. Existence elliptic\5. Fractional and negative order Sobolev spaces
+PWD c:\Users\liaml\Documentos\LiamLlamazares.github.io\assets\latex_docs\PDEs\5. Fractional and negative order Sobolev spaces
 INPUT C:\Users\liaml\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\liaml\Documentos\LiamLlamazares.github.io\assets\latex_docs\PDEs\6. Existence elliptic\5. Fractional and negative order Sobolev spaces\main.tex
-OUTPUT main.log
+INPUT c:\Users\liaml\Documentos\LiamLlamazares.github.io\assets\latex_docs\PDEs\5. Fractional and negative order Sobolev spaces\fractional_sobolev_spaces.tex
+OUTPUT fractional_sobolev_spaces.log
 INPUT C:\Users\liaml\AppData\Roaming\MiKTeX\tex\latex\koma-script\scrartcl.cls
 INPUT C:\Users\liaml\AppData\Roaming\MiKTeX\tex\latex\koma-script\scrartcl.cls
 INPUT C:\Users\liaml\AppData\Roaming\MiKTeX\tex\latex\koma-script\scrkbase.sty
@@ -269,10 +269,10 @@ INPUT C:\Users\liaml\AppData\Roaming\MiKTeX\tex\latex\rerunfilecheck\rerunfilech
 INPUT C:\Users\liaml\AppData\Roaming\MiKTeX\tex\latex\rerunfilecheck\rerunfilecheck.sty
 INPUT C:\Users\liaml\AppData\Roaming\MiKTeX\tex\generic\uniquecounter\uniquecounter.sty
 INPUT C:\Users\liaml\AppData\Roaming\MiKTeX\tex\generic\uniquecounter\uniquecounter.sty
-INPUT .\main.aux
-INPUT .\main.aux
-INPUT main.aux
-OUTPUT main.aux
+INPUT .\fractional_sobolev_spaces.aux
+INPUT .\fractional_sobolev_spaces.aux
+INPUT fractional_sobolev_spaces.aux
+OUTPUT fractional_sobolev_spaces.aux
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
@@ -282,7 +282,7 @@ INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-s
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex\latex\graphics\color.sty
-OUTPUT main.pdf
+OUTPUT fractional_sobolev_spaces.pdf
 INPUT C:\Users\liaml\AppData\Roaming\MiKTeX\tex\latex\bookmark\bookmark.sty
 INPUT C:\Users\liaml\AppData\Roaming\MiKTeX\tex\latex\bookmark\bookmark.sty
 INPUT C:\Users\liaml\AppData\Roaming\MiKTeX\tex\latex\bookmark\bkm-pdftex.def
@@ -345,18 +345,22 @@ INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmib10.t
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbsy10.tfm
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecrm0800.tfm
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecrm0600.tfm
-INPUT .\main.bbl
-INPUT .\main.bbl
-INPUT main.bbl
+INPUT .\regularity_coefficient.pdf
+INPUT .\regularity_coefficient.pdf
+INPUT .\regularity_coefficient.pdf
+INPUT .\regularity_coefficient.pdf
+INPUT .\regularity_coefficient.pdf
+INPUT .\regularity_coefficient.pdf
+INPUT .\fractional_sobolev_spaces.bbl
+INPUT .\fractional_sobolev_spaces.bbl
+INPUT fractional_sobolev_spaces.bbl
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex\latex\base\t1cmtt.fd
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex\latex\base\t1cmtt.fd
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex\latex\base\t1cmtt.fd
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ectt1095.tfm
-INPUT main.aux
+INPUT fractional_sobolev_spaces.aux
 INPUT C:\Users\liaml\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1095.pk
 INPUT C:\Users\liaml\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1095.pk
-INPUT C:\Users\liaml\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecsx1095.pk
-INPUT C:\Users\liaml\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecsx1095.pk
 INPUT C:\Users\liaml\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1095.pk
 INPUT C:\Users\liaml\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1095.pk
 INPUT C:\Users\liaml\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecsx1200.pk
