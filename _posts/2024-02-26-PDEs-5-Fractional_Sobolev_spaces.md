@@ -312,8 +312,7 @@ $$\begin{aligned}
 
 </div>
 
-The restriction $v|\U {U }$ above is in the sense of
-distributions. That is, we define $u:=v|\U {U }$ by
+The restriction $\left.v\right|\ U U$ above is in the sense of distributions. That is, we define $u:=\left.v\right|\ U U$ by
 
 <div>
 $$\begin{aligned}
