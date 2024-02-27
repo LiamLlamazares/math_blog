@@ -312,8 +312,7 @@ $$\begin{aligned}
 
 </div>
 
-The restriction above is in the sense of distributions. That is, we define t
-he restriction of $u$ to $U$ as the distribution $v$ such that
+The restriction above is in the sense of distributions. That is, we define the restriction of $u$ to $U$ as the distribution $v$ such that
 
 <div>
 $$\begin{aligned}
