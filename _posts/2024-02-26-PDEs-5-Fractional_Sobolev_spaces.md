@@ -1541,8 +1541,9 @@ $d=1,2,3$. As we can see, it decreases with $d$ and increases with $s$.
 This means that the larger the dimension the more regularity we need to
 obtain a bound on the same $L^q(\mathbb{R}^d)$ norm. The integrability
 increasing to infinity around the critical threshold $s=d/p$.
-
 <img src="assets/img/Figures/regularity_coefficient.svg" alt="Sobolev critical exponent for p=2 and d=1,2,3" width="80%" id="fig:regularity_coefficient">
+And png is
+<img src="assets/img/Figures/regularity_coefficient.png" alt="Sobolev critical exponent for p=2 and d=1,2,3" width="80%" id="fig:regularity_coefficient">
 
 **Exercise 12**. Let $\Omega$ be an extension domain for $W^{s\U 1,p}$.
 Show that, given $p\U 1, p\U 2 \in [1,\infty)$ and $0 \leq s\U 2<s\U 1 <\infty$,
@@ -1623,6 +1624,6 @@ not sufficient, even if $f \in C^\infty(\overline{\Omega } )$ (see for
 example [Savare, 2020](https://www.sciencedirect.com/science/article/pii/S002212369793158X/pdf?md5=c646200fe7117dd7d25d27439f36b342&pid=1-s2.0-S002212369793158X-main.pdf)). We may comment on this later in a
 future post.
 
-A (possibly not updated) pdf of version of this page is provided [here](/assets/pdfs/PDEs/PDEs/fractional_sobolev_spaces.pdf).
+A (possibly not updated) pdf of version of this page is provided [here](/assets/pdfs/PDEs/fractional_sobolev_spaces.pdf).
 ![Sobolev critical exponent for $p=2$ and $d=1,2,3$
 ](regularity_coefficient.pdf){#fig:regularity_coefficient width="80%"}
