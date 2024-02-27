@@ -156,7 +156,7 @@ $$\begin{aligned}
 </div>
 
 We will later define $W^{s,p}(U)$ also for negative $s$ (see Definition
-[13](#negative s Slobodeckij)). We observe that the above
+<a href="#negative s Slobodeckij">13</a>). We observe that the above
 definition coincides with our usual definition of Sobolev space when
 $s=k \in \mathbb{N}\U 0$ and mimics that of the Hölder spaces, coinciding
 exactly when $p=\infty$.
@@ -363,9 +363,9 @@ For $p = \infty$, we define
 $B^{s,\infty}(U):= C^{k\U {-},\gamma}(U)$.
 
 The above definition is extremely similar in form to that of the
-Sobolev-Slobodeckij spaces [1](#soledkij def). In fact, it is equivalent when
+Sobolev-Slobodeckij spaces <a href="#soledkij def">1</a>. In fact, it is equivalent when
 $s \notin \mathbb{N}$. The difference is that in the definition of Besov
-spaces [6](#besov def), we
+spaces <a href="#besov def">6</a>, we
 require that $\gamma >0$. As a result, always $k\U {-}<s$. We have chosen
 to indicate this fact by the index "$-$" on $k\U {-}$. An equivalent
 definition is possible which extends the above to negative values of $s$
@@ -399,7 +399,7 @@ $$\begin{aligned}
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
 <div class="exercise-text">
-Use definition [7](#besov def negative) and that
+Use definition <a href="#besov def negative">7</a> and that
 $W^{\sigma,p}(\Omega )= B^{\sigma,p }$ for non-integer $\sigma$.
 Finally, $\Lambda^r$ has inverse $\Lambda^{-r}$.
 </div>
@@ -599,13 +599,13 @@ B^{s,p}(\Omega ) & \text{ if } s \notin \mathbb{N}\U 0
 The equality for $p=2$ in (\ref{p=2}) justifies that, for sufficiently regular domains, all
 three spaces are written $H^s(\Omega )$. We will prove the left-hand
 side of this equivalence in Exercise
-[4](#equivalence of fractional spaces). For $p\neq 2$, the
+<a href="#equivalence of fractional spaces">4</a>. For $p\neq 2$, the
 inclusions are, in general, strict. An example is constructed in
 [Stein, 2020](https://www.degruyter.com/document/doi/10.1515/9781400883882/html) page 161 exercise 6.8.
 
  <a name="equivalence of fractional spaces">
 **Exercise 4** </a>  (Equivalence of fractional spaces). Show without using
-Theorem [12](#equivalence fractional spaces) that
+Theorem <a href="#equivalence fractional spaces">12</a> that
 
 <div>
 $$\begin{aligned}
@@ -676,7 +676,7 @@ result.
 </div>
 
 **Exercise 5**. Use the previous exercise
-[4](#equivalence of fractional spaces) to show that if $\Omega$
+<a href="#equivalence of fractional spaces">4</a> to show that if $\Omega$
 is an extension domain for $H^{s}$, then
 
 <div>
@@ -691,7 +691,7 @@ H^{s,2}(\Omega )=W^{s,2}(\Omega ).
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
 <div class="exercise-text">
 By definition
-[4](#bessel potential def) choose a sequence
+<a href="#bessel potential def">4</a> choose a sequence
 $v\U n \in H^{s,2}(\mathbb{R}^d)$ such that
 $\left\lVert v\U n \right\rVert\U {H^{s,2}(\mathbb{R}^d)} \to \left\lVert u \right\rVert\U {H^{s,2}(\Omega )}$
 in $H^s(\Omega )$. Then,
@@ -721,7 +721,7 @@ $$\begin{aligned}
 
 The above suggests that, for $p=2$, the integrals appearing in the
 definition of the Slobodeckij spaces
-[1](#soledkij def)
+<a href="#soledkij def">1</a>
 correspond to differentiating a fractional amount of times. This indeed
 is the case
 
@@ -750,7 +750,7 @@ $$\begin{aligned}
 where $C$ is a constant that depends on $d,\gamma$.
 
 Proof. The above equality may seem odd at first if we compare it with
-the integral in [1](#soledkij def) where a square appears in the numerator, which
+the integral in <a href="#soledkij def">1</a> where a square appears in the numerator, which
 gives us our $2$ in the $2 \gamma$. However, it is justified by the fact
 that, by the change of variables $y \to -y$,
 
@@ -786,7 +786,7 @@ $$\begin{aligned}
 
 Using
 (\ref{second order}) and proceeding as in exercise
-[12](#equivalence fractional spaces) gives
+<a href="#equivalence fractional spaces">12</a> gives
 
 <div>
 $$\begin{aligned}
@@ -839,7 +839,7 @@ $\Lambda ^s: H^{r,p}(\mathbb{R}^d )\xrightarrow{\sim}H^{r-s,p}(\mathbb{R}^d )$
 together with the reflexivity of $L^p(\mathbb{R}^d )$. The second
 equality is a direct consequence of the integer order equality
 $W^{k,p}(\Omega )=H^{k,p}(\Omega )$ of Theorem
-[12](#equivalence fractional spaces). For fractional order
+<a href="#equivalence fractional spaces">12</a>. For fractional order
 regularities, we have the following result, which can be found in
 [Agranovich, 2020](https://link.springer.com/book/10.1007/978-3-319-14648-5) page 228.
 
@@ -1024,7 +1024,7 @@ Y' \simeq X'\backslash Y^\circ.
 Applying this to
 $Y= H^{k,p}\U 0(\Omega )\hookrightarrow H^{k,p}(\mathbb{R}^d) =X$ we
 obtain the result of Theorem
-[16](#dual of integer sobolev).
+<a href="#dual of integer sobolev">16</a>.
 
 <div>
 $$\begin{aligned}
@@ -1033,12 +1033,12 @@ H^{k,p}\U 0(\Omega )' \simeq H^{k,p}(\mathbb{R}^d)'\backslash H^{k,p}\U {\Omega^
 </div>
 
 where the second equality is by Exercise
-[6](#dual exercise) and
+<a href="#dual exercise">6</a> and
 the third by (\ref{ismorphism}) . This shows that the dual of
 $H^{k,p}\U 0(\Omega )$ is $H^{-k,p'}(\Omega )$. By also using the integer
 order equivalence of Theorem
-[12](#equivalence fractional spaces), we obtain Theorem
-[16](#dual of integer sobolev).
+<a href="#equivalence fractional spaces">12</a>, we obtain Theorem
+<a href="#dual of integer sobolev">16</a>.
 
 As a final note, if our domain has a boundary, $H\U 0^k(\Omega )'$ and
 $H^k(\Omega )'$ are not equal. Rather,
@@ -1181,8 +1181,8 @@ w=\sum\U {0\leq\left| \alpha \right|\leq k} \Lambda^{\gamma } D^\alpha u\U \alph
 Use that
 $\Lambda ^{\gamma }: H^{s,p}(\mathbb{R}^d) \to H^{k ,p}(\mathbb{R}^d)$
 is an isomorphism and the just proved theorem
-[18](#riesz representation) together with the integer equivalence
-in Theorem [12](#equivalence fractional spaces) to show that
+<a href="#riesz representation">18</a> together with the integer equivalence
+in Theorem <a href="#equivalence fractional spaces">12</a> to show that
 
 <div>
 $$\begin{aligned}
@@ -1193,7 +1193,7 @@ H^{s,p}(\mathbb{R}^d)' = \left\{ \sum\U {0\leq\left| \alpha \right|\leq k} \Lamb
 </div>
 
 Now conclude by the definition of $H^{-s,p'}(\Omega )$
-for open domains [5](#bessel potential def Omega).
+for open domains <a href="#bessel potential def Omega">5</a>.
 
 </div>
 </div>
@@ -1347,15 +1347,15 @@ $$\begin{aligned}
 </div>
 
 **Exercise 9**. Using Theorem
-[22](#subcritical embedding) prove Theorem
-[23](#critical embedding)
+<a href="#subcritical embedding">22</a> prove Theorem
+<a href="#critical embedding">23</a>
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
 <div class="exercise-text">
 We are in the subcritical case for $r<d/p=\gamma$. Extend
 $u$ to $\mathbb{R}^d$ to form $\widetilde{u}$. Then, by Proposition
-[2](#inclusion ordered by regularity), we have
+<a href="#inclusion ordered by regularity">2</a>, we have
 
 <div>
 $$\begin{aligned}
@@ -1409,7 +1409,7 @@ $$\begin{aligned}
 **Exercise 10**. Justify via a scaling argument that the condition
 $\gamma\U 2 - \frac{d}{p\U 2} = \gamma\U 1 - \frac{d}{p\U 1}$ is necessary for
 the embedding in Theorem
-[25](#higher smoothness embedding).
+<a href="#higher smoothness embedding">25</a>.
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -1443,7 +1443,7 @@ $s=\theta \gamma\U 1+$ $(1-\theta) \gamma\U 2.$
 
 The above results can also be formulated in terms of the Sobolev
 seminorm. For example, Theorem
-[26](#interpolation embedding) can be formulated as
+<a href="#interpolation embedding">26</a> can be formulated as
 
 <div>
 $$\begin{aligned}
@@ -1485,11 +1485,11 @@ $$\begin{aligned}
 </div>
 
 The result follows from Theorem
-[22](#subcritical embedding), Theorem
-[24](#morrey embedding) together with the [integer
+<a href="#subcritical embedding">22</a>, Theorem
+<a href="#morrey embedding">24</a> together with the [integer
 case](<https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#est32:~:text=three%20results%20gives-,Theorem%2013,-(Rellich%2DKondrachov).%20Let>)
 embeddings. For the first case, by Theorem
-[22](#subcritical embedding), we have
+<a href="#subcritical embedding">22</a>, we have
 
 <div>
 $$\begin{aligned}
@@ -1510,7 +1510,7 @@ $$\begin{aligned}
 </div>
 
 For the second case, by Theorem
-[22](#subcritical embedding) and reasoning with derivatives up to
+<a href="#subcritical embedding">22</a> and reasoning with derivatives up to
 order $k$, we obtain similarly
 
 <div>
@@ -1523,7 +1523,7 @@ $$\begin{aligned}
 
 where by a calculation $k = d / p\U \gamma ^\star $. So, we
 conclude once more by using the integer case. Likewise, for the final
-case, we use Theorem [24](# <a name="fig:regularity_coefficient width="80%""> morrey embedding) to directly obtain
+case, we use Theorem <a href="# <a name="fig:regularity_coefficient width="80%""> morrey embedding">24</a> to directly obtain
 
 <div>
 $$\begin{aligned}
@@ -1562,7 +1562,7 @@ W^{s\U 1, p\U 1}(\Omega ) \hookrightarrow W^{s\U 2, p\U 2}(\Omega ), \quad s\U 1
 <div class="exercise-text">
 Set $k\U i =\left\lfloor s\U i \right\rfloor$ and
 $\gamma\U i =s\U i-k\U i$. Apply Theorem
-[25](#higher smoothness embedding) to the derivatives of order up
+<a href="#higher smoothness embedding">25</a> to the derivatives of order up
 to $k\U 2$ to obtain
 
 <div>
