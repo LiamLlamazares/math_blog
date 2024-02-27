@@ -7,11 +7,14 @@ share-img: /assets/img/Malliavin.jpg
 tags: [Malliavin calculus]
 authorpost: B. Summers
 ---
+
 # A word of thanks
+
 Welcome all, I am excited to announce that this is the first post of Billy Summers on the blog. Not only did he provide the reading group with an excellent presentation, but he also typed up some wonderful notes which he is very graciously sharing today. Round of applause for Billy please!<br>
- L.
+L.
 
 # The Malliavin derivative as a Fréchet derivative
+
 Let $C\U 0(\zl 0, T\zr )$ be the Banach space of all
 continuous functions $f \colon \zl 0,
         T\zr  \to \mathbb{R}$ such that $f(0) = 0$. On this space, we can
@@ -27,7 +30,6 @@ $C\U 0(\zl 0, T\zr ) \to
 the best linear approximation to the difference
 $X(\omega + \gamma) - X(\omega)$. Formally, $\nabla{X}$ satisfies
 
-
 <div>
  $$X(\omega + \gamma)
     = X(\omega)
@@ -35,27 +37,24 @@ $X(\omega + \gamma) - X(\omega)$. Formally, $\nabla{X}$ satisfies
     + \mathrm{o}(\norm{\gamma}\U {C\U 0(\zl 0, T\zr )}).$$
 </div>
 
-  If $X$ has a Fréchet
+If $X$ has a Fréchet
 derivative $\nabla{X} \colon C\U 0(\zl 0, T\zr ) \to C\U 0(\zl 0,
-            T\zr )^\star $, we say it is Fréchet differentiable.
+T\zr )^\star $, we say it is Fréchet differentiable.
 
 Within the Banach space $C\U 0(\zl 0, T\zr )$ lies a Hilbert space $H$ of
 distinguished elements. This is the space of paths of the form
-
 
 <div>
  $$\gamma(t) = \int\U 0^t \psi(s) \, \mathop{}\!\mathrm{d}{s}$$
 </div>
 
-  for some
+for some
 $\psi \in L^2(\zl 0, T\zr )$. In other words, it is the space of [$W^{1, 2}$
 functions](https://en.wikipedia.org/wiki/Sobolev_space#One-dimensional_case:~:text=%5Bedit%5D-,One%2Ddimensional%20case,-%5Bedit%5D) on $\zl 0, T\zr $ starting at 0. Its inner product is given by
-
 
 <div>
  $$(\gamma\U 1, \gamma\U 2)\U H = (\dot{\gamma}\U 1, \dot{\gamma}\U 2)\U {L^2(\zl 0, T\zr )}.$$
 </div>
-
 
 $H$ is continuously imbedded in $C\U 0$ by the theory of Sobolev spaces.
 We call $H$ the Cameron-Martin space. It acts in some sense as the
@@ -74,14 +73,12 @@ element of $H^\star $. Then, as $H$ is a Hilbert space, the dual space $H^\star 
 is isomorphic to $H$ through its inner product, so there exists some
 $DX(\omega) \in L^2(\zl 0, T\zr )$ such that
 
-
 <div>
  $$\left\langle{\nabla{X}(\omega), \int\U 0^\cdot \psi \, \mathop{}\!\mathrm{d}{t}}\right\rangle
     = \left({\int\U 0^\cdot D\U t{X}(\omega) \, \mathop{}\!\mathrm{d}{t},
     \int\U 0^\cdot \psi \, \mathop{}\!\mathrm{d}{t}}\right)\U H
     = \int\U 0^T D\U t{X}(\omega) \psi(t) \, \mathop{}\!\mathrm{d}{t}.$$
 </div>
-
 
 This object $DX$ is precisely the Malliavin derivative of $X$.
 
@@ -91,26 +88,23 @@ Given a stochastic process
 $(X\U t)\U {t \in \zl 0, T\zr } \in L^2(\zl 0,T\zr \times\Omega,
     \mathop{}\!\mathrm{d}{t}\otimes\mathbb{P})$ such that $X\U t$ is
 $\mathscr{F}\U T$-measurable for all $t \in
-    \zl 0, T\zr $, let
+\zl 0, T\zr $, let
 
 <div>
  $$X\U t = \sum\U {n = 0}^\infty I\U n(f\U n(\cdot, t))$$
 </div>
 
-  be its
+be its
 chaos expansion for some $f\U n \in L^2(\zl 0, T\zr ^{n + 1})$ symmetric in the
 first $n$ variables. Recall we say $X$ is Skorokhod integrable, and
 define its Skorokhod integral by
-
 
 <div>
  $$\int\U 0^T X\U t \, \delta{W}\U t := \sum\U {n = 0}^\infty I\U {n + 1}({f}\U {n,S}),$$
 </div>
 
-
 whenever this sum converges in $L^2(\Omega)$. The following result is
 fundamental.
-
 
 **Theorem 1**. The Skorokhod integral and Malliavin derivative are
 adjoint in the following sense:
@@ -118,7 +112,6 @@ adjoint in the following sense:
 Let $(X\U t)\U {t \in \zl 0, T\zr }$ be a Skorokhod-integrable. Let
 $Y \in \mathbb{D}^{1,
             2}$ be a Malliavin differentiable random variable. Then
-
 
 <div>
  $$\left({
@@ -129,8 +122,7 @@ $Y \in \mathbb{D}^{1,
         }\right)\U {L^2(\zl 0,T\zr \times\Omega)}.$$
 </div>
 
-  More concretely,
-
+More concretely,
 
 <div>
  $$\mathbb{E}\left[{
@@ -143,10 +135,6 @@ $Y \in \mathbb{D}^{1,
         }\right].$$
 </div>
 
-
-
-
-
 Proof. As usual, we apply the definitions in terms of the chaos
 expansions. Let
 
@@ -154,14 +142,14 @@ expansions. Let
  $$X\U t = \sum\U {n = 0}^\infty I\U n(f\U n(\cdot, t))$$
 </div>
 
-  be the
+be the
 chaos expansion of $X$, and
 
 <div>
  $$Y = \sum\U {n = 0}^\infty I\U n(g\U n)$$
 </div>
 
-  the
+the
 chaos expansion of $Y$. Then
 
 <div>
@@ -179,7 +167,7 @@ chaos expansion of $Y$. Then
     \end{aligned}$$
 </div>
 
-  and on the other side,
+and on the other side,
 
 <div>
  $$\begin{aligned}
@@ -203,8 +191,7 @@ chaos expansion of $Y$. Then
     \end{aligned}$$
 </div>
 
-  Finally, by definition of the symmetrization,
-
+Finally, by definition of the symmetrization,
 
 <div>
  $$\begin{aligned}
@@ -222,11 +209,9 @@ chaos expansion of $Y$. Then
     \end{aligned}$$
 </div>
 
-  where we change variables
+where we change variables
 $t\U k \mapsto t\U n, t\U n \mapsto t\U k$, use the property that $g\U n$ is
 symmetric, and apply Fubini's theorem. ◻
-
-
 
 **Remark 2**. The symbol $\delta$ is often used for a divergence-like
 operator in [Hodge theory](https://en.wikipedia.org/wiki/Hodge_theory). The analogy with our case is that in the Hodge
@@ -237,16 +222,13 @@ exterior derivative on differential forms. Indeed, even in vector
 calculus, the negative of the divergence is in some sense adjoint to the
 gradient:
 
-
 <div>
  $$\int\U \Omega \mathop{\mathrm{div}}{f} \phi \, \mathop{}\!\mathrm{d}{x}
         = - \int\U \Omega f \cdot \nabla{\phi} \, \mathop{}\!\mathrm{d}{x}$$
 </div>
 
-
 whenever $\phi$ has zero boundary. So, in a sense, the Skorokhod
 integral is just a divergence operator.
-
 
 Using this, we can immediately prove the following:
 
@@ -256,8 +238,6 @@ $X \in L^2(\zl 0,T\zr \times\Omega)$ and $Y
         \in L^2(\Omega)$ such that $X^N \to X$ in
 $L^2(\zl 0,T\zr \times\Omega)$, and $\delta{X^N} \to Y$ in $L^2(\Omega)$. Then
 $X$ is Skorokhod integrable, and $\delta{X^N} \to \delta{X}$.
-
-
 
 Proof. Recall that Skorokhod integrability of $X$ can be expressed in
 terms of convergence of the series
@@ -274,7 +254,6 @@ condition, and we can take limits.
 
 Let $Z \in \mathbb{D}^{1, 2}$. Then by adjointness,
 
-
 <div>
 $$(Z, \delta{X^N})\U {L^2(\Omega)}
       = (DZ, X^N)\U {L^2(\zl 0,T\zr \times\Omega)}.$$
@@ -282,7 +261,6 @@ $$(Z, \delta{X^N})\U {L^2(\Omega)}
 
 Taking limits on both
 sides and using adjointness on the limiting objects gives us
-
 
 <div>
 $$(Z, Y)\U {L^2(\Omega)}
@@ -294,30 +272,22 @@ Then, since
 $\mathbb{D}^{1, 2}$ is dense in $L^2(\Omega)$, we see that $Y =
       \delta{X}$ a.s., as required. ◻
 
-
-
 **Remark 4**. Perhaps a more intuitive way to say the Skorokhod integral
 is "closable" in the book's words is that it is sequentially continuous
 as a map $D(\delta) \subseteq L^2(\zl 0,T\zr \times\Omega) \to L^2(\Omega)$
 with respect to the strong $L^2$ topology in its domain and weak $L^2$
 topology in its codomain.
 
-
-
 **Theorem 5**. Let $X \in L^2(\zl 0,T\zr \times\Omega)$ be a Skorokhod
 integrable random process, and let $Y \in \mathbb{D}^{1, 2}$ be such
 that $FX$ is also Skorokhod integrable. Then
-
 
 <div>
 $$Y \int\U 0^T X\U t \, \delta{W}\U t
       = \int\U 0^T Y X\U t \, \delta{W}\U t + \int\U 0^T D\U t Y X\U t \, \mathop{}\!\mathrm{d}{t}$$
 </div>
 
-
 almost surely.
-
-
 
 Proof. Suppose $Y$ has finite chaos expansion, and choose some
 $Z \in \mathbb{D}^{1, 2}$ also with finite chaos expansion. Then by
@@ -347,16 +317,12 @@ $Z \in \mathbb{D}^{1, 2}$ with finite chaos expansion is dense in
 $L^2(\Omega)$, we conclude the result for $Y$ with finite chaos
 expansion. For general $Y$, we approximate. ◻
 
-
-
 **Remark 6**. A similar formula crops up in vector calculus, namely the
 following:
-
 
 <div>
  $$\mathop{\mathrm{div}}(fX) = \nabla{f} \cdot X + f \mathop{\mathrm{div}}{X},$$
 </div>
-
 
 where $f$ is a scalar function and $X$ a vector field. Again, in the
 above theorem, the Malliavin derivative takes the place of the gradient,
@@ -366,27 +332,20 @@ $L^2(\zl 0, T\zr )$ inner product. There is a sign difference owing to the
 fact the adjointness in the Malliavin case does not induce a sign
 change, unlike in the vector calculus case (see the [remark above](https://nowheredifferentiable.com/2022-07-02-Malliavin-Calculus-4/#:~:text=apply%20Fubini%E2%80%99s%20theorem.%C2%A0%E2%97%BB-,Remark%202,-.%20The%20symbol)).
 
-
-
 **Theorem 7**. Let $X \in L^2(\zl 0,T\zr \times\Omega)$ be a stochastic
 process such that for all $s \in \zl 0, T\zr $, $X\U s$ is in
 $\mathbb{D}^{1, 2}$, $D{X\U s}$ is Skorokhod integrable, and
-
 
 <div>
  $$\int\U 0^T DX\U s \, \delta{W}\U s \in L^2(\zl 0,T\zr \times\Omega).$$
 </div>
 
-  Then
+Then
 $\delta{X}$ lies in $\mathbb{D}^{1, 2}$, and
-
 
 <div>
  $$D\U t(\delta{X}) = \int\U 0^T D\U t{X\U s} \, \delta{W}\U s + X\U t.$$
 </div>
-
-
-
 
 **Remark 8**. The technical constraints in the theorem above are an
 unfortunate consequence of the fact the Skorokhod and Malliavin
@@ -399,14 +358,13 @@ Note that this theorem is simply an expression of the Malliavin
 derivative and Skorokhod integral's failure to commute, with the error
 simply being the identity on $L^2(\zl 0, T\zr \times \Omega )$. That is,
 
-
 <div>
  $$D\delta = \delta D + \mathop{\mathrm{id}}.$$
 </div>
 
-  This contrasts with our
+This contrasts with our
 vector calculus analogy, where the divergence and gradient most
 certainly commute (assuming enough regularity).
 
 A pdf of version of this page is provided below:
-<object data="/assets/part4.pdf" width="1000" height="1000" type='application/pdf'></object>
+<object data="/assets/pdfs/Malliavin/Malliavin_derivative_2.pdf" width="1000" height="1000" type='application/pdf'></object>
