@@ -1539,9 +1539,9 @@ $$\begin{aligned}
 Below we plot the Sobolev critical exponent $p\U s^\star $ for $p=2$ and
 $d=1,2,3$. As we can see, it decreases with $d$ and increases with $s$.
 This means that the larger the dimension the more regularity we need to
-obtain a bound on the same $L^q(\mathbb{R}^d)$ norm. The integrability
+obtain a bound on the same $L^q(\mathbb{R}^d)$ norm. The integrability (relative path)
 increasing to infinity around the critical threshold $s=d/p$.
-<img src="assets/img/Figures/regularity_coefficient.svg" alt="Sobolev critical exponent for p=2 and d=1,2,3" width="80%" id="fig:regularity_coefficient">
+<img src="{{assets/img/Figures/regularity_coefficient.svg| relative_url }}" alt="Sobolev critical exponent for p=2 and d=1,2,3" width="80%" id="fig:regularity_coefficient">
 And png is
 <img src="assets/img/Figures/regularity_coefficient.png" alt="Sobolev critical exponent for p=2 and d=1,2,3" width="80%" id="fig:regularity_coefficient">
 
