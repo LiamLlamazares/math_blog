@@ -1523,7 +1523,7 @@ $$\begin{aligned}
 
 where by a calculation $k = d / p\U \gamma ^\star $. So, we
 conclude once more by using the integer case. Likewise, for the final
-case, we use Theorem <a href="# <a name="fig:regularity_coefficient width="80%""> morrey embedding">24</a> to directly obtain
+case, we use Theorem <a href="#morrey embedding">24</a> to directly obtain
 
 <div>
 $$\begin{aligned}
@@ -1539,9 +1539,10 @@ $$\begin{aligned}
 Below we plot the Sobolev critical exponent $p\U s^\star $ for $p=2$ and
 $d=1,2,3$. As we can see, it decreases with $d$ and increases with $s$.
 This means that the larger the dimension the more regularity we need to
-obtain a bound on the same $L^q(\mathbb{R}^d)$ norm. The integrability (relative path)
+obtain a bound on the same $L^q(\mathbb{R}^d)$ norm. The integrability
 increasing to infinity around the critical threshold $s=d/p$.
-<img src="{{'assets/img/Figures/regularity_coefficient.svg'| relative_url }}" alt="Sobolev critical exponent for p=2 and d=1,2,3" width="90%" id="fig:regularity_coefficient">
+
+<img src="{{'assets/img/Figures/regularity_coefficient.pdf'| relative_url }}" alt="Sobolev critical exponent for p=2 and d=1,2,3 " width="90%" id="fig:regularity_coefficient">
 
 **Exercise 12**. Let $\Omega$ be an extension domain for $W^{s\U 1,p}$.
 Show that, given $p\U 1, p\U 2 \in [1,\infty)$ and $0 \leq s\U 2<s\U 1 <\infty$,
@@ -1623,5 +1624,3 @@ example [Savare, 2020](https://www.sciencedirect.com/science/article/pii/S002212
 future post.
 
 A (possibly not updated) pdf of version of this page is provided [here](/assets/pdfs/PDEs/fractional_sobolev_spaces.pdf).
-![Sobolev critical exponent for $p=2$ and $d=1,2,3$
-](regularity_coefficient.pdf){#fig:regularity_coefficient width="80%"}
