@@ -364,7 +364,7 @@ and consider $p\in [1,\infty), s\in[1,\infty)$. Then, $\Omega$ is an
 extension domain for $W^{s,p},H^{s,p},B^{s,p}$.*
 :::
 
-## Interpolation {#interpolation section}
+## Interpolation
 
 Both the Sobolev-Slobodeckij and Bessel potential spaces can be viewed
 as a way to fill the gaps between integer-valued Sobolev spaces. The
@@ -895,7 +895,7 @@ $s$, we can also extend $$\begin{aligned}
     \operatorname{Tr}: W^{s,p}(\Omega ) \to B^{s-1/p,p}(\partial\Omega).
 \end{aligned}$$
 
-## Fractional Sobolev embeddings {#fractional embeddings}
+## Fractional Sobolev embeddings
 
 In this section, we state the fractional analogue of the Sobolev
 embedding theorems for regularity $\gamma \in (0,1)$. Here, the
@@ -1082,8 +1082,7 @@ This means that the larger the dimension the more regularity we need to
 obtain a bound on the same $L^q(\mathbb{R}^d)$ norm. The integrability
 increasing to infinity around the critical threshold $s=d/p$.
 
-![Sobolev critical exponent for $p=2$ and $d=1,2,3$
-](regularity_coefficient.pdf){#fig:regularity_coefficient width="80%"}
+
 
 ::: exercise
 **Exercise 12**. Let $\Omega$ be an extension domain for $W^{s_1,p}$.

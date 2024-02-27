@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex fractional_sobolev_spaces"] 1708992260 "fractional_sobolev_spaces.aux" "fractional_sobolev_spaces.bbl" "fractional_sobolev_spaces" 1708992263 0
+["bibtex fractional_sobolev_spaces"] 1708992441 "fractional_sobolev_spaces.aux" "fractional_sobolev_spaces.bbl" "fractional_sobolev_spaces" 1708992443 0
   "./biblio.bib" 1708991618 15579 6c956011c48b5c9c0e06457057d597f2 ""
   "C:/Users/liaml/AppData/Roaming/MiKTeX/bibtex/bst/elsarticle/elsarticle-num.bst" 1606130968 29462 43db4fe246825ec69ed81b2463c17f04 ""
-  "fractional_sobolev_spaces.aux" 1708992262 13071 6a3b3e087bceaa79a8ecb812fd7575a9 "pdflatex"
+  "fractional_sobolev_spaces.aux" 1708992443 12902 2557339ca2fd96766b54697c1e12692f "pdflatex"
   (generated)
   "fractional_sobolev_spaces.bbl"
   "fractional_sobolev_spaces.blg"
   (rewritten before read)
-["pdflatex"] 1708992261 "c:/Users/liaml/Documentos/LiamLlamazares.github.io/assets/latex_docs/PDEs/5. Fractional and negative order Sobolev spaces/fractional_sobolev_spaces.tex" "fractional_sobolev_spaces.pdf" "fractional_sobolev_spaces" 1708992263 0
+["pdflatex"] 1708992441 "c:/Users/liaml/Documentos/LiamLlamazares.github.io/assets/latex_docs/PDEs/5. Fractional and negative order Sobolev spaces/fractional_sobolev_spaces.tex" "fractional_sobolev_spaces.pdf" "fractional_sobolev_spaces" 1708992443 0
   "C:/Users/liaml/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1707498791 94439 75c7519cf2ed88b72b9665aa102cbef9 ""
   "C:/Users/liaml/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1095.pk" 1690620576 28976 15f2d128e0a16a7158dbd1b6ad2c263b ""
   "C:/Users/liaml/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecrm1095.pk" 1690620575 26228 768cad8c0b2c83c34bc01e4e46390c9a ""
@@ -231,10 +231,10 @@
   "C:/Users/liaml/AppData/Roaming/MiKTeX/tex/latex/todonotes/todonotes.sty" 1675595005 21300 a6e0d5f13b9360f0419aa0d6b30a9c96 ""
   "C:/Users/liaml/AppData/Roaming/MiKTeX/tex/latex/units/nicefrac.sty" 1469025550 4163 0462ee5ab265cf59dc15a41a3b883101 ""
   "C:/Users/liaml/AppData/Roaming/MiKTeX/tex/latex/xpatch/xpatch.sty" 1585221260 8510 7803f78066c4f9d008405191a4b43073 ""
-  "c:/Users/liaml/Documentos/LiamLlamazares.github.io/assets/latex_docs/PDEs/5. Fractional and negative order Sobolev spaces/fractional_sobolev_spaces.tex" 1708992258 56132 5ce2a4f93bdccfceec992f27b591ff92 ""
-  "fractional_sobolev_spaces.aux" 1708992262 13071 6a3b3e087bceaa79a8ecb812fd7575a9 "pdflatex"
-  "fractional_sobolev_spaces.bbl" 1708992261 4242 26a74cfc04cbf28fe67847a362af4352 "bibtex fractional_sobolev_spaces"
-  "fractional_sobolev_spaces.tex" 1708992258 56132 5ce2a4f93bdccfceec992f27b591ff92 ""
+  "c:/Users/liaml/Documentos/LiamLlamazares.github.io/assets/latex_docs/PDEs/5. Fractional and negative order Sobolev spaces/fractional_sobolev_spaces.tex" 1708992438 56074 dd6cd17902a9f708094735d9e614905d ""
+  "fractional_sobolev_spaces.aux" 1708992443 12902 2557339ca2fd96766b54697c1e12692f "pdflatex"
+  "fractional_sobolev_spaces.bbl" 1708992441 4242 26a74cfc04cbf28fe67847a362af4352 "bibtex fractional_sobolev_spaces"
+  "fractional_sobolev_spaces.tex" 1708992438 56074 dd6cd17902a9f708094735d9e614905d ""
   "regularity_coefficient.pdf" 1708986956 27767 89ee66a1ff436d4f8ba0cfb2a7131131 ""
   (generated)
   "fractional_sobolev_spaces.aux"
