@@ -312,7 +312,8 @@ $$\begin{aligned}
 
 </div>
 
-The restriction $\left.v\right|\ U U$ above is in the sense of distributions. That is, we define $u:=\left.v\right|\ U U$ by
+The restriction above is in the sense of distributions. That is, we define t
+he restriction of $u$ to $U$ as the distribution $v$ such that
 
 <div>
 $$\begin{aligned}
