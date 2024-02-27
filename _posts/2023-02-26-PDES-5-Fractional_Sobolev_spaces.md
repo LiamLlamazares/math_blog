@@ -975,7 +975,7 @@ $H^k(\Omega )'$ are not equal. Rather,
 
 <div>
  $$\begin{aligned}
-    H^{k,p}(\Omega )'\simeq H\U {\overline{\Omega } }^{-k,p'}(\mathbb{R}^d), \quad H^{-k,p'}(\Omega ) \simeq H^{-k,p'}(\mathbb{R}^d)\slash H^{-k,p'}\U {{\Omega }^c }(\mathbb{R}^d).
+    H^{k,p}(\Omega )'\simeq H\U {\overline{\Omega } }^{-k,p'}(\mathbb{R}^d), \quad H^{-k,p'}(\Omega ) \simeq H^{-k,p'}(\mathbb{R}^d)\slash H^{-k,p'}\U {\Omega ^c }(\mathbb{R}^d).
 \end{aligned}$$
 </div>
 
