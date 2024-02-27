@@ -166,7 +166,7 @@ exactly when $p=\infty$.
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
 <div class="exercise-text">
-nt 1**. To show that $|| \cdot ||\U {W^{s,p}(U)}$ is a norm apply
+To show that $|| \cdot ||\U {W^{s,p}(U)}$ is a norm apply
 Minkowski's inequality to $u$ and to
 
 <div>
@@ -282,7 +282,7 @@ $$\begin{aligned}
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
 <div class="exercise-text">
-nt 2**. Use that
+Use that
 $\left\langle\xi\right\rangle^s\left\langle\xi\right\rangle^r=\left\langle\xi\right\rangle^{s+r}$
 and show that the inverse of $\Lambda^r$ is $\Lambda^{-r}$.
 </div>
@@ -312,7 +312,8 @@ $$\begin{aligned}
 
 </div>
 
-The restriction above is in the sense of distributions. That is, we define the restriction of $u$ to $U$ as the distribution $v$ such that
+The restriction above is in the sense of distributions. That is, we
+define the restriction of $u$ to $U$ as the distribution $v$ such that
 
 <div>
 $$\begin{aligned}
@@ -398,7 +399,7 @@ $$\begin{aligned}
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
 <div class="exercise-text">
-nt 3**. Use definition [7](#besov def negative) and that
+Use definition [7](#besov def negative) and that
 $W^{\sigma,p}(\Omega )= B^{\sigma,p }$ for non-integer $\sigma$.
 Finally, $\Lambda^r$ has inverse $\Lambda^{-r}$.
 </div>
@@ -617,7 +618,7 @@ H^{s,2}(\mathbb{R}^d)=W^{s,2}(\mathbb{R}^d).
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
 <div class="exercise-text">
-nt 4**. We want to show that the norms are equivalent. That is, that
+We want to show that the norms are equivalent. That is, that
 
 <div>
 $$\begin{aligned}
@@ -689,7 +690,7 @@ H^{s,2}(\Omega )=W^{s,2}(\Omega ).
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
 <div class="exercise-text">
-nt 5**. By definition
+By definition
 [4](#bessel potential def) choose a sequence
 $v\U n \in H^{s,2}(\mathbb{R}^d)$ such that
 $\left\lVert v\U n \right\rVert\U {H^{s,2}(\mathbb{R}^d)} \to \left\lVert u \right\rVert\U {H^{s,2}(\Omega )}$
@@ -898,7 +899,7 @@ $p \in [1,\infty)$.
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
 <div class="exercise-text">
-nt 6**. Consider the mapping
+Consider the mapping
 $H\U 0^{-s,p'}(\mathbb{R}^d) \to H^{s,p}\U 0(\mathbb{R}^d)'$ given by
 $f \mapsto \ell\U f$ where
 
@@ -947,7 +948,7 @@ possible?
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
 <div class="exercise-text">
-nt 7**. It does **not** hold that
+It does **not** hold that
 $H^{-s}(\mathbb{R}^d)= H^s(\mathbb{R}^d)$. The problem occurs when
 considering too many identifications at once, as we are identifying
 duals using different inner products. By following the mappings, we
@@ -1177,7 +1178,7 @@ w=\sum\U {0\leq\left| \alpha \right|\leq k} \Lambda^{\gamma } D^\alpha u\U \alph
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
 <div class="exercise-text">
-nt 8**. Use that
+Use that
 $\Lambda ^{\gamma }: H^{s,p}(\mathbb{R}^d) \to H^{k ,p}(\mathbb{R}^d)$
 is an isomorphism and the just proved theorem
 [18](#riesz representation) together with the integer equivalence
@@ -1352,7 +1353,7 @@ $$\begin{aligned}
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
 <div class="exercise-text">
-nt 9**. We are in the subcritical case for $r<d/p=\gamma$. Extend
+We are in the subcritical case for $r<d/p=\gamma$. Extend
 $u$ to $\mathbb{R}^d$ to form $\widetilde{u}$. Then, by Proposition
 [2](#inclusion ordered by regularity), we have
 
@@ -1413,7 +1414,7 @@ the embedding in Theorem
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
 <div class="exercise-text">
-nt 10**. Extend to a function on $\mathbb{R}^d$, then swap $u$ with
+Extend to a function on $\mathbb{R}^d$, then swap $u$ with
 $u\U \lambda (x):=u(\lambda x)$and apply the change of variables
 $(x,y)\to \lambda (x,y)$.
 </div>
@@ -1473,7 +1474,7 @@ $$\begin{aligned}
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
 <div class="exercise-text">
-nt 11**. Observe that
+Observe that
 
 <div>
 $$\begin{aligned}
@@ -1559,7 +1560,7 @@ W^{s\U 1, p\U 1}(\Omega ) \hookrightarrow W^{s\U 2, p\U 2}(\Omega ), \quad s\U 1
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
 <div class="exercise-text">
-nt 12**. Set $k\U i =\left\lfloor s\U i \right\rfloor$ and
+Set $k\U i =\left\lfloor s\U i \right\rfloor$ and
 $\gamma\U i =s\U i-k\U i$. Apply Theorem
 [25](#higher smoothness embedding) to the derivatives of order up
 to $k\U 2$ to obtain
