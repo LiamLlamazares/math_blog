@@ -1375,7 +1375,7 @@ hint
 
 <div>
  $$\begin{aligned}
-        \frac{1}{{(p\U \gamma ^\star )}\U k^\star }=\frac{1}{p\U \gamma }-\frac{k}{d}=\frac{1}{p}-\frac{s}{d}= \frac{1}{p\U s^\star }.
+        \frac{1}{(p\U \gamma ^\star )\U k^\star }=\frac{1}{p\U \gamma }-\frac{k}{d}=\frac{1}{p}-\frac{s}{d}= \frac{1}{p\U s^\star }.
     
 \end{aligned}$$
 </div>
