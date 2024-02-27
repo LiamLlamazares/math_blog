@@ -921,7 +921,7 @@ $H^{s,p}(\Omega )$ as
 <div>
  $$\begin{align}
 \label{ismorphism}
-    H^{s,p}(\Omega )\simeq H^{s,p}(\mathbb{R}^d)\slash H^s\U {\Omega^c}(\mathbb{R}^d ),
+    H^{s,p}(\Omega )\simeq H^{s,p}(\mathbb{R}^d)\backslash H^s\U {\Omega^c}(\mathbb{R}^d ),
 \end{align}$$
 </div>
 
@@ -947,7 +947,7 @@ obtain the
 <div>
  $$\begin{align}
 \label{dual isomormphism}
-    Y' \simeq X'\slash Y^\circ.
+    Y' \simeq X'\backslash Y^\circ.
 \end{align}$$
 </div>
 
@@ -958,7 +958,7 @@ obtain the result of Theorem
 
 <div>
  $$\begin{aligned}
-    H^{k,p}\U 0(\Omega )' \simeq H^{k,p}(\mathbb{R}^d)'\slash H^{k,p}\U {\Omega^c}(\mathbb{R}^d)'\simeq H^{-k,p'}(\mathbb{R}^d)\slash H^{-k,p'}\U {\Omega^c}(\mathbb{R}^d )\simeq H^{-k,p'}(\Omega ),
+    H^{k,p}\U 0(\Omega )' \simeq H^{k,p}(\mathbb{R}^d)'\backslash H^{k,p}\U {\Omega^c}(\mathbb{R}^d)'\simeq H^{-k,p'}(\mathbb{R}^d)\backslash H^{-k,p'}\U {\Omega^c}(\mathbb{R}^d )\simeq H^{-k,p'}(\Omega ),
 \end{aligned}$$
 </div>
 
@@ -975,7 +975,7 @@ $H^k(\Omega )'$ are not equal. Rather,
 
 <div>
  $$\begin{aligned}
-    H^{k,p}(\Omega )'\simeq H\U {\overline{\Omega } }^{-k,p'}(\mathbb{R}^d), \quad H^{-k,p'}(\Omega ) \simeq H^{-k,p'}(\mathbb{R}^d)\slash H^{-k,p'}\U {\Omega ^c }(\mathbb{R}^d).
+    H^{k,p}(\Omega )'\simeq H\U {\overline{\Omega } }^{-k,p'}(\mathbb{R}^d), \quad H^{-k,p'}(\Omega ) \simeq H^{-k,p'}(\mathbb{R}^d)\backslash H^{-k,p'}\U {\Omega ^c }(\mathbb{R}^d).
 \end{aligned}$$
 </div>
 
@@ -1023,7 +1023,7 @@ $X:=\mathrm{Im}(T)$. Given $\ell \in W^{-k,p'}(\Omega )$ we define
 
 <div>
  $$\begin{aligned}
-        \ell\U 0: X \to \mathbb{R}, \quad \ell\U 0(\vb{w}):= \ell(T^{-1}\vb{w}), \quad \forall \vb{w} \in X.
+        \ell\U 0: X \to \mathbb{R}, \quad \ell\U 0(\mathbf{w}):= \ell(T^{-1}\mathbf{w}), \quad \forall \mathbf{w} \in X.
     
 \end{aligned}$$
 </div>
@@ -1031,12 +1031,12 @@ $X:=\mathrm{Im}(T)$. Given $\ell \in W^{-k,p'}(\Omega )$ we define
 By Hahn Banach's theorem, we can extend $\ell\U 0$ from
 $X$ to a functional $\ell\U 1 \in  L^p(\Omega \to \mathbb{R}^d)'$ and by
 the Riesz representation theorem, we have that there exists a unique
-$\vb{f}=(f\U \alpha)\U {1\leq \left| \alpha \right|\leq k }\in L^{p'}(\Omega \to \mathbb{R}^d)$
+$\mathbf{f}=(f\U \alpha)\U {1\leq \left| \alpha \right|\leq k }\in L^{p'}(\Omega \to \mathbb{R}^d)$
 such that
 
 <div>
  $$\begin{aligned}
-        \ell\U 1(\vb{w})=\int\U {\Omega}\vb{w}\cdot \vb{h}, \quad \forall \vb{w} \in L^p(\Omega \to \mathbb{R}^d).
+        \ell\U 1(\mathbf{w})=\int\U {\Omega}\mathbf{w}\cdot \mathbf{h}, \quad \forall \mathbf{w} \in L^p(\Omega \to \mathbb{R}^d).
     
 \end{aligned}$$
 </div>
@@ -1046,7 +1046,7 @@ $v \in W^{k,p}(\Omega )$
 
 <div>
  $$\begin{aligned}
-        \ell(u)=\ell\U 0(Tv)=\int\U {\Omega}Tv\cdot \vb{f}=\sum\U {1\leq\left| \alpha \right|\leq k}\int\U {\Omega}f\U \alpha D^\alpha v .
+        \ell(u)=\ell\U 0(Tv)=\int\U {\Omega}Tv\cdot \mathbf{f}=\sum\U {1\leq\left| \alpha \right|\leq k}\int\U {\Omega}f\U \alpha D^\alpha v .
     
 \end{aligned}$$
 </div>

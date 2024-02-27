@@ -519,7 +519,7 @@ Given an extension domain $\Omega $ and $s \in \R$ , one can define extension an
 \end{align*}
 which verify $\rho \circ E = \Id_{H^s(\Omega )}$. As a result, the restriction is surjective, and we can factor $H^{s,p}(\Omega )$ as
 \begin{align}\label{ismorphism}
-    H^{s,p}(\Omega )\simeq H^{s,p}(\R^d)\slash H^s_{\Omega^c}(\R^d ),
+    H^{s,p}(\Omega )\simeq H^{s,p}(\R^d)\backslash H^s_{\Omega^c}(\R^d ),
 \end{align}
 where given a closed set $K \subset \R^d$ we define
 \begin{align*}
@@ -528,18 +528,18 @@ where given a closed set $K \subset \R^d$ we define
 the support being understood \href{https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=Support%20of%20a%20distribution}{in the sense of distributions}
 Now, given a Banach space $X$ and a closed subspace $Y \hookrightarrow X$, elements of $X'$ can be restricted to $Y$, obtaining functionals in $Y'$. The kernel of this restriction is $Y^\circ:=\set{\ell \in X': Y \subset \rm{ker}(\ell)}$. Since, by the Hahn Banach theorem, the restriction is surjective, we obtain the \href{https://math.la.asu.edu/~quigg/teach/courses/578/2008/notes/adjoints.pdf}{factorization}
 \begin{align}\label{dual isomormphism}
-    Y' \simeq X'\slash Y^\circ.
+    Y' \simeq X'\backslash Y^\circ.
 \end{align}
 Applying this to $Y= H^{k,p}_0(\Omega )\hookrightarrow H^{k,p}(\R^d) =X$ we obtain the result of Theorem \ref{dual of integer sobolev}.
 \begin{align*}
-    H^{k,p}_0(\Omega )' \simeq H^{k,p}(\R^d)'\slash H^{k,p}_{\Omega^c}(\R^d)'\simeq H^{-k,p'}(\R^d)\slash H^{-k,p'}_{\Omega^c}(\R^d )\simeq H^{-k,p'}(\Omega ),
+    H^{k,p}_0(\Omega )' \simeq H^{k,p}(\R^d)'\backslash H^{k,p}_{\Omega^c}(\R^d)'\simeq H^{-k,p'}(\R^d)\backslash H^{-k,p'}_{\Omega^c}(\R^d )\simeq H^{-k,p'}(\Omega ),
 \end{align*}
 where the second equality is by Exercise \ref{dual exercise} and the third by \eqref{ismorphism}.
 This shows that the dual of $H^{k,p}_0(\Omega )$ is $H^{-k,p'}(\Omega )$. By also using the integer order equivalence of Theorem \ref{equivalence fractional spaces}, we obtain  Theorem \ref{dual of integer sobolev}.
 
 As a final note, if our domain has a boundary, $H_0^k(\Omega )'$ and $H^k(\Omega )'$ are not equal. Rather,
 \begin{align*}
-    H^{k,p}(\Omega )'\simeq H_{\overline{\Omega } }^{-k,p'}(\R^d), \quad H^{-k,p'}(\Omega ) \simeq H^{-k,p'}(\R^d)\slash H^{-k,p'}_{\Omega ^c }(\R^d).
+    H^{k,p}(\Omega )'\simeq H_{\overline{\Omega } }^{-k,p'}(\R^d), \quad H^{-k,p'}(\Omega ) \simeq H^{-k,p'}(\R^d)\backslash H^{-k,p'}_{\Omega ^c }(\R^d).
 \end{align*}
 See \cite{taylor2013partial} Section 4 for more details.
 
@@ -561,15 +561,15 @@ We know that we can isomorphically and bijectively map the spaces $H^{s,p}(\R^d 
     \end{align*}
     Where the notation says that we send $u$ to the vector formed by all its derivatives. By our definition of the norm on $W^{k,p}(\Omega )$, we have that $T$ is an isometry and, in particular, continuously invertible on its image. Denote the image of $T$ by $X:=\rm{Im}(T)$. Given $\ell \in W^{-k,p'}(\Omega )$ we define
     \begin{align*}
-        \ell_0: X \to \R, \quad \ell_0(\vb{w}):= \ell(T^{-1}\vb{w}), \quad \forall \vb{w} \in X.
+        \ell_0: X \to \R, \quad \ell_0(\mathbf{w}):= \ell(T^{-1}\mathbf{w}), \quad \forall \mathbf{w} \in X.
     \end{align*}
-    By Hahn Banach's theorem, we can extend $\ell_0$ from $X$ to a functional $\ell_1 \in  L^p(\Omega \to \R^d)'$ and by the Riesz representation theorem, we have that there exists a unique $\vb{f}=(f_\alpha)_{1\leq \abs{\alpha}\leq k }\in L^{p'}(\Omega \to \R^d)$ such that
+    By Hahn Banach's theorem, we can extend $\ell_0$ from $X$ to a functional $\ell_1 \in  L^p(\Omega \to \R^d)'$ and by the Riesz representation theorem, we have that there exists a unique $\mathbf{f}=(f_\alpha)_{1\leq \abs{\alpha}\leq k }\in L^{p'}(\Omega \to \R^d)$ such that
     \begin{align*}
-        \ell_1(\vb{w})=\int_{\Omega}\vb{w}\cdot \vb{h}, \quad \forall \vb{w} \in L^p(\Omega \to \R^d).
+        \ell_1(\mathbf{w})=\int_{\Omega}\mathbf{w}\cdot \mathbf{h}, \quad \forall \mathbf{w} \in L^p(\Omega \to \R^d).
     \end{align*}
     By construction, it holds that, for all $v \in W^{k,p}(\Omega )$
     \begin{align*}
-        \ell(u)=\ell_0(Tv)=\int_{\Omega}Tv\cdot \vb{f}=\sum_{1\leq\abs{\alpha}\leq k}\int_{\Omega}f_\alpha D^\alpha v .
+        \ell(u)=\ell_0(Tv)=\int_{\Omega}Tv\cdot \mathbf{f}=\sum_{1\leq\abs{\alpha}\leq k}\int_{\Omega}f_\alpha D^\alpha v .
     \end{align*}
     In particular, this holds for $v \in \Dd(\Omega )$ and if we set $u_\alpha:=(-1)^\alpha f_\alpha$ we obtain that for all $v \in \Dd(\Omega )$
     \begin{align}\label{representation}
