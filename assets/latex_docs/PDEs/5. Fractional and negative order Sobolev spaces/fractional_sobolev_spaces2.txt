@@ -3,7 +3,7 @@ author:
 - Liam Llamazares
 bibliography:
 - biblio.bib
-date: 2024-02-27
+date: 2024-02-26
 title: Fractional Sobolev spaces
 ---
 
@@ -63,7 +63,7 @@ $W^{s,p}(\Omega )$ which is the most widely used. We will see how these
 spaces can be used to obtain finer regularity results, such as in the
 trace theorem or Sobolev embeddings. The material in this post is mostly
 based on [@leoni2023first], [@agranovich2015sobolev],
-[@di2012hitchhikers], [@triebel1992theory]. The material can be quite
+[@{di2012hitchhiker's}], [@triebel1992theory]. The material can be quite
 technical, and there are multiple $800$ plus page books on the subject,
 so in many cases, we will state the main results, providing references
 for the proofs, as well as proving some of the more tractable results.
@@ -156,8 +156,8 @@ $$\begin{aligned}
 \end{aligned}$$*
 :::
 
-The proof can be found in [@di2012hitchhikers] page 10. The regularity
-of the domain is necessary to be able to extend functions in
+The proof can be found in [@{di2012hitchhiker's}] page 10. The
+regularity of the domain is necessary to be able to extend functions in
 $W^{1,p}(\Omega )$ to $W^{1,p}(\mathbb{R}^d)$. The result is not true
 otherwise, and an example is given in this same reference.
 
@@ -336,7 +336,7 @@ $H^{s,p}= \mathcal{L}^{p}_s$. See [@stein1970singular] and
 [@biccari2018local].
 :::
 
-## Extension domains
+## Extension domains {#extension domains}
 
 Though it is possible to define fractional spaces for any open set,
 these are most useful when the domain is regular enough. We begin by

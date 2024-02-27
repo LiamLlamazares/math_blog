@@ -144,7 +144,7 @@ In this post, we aim to answer these questions. We will see that both of these q
 \begin{align*}
     H^{s,p}(\Omega ),W^{s,p}(\Omega ),B^{s,p}(\Omega ).
 \end{align*}
-We will cover the basic properties of these spaces as well as their relationship to each other with a special focus on $W^{s,p}(\Omega )$ which is the most widely used.  We will see how these spaces can be used to obtain finer regularity results, such as in the trace theorem or Sobolev embeddings. The material in this post is mostly based on \cite{leoni2023first}, \cite{agranovich2015sobolev}, \cite{di2012hitchhiker's}, \cite{triebel1992theory}. The material can be quite technical, and there are multiple $800$ plus page books on the subject, so in many cases, we will state the main results, providing references for the proofs, as well as proving some of the more tractable results.
+We will cover the basic properties of these spaces as well as their relationship to each other with a special focus on $W^{s,p}(\Omega )$ which is the most widely used.  We will see how these spaces can be used to obtain finer regularity results, such as in the trace theorem or Sobolev embeddings. The material in this post is mostly based on \cite{leoni2023first}, \cite{agranovich2015sobolev}, \cite{di2012hitchhikers}, \cite{triebel1992theory}. The material can be quite technical, and there are multiple $800$ plus page books on the subject, so in many cases, we will state the main results, providing references for the proofs, as well as proving some of the more tractable results.
 \subsection{Preliminaries}
 In terms of notation, we will always denote $U$ by an arbitrary open subset of $\R^d$  whereas $\Omega \subset \R^d $ will be open with a smooth enough boundary (in a sense to be made precise later).
 
@@ -196,7 +196,7 @@ Though the Sobolev-Slobodeckij spaces can be defined for any open set $U$, they 
         W^{s',p}(\Omega )\hookrightarrow W^{s,p}(\Omega ).
     \end{align*}
 \end{proposition}
-The proof can be found in \cite{di2012hitchhiker's} page 10. The regularity of the domain is necessary to be able to extend functions in $W^{1,p}(\Omega )$ to $W^{1,p}(\R^d)$. The result is not true otherwise, and an example is given in this same reference.
+The proof can be found in \cite{di2012hitchhikers} page 10. The regularity of the domain is necessary to be able to extend functions in $W^{1,p}(\Omega )$ to $W^{1,p}(\R^d)$. The result is not true otherwise, and an example is given in this same reference.
 \subsection{Bessel potential spaces}
 We now give a second definition of fractional Sobolev spaces through the Fourier transform. Here, it is immediately possible to define everything for negative $s$.
 \begin{definition}
@@ -305,7 +305,8 @@ The definition of $B^{s,p}(\R^d)$ can then be extended to general open sets $\Om
     This clashes with the definition of integer-valued Sobolev spaces, so we do not use this notation. Other notations which can be found are  the notation $B^{s,p}= \Lambda^{p}_s$ and $H^{s,p}= \Ll ^{p}_s$. See \cite{stein1970singular} and \cite{biccari2018local}.
 \end{observation}
 
-\subsection{Extension domains}\label{extension domains}
+\subsection{Extension domains}
+
 Though it is possible to define fractional spaces for any open set, these are most useful when the domain is regular enough. We begin by characterizing the set of extension domains for $W^{s,p}$. The following result can be found in \cite{leoni2017first} page 313.
 \begin{theorem}[Plump sets are extension domains]\label{plump sets}
     Let $\Omega \subseteq \mathbb{R}^N$ be an open connected set, and consider $p\in [1,+\infty]$, and $\gamma\in (0,1)$. Then, $\Omega$ is an extension domain for $W^{\gamma, p}(\Omega)$ if and only if there exists a constant $C>0$ such that

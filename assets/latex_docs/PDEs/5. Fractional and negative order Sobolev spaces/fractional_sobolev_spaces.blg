@@ -8,7 +8,7 @@ Database file #1: biblio.bib
 Warning--can't use both volume and number fields in brezis2011functional
 You've used 12 entries,
             2952 wiz_defined-function locations,
-            745 strings with 7502 characters,
+            745 strings with 7497 characters,
 and the built_in function-call counts, 3148 in all, are:
 = -- 265
 > -- 66
