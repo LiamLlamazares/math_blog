@@ -539,7 +539,7 @@ This shows that the dual of $H^{k,p}_0(\Omega )$ is $H^{-k,p'}(\Omega )$. By als
 
 As a final note, if our domain has a boundary, $H_0^k(\Omega )'$ and $H^k(\Omega )'$ are not equal. Rather,
 \begin{align*}
-    H^{k,p}(\Omega )'\simeq H_{\overline{\Omega } }^{-k,p'}(\R^d), \quad H^{-k,p'}(\Omega ) \simeq H^{-k,p'}(\R^d)\slash H^{-k,p'}_{{\Omega }^c }(\R^d).
+    H^{k,p}(\Omega )'\simeq H_{\overline{\Omega } }^{-k,p'}(\R^d), \quad H^{-k,p'}(\Omega ) \simeq H^{-k,p'}(\R^d)\slash H^{-k,p'}_{\Omega ^c }(\R^d).
 \end{align*}
 See \cite{taylor2013partial} Section 4 for more details.
 
@@ -715,7 +715,7 @@ Higher order embeddings and interpolations can be obtained from the previous cas
 \begin{hint}
     Observe that
     \begin{align*}
-        \frac{1}{{(p_\gamma ^*)}_k^*}=\frac{1}{p_\gamma }-\frac{k}{d}=\frac{1}{p}-\frac{s}{d}= \frac{1}{p_s^*}.
+        \frac{1}{(p_\gamma ^*)_k^*}=\frac{1}{p_\gamma }-\frac{k}{d}=\frac{1}{p}-\frac{s}{d}= \frac{1}{p_s^*}.
     \end{align*}
     The result follows from Theorem \ref{subcritical embedding},  Theorem \ref{morrey embedding} together with the \href{https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#est32:~:text=three%20results%20gives-,Theorem%2013,-(Rellich%2DKondrachov).%20Let}{integer case} embeddings. For the first case, by Theorem \ref{subcritical embedding}, we have
     \begin{align*}
@@ -723,7 +723,7 @@ Higher order embeddings and interpolations can be obtained from the previous cas
     \end{align*}
     Then, using the integer case, we conclude
     \begin{align*}
-        \norm{u}_{L^{p_s^*}(\Omega )}=\norm{u}_{L^{{(p_\gamma ^*)}_k ^*}(\Omega )}\lesssim \norm{u}_{W^{k,p_\gamma ^*}(\Omega )}\lesssim \norm{u}_{W^{s,p}(\Omega )}.
+        \norm{u}_{L^{p_s^*}(\Omega )}=\norm{u}_{L^{(p_\gamma ^*)_k ^*}(\Omega )}\lesssim \norm{u}_{W^{k,p_\gamma ^*}(\Omega )}\lesssim \norm{u}_{W^{s,p}(\Omega )}.
     \end{align*}
     For the second case, by Theorem \ref{subcritical embedding} and reasoning with derivatives up to order $k$, we obtain similarly
     \begin{align*}

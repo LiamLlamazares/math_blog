@@ -1398,7 +1398,7 @@ Then, using the integer case, we conclude
 
 <div>
  $$\begin{aligned}
-        \left\lVert u \right\rVert\U {L^{p\U s^\star }(\Omega )}=\left\lVert u \right\rVert\U {L^{{(p\U \gamma ^\star )}\U k ^\star }(\Omega )}\lesssim \left\lVert u \right\rVert\U {W^{k,p\U \gamma ^\star }(\Omega )}\lesssim \left\lVert u \right\rVert\U {W^{s,p}(\Omega )}.
+        \left\lVert u \right\rVert\U {L^{p\U s^\star }(\Omega )}=\left\lVert u \right\rVert\U {L^{(p\U \gamma ^\star )}\U k ^\star }(\Omega )}\lesssim \left\lVert u \right\rVert\U {W^{k,p\U \gamma ^\star }(\Omega )}\lesssim \left\lVert u \right\rVert\U {W^{s,p}(\Omega )}.
     
 \end{aligned}$$
 </div>
