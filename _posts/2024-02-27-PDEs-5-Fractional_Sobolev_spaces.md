@@ -5,7 +5,7 @@ subtitle: Filling in the gaps
 thumbnail-img: /assets/img/Leoni_fractional.jpg
 share-img: /assets/img/Leoni_fractional.jpg
 tags: [PDEs]
-authorpost: L.Llamazares
+authorpost: L.Llamazares-Elias
 ---
 
 # Summary

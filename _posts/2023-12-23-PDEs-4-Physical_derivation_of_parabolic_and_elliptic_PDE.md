@@ -5,7 +5,7 @@ subtitle: Just have to balance the mass
 thumbnail-img: /assets/img/Marsden_fluid_mechanics.jpg
 share-img: /assets/img/Marsden_fluid_mechanics.jpg
 tags: [PDEs]
-authorpost: L.Llamazares
+authorpost: L.Llamazares-Elias
 ---
 
 # Summary
