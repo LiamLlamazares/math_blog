@@ -1473,7 +1473,7 @@ For the first part, use the fact that $\Omega$ is bounded to extract a finite su
 </div>
 </div>
 
-The following theorem shows that if $\partial\Omega$ is uniformly Lipschitz, $\Omega is an extension domain for $W^{k,p}$. To simplify the proof we will give the proof in the case of bounded open sets with $C^k$ boundary. Using the approximation of Sobolev functions by functions smooth on the boundary and a change of variables, we can extend functions in $W^{k,p}(\Omega)$ to the whole of $\mathbb{R}^d$.
+The following theorem shows that if $\partial\Omega$ is uniformly Lipschitz, $\Omega$ is an extension domain for $W^{k,p}$. To simplify the proof we will give the proof in the case of bounded open sets with $C^k$ boundary. Using the approximation of Sobolev functions by functions smooth on the boundary and a change of variables, we can extend functions in $W^{k,p}(\Omega)$ to the whole of $\mathbb{R}^d$.
 
 <a name="extension general">
 **Theorem 8** </a>  (General extension). Let $\Omega\subset \mathbb{R}^d$ be
@@ -1843,7 +1843,7 @@ The converse to Exercise [20](#trace 0) holds but is far from trivial.
 
 <div>
 $$\begin{aligned}
-W^{k,p}\U 0(\Omega)=\left\{u \in W^{k,p}(U): \operatorname{Tr}(u)= , \operatorname{Tr}\left(\frac{\partial u}{\partial \vb{n}}\right)=\ldots = \operatorname{Tr}\left(\frac{\partial^{m-1} u}{\partial \vb{n}^{k-1}}\right)=0 \right\}
+W^{k,p}\U 0(\Omega)=\left\{u \in W^{k,p}(U): \operatorname{Tr}(u)= , \operatorname{Tr}\left(\frac{\partial u}{\partial \mathbf{n}}\right)=\ldots = \operatorname{Tr}\left(\frac{\partial^{m-1} u}{\partial \mathbf{n}^{k-1}}\right)=0 \right\}
 \end{aligned}$$
 </div>
 
