@@ -684,8 +684,8 @@ transform of the translation, we have
 
 <div>
 $$\begin{aligned}
-& |u|\U {\gamma ,2}^2  =\int\U {\mathbb{R}^d}\int\U {\mathbb{R}^d}\frac{\left| u(x+y)-u(y) \right|^2}{\left| x \right|^{d+2\gamma  }}\,\mathrm{d}x \,\mathrm{d}y                                                                                                       = \int\U {\mathbb{R}^d}\frac{\left\lVert \mathcal{F}\{u(x+\cdot )-u\} \right\rVert^2\U {L^2(\mathbb{R}^d)}}{\left| x \right|^{d+2\gamma }}\,\mathrm{d}x \\
-& =\int\U {\mathbb{R}^d}\int\U {\mathbb{R}^d}  \frac{|e^{-2 \pi i x \cdot \xi}-1|^2}{\left| x \right|^{d+2\gamma    }}|\widehat{u}(\xi)|^2\,\mathrm{d}x\,\mathrm{d}\xi =\int\U {\mathbb{R}^d}\left(\int\U {\mathbb{R}^d}  \frac{1-\cos(2\pi \xi\cdot x)}{\left| x \right|^{d+2\gamma }}\,\mathrm{d}x\right)|\widehat{u}(\xi)|^2\,\mathrm{d}\xi.
+|u|\U {\gamma ,2}^2 & =\int\U {\mathbb{R}^d}\int\U {\mathbb{R}^d}\frac{\left| u(x+y)-u(y) \right|^2}{\left| x \right|^{d+2\gamma    }}\,\mathrm{d}x \,\mathrm{d}y                                                                                                       = \int\U {\mathbb{R}^d}\frac{\left\lVert \mathcal{F}\{u(x+\cdot )-u\} \right\rVert^2\U {L^2(\mathbb{R}^d)}}{\left| x \right|^{d+2\gamma }}\,\mathrm{d}x \\
+& =\int\U {\mathbb{R}^d}\int\U {\mathbb{R}^d}  \frac{|e^{2 \pi i x \cdot \xi}-1|^2}{\left| x \right|^{d+2\gamma    }}|\widehat{u}(\xi)|^2\,\mathrm{d}x\,\mathrm{d}\xi                                                                                                                                                                     \\&=2\int\U {\mathbb{R}^d}\left(\int\U {\mathbb{R}^d}  \frac{1-\cos(2\pi \xi\cdot x)}{\left| x \right|^{d+2\gamma }}\,\mathrm{d}x\right)|\widehat{u}(\xi)|^2\,\mathrm{d}\xi.
 
 \end{aligned}$$
 </div>
@@ -782,11 +782,11 @@ $$\begin{aligned}
 
  <a name="fractional laplacian">
 <b>Proposition 15</b> </a> . For $\gamma  \in (0,1)$ and
-$u \in H^{s}(\mathbb{R}^d)$ it holds that
+$u \in H^{\gamma }(\mathbb{R}^d)$ it holds that
 
 <div>
 $$\begin{aligned}
-(-\Delta )^{\gamma }u(x)=C\int\U {\mathbb{R}^d}\frac{u(y)-u(x+y)}{\left| y \right|^{d+2\gamma}}\,\mathrm{d}y,
+(-\Delta )^{\gamma }u(x)=C\int\U {\mathbb{R}^d}\frac{u(x)-u(x+y)}{\left| y \right|^{d+2\gamma}}\,\mathrm{d}y,
 
 \end{aligned}$$
 </div>
@@ -813,27 +813,28 @@ numerator by adding the two integrals.
 <div>
 $$\begin{align}
 \label{second order}
-\int\U {\mathbb{R}^d}\frac{u(y)-u(x+y)}{\left| y \right|^{d+2\gamma}}\,\mathrm{d}y=-\frac{1}{2}\int\U {\mathbb{R}^d}\frac{u(x+y)-2u(x)+u(x-y)}{\left| y \right|^{d+2\gamma}}\,\mathrm{d}y.
+\int\U {\mathbb{R}^d}\frac{u(x)-u(x+y)}{\left| y \right|^{d+2\gamma}}\,\mathrm{d}y=-\frac{1}{2}\int\U {\mathbb{R}^d}\frac{u(x+y)-2u(x)+u(x-y)}{\left| y \right|^{d+2\gamma}}\,\mathrm{d}y.
 
 \end{align}$$
 </div>
 
-That said, we must show that
+We will conclude the proof if we show that
+
 
 <div>
 $$\begin{aligned}
-\left| \xi \right|^{2\gamma }\widehat{u}(\xi )\sim \mathcal{F}\left(\int\U {\mathbb{R}^d}\frac{u(x)-u(x+y)}{\left| y \right|^{d+2\gamma}}\,\mathrm{d}y\right)
+\left| \xi \right|^{2\gamma }\widehat{u}(\xi )\sim \mathcal{F}\left(\int\U {\mathbb{R}^d}\frac{u(x)-u(x+y)}{\left| y \right|^{d+2\gamma}}\,\mathrm{d}y\right).
 
 \end{aligned}$$
 </div>
 
 Using
-(\ref{second order})  and proceeding as in Proposition
-<a href="#fractional laplacian">15</a> gives
+(\ref{second order})  and proceeding as in Exercise
+<a href="#equivalence fractional spaces">12</a> gives
 
 <div>
 $$\begin{aligned}
-& \mathcal{F}\left(\int\U {\mathbb{R}^d}\frac{u(x)-u(x+y)}{\left| y \right|^{d+2\gamma}}\,\mathrm{d}y\right)= -\frac{1}{2} \int\U {\mathbb{R}^d}\left(\int\U {\mathbb{R}^d}\frac{e^{-2\pi i y \cdot \xi}-2+e^{2\pi i y \cdot \xi}}{\left| y \right|^{d+2\gamma}}\,\mathrm{d}y\right) \widehat{u}(\xi)\,\mathrm{d}\xi       \\
+& \mathcal{F}\left(\int\U {\mathbb{R}^d}\frac{u(x)-u(x+y)}{\left| y \right|^{d+2\gamma}}\,\mathrm{d}y\right)= -\frac{1}{2} \int\U {\mathbb{R}^d}\left(\int\U {\mathbb{R}^d}\frac{e^{2\pi i y \cdot \xi}-2+e^{-2\pi i y \cdot \xi}}{\left| y \right|^{d+2\gamma}}\,\mathrm{d}y\right) \widehat{u}(\xi)\,\mathrm{d}\xi       \\
 & =\int\U {\mathbb{R}^d}\left(\int\U {\mathbb{R}^d}\frac{1-\cos(2\pi y \cdot \xi)}{\left| y \right|^{d+2\gamma}}\,\mathrm{d}y\right) \widehat{u}(\xi)\,\mathrm{d}\xi =\int\U {\mathbb{R}^d}  \frac{1-\cos(2\pi  y\U 1) }{\left| y \right|^{d+2\gamma    }}\,\mathrm{d}y\int\U {\mathbb{R}^d}\left| \xi \right|^{2 \gamma }\widehat{u}(\xi)\,\mathrm{d}\xi \\& \sim \left| \xi \right|^{2 \gamma }\widehat{u}(\xi)\,\mathrm{d}\xi.
 
 \end{aligned}$$
