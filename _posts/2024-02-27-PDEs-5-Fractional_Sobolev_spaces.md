@@ -69,8 +69,8 @@ well as their relationship to each other with a special focus on
 $W^{s,p}(\Omega )$ which is the most widely used. We will see how these
 spaces can be used to obtain finer regularity results, such as in the
 trace theorem or Sobolev embeddings. The material in this post is mostly
-based on <a href="https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover">Leoni, 2020</a>, <a href="https://link.springer.com/book/10.1007/978-3-319-14648-5">Agranovich, 2020</a>,
-<a href="https://www.sciencedirect.com/science/article/pii/S0007449711001254">Di, 2020</a>, <a href="https://link.springer.com/book/10.1007/978-3-0346-0419-2">Triebel, 2020</a>. The material can be quite
+based on [Leoni, 2020](https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover), [Agranovich, 2020](https://link.springer.com/book/10.1007/978-3-319-14648-5),
+[Di, 2020](https://www.sciencedirect.com/science/article/pii/S0007449711001254), [Triebel, 2020](https://link.springer.com/book/10.1007/978-3-0346-0419-2). The material can be quite
 technical, and there are multiple $800$ plus page books on the subject,
 so in many cases, we will state the main results, providing references
 for the proofs, as well as proving some of the more tractable results.
@@ -83,7 +83,7 @@ open with a smooth enough boundary (in a sense to be made precise
 later).
 
 We make frequent use of the fact that, as
-<a href="https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=we%20would%20like%20to%20see%20what%20some%20of%20them%20look%20like.">shown</a>
+[shown](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=we%20would%20like%20to%20see%20what%20some%20of%20them%20look%20like.)
 in a previous post, functions in $L^p(U)$ can be identified as elements
 of the larger space of distributions
 $\mathcal{D}'(U ):= C\U c^\infty(U)'$. This is done by identifying a
@@ -97,7 +97,7 @@ T\U f:\phi \mapsto \int\U U f\phi \,\mathrm{d}x.
 
 This identification between $f$ and $T\U f$ allows us to
 extend by
-<a href="https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=is%20called%20the-,duality,-method%20and%20appears">duality</a>
+[duality](https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=is%20called%20the-,duality,-method%20and%20appears)
 operators that are defined on $C\U c^\infty(U)$ to $L^p(U)$. For example,
 given $u \in L^p(U) \in \mathcal{D}'(\Omega )$ we can define its Fourier
 transform $\mathcal{F}u$ and $\alpha$-th derivative $D^\alpha u$ to be
@@ -116,7 +116,7 @@ coincides with the usual definitions of $\mathcal{F}, D^\alpha$.
 # Fractional Sobolev spaces: three definitions
 
 The definitions developed in the next three subsections can be found in
-<a href="https://link.springer.com/book/10.1007/978-3-319-14648-5">Agranovich, 2020</a> page 222.
+[Agranovich, 2020](https://link.springer.com/book/10.1007/978-3-319-14648-5) page 222.
 
 ## Sobolev-Slobodeckij spaces
 
@@ -207,7 +207,7 @@ W^{s',p}(\Omega )\hookrightarrow W^{s,p}(\Omega ).
 
 
 
-The proof can be found in <a href="https://www.sciencedirect.com/science/article/pii/S0007449711001254">Di, 2020</a> page 10. The regularity
+The proof can be found in [Di, 2020](https://www.sciencedirect.com/science/article/pii/S0007449711001254) page 10. The regularity
 of the domain is necessary to be able to extend functions in
 $W^{1,p}(\Omega )$ to $W^{1,p}(\mathbb{R}^d)$. The result is not true
 otherwise, and an example is given in this same reference.
@@ -351,7 +351,7 @@ $\mathbb{R}^d$ and be ill-defined.
 through complex interpolation. This is likely different from the above
 definition, however, as we will later see, this will coincide with the
 definition above when $\Omega$ is smooth enough (for example Lipschitz).
-See also <a href="https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover">Leoni, 2020</a> page 328 for a similar remark.
+See also [Leoni, 2020](https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover) page 328 for a similar remark.
 
 
 ## Besov spaces
@@ -461,7 +461,7 @@ $$\begin{aligned}
 
 
 **Observation 3**. Different authors use different notations for these
-spaces. For example, in <a href="https://link.springer.com/book/10.1007/978-3-0346-0419-2">Triebel, 2020</a>, the notation
+spaces. For example, in [Triebel, 2020](https://link.springer.com/book/10.1007/978-3-0346-0419-2), the notation
 $W^{s,p}(\mathbb{R}^d):= B^{s,p}(\mathbb{R}^d)$ is used. With this
 notation, one has that, for $p \neq 2$, and $k \in \mathbb{N}\U 0$,
 
@@ -476,8 +476,8 @@ W^{k,p}(\mathbb{R}^d) \neq \left\{ u \in \mathcal{D}'(\mathbb{R}^d) : D^\alpha u
 This clashes with the definition of integer-valued
 Sobolev spaces, so we do not use this notation. Other notations which
 can be found are the notation $B^{s,p}= \Lambda^{p}\U s$ and
-$H^{s,p}= \mathcal{L}^{p}\U s$. See <a href="https://www.degruyter.com/document/doi/10.1515/9781400883882/html">Stein, 2020</a> and
-<a href="https://link.springer.com/chapter/10.1007/978-3-319-97613-6_12">Biccari, 2020</a>.
+$H^{s,p}= \mathcal{L}^{p}\U s$. See [Stein, 2020](https://www.degruyter.com/document/doi/10.1515/9781400883882/html) and
+[Biccari, 2020](https://link.springer.com/chapter/10.1007/978-3-319-97613-6_12).
 
 
 ## Extension domains
@@ -485,7 +485,7 @@ $H^{s,p}= \mathcal{L}^{p}\U s$. See <a href="https://www.degruyter.com/document/
 Though it is possible to define fractional spaces for any open set,
 these are most useful when the domain is regular enough. We begin by
 characterizing the set of extension domains for $W^{s,p}$. The following
-result can be found in <a href="https://www.google.co.uk/books/edition/A_First_Course_in_Sobolev_Spaces/qoA8DwAAQBAJ?hl=en&gbpv=0">Leoni, 2020</a> page 313.
+result can be found in [Leoni, 2020](https://www.google.co.uk/books/edition/A_First_Course_in_Sobolev_Spaces/qoA8DwAAQBAJ?hl=en&gbpv=0) page 313.
 
  <a name="plump sets">
 **Theorem 9** </a>  (Plump sets are extension domains). Let
@@ -504,7 +504,7 @@ Lebesgue measure on $\mathbb{R}^d$.
 
 
 For higher orders of regularity, the following is sufficient: see
-<a href="https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover">Leoni, 2020</a> and <a href="https://link.springer.com/book/10.1007/978-981-13-0836-9">Sawano, 2020</a> section 5.1.
+[Leoni, 2020](https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover) and [Sawano, 2020](https://link.springer.com/book/10.1007/978-981-13-0836-9) section 5.1.
 
 
 **Theorem 10**. Let $\Omega \subset \mathbb{R}^d$ be open with
@@ -549,7 +549,7 @@ where $[X,Y]\U \theta$ denotes the complex interpolation
 space.
 
 
-The result can be found in <a href="https://link.springer.com/book/10.1007/978-3-0346-0419-2">Triebel, 2020</a> page 45 for
+The result can be found in [Triebel, 2020](https://link.springer.com/book/10.1007/978-3-0346-0419-2) page 45 for
 $\Omega = \mathbb{R}^d$. The general result follows by extension. In
 particular, if we write $k:=\left\lfloor s \right\rfloor$ and
 $\gamma:=s-k$, then
@@ -567,7 +567,7 @@ B^{s,p}(\Omega ) & =\left[B^{k,p}(\Omega), B^{k+1,p}(\Omega)\right]\U {\gamma }=
 
 The following result shows the inclusions between
 $W^{s,p}(\Omega ),H^{s,p}(\Omega ),B^{s,p}(\Omega )$ and can be found in
-<a href="https://link.springer.com/book/10.1007/978-3-319-14648-5">Agranovich, 2020</a> page 224 and in <a href="https://www.degruyter.com/document/doi/10.1515/9781400883882/html">Stein, 2020</a> page 155.
+[Agranovich, 2020](https://link.springer.com/book/10.1007/978-3-319-14648-5) page 224 and in [Stein, 2020](https://www.degruyter.com/document/doi/10.1515/9781400883882/html) page 155.
 
  <a name="equivalence fractional spaces">
 **Theorem 12** </a> . Let $s \geq 0, \epsilon >0$ and $\Omega$ an extension
@@ -639,7 +639,7 @@ three spaces are written $H^s(\Omega )$. We will prove the left-hand
 side of this equivalence in Exercise
 <a href="#equivalence of fractional spaces">4</a>. For $p\neq 2$, the
 inclusions are, in general, strict. An example is constructed in
-<a href="https://www.degruyter.com/document/doi/10.1515/9781400883882/html">Stein, 2020</a> page 161 exercise 6.8.
+[Stein, 2020](https://www.degruyter.com/document/doi/10.1515/9781400883882/html) page 161 exercise 6.8.
 
  <a name="equivalence of fractional spaces">
 **Exercise 4** </a>  (Equivalence of fractional spaces). Show without using
@@ -859,7 +859,7 @@ This is best seen in the integer case. We first introduce the notation
 $W^{s,p}\U 0(U),H^{s,p}\U 0(U),B^{s,p}\U 0(U)$ for the closure of
 $C\U c^\infty(U)$ in $W^{s,p}(U),H^{s,p}(U),B^{s,p}(U)$ respectively. We
 also introduce the notation $p' = p/(p-1)$ for the conjugate exponent of
-$p$. We then have the following result (see <a href="https://math24.files.wordpress.com/2013/02/partial-differential-equations-by-evans.pdf">Evans, 2020</a> pages
+$p$. We then have the following result (see [Evans, 2020](https://math24.files.wordpress.com/2013/02/partial-differential-equations-by-evans.pdf) pages
 326-344 for the case $p=2$).
 
  <a name="dual of integer sobolev">
@@ -886,7 +886,7 @@ equality is a direct consequence of the integer order equality
 $W^{k,p}(\Omega )=H^{k,p}(\Omega )$ of Theorem
 <a href="#equivalence fractional spaces">12</a>. For fractional order
 regularities, we have the following result, which can be found in
-<a href="https://link.springer.com/book/10.1007/978-3-319-14648-5">Agranovich, 2020</a> page 228.
+[Agranovich, 2020](https://link.springer.com/book/10.1007/978-3-319-14648-5) page 228.
 
 
 **Theorem 17**. Given $s>0, p \in [1,\infty)$ and $\Omega$ an extension
@@ -928,7 +928,7 @@ W^{-s,p'}(\Omega )':=   W^{s,p}(\Omega )'.
 \end{align}$$
 </div>
 
-See, for example, <a href="https://link.springer.com/chapter/10.1007/978-3-319-97613-6_12">Biccari, 2020</a>. The definition in
+See, for example, [Biccari, 2020](https://link.springer.com/chapter/10.1007/978-3-319-97613-6_12). The definition in
 (\ref{alternative negative})  is equivalent to our definition when
 $\Omega = \mathbb{R}^d$ or when $s \in k$. However, in other cases, the
 two definitions are not equivalent.
@@ -1020,7 +1020,7 @@ $\Delta ^{2s}$, which is hardly the identity mapping.
 </div>
 
 For another example where confusion with this kind of identification can
-arise, see remark 3 on page 136 of <a href=""https://en.wikipedia.org/wiki/Continuous_linear_extension"">Brezis, 2020</a>.
+arise, see remark 3 on page 136 of [Brezis, 2020]("https://en.wikipedia.org/wiki/Continuous_linear_extension").
 
 ## The dual of $H^{s,p}\U 0(\Omega)$
 
@@ -1061,7 +1061,7 @@ obtaining functionals in $Y'$. The kernel of this restriction is
 $Y^\circ:=\left\\{\ell \in X': Y \subset \mathrm{ker}(\ell)\right\\}$.
 Since, by the Hahn Banach theorem, the restriction is surjective, we
 obtain the
-<a href="https://math.la.asu.edu/~quigg/teach/courses/578/2008/notes/adjoints.pdf">factorization</a>
+[factorization](https://math.la.asu.edu/~quigg/teach/courses/578/2008/notes/adjoints.pdf)
 
 
 <div>
@@ -1099,7 +1099,7 @@ H^{k,p}(\Omega )'\simeq H\U {\overline{\Omega } }^{-k,p'}(\mathbb{R}^d), \quad H
 \end{aligned}$$
 </div>
 
-See <a href="https://books.google.co.uk/books?id=wI4fAwAAQBAJ&printsec=frontcover&hl=fr&source=gbs_ge_summary_r&cad=0#v=onepage&q&f=false">Taylor, 2020</a> Section 4 for more details.
+See [Taylor, 2020](https://books.google.co.uk/books?id=wI4fAwAAQBAJ&printsec=frontcover&hl=fr&source=gbs_ge_summary_r&cad=0#v=onepage&q&f=false) Section 4 for more details.
 
 # Representation theorems
 
@@ -1251,7 +1251,7 @@ for open domains <a href="#bessel potential def Omega">5</a>.
 </div>
 </div>
 
-The above results extend to Besov spaces; see <a href="https://link.springer.com/book/10.1007/978-3-319-14648-5">Agranovich, 2020</a>
+The above results extend to Besov spaces; see [Agranovich, 2020](https://link.springer.com/book/10.1007/978-3-319-14648-5)
 page 227. This gives,
 
 
@@ -1293,7 +1293,7 @@ To be able to answer this question, we need to know the image of the
 trace operator. If $g \notin \operatorname{Tr}(W^{k,p}(\Omega ))$, then
 there is no hope of finding a solution. The following theorem
 characterizes the image of the trace operator and can be found in
-<a href="https://link.springer.com/book/10.1007/978-3-319-14648-5">Agranovich, 2020</a> page 228 and <a href="https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover">Leoni, 2020</a> page 390.
+[Agranovich, 2020](https://link.springer.com/book/10.1007/978-3-319-14648-5) page 228 and [Leoni, 2020](https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover) page 390.
 
  <a name="trace theorem">
 **Theorem 20** </a>  (Fractional trace theorem). Let
@@ -1339,7 +1339,7 @@ $$\begin{aligned}
 
 In this section, we state the fractional analogue of the Sobolev
 embedding theorems for regularity $\gamma \in (0,1)$. Here, the
-<a href="https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#global:~:text=concludes%20the%20proof.%C2%A0%E2%97%BB-,Exercise,-24%20.%20Given">analogous</a>
+[analogous](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#global:~:text=concludes%20the%20proof.%C2%A0%E2%97%BB-,Exercise,-24%20.%20Given)
 of the exponent $p\U k^{\star }$ is
 
 
@@ -1369,7 +1369,7 @@ $$\begin{aligned}
 
 
 
-See <a href="https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover">Leoni, 2020</a> page 262 for the following result.
+See [Leoni, 2020](https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover) page 262 for the following result.
 
  <a name="subcritical embedding">
 **Theorem 22** </a>  (Fractional Sobolev-Gagliardo-Niremberg). Given an
@@ -1397,7 +1397,7 @@ $$\begin{aligned}
 
 
 The critical case $\gamma=\frac{d}{p}$ corresponding to
-$p\U \gamma^\star =\infty$ is now (see <a href="https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover">Leoni, 2020</a> page 265)
+$p\U \gamma^\star =\infty$ is now (see [Leoni, 2020](https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover) page 265)
 
  <a name="critical embedding">
 **Theorem 23** </a> . Given an extension domain $\Omega$ for $W^{\gamma,p}$
@@ -1439,7 +1439,7 @@ Conclude by finding $r$ such that $p\U r^\star =q$.
 </div>
 
 The supercritical case $\gamma>d/p$ can be found in
-<a href="https://link.springer.com/book/10.1007/978-3-319-14648-5">Agranovich, 2020</a> page 224 and <a href="https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover">Leoni, 2020</a> page 275.
+[Agranovich, 2020](https://link.springer.com/book/10.1007/978-3-319-14648-5) page 224 and [Leoni, 2020](https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover) page 275.
 
  <a name="morrey embedding">
 **Theorem 24** </a>  (Morrey's fractional embedding). Let $\Omega$ be an
@@ -1459,7 +1459,7 @@ provided that $\gamma$ is non-integer.
 
 
 As in the non-fractional case, one can also consider higher smoothness
-on the right-hand side (see <a href="https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover">Leoni, 2020</a> page 290).
+on the right-hand side (see [Leoni, 2020](https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover) page 290).
 
  <a name="higher smoothness embedding">
 **Theorem 25** </a>  (Sobolev embedding into higher smoothness). Let $\Omega$
@@ -1493,7 +1493,7 @@ $(x,y)\to \lambda (x,y)$.
 </div>
 </div>
 
-Finally, interpolation results are also possible. See <a href="https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover">Leoni, 2020</a>
+Finally, interpolation results are also possible. See [Leoni, 2020](https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover)
 page 300.
 
  <a name="interpolation embedding">
@@ -1662,9 +1662,9 @@ $$\begin{aligned}
 </div>
 </div>
 
-For more higher order embeddings see also <a href="https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover">Leoni, 2020</a> Section
+For more higher order embeddings see also [Leoni, 2020](https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover) Section
 11.4. Finally, embeddings can be similarly formulated for Besov spaces.
-See <a href="https://link.springer.com/book/10.1007/978-981-13-0836-9">Sawano, 2020</a> page 219 for the following result.
+See [Sawano, 2020](https://link.springer.com/book/10.1007/978-981-13-0836-9) page 219 for the following result.
 
 
 **Theorem 27** (Embedding for Besov spaces). Let $\Omega$ be an
@@ -1683,8 +1683,8 @@ B^{s\U 1,p\U 1}(\Omega) \hookrightarrow B^{s\U 2,p\U 2}(\Omega), \quad s\U 1-\fr
 
 
 This and other results can be formulated for the more general spaces
-$B^{s,p}\U q$. Where $B^{s,p}= B^{s,p}\U p$. See, <a href="https://link.springer.com/book/10.1007/978-3-0346-0419-2">Triebel, 2020</a>,
-<a href="https://link.springer.com/book/10.1007/978-3-319-14648-5">Agranovich, 2020</a>, <a href="https://link.springer.com/book/10.1007/978-981-13-0836-9">Sawano, 2020</a>.
+$B^{s,p}\U q$. Where $B^{s,p}= B^{s,p}\U p$. See, [Triebel, 2020](https://link.springer.com/book/10.1007/978-3-0346-0419-2),
+[Agranovich, 2020](https://link.springer.com/book/10.1007/978-3-319-14648-5), [Sawano, 2020](https://link.springer.com/book/10.1007/978-981-13-0836-9).
 
 We conclude this post by commenting that given a second-order PDE with
 smooth coefficients, such as
@@ -1701,7 +1701,7 @@ $u \in W^{s+2,p}(\Omega )$. This is indeed the case locally. However, to
 obtain smoothness up to the boundary, one also needs $\partial \Omega$
 to be regular enough. In this case, Lipschitz continuity of $\Omega$ is
 not sufficient, even if $f \in C^\infty(\overline{\Omega } )$ (see for
-example <a href="https://www.sciencedirect.com/science/article/pii/S002212369793158X/pdf?md5=c646200fe7117dd7d25d27439f36b342&pid=1-s2.0-S002212369793158X-main.pdf">Savare, 2020</a>). We may comment on this later in a
+example [Savare, 2020](https://www.sciencedirect.com/science/article/pii/S002212369793158X/pdf?md5=c646200fe7117dd7d25d27439f36b342&pid=1-s2.0-S002212369793158X-main.pdf)). We may comment on this later in a
 future post.
 
-A (possibly not updated) pdf of version of this page is provided <a href="/assets/pdfs/PDEs/fractional_sobolev_spaces.pdf">here</a>.
+A (possibly not updated) pdf of version of this page is provided [here](/assets/pdfs/PDEs/fractional_sobolev_spaces.pdf).
