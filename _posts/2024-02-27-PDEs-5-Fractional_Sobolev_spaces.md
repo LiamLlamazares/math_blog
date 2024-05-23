@@ -829,7 +829,7 @@ $$\begin{aligned}
 
 Using
 (\ref{second order})  and proceeding as in Proposition
-(\ref{fractiona laplacian})  gives
+<a href="#fractional laplacian">15</a> gives
 
 <div>
 $$\begin{aligned}
