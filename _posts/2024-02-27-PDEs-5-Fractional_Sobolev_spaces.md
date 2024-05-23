@@ -121,7 +121,7 @@ The definitions developed in the next three subsections can be found in
 ## Sobolev-Slobodeckij spaces
 
  <a name="soledkij def">
-**Definition 1** </a>  (Sobolev-Slobodeckij spaces). Let $s=k+\gamma$ where
+<b>Definition 1</b> </a>  (Sobolev-Slobodeckij spaces). Let $s=k+\gamma$ where
 $k \in \mathbb{N}\U 0$, and $\gamma \in [0,1)$. Then, given
 $p \in [1,\infty)$ and an arbitrary open $U \subset \mathbb{R}^d$ we
 define
@@ -164,7 +164,7 @@ $s=k \in \mathbb{N}\U 0$ and mimics that of the Hölder spaces, coinciding
 exactly when $p=\infty$.
 
 
-**Exercise 1**. Show that $W^{s,p}(U)$ is a Banach space.
+<b>Exercise 1</b>. Show that $W^{s,p}(U)$ is a Banach space.
 
 
 <div class="exercise-container">
@@ -191,7 +191,7 @@ $U$, they are most useful when $U=\mathbb{R}^d$ or $U$ is regular
 enough. Otherwise, basic properties such as the following break down
 
  <a name="inclusion ordered by regularity">
-**Proposition 2** </a>  (Inclusion ordered by regularity). Let $\Omega$ be an
+<b>Proposition 2</b> </a>  (Inclusion ordered by regularity). Let $\Omega$ be an
 [extension
 domain](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=extend%20Sobolev%20functions)
 for $W^{1,p}$. Then, for $p \in [1,\infty)$ and $0<s<s'$ it holds that
@@ -219,7 +219,7 @@ Fourier transform. Here, it is immediately possible to define everything
 for negative $s$.
 
 
-**Definition 3**. Let $s\in\mathbb{R}$ and
+<b>Definition 3</b>. Let $s\in\mathbb{R}$ and
 $u \in \mathcal{S}'(\mathbb{R}^d)$. We define the Bessel potential
 operator $\Lambda^s$ by
 
@@ -252,7 +252,7 @@ Equation
 general $p$.
 
  <a name="bessel potential def">
-**Definition 4** </a>  (Bessel potential spaces on $\mathbb{R}^d$ ). Let
+<b>Definition 4</b> </a>  (Bessel potential spaces on $\mathbb{R}^d$ ). Let
 $s \in \mathbb{R}$ and $p \in (1,\infty)$, we define the Bessel
 potential space
 
@@ -278,7 +278,7 @@ $$\begin{aligned}
 By construction, $H^{k,2}(\mathbb{R}^d)=H^{k}(\mathbb{R}^d)$.
 
 
-**Exercise 2**. Show that $\Lambda^s\Lambda^r=\Lambda^{s+r}$. Use this
+<b>Exercise 2</b>. Show that $\Lambda^s\Lambda^r=\Lambda^{s+r}$. Use this
 to show that the following is an invertible isomorphism
 
 
@@ -304,7 +304,7 @@ and show that the inverse of $\Lambda^r$ is $\Lambda^{-r}$.
 We now extend this to open domains
 
  <a name="bessel potential def Omega">
-**Definition 5** </a>  (Bessel potential spaces on $\Omega$). Let
+<b>Definition 5</b> </a>  (Bessel potential spaces on $\Omega$). Let
 $U  \subset \mathbb{R}^d$ be open. We define
 
 <div>
@@ -339,7 +339,7 @@ $$\begin{aligned}
 
 
 
-**Observation 1**. It is tempting to define
+<b>Observation 1</b>. It is tempting to define
 $\left\lVert u \right\rVert\U {H^{s,p}(U )}:=\left\lVert \Lambda^s v \right\rVert\U {L^p(U )}$.
 However, since the Fourier transform, and thus $\Lambda^s$, is a
 nonlocal operator, the norm would depend on the extension $v$ of $u$ to
@@ -347,7 +347,7 @@ $\mathbb{R}^d$ and be ill-defined.
 
 
 
-**Observation 2**. It would also make sense to define $H^{s,p}(U )$
+<b>Observation 2</b>. It would also make sense to define $H^{s,p}(U )$
 through complex interpolation. This is likely different from the above
 definition, however, as we will later see, this will coincide with the
 definition above when $\Omega$ is smooth enough (for example Lipschitz).
@@ -357,7 +357,7 @@ See also [Leoni, 2020](https://www.google.co.uk/books/edition/A_First_Course_in_
 ## Besov spaces
 
  <a name="besov def">
-**Definition 6** </a>  (Besov spaces). Let $s=k\U {-}+\gamma$ where
+<b>Definition 6</b> </a>  (Besov spaces). Let $s=k\U {-}+\gamma$ where
 $k\U {-} \in \mathbb{N}\U 0$, and $\gamma \in (0,1]$. Then, given
 $p \in [1,\infty)$ and $\Omega  \subset \mathbb{R}^d$ be an arbitrary
 open set we define
@@ -391,7 +391,7 @@ to indicate this fact by the index "$-$" on $k\U {-}$. An equivalent
 definition is possible which extends the above to negative values of $s$
 
  <a name="besov def negative">
-**Definition 7** </a>  (Besov spaces, negative $s$). Let $s \in \mathbb{R}$
+<b>Definition 7</b> </a>  (Besov spaces, negative $s$). Let $s \in \mathbb{R}$
 and choose any $\sigma \not\in \mathbb{N}\U 0$ with $\sigma >0$. Then,
 given $p \in [1,\infty)$ we define
 
@@ -409,7 +409,7 @@ The requirement $\sigma >0$ is necessary as
 $B^{s,p}(\mathbb{R}^d)\neq H^{s,p}(\mathbb{R}^d)$.
 
 
-**Exercise 3**. Show that $\Lambda ^r$ defines an invertible isomorphism
+<b>Exercise 3</b>. Show that $\Lambda ^r$ defines an invertible isomorphism
 
 
 <div>
@@ -436,7 +436,7 @@ general open sets $\Omega$ and $U$ in the same way as for the Bessel
 potential spaces, once more the same observations apply.
 
  <a name="besov def on U">
-**Definition 8** </a>  (Besov spaces on $\Omega$). Let
+<b>Definition 8</b> </a>  (Besov spaces on $\Omega$). Let
 $\Omega  \subset \mathbb{R}^d$ be an smooth. We define,
 
 
@@ -460,7 +460,7 @@ $$\begin{aligned}
 
 
 
-**Observation 3**. Different authors use different notations for these
+<b>Observation 3</b>. Different authors use different notations for these
 spaces. For example, in [Triebel, 2020](https://link.springer.com/book/10.1007/978-3-0346-0419-2), the notation
 $W^{s,p}(\mathbb{R}^d):= B^{s,p}(\mathbb{R}^d)$ is used. With this
 notation, one has that, for $p \neq 2$, and $k \in \mathbb{N}\U 0$,
@@ -488,7 +488,7 @@ characterizing the set of extension domains for $W^{s,p}$. The following
 result can be found in [Leoni, 2020](https://www.google.co.uk/books/edition/A_First_Course_in_Sobolev_Spaces/qoA8DwAAQBAJ?hl=en&gbpv=0) page 313.
 
  <a name="plump sets">
-**Theorem 9** </a>  (Plump sets are extension domains). Let
+<b>Theorem 9</b> </a>  (Plump sets are extension domains). Let
 $\Omega \subseteq \mathbb{R}^N$ be an open connected set, and consider
 $p\in [1,+\infty]$, and $\gamma\in (0,1)$. Then, $\Omega$ is an
 extension domain for $W^{\gamma, p}(\Omega)$ if and only if there exists
@@ -507,7 +507,7 @@ For higher orders of regularity, the following is sufficient: see
 [Leoni, 2020](https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover) and [Sawano, 2020](https://link.springer.com/book/10.1007/978-981-13-0836-9) section 5.1.
 
 
-**Theorem 10**. Let $\Omega \subset \mathbb{R}^d$ be open with
+<b>Theorem 10</b>. Let $\Omega \subset \mathbb{R}^d$ be open with
 [uniformly Lipschitz
 boundary](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=has-,uniformly%20Lipschitz%20boundary,-if%20there%20exists)
 and consider $p\in [1,\infty), s\in[1,\infty)$. Then, $\Omega$ is an
@@ -525,7 +525,7 @@ merely serve as a nice way to understand the relationship between the
 spaces.
 
  <a name="interpolation">
-**Proposition 11** </a>  (Interpolation ). Let
+<b>Proposition 11</b> </a>  (Interpolation ). Let
 $s\U 1 \neq s\U 2 >0, p \in (1, \infty)$, $0<\theta<1$ and
 
 <div>
@@ -570,7 +570,7 @@ $W^{s,p}(\Omega ),H^{s,p}(\Omega ),B^{s,p}(\Omega )$ and can be found in
 [Agranovich, 2020](https://link.springer.com/book/10.1007/978-3-319-14648-5) page 224 and in [Stein, 2020](https://www.degruyter.com/document/doi/10.1515/9781400883882/html) page 155.
 
  <a name="equivalence fractional spaces">
-**Theorem 12** </a> . Let $s \geq 0, \epsilon >0$ and $\Omega$ an extension
+<b>Theorem 12</b> </a> . Let $s \geq 0, \epsilon >0$ and $\Omega$ an extension
 domain for $H^{s+\epsilon,p},B^{s+\epsilon,p}$. Then,
 
 <div>
@@ -616,7 +616,7 @@ justifies the following extension of $W^{s,p}(\Omega )$ to negative
 regularity.
 
  <a name="negative s Slobodeckij">
-**Definition 13** </a>  (Slobodeckij space negative $s$). Let
+<b>Definition 13</b> </a>  (Slobodeckij space negative $s$). Let
 $\Omega \subset \mathbb{R}^d$ be an extension domain for
 $H^{s,p}(\Omega ), B^{s,p}(\Omega )$. Then, given $p \in [1,\infty)$ and
 any $s \in \mathbb{R}$ we define
@@ -642,7 +642,7 @@ inclusions are, in general, strict. An example is constructed in
 [Stein, 2020](https://www.degruyter.com/document/doi/10.1515/9781400883882/html) page 161 exercise 6.8.
 
  <a name="equivalence of fractional spaces">
-**Exercise 4** </a>  (Equivalence of fractional spaces). Show without using
+<b>Exercise 4</b> </a>  (Equivalence of fractional spaces). Show without using
 Theorem <a href="#equivalence fractional spaces">12</a> that
 
 <div>
@@ -713,7 +713,7 @@ result.
 </div>
 
 
-**Exercise 5**. Use the previous exercise
+<b>Exercise 5</b>. Use the previous exercise
 <a href="#equivalence of fractional spaces">4</a> to show that if $\Omega$
 is an extension domain for $H^{s}$, then
 
@@ -766,7 +766,7 @@ correspond to differentiating a fractional amount of times. This indeed
 is the case
 
 
-**Definition 14**. Given $s \in [0,+\infty)$ and
+<b>Definition 14</b>. Given $s \in [0,+\infty)$ and
 $u \in \mathcal{S}(\mathbb{R}^d)$ we define the fractional Laplacian as
 
 
@@ -781,7 +781,7 @@ $$\begin{aligned}
 
 
  <a name="fractional laplacian">
-**Proposition 15** </a> . For $\gamma  \in (0,1)$ and
+<b>Proposition 15</b> </a> . For $\gamma  \in (0,1)$ and
 $u \in H^{s}(\mathbb{R}^d)$ it holds that
 
 <div>
@@ -795,7 +795,7 @@ where $C$ is a constant that depends on $d,\gamma$.
 
 
 
-Proof. The above equality may seem odd at first if we compare it with
+<b>Proof.</b> The above equality may seem odd at first if we compare it with
 the integral in <a href="#soledkij def">1</a> where a square appears in the numerator, which
 gives us our $2$ in the $2 \gamma$. However, it is justified by the fact
 that, by the change of variables $y \to -y$,
@@ -863,7 +863,7 @@ $p$. We then have the following result (see [Evans, 2020](https://math24.files.w
 326-344 for the case $p=2$).
 
  <a name="dual of integer sobolev">
-**Theorem 16** </a> . For all $k \in \mathbb{Z}$ and $p \in [1,\infty)$ and
+<b>Theorem 16</b> </a> . For all $k \in \mathbb{Z}$ and $p \in [1,\infty)$ and
 $\Omega$ an extension domain for $W^{k,p}$, it holds that
 
 
@@ -889,7 +889,7 @@ regularities, we have the following result, which can be found in
 [Agranovich, 2020](https://link.springer.com/book/10.1007/978-3-319-14648-5) page 228.
 
 
-**Theorem 17**. Given $s>0, p \in [1,\infty)$ and $\Omega$ an extension
+<b>Theorem 17</b>. Given $s>0, p \in [1,\infty)$ and $\Omega$ an extension
 domain, it holds that the spaces
 $W^{s,p}(\Omega ),H^{s,p}(\Omega ),B^{s,p}(\Omega )$ are reflexive
 Banach spaces with duals
@@ -918,7 +918,7 @@ W^{s,p}(\mathbb{R}^d )'=    W^{-s,p'}(\mathbb{R}^d ), \quad H^{s,p}(\mathbb{R}^d
 
 
 
-**Observation 4**. Some authors define given $s>0$
+<b>Observation 4</b>. Some authors define given $s>0$
 
 <div>
 $$\begin{align}
@@ -941,7 +941,7 @@ $\Omega =\mathbb{R}^d$. Note that, in this setting,
 $H\U 0^{s,p}(\mathbb{R}^d)=H^{s,p}(\mathbb{R}^d)$.
 
  <a name="dual exercise">
-**Exercise 6** </a>  (Dual identification). Prove the identification
+<b>Exercise 6</b> </a>  (Dual identification). Prove the identification
 $H^{-s,p'}(\mathbb{R}^d)=H^{s,p}(\mathbb{R}^d)'$ for $s>0$ and
 $p \in [1,\infty)$.
 
@@ -989,7 +989,7 @@ H^{s,p}(\mathbb{R}^d)'                & \longrightarrow H^{-s,p'}(\mathbb{R}^d);
 </div>
 
 
-**Exercise 7**. We also know that since $H^{s}(\mathbb{R}^d)$ is a
+<b>Exercise 7</b>. We also know that since $H^{s}(\mathbb{R}^d)$ is a
 Hilbert space, so by the Riesz representation theorem, we have the
 identification $H^s(\mathbb{R}^d) = H^{s}(\mathbb{R}^d)'$. So by the
 previous exercise $H^{-s}(\mathbb{R}^d)= H^s(\mathbb{R}^d)$ How is this
@@ -999,7 +999,7 @@ possible?
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
 <div class="exercise-text">
-It does **not** hold that
+It does <b>not</b> hold that
 $H^{-s}(\mathbb{R}^d)= H^s(\mathbb{R}^d)$. The problem occurs when
 considering too many identifications at once, as we are identifying
 duals using different inner products. By following the mappings, we
@@ -1112,7 +1112,7 @@ functions with higher regularity. We show how to extend this idea to
 smooth domains in some particular cases.
 
  <a name="riesz representation">
-**Theorem 18** </a>  (Representation of $W\U 0^{k,p}(\Omega )'$). Let
+<b>Theorem 18</b> </a>  (Representation of $W\U 0^{k,p}(\Omega )'$). Let
 $\Omega \subset \mathbb{R}^d$ be an extension domain for $W^{k,p}$ where
 $k \in \mathbb{N}$ and $p \in [1,\infty)$. Then, every element in
 $W^{-k,p'}(\Omega )=W^{k,p}(\Omega )'$ is the unique extension of a
@@ -1129,7 +1129,7 @@ $$\begin{aligned}
 
 
 
-Proof. Define the mapping
+<b>Proof.</b> Define the mapping
 
 <div>
 $$\begin{aligned}
@@ -1213,7 +1213,7 @@ possible to add a constant to $u\U \alpha$ and still obtain the same
 result.
 
 
-**Exercise 8**. Show that for $s= \gamma +k$ where
+<b>Exercise 8</b>. Show that for $s= \gamma +k$ where
 $k \in \mathbb{N}\U 0, \gamma \in [0,1)$ and $p \in [1,\infty)$ and an
 extension domain for $H^{s,p}$, every element in $H^{-s,p'}(\Omega )$
 can be written in the form $\left.w\right|\U {\partial \Omega }$, where
@@ -1255,7 +1255,7 @@ The above results extend to Besov spaces; see [Agranovich, 2020](https://link.sp
 page 227. This gives,
 
 
-**Theorem 19**. Let
+<b>Theorem 19</b>. Let
 $k \in \mathbb{N}\U 0, \gamma \in [0,1), \theta \in (0,1)$ and
 $p \in [1,\infty)$ where $\Omega$ is an extension domain for
 $B^{\theta   ,p}, H^{\gamma ,p}$. Then,
@@ -1296,7 +1296,7 @@ characterizes the image of the trace operator and can be found in
 [Agranovich, 2020](https://link.springer.com/book/10.1007/978-3-319-14648-5) page 228 and [Leoni, 2020](https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover) page 390.
 
  <a name="trace theorem">
-**Theorem 20** </a>  (Fractional trace theorem). Let
+<b>Theorem 20</b> </a>  (Fractional trace theorem). Let
 $\Omega \subset \mathbb{R}^d$ be open with $C^{0,1}$ boundary. Then, for
 all $p\in (1,\infty), s\in (1/p,\infty)$, the trace operator
 $\operatorname{Tr}$ can be extended from $C(\overline{\Omega } )$ to a
@@ -1343,7 +1343,7 @@ embedding theorems for regularity $\gamma \in (0,1)$. Here, the
 of the exponent $p\U k^{\star }$ is
 
 
-**Definition 21**. Given $p \in [1,\infty)$ and $s>0$, with
+<b>Definition 21</b>. Given $p \in [1,\infty)$ and $s>0$, with
 $s\in (d/p, \infty)$, we define the Sobolev critical exponent $p\U s^\star $
 by
 
@@ -1372,7 +1372,7 @@ $$\begin{aligned}
 See [Leoni, 2020](https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover) page 262 for the following result.
 
  <a name="subcritical embedding">
-**Theorem 22** </a>  (Fractional Sobolev-Gagliardo-Niremberg). Given an
+<b>Theorem 22</b> </a>  (Fractional Sobolev-Gagliardo-Niremberg). Given an
 extension domain $\Omega$ for $W^{\gamma,p}$ and
 $\gamma \in (0,1), p \in [1,\infty)$, it holds that
 
@@ -1400,7 +1400,7 @@ The critical case $\gamma=\frac{d}{p}$ corresponding to
 $p\U \gamma^\star =\infty$ is now (see [Leoni, 2020](https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover) page 265)
 
  <a name="critical embedding">
-**Theorem 23** </a> . Given an extension domain $\Omega$ for $W^{\gamma,p}$
+<b>Theorem 23</b> </a> . Given an extension domain $\Omega$ for $W^{\gamma,p}$
 and $\gamma \in (0,1), q \in [p,\infty)$, it holds that
 
 
@@ -1415,7 +1415,7 @@ $$\begin{aligned}
 
 
 
-**Exercise 9**. Using Theorem
+<b>Exercise 9</b>. Using Theorem
 <a href="#subcritical embedding">22</a> prove Theorem
 <a href="#critical embedding">23</a>
 
@@ -1442,7 +1442,7 @@ The supercritical case $\gamma>d/p$ can be found in
 [Agranovich, 2020](https://link.springer.com/book/10.1007/978-3-319-14648-5) page 224 and [Leoni, 2020](https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover) page 275.
 
  <a name="morrey embedding">
-**Theorem 24** </a>  (Morrey's fractional embedding). Let $\Omega$ be an
+<b>Theorem 24</b> </a>  (Morrey's fractional embedding). Let $\Omega$ be an
 extension domain for $W^{s,p}$, where $s=k+ \gamma$ with
 $k \in \mathbb{N}\U 0, \gamma \in [0,1)$ we have a continuous embedding
 
@@ -1462,7 +1462,7 @@ As in the non-fractional case, one can also consider higher smoothness
 on the right-hand side (see [Leoni, 2020](https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover) page 290).
 
  <a name="higher smoothness embedding">
-**Theorem 25** </a>  (Sobolev embedding into higher smoothness). Let $\Omega$
+<b>Theorem 25</b> </a>  (Sobolev embedding into higher smoothness). Let $\Omega$
 be an extension domain for $W^{\gamma,p}$. Then, given
 $p\U 1, p\U 2 \in [1,\infty)$ and $0\leq \gamma\U 1<\gamma\U 2< 1$, it holds
 that
@@ -1478,7 +1478,7 @@ $$\begin{aligned}
 
 
 
-**Exercise 10**. Justify via a scaling argument that the condition
+<b>Exercise 10</b>. Justify via a scaling argument that the condition
 $\gamma\U 2 - \frac{d}{p\U 2} = \gamma\U 1 - \frac{d}{p\U 1}$ is necessary for
 the embedding in Theorem
 <a href="#higher smoothness embedding">25</a>.
@@ -1497,7 +1497,7 @@ Finally, interpolation results are also possible. See [Leoni, 2020](https://www.
 page 300.
 
  <a name="interpolation embedding">
-**Theorem 26** </a> . Let $\Omega$ be an extension domain for $W^{\gamma,p}$
+<b>Theorem 26</b> </a> . Let $\Omega$ be an extension domain for $W^{\gamma,p}$
 and consider $p\U 1,p\U 2 \in (1,\infty), 0 \leq \gamma\U 1<\gamma\U 2 \leq 1,$
 and $0<\theta<1$. Then
 
@@ -1532,7 +1532,7 @@ obtained from the previous cases with regularity parameter below 1 in
 combination with the integer case.
 
  <a name="fractional rellich">
-**Exercise 11** </a>  (Fractional Rellich-Kondrachov). Let $\Omega$ be an
+<b>Exercise 11</b> </a>  (Fractional Rellich-Kondrachov). Let $\Omega$ be an
 extension domain for $W^{s,p}$, then, given
 $s \geq 0, p \in [1, \infty)$. Set $k=\left\lfloor s \right\rfloor$ and
 $\gamma =s-k$. Then, it holds that
@@ -1620,7 +1620,7 @@ increasing to infinity around the critical threshold $s=d/p$.
 <img src="{{'assets/img/Figures/regularity_coefficient.svg'| relative_url }}" alt="Sobolev critical exponent for p=2 and d=1,2,3 " width="90%" id="fig:regularity_coefficient">
 
 
-**Exercise 12**. Let $\Omega$ be an extension domain for $W^{s\U 1,p}$.
+<b>Exercise 12</b>. Let $\Omega$ be an extension domain for $W^{s\U 1,p}$.
 Show that, given $p\U 1, p\U 2 \in [1,\infty)$ and $0 \leq s\U 2<s\U 1 <\infty$,
 it holds that
 
@@ -1667,7 +1667,7 @@ For more higher order embeddings see also [Leoni, 2020](https://www.google.co.uk
 See [Sawano, 2020](https://link.springer.com/book/10.1007/978-981-13-0836-9) page 219 for the following result.
 
 
-**Theorem 27** (Embedding for Besov spaces). Let $\Omega$ be an
+<b>Theorem 27</b> (Embedding for Besov spaces). Let $\Omega$ be an
 extension domain, and consider
 $1 \leq p\U 1<p\U 2 \leq \infty, - \infty <s\U 2<s\U 1<\infty$. Then,
 
