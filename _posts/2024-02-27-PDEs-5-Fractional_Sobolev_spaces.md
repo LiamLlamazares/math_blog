@@ -780,8 +780,8 @@ $$\begin{aligned}
 
 
 
-
-**Proposition 15**. For $\gamma  \in (0,1)$ and
+ <a name="fractional laplacian">
+**Proposition 15** </a> . For $\gamma  \in (0,1)$ and
 $u \in H^{s}(\mathbb{R}^d)$ it holds that
 
 <div>
@@ -828,8 +828,8 @@ $$\begin{aligned}
 </div>
 
 Using
-(\ref{second order})  and proceeding as in exercise
-<a href="#equivalence fractional spaces">12</a> gives
+(\ref{second order})  and proceeding as in Proposition
+(\ref{fractiona laplacian})  gives
 
 <div>
 $$\begin{aligned}
@@ -1563,8 +1563,8 @@ $$\begin{aligned}
 
 The result follows from Theorem
 <a href="#subcritical embedding">22</a>, Theorem
-<a href="#morrey embedding">24</a> together with the [integer
-case](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#est32:~:text=three%20results%20gives-,Theorem%2013,-(Rellich%2DKondrachov).%20Let)
+<a href="#morrey embedding">24</a> together with the
+[integer-case](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#est32:~:text=three%20results%20gives-,Theorem%2013,-(Rellich%2DKondrachov).%20Let)
 embeddings. For the first case, by Theorem
 <a href="#subcritical embedding">22</a>, we have
 
