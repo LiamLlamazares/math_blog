@@ -1172,7 +1172,7 @@ $v \in W^{k,p}(\Omega )$
 
 <div>
 $$\begin{aligned}
-\ell(u)=\ell\U 0(Tv)=\int\U {\Omega}Tv\cdot \mathbf{f}=\sum\U {1\leq\left| \alpha \right|\leq k}\int\U {\Omega}f\U \alpha D^\alpha v .
+\ell(v)=\ell\U 0(Tv)=\int\U {\Omega}Tv\cdot \mathbf{f}=\sum\U {1\leq\left| \alpha \right|\leq k}\int\U {\Omega}f\U \alpha D^\alpha v .
 
 \end{aligned}$$
 </div>
@@ -1325,8 +1325,8 @@ $$\begin{aligned}
 
 
 Note that, since we have equality of $W^{s,p}(\Omega )$ with
-$H^{s,p}(\Omega )$ and $W^{s,p}(\Omega )$ for respectively non-integer
-$s$, we can also extend
+$H^{s,p}(\Omega )$ and $B^{s,p}(\Omega )$ for integer and non-integer
+$s$ respectively, we can also extend
 
 <div>
 $$\begin{aligned}
