@@ -237,7 +237,7 @@ In the definition above, we used the notation
 $\left\langle\xi\right\rangle:=\sqrt{1+|\xi|^2}$. As we saw when we
 studied Sobolev spaces through the [Fourier
 transform](https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=Sobolev%20spaces-,Sobolev%20spaces,-form%20a%20particular),
-using the fact that $\mathcal{F}$ is an isometry which transofrms
+using the fact that $\mathcal{F}$ is an isometry which transforms
 differentiation into polynomial multiplication
 
 <div>
@@ -1565,7 +1565,7 @@ $$\begin{aligned}
 The result follows from Theorem
 <a href="#subcritical embedding">22</a>, Theorem
 <a href="#morrey embedding">24</a> together with the
-[integer-case](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#est32:~:text=three%20results%20gives-,Theorem%2013,-(Rellich%2DKondrachov).%20Let)
+[integer-case](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#est32:~:text=Combining%20the%20three%20results)
 embeddings. For the first case, by Theorem
 <a href="#subcritical embedding">22</a>, we have
 
