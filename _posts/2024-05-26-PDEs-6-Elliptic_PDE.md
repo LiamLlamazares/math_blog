@@ -57,14 +57,14 @@ $U$.
 # Introduction
 
 Welcome back to the second post on our series of PDE. In posts
-[1](https://nowheredifferentiable.com/2023-01-29-PDE-1/),
-[2](https://nowheredifferentiable.com/2023-05-30-PDE-2-Hilbert/),
-[3](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/),
-[5](https://nowheredifferentiable.com/2024-02-27-PDEs-5-Fractional_Sobolev_spaces/)
+<a href="https://nowheredifferentiable.com/2023-01-29-PDE-1/">1</a>,
+<a href="https://nowheredifferentiable.com/2023-05-30-PDE-2-Hilbert/">2</a>,
+<a href="https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/">3</a>,
+<a href="https://nowheredifferentiable.com/2024-02-27-PDEs-5-Fractional_Sobolev_spaces/">5</a>
 of the series we built up the theoretical framework necessary to define
 Sobolev spaces, spaces of weakly differentiable functions to which we
 could extend the concept of differentiation. In post
-[4](https://nowheredifferentiable.com/2023-12-23-PDEs-4-Physical_derivation_of_parabolic_and_elliptic_PDE/)
+<a href="https://nowheredifferentiable.com/2023-12-23-PDEs-4-Physical_derivation_of_parabolic_and_elliptic_PDE/">4</a>
 of the series, we gave a physical derivation of partial differential
 equations (both parabolic and elliptic) that justify why we are
 interested in such equations. We are now going to use the previous
@@ -87,7 +87,7 @@ where $f: U \to \mathbb{R}$ is some known function, $u$
 is the solution we want to find.
 
 We recall from post
-[4](https://nowheredifferentiable.com/2023-12-23-PDEs-4-Physical_derivation_of_parabolic_and_elliptic_PDE/)
+<a href="https://nowheredifferentiable.com/2023-12-23-PDEs-4-Physical_derivation_of_parabolic_and_elliptic_PDE/">4</a>
 that physically; we can interpret $u$ as the density of some substance,
 $\mathbf{A}$ as a diffusion matrix, $\mathbf{b}$ as a transport vector, $c$ as a
 reaction coefficient and $f$ as the source term. For the mathematical
@@ -123,12 +123,12 @@ you've encountered the ellipticity condition in
 then it may seem a bit strange. With the previous physical
 interpretation, the ellipticity condition
 (\ref{elliptic})
-says that diffusion occurs from the region of [higher to lower
-density](https://nowheredifferentiable.com/2023-12-23-PDEs-4-Physical_derivation_of_parabolic_and_elliptic_PDE/#:~:text=a)-,Diffusion,-%3A%20This%20is%20the).
+says that diffusion occurs from the region of <a href="https://nowheredifferentiable.com/2023-12-23-PDEs-4-Physical_derivation_of_parabolic_and_elliptic_PDE/#:~:text=a">higher to lower
+density</a>-,Diffusion,-%3A%20This%20is%20the).
 Mathematically speaking,
 (\ref{elliptic})
-will prove necessary to apply [Lax Milgram's
-theorem](https://nowheredifferentiable.com/2023-05-30-PDE-2-Hilbert/#:~:text=degenerate.%20As%20a-,particular,-example%2C%20a%20symmetric)
+will prove necessary to apply <a href="https://nowheredifferentiable.com/2023-05-30-PDE-2-Hilbert/#:~:text=degenerate.%20As%20a-,particular,-example%2C%20a%20symmetric">Lax Milgram's
+theorem</a>
 and obtain regularity estimates on $u$.
 
 When developing the mathematical theory of any equation, the first step
@@ -191,10 +191,10 @@ H^{-k}(U ):= H\U 0^k(U )'
 </div>
 
 For more details on why we denote the dual using negative exponents, see
-the [relevant
-section](https://nowheredifferentiable.com/2024-02-27-PDEs-5-Fractional_Sobolev_spaces/#fractional%20laplacian:~:text=%E2%97%BB-,Dual%20of%20Sobolev%20spaces,-and%20correspondence%20with)
+the <a href="https://nowheredifferentiable.com/2024-02-27-PDEs-5-Fractional_Sobolev_spaces/#fractional%20laplacian:~:text=%E2%97%BB-,Dual%20of%20Sobolev%20spaces,-and%20correspondence%20with">relevant
+section</a>
 in the previous post on fractional Sobolev spaces. We
-[recall](https://nowheredifferentiable.com/2024-02-27-PDEs-5-Fractional_Sobolev_spaces/#:~:text=some%20particular%20cases.-,Theorem%2018,-(Representation%20of)
+<a href="https://nowheredifferentiable.com/2024-02-27-PDEs-5-Fractional_Sobolev_spaces/#:~:text=some%20particular%20cases.-,Theorem%2018,-(Representation%20of">recall</a>
 also that every element in this space can be written as the sum of
 derivatives up to order $k$ of a function in $L^2(U)$.
 
@@ -323,8 +323,8 @@ $\mathcal{L}$.
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
 <div class="exercise-text">
-By [Rellich's
-theorem](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=Theorem%2014%20(-,Rellich,-for%20trace%200)
+By <a href="https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=Theorem%2014%20(-,Rellich,-for%20trace%200">Rellich's
+theorem</a>
 $\mathcal{L}^{-1}: L^2(U) \to L^2(U)$ is compact and, since $\mathbf{b}$ is
 $0$, $\mathcal{L}$ is also is self adjoint. As a result, so there is a
 countable basis of eigenvectors in $L^2(U)$.
@@ -444,8 +444,8 @@ $$\begin{align}
 </div>
 
 where $\mathbf{I}$ is the identity operator. Suppose now
-that $U$ is bounded, then, by [Rellich's
-theorem](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=Theorem%2014%20(-,Rellich,-for%20trace%200),
+that $U$ is bounded, then, by <a href="https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=Theorem%2014%20(-,Rellich,-for%20trace%200">Rellich's
+theorem</a>,
 we know that the following inclusion is compact
 
 <div>
@@ -478,8 +478,8 @@ $$\begin{align}
 </div>
 
 Equation
-(\ref{reasoning}) is exactly the form the [Fredholm
-alternative](<https://nowheredifferentiable.com/2023-05-30-PDE-2-Hilbert/#:~:text=Theorem%2010%20(-,Fredholm,-alternative).%20Let>)
+(\ref{reasoning}) is exactly the form the <a href="https://nowheredifferentiable.com/2023-05-30-PDE-2-Hilbert/#:~:text=Theorem%2010%20(-,Fredholm,-alternative">Fredholm
+alternative</a>.%20Let)
 takes and justifies the following.
 
  <a name="well-posedness Fredholm">
@@ -491,7 +491,7 @@ consider the problems
 $$\begin{align}
 \label{original}
 \mathcal{L}u & = \lambda u + f \quad \text{and} \quad u \in H\U 0^1(U)               \\
-\mathcal{L}u & = \lambda u \quad \text{and} \quad u \in align) \label{originalh}
+\mathcal{L}u & = \lambda u \quad \text{and} \quad u \in H\U 0^1(U) \label{originalh}
 
 \end{align}$$
 
@@ -529,7 +529,7 @@ the inclusion. Consider the following two problems
 $$\begin{align}
 \label{fred}
 Tv & = f  \quad \text{and}  v \in L^2(U),             \\
-Tv & = 0 \quad \text{and} v \inalign. \label{fredh}
+Tv & = 0 \quad \text{and} v \in L^2(U). \label{fredh}
 
 \end{align}$$
 
@@ -659,8 +659,8 @@ $\mathbb{R}^d$?
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
 <div class="exercise-text">
-Can you apply [Rellich's
-theorem](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=Theorem%2014%20(-,Rellich,-for%20trace%200)
+Can you apply <a href="https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=Theorem%2014%20(-,Rellich,-for%20trace%200">Rellich's
+theorem</a>
 to unbounded domains? What is the spectrum of the Laplacian on
 $\mathbb{R}^d$?
 </div>
@@ -707,7 +707,7 @@ $H\U 0^1(U)$. However, analogously to the classical setting, we may expect
 that $u$ is two degrees of regularity smoother than $f$. That is that
 $u \in H^2(U)$. This improved regularity is true, but only with the
 caveat that the domain $U$ is sufficiently regular. Counterexamples with
-non-smooth domains exist. See [Savare, 2020](https://www.sciencedirect.com/science/article/pii/S002212369793158X/pdf?md5=c646200fe7117dd7d25d27439f36b342&pid=1-s2.0-S002212369793158X-main.pdf).
+non-smooth domains exist. See <a href="https://www.sciencedirect.com/science/article/pii/S002212369793158X/pdf?md5=c646200fe7117dd7d25d27439f36b342&pid=1-s2.0-S002212369793158X-main.pdf">Savare, 2020</a>.
 
 We will also see how, for smoother coefficients, we can iterate to
 obtain a higher regularity of $u$. As a result, when the coefficients
@@ -781,8 +781,8 @@ D\U j^h u(x) = \int\U 0^1 \partial\U j u(x+the\U j) \,\mathrm{d}t.
 
 </div>
 
-Taking norms and using [Minkowski's integral
-inequality](https://en.wikipedia.org/wiki/Minkowski_inequality#:~:text=.-,Minkowski%27s,-integral%20inequality%5B)
+Taking norms and using <a href="https://en.wikipedia.org/wiki/Minkowski_inequality#:~:text=.-,Minkowski%27s,-integral%20inequality%5B">Minkowski's integral
+inequality</a>
 we obtain
 
 <div>
@@ -824,8 +824,8 @@ the following hold.
 <div class="exercise-text">
 Adapt the proof of Lemma
 <a href="#difference quotients 1">9</a>. Take $\varphi \in C\U c^\infty(V)$
-for the first point. For the second point, use the [local
-density](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=drawings%20is%20recommended.-,Theorem%203,-(Local%20approximation%20by)
+for the first point. For the second point, use the <a href="https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=drawings%20is%20recommended.-,Theorem%203,-(Local%20approximation%20by">local
+density</a>
 of smooth functions in $W^{1,p}(U)$.
 </div>
 </div>
@@ -1132,8 +1132,8 @@ Then, if $u \in H^1(U)$ solves $\mathcal{L}u=f$, it holds that
 $u \in C^\infty(\mathbb{R}^d)$
 
 <b>Proof.</b> By Theorem <a href="#higher regularity 2">15</a>, we have that $u \in H^k(\mathbb{R}^d)$
-for all $k \in \mathbb{N}$. By [Sobolev
-embeddings](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=three%20results%20gives-,Theorem%2013,-(Rellich%2DKondrachov)
+for all $k \in \mathbb{N}$. By <a href="https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=three%20results%20gives-,Theorem%2013,-(Rellich%2DKondrachov">Sobolev
+embeddings</a>
 we have that $u \in C^\infty(\mathbb{R}^d)$. ◻
 
 At first sight, it may seem as if the above results can be extended to
@@ -1148,7 +1148,7 @@ Let $U \subset \mathbb{R}^d$ be any open subset. Suppose that
 $A\U {ij}\in C^1(\overline{U} )$ is elliptic and that
 $b\U i, c \in L^\infty(U)$ . Let $u \in H\U 0^1(U)$ solve $\mathcal{L}u=f$.
 The
-[extension](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=smooth%20unbounded%20domains.-,Exercise%2021,-(Extension%20trace%200)
+<a href="https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=smooth%20unbounded%20domains.-,Exercise%2021,-(Extension%20trace%200">extension</a>
 $\widetilde{u}$ to $\mathbb{R}^d$ by zero of $u$ is in
 $H^1(\mathbb{R}^d)$. The coefficients $b,c$ can likewise be extended by
 $0$ to functions
@@ -1248,10 +1248,10 @@ However, by adapting the proof of Theorem
 
 In this case, however, one has to be careful as the difference quotients
 may not be well defined at the boundary. As a result, it is necessary to
-work locally and use a [bump
-function](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=22.%20A-,bump%20function,-(also%20called%20cutoff).
+work locally and use a <a href="https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=22.%20A-,bump%20function,-(also%20called%20cutoff">bump
+function</a>.
 This makes the proofs a bit messier, though the idea is the same. We
-sketch the proof, which can also be found in [Evans, 2020](https://math24.files.wordpress.com/2013/02/partial-differential-equations-by-evans.pdf) page 326.
+sketch the proof, which can also be found in <a href="https://math24.files.wordpress.com/2013/02/partial-differential-equations-by-evans.pdf">Evans, 2020</a> page 326.
 
  <a name="higher regularity">
 <b>Theorem 14</b> </a>  (Improved interior regularity). Let $u \in H^1(U)$ be a
@@ -1482,7 +1482,7 @@ $\left.u\right|\U {\partial \Omega }=0$. We can then work on bounded
 smooth domains by reasoning first on open sets of the form
 $B(0,r) \cap \mathbb{R}^d\U +$ and then using a partition of unity and
 smooth change of coordinates to translate these results back to
-$\Omega$. The details can be found in [Evans, 2020](https://math24.files.wordpress.com/2013/02/partial-differential-equations-by-evans.pdf) pages
+$\Omega$. The details can be found in <a href="https://math24.files.wordpress.com/2013/02/partial-differential-equations-by-evans.pdf">Evans, 2020</a> pages
 $334-343$. We summarize the main results, which are analogous to the
 interior regularity results of Theorems
 <a href="#higher regularity">14</a>,
@@ -1524,3 +1524,5 @@ $A\U {ij}, b\U i,c \in C^{\infty}(\overline{\Omega})$ with $\mathbf{A}$
 elliptic. Let $u \in H^1\U 0(\Omega)$ be a weak solution to
 (\ref{PDE}) . Then,
 $u \in C^\infty(\overline{\Omega})$.
+
+A (possibly not updated) pdf of version of this page is provided [here](/assets/pdfs/PDEs/Eliptic_PDE_1.pdf).
