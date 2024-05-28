@@ -506,7 +506,7 @@ Consider the problems
 $$\begin{align}
 \label{original}
 \mathcal{L}u & = \lambda u + f \quad \text{and} \quad u \in H\U 0^1(U)                            \\
-\mathcal{L}u & = \lambda u \quad \hspace{17pt}\text{and} \quad u \in align) \label{originalh}
+\mathcal{L}u & = \lambda u \quad \hspace{17pt}\text{and} \quad u \in H\U 0^1(U) \label{originalh}
 
 \end{align}$$
 
@@ -554,7 +554,7 @@ inclusion. Consider the following two problems,
 $$\begin{align}
 \label{fred}
 Tv & = f  \quad \text{and} \quad  v \in L^2(U),              \\
-Tv & = 0 \quad \text{and} \quad  v \inalign. \label{fredh}
+Tv & = 0 \quad \text{and} \quad  v \in L^2(U). \label{fredh}
 
 \end{align}$$
 
