@@ -504,8 +504,9 @@ $\mathcal{L}$ verify Assumption <a href="#Ass1">1</a>, let $\lambda \in \mathbb{
 consider the problems
 
 <div>
-$$\begin{aligned}
-\mathcal{L}u & = \lambda u + f \quad \text{and} \quad u \in align) \label{original} \\
+$$\begin{align}
+\label{original}
+\mathcal{L}u & = \lambda u + f \quad \text{and} \quad u \in H\U 0^1(U)               \\
 \mathcal{L}u & = \lambda u \quad \text{and} \quad u \in align) \label{originalh}
 
 \end{align}$$
@@ -545,8 +546,9 @@ and $T = (\mathbf{I}- \mu K)$, where $i : H^1(U) \hookrightarrow L^2(U)$ is
 the inclusion. Consider the following two problems
 
 <div>
-$$\begin{aligned}
-Tv & = f  \quad \text{and}  v \inalign, \label{fred} \\
+$$\begin{align}
+\label{fred}
+Tv & = f  \quad \text{and}  v \in L^2(U),             \\
 Tv & = 0 \quad \text{and} v \inalign. \label{fredh}
 
 \end{align}$$
