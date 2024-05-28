@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Elliptic PDE. Well posedness and regularity
-subtitle: From Rough Beginnings to Smooth Endings
-thumbnail-img: /assets/img/Evans_PDE.jpg
-share-img: /assets/img/Evans_PDE.jpg
+title: Elliptic PDE
+subtitle: Filling in the gaps
+thumbnail-img: /assets/img/Leoni_fractional.jpg
+share-img: /assets/img/Leoni_fractional.jpg
 tags: [PDEs]
 authorpost: L.Llamazares-Elias
 ---
