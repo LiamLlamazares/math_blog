@@ -123,8 +123,8 @@ you've encountered the ellipticity condition in
 then it may seem a bit strange. With the previous physical
 interpretation, the ellipticity condition
 (\ref{elliptic})
-says that diffusion occurs from the region of <a href="https://nowheredifferentiable.com/2023-12-23-PDEs-4-Physical_derivation_of_parabolic_and_elliptic_PDE/#:~:text=a">higher to lower
-density</a>-,Diffusion,-%3A%20This%20is%20the).
+says that diffusion occurs from the region of <a href="https://nowheredifferentiable.com/2023-12-23-PDEs-4-Physical_derivation_of_parabolic_and_elliptic_PDE/#:~:text=This%20is%20the-,process,-that%20causes%20the">higher to lower
+density</a>.
 Mathematically speaking,
 (\ref{elliptic})
 will prove necessary to apply <a href="https://nowheredifferentiable.com/2023-05-30-PDE-2-Hilbert/#:~:text=degenerate.%20As%20a-,particular,-example%2C%20a%20symmetric">Lax Milgram's
@@ -479,7 +479,7 @@ $$\begin{align}
 
 Equation
 (\ref{reasoning}) is exactly the form the <a href="https://nowheredifferentiable.com/2023-05-30-PDE-2-Hilbert/#:~:text=Theorem%2010%20(-,Fredholm,-alternative">Fredholm
-alternative</a>.%20Let)
+alternative</a>
 takes and justifies the following.
 
  <a name="well-posedness Fredholm">
@@ -490,8 +490,8 @@ consider the problems
 <div>
 $$\begin{align}
 \label{original}
-\mathcal{L}u & = \lambda u + f \quad \text{and} \quad u \in H\U 0^1(U)               \\
-\mathcal{L}u & = \lambda u \quad \text{and} \quad u \in H\U 0^1(U) \label{originalh}
+\mathcal{L}u & = \lambda u + f \quad \text{and} \quad u \in H\U 0^1(U)                            \\
+\mathcal{L}u & = \lambda u \quad \hspace{20pt}\text{and} \quad u \in H\U 0^1(U) \label{originalh}
 
 \end{align}$$
 
@@ -528,8 +528,8 @@ the inclusion. Consider the following two problems
 <div>
 $$\begin{align}
 \label{fred}
-Tv & = f  \quad \text{and}  v \in L^2(U),             \\
-Tv & = 0 \quad \text{and} v \in L^2(U). \label{fredh}
+Tv & = f  \quad \text{and} \quad  v \in L^2(U),              \\
+Tv & = 0 \quad \text{and} \quad  v \in L^2(U). \label{fredh}
 
 \end{align}$$
 
