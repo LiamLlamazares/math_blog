@@ -2000,7 +2000,7 @@ $$\begin{align}
 \label{induc}
 & \left\lVert F\U {d+1} \right\rVert\U {L^{p /d}(\mathbb{R}^{d+1})}  =\left(\int\U {\mathbb{R}}\left(\int\U {\mathbb{R}^d} F\U d(x)^{\frac{p}{d}} f\U {d+1}(x')^{\frac{p}{d}} \,\mathrm{d}x'  \right)  \,\mathrm{d}x\U {d+1} \right)^{\frac{d}{p} }          \\
 & \leq \left(\int\U {\mathbb{R}}         \left(\int\U {\mathbb{R}^d} F\U d(x)^{\frac{p}{d-1}} \,\mathrm{d}x'  \right)^{\frac{d-1}{d}}\,\mathrm{d}x\U {d+1} \right)^{\frac{d}{p} }\left\lVert f\U {d+1} \right\rVert\U {L^p(\mathbb{R}^d)}      \notag               \\
-& \leq \left(\int\U {\mathbb{R}} \prod\U {i=1}^d\|f\U i(x\U {d+1})\|\U {L^p\left(\mathbb{R}^{d}\right)}^{\frac{p}{d}} \,\mathrm{d}x\U {d+1}\right)^{\frac{d}{p}}\left\lVert f\U {d+1} \right\rVert\U {L^p(\mathbb{R}^{d})},    \end{align}$$
+& \leq \left(\int\U {\mathbb{R}} \prod\U {i=1}^d\|f\U i(x\U {d+1})\|\U {L^p\left(\mathbb{R}^{d}\right)}^{\frac{p}{d}} \,\mathrm{d}x\U {d+1}\right)^{\frac{d}{p}}\left\lVert f\U {d+1} \right\rVert\U {L^p(\mathbb{R}^{d})},\notag    \end{align}$$
 </div>
 
 where in the first inequality, we applied Cauchy-Schwartz with
