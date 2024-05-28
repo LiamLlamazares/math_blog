@@ -303,9 +303,9 @@ above also holds if $c  \geq 0$ and $U$ is bounded.
 
 
 <b>Proof.</b> The continuity of $B$ is a consequence of Exercise
-(\ref{domain L}) .
-It remains to see that $B$ is coercive. For smooth $u \in C\U c^\infty(U)$
-we have that
+<a href="#domain L">1</a>. It remains to
+see that $B$ is coercive. For smooth $u \in C\U c^\infty(U)$ we have that
+
 
 <div>
 $$\begin{align}
@@ -505,22 +505,9 @@ consider the problems
 
 <div>
 $$\begin{aligned}
-\begin{minipage}{0.3\linewidth}
-\begin{equation}
-\begin{cases}
-\mathcal{L}u = \lambda u+f \\
-u \in H\U 0^1(U)
-\ealigns}\label{original}
-\end{equation}
-\end{minipage}%
-\begin{minipage}{0.3\linewidth}
-\begin{equation}
-\begin{cases}
-\mathcal{L}u = \lambda u \\
-u \in H\U 0^1(U)
-\ealigns}\label{originalh}
-\end{equation}
-\end{minipage}.
+{2}
+\mathcal{L}u & = \lambda u + f &  & \quad \text{and} \quad u \in align) \label{original}  \\
+\mathcal{L}u & = \lambda u     &  & \quad \text{and} \quad u \in align) \label{originalh}
 
 \end{align}$$
 </div>
@@ -560,22 +547,9 @@ the inclusion. Consider the following two problems
 
 <div>
 $$\begin{aligned}
-\begin{minipage}{0.3\linewidth}
-\begin{equation}
-\begin{cases}
-Tv = f \\
-v \in L^2(U)
-\ealigns}\label{fred}
-\end{equation}
-\end{minipage}%
-\begin{minipage}{0.3\linewidth}
-\begin{equation}
-\begin{cases}
-Tv = 0 \\
-v \in L^2(U)
-\ealigns}\label{fredh}
-\end{equation}
-\end{minipage}.
+{2}
+Tv & = f &  & \quad \text{and} \quad v \inalign, \label{fred}  \\
+Tv & = 0 &  & \quad \text{and} \quad v \inalign. \label{fredh}
 
 \end{align}$$
 </div>
@@ -810,8 +784,8 @@ To this aim, let $\varphi \in C\U c^\infty(\mathbb{R}^d)$. Then,
 <div>
 $$\begin{align}
 \label{weak int parts}
-\int\U {\mathbb{R}^d} v \varphi & = \lim\U {n \to \infty} \int\U {\mathbb{R}^d} D\U j^{h\U n} u \varphi = \lim\U {n \to \infty} \int\U {\mathbb{R}^d} u(x)\frac{\varphi(x-h\U n e\U j)- \varphi (x)}{h\U n}\,\mathrm{d}x\notag
-\\&= \int\U {\mathbb{R}^d} u(x)\lim\U {n \to \infty} -D\U j^{-h\U n} \varphi \,\mathrm{d}x =-\int\U {\mathbb{R}^d} u \partial\U j \varphi,
+\int\U {\mathbb{R}^d} v \varphi & = \lim\U {n \to \infty} \int\U {\mathbb{R}^d} D\U j^{h\U n} u \varphi = \lim\U {n \to \infty} \int\U {\mathbb{R}^d} u(x)\frac{\varphi(x-h\U n e\U j)- \varphi (x)}{h\U n}\,\mathrm{d}x
+\\&= \int\U {\mathbb{R}^d} u(x)\lim\U {n \to \infty} -D\U j^{-h\U n} \varphi \,\mathrm{d}x =-\int\U {\mathbb{R}^d} u \partial\U j \varphi,\notag
 
 \end{align}$$
 </div>
@@ -939,9 +913,9 @@ $$\begin{align}
 \end{align}$$
 </div>
 
-Applying a weak integration by parts to the left-hand
-side of (\ref{start})  as
-in (\ref{weak int parts}) , we obtain
+Applying a discrete integration by parts to the
+left-hand side of (\ref{start})  as in
+(\ref{weak int parts}) , we obtain
 
 <div>
 $$\begin{aligned}
