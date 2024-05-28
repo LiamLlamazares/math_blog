@@ -1565,4 +1565,4 @@ elliptic. Let $u \in H^1\U 0(\Omega)$ be a weak solution to
 $u \in C^\infty(\overline{\Omega})$.
 
 
-A (possibly not updated) pdf of version of this page is provided [here](/assets/pdfs/PDEs/Eliptic_PDE_1.pdf).
+A (possibly not updated) pdf of version of this page is provided [here](/assets/pdfs/PDEs/Elliptic_PDE_1.pdf).
