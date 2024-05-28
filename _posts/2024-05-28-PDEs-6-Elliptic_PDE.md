@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Elliptic PDE
+title: Elliptic Partial Differential Equations
 subtitle: Filling in the gaps
 thumbnail-img: /assets/img/Leoni_fractional.jpg
 share-img: /assets/img/Leoni_fractional.jpg
@@ -8,1198 +8,272 @@ tags: [PDEs]
 authorpost: L.Llamazares-Elias
 ---
 
-# Three point summary
+# Summary
 
-- Elliptic partial differential equations (PDE) are PDE with no time
-  variable and whose leading order derivatives satisfy a positivity
-  condition.
+1.  There are three ways to define Sobolev spaces with fractional
+    regularity $s$ and integrability $p$:
 
-- Using Lax Milgram's theorem, we can prove the existence and
-  uniqueness of weak (distributional) solutions if the reaction term
-  dominates the transport term. Using the Fredholm alternative, we can
-  characterize the spectrum of the elliptic operator and the existence
-  of solutions.
+1.  The spaces $W^{s,p}(\Omega ), B^{s,p}(\Omega )$ are defined by
+    using the analogous to the definition of Hölder spaces. Both
+    spaces are equal when $s$ is not an integer.
 
-- Under suitable smoothness assumptions on the coefficients and
-  domain, the solution map of the PDE adds two derivatives to the
-  input function. This improved regularity allows us to recover
-  classical solutions if the coefficients are smooth enough.
+1.  The space $H^{s,p}(\Omega )$ is defined by using the Fourier
+    transform and coincides with $W^{s,p}(\Omega )$ for integer $s$.
 
-# Why should I care?
+1.  All these spaces coincide with $H^s(\Omega )$ when $p=2$.
 
-Many problems arising in physics, such as the Laplace and Poisson
-equation, are elliptic PDE. Furthermore, the tools used to analyze them
-can be extrapolated to other settings, such as parabolic PDE. The
-analysis also helps contextualize and provide motivation for theoretical
-tools such as Hilbert spaces, compact operators and Fredholm operators.
+1.  There is a natural correspondence between negative regularity and
+    the dual. Additionally, negative regularity can be obtained by
+    differentiating functions with higher regularity.
 
-# Notation
-
-We will use the Einstein convention that indices, when they are
-repeated, are summed over. For example we will write
-
-<div>
-$$\begin{aligned}
-\nabla \cdot (\vb{A}\nabla)=\sum\U {i=1}^n \partial\U i a\U {ij} \partial \U j =\partial\U i A\U {ij} \partial \U j.
-\end{aligned}$$
-</div>
-
-We will use Vinogradov notation $f \lesssim g$ to mean
-that there exists a constant $C>0$ such that $f \leq Cg$. If we want to
-emphasize that the constant depends on a parameter $\alpha$, we will
-write $f \lesssim\U \alpha g$.
-
-We fix $U \subset \mathbb{R}^n$ to be an open subset of $\mathbb{R}^n$
-with <b>no conditions</b> on the regularity of $\partial U$. If we need to
-impose regularity on the boundary, we will write $\Omega$ instead of
-$U$.
+1.  Fractional sobolev spaces appear naturally in the study of PDEs. For
+    example, the trace of Sobolev functions $W^{s,p}(\Omega)$ is equal
+    to the fractional space $B^{s-1/p,p}(\partial \Omega)$. And finer
+    embeddings and regularity results can be obtained by using these
+    spaces.
 
 # Introduction
 
-Welcome back to the second post on our series of PDE. In posts
-<a href="https://nowheredifferentiable.com/2023-01-29-PDE-1/">1</a>,
-<a href="https://nowheredifferentiable.com/2023-05-30-PDE-2-Hilbert/">2</a>,
-<a href="https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/">3</a>,
-<a href="https://nowheredifferentiable.com/2024-02-27-PDEs-5-Fractional_Sobolev_spaces/">5</a>
-of the series we built up the theoretical framework necessary to define
-Sobolev spaces, spaces of weakly differentiable functions to which we
-could extend the concept of differentiation. In post
-<a href="https://nowheredifferentiable.com/2023-12-23-PDEs-4-Physical_derivation_of_parabolic_and_elliptic_PDE/">4</a>
-of the series, we gave a physical derivation of partial differential
-equations (both parabolic and elliptic) that justify why we are
-interested in such equations. We are now going to use the previous
-theory to study these equations.
+In previous posts, we covered the theory of <a href="https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/">Sobolev
+spaces</a>
+$W^{k,p}(\Omega )$ where $k$ is an integer. In the case $k=2$ and when
+$\Omega =\mathbb{R}^d$ we saw that this space coincided with
+$H^k(\mathbb{R}^d)$. Furthermore, <a href="https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/">we also
+saw</a> how to
+define $H^s(\mathbb{R}^d)$ when $s$ was any real number. This motivates
+the following two questions.
 
-# The problem: Mathematical framework
+1.  How can we define $H^s(\Omega )$ when $\Omega$ is not $\mathbb{R}^d$
+    and $s$ is not an integer ?
 
-We consider the following problem: given a bounded open set
-$U \subset \mathbb{R}^n$ and some coefficients $\vb{A},\vb{b},c$, we
-want to solve the following elliptic PDE
+2.  Is it possible to extend such a definition to other orders of
+    integrability $p$?
 
-<div>
-$$\begin{align}
-\label{PDE}
-\mathcal{L}u:= -\nabla \cdot (\vb{A} \nabla u)+ \nabla \cdot (\vb{b} u)+cu =f; \quad \left.u\right|\U {\partial U} =0,
-\end{align}$$
-</div>
-
-where $f: U \to \mathbb{R}$ is some known function, $u$
-is the solution we want to find.
-
-We recall from post
-<a href="https://nowheredifferentiable.com/2023-12-23-PDEs-4-Physical_derivation_of_parabolic_and_elliptic_PDE/">4</a>
-that physically; we can interpret $u$ as the density of some substance,
-$\vb{A}$ as a diffusion matrix, $\vb{b}$ as a transport vector, $c$ as a
-reaction coefficient and $f$ as the source term. For the mathematical
-theory, we will need to assume that $\mathcal{L}$ is elliptic.
-
-<b>Definition 1</b>. Given
-$\vb{A}: U \to \mathbb{R}^{d \times d}, \vb{b}: U \to \mathbb{R}^d$ and
-$c:U \to \mathbb{R}$ we say that the operator
+In this post, we aim to answer these questions. We will see that both of
+these questions can be answered in the affirmative. If the domain
+$\Omega$ is smooth enough, the first point can be resolved by
+restricting functions in $H^s(\mathbb{R}^d)$ to $\Omega$. The second
+point is trickier and, in fact, like any good trick question, has
+multiple answers. Three, to be precise. This leads to the theory of
+Bessel spaces, Sobolev-Slobodeckij spaces and Besov spaces
 
 <div>
-$$\begin{align}
-\label{operator}
-\mathcal{L}u:= -\nabla \cdot (\vb{A} \nabla u)+ \nabla \cdot (\vb{b} u)+c
-\end{align}$$
+$$\begin{aligned}
+H^{s,p}(\Omega ),W^{s,p}(\Omega ),B^{s,p}(\Omega ).
+\end{aligned}$$
 </div>
 
-is elliptic if there exists $\alpha>0$ such that
+We will cover the basic properties of these spaces as
+well as their relationship to each other with a special focus on
+$W^{s,p}(\Omega )$ which is the most widely used. We will see how these
+spaces can be used to obtain finer regularity results, such as in the
+trace theorem or Sobolev embeddings. The material in this post is mostly
+based on <a href="https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover">Leoni, 2020</a>, <a href="https://link.springer.com/book/10.1007/978-3-319-14648-5">Agranovich, 2020</a>,
+<a href="https://www.sciencedirect.com/science/article/pii/S0007449711001254">Di, 2020</a>, <a href="https://link.springer.com/book/10.1007/978-3-0346-0419-2">Triebel, 2020</a>. The material can be quite
+technical, and there are multiple $800$ plus page books on the subject,
+so in many cases, we will state the main results, providing references
+for the proofs, as well as proving some of the more tractable results.
+
+## Preliminaries
+
+In terms of notation, we will always denote $U$ by an arbitrary open
+subset of $\mathbb{R}^d$ whereas $\Omega \subset \mathbb{R}^d$ will be
+open with a smooth enough boundary (in a sense to be made precise
+later).
+
+We make frequent use of the fact that, as
+<a href="https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=we%20would%20like%20to%20see%20what%20some%20of%20them%20look%20like.">shown</a>
+in a previous post, functions in $L^p(U)$ can be identified as elements
+of the larger space of distributions
+$\mathcal{D}'(U ):= C\U c^\infty(U)'$. This is done by identifying a
+function $f \in L^p(U)$ with the linear functional
 
 <div>
-$$\begin{align}
-\label{elliptic}
-\xi ^T\vb{A}(x) \xi \geq \alpha \left| \xi  \right|^2 , \quad\forall \xi \in \mathbb{R}^d , \quad\forall x \in U .
-
-\end{align}$$
-
+$$\begin{aligned}
+T\U f:\phi \mapsto \int\U U f\phi \,\mathrm{d}x.
+\end{aligned}$$
 </div>
 
-We also say that $\mathbf{A}$ is elliptic.
+This identification between $f$ and $T\U f$ allows us to
+extend by
+<a href="https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=is%20called%20the-,duality,-method%20and%20appears">duality</a>
+operators that are defined on $C\U c^\infty(U)$ to $L^p(U)$. For example,
+given $u \in L^p(U) \in \mathcal{D}'(\Omega )$ we can define its Fourier
+transform $\mathcal{F}u$ and $\alpha$-th derivative $D^\alpha u$ to be
+the distributions defined by
 
-There are some points to clear up. Firstly, if this is the first time
-you've encountered the ellipticity condition in
-(\ref{elliptic}) ,
-then it may seem a bit strange. With the previous physical
-interpretation, the ellipticity condition
-(\ref{elliptic})
-says that diffusion occurs from the region of <a href="https://nowheredifferentiable.com/2023-12-23-PDEs-4-Physical_derivation_of_parabolic_and_elliptic_PDE/#:~:text=a">higher to lower
-density</a>-,Diffusion,-%3A%20This%20is%20the).
-Mathematically speaking,
-(\ref{elliptic})
-will prove necessary to apply <a href="https://nowheredifferentiable.com/2023-05-30-PDE-2-Hilbert/#:~:text=degenerate.%20As%20a-,particular,-example%2C%20a%20symmetric">Lax Milgram's
-theorem</a>
-and obtain regularity estimates on $u$.
+<div>
+$$\begin{aligned}
+(\varphi ,\mathcal{F}u):=(\mathcal{F}^{-1}\varphi ,u),\quad (\varphi ,D^\alpha u):=(-1)^{\left| \alpha \right|}(D^\alpha \varphi ,u), \quad \forall \varphi \in C\U c^\infty(U).
+\end{aligned}$$
+</div>
 
-When developing the mathematical theory of any equation, the first step
-to establish is whether the equation is well-posed.
+The above definition is justified by the fact that if it
+turns out that $u$ is smooth and integrable enough after all, this
+coincides with the usual definitions of $\mathcal{F}, D^\alpha$.
 
-<b>Definition 2</b>. We say that an equation is well-posed if
+# Fractional Sobolev spaces: three definitions
 
-1.  It has a solution.
+The definitions developed in the next three subsections can be found in
+<a href="https://link.springer.com/book/10.1007/978-3-319-14648-5">Agranovich, 2020</a> page 222.
 
-2.  The solution is unique.
+## Sobolev-Slobodeckij spaces
 
-3.  The solution depends continuously on the data.
-
-The above definition is due to Hadamard and is the standard definition
-of well-posedness in the context of PDE. The three properties above make
-the problem nice to work with and may be familiar from the basic theory
-of ODE. However, not all problems are well-posed. Ill-posedness often
-arises when one works with inverse problems, such as the backward heat
-equation, where one tries to recover the initial heat distribution from
-the final one.
-
-The well-posedness of any given PDE is highly contingent on the space
-considered. In our case, we still need to define which function space
-our coefficients $\mathbf{A,b},c$ live in and what space $\mathcal{L}$ acts
-on. It would be natural to assume that we need $\vb{A}$ and $\vb{b}$ to
-be differentiable. However, the following will suffice.
-
- <a name="Ass1">
-<b>Assumption 1</b> </a> . We assume that $A\U {ij}, b\U i, c \in L^\infty (U)$ for
-all $i,j=1,\ldots,d$. Furthermore, $\mathbf{A}$ is symmetric
-($A\U {ij}=A\U {ji}$) and elliptic.
-
-In the future, $i,j$ will always run from $1$ to $d$, where $d$ is the
-dimension of the space.
-
-<b>Observation 1</b>. We lose no generality by assuming that $\mathbf{A}$ is
-symmetric as $\partial \U {ij} u =\partial \U {ji} u$. If $\mathbf{A}$ is not
-symmetric, we can replace $\mathbf{A}$ by $(\mathbf{A}+\mathbf{A}^T)/2$ and equation
-(\ref{PDE}) will remain
-unchanged.
-
-The first part of Assumption <a href="#Ass1">1</a> will make it easy to get bounds on $\mathcal{L}$, and
-the second part will prove useful when we look at the spectral theory of
-$\mathcal{L}$. Now, to make sense of
-(\ref{PDE}) , we need to
-define what we mean by a solution. Here, the theory of Sobolev Spaces
-and the Fourier transform prove crucial. We will work with the following
-space.
-
- <a name="dual definition 2">
-<b>Definition 3</b> </a>  (Negative Sobolev space). Given $k \in \mathbb{N}$ we
+ <a name="soledkij def">
+<b>Definition 1</b> </a>  (Sobolev-Slobodeckij spaces). Let $s=k+\gamma$ where
+$k \in \mathbb{N}\U 0$, and $\gamma \in [0,1)$. Then, given
+$p \in [1,\infty)$ and an arbitrary open $U \subset \mathbb{R}^d$ we
 define
 
 <div>
 $$\begin{aligned}
-H^{-k}(U ):= H\U 0^k(U )'
+W^{s ,p}(U):= \left\{u \in W^{k ,p}(U): \left\lVert u \right\rVert\U {W^{s,p}(U)}<\infty\right\},
 
 \end{aligned}$$
 
 </div>
 
-For more details on why we denote the dual using negative exponents, see
-the <a href="https://nowheredifferentiable.com/2024-02-27-PDEs-5-Fractional_Sobolev_spaces/#fractional%20laplacian:~:text=%E2%97%BB-,Dual%20of%20Sobolev%20spaces,-and%20correspondence%20with">relevant
-section</a>
-in the previous post on fractional Sobolev spaces. We
-<a href="https://nowheredifferentiable.com/2024-02-27-PDEs-5-Fractional_Sobolev_spaces/#:~:text=some%20particular%20cases.-,Theorem%2018,-(Representation%20of">recall</a>
-also that every element in this space can be written as the sum of
-derivatives up to order $k$ of a function in $L^2(U)$.
+where
 
- <a name="domain L">
-<b>Exercise 1</b> </a> . Suppose $A\U {ij}, b\U i, c \in L^\infty(U)$. Then,
-$\mathcal{L}$ defines a bounded linear operator
+<div>
+$$\begin{align}
+\label{norm def}
+\left\lVert u \right\rVert\U {W^{s,p}(U)}:= \left(\left\lVert u \right\rVert\U {W^{k,p}(U)}^p+ \sum\U {\left| \alpha \right|=k }\int\U {U}\int\U {U}\frac{\left| D^\alpha u(x+y)-D^\alpha u(x) \right|^p}{\left| y \right|^{d+\gamma p}}\,\mathrm{d}x \,\mathrm{d}y\right)^\frac{1}{p}.
+
+\end{align}$$
+
+</div>
+
+For $p = \infty$, we define
+$W^{s,\infty}(U):= C^{k,\gamma}(U)$. The norm is then given by
 
 <div>
 $$\begin{aligned}
-\mathcal{L}: H\U 0^{1}(U)\to H^{-1} (U).
+\left\lVert u \right\rVert\U {W^{s,\infty}(U)}= \left\lVert u \right\rVert\U {C^{k}(U)}+ \sum\U {\left| \alpha \right| =k}  \sup \U {x, y \in U, x \neq y} \frac{|D^\alpha u(x)- D^\alpha u(y)|}{|x-y|^\gamma }.
 
 \end{aligned}$$
 
 </div>
+
+We will later define $W^{s,p}(U)$ also for negative $s$ (see Definition
+<a href="#negative s Slobodeckij">13</a>). We observe that the above
+definition coincides with our usual definition of Sobolev space when
+$s=k \in \mathbb{N}\U 0$ and mimics that of the Hölder spaces, coinciding
+exactly when $p=\infty$.
+
+<b>Exercise 1</b>. Show that $W^{s,p}(U)$ is a Banach space.
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
 <div class="exercise-text">
-By definition of the weak derivative, show that given
-$v \in C\U c^\infty(U)$,
+To show that $|| \cdot ||\U {W^{s,p}(U)}$ is a norm apply
+Minkowski's inequality to $u$ and to
 
 <div>
 $$\begin{aligned}
-(v, \mathcal{L}u) = \int\U {U} \vb{A} \nabla v \cdot \nabla u + \int\U {U} \vb{b} \cdot \nabla v u + \int\U {U} cvu.
+f\U u(x,y):=\frac{D^\alpha u(x+y)-D^\alpha u(x)}{y^{\frac{d}{p}+\gamma}}.
 
 \end{aligned}$$
 
 </div>
 
-Use this to conclude that,
+Given a Cauchy sequence show that, since $L^p(U)$ is
+complete, $u\U n \to u$ in $L^p(U)$ and that $f\U {u\U n} \to f\U u$ in
+$L^p(U\times U)$ to conclude that $u\U n \to u$ in $W^{s,p}(U)$.
+
+</div>
+</div>
+
+Though the Sobolev-Slobodeckij spaces can be defined for any open set
+$U$, they are most useful when $U=\mathbb{R}^d$ or $U$ is regular
+enough. Otherwise, basic properties such as the following break down
+
+ <a name="inclusion ordered by regularity">
+<b>Proposition 2</b> </a>  (Inclusion ordered by regularity). Let $\Omega$ be an
+<a href="https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=extend%20Sobolev%20functions">extension
+domain</a>
+for $W^{1,p}$. Then, for $p \in [1,\infty)$ and $0<s<s'$ it holds that
 
 <div>
 $$\begin{aligned}
-\left| (v, \mathcal{L}u) \right| \lesssim \left\lVert v \right\rVert\U {H^1(U)}\left\lVert u \right\rVert\U {H^1(U)}.
+W^{s',p}(\Omega )\hookrightarrow W^{s,p}(\Omega ).
 
 \end{aligned}$$
 
 </div>
 
-So, $\mathcal{L}u \in H^{-1}(U)$ is well defined and
-$\mathcal{L}$ is bounded. Extend by density to $H\U 0^1(U)$.
+The proof can be found in <a href="https://www.sciencedirect.com/science/article/pii/S0007449711001254">Di, 2020</a> page 10. The regularity
+of the domain is necessary to be able to extend functions in
+$W^{1,p}(\Omega )$ to $W^{1,p}(\mathbb{R}^d)$. The result is not true
+otherwise, and an example is given in this same reference.
 
-</div>
-</div>
+## Bessel potential spaces
 
-Exercise <a href="#domain L">1</a>
-allows us to define the weak formulation of
-(\ref{PDE}) and study its
-well-posedness using Lax Milgram's theorem. We will do this in the next
-section.
+We now give a second definition of fractional Sobolev spaces through the
+Fourier transform. Here, it is immediately possible to define everything
+for negative $s$.
 
-# Weak solutions and well-posedness
-
-By Exercise <a href="#domain L">1</a>,
-we can make sense of the equation $\mathcal{L}u =f$ in a distributional
-(weak) sense as long as $f \in H^{-1}(U)$.
-
-<b>Definition 4</b> (Weak formulation). Given $f \in H^{-1}(U)$, we say
-that $u~\in~H\U 0^1(U)$ solves (\ref{PDE}) if
-
-<div>
-$$\begin{align}
-\label{weak def}
-B(u,v):= (v, \mathcal{L}u)=\int\U {U}\vb{A} \nabla u \cdot \nabla v + \int\U {U} \vb{b} \cdot ( \nabla u) v + \int\U {U} cuv= (v,f), \quad \forall v \in H\U 0^1(U).
-
-\end{align}$$
-
-</div>
-
-In (\ref{weak def}) we used the "duality notation" $(v,f):= f(v)$ for
-$f \in X, v \in X'$ (here $X= H\U 0^1(U)$). We have now reformulated our
-problem to something that looks very similar to the setup of Lax
-Milgram's theorem. We can now prove the well-posedness of
-(\ref{PDE}) under certain
-conditions.
-
- <a name="well-posed 1">
-<b>Theorem 5</b> </a> . Let $U \subset \mathbb{R}^d$ be an arbitrary open set.
-Suppose Assumption <a href="#Ass1">1</a>
-holds and let $\vb{b}=0$ . Then, equation
-(\ref{PDE})  is well-posed,
-and we have the homeomorphism
+<b>Definition 3</b>. Let $s\in\mathbb{R}$ and
+$u \in \mathcal{S}'(\mathbb{R}^d)$. We define the Bessel potential
+operator $\Lambda^s$ by
 
 <div>
 $$\begin{aligned}
-\mathcal{L}: H\U 0^1(U) \xrightarrow{\sim}H^{-1}(U).
+\Lambda^s u := \mathcal{F}^{-1}\left(\left\langle\xi\right\rangle^s \widehat{u}(\xi)\right).
 
 \end{aligned}$$
 
 </div>
 
-Furthermore,
-$\left\lVert \mathcal{L}^{-1} \right\rVert \lesssim\U U \alpha ^{-1}$. The
-above also holds if $c  \geq 0$ and $U$ is bounded.
-
-<b>Proof.</b> The continuity of $B$ is a consequence of Exercise
-(\ref{domain L}) .
-It remains to see that $B$ is coercive. For smooth $u \in C\U c^\infty(U)$
-we have that
+In the definition above, we used the notation
+$\left\langle\xi\right\rangle:=\sqrt{1+|\xi|^2}$. As we saw when we
+studied Sobolev spaces through the <a href="https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=Sobolev%20spaces-,Sobolev%20spaces,-form%20a%20particular">Fourier
+transform</a>,
+using the fact that $\mathcal{F}$ is an isometry which transforms
+differentiation into polynomial multiplication
 
 <div>
 $$\begin{align}
-\label{b=0}
-B(u,u) & = \int\U {U}\vb{A} \nabla u \cdot \nabla u + \int\U {U} cu^2 \geq \alpha \left\lVert \nabla u \right\rVert\U {L^2(U \to \mathbb{R}^d)} + \int\U {U}c u^2 \gtrsim \left\lVert u \right\rVert\U {H^1\U 0(U)}.
-
-\end{align}$$
-
-</div>
-
-Where in the first inequality, we used the ellipticity
-assumption on $\vb{A}$, and in the last inequality, we used Poincaré's
-inequality if $U$ is bounded. The result now follows from Lax Milgram's
-theorem. ◻
-
-Theorem <a href="#well-posed 1">5</a> is an example of the advantages of working
-with a weak formulation instead of classical solutions. The weak
-formulation allows us not only to make sense of our equation
-(\ref{PDE}) for a wider
-class of coefficients but also provides a natural framework to study the
-well-posedness of (\ref{PDE}) .
-
-<b>Exercise 2</b>. Show that, under the conditions of Theorem
-<a href="#well-posed 1">5</a>, if
-$U$ is bounded, there is a countable basis of eigenfunctions for
-$\mathcal{L}$.
-
-<div class="exercise-container">
-<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
-<div class="exercise-text">
-By <a href="https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=Theorem%2014%20(-,Rellich,-for%20trace%200">Rellich's
-theorem</a>
-$\mathcal{L}^{-1}: L^2(U) \to L^2(U)$ is compact and, since $\vb{b}$ is
-$0$, $\mathcal{L}$ is also is self adjoint. As a result, so there is a
-countable basis of eigenvectors in $L^2(U)$.
-</div>
-</div>
-
-In Theorem <a href="#well-posed 1">5</a>, we somewhat unsatisfyingly had to impose the
-extra assumption that $\vb{b}$ was identically zero and that $c > 0$.
-These extra assumptions can be done away with but at the cost of
-modifying our initial problem by a correction term $\gamma$ so we can
-obtain a coercive operator $B\U \gamma$.
-
- <a name="mod">
-<b>Theorem 6</b> </a>  (Modified problem). Let $U \subset \mathbb{R}^d$ be any
-open set and let Assumption <a href="#Ass1">1</a> hold. Then, there exists some constant $\nu \geq 0$
-(depending on the coefficients) such that for all $\gamma \geq \nu$ the
-operator $\mathcal{L}\U \gamma := \mathcal{L}+ \gamma \vb{I}$ is positive
-definite and defines a homeomorphism
-
-<div>
-$$\begin{aligned}
-\mathcal{L}\U \gamma : H\U 0^1(U) \xrightarrow{\sim}H^{-1}(U).
-
-\end{aligned}$$
-
-</div>
-
-That is, the problem $\mathcal{L}u +\gamma u =f$ is well-posed for all
-$\gamma > \nu$.
-
-<b>Proof.</b> Once more, the proof will go through the Lax-Milgram theorem,
-where now we work with the bilinear operator $B\U \gamma$ associated with
-$\mathcal{L}\U \gamma$
-
-<div>
-$$\begin{aligned}
-B\U \gamma (u,v):= (u, \mathcal{L}\U \gamma u)=B(u,v) + \gamma (u,v).
-
-\end{aligned}$$
-
-</div>
-
-The calculation proceeds similarly to
-(\ref{b=0}) , where now an
-additional application of Cauchy's inequality
-
-<div>
-$$\begin{align}
-\label{Cauchy}
-ab\leq\frac{\varepsilon }{2} a^2+ \frac{1}{2 \varepsilon } b^2
-
-\end{align}$$
-
-</div>
-
-to $a=\nabla u$ and $b= v$, shows that
-
-<div>
-$$\begin{aligned}
-B(u,u) & = \int\U {U}(\vb{A} \nabla u) \cdot \nabla u + \int\U {U} \vb{b}\cdot (\nabla u) u + \int\U {U} cu^2 \geq \alpha \left\lVert \nabla u \right\rVert\U {L^2(U \to \mathbb{R}^d)}                      \\
-& - \frac{1}{2}\left\lVert \vb{b} \right\rVert\U {L^\infty(U)} \left(\varepsilon \left\lVert \nabla u \right\rVert\U {L^2(U)}+ \varepsilon ^{-1}\left\lVert u \right\rVert\U {L^2(U)}\right)- \left\lVert c \right\rVert\U {L^\infty(U)}\left\lVert u \right\rVert\U {L^2(U)} .
-
-\end{aligned}$$
-
-</div>
-
-Taking $\varepsilon$ small enough (smaller than
-$\alpha \left\lVert \vb{b} \right\rVert\U {L^\infty(U)}^{-1}$ to be
-precise) and gathering up terms gives
-
-<div>
-$$\begin{align}
-\label{b not 0}
-B(u,u) \geq \frac{\alpha}{2} \left\lVert \nabla u \right\rVert\U {L^2(U \to \mathbb{R}^d)} -\nu \left\lVert u \right\rVert\U {L^2(U)}.
-
-\end{align}$$
-
-</div>
-
-Where we defined
-$\nu = \left\lVert \vb{b} \right\rVert\U {L^\infty(U)} \varepsilon ^{-1}+\left\lVert c \right\rVert\U {L^\infty(U)}$.
-The theorem follows from (\ref{b not 0}) as for all $\gamma > \nu$
-
-<div>
-$$\begin{align}
-\label{pd}
-B\U \gamma (u,u)=B(u,u)+ \gamma \left\lVert u \right\rVert\U {L^2(U)} \geq\frac{\alpha}{2} \left\lVert \nabla u \right\rVert\U {L^2(U \to \mathbb{R}^d)}+(\gamma - \nu) \left\lVert u \right\rVert\U {L^2(U)}\gtrsim \left\lVert u \right\rVert\U {H\U 0^1(U)} .
-
-\end{align}$$
-
-</div>
-
-Equation (\ref{pd}) also shows that $\mathcal{L}\U \gamma$ is positive
-definite and the proof is complete. ◻
-
-We now consider $\mathcal{L}u =\lambda u+f$, which is a small
-generalization of our original problem
-(\ref{PDE}) . Take
-$\gamma > \left| \lambda  \right|$ large enough as in Theorem
-<a href="#mod">6</a>. We have that,
-
-<div>
-$$\begin{align}
-\label{above}
-\mathcal{L}u = \lambda u + f \iff \mathcal{L}\U \gamma u =(\gamma+\lambda)u +f.
-\end{align}$$
-</div>
-
-If we write $\mu:=(\gamma+\lambda)$ and rename
-$v:=\mu u +f$ we obtain that (\ref{above}) is equivalent to
-
-<div>
-$$\begin{align}
-\label{below}
-(\mathbf{I}- \mu \mathcal{L}\U \gamma ^{-1} )v =f,
-\end{align}$$
-</div>
-
-where $\mathbf{I}$ is the identity operator. Suppose now
-that $U$ is bounded, then, by <a href="https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=Theorem%2014%20(-,Rellich,-for%20trace%200">Rellich's
-theorem</a>,
-we know that the following inclusion is compact
-
-<div>
-$$\begin{aligned}
-i: H^1(U) \hookrightarrow L^2(U).
-\end{aligned}$$
-</div>
-
-As a result, by Theorem
-<a href="#well-posed 1">5</a>, we
-deduce that $\mathcal{L}\U \gamma^{-1}: L^2(U) \to L^2(U)$, which we are
-now viewing as an operator on $L^2(U)$, is compact. More precisely,
-
-<div>
-$$\begin{aligned}
-K:= i \circ \left.\mathcal{L}\U \gamma ^{-1}\right|\U {L^2(U)}
-\end{aligned}$$
-</div>
-
-is compact and the reasoning in
-(\ref{above}) ,
-(\ref{below}) shows
-that, given $f \in L^2(U)$, and $u \in H\U 0^1(U)$
-
-<div>
-$$\begin{align}
-\label{reasoning}
-\mathcal{L}u = \lambda u+f\iff Tv:=(\vb{I}-\mu K)v =f.
+\label{motivation Bessel}
+u \in H^k(\mathbb{R}^d) \iff \Lambda^k u \in L^2(\mathbb{R}^d).
 \end{align}$$
 </div>
 
 Equation
-(\ref{reasoning}) is exactly the form the <a href="https://nowheredifferentiable.com/2023-05-30-PDE-2-Hilbert/#:~:text=Theorem%2010%20(-,Fredholm,-alternative">Fredholm
-alternative</a>.%20Let)
-takes and justifies the following.
+(\ref{motivation Bessel}) motivates the following extension to
+general $p$.
 
- <a name="well-posedness Fredholm">
-<b>Theorem 7</b> </a> . Let $U\subset \mathbb{R}^d$ be bounded, let
-$\mathcal{L}$ verify Assumption <a href="#Ass1">1</a>, let $\lambda \in \mathbb{R}, f \in L^2(U)$ be any and
-consider the problems
-
-<div>
-$$\begin{aligned}
-\begin{minipage}{0.3\linewidth}
-\begin{equation}
-\begin{cases}
-\mathcal{L}u = \lambda u+f \\
-u \in H\U 0^1(U)
-\ealigns}\label{original}
-\end{equation}
-\end{minipage}%
-\begin{minipage}{0.3\linewidth}
-\begin{equation}
-\begin{cases}
-\mathcal{L}u = \lambda u \\
-u \in H\U 0^1(U)
-\ealigns}\label{originalh}
-\end{equation}
-\end{minipage}.
-
-\end{align}$$
-
-</div>
-
-1.  Equation (\ref{original}) is well-posed if and only if
-    (\ref{originalh}) has no non-zero solutions
-    $(\lambda \notin \sigma(\mathcal{L}))$.
-
-2.  The spectrum $\sigma (\mathcal{L})$ is discrete. If
-    $\sigma(\mathcal{L})= \\{\lambda\U n \\}\U {n=1}^\infty$ is infinite, then
-    $\lambda \U n \to +\infty$.
-
-3.  The dimensions of the following spaces are equal
+ <a name="bessel potential def">
+<b>Definition 4</b> </a>  (Bessel potential spaces on $\mathbb{R}^d$ ). Let
+$s \in \mathbb{R}$ and $p \in (1,\infty)$, we define the Bessel
+potential space
 
 <div>
 $$\begin{aligned}
-N:= \left\{u \in H\U 0^1(U): \mathcal{L}u = \lambda u\right\}, \quad N^\star := \left\{f \in L^2(U): \mathcal{L}^\star  f = \lambda f\right\},
+H^{s,p}(\mathbb{R}^d):=\left\{u \in \mathcal{S}^{\prime}(\mathbb{R}^d): \Lambda ^s u \in L^p(\mathbb{R}^d)\right\},
 
 \end{aligned}$$
 
 </div>
 
-4.  Equation, (\ref{original}) has a solution if and only if
-    $f \in (N^\star )^\perp$ $($equivalently
-    $\left\langle w,f\right\rangle=0$ for all $w \in N^\star  )$.
-
-<b>Proof.</b> Given $f \in L^2(U)$ and $\lambda \in \mathbb{R}$ as before, we
-consider $\gamma > \left| \lambda  \right|$ large and define
-$\mathcal{L}\U \gamma = \mathcal{L}+ \gamma \mathbf{I},K:= i \circ \left.\mathcal{L}\U \gamma ^{-1}\right|\U {L^2(U)}, \mu = \gamma + \lambda$
-and $T = (\mathbf{I}- \mu K)$, where $i : H^1(U) \hookrightarrow L^2(U)$ is
-the inclusion. Consider the following two problems
+and give it the norm
 
 <div>
 $$\begin{aligned}
-\begin{minipage}{0.3\linewidth}
-\begin{equation}
-\begin{cases}
-Tv = f \\
-v \in L^2(U)
-\ealigns}\label{fred}
-\end{equation}
-\end{minipage}%
-\begin{minipage}{0.3\linewidth}
-\begin{equation}
-\begin{cases}
-Tv = 0 \\
-v \in L^2(U)
-\ealigns}\label{fredh}
-\end{equation}
-\end{minipage}.
-
-\end{align}$$
-
-</div>
-
-The reasoning in
-(\ref{reasoning}) showed that a solution $u$ to
-(\ref{original})
-gives a solution to (\ref{fred}) via the transformation $v=\mu u +f$. The converse
-needs to be clarified, as given $v \in L^2(U)$, the inverse
-transformation $u = \mu ^{-1}(v-f)$ may not return a function in
-$H\U 0^1(U)$. However, if $v$ solves
-(\ref{fred}) , then $u$
-verifies
-
-<div>
-$$\begin{aligned}
-Tv=v-\mu K v=\mu u +f - \mu K v=f.
+\left\lVert u \right\rVert\U {H^{s,p}(\mathbb{R}^d)}:= \left\lVert \Lambda^s u \right\rVert\U {L^p(\mathbb{R}^d)}.
 
 \end{aligned}$$
 
 </div>
 
-Cancelling out the $f$ and dividing by $\mu$ we obtain
-that
+By construction, $H^{k,2}(\mathbb{R}^d)=H^{k}(\mathbb{R}^d)$.
+
+<b>Exercise 2</b>. Show that $\Lambda^s\Lambda^r=\Lambda^{s+r}$. Use this
+to show that the following is an invertible isomorphism
 
 <div>
 $$\begin{aligned}
-u =Kv.
-
-\end{aligned}$$
-
-</div>
-
-By Theorem <a href="#well-posed 1">5</a> we know that
-$Kv = \mathcal{L}\U \gamma ^{-1} v \in H\U 0^1(U)$ for all $v \in L^2(U)$ .
-As a result, $u$ solves (\ref{original}) , and by the transformation $v \leftrightarrow u$
-problem (\ref{fred}) has a
-solution if and only if (\ref{original}) has a solution. Taking $f=0$, we also obtain that
-$u$ solves (\ref{originalh}) if and only $v$ solves
-(\ref{fredh}) . In
-conclusion,
-
-<div>
-$$\begin{aligned}
-\eqref{original} \text{ is } \mathrm{w.p} \iff \eqref{fred} \text{ is } \mathrm{w.p} \iff \mathrm{ker}(T) =0 \iff \mathrm{ker}(\mathcal{L}-\lambda \mathbf{I} )=0,
-
-\end{aligned}$$
-
-</div>
-
-where the second equivalence is due to the Fredholm
-alternative, and the third can be verified by an algebraic manipulation.
-
-To see the second point, note that, by definition of $T$, equation
-(\ref{fredh}) has
-non-zero solutions if and only if $\mu ^{-1} \in \sigma (K)$. Since $K$
-is compact, $\sigma(K)$ is discrete and if $\sigma (K)$ is infinite,
-then its eigenvalues, which we denote by
-$\left\\{\mu \U n^{-1}\right\\}\U {n=1}^\infty$, go to $0$. Furthermore, since
-by Theorem <a href="#mod">6</a> $K$ is
-positive definite, $\mu\U n >0$ and the claim follows by the
-correspondence $\lambda\U n =\mu\U n -\gamma$.
-
-For the third and fourth points, we use that, as we have already proved,
-$\mathrm{ker}(T)=N$. Additionally,
-
-<div>
-$$\begin{aligned}
-T^\star  =(\vb{I}-\mu K^\star ) =\vb{I}-\mu (\mathcal{L}^\star + \gamma )^{-1},
-
-\end{aligned}$$
-
-</div>
-
-from where
-
-<div>
-$$\begin{aligned}
-\quad \mathrm{ker}(T^\star )=\mathrm{ker}(\mathcal{L}^\star  -\lambda \vb{I})= N^\star .
-
-\end{aligned}$$
-
-</div>
-
-Applying the Fredholm alternative concludes the proof. ◻
-
-Setting $\lambda =0$ in Theorem
-<a href="#well-posedness Fredholm">7</a>, we recover our original problem
-and obtain the following corollary.
-
-<b>Corollary 8</b>. Equation (\ref{PDE}) is well-posed unless the homogeneous problem
-$\mathcal{L}u=0$ has a non-zero solution (that is,
-$\mathrm{ker}(\mathcal{L})\neq 0$). Furthermore,
-$\mathrm{ker}(\mathcal{L})$ and $\mathrm{ker}(\mathcal{L}^\star )$ have the
-same dimension. And (\ref{PDE}) will have a solution if and only if $f$ is orthogonal
-to the kernel of $\mathcal{L}^\star $.
-
-In particular, to study the existence of solutions to
-(\ref{PDE}) , it is enough to
-study the uniqueness of solutions to
-(\ref{PDE}) !
-
-<b>Exercise 3</b>. In Theorem
-<a href="#well-posedness Fredholm">7</a> we used that, for $\gamma$ large
-enough, $K= \mathcal{L}\U {\gamma }^{-1}$ is compact. However,
-$\mathcal{L}\U {\gamma }^{-1}$ is invertible with inverse
-$\mathcal{L}\U \gamma$. As a result
-$\vb{I}=\mathcal{L}\U \gamma \circ \mathcal{L}\U \gamma ^{-1}$ is compact.
-How is this possible?
-
-<div class="exercise-container">
-<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
-<div class="exercise-text">
-In fact, $\mathcal{L}\U \gamma^{-1}$ is only invertible as an
-operator from $H^{-1}(U) \to H^1\U 0(U)$. However, it is not invertible as
-an operator from $K: L^2(U) \to L^2(U)$. Given $f \in L^2(U)$, it is not
-generally possible to find an $u \in L^2(U)$ such that
-$\mathcal{L}\U \gamma u =f$.
-</div>
-</div>
-
-<b>Exercise 4</b>. Where does the proof of Theorem
-<a href="#well-posedness Fredholm">7</a> break down if we replace $U$ with
-$\mathbb{R}^d$?
-
-<div class="exercise-container">
-<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
-<div class="exercise-text">
-Can you apply <a href="https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=Theorem%2014%20(-,Rellich,-for%20trace%200">Rellich's
-theorem</a>
-to unbounded domains? What is the spectrum of the Laplacian on
-$\mathbb{R}^d$?
-</div>
-</div>
-
-<b>Exercise 5</b>. Show using Theorem
-<a href="#well-posedness Fredholm">7</a> that equation
-(\ref{fred}) (the
-generalization of (\ref{PDE}) ) is well-posed saved for at most a discrete set of
-$\lambda$.
-
-<div class="exercise-container">
-<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
-<div class="exercise-text">
-Combine the first and second points of Theorem
-<a href="#well-posedness Fredholm">7</a>.
-</div>
-</div>
-
-<b>Exercise 6</b>. Show the necessity of point 4 in Theorem
-<a href="#well-posedness Fredholm">7</a> using only linear algebra.
-
-<div class="exercise-container">
-<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
-<div class="exercise-text">
-Suppose $\mathcal{L}u = \lambda u+f$ and $w \in N^\star $. Then,
-
-<div>
-$$\begin{aligned}
-\left\langle w,f\right\rangle = \left\langle w,\mathcal{L}u -\lambda u\right\rangle = \left\langle w,\mathcal{L}u\right\rangle -\lambda \left\langle w,u\right\rangle =\left\langle\mathcal{L}^\star  w,u\right\rangle -\lambda \left\langle w,u\right\rangle= 0.
-
-\end{aligned}$$
-
-</div>
-
-</div>
-</div>
-
-# Higher regularity
-
-We have so far seen that, under the previous assumptions, solutions to
-(\ref{PDE}) are in
-$H\U 0^1(U)$. However, analogously to the classical setting, we may expect
-that $u$ is two degrees of regularity smoother than $f$. That is that
-$u \in H^2(U)$. This improved regularity is true, but only with the
-caveat that the domain $U$ is sufficiently regular. Counterexamples with
-non-smooth domains exist. See <a href="https://www.sciencedirect.com/science/article/pii/S002212369793158X/pdf?md5=c646200fe7117dd7d25d27439f36b342&pid=1-s2.0-S002212369793158X-main.pdf">Savare, 2020</a>.
-
-We will also see how, for smoother coefficients, we can iterate to
-obtain a higher regularity of $u$. As a result, when the coefficients
-are smooth, $u$ will be as well, and we will obtain a classical solution
-to (\ref{PDE}) .
-
-## Finite differences
-
-In our study of regularity, we will make use of the difference
-quotients. Given a function $u \in L^p(\mathbb{R}^d)$, we define the
-difference quotients in the $j$-th direction as
-
-<div>
-$$\begin{aligned}
-D\U j^h u := \frac{u(x+ he\U j)-u(x)}{h},\quad  e\U j=(0,\ldots,\overset{(j)}{1},\ldots,0).
-\end{aligned}$$
-</div>
-
-If $u$ is differentiable, then
-$D\U j^h u \to \partial\U j u$ as $h \to 0$. The following lemma shows that,
-on $\mathbb{R}^d$, the difference quotients of $u$ are bounded if and
-only if $u$ is weakly differentiable.
-
- <a name="difference quotients 1">
-<b>Lemma 9</b> </a>  (Difference quotients and regularity). Let
-$p \in (1, +\infty)$, and $C >0$ be some constant. Then, the following
-hold.
-
-1.  If $u \in L^p(\mathbb{R}^d)$ and for all $h$ sufficiently small
-    $\left\lVert D\U j^h u \right\rVert\U {L^p(\mathbb{R}^d)} \leq C$. Then
-    $u \in W^{1,p}(\mathbb{R}^d)$.
-
-2.  If $u \in W^{1,p}(\mathbb{R}^d)$. Then,
-    $\left\lVert D\U j^h u \right\rVert\U {L^p(\mathbb{R}^d)} \leq \left\lVert \partial\U j u \right\rVert\U {L^p(\mathbb{R}^d)}$.
-
-<b>Proof.</b> We begin by proving the first point. Since $L^p(\mathbb{R}^d)$
-is reflexive, every bounded sequence in $L^p(\mathbb{R}^d)$ has a weakly
-convergent subsequence. Thus, we can find $h\U n$ and
-$v \in L^p(\mathbb{R}^d)$ such that $D\U j^{h\U n} u \rightharpoonup v$
-weakly in $L^p(\mathbb{R}^d)$. We want to show that $v = \partial\U j u$.
-To this aim, let $\varphi \in C\U c^\infty(\mathbb{R}^d)$. Then,
-
-<div>
-$$\begin{align}
-\label{weak int parts}
-\int\U {\mathbb{R}^d} v \varphi & = \lim\U {n \to \infty} \int\U {\mathbb{R}^d} D\U j^{h\U n} u \varphi = \lim\U {n \to \infty} \int\U {\mathbb{R}^d} u(x)\frac{\varphi(x-h\U n e\U j)- \varphi (x)}{h\U n}\,\mathrm{d}x\notag
-\\&= \int\U {\mathbb{R}^d} u(x)\lim\U {n \to \infty} -D\U j^{-h\U n} \varphi \,\mathrm{d}x =-\int\U {\mathbb{R}^d} u \partial\U j \varphi,
-
-\end{align}$$
-
-</div>
-
-where in the first equality, we used the weak
-convergence of $D\U j^{h\U n}u$ to $v$; in the second, we separated the
-integral in two and used the change of variable $x \to x-h\U n e\U j$ on the
-first of the integrals (from now on we will call this "discrete
-integration by parts"). The final equality follows from the smoothness
-of $\varphi$. Since $\varphi \in C\U c^\infty(\mathbb{R}^d)$ was
-arbitrary, we have that $v=\partial\U j u$ almost everywhere. Since
-$u \in L^p(\mathbb{R}^d)$, this shows that
-$u \in W^{1,p}(\mathbb{R}^d)$.
-
-For the second point, suppose that $u$ is smooth; then, by the
-fundamental theorem of calculus, we have that
-
-<div>
-$$\begin{aligned}
-D\U j^h u(x) = \int\U 0^1 \partial\U j u(x+the\U j) \,\mathrm{d}t.
-
-\end{aligned}$$
-
-</div>
-
-Taking norms and using <a href="https://en.wikipedia.org/wiki/Minkowski_inequality#:~:text=.-,Minkowski%27s,-integral%20inequality%5B">Minkowski's integral
-inequality</a>
-we obtain
-
-<div>
-$$\begin{aligned}
-\left\lVert D\U j^h u \right\rVert\U {L^p(\mathbb{R}^d)} \leq \int\U 0^1 \left\lVert \partial\U j u(\cdot+the\U j) \right\rVert\U {L^p(\mathbb{R}^d)} \,\mathrm{d}t= \int\U {0}^1 \left\lVert \partial\U j u \right\rVert\U {L^p(\mathbb{R}^d)} \,\mathrm{d}t=\left\lVert \partial\U j u \right\rVert\U {L^p(\mathbb{R}^d)},
-
-\end{aligned}$$
-
-</div>
-
-where in the second equality, we used the change of
-variables $x \to x-the\U j$. We conclude by using the density of smooth
-functions in $W^{1,p}(\mathbb{R}^d)$ to take limits in the above
-inequality. ◻
-
-The result can be extended to arbitrary open subsets
-$U \subset \mathbb{R}^d$. In this case, one can only obtain local
-regularity as the translation $u(x+h e\U j)$ is not well defined on the
-whole of $U$.
-
- <a name="difference quotients 2">
-<b>Lemma 10</b> </a>  (Difference quotients and local regularity). Let
-$p \in (1, +\infty)$, $C>0$ be a constant and $V \Subset U$ open. Then,
-the following hold.
-
-1.  If $u \in L^p(U)$ and for all $h$ sufficiently small
-    $\left\lVert D\U j^h u \right\rVert\U {L^p(V)} \leq C$. Then,
-    $u \in W^{1,p}(V)$.
-
-2.  If $u \in W^{1,p}(U)$. Then,
-    $\left\lVert D\U j^h u \right\rVert\U {L^p(V)} \leq \left\lVert \partial\U j u \right\rVert\U {L^p(U)}$
-    for all $h<\,\mathrm{d}(V,\partial U)$.
-
-<b>Exercise 7</b>. Prove Lemma
-<a href="#difference quotients 2">10</a>.
-
-<div class="exercise-container">
-<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
-<div class="exercise-text">
-Adapt the proof of Lemma
-<a href="#difference quotients 1">9</a>. Take $\varphi \in C\U c^\infty(V)$
-for the first point. For the second point, use the <a href="https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=drawings%20is%20recommended.-,Theorem%203,-(Local%20approximation%20by">local
-density</a>
-of smooth functions in $W^{1,p}(U)$.
-</div>
-</div>
-
-## Regularity on $\mathbb{R}^d$
-
-By using second-order finite difference, we now show that the solution
-to (\ref{PDE}) is in
-$H^2(\mathbb{R}^d)$ if we impose additionally that $\mathbf{A}$ is
-continuously differentiable.
-
- <a name="improved reg Rd">
-<b>Theorem 11</b> </a>  (Improved regularity on $\mathbb{R}^d$ ). Suppose that
-$A\U {ij}\in C^1(\mathbb{R}^d)$ is elliptic and that
-$b\U i \in L^\infty(\mathbb{R}^d ), c \in L^\infty(\mathbb{R}^d)$ . Then,
-if $u \in H^1(\mathbb{R}^d)$ solves $\mathcal{L}u=f$, it holds that
-$u \in H^2(\mathbb{R}^d)$ with
-
-<div>
-$$\begin{aligned}
-\left\lVert u \right\rVert\U {H^2(\mathbb{R}^d)} \lesssim\U {\mathbf{A},\mathbf{b},c} \left\lVert f \right\rVert\U {L^2(\mathbb{R}^d)}+\left\lVert u \right\rVert\U {L^2(\mathbb{R}^d)}.
-
-\end{aligned}$$
-
-</div>
-
-<b>Proof.</b> The idea is to use difference quotients to approximate the
-second derivative of $u$
-
-<div>
-$$\begin{aligned}
-v:= -D\U k^{-h} D\U k^h u = \frac{u(x+he\U k)-2u(x)+u(x-he\U k)}{h^2}.
-
-\end{aligned}$$
-
-</div>
-
-Since $v \in H^1(U)$, we can substitute $v$ into the
-weak formulation (\ref{weak def}) , do a discrete integration by parts and use
-Cauchy's inequality to show that
-$\left\lVert D\U k^h \nabla u \right\rVert\U {L^2(\mathbb{R}^d)}$ is
-bounded. Using Lemma <a href="#difference quotients 1">9</a>, we will then conclude that
-$u \in H^{2}(\mathbb{R}^d)$ and finish off the proof. We now put this
-plan into action. From (\ref{weak def}) , we have that
-
-<div>
-$$\begin{align}
-\label{start}
-\int\U {\mathbb{R}^d} \vb{A} \nabla u \cdot \nabla v =\int\U {\mathbb{R}^d} (f- \vb{b} \cdot \nabla u -cu)v.
-
-\end{align}$$
-
-</div>
-
-Applying a weak integration by parts to the left-hand
-side of (\ref{start}) as
-in (\ref{weak int parts}) , we obtain
-
-<div>
-$$\begin{aligned}
-\int\U {\mathbb{R}^d} \vb{A} \nabla u \cdot \nabla v = \int\U {\mathbb{R}^d} D\U k^h( \vb{A} \nabla u) \cdot (D\U k^h \nabla u)= \int\U {\mathbb{R}^d} \mathbf{A}^h D\U k^h \nabla u \cdot D\U k^h \nabla u+ \int\U {\mathbb{R}^d} (D\U k^h\mathbf{A}) \nabla u \cdot D\U k^h \nabla u,
-
-\end{aligned}$$
-
-</div>
-
-where in the last equality, we used the notation
-$\mathbf{A}^h(x):=\mathbf{A}(x+h)$ and the product rule for difference quotients
-(this can be checked by basic algebra). Using the ellipticity of
-$\mathbf{A}$ and Cauchy's inequality
-(\ref{Cauchy}) to put
-$\varepsilon$ on the higher order negative term $D\U k^h \nabla  u$ we
-obtain
-
-<div>
-$$\begin{align}
-\label{first}
-\int\U {\mathbb{R}^d} \vb{A} \nabla u \cdot \nabla v \geq \alpha \left\lVert D\U k^h \nabla u \right\rVert\U {L^2(\mathbb{R}^d)}^2 -\frac{C}{\varepsilon }\left\lVert  \nabla u \right\rVert\U {L^2(\mathbb{R}^d)}^2-\varepsilon \left\lVert D\U k^h \nabla u \right\rVert\U {L^2(\mathbb{R}^d)}^2,
-
-\end{align}$$
-
-</div>
-
-where we used that, since
-$\mathbf{A} \in C^1(\mathbb{R}^d)$, the term $D\U k^h \mathbf{A}$ is bounded.
-Setting $\varepsilon =\alpha /3$ in
-(\ref{first}) we obtain
-that
-
-<div>
-$$\begin{align}
-\label{second}
-\int\U {\mathbb{R}^d} \vb{A} \nabla u \cdot \nabla v \geq \frac{2\alpha}{3} \left\lVert D\U k^h \nabla u \right\rVert\U {L^2(\mathbb{R}^d)}^2-\frac{3C}{\alpha}\left\lVert \nabla u \right\rVert\U {L^2(\mathbb{R}^d)}^2.
-
-\end{align}$$
-
-</div>
-
-We now estimate the right-hand side of
-(\ref{start}) . We have
-that, once more by Cauchy's inequality,
-
-<div>
-$$\begin{aligned}
-\int\U {\mathbb{R}^d} (f- \vb{b} \cdot \nabla u -cu)v \leq \frac{C}{\varepsilon }\left(\left\lVert f \right\rVert\U {L^2(\mathbb{R}^d)}+ \left\lVert \nabla u \right\rVert^2\U {L^2(\mathbb{R}^d)}+\left\lVert u \right\rVert\U {L^2(\mathbb{R}^d)}\right)+\varepsilon \left\lVert D\U k^h \nabla u \right\rVert\U {L^2(\mathbb{R}^d)}^2.
-
-\end{aligned}$$
-
-</div>
-
-Once more, setting $\varepsilon =\alpha /3$ gives
-
-<div>
-$$\begin{align}
-\label{third}
-\int\U {\mathbb{R}^d} (f- \vb{b} \cdot \nabla u -cu)v \leq \frac{3C}{\alpha }\left(\left\lVert f \right\rVert\U {L^2(\mathbb{R}^d)}+ \left\lVert \nabla u \right\rVert^2\U {L^2(\mathbb{R}^d)}+\left\lVert u \right\rVert\U {L^2(\mathbb{R}^d)}\right)+\frac{\alpha }{3}\left\lVert D\U k^h \nabla u \right\rVert\U {L^2(\mathbb{R}^d)}^2.
-
-\end{align}$$
-
-</div>
-
-Using (\ref{second}) and (\ref{third}) in (\ref{start}) shows that
-
-<div>
-$$\begin{align}
-\label{fourth}
-\left\lVert D\U k^h \nabla u \right\rVert\U {L^2(\mathbb{R}^d)}^2 \leq \frac{\widetilde{C} }{\alpha^2 }\left(\left\lVert f \right\rVert\U {L^2(\mathbb{R}^d)}+ \left\lVert \nabla u \right\rVert^2\U {L^2(\mathbb{R}^d)}+\left\lVert u \right\rVert\U {L^2(\mathbb{R}^d)}\right).
-
-\end{align}$$
-
-</div>
-
-Equation (\ref{fourth}) is almost the desired result save the presence of
-$\left\lVert \nabla u \right\rVert\U {L^2(\mathbb{R}^d)}$ on the
-right-hand side. However, by setting $v= u$ in
-(\ref{start}) and once
-more using Cauchy's inequality, we obtain that
-
-<div>
-$$\begin{align}
-\label{fifth}
-\left\lVert \nabla u \right\rVert\U {L^2(\mathbb{R}^d)}^2 \lesssim\U {\mathbf{A},\mathbf{b},c} \left\lVert f \right\rVert\U {L^2(\mathbb{R}^d)}+ \left\lVert  u \right\rVert^2\U {L^2(\mathbb{R}^d)}.
-
-\end{align}$$
-
-</div>
-
-Combining (\ref{fourth}) and (\ref{fifth}) gives the bound
-
-<div>
-$$\begin{aligned}
-\left\lVert D\U k^h \nabla u \right\rVert\U {L^2(\mathbb{R}^d)}^2 \lesssim\U {\mathbf{A},\mathbf{b},c} \left\lVert f \right\rVert\U {L^2(\mathbb{R}^d)}+ \left\lVert  u \right\rVert^2\U {L^2(\mathbb{R}^d)}.
-
-\end{aligned}$$
-
-</div>
-
-Applying the first point of Lemma
-<a href="#difference quotients 1">9</a> concludes the proof. ◻
-
-By induction, we can obtain higher-order regularity. For notational
-convenience, we write
-
-<div>
-$$\begin{aligned}
-X^k:= H^k(\mathbb{R}^d) \cap W^{k,\infty}(\mathbb{R}^d).
-\end{aligned}$$
-</div>
-
-This space corresponds to functions that are $k$ times
-weakly differentiable with bounded and square-integrable derivatives up
-to order $k$.
-
- <a name="higher regularity Rd">
-<b>Theorem 12</b> </a>  (Higher regularity on $\mathbb{R}^d$ ). Suppose that
-$\mathcal{L}$ is elliptic and that its coefficients verify
-
-<div>
-$$\begin{aligned}
-A\U {ij} \in C^{1}(\mathbb{R}^d)\cap X^{k+1}, \quad b\U i,c \in X^k, \quad f \in H^k(\mathbb{R}^d).
-
-\end{aligned}$$
-
-</div>
-
-Then, if $u \in H^1(\mathbb{R}^d)$ solves
-$\mathcal{L}u=f$, it holds that $u \in H^{k+2}(\mathbb{R}^d)$ with
-
-<div>
-$$\begin{aligned}
-\left\lVert u \right\rVert\U {H  ^{k+2}(\mathbb{R}^d)} \lesssim\U {\mathbf{A},\mathbf{b},c} \left\lVert f \right\rVert\U {H^k(\mathbb{R}^d)}+\left\lVert u \right\rVert\U {L^2(\mathbb{R}^d)}.
-
-\end{aligned}$$
-
-</div>
-
-<b>Proof.</b> The theorem holds for $k=0$ by Theorem
-<a href="#improved reg Rd">11</a>. Suppose by hypothesis of induction that
-the theorem holds up to order $k$. Let
-
-<div>
-$$\begin{align}
-\label{coefficients k1}
-A\U {ij} \in C^{1}(\mathbb{R}^d)\cap X^{k+2}, \quad b\U i,c \in X^{k+1}, \quad f \in H^{k+1}(\mathbb{R}^d).
-
-\end{align}$$
-
-</div>
-
-Then, by the induction hypothesis
-$u \in H^{k+2}(\mathbb{R}^d)$ with
-
-<div>
-$$\begin{align}
-\label{hi}
-\left\lVert u \right\rVert\U {H^{k+2}(U)} \lesssim\U {\mathbf{A},\mathbf{b},c} \left\lVert f \right\rVert\U {H^k(\mathbb{R}^d)}+\left\lVert u \right\rVert\U {L^2(\mathbb{R}^d)}.
-
-\end{align}$$
-
-</div>
-
-Consider a multi-index $\alpha$ with $|\alpha|=k+1$ and
-$\widetilde{v } \in C\U c^\infty(\mathbb{R}^d)$ Then, substituting
-$v := (-1)^{\left| \alpha \right| } D^\alpha \widetilde{v}$ in the weak
-formulation (\ref{weak def}) we obtain by integrating by parts that
-
-<div>
-$$\begin{aligned}
-\int\U {\mathbb{R}^d} D^\alpha(\vb{A} \nabla u) \cdot \nabla \widetilde{v} +\int\U {\mathbb{R}^d} D^\alpha(\vb{b} \nabla u) \cdot \nabla \widetilde{v} +\int\U {\mathbb{R}^d} D^\alpha (c u) \widetilde{v} =\int\U {\mathbb{R}^d} D^\alpha f \widetilde{v}.
-
-\end{aligned}$$
-
-</div>
-
-Let us write $\widetilde{u}:= D^\alpha u$. Applying the
-chain rule repeatedly and keeping only the derivatives of order $k+3$ of
-$u$ on the left-hand side to obtain
-
-<div>
-$$\begin{align}
-\label{weak solk}
-B(\widetilde{u},\widetilde{v} ) = \int\U {\mathbb{R}^d} \vb{A} \nabla D^\alpha u \cdot \nabla \widetilde{v} +\int\U {\mathbb{R}^d} \vb{b} \nabla D^\alpha u \cdot \nabla \widetilde{v} +\int\U {\mathbb{R}^d} c D^\alpha u \widetilde{v} =\int\U {\mathbb{R}^d} \widetilde{f} \widetilde{v}= (\widetilde{f} ,\widetilde{v}),
-
-\end{align}$$
-
-</div>
-
-where $\widetilde{f}$ involves only $D^\alpha f$ as well
-as sums and products of derivatives up to order $k+2$ of $u,\mathbf{A}$ and
-up to order $k+1$ of $\mathbf{b}$ and $c$. As a result, by the conditions on
-the coefficients in
-(\ref{coefficients k1}) and the induction hypothesis
-$u \in H^{k+2}(\mathbb{R}^d)$, we have that
-$\widetilde{f} \in L^2(\mathbb{R}^d)$ with
-
-<div>
-$$\begin{align}
-\label{Hkr}
-\|{\widetilde{f}}\|\U {L^2(\mathbb{R}^d)} \lesssim\U {\mathbf{A},\mathbf{b},c} \left\lVert f \right\rVert\U {H^{k+1}(\mathbb{R}^d)}+\left\lVert u \right\rVert\U {L^2(\mathbb{R}^d)}.
-
-\end{align}$$
-
-</div>
-
-By equation
-(\ref{weak solk}) , $\widetilde{u}$ is a solution to
-(\ref{PDE}) and applying
-(\ref{hi}) and
-(\ref{Hkr}) shows that
-$\widetilde{u} \in H^{2}(\mathbb{R}^d)$ with
-
-<div>
-$$\begin{aligned}
-\left\lVert \widetilde{u} \right\rVert\U {H^{2}(\mathbb{R}^d)} \lesssim\U {\mathbf{A},\mathbf{b},c} \|\tilde{f}\|\U {L^2(\mathbb{R}^d)}+\left\lVert \widetilde{u} \right\rVert\U {L^2(\mathbb{R}^d)} \lesssim\U {\mathbf{A},\mathbf{b},c} \left\lVert f \right\rVert\U {H^{k+1}(\mathbb{R}^d)}+\left\lVert u \right\rVert\U {L^2(\mathbb{R}^d)}.
-
-\end{aligned}$$
-
-</div>
-
-Since $\alpha$ was any coefficient of order $k+1$, we
-deduce that $u \in H^{k+3}(\mathbb{R}^d)$ with
-
-<div>
-$$\begin{aligned}
-\left\lVert u \right\rVert\U {H^{k+3}(\mathbb{R}^d)} \lesssim\U {\mathbf{A},\mathbf{b},c} \left\lVert f \right\rVert\U {H^{k+1}(\mathbb{R}^d)}+\left\lVert u \right\rVert\U {L^2(\mathbb{R}^d)}.
-
-\end{aligned}$$
-
-</div>
-
-The equation above is the hypothesis of induction for
-$k+1$, and the proof is complete. ◻
-
-Iterating the above theorem, we obtain that if the coefficients of
-$\mathcal{L}$ are smooth, then the solution to
-(\ref{PDE}) is smooth as
-well. And $u$ is a classical solution to
-(\ref{PDE}) .
-
- <a name="infinite interior regularity">
-<b>Theorem 13</b> </a>  (Infinite regularity on $\mathbb{R}^d$). Let
-$A\U {ij}, b\U i,c \in C^{\infty}(\mathbb{R}^d)$ with $\mathbf{A}$ elliptic.
-Then, if $u \in H^1(U)$ solves $\mathcal{L}u=f$, it holds that
-$u \in C^\infty(\mathbb{R}^d)$
-
-<b>Proof.</b> By Theorem <a href="#higher regularity 2">15</a>, we have that $u \in H^k(\mathbb{R}^d)$
-for all $k \in \mathbb{N}$. By <a href="https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=three%20results%20gives-,Theorem%2013,-(Rellich%2DKondrachov">Sobolev
-embeddings</a>.%20Let)
-we have that $u \in C^\infty(\mathbb{R}^d)$. ◻
-
-At first sight, it may seem as if the above results can be extended to
-solutions of (\ref{PDE}) on
-$U \subsetneq \mathbb{R}^d$ with the following reasoning. However, there
-is a mistake in the reasoning. Can you spot it?
-
-<b>Exercise 8</b>. The following argument is <b>false</b>. Show the flaw in
-the reasoning.
-
-Let $U \subset \mathbb{R}^d$ be any open subset. Suppose that
-$A\U {ij}\in C^1(\overline{U} )$ is elliptic and that
-$b\U i, c \in L^\infty(U)$ . Let $u \in H\U 0^1(U)$ solve $\mathcal{L}u=f$.
-The
-<a href="https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=smooth%20unbounded%20domains.-,Exercise%2021,-(Extension%20trace%200">extension</a>
-$\widetilde{u}$ to $\mathbb{R}^d$ by zero of $u$ is in
-$H^1(\mathbb{R}^d)$. The coefficients $b,c$ can likewise be extended by
-$0$ to functions
-$\widetilde{\mathbf{b}}, \widetilde{c} \in  L^\infty(\mathbb{R}^d)$.
-Likewise for $f$ to $\widetilde{f} \in L^2(\mathbb{R}^d)$ and by
-Assumption, $\mathbf{A}$ is the restriction to $U$ of some function
-$\widetilde{A} \in C^1(\mathbb{R}^d)$. We have that
-
-<div>
-$$\begin{align}
-\label{extension}
-\widetilde{\mathcal{L}} \widetilde{u} := -\nabla \cdot (\widetilde{A} \nabla \widetilde{u})+ \widetilde{b} \cdot \nabla \widetilde{u} + \widetilde{c} \widetilde{u} =\widetilde{f} .
-
-\end{align}$$
-
-</div>
-
-As a result by Theorem
-<a href="#improved reg Rd">11</a>
-it holds that $\widetilde{u} \in H^2(\mathbb{R}^d)$ with
-
-<div>
-$$\begin{aligned}
-\left\lVert u \right\rVert\U {H^2(U)}=  \left\lVert \widetilde{u}  \right\rVert\U {H^2(\mathbb{R}^d)} \lesssim\U {\mathbf{A},\mathbf{b},c} \left\lVert f \right\rVert\U {L^2(\mathbb{R}^d)}+\left\lVert u \right\rVert\U {L^2(\mathbb{R}^d)}.
+\Lambda^r: H^{r+s,p}(\mathbb{R}^d) \xrightarrow{\sim}H^{s,p}(\mathbb{R}^d).
 
 \end{aligned}$$
 
@@ -1208,348 +282,1346 @@ $$\begin{aligned}
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
 <div class="exercise-text">
-Are you sure that $\widetilde{u}$ solves
-(\ref{extension}) ? Consider for example the case
-$\mathbf{A}= \mathbf{I}, \mathbf{b}=c=0$. For $\widetilde{u}$ to solve
-(\ref{extension})  it is necessary that for all
-$\varphi \in C\U c^\infty(\mathbb{R}^d)$
+Use that
+$\left\langle\xi\right\rangle^s\left\langle\xi\right\rangle^r=\left\langle\xi\right\rangle^{s+r}$
+and show that the inverse of $\Lambda^r$ is $\Lambda^{-r}$.
+</div>
+</div>
+
+We now extend this to open domains
+
+ <a name="bessel potential def Omega">
+<b>Definition 5</b> </a>  (Bessel potential spaces on $\Omega$). Let
+$U  \subset \mathbb{R}^d$ be open. We define
 
 <div>
 $$\begin{aligned}
-\int\U {\mathbb{R}^d} \nabla \widetilde{u} \cdot \nabla \varphi = \int\U {\mathbb{R}^d} \widetilde{f} \varphi.
+H^{s,p}(U ):=\left\{u \in \mathcal{D}^{\prime}(U ): \text{ there exists } v \in H^{s,p}(\mathbb{R}^d) \text{ with } \left.v\right|\U {U }=u\right\},
 
 \end{aligned}$$
 
 </div>
 
-That is, that
+and give it the norm
 
 <div>
 $$\begin{aligned}
-\int\U {U} \nabla u \cdot \nabla \varphi = \int\U {U} f \varphi, \quad \forall \varphi \in C^\infty(\mathbb{R}^d).
+\left\lVert u \right\rVert\U {H^{s,p}(U )}:= \inf \left\{\left\lVert v \right\rVert\U {H^{s,p}(\mathbb{R}^d)}: \left.v\right|\U {U }=u\right\}.
 
 \end{aligned}$$
 
 </div>
 
-Whereas we only know that $u$ solves
-(\ref{weak def}) .
-That is,
+The restriction above is in the sense of distributions. That is, we
+define the restriction of $u$ to $U$ as the distribution $v$ such that
 
 <div>
 $$\begin{aligned}
-\int\U {U} \nabla u \cdot \nabla \varphi = \int\U {U} f \varphi, \quad \forall \varphi \in C\U c^\infty(U).
+(\phi,u):=(\phi,v), \quad \forall \phi \in C\U c^\infty(U ).
+\end{aligned}$$
+</div>
+
+<b>Observation 1</b>. It is tempting to define
+$\left\lVert u \right\rVert\U {H^{s,p}(U )}:=\left\lVert \Lambda^s v \right\rVert\U {L^p(U )}$.
+However, since the Fourier transform, and thus $\Lambda^s$, is a
+nonlocal operator, the norm would depend on the extension $v$ of $u$ to
+$\mathbb{R}^d$ and be ill-defined.
+
+<b>Observation 2</b>. It would also make sense to define $H^{s,p}(U )$
+through complex interpolation. This is likely different from the above
+definition, however, as we will later see, this will coincide with the
+definition above when $\Omega$ is smooth enough (for example Lipschitz).
+See also <a href="https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover">Leoni, 2020</a> page 328 for a similar remark.
+
+## Besov spaces
+
+ <a name="besov def">
+<b>Definition 6</b> </a>  (Besov spaces). Let $s=k\U {-}+\gamma$ where
+$k\U {-} \in \mathbb{N}\U 0$, and $\gamma \in (0,1]$. Then, given
+$p \in [1,\infty)$ and $\Omega  \subset \mathbb{R}^d$ be an arbitrary
+open set we define
+
+<div>
+$$\begin{aligned}
+B^{s ,p}(U):= \left\{u \in W^{k\U {-} ,p}(U): \left\lVert u \right\rVert\U {B^{s,p}(U)}<\infty\right\},
 
 \end{aligned}$$
 
 </div>
 
-This equality does not imply the previous one. The
-problem is that extension by zero does not respect the second derivative
-of functions in $H\U 0^1(\mathbb{R}^d)$. For example, if
-$u \in H^2(U) \cap H\U 0^1(U)$ we do not necessarily have that
-$\widetilde{u}$ is in $H^2(\mathbb{R}^d)$. Consider for example
-$U=(-1,1)$ and $u(x)=1-x^2$. Then, $u$ solves our equation
-(\ref{PDE}) with $f=2$.
-However, $\widetilde{u}$ is not in $H^2(\mathbb{R})$ and given
-$\varphi \in C\U c^\infty(\mathbb{R})$
+where
 
 <div>
 $$\begin{aligned}
-\int\U {\mathbb{R}}\widetilde{u} ' \varphi ' = -2\int\U {-1}^1 x \varphi' =-2(\varphi (1)-\varphi(-1) )+ 2\int\U {-1}^1 \varphi \neq 2\int\U {-1}^1 \varphi = \int\U \mathbb{R}\widetilde{f} \varphi.
+\left\lVert u \right\rVert\U {B^{s,p}(U)}:= \left(\left\lVert u \right\rVert\U {W^{k\U {-},p}(U)}^p+ \sum\U {\left| \alpha \right|=k\U - }\int\U {U}\int\U {U}\frac{\left| D^\alpha u(x+y)-D^\alpha u(x) \right|^p}{\left| y \right|^{d+\gamma p}}\,\mathrm{d}x \,\mathrm{d}y\right)^\frac{1}{p}.
 
 \end{aligned}$$
 
 </div>
 
-</div>
-</div>
+For $p = \infty$, we define
+$B^{s,\infty}(U):= C^{k\U {-},\gamma}(U)$.
 
-## Interior regularity
+The above definition is extremely similar in form to that of the
+Sobolev-Slobodeckij spaces <a href="#soledkij def">1</a>. In fact, it is equivalent when
+$s \notin \mathbb{N}$. The difference is that in the definition of Besov
+spaces <a href="#besov def">6</a>, we
+require that $\gamma >0$. As a result, always $k\U {-}<s$. We have chosen
+to indicate this fact by the index "$-$" on $k\U {-}$. An equivalent
+definition is possible which extends the above to negative values of $s$
 
-We have just seen that a direct extension of Theorem
-<a href="#improved reg Rd">11</a>
-to unbounded domains is not possible using an extension by zero.
-However, by adapting the proof of Theorem
-<a href="#improved reg Rd">11</a>, one can prove the analogous result.
-
-In this case, however, one has to be careful as the difference quotients
-may not be well defined at the boundary. As a result, it is necessary to
-work locally and use a <a href="https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=22.%20A-,bump%20function,-(also%20called%20cutoff">bump
-function</a>.
-This makes the proofs a bit messier, though the idea is the same. We
-sketch the proof, which can also be found in <a href="https://math24.files.wordpress.com/2013/02/partial-differential-equations-by-evans.pdf">Evans, 2020</a> page 326.
-
- <a name="higher regularity">
-<b>Theorem 14</b> </a>  (Improved interior regularity). Let $u \in H^1(U)$ be a
-solution to $\mathcal{L}u =f$ where $f \in L^2(U)$, $\vb{A} \in C^1(U)$
-is elliptic and $v\U i,c \in L^\infty(U)$. Then,
-$u \in H^2 \U {\mathrm{loc}} (U)$ and
+ <a name="besov def negative">
+<b>Definition 7</b> </a>  (Besov spaces, negative $s$). Let $s \in \mathbb{R}$
+and choose any $\sigma \not\in \mathbb{N}\U 0$ with $\sigma >0$. Then,
+given $p \in [1,\infty)$ we define
 
 <div>
 $$\begin{aligned}
-\left\lVert u \right\rVert\U {H^2 \U {\mathrm{loc}}(U)} \lesssim\U {\vb{A},\vb{b},c} \left\lVert f \right\rVert\U {L^2(U)}+\left\lVert u \right\rVert\U {L^2(U)}.
+\|u\|\U {B^{s,p}(\mathbb{R}^d)}=\|\Lambda^{s-\sigma} u\|\U {W^{\sigma,p}(\mathbb{R}^d)}.
 
 \end{aligned}$$
 
 </div>
 
-Note that we do not require $u$ to be in $H^1\U 0(U)$.
+The requirement $\sigma >0$ is necessary as
+$B^{s,p}(\mathbb{R}^d)\neq H^{s,p}(\mathbb{R}^d)$.
 
-<b>Proof.</b> Let $V \Subset W\Subset U$ be open and let $\eta$ be a bump
-function supported on $W$ and identically equal to $1$ on $V$. Write
+<b>Exercise 3</b>. Show that $\Lambda ^r$ defines an invertible isomorphism
 
 <div>
 $$\begin{aligned}
-v = - D\U k^h \eta^2 D\U k^h u.
+\Lambda ^r: B^{s,p}(\mathbb{R}^d)\xrightarrow{\sim}H^{s-r,p}(\mathbb{R}^d).
 
 \end{aligned}$$
 
 </div>
 
-Proceeding as in the proof of Theorem
-<a href="#higher regularity">14</a>, we obtain that
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+Use definition <a href="#besov def negative">7</a> and that
+$W^{\sigma,p}(\Omega )= B^{\sigma,p }$ for non-integer $\sigma$.
+Finally, $\Lambda^r$ has inverse $\Lambda^{-r}$.
+</div>
+</div>
+
+The definition of $B^{s,p}(\mathbb{R}^d)$ can then be extended to
+general open sets $\Omega$ and $U$ in the same way as for the Bessel
+potential spaces, once more the same observations apply.
+
+ <a name="besov def on U">
+<b>Definition 8</b> </a>  (Besov spaces on $\Omega$). Let
+$\Omega  \subset \mathbb{R}^d$ be an smooth. We define,
 
 <div>
 $$\begin{aligned}
-\int\U V\left|D\U k^h \nabla u\right|^2 d x \leq \int\U U \eta^2\left|D\U k^h D u\right|^2 d x \lesssim C \int\U U f^2+u^2+|\nabla u|^2.
+B^{s,p}(\Omega):=\left\{u \in \mathcal{D}^{\prime}(\Omega ): \text{ there exists } v \in B^{s,p}(\mathbb{R}^d) \text{ such that } \left.v\right|\U {\Omega }=u\right\},
 
 \end{aligned}$$
 
 </div>
 
-Applying the first point of Lemma
-<a href="#difference quotients 2">10</a> we obtain that
-$u \in H^2\U {\mathrm{loc}}(U)$ with
+and give it the norm
+
+<div>
+$$\begin{aligned}
+\left\lVert u \right\rVert\U {B^{s,p}(\Omega)}:= \inf \left\{\left\lVert v \right\rVert\U {B^{s,p}(\mathbb{R}^d)}: \left.v\right|\U {\Omega }=u\right\}.
+
+\end{aligned}$$
+
+</div>
+
+<b>Observation 3</b>. Different authors use different notations for these
+spaces. For example, in <a href="https://link.springer.com/book/10.1007/978-3-0346-0419-2">Triebel, 2020</a>, the notation
+$W^{s,p}(\mathbb{R}^d):= B^{s,p}(\mathbb{R}^d)$ is used. With this
+notation, one has that, for $p \neq 2$, and $k \in \mathbb{N}\U 0$,
+
+<div>
+$$\begin{aligned}
+W^{k,p}(\mathbb{R}^d) \neq \left\{ u \in \mathcal{D}'(\mathbb{R}^d) : D^\alpha u \in L^p(\mathbb{R}^d) \quad \forall \left| \alpha \right|\leq   k\right\}= W^{k,p}(\mathbb{R}^d).
+
+\end{aligned}$$
+
+</div>
+
+This clashes with the definition of integer-valued
+Sobolev spaces, so we do not use this notation. Other notations which
+can be found are the notation $B^{s,p}= \Lambda^{p}\U s$ and
+$H^{s,p}= \mathcal{L}^{p}\U s$. See <a href="https://www.degruyter.com/document/doi/10.1515/9781400883882/html">Stein, 2020</a> and
+<a href="https://link.springer.com/chapter/10.1007/978-3-319-97613-6_12">Biccari, 2020</a>.
+
+## Extension domains
+
+Though it is possible to define fractional spaces for any open set,
+these are most useful when the domain is regular enough. We begin by
+characterizing the set of extension domains for $W^{s,p}$. The following
+result can be found in <a href="https://www.google.co.uk/books/edition/A_First_Course_in_Sobolev_Spaces/qoA8DwAAQBAJ?hl=en&gbpv=0">Leoni, 2020</a> page 313.
+
+ <a name="plump sets">
+<b>Theorem 9</b> </a>  (Plump sets are extension domains). Let
+$\Omega \subseteq \mathbb{R}^N$ be an open connected set, and consider
+$p\in [1,+\infty]$, and $\gamma\in (0,1)$. Then, $\Omega$ is an
+extension domain for $W^{\gamma, p}(\Omega)$ if and only if there exists
+a constant $C>0$ such that
+
+<div>
+$$\lambda_d(B(x, r) \cap \Omega) \geq C r^d$$
+</div>
+
+for all $x \in \Omega$ and all $0<r \leq 1$. Where $\lambda\U d$ is the
+Lebesgue measure on $\mathbb{R}^d$.
+
+For higher orders of regularity, the following is sufficient: see
+<a href="https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover">Leoni, 2020</a> and <a href="https://link.springer.com/book/10.1007/978-981-13-0836-9">Sawano, 2020</a> section 5.1.
+
+<b>Theorem 10</b>. Let $\Omega \subset \mathbb{R}^d$ be open with
+<a href="https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=has-,uniformly%20Lipschitz%20boundary,-if%20there%20exists">uniformly Lipschitz
+boundary</a>
+and consider $p\in [1,\infty), s\in[1,\infty)$. Then, $\Omega$ is an
+extension domain for $W^{s,p},H^{s,p},B^{s,p}$.
+
+## Interpolation
+
+Both the Sobolev-Slobodeckij and Bessel potential spaces can be viewed
+as a way to fill the gaps between integer-valued Sobolev spaces. The
+following uses the concept of <a href="https://en.wikipedia.org/wiki/Interpolation_space">complex
+interpolation</a>. We
+will not go into detail as the results will not be essential to us, but
+merely serve as a nice way to understand the relationship between the
+spaces.
+
+ <a name="interpolation">
+<b>Proposition 11</b> </a>  (Interpolation ). Let
+$s\U 1 \neq s\U 2 >0, p \in (1, \infty)$, $0<\theta<1$ and
+
+<div>
+$$\begin{aligned}
+s=s\U 1(1-\theta)+s\U 2 \theta, \quad p=p\U 1(1-\theta)+p\U 2 \theta.
+
+\end{aligned}$$
+
+</div>
+
+Then, given an extension domain $\Omega$ it holds that
+
+<div>
+$$\begin{aligned}
+H^{s,p}(\Omega )=\left[H^{s\U 1,p\U 1}(\Omega), H^{s\U 2,p\U 2}(\Omega)\right]\U {\theta},\quad B^{s,p}(\Omega )=\left[B^{s\U 1,p}(\Omega ), B^{s\U 2, p}(\Omega )\right]\U \theta,
+
+\end{aligned}$$
+
+</div>
+
+where $[X,Y]\U \theta$ denotes the complex interpolation
+space.
+
+The result can be found in <a href="https://link.springer.com/book/10.1007/978-3-0346-0419-2">Triebel, 2020</a> page 45 for
+$\Omega = \mathbb{R}^d$. The general result follows by extension. In
+particular, if we write $k:=\left\lfloor s \right\rfloor$ and
+$\gamma:=s-k$, then
+
+<div>
+$$\begin{aligned}
+H^{s,p}(\Omega ) & =\left[H^{k,p}(\Omega), H^{k+1,p}(\Omega)\right]\U {\gamma }= \left[L^p(\Omega ), H^{k+1,p}(\Omega)\right]\U {s/(k+1) }  \\
+B^{s,p}(\Omega ) & =\left[B^{k,p}(\Omega), B^{k+1,p}(\Omega)\right]\U {\gamma }= \left[L^p(\Omega ), B^{k+1,p}(\Omega)\right]\U {s/(k+1) }.
+\end{aligned}$$
+</div>
+
+# Relationship between the definitions
+
+The following result shows the inclusions between
+$W^{s,p}(\Omega ),H^{s,p}(\Omega ),B^{s,p}(\Omega )$ and can be found in
+<a href="https://link.springer.com/book/10.1007/978-3-319-14648-5">Agranovich, 2020</a> page 224 and in <a href="https://www.degruyter.com/document/doi/10.1515/9781400883882/html">Stein, 2020</a> page 155.
+
+ <a name="equivalence fractional spaces">
+<b>Theorem 12</b> </a> . Let $s \geq 0, \epsilon >0$ and $\Omega$ an extension
+domain for $H^{s+\epsilon,p},B^{s+\epsilon,p}$. Then,
+
+<div>
+$$\begin{aligned}
+H^{s+\epsilon,p}(\Omega ) & \subset B^{s,p}(\Omega )  \subset H^{s,p}(\Omega )\quad \forall p \in (1,2]       \\
+B^{s+\epsilon,p}(\Omega ) & \subset H^{s,p}(\Omega )  \subset B^{s,p}(\Omega )\quad \forall p \in [2,\infty),
+
+\end{aligned}$$
+
+</div>
+
+where the above inclusions are continuous and dense.
+Furthermore,
 
 <div>
 $$\begin{align}
-\label{H2loc}
-\left\lVert u \right\rVert\U {H^2(U)} \lesssim\U {\vb{A},\vb{b},c} \left\lVert f \right\rVert\U {L^2(U)}+\left\lVert u \right\rVert\U {H^1(U)}.
+\label{Slobodeckij equivalence}
+W^{s,p}(\Omega )= \begin{cases}
+H^{s,p}(\Omega ) & \text{ if } s \in \mathbb{N}\U 0    \\
+B^{s,p}(\Omega ) & \text{ if } s \notin \mathbb{N}\U 0
+\end{cases}.
 
 \end{align}$$
 
 </div>
 
-Analogously, we also obtain by setting $v= \eta ^2 u$
-that
+In consequence, for $p=2$,
 
 <div>
 $$\begin{align}
-\label{H1loc}
-\int\U V |\nabla u|^2 \leq\int\U U \eta ^2 |\nabla u|^2 \lesssim \left\lVert f \right\rVert\U {L^2(U)}+\left\lVert u \right\rVert\U {H^1(U)}.
+\label{p=2}
+H^{s,2}(\Omega )=W^{s,2}(\Omega )=B^{s,2}(\Omega ).
 
 \end{align}$$
 
 </div>
 
-Combining (\ref{H2loc}) and (\ref{H1loc}) , we obtain the desired result. ◻
+The equality in
+(\ref{Slobodeckij equivalence}) shows that, as long as we
+understand the behaviour of $H^{s,p}(\Omega )$ and $B^{s,p}(\Omega )$,
+we can completely determine that of $W^{s,p}(\Omega )$. It also
+justifies the following extension of $W^{s,p}(\Omega )$ to negative
+regularity.
 
-As for $\mathbb{R}^d$, we can obtain higher-order regularity by
-induction. As before, we now write
-
-<div>
-$$\begin{aligned}
-X^k(U):= H^k(U) \cap W^{k,\infty}(U).
-\end{aligned}$$
-</div>
-
-In the case that $U$ is bounded then
-$X^k(U)=W^{k,\infty}(U)$.
-
- <a name="higher regularity 2">
-<b>Theorem 15</b> </a>  (Improved interior regularity). Suppose that
-$\mathcal{L}$ is elliptic and that its coefficients verify
+ <a name="negative s Slobodeckij">
+<b>Definition 13</b> </a>  (Slobodeckij space negative $s$). Let
+$\Omega \subset \mathbb{R}^d$ be an extension domain for
+$H^{s,p}(\Omega ), B^{s,p}(\Omega )$. Then, given $p \in [1,\infty)$ and
+any $s \in \mathbb{R}$ we define
 
 <div>
 $$\begin{aligned}
-A\U {ij} \in C^{1}(U)\cap X^{k+1}(U), \quad b\U i,c \in X^k(U), \quad f \in H^k(U).
+W^{s,p}(\Omega )= \begin{cases}
+H^{s,p}(\Omega ) & \text{ if } s \in \mathbb{Z}\U 0    \\
+B^{s,p}(\Omega ) & \text{ if } s \notin \mathbb{Z}\U 0
+\end{cases}.
 
 \end{aligned}$$
 
 </div>
 
-Then, if $u \in H^1(U)$ solves $\mathcal{L}u=f$, it
-holds that $u \in H^{k+2}\U {\mathrm{loc}} (U)$ with
+The equality for $p=2$ in (\ref{p=2}) justifies that, for sufficiently regular domains, all
+three spaces are written $H^s(\Omega )$. We will prove the left-hand
+side of this equivalence in Exercise
+<a href="#equivalence of fractional spaces">4</a>. For $p\neq 2$, the
+inclusions are, in general, strict. An example is constructed in
+<a href="https://www.degruyter.com/document/doi/10.1515/9781400883882/html">Stein, 2020</a> page 161 exercise 6.8.
+
+ <a name="equivalence of fractional spaces">
+<b>Exercise 4</b> </a>  (Equivalence of fractional spaces). Show without using
+Theorem <a href="#equivalence fractional spaces">12</a> that
 
 <div>
 $$\begin{aligned}
-\left\lVert u \right\rVert\U {H ^{k+2}\U {\mathrm{loc}} (U)} \lesssim\U {\mathbf{A},\mathbf{b},c} \left\lVert f \right\rVert\U {H^k(U)}+\left\lVert u \right\rVert\U {L^2(U)}.
+H^{s,2}(\mathbb{R}^d)=W^{s,2}(\mathbb{R}^d).
 
 \end{aligned}$$
 
 </div>
 
-<b>Proof.</b> The theorem holds for $k=0$ by Theorem
-<a href="#higher regularity">14</a>. Suppose by hypothesis of induction that
-the theorem holds up to order $k$. Let
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+We want to show that the norms are equivalent. That is, that
+
+<div>
+$$\begin{aligned}
+\left\lVert u \right\rVert\U {H^{s,2}(\mathbb{R}^d)}\sim\left\lVert u \right\rVert\U {W^{s,2}(\mathbb{R}^d)}.
+
+\end{aligned}$$
+
+</div>
+
+We already know this is the case when $s$ is an integer,
+so it suffices to show that the norms are equivalent for
+$s= \gamma  \in (0,1)$. That is, that
+
+<div>
+$$\begin{aligned}
+|u|\U {\gamma ,2}^2\sim \int\U {\mathbb{R}^d}|\xi|^{2 \gamma }|\mathcal{F} u(\xi)|^2 d \xi , \quad\forall \gamma \in (0,1).
+
+\end{aligned}$$
+
+</div>
+
+By Plancherel's theorem and a calculation of the Fourier
+transform of the translation, we have
+
+<div>
+$$\begin{aligned}
+|u|\U {\gamma ,2}^2 & =\int\U {\mathbb{R}^d}\int\U {\mathbb{R}^d}\frac{\left| u(x+y)-u(y) \right|^2}{\left| x \right|^{d+2\gamma    }}\,\mathrm{d}x \,\mathrm{d}y                                                                                                       = \int\U {\mathbb{R}^d}\frac{\left\lVert \mathcal{F}\{u(x+\cdot )-u\} \right\rVert^2\U {L^2(\mathbb{R}^d)}}{\left| x \right|^{d+2\gamma }}\,\mathrm{d}x \\
+& =\int\U {\mathbb{R}^d}\int\U {\mathbb{R}^d}  \frac{|e^{2 \pi i x \cdot \xi}-1|^2}{\left| x \right|^{d+2\gamma    }}|\widehat{u}(\xi)|^2\,\mathrm{d}x\,\mathrm{d}\xi                                                                                                                                                                     \\&=2\int\U {\mathbb{R}^d}\left(\int\U {\mathbb{R}^d}  \frac{1-\cos(2\pi \xi\cdot x)}{\left| x \right|^{d+2\gamma }}\,\mathrm{d}x\right)|\widehat{u}(\xi)|^2\,\mathrm{d}\xi.
+
+\end{aligned}$$
+
+</div>
+
+To treat the inner integral, we note that it is
+rotationally invariant, and so, by rotating $\xi$ to the first axis and
+later changing variable $x \to x / \left| \xi \right|$, we get
+
+<div>
+$$\begin{aligned}
+\int\U {\mathbb{R}^d}  \frac{1-\cos(2\pi \xi\cdot x)}{\left| x \right|^{d+2\gamma  }}\,\mathrm{d}x & =\int\U {\mathbb{R}^d}  \frac{1-\cos(2\pi \left| \xi \right|x\U 1 )}{\left| x \right|^{d+2\gamma }}\,\mathrm{d}x                                          \\
+& =\left| \xi \right|^{2 \gamma } \int\U {\mathbb{R}^d}  \frac{1-\cos(2\pi  x\U 1) }{\left| x \right|^{d+2\gamma    }}\,\mathrm{d}x\sim \left| \xi \right|^{2 \gamma }.
+
+\end{aligned}$$
+
+</div>
+
+The last integral is finite as, since $d+2\gamma >d$,
+the tails $\left| \xi \right|\to\infty$ are controlled, and since
+$1-\cos(2\pi x\U 1)\sim x\U 1^2\leq \left| x \right|^2$ the integrand has
+order $-d+2(1-\gamma)>-d$ for $\left| \xi \right|\sim 0$ . That said,
+substituting this back into the previous expression gives the desired
+result.
+
+</div>
+</div>
+
+<b>Exercise 5</b>. Use the previous exercise
+<a href="#equivalence of fractional spaces">4</a> to show that if $\Omega$
+is an extension domain for $H^{s}$, then
+
+<div>
+$$\begin{aligned}
+H^{s,2}(\Omega )=W^{s,2}(\Omega ).
+
+\end{aligned}$$
+
+</div>
+
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+By definition
+<a href="#bessel potential def">4</a> choose a sequence
+$v\U n \in H^{s,2}(\mathbb{R}^d)$ such that
+$\left\lVert v\U n \right\rVert\U {H^{s,2}(\mathbb{R}^d)} \to \left\lVert u \right\rVert\U {H^{s,2}(\Omega )}$
+in $H^s(\Omega )$. Then,
+
+<div>
+$$\begin{aligned}
+\left\lVert u \right\rVert\U {H^{s,2}(\Omega)}= \lim\U {n\to\infty}\left\lVert v\U n \right\rVert\U {H^{2,2}(\mathbb{R}^d)}\sim \lim\U {n\to\infty}\left\lVert v\U n \right\rVert\U {W^{s,2}(\mathbb{R}^d)}\geq \left\lVert u \right\rVert\U {W^{s,2}(\Omega )}.
+
+\end{aligned}$$
+
+</div>
+
+To obtain the reverse inequality, use the existence of a
+continuous extension operator
+$E: W^{s,2}(\Omega )\to W^{s,2}(\mathbb{R}^d)$ to obtain
+
+<div>
+$$\begin{aligned}
+\left\lVert u \right\rVert\U {W^{s,2}(\Omega )}\sim \left\lVert Eu \right\rVert\U {W^{s,2}(\mathbb{R}^d)}\geq \left\lVert u \right\rVert\U {H^{s,2}(\mathbb{R}^d)}.
+
+\end{aligned}$$
+
+</div>
+
+</div>
+</div>
+
+The above suggests that, for $p=2$, the integrals appearing in the
+definition of the Slobodeckij spaces
+<a href="#soledkij def">1</a>
+correspond to differentiating a fractional amount of times. This indeed
+is the case
+
+<b>Definition 14</b>. Given $s \in [0,+\infty)$ and
+$u \in \mathcal{S}(\mathbb{R}^d)$ we define the fractional Laplacian as
+
+<div>
+$$\begin{aligned}
+(-\Delta )^{s }u(x):= \mathcal{F}^{-1}(\left| 2\pi\xi \right|^{2 s }\widehat{u}(\xi )).
+
+\end{aligned}$$
+
+</div>
+
+ <a name="fractional laplacian">
+<b>Proposition 15</b> </a> . For $\gamma  \in (0,1)$ and
+$u \in H^{\gamma }(\mathbb{R}^d)$ it holds that
+
+<div>
+$$\begin{aligned}
+(-\Delta )^{\gamma }u(x)=C\int\U {\mathbb{R}^d}\frac{u(x)-u(x+y)}{\left| y \right|^{d+2\gamma}}\,\mathrm{d}y,
+
+\end{aligned}$$
+
+</div>
+
+where $C$ is a constant that depends on $d,\gamma$.
+
+<b>Proof.</b> The above equality may seem odd at first if we compare it with
+the integral in <a href="#soledkij def">1</a> where a square appears in the numerator, which
+gives us our $2$ in the $2 \gamma$. However, it is justified by the fact
+that, by the change of variables $y \to -y$,
+
+<div>
+$$\begin{aligned}
+\int\U {\mathbb{R}^d}\frac{u(x)-u(x+y)}{\left| y \right|^{d+2\gamma}}\,\mathrm{d}y=\int\U {\mathbb{R}^d}\frac{u(x)-u(x-y)}{\left| y \right|^{d+2\gamma}}\,\mathrm{d}y.
+
+\end{aligned}$$
+
+</div>
+
+So, we can get the second order difference in the
+numerator by adding the two integrals.
 
 <div>
 $$\begin{align}
-\label{coefficients k12}
-A\U {ij} \in C^{1}(U)\cap X^{k+2}(U), \quad b\U i,c \in X^{k+1}(U), \quad f \in H^{k+1}(U).
+\label{second order}
+\int\U {\mathbb{R}^d}\frac{u(x)-u(x+y)}{\left| y \right|^{d+2\gamma}}\,\mathrm{d}y=-\frac{1}{2}\int\U {\mathbb{R}^d}\frac{u(x+y)-2u(x)+u(x-y)}{\left| y \right|^{d+2\gamma}}\,\mathrm{d}y.
 
 \end{align}$$
 
 </div>
 
-Then, by the induction hypothesis
-$u \in H^{k+2}\U {\mathrm{loc}} (U)$ with
+We will conclude the proof if we show that
+
+<div>
+$$\begin{aligned}
+\left| \xi \right|^{2\gamma }\widehat{u}(\xi )\sim \mathcal{F}\left(\int\U {\mathbb{R}^d}\frac{u(x)-u(x+y)}{\left| y \right|^{d+2\gamma}}\,\mathrm{d}y\right).
+
+\end{aligned}$$
+
+</div>
+
+Using
+(\ref{second order}) and proceeding as in Exercise
+<a href="#equivalence fractional spaces">12</a> gives
+
+<div>
+$$\begin{aligned}
+& \mathcal{F}\left(\int\U {\mathbb{R}^d}\frac{u(x)-u(x+y)}{\left| y \right|^{d+2\gamma}}\,\mathrm{d}y\right)= -\frac{1}{2} \int\U {\mathbb{R}^d}\left(\int\U {\mathbb{R}^d}\frac{e^{2\pi i y \cdot \xi}-2+e^{-2\pi i y \cdot \xi}}{\left| y \right|^{d+2\gamma}}\,\mathrm{d}y\right) \widehat{u}(\xi)\,\mathrm{d}\xi       \\
+& =\int\U {\mathbb{R}^d}\left(\int\U {\mathbb{R}^d}\frac{1-\cos(2\pi y \cdot \xi)}{\left| y \right|^{d+2\gamma}}\,\mathrm{d}y\right) \widehat{u}(\xi)\,\mathrm{d}\xi =\int\U {\mathbb{R}^d}  \frac{1-\cos(2\pi  y\U 1) }{\left| y \right|^{d+2\gamma    }}\,\mathrm{d}y\int\U {\mathbb{R}^d}\left| \xi \right|^{2 \gamma }\widehat{u}(\xi)\,\mathrm{d}\xi \\& \sim \left| \xi \right|^{2 \gamma }\widehat{u}(\xi)\,\mathrm{d}\xi.
+
+\end{aligned}$$
+
+</div>
+
+This completes the proof and shows that the explicit
+expression for $C$ is
+
+<div>
+$$\begin{aligned}
+C=\frac{1}{(2\pi)^{2 \gamma }}\int\U {\mathbb{R}^d}  \frac{1-\cos(2\pi  y\U 1) }{\left| y \right|^{d+2\gamma }}\,\mathrm{d}y.
+
+\end{aligned}$$
+
+</div>
+
+◻
+
+# Dual of Sobolev spaces and correspondence with negative regularity
+
+Negative orders of regularity correspond to the dual of Sobolev spaces.
+This is best seen in the integer case. We first introduce the notation
+$W^{s,p}\U 0(U),H^{s,p}\U 0(U),B^{s,p}\U 0(U)$ for the closure of
+$C\U c^\infty(U)$ in $W^{s,p}(U),H^{s,p}(U),B^{s,p}(U)$ respectively. We
+also introduce the notation $p' = p/(p-1)$ for the conjugate exponent of
+$p$. We then have the following result (see <a href="https://math24.files.wordpress.com/2013/02/partial-differential-equations-by-evans.pdf">Evans, 2020</a> pages
+326-344 for the case $p=2$).
+
+ <a name="dual of integer sobolev">
+<b>Theorem 16</b> </a> . For all $k \in \mathbb{Z}$ and $p \in [1,\infty)$ and
+$\Omega$ an extension domain for $W^{k,p}$, it holds that
+
+<div>
+$$\begin{aligned}
+H^{k,p}\U 0(\Omega )' = H^{-k,p'}(\Omega ), \quad W^{k,p}\U 0(\Omega )' = W^{-k,p'}(\Omega ).
+
+\end{aligned}$$
+
+</div>
+
+The first equality will be discussed in the next subsection and is most
+easily proven when $\Omega =\mathbb{R}^d$, in which case one can use the
+homeomorphism
+$\Lambda ^s: H^{r,p}(\mathbb{R}^d )\xrightarrow{\sim}H^{r-s,p}(\mathbb{R}^d )$
+together with the reflexivity of $L^p(\mathbb{R}^d )$. The second
+equality is a direct consequence of the integer order equality
+$W^{k,p}(\Omega )=H^{k,p}(\Omega )$ of Theorem
+<a href="#equivalence fractional spaces">12</a>. For fractional order
+regularities, we have the following result, which can be found in
+<a href="https://link.springer.com/book/10.1007/978-3-319-14648-5">Agranovich, 2020</a> page 228.
+
+<b>Theorem 17</b>. Given $s>0, p \in [1,\infty)$ and $\Omega$ an extension
+domain, it holds that the spaces
+$W^{s,p}(\Omega ),H^{s,p}(\Omega ),B^{s,p}(\Omega )$ are reflexive
+Banach spaces with duals
+
+<div>
+$$\begin{aligned}
+W^{s,p}(\Omega )'=  W^{-s,p'}\U {\overline{\Omega } }(\mathbb{R}^d ), \quad H^{s,p}(\Omega )' = H^{-s,p'}\U {\overline{\Omega } }(\mathbb{R}^d ), \quad B^{s,p}(\Omega )' = B^{-s,p'}\U {\overline{\Omega } }(\mathbb{R}^d ).
+
+\end{aligned}$$
+
+</div>
+
+where given a space of distributions $X$ on
+$\mathbb{R}^d$ we define $X\U {\overline{\Omega }}$ as the space of
+distributions on $\mathbb{R}^d$ which are supported in
+$\overline{\Omega }$. In particular, for $\Omega =\mathbb{R}^d$,
+
+<div>
+$$\begin{aligned}
+W^{s,p}(\mathbb{R}^d )'=    W^{-s,p'}(\mathbb{R}^d ), \quad H^{s,p}(\mathbb{R}^d )' = H^{-s,p'}(\mathbb{R}^d ), \quad B^{s,p}(\mathbb{R}^d )' = B^{-s,p'}(\mathbb{R}^d ).
+
+\end{aligned}$$
+
+</div>
+
+<b>Observation 4</b>. Some authors define given $s>0$
 
 <div>
 $$\begin{align}
-\label{hi2}
-\left\lVert u \right\rVert\U {H^{k+2}\U {\mathrm{loc}}(U)} \lesssim\U {\mathbf{A},\mathbf{b},c} \left\lVert f \right\rVert\U {H^k(U)}+\left\lVert u \right\rVert\U {L^2(U)}.
+\label{alternative negative}
+W^{-s,p'}(\Omega )':=   W^{s,p}(\Omega )'.
 
 \end{align}$$
 
 </div>
 
-Let $V\Subset U$ be open, consider a multi-index
-$\alpha$ with $|\alpha|=k+1$ and $\widetilde{v } \in C\U c^\infty(V)$.
-Then, substituting
-$v := (-1)^{\left| \alpha \right| } D^\alpha \widetilde{v}$ in the weak
-formulation (\ref{weak def}) we obtain by integrating by parts that
+See, for example, <a href="https://link.springer.com/chapter/10.1007/978-3-319-97613-6_12">Biccari, 2020</a>. The definition in
+(\ref{alternative negative}) is equivalent to our definition when
+$\Omega = \mathbb{R}^d$ or when $s \in k$. However, in other cases, the
+two definitions are not equivalent.
+
+## The dual of $H^{s,p}(\mathbb{R}^d)$ and $B^{s,p}(\mathbb{R}^d)$
+
+For some motivation, we start by considering the case
+$\Omega =\mathbb{R}^d$. Note that, in this setting,
+$H\U 0^{s,p}(\mathbb{R}^d)=H^{s,p}(\mathbb{R}^d)$.
+
+ <a name="dual exercise">
+<b>Exercise 6</b> </a>  (Dual identification). Prove the identification
+$H^{-s,p'}(\mathbb{R}^d)=H^{s,p}(\mathbb{R}^d)'$ for $s>0$ and
+$p \in [1,\infty)$.
+
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+Consider the mapping
+$H\U 0^{-s,p'}(\mathbb{R}^d) \to H^{s,p}\U 0(\mathbb{R}^d)'$ given by
+$f \mapsto \ell\U f$ where
 
 <div>
 $$\begin{aligned}
-\int\U {V} D^\alpha(\vb{A} \nabla u) \cdot \nabla \widetilde{v} +\int\U {V} D^\alpha(\vb{b} \nabla u) \cdot \nabla \widetilde{v} +\int\U {V} (D^\alpha c u) \widetilde{v} =\int\U {V} D^\alpha f \widetilde{v}.
+\ell\U f(u):= \int\U {\mathbb{R}^d}(\Lambda^s u)(\Lambda ^{-s}f).
 
 \end{aligned}$$
 
 </div>
 
-Let us write $\widetilde{u}:= D^\alpha u$. Applying the
-chain rule repeatedly and keeping only the derivatives of order $k+2$ of
-$u$ on the left-hand side to obtain
+Show that this mapping is well-defined and continuous.
+To see that it is invertible, show that, by duality, given
+$\ell \in H^{s,p}(\mathbb{R}^d)'$ and $u \in H^{s,p}(\mathbb{R}^d)$, it
+holds that
+
+<div>
+$$\begin{aligned}
+(u,\ell )=(\Lambda ^s u,\Lambda ^{-s}\ell ).
+
+\end{aligned}$$
+
+</div>
+
+Since $\Lambda ^s u \in L^p(\mathbb{R}^d)$ we deduce
+that $\Lambda ^{-s}\ell \in L^{p}(\mathbb{R}^d)'$ and so by the Riesz
+representation theorem there exists $f\U \ell \in L^{p'}(\mathbb{R}^d)$
+such that $\Lambda ^{-s}\ell =\left\langle\cdot,f\U \ell\right\rangle$.
+Show that the inverse of the previous mapping is
+
+<div>
+$$\begin{aligned}
+H^{s,p}(\mathbb{R}^d)'                & \longrightarrow H^{-s,p'}(\mathbb{R}^d); \quad \ell = \left\langle\cdot, \Lambda^s  f\U \ell\right\rangle \to \Lambda^s  f\U \ell.
+\end{aligned}$$
+</div>
+
+</div>
+</div>
+
+<b>Exercise 7</b>. We also know that since $H^{s}(\mathbb{R}^d)$ is a
+Hilbert space, so by the Riesz representation theorem, we have the
+identification $H^s(\mathbb{R}^d) = H^{s}(\mathbb{R}^d)'$. So by the
+previous exercise $H^{-s}(\mathbb{R}^d)= H^s(\mathbb{R}^d)$ How is this
+possible?
+
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+It does <b>not</b> hold that
+$H^{-s}(\mathbb{R}^d)= H^s(\mathbb{R}^d)$. The problem occurs when
+considering too many identifications at once, as we are identifying
+duals using different inner products. By following the mappings, we
+obtain isomorphisms
+
+<div>
+$$\begin{aligned}
+& H^{s}(\mathbb{R}^d) \xrightarrow{\sim}H^s(\mathbb{R}^d)' \xrightarrow{\sim}H^{-s}(\mathbb{R}^d)                                                 \\
+& u \longmapsto   \left\langle\cdot, u\right\rangle\U {H^s(\mathbb{R}^d)}= \left\langle\cdot, \Lambda^{2s} u \right\rangle \mapsto \Lambda ^{2s} u.
+
+\end{aligned}$$
+
+</div>
+
+However, the composition
+$H^s(\mathbb{R}^d) \xrightarrow{\sim}H^{-s}(\mathbb{R}^d)$ is
+$\Delta ^{2s}$, which is hardly the identity mapping.
+
+</div>
+</div>
+
+For another example where confusion with this kind of identification can
+arise, see remark 3 on page 136 of [Brezis, 2020]("https://en.wikipedia.org/wiki/Continuous_linear_extension").
+
+## The dual of $H^{s,p}\U 0(\Omega)$
+
+Given an extension domain $\Omega$ and $s \in \mathbb{R}$ , one can
+define extension and restriction operators,
+
+<div>
+$$\begin{aligned}
+E:H^{s,p}(\Omega ) \to H^{s,p}(\mathbb{R}^d), \quad \rho: H^{s,p}(\mathbb{R}^d) \to H^{s,p}(\Omega ),
+\end{aligned}$$
+</div>
+
+which verify $\rho \circ E = \mathbf{I}\U {H^s(\Omega )}$. As
+a result, the restriction is surjective, and we can factor
+$H^{s,p}(\Omega )$ as
 
 <div>
 $$\begin{align}
-\label{weak solk2}
-B(\widetilde{u},\widetilde{v} ) = \int\U {V} \vb{A} \nabla D^\alpha u \cdot \nabla \widetilde{v} +\int\U {V} \vb{b} \nabla D^\alpha u \cdot \nabla \widetilde{v} +\int\U {V} c D^\alpha u \widetilde{v} =\int\U {V} \widetilde{f} \widetilde{v}= (\widetilde{f} ,\widetilde{v}),
+\label{ismorphism}
+H^{s,p}(\Omega )\simeq H^{s,p}(\mathbb{R}^d)\backslash H^s\U {\Omega^c}(\mathbb{R}^d ),
+\end{align}$$
+</div>
+
+where given a closed set $K \subset \mathbb{R}^d$ we
+define
+
+<div>
+$$\begin{aligned}
+H^{s,p}\U K(\mathbb{R}^d):= \left\{u \in H^{s,p}(\mathbb{R}^d): \mathrm{supp}(u) \subset K\right\},
+\end{aligned}$$
+</div>
+
+the support being understood <a href="https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=Support%20of%20a%20distribution">in the sense of
+distributions</a>
+Now, given a Banach space $X$ and a closed subspace
+$Y \hookrightarrow X$, elements of $X'$ can be restricted to $Y$,
+obtaining functionals in $Y'$. The kernel of this restriction is
+$Y^\circ:=\left\\{\ell \in X': Y \subset \mathrm{ker}(\ell)\right\\}$.
+Since, by the Hahn Banach theorem, the restriction is surjective, we
+obtain the
+<a href="https://math.la.asu.edu/~quigg/teach/courses/578/2008/notes/adjoints.pdf">factorization</a>
+
+<div>
+$$\begin{align}
+\label{dual isomormphism}
+Y' \simeq X'\backslash Y^\circ.
+\end{align}$$
+</div>
+
+Applying this to
+$Y= H^{k,p}\U 0(\Omega )\hookrightarrow H^{k,p}(\mathbb{R}^d) =X$ we
+obtain the result of Theorem
+<a href="#dual of integer sobolev">16</a>.
+
+<div>
+$$\begin{aligned}
+H^{k,p}\U 0(\Omega )' \simeq H^{k,p}(\mathbb{R}^d)'\backslash H^{k,p}\U {\Omega^c}(\mathbb{R}^d)'\simeq H^{-k,p'}(\mathbb{R}^d)\backslash H^{-k,p'}\U {\Omega^c}(\mathbb{R}^d )\simeq H^{-k,p'}(\Omega ),
+\end{aligned}$$
+</div>
+
+where the second equality is by Exercise
+<a href="#dual exercise">6</a> and
+the third by (\ref{ismorphism}) . This shows that the dual of
+$H^{k,p}\U 0(\Omega )$ is $H^{-k,p'}(\Omega )$. By also using the integer
+order equivalence of Theorem
+<a href="#equivalence fractional spaces">12</a>, we obtain Theorem
+<a href="#dual of integer sobolev">16</a>.
+
+As a final note, if our domain has a boundary, $H\U 0^k(\Omega )'$ and
+$H^k(\Omega )'$ are not equal. Rather,
+
+<div>
+$$\begin{aligned}
+H^{k,p}(\Omega )'\simeq H\U {\overline{\Omega } }^{-k,p'}(\mathbb{R}^d), \quad H^{-k,p'}(\Omega ) \simeq H^{-k,p'}(\mathbb{R}^d)\backslash H^{-k,p'}\U {\Omega ^c }(\mathbb{R}^d).
+\end{aligned}$$
+</div>
+
+See <a href="https://books.google.co.uk/books?id=wI4fAwAAQBAJ&printsec=frontcover&hl=fr&source=gbs_ge_summary_r&cad=0#v=onepage&q&f=false">Taylor, 2020</a> Section 4 for more details.
+
+# Representation theorems
+
+We know that we can homeomorphically map the spaces
+$H^{s,p}(\mathbb{R}^d )$ and $B^{s,p}(\mathbb{R}^d )$ to the lower order
+spaces $H^{s-r,p}(\mathbb{R}^d )$ and $B^{s-r,p}(\mathbb{R}^d )$ by
+application of $\Lambda ^r$ (differentiating $r$ times). In other words,
+spaces of lower-order regularity are obtained by differentiating
+functions with higher regularity. We show how to extend this idea to
+smooth domains in some particular cases.
+
+ <a name="riesz representation">
+<b>Theorem 18</b> </a>  (Representation of $W\U 0^{k,p}(\Omega )'$). Let
+$\Omega \subset \mathbb{R}^d$ be an extension domain for $W^{k,p}$ where
+$k \in \mathbb{N}$ and $p \in [1,\infty)$. Then, every element in
+$W^{-k,p'}(\Omega )=W^{k,p}(\Omega )'$ is the unique extension of a
+distribution of the form
+
+<div>
+$$\begin{aligned}
+\sum\U {1\leq\left| \alpha \right|\leq k} D^\alpha u\U \alpha\in \mathcal{D}'(\Omega ),\quad \text{where }    u\U \alpha \in L^{p'}(\Omega ).
+
+\end{aligned}$$
+
+</div>
+
+<b>Proof.</b> Define the mapping
+
+<div>
+$$\begin{aligned}
+T: W^{k,p}(\Omega ) & \longrightarrow L^p(\Omega \to \mathbb{R}^d)                \\
+u                   & \longmapsto(D^\alpha u)\U {1 \leq\left| \alpha \right|\leq k}.
+
+\end{aligned}$$
+
+</div>
+
+Where the notation says that we send $u$ to the vector
+formed by all its derivatives. By our definition of the norm on
+$W^{k,p}(\Omega )$, we have that $T$ is an isometry and, in particular,
+continuously invertible on its image. Denote the image of $T$ by
+$X:=\mathrm{Im}(T)$. Given $\ell \in W^{-k,p'}(\Omega )$ we define
+
+<div>
+$$\begin{aligned}
+\ell\U 0: X \to \mathbb{R}, \quad \ell\U 0(\mathbf{w}):= \ell(T^{-1}\mathbf{w}), \quad \forall \mathbf{w} \in X.
+
+\end{aligned}$$
+
+</div>
+
+By Hahn Banach's theorem, we can extend $\ell\U 0$ from
+$X$ to a functional $\ell\U 1 \in  L^p(\Omega \to \mathbb{R}^d)'$ and by
+the Riesz representation theorem, we have that there exists a unique
+$\mathbf{f}=(f\U \alpha)\U {1\leq \left| \alpha \right|\leq k }\in L^{p'}(\Omega \to \mathbb{R}^d)$
+such that
+
+<div>
+$$\begin{aligned}
+\ell\U 1(\mathbf{w})=\int\U {\Omega}\mathbf{w}\cdot \mathbf{h}, \quad \forall \mathbf{w} \in L^p(\Omega \to \mathbb{R}^d).
+
+\end{aligned}$$
+
+</div>
+
+By construction, it holds that, for all
+$v \in W^{k,p}(\Omega )$
+
+<div>
+$$\begin{aligned}
+\ell(v)=\ell\U 0(Tv)=\int\U {\Omega}Tv\cdot \mathbf{f}=\sum\U {1\leq\left| \alpha \right|\leq k}\int\U {\Omega}f\U \alpha D^\alpha v .
+
+\end{aligned}$$
+
+</div>
+
+In particular, this holds for
+$v \in \mathcal{D}(\Omega )$ and if we set
+$u\U \alpha:=(-1)^\alpha f\U \alpha$ we obtain that for all
+$v \in \mathcal{D}(\Omega )$
+
+<div>
+$$\begin{align}
+\label{representation}
+\ell(v)=\left(v,\sum\U {1\leq\left| \alpha \right|\leq k} D^\alpha u\U \alpha\right)=: \omega(v)
 
 \end{align}$$
 
 </div>
 
-where $\widetilde{f}$ involves only $D^\alpha f$ as well
-as sums and products of derivatives up to order $k+2$ of $u,\mathbf{A}$ and
-up to order $k+1$ of $\mathbf{b}$ and $c$. As a result, by the conditions on
-the coefficients in
-(\ref{coefficients k12}) and the induction hypothesis
-$u \in H \U {\mathrm{loc}}^{k+2}(U)$, we have that
-$\widetilde{f} \in L^2(V)$ with
-
-<div>
-$$\begin{align}
-\label{Hk}
-\|{\widetilde{f}}\|\U {L^2(V)} \lesssim\U {\mathbf{A},\mathbf{b},c} \left\lVert f \right\rVert\U {H^{k+1}(U)}+\left\lVert u \right\rVert\U {L^2(U)}.
-
-\end{align}$$
-
-</div>
-
-By equation
-(\ref{weak solk2}) , $\widetilde{u}$ is a solution to
-(\ref{PDE}) on $V$ and
-applying (\ref{hi2}) and
-(\ref{Hk}) shows that
-$\widetilde{u} \in H^{2} \U {\mathrm{loc}}(V)$ with
-
-<div>
-$$\begin{aligned}
-\left\lVert \widetilde{u} \right\rVert\U {H^{2}\U {\mathrm{loc}} (V)} \lesssim\U {\mathbf{A},\mathbf{b},c} \|\tilde{f}\|\U {L^2(V)}+\left\lVert \widetilde{u} \right\rVert\U {L^2(V)} \lesssim\U {\mathbf{A},\mathbf{b},c} \left\lVert f \right\rVert\U {H^{k+1}(U)}+\left\lVert u \right\rVert\U {L^2(U)}.
-
-\end{aligned}$$
-
-</div>
-
-Since $\alpha$ was any coefficient of order $k+1$, we
-deduce that $u \in H^{k+3}(W)$ with
-
-<div>
-$$\begin{aligned}
-\left\lVert u \right\rVert\U {H^{k+3}\U {\mathrm{loc}} (V)} \lesssim\U {\mathbf{A},\mathbf{b},c} \left\lVert f \right\rVert\U {H^{k+1}(U)}+\left\lVert u \right\rVert\U {L^2(U)}.
-
-\end{aligned}$$
-
-</div>
-
-Since $V\Subset U$ is any, we deduce that
-
-<div>
-$$\begin{aligned}
-\left\lVert u \right\rVert\U {H^{k+3}\U {\mathrm{loc}} (U)} \lesssim\U {\mathbf{A},\mathbf{b},c} \left\lVert f \right\rVert\U {H^{k+1}(U)}+\left\lVert u \right\rVert\U {L^2(U)}.
-
-\end{aligned}$$
-
-</div>
-
-The above is the hypothesis of induction for $k+1$ and
+(we recall the notation $(v,\omega)$ for the duality
+pairing). By definitions of the norm on $W^{k,p}(\Omega )$ and Cauchy
+Schwartz, we have that $\omega$ is continuous with respect to the norm
+on $W^{k,p}(\Omega )$ and so we may extend it uniquely to the closure of
+$\mathcal{D}(\Omega )$ in $W^{k,p}(\Omega )$ which is
+$W^{k,p}\U 0(\Omega )$. By
+(\ref{representation}) , the extension is necessarily $\omega$. This
 completes the proof. ◻
 
-Using Sobolev embeddings we obtain once more infinite regularity for
-smooth coefficients.
+The above theorem shows that $W^{-k,p'}(\Omega )$ can be equivalently
+formed by differentiating $k$ times functions in $L^{p'}(\Omega )$. The
+proof also sheds some light as to why $W^{-s,p'}(\Omega )$ is the dual
+of $W^{k,p}\U 0(\Omega )$ and not the dual of $W^{k,p}(\Omega )$. The
+reason is that given a sufficiently regular distribution in
+$\mathcal{D}'(\Omega )$, it has a unique continuous extension to an
+element of $W\U 0^{k,p}(\Omega )'$, but not to an element of
+$W^{k,p}(\Omega )'$. We note however that, though the extension from
+$\mathcal{D}'(\Omega )$ to $W^{-s,p}(\Omega )$ is unique, the functions
+$u\U \alpha$ will not be, for example, if $\left| \alpha \right|>0$ it is
+possible to add a constant to $u\U \alpha$ and still obtain the same
+result.
 
- <a name="infinite interior regularity2">
-<b>Theorem 16</b> </a>  (Infinite interior regularity). Let
-$A\U {ij}, b\U i,c \in C^{\infty}(U)$ with $\mathbf{A}$ elliptic. Then, if
-$u \in H^1(U)$ solves $\mathcal{L}u=f$, it holds that
-$u \in C \U {\mathrm{loc}}^\infty(U)$.
-
-<b>Proof.</b> By Theorem <a href="#higher regularity 2">15</a>, we have that $u \in H^k(U)$ for all
-$k \in \mathbb{N}$. By Sobolev embeddings we have that
-$u \in C^\infty\U {\mathrm{loc}}(U)$. ◻
-
-## Regularity at the boundary
-
-Regularity at the boundary can also be obtained; however, in this case,
-it is necessary to impose the boundary condition
-$\left.u\right|\U {\partial \Omega }=0$. We can then work on bounded
-smooth domains by reasoning first on open sets of the form
-$B(0,r) \cap \mathbb{R}^d\U +$ and then using a partition of unity and
-smooth change of coordinates to translate these results back to
-$\Omega$. The details can be found in <a href="https://math24.files.wordpress.com/2013/02/partial-differential-equations-by-evans.pdf">Evans, 2020</a> pages
-$334-343$. We summarize the main results, which are analogous to the
-interior regularity results of Theorems
-<a href="#higher regularity">14</a>,
-<a href="#higher regularity 2">15</a> and
-<a href="#infinite interior regularity2">16</a>.
-
-<b>Theorem 17</b> (Lower regularity). Let $\Omega \subset \mathbb{R}^d$ be
-bounded of class $C^2$. Let $A\U {ij} \in C^{1}(\overline{\Omega})$ be
-elliptic and $b\U i,c \in L^\infty(\Omega)$. Let $u \in H^1\U 0(\Omega)$ be
-a weak solution to (\ref{PDE}) . Then, $u \in H^2(\Omega)$ with
+<b>Exercise 8</b>. Show that for $s= \gamma +k$ where
+$k \in \mathbb{N}\U 0, \gamma \in [0,1)$ and $p \in [1,\infty)$ and an
+extension domain for $H^{s,p}$, every element in $H^{-s,p'}(\Omega )$
+can be written in the form $\left.w\right|\U {\partial \Omega }$, where
 
 <div>
 $$\begin{aligned}
-\left\lVert u \right\rVert\U {H^2(\Omega)} \lesssim\U {\mathbf{A},\mathbf{b},c, \Omega } \left\lVert f \right\rVert\U {L^2(\Omega)}+\left\lVert u \right\rVert\U {L^2(\Omega)}.
+w=\sum\U {0\leq\left| \alpha \right|\leq k} \Lambda^{\gamma } D^\alpha u\U \alpha\in \mathcal{D}'(\mathbb{R}^d ),\quad \text{where }    u\U \alpha \in L^{p'}(\mathbb{R}^d ).
 
 \end{aligned}$$
 
 </div>
 
-<b>Theorem 18</b> (Higher regularity). Let $\Omega \subset \mathbb{R}^d$
-be bounded of class $C^{k+2}$. Let
-$A\U {ij} \in C^1(\overline{\Omega})\cap W^{k, \infty}(\Omega)$ be
-elliptic and $b\U i,c \in H^k(\Omega)\cap W^{k,\infty}(\Omega)$. Let
-$u \in H^1\U 0(\Omega)$ be a weak solution to
-(\ref{PDE}) . Then,
-$u \in H^{k+2}(\Omega)$ with
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+Use that
+$\Lambda ^{\gamma }: H^{s,p}(\mathbb{R}^d) \to H^{k ,p}(\mathbb{R}^d)$
+is an isomorphism and the just proved theorem
+<a href="#riesz representation">18</a> together with the integer equivalence
+in Theorem <a href="#equivalence fractional spaces">12</a> to show that
 
 <div>
 $$\begin{aligned}
-\left\lVert u \right\rVert\U {H^{k+2}(\Omega)} \lesssim\U {\mathbf{A},\mathbf{b},c, \Omega } \left\lVert f \right\rVert\U {H^k(\Omega)}+\left\lVert u \right\rVert\U {L^2(\Omega)}.
+H^{s,p}(\mathbb{R}^d)' = \left\{ \sum\U {0\leq\left| \alpha \right|\leq k} \Lambda^{\gamma } D^\alpha u\U \alpha\in \mathcal{D}'(\mathbb{R}^d ),\quad \text{where }    u\U \alpha \in L^{p'}(\mathbb{R}^d )\right\}.
 
 \end{aligned}$$
 
 </div>
 
-<b>Theorem 19</b> (Infinite regularity). Let $\Omega \subset \mathbb{R}^d$
-be bounded of class $C^{\infty}$. Let
-$A\U {ij}, b\U i,c \in C^{\infty}(\overline{\Omega})$ with $\mathbf{A}$
-elliptic. Let $u \in H^1\U 0(\Omega)$ be a weak solution to
-(\ref{PDE}) . Then,
-$u \in C^\infty(\overline{\Omega})$.
+Now conclude by the definition of $H^{-s,p'}(\Omega )$
+for open domains <a href="#bessel potential def Omega">5</a>.
 
-A (possibly not updated) pdf of version of this page is provided [here](/assets/pdfs/PDEs/Eliptic_PDE_well_posedness_regularity.pdf).
+</div>
+</div>
+
+The above results extend to Besov spaces; see <a href="https://link.springer.com/book/10.1007/978-3-319-14648-5">Agranovich, 2020</a>
+page 227. This gives,
+
+<b>Theorem 19</b>. Let
+$k \in \mathbb{N}\U 0, \gamma \in [0,1), \theta \in (0,1)$ and
+$p \in [1,\infty)$ where $\Omega$ is an extension domain for
+$B^{\theta   ,p}, H^{\gamma ,p}$. Then,
+
+<div>
+$$\begin{aligned}
+B^{\theta  -k,p}(\Omega ) & = \left\{ \sum\U {0\leq\left| \alpha \right|\leq k} D^\alpha u\U \alpha\in \mathcal{D}'(\Omega ),\quad \text{where }    u\U \alpha \in B^{\theta  ,p}(\Omega )\right\} \\
+H^{\gamma -k,p}(\Omega )  & = \left\{ \sum\U {0\leq\left| \alpha \right|\leq k} D^\alpha u\U \alpha\in \mathcal{D}'(\Omega ),\quad \text{where }    u\U \alpha \in H^{\gamma ,p}(\Omega )\right\}  \\
+W^{\gamma -k,p}(\Omega )  & = \left\{ \sum\U {0\leq\left| \alpha \right|\leq k} D^\alpha u\U \alpha\in \mathcal{D}'(\Omega ),\quad \text{where }    u\U \alpha \in W^{\gamma ,p}(\Omega )\right\}.
+
+\end{aligned}$$
+
+</div>
+
+# Some applications: Trace, embeddings and regularity
+
+## Trace operator
+
+Consider $f \in L^p(\Omega )$ a PDE of the form
+
+<div>
+$$\begin{align}
+\label{PDE}
+\mathcal{L}u =f \text{ in } \Omega , \quad \left.u\right|\U {\partial \Omega }= g.
+\end{align}$$
+</div>
+
+Then, it is necessary to know exactly what boundary data
+$g$ is admissible. Suppose that $\mathcal{L}$ is of order $k$ so we
+require $u \in W^{k,p}(\Omega )$. Will
+(\ref{PDE}) have a solution?
+To be able to answer this question, we need to know the image of the
+trace operator. If $g \notin \operatorname{Tr}(W^{k,p}(\Omega ))$, then
+there is no hope of finding a solution. The following theorem
+characterizes the image of the trace operator and can be found in
+<a href="https://link.springer.com/book/10.1007/978-3-319-14648-5">Agranovich, 2020</a> page 228 and <a href="https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover">Leoni, 2020</a> page 390.
+
+ <a name="trace theorem">
+<b>Theorem 20</b> </a>  (Fractional trace theorem). Let
+$\Omega \subset \mathbb{R}^d$ be open with $C^{0,1}$ boundary. Then, for
+all $p\in (1,\infty), s\in (1/p,\infty)$, the trace operator
+$\operatorname{Tr}$ can be extended from $C(\overline{\Omega } )$ to a
+bounded operator
+
+<div>
+$$\begin{aligned}
+\operatorname{Tr}: H^{s,p}(\Omega ) \to B^{s-1/p,p}(\partial\Omega), \quad \operatorname{Tr}: B^{s,p}(\Omega ) \to B^{s-1/p,p}(\partial\Omega).
+
+\end{aligned}$$
+
+</div>
+
+Furthermore, given $g \in B^{s-1/p,p}(\partial\Omega)$,
+there exists $u \in W^{s,p}(\Omega )$ such that $\operatorname{Tr}(u)=g$
+with
+
+<div>
+$$\begin{aligned}
+\left\lVert u \right\rVert\U {W^{s,p}(\Omega )}\lesssim \left\lVert g \right\rVert\U {B^{s-1/p,p}(\partial\Omega)}.
+
+\end{aligned}$$
+
+</div>
+
+Note that, since we have equality of $W^{s,p}(\Omega )$ with
+$H^{s,p}(\Omega )$ and $B^{s,p}(\Omega )$ for integer and non-integer
+$s$ respectively, we can also extend
+
+<div>
+$$\begin{aligned}
+\operatorname{Tr}: W^{s,p}(\Omega ) \to B^{s-1/p,p}(\partial\Omega).
+\end{aligned}$$
+</div>
+
+## Fractional Sobolev embeddings
+
+In this section, we state the fractional analogue of the Sobolev
+embedding theorems for regularity $\gamma \in (0,1)$. Here, the
+<a href="https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#global:~:text=concludes%20the%20proof.%C2%A0%E2%97%BB-,Exercise,-24%20.%20Given">analogous</a>
+of the exponent $p\U k^{\star }$ is
+
+<b>Definition 21</b>. Given $p \in [1,\infty)$ and $s>0$, with
+$s\in (d/p, \infty)$, we define the Sobolev critical exponent $p\U s^\star $
+by
+
+<div>
+$$\begin{aligned}
+\frac{1}{p\U s ^\star }:=\frac{1}{p}-\frac{s }{d}.
+
+\end{aligned}$$
+
+</div>
+
+The natural extension of the Sobolev embedding theorem to the fractional
+case is the following. First, we introduce the following notation for
+the fractional seminorm.
+
+<div>
+$$\begin{aligned}
+\left| u \right|\U {W^{\gamma, p}(\Omega )}:=\int\U {\mathbb{R}^d}\int\U {\mathbb{R}^d}\frac{\left| u(x+y)-u(y) \right|}{\left| x \right|^{d+\gamma p}}\,\mathrm{d}x \,\mathrm{d}y.
+\end{aligned}$$
+</div>
+
+See <a href="https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover">Leoni, 2020</a> page 262 for the following result.
+
+ <a name="subcritical embedding">
+<b>Theorem 22</b> </a>  (Fractional Sobolev-Gagliardo-Niremberg). Given an
+extension domain $\Omega$ for $W^{\gamma,p}$ and
+$\gamma \in (0,1), p \in [1,\infty)$, it holds that
+
+<div>
+$$\begin{aligned}
+\|u\|\U {L^{p\U \gamma^\star }(\Omega )} \lesssim |u|\U {W^{\gamma, p}(\Omega )}, \quad\forall \gamma <  \frac{d}{p}
+
+\end{aligned}$$
+
+</div>
+
+In particular, by interpolation, for all
+$q \in [p,p\U \gamma^\star ]$.
+
+<div>
+$$\begin{aligned}
+\|u\|\U {L^{q}(\Omega )} \lesssim \left\lVert u \right\rVert\U {W^{\gamma, p}(\Omega )}, \quad\forall \gamma <  \frac{d}{p}.
+
+\end{aligned}$$
+
+</div>
+
+The critical case $\gamma=\frac{d}{p}$ corresponding to
+$p\U \gamma^\star =\infty$ is now (see <a href="https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover">Leoni, 2020</a> page 265)
+
+ <a name="critical embedding">
+<b>Theorem 23</b> </a> . Given an extension domain $\Omega$ for $W^{\gamma,p}$
+and $\gamma \in (0,1), q \in [p,\infty)$, it holds that
+
+<div>
+$$\begin{aligned}
+\|u\|\U {L^q(\mathbb{R}^d)} \lesssim\|u\|\U {W^{\gamma, p}(\Omega)}, \quad \gamma =  \frac{d}{p}.
+
+\end{aligned}$$
+
+</div>
+
+<b>Exercise 9</b>. Using Theorem
+<a href="#subcritical embedding">22</a> prove Theorem
+<a href="#critical embedding">23</a>
+
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+We are in the subcritical case for $r<d/p=\gamma$. Extend
+$u$ to $\mathbb{R}^d$ to form $\widetilde{u}$. Then, by Proposition
+<a href="#inclusion ordered by regularity">2</a>, we have
+
+<div>
+$$\begin{aligned}
+\|u\|\U {L^{p\U r^\star }(\Omega )}\leq \|u\|\U {L^{p\U r^\star }(\mathbb{R}^d )}  \lesssim \left\lVert u \right\rVert\U {W^{r, p}(\mathbb{R}^d )}\leq \left\lVert u \right\rVert\U {W^{\gamma, p}(\mathbb{R}^d  )}\lesssim \left\lVert u \right\rVert\U {W^{\gamma, p}(\Omega )}.
+
+\end{aligned}$$
+
+</div>
+
+Conclude by finding $r$ such that $p\U r^\star =q$.
+
+</div>
+</div>
+
+The supercritical case $\gamma>d/p$ can be found in
+<a href="https://link.springer.com/book/10.1007/978-3-319-14648-5">Agranovich, 2020</a> page 224 and <a href="https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover">Leoni, 2020</a> page 275.
+
+ <a name="morrey embedding">
+<b>Theorem 24</b> </a>  (Morrey's fractional embedding). Let $\Omega$ be an
+extension domain for $W^{s,p}$, where $s=k+ \gamma$ with
+$k \in \mathbb{N}\U 0, \gamma \in [0,1)$ we have a continuous embedding
+
+<div>
+$$\begin{aligned}
+W^{s,p}(\Omega) \hookrightarrow  C^{k,\gamma}(\Omega), \quad\forall \gamma> \frac{d}{p} + k+\gamma.
+
+\end{aligned}$$
+
+</div>
+
+This embedding also holds for $\gamma=d / p+k+\gamma$
+provided that $\gamma$ is non-integer.
+
+As in the non-fractional case, one can also consider higher smoothness
+on the right-hand side (see <a href="https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover">Leoni, 2020</a> page 290).
+
+ <a name="higher smoothness embedding">
+<b>Theorem 25</b> </a>  (Sobolev embedding into higher smoothness). Let $\Omega$
+be an extension domain for $W^{\gamma,p}$. Then, given
+$p\U 1, p\U 2 \in [1,\infty)$ and $0\leq \gamma\U 1<\gamma\U 2< 1$, it holds
+that
+
+<div>
+$$\begin{aligned}
+\left\lVert u \right\rVert\U {W^{\gamma\U 1,p\U 1}(\Omega )}\lesssim \left\lVert u \right\rVert\U {W^{\gamma\U 2,p\U 2}(\Omega )}, \quad\forall \gamma\U 2 - \frac{d}{p\U 2} = \gamma\U 1 - \frac{d}{p\U 1}.
+
+\end{aligned}$$
+
+</div>
+
+<b>Exercise 10</b>. Justify via a scaling argument that the condition
+$\gamma\U 2 - \frac{d}{p\U 2} = \gamma\U 1 - \frac{d}{p\U 1}$ is necessary for
+the embedding in Theorem
+<a href="#higher smoothness embedding">25</a>.
+
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+Extend to a function on $\mathbb{R}^d$, then swap $u$ with
+$u\U \lambda (x):=u(\lambda x)$and apply the change of variables
+$(x,y)\to \lambda (x,y)$.
+</div>
+</div>
+
+Finally, interpolation results are also possible. See <a href="https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover">Leoni, 2020</a>
+page 300.
+
+ <a name="interpolation embedding">
+<b>Theorem 26</b> </a> . Let $\Omega$ be an extension domain for $W^{\gamma,p}$
+and consider $p\U 1,p\U 2 \in (1,\infty), 0 \leq \gamma\U 1<\gamma\U 2 \leq 1,$
+and $0<\theta<1$. Then
+
+<div>
+$$\begin{aligned}
+\|u\|\U {W^{s, p}(\mathbb{R}^d)} \lesssim\|u\|\U {W^{\gamma\U 1, p\U 1}(\mathbb{R}^d)}^\theta\|u\|\U {W^{\gamma\U 2, p\U 2}(\mathbb{R}^d)}^{1-\theta}
+
+\end{aligned}$$
+
+</div>
+
+for all
+$u \in W^{\gamma\U 1, p\U 1}(\mathbb{R}^d) \cap W^{\gamma\U 2, p\U 2}(\mathbb{R}^d)$,
+where $\frac{1}{p}=\frac{\theta}{p\U 1}+\frac{1-\theta}{p\U 2}$ and
+$s=\theta \gamma\U 1+$ $(1-\theta) \gamma\U 2.$
+
+The above results can also be formulated in terms of the Sobolev
+seminorm. For example, Theorem
+<a href="#interpolation embedding">26</a> can be formulated as
+
+<div>
+$$\begin{aligned}
+\left| u \right|\U {W^{s, p}(\mathbb{R}^d)} \lesssim \left| u \right|\U {W^{\gamma\U 1, p\U 1}(\mathbb{R}^d)}^\theta\left| u \right|\U {W^{\gamma\U 2, p\U 2}(\mathbb{R}^d)}^{1-\theta}.
+\end{aligned}$$
+</div>
+
+Higher order embeddings and interpolations can be
+obtained from the previous cases with regularity parameter below 1 in
+combination with the integer case.
+
+ <a name="fractional rellich">
+<b>Exercise 11</b> </a>  (Fractional Rellich-Kondrachov). Let $\Omega$ be an
+extension domain for $W^{s,p}$, then, given
+$s \geq 0, p \in [1, \infty)$. Set $k=\left\lfloor s \right\rfloor$ and
+$\gamma =s-k$. Then, it holds that
+
+<div>
+$$\begin{aligned}
+& W^{s, p}(\Omega) \hookrightarrow L^q(\Omega), \quad \forall q \in [1, p\U k^\star ) \quad \text { and } s<\frac{d}{p} \\
+& W^{s, p}(\Omega) \hookrightarrow L^q(\Omega), \quad \forall q \in[p, \infty) \quad \text { and } s=\frac{d}{p} \\
+& W^{s, p}(\Omega) \hookrightarrow C^{k, \gamma}(\bar{\Omega})\hspace{71pt}\text { and } s>\frac{d}{p},
+
+\end{aligned}$$
+
+</div>
+
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+Observe that
+
+<div>
+$$\begin{aligned}
+\frac{1}{(p\U \gamma ^\star )\U k^\star }=\frac{1}{p\U \gamma }-\frac{k}{d}=\frac{1}{p}-\frac{s}{d}= \frac{1}{p\U s^\star }.
+
+\end{aligned}$$
+
+</div>
+
+The result follows from Theorem
+<a href="#subcritical embedding">22</a>, Theorem
+<a href="#morrey embedding">24</a> together with the
+<a href="https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#est32:~:text=Combining%20the%20three%20results">integer-case</a>
+embeddings. For the first case, by Theorem
+<a href="#subcritical embedding">22</a>, we have
+
+<div>
+$$\begin{aligned}
+\left\lVert D^\alpha u \right\rVert\U {L^{p\U \gamma ^\star }(\Omega )}\lesssim \left\lVert D^\alpha u \right\rVert\U {W^{\gamma ,p}(\Omega )} \lesssim \left\lVert u \right\rVert\U {W^{s,p}(\Omega )}, \quad \forall \left| \alpha \right|\leq k.
+
+\end{aligned}$$
+
+</div>
+
+Then, using the integer case, we conclude
+
+<div>
+$$\begin{aligned}
+\left\lVert u \right\rVert\U {L^{p\U s^\star }(\Omega )}=\left\lVert u \right\rVert\U {L^{(p\U \gamma ^\star )\U k ^\star }(\Omega )}\lesssim \left\lVert u \right\rVert\U {W^{k,p\U \gamma ^\star }(\Omega )}\lesssim \left\lVert u \right\rVert\U {W^{s,p}(\Omega )}.
+
+\end{aligned}$$
+
+</div>
+
+For the second case, by Theorem
+<a href="#subcritical embedding">22</a> and reasoning with derivatives up to
+order $k$, we obtain similarly
+
+<div>
+$$\begin{aligned}
+\left\lVert u \right\rVert\U {W^{k,p\U \gamma ^\star }(\Omega )}\lesssim \left\lVert u \right\rVert\U {W^{s,p}(\Omega )},
+
+\end{aligned}$$
+
+</div>
+
+where by a calculation $k = d / p\U \gamma ^\star $. So, we
+conclude once more by using the integer case. Likewise, for the final
+case, we use Theorem <a href="#morrey embedding">24</a> to directly obtain
+
+<div>
+$$\begin{aligned}
+\left\lVert u \right\rVert\U {C^{k,\gamma}(\Omega )}\lesssim \left\lVert u \right\rVert\U {W^{s,p}(\Omega )}.
+
+\end{aligned}$$
+
+</div>
+
+</div>
+</div>
+
+Below we plot the Sobolev critical exponent $p\U s^\star $ for $p=2$ and
+$d=1,2,3$. As we can see, it decreases with $d$ and increases with $s$.
+This means that the larger the dimension the more regularity we need to
+obtain a bound on the same $L^q(\mathbb{R}^d)$ norm. The integrability
+increasing to infinity around the critical threshold $s=d/p$.
+
+<img src="{{'assets/img/Figures/regularity_coefficient.svg'| relative_url }}" alt="Sobolev critical exponent for p=2 and d=1,2,3 " width="90%" id="fig:regularity_coefficient">
+
+<b>Exercise 12</b>. Let $\Omega$ be an extension domain for $W^{s\U 1,p}$.
+Show that, given $p\U 1, p\U 2 \in [1,\infty)$ and $0 \leq s\U 2<s\U 1 <\infty$,
+it holds that
+
+<div>
+$$\begin{aligned}
+W^{s\U 1, p\U 1}(\Omega ) \hookrightarrow W^{s\U 2, p\U 2}(\Omega ), \quad s\U 1 - \frac{d}{p\U 1} = s\U 2 - \frac{d}{p\U 2}.
+
+\end{aligned}$$
+
+</div>
+
+<div class="exercise-container">
+<button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
+<div class="exercise-text">
+Set $k\U i =\left\lfloor s\U i \right\rfloor$ and
+$\gamma\U i =s\U i-k\U i$. Apply Theorem
+<a href="#higher smoothness embedding">25</a> to the derivatives of order up
+to $k\U 2$ to obtain
+
+<div>
+$$\begin{aligned}
+\left\lVert D^\alpha u \right\rVert\U {W^{\gamma\U 2, p\U 2}(\Omega )}\lesssim \left\lVert D^\alpha u \right\rVert\U {W^{\gamma \U 1,p\U 1}(\Omega )} \leq \left\lVert u \right\rVert\U {W^{s\U 1,p\U 1}(\Omega )}, \quad \forall \left| \alpha \right|\leq k\U 2.
+
+\end{aligned}$$
+
+</div>
+
+Deduce that
+
+<div>
+$$\begin{aligned}
+\left\lVert u \right\rVert\U {W^{s\U 2,p\U 2}(\Omega )}\lesssim \left\lVert u \right\rVert\U {W^{s\U 1,p\U 1}(\Omega )}.
+
+\end{aligned}$$
+
+</div>
+
+</div>
+</div>
+
+For more higher order embeddings see also <a href="https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover">Leoni, 2020</a> Section
+11.4. Finally, embeddings can be similarly formulated for Besov spaces.
+See <a href="https://link.springer.com/book/10.1007/978-981-13-0836-9">Sawano, 2020</a> page 219 for the following result.
+
+<b>Theorem 27</b> (Embedding for Besov spaces). Let $\Omega$ be an
+extension domain, and consider
+$1 \leq p\U 1<p\U 2 \leq \infty, - \infty <s\U 2<s\U 1<\infty$. Then,
+
+<div>
+$$\begin{aligned}
+B^{s\U 1,p\U 1}(\Omega) \hookrightarrow B^{s\U 2,p\U 2}(\Omega), \quad s\U 1-\frac{n}{p\U 1}=s\U 2-\frac{n}{p\U 2} .
+
+\end{aligned}$$
+
+</div>
+
+This and other results can be formulated for the more general spaces
+$B^{s,p}\U q$. Where $B^{s,p}= B^{s,p}\U p$. See, <a href="https://link.springer.com/book/10.1007/978-3-0346-0419-2">Triebel, 2020</a>,
+<a href="https://link.springer.com/book/10.1007/978-3-319-14648-5">Agranovich, 2020</a>, <a href="https://link.springer.com/book/10.1007/978-981-13-0836-9">Sawano, 2020</a>.
+
+We conclude this post by commenting that given a second-order PDE with
+smooth coefficients, such as
+
+<div>
+$$\begin{aligned}
+- \Delta u =f \text{ in } \Omega , \quad \left.u\right|\U {\partial \Omega }= 0.
+\end{aligned}$$
+</div>
+
+One expects that $u$ is two degrees more regular than
+$f$. That is, if $f \in W^{s,p}(\Omega )$, then we should have
+$u \in W^{s+2,p}(\Omega )$. This is indeed the case locally. However, to
+obtain smoothness up to the boundary, one also needs $\partial \Omega$
+to be regular enough. In this case, Lipschitz continuity of $\Omega$ is
+not sufficient, even if $f \in C^\infty(\overline{\Omega } )$ (see for
+example <a href="https://www.sciencedirect.com/science/article/pii/S002212369793158X/pdf?md5=c646200fe7117dd7d25d27439f36b342&pid=1-s2.0-S002212369793158X-main.pdf">Savare, 2020</a>). We may comment on this later in a
+future post.
+
+A (possibly not updated) pdf of version of this page is provided [here](/assets/pdfs/PDEs/fractional_sobolev_spaces.pdf).
