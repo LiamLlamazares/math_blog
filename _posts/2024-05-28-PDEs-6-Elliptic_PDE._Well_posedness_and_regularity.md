@@ -505,9 +505,8 @@ consider the problems
 
 <div>
 $$\begin{aligned}
-{2}
-\mathcal{L}u & = \lambda u + f &  & \quad \text{and} \quad u \in align) \label{original}  \\
-\mathcal{L}u & = \lambda u     &  & \quad \text{and} \quad u \in align) \label{originalh}
+\mathcal{L}u & = \lambda u + f \quad \text{and} \quad u \in align) \label{original} \\
+\mathcal{L}u & = \lambda u \quad \text{and} \quad u \in align) \label{originalh}
 
 \end{align}$$
 </div>
@@ -547,9 +546,8 @@ the inclusion. Consider the following two problems
 
 <div>
 $$\begin{aligned}
-{2}
-Tv & = f &  & \quad \text{and} \quad v \inalign, \label{fred}  \\
-Tv & = 0 &  & \quad \text{and} \quad v \inalign. \label{fredh}
+Tv & = f  \quad \text{and}  v \inalign, \label{fred} \\
+Tv & = 0 \quad \text{and} v \inalign. \label{fredh}
 
 \end{align}$$
 </div>
@@ -1161,7 +1159,7 @@ $u \in C^\infty(\mathbb{R}^d)$
 
 <b>Proof.</b> By Theorem <a href="#higher regularity 2">15</a>, we have that $u \in H^k(\mathbb{R}^d)$
 for all $k \in \mathbb{N}$. By <a href="https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=three%20results%20gives-,Theorem%2013,-(Rellich%2DKondrachov">Sobolev
-embeddings</a>.%20Let)
+embeddings</a>
 we have that $u \in C^\infty(\mathbb{R}^d)$. ◻
 
 
