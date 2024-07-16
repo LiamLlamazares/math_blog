@@ -302,7 +302,7 @@ $x\U 1,\dots, x\U n$ with
 
 <div>
 $$\begin{align}
-\label{eq:separably\U valued}
+\label{sv}
 \left\{F\U n=x\U k\right\}=\left\{\left\lVert f- x\U k \right\rVert = \min\U {1\leq j \leq n} \left\lVert f- x\U j \right\rVert < \min\U {1 \leq j <k} \left\lVert f-x\U j \right\rVert\right\}.
 
 \end{align}$$
@@ -321,13 +321,13 @@ $$\begin{aligned}
 
 So, without loss of generality, we may suppose they are
 measurable by restricting once more. Then, by
-(\ref{eq:separably_valued})  $F\U n$ is measurable. Since we had
-restricted $u$ to be $\sigma$-finite, we may take a partition
-$\left\\{\Omega \U n\right\\}\U {n=1}^\infty$ of $\Omega$ with finite measure.
-Consider $f\U n:=F\U n 1\U {\Omega \U n}$, we have that $f\U n$ is $\mu$ simple
-(we need to multiply by $1\U {\Omega \U n}$ so that the support of the
-indicators have finite measure) and converges to $f$ almost
-everywhere. ◻
+(\ref{sv})  $F\U n$ is
+measurable. Since we had restricted $u$ to be $\sigma$-finite, we may
+take a partition $\left\\{\Omega \U n\right\\}\U {n=1}^\infty$ of $\Omega$
+with finite measure. Consider $f\U n:=F\U n 1\U {\Omega \U n}$, we have that
+$f\U n$ is $\mu$ simple (we need to multiply by $1\U {\Omega \U n}$ so that
+the support of the indicators have finite measure) and converges to $f$
+almost everywhere. ◻
 
 
 If we include $x\U 0=0$ in the norming sequence of Theorem
@@ -830,7 +830,7 @@ theorems</a>.
 Let $p \in [1,\infty)$ and consider $f\in L^p(\mathbb{R}^d\to X)$ and
 $\phi \in L^1(\mathbb{R}^d)$.
 
-1.  <b>Young's inequality</b>. The convolution
+a)  <b>Young's inequality</b>. The convolution
 
 <div>
 $$\begin{aligned}
@@ -851,7 +851,7 @@ $$\begin{aligned}
 
 
 
-2.  <b>Mollifiers</b>. Define
+b)  <b>Mollifiers</b>. Define
 $\phi\U \epsilon(x):=\epsilon^{-d}\phi(x/\epsilon)$. Then,
 
 
@@ -864,7 +864,7 @@ f\star \phi\U \epsilon \to f \quad \text{in } L^p(\mathbb{R}^d\to X).
 
 
 
-3.  <b>Smoothing</b>. If $\phi \in C^k\U c(\mathbb{R}^d)$ then
+c)  <b>Smoothing</b>. If $\phi \in C^k\U c(\mathbb{R}^d)$ then
 $f\star \phi\U \epsilon \in C^k(\mathbb{R}^d\to X)$ with
 
 <div>
@@ -876,10 +876,8 @@ D^\alpha f\star \phi=f\star (D^\alpha \phi), \quad\forall \left| \alpha \right|\
 
 
 
-4.  <b>Smooth approximation</b>. Taking
-$\phi \in C\U c^\infty(\mathbb{R}^d)$ to be any and normalizing so
-that $\int \phi \,\mathrm{d}x=1$ we deduce that
-$C\U c^\infty(\mathbb{R}^d)$ is dense in $L^p(\mathbb{R}^d\to X)$.
+d)  <b>Smooth approximation</b>. The space $C\U c^\infty(\mathbb{R}^d)$ is
+dense in $L^p(\mathbb{R}^d\to X)$.
 
 
 Ok, that's it. This post was a bit more technical than some of the
