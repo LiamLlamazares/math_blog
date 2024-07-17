@@ -387,7 +387,7 @@ $\mathcal{L}\U \gamma$
 
 <div>
 $$\begin{aligned}
-B\U \gamma (u,v):= (u, \mathcal{L}\U \gamma u)=B(u,v) + \gamma (u,v).
+B\U \gamma (u,v):= (v, \mathcal{L}\U \gamma u)=B(u,v) + \gamma (u,v).
 
 \end{aligned}$$
 </div>
