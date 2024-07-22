@@ -993,11 +993,10 @@ H^{s,p}(\mathbb{R}^d)'                & \longrightarrow H^{-s,p'}(\mathbb{R}^d);
 </div>
 
 
-<b>Exercise 7</b>. We also know that since $H^{s}(\mathbb{R}^d)$ is a
-Hilbert space, so by the Riesz representation theorem, we have the
-identification $H^s(\mathbb{R}^d) = H^{s}(\mathbb{R}^d)'$. So by the
-previous exercise $H^{-s}(\mathbb{R}^d)= H^s(\mathbb{R}^d)$ How is this
-possible?
+<b>Exercise 7</b>. Since $H^{s}(\mathbb{R}^d)$ is a Hilbert space, by the
+Riesz representation theorem, we have the identification
+$H^s(\mathbb{R}^d) = H^{s}(\mathbb{R}^d)'$. As a result, by the previous
+exercise $H^{-s}(\mathbb{R}^d)= H^s(\mathbb{R}^d)$ How is this possible?
 
 
 <div class="exercise-container">
