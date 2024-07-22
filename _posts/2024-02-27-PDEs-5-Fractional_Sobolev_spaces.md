@@ -1118,7 +1118,7 @@ smooth domains in some particular cases.
 <b>Theorem 18</b> </a>  (Representation of $W\U 0^{k,p}(\Omega )'$). Let
 $\Omega \subset \mathbb{R}^d$ be an extension domain for $W^{k,p}$ where
 $k \in \mathbb{N}$ and $p \in [1,\infty)$. Then, every element in
-$W^{-k,p'}(\Omega )=W^{k,p}(\Omega )'$ is the unique extension of a
+$W^{-k,p'}(\Omega )=W^{k,p}\U 0(\Omega )'$ is the unique extension of a
 distribution of the form
 
 <div>
