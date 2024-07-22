@@ -879,7 +879,7 @@ H^{k,p}\U 0(\Omega )' = H^{-k,p'}(\Omega ), \quad W^{k,p}\U 0(\Omega )' = W^{-k,
 
 
 The first equality will be discussed in the next subsection and is most
-easily proven when $\Omega =\mathbb{R}^d$, in which case one can use the
+easily proved when $\Omega =\mathbb{R}^d$, in which case one can use the
 homeomorphism
 $\Lambda ^s: H^{r,p}(\mathbb{R}^d )\xrightarrow{\sim}H^{r-s,p}(\mathbb{R}^d )$
 together with the reflexivity of $L^p(\mathbb{R}^d )$. The second
@@ -919,20 +919,23 @@ W^{s,p}(\mathbb{R}^d )'=    W^{-s,p'}(\mathbb{R}^d ), \quad H^{s,p}(\mathbb{R}^d
 
 
 
-<b>Observation 4</b>. Some authors define given $s>0$
+<b>Observation 4</b>. Some authors define given $s>0$ and
+$p \in [1,\infty)$
 
 <div>
 $$\begin{align}
 \label{alternative negative}
-W^{-s,p'}(\Omega )':=   W^{s,p}(\Omega )'.
+W^{-s,p'}(\Omega )':=   W^{s,p}\U 0(\Omega )'.
 
 \end{align}$$
 </div>
 
-See, for example, [Biccari, 2020](https://link.springer.com/chapter/10.1007/978-3-319-97613-6_12). The definition in
-(\ref{alternative negative})  is equivalent to our definition when
-$\Omega = \mathbb{R}^d$ or when $s \in k$. However, in other cases, the
-two definitions are not equivalent.
+See, for example, [Biccari, 2020](https://link.springer.com/chapter/10.1007/978-3-319-97613-6_12), [Leoni, 2020](https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover)
+page 228. The definition in
+(\ref{alternative negative})  is equivalent to Definition
+<a href="#negative s Slobodeckij">13</a> when $\Omega = \mathbb{R}^d$ or when
+$s \in k$. However, in other cases, the two definitions are not
+equivalent.
 
 
 ## The dual of $H^{s,p}(\mathbb{R}^d)$ and $B^{s,p}(\mathbb{R}^d)$
