@@ -1409,7 +1409,7 @@ and $\gamma \in (0,1), q \in [p,\infty)$, it holds that
 
 <div>
 $$\begin{aligned}
-\|u\|\U {L^q(\mathbb{R}^d)} \lesssim\|u\|\U {W^{\gamma, p}(\Omega)}, \quad \gamma =  \frac{d}{p}.
+\|u\|\U {L^q(\Omega )} \lesssim\|u\|\U {W^{\gamma, p}(\Omega)}, \quad \gamma =  \frac{d}{p}.
 
 \end{aligned}$$
 </div>
@@ -1442,23 +1442,24 @@ Conclude by finding $r$ such that $p\U r^\star =q$.
 </div>
 
 The supercritical case $\gamma>d/p$ can be found in
-[Agranovich, 2020](https://link.springer.com/book/10.1007/978-3-319-14648-5) page 224 and [Leoni, 2020](https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover) page 275.
+[Agranovich, 2020](https://link.springer.com/book/10.1007/978-3-319-14648-5) page 224 and [Leoni, 2020](https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover) page 275. To
+simplify the notation we use the convention that $C^r$ stands for
+$C^{\lfloor r \rfloor, r-\lfloor r \rfloor}$.
 
  <a name="morrey embedding">
 <b>Theorem 24</b> </a>  (Morrey's fractional embedding). Let $\Omega$ be an
-extension domain for $W^{s,p}$, where $s=k+ \gamma$ with
-$k \in \mathbb{N}\U 0, \gamma \in [0,1)$ we have a continuous embedding
+extension domain for $W^{s,p}$, we have a continuous embedding
 
 
 <div>
 $$\begin{aligned}
-W^{s,p}(\Omega) \hookrightarrow  C^{k,\gamma}(\Omega), \quad\forall \gamma> \frac{d}{p} + k+\gamma.
+W^{s,p}(\Omega) \hookrightarrow  C^{s-d/p}(\Omega), \quad\forall s> \frac{d}{p}.
 
 \end{aligned}$$
 </div>
 
-This embedding also holds for $\gamma=d / p+k+\gamma$
-provided that $\gamma$ is non-integer.
+This embedding also holds for $s=d / p$ provided that
+$s-d/p$ is non-integer.
 
 
 As in the non-fractional case, one can also consider higher smoothness
@@ -1544,7 +1545,7 @@ $\gamma =s-k$. Then, it holds that
 $$\begin{aligned}
 & W^{s, p}(\Omega) \hookrightarrow L^q(\Omega), \quad \forall q \in [1, p\U k^\star ) \quad \text { and } s<\frac{d}{p} \\
 & W^{s, p}(\Omega) \hookrightarrow L^q(\Omega), \quad \forall q \in[p, \infty) \quad \text { and } s=\frac{d}{p} \\
-& W^{s, p}(\Omega) \hookrightarrow C^{k, \gamma}(\bar{\Omega})\hspace{71pt}\text { and } s>\frac{d}{p},
+& W^{s, p}(\Omega) \hookrightarrow C^{s-d/p}(\bar{\Omega})\hspace{71pt}\text { and } s>\frac{d}{p},
 
 \end{aligned}$$
 </div>

@@ -1021,7 +1021,7 @@ The above holds if we replace
 $W^{1,p}\U {\mathrm{loc}}(U),L^p\U {\mathrm{loc}}(U)$ with their none local
 counterparts $W^{1,p}(U),L^p(U)$.
 
-We omit the proof, which can be found in [4](https://math.aalto.fi/~jkkinnun/files/sobolev_spaces.pdf) pages $39-43$. The next exercise shows that, perhaps somewhat unexpectedly, to have
+We omit the proof, which can be found in [4](https://math.aalto.fi/~jkkinnun/files/sobolev_spaces.pdf) pages $51-55$. The next exercise shows that, perhaps somewhat unexpectedly, to have
 $u \in  W^{1,p}(U)$ it is not sufficient to require that $u$ is
 differentiable almost everywhere with integrable derivatives.
 
@@ -1032,6 +1032,17 @@ differentiable almost everywhere with $c'=0$.
 As a result, if $c \in W^{1,p}(0,1)$, then $u$ would be constant (which
 it is not). In fact, $c \not\in W^{1,p}(0,1)$ as it is not absolutely
 continuous.
+
+Another interesting observation is that, for $d>1$, a function $u \in W^{1,p}(U)$ may in fact be discontinuous almost everywhere.
+Consider for example $\Omega =(0,1)^d$, let $\alpha>0$ and $q\U n$ be a countable dense subset of $\Omega$. Define
+
+<div>
+$$\begin{aligned}
+u(x):=\sum\U{n=1}^\infty |x-q\U n|^\alpha.
+\end{aligned}$$
+</div>
+
+Then, $u \in W^{1,p}((0,1)^d)$ for all $p < d/(\alpha+1)$. However, $u$ is discontinuous almost everywhere. This seems counterintuitive as we just proved that $u$ must be continuous on almost all lines. The trick is that, almost all lines will not intersect the dense set $q\U n$.
 
 # Smooth approximation of Sobolev functions
 
