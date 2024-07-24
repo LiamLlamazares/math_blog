@@ -1015,7 +1015,7 @@ equivalent
   given $V \Subset U$ it holds that $u$ is absolutely continuous on
   almost all (with respect to the Lebesgue measure on
   $\mathbb{R}^{d-1}$) line segments in $V$ parallel to the coordinate
-  axes. That is, for all $1=1,...,d$ and almost all $x=(x\U 1,...,x\U{i-1},x\U {i+1},...,x\U d)$ the function
+  axes. That is, for all $1=1,...,d$ and almost all $\hat{x}\U i=(x\U 1,...,x\U{i-1},x\U {i+1},...,x\U d)$ the function
 
 <div>
 $$\begin{aligned}
@@ -1049,7 +1049,7 @@ u(x):=\sum\U{n=1}^\infty |x-q\U n|^\alpha.
 \end{aligned}$$
 </div>
 
-Then, $u \in W^{1,p}((0,1)^d)$ for all $p < d/(\alpha+1)$. However, $u$ is discontinuous almost everywhere. This seems counterintuitive as we just proved that $u$ must be continuous on almost all lines. The trick is that, almost all lines will not intersect the dense set $q\U n$.
+Then, $u \in W^{1,p}((0,1)^d)$ for all $p < d/(\alpha+1)$. However, $u$ is discontinuous almost everywhere. This seems counterintuitive as we just proved that $u$ must be continuous on almost all lines. The trick is that, almost all lines will not intersect the dense set $q\U n$. For example, if $\{q\U n\}= \mathbb{Q}^d \cap \Omega$ then $\hat{x}\U i=(x\U 1,...,x\U {i-1},x\U {i+1},...,x\U d)$ is not in $\mathbb{Q}^{d-1}$ for almost all $\hat{x}\U i \in \mathbb{R}^{d-1}$.
 
 # Smooth approximation of Sobolev functions
 
