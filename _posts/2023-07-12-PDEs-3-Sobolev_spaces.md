@@ -1015,13 +1015,20 @@ equivalent
   given $V \Subset U$ it holds that $u$ is absolutely continuous on
   almost all (with respect to the Lebesgue measure on
   $\mathbb{R}^{d-1}$) line segments in $V$ parallel to the coordinate
-  axis.
+  axes. That is, for all $1=1,...,d$ and almost all $x=(x\U 1,...,x\U{i-1},x\U {i+1},...,x\U d)$ the function
+
+<div>
+$$\begin{aligned}
+t \longmapsto u(x\U 1,...,x\U {i-1},t,x\U {i+1},...,x\U d)
+\end{aligned}$$
+</div>
+defined on $E\U i(x):=\left\\{t: (x\U 1,...,x\U {i-1},t,x\U {i+1},...,x \U d) \in U\right\\}$ is absolutely continuous.
 
 The above holds if we replace
 $W^{1,p}\U {\mathrm{loc}}(U),L^p\U {\mathrm{loc}}(U)$ with their none local
 counterparts $W^{1,p}(U),L^p(U)$.
 
-We omit the proof, which can be found in [4](https://math.aalto.fi/~jkkinnun/files/sobolev_spaces.pdf) pages $51-55$. The next exercise shows that, perhaps somewhat unexpectedly, to have
+The proof, which can be found in [4](https://math.aalto.fi/~jkkinnun/files/sobolev_spaces.pdf) pages $51-55$, is based on the $1$ dimensional case and Fubini. The next exercise shows that, perhaps somewhat unexpectedly, to have
 $u \in  W^{1,p}(U)$ it is not sufficient to require that $u$ is
 differentiable almost everywhere with integrable derivatives.
 
