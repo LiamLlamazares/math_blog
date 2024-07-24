@@ -11,26 +11,26 @@ authorpost: L.Llamazares-Elias
 # Summary
 
 1.  There are three ways to define Sobolev spaces with fractional
-regularity $s$ and integrability $p$:
+    regularity $s$ and integrability $p$:
 
 1.  The spaces $W^{s,p}(\Omega ), B^{s,p}(\Omega )$ are defined by
-using the analogous to the definition of Hölder spaces. Both
-spaces are equal when $s$ is not an integer.
+    using the analogous to the definition of Hölder spaces. Both
+    spaces are equal when $s$ is not an integer.
 
-2.  The space $H^{s,p}(\Omega )$ is defined by using the Fourier
-transform and coincides with $W^{s,p}(\Omega )$ for integer $s$.
+1.  The space $H^{s,p}(\Omega )$ is defined by using the Fourier
+    transform and coincides with $W^{s,p}(\Omega )$ for integer $s$.
 
-3.  All these spaces coincide with $H^s(\Omega )$ when $p=2$.
+1.  All these spaces coincide with $H^s(\Omega )$ when $p=2$.
 
-2.  There is a natural correspondence between negative regularity and
-the dual. Additionally, negative regularity can be obtained by
-differentiating functions with higher regularity.
+1.  There is a natural correspondence between negative regularity and
+    the dual. Additionally, negative regularity can be obtained by
+    differentiating functions with higher regularity.
 
-3.  Fractional sobolev spaces appear naturally in the study of PDEs. For
-example, the trace of Sobolev functions $W^{s,p}(\Omega)$ is equal
-to the fractional space $B^{s-1/p,p}(\partial \Omega)$. And finer
-embeddings and regularity results can be obtained by using these
-spaces.
+1.  Fractional sobolev spaces appear naturally in the study of PDEs. For
+    example, the trace of Sobolev functions $W^{s,p}(\Omega)$ is equal
+    to the fractional space $B^{s-1/p,p}(\partial \Omega)$. And finer
+    embeddings and regularity results can be obtained by using these
+    spaces.
 
 # Introduction
 
@@ -44,10 +44,10 @@ define $H^s(\mathbb{R}^d)$ when $s$ was any real number. This motivates
 the following two questions.
 
 1.  How can we define $H^s(\Omega )$ when $\Omega$ is not $\mathbb{R}^d$
-and $s$ is not an integer ?
+    and $s$ is not an integer ?
 
 2.  Is it possible to extend such a definition to other orders of
-integrability $p$?
+    integrability $p$?
 
 In this post, we aim to answer these questions. We will see that both of
 these questions can be answered in the affirmative. If the domain
@@ -56,7 +56,6 @@ restricting functions in $H^s(\mathbb{R}^d)$ to $\Omega$. The second
 point is trickier and, in fact, like any good trick question, has
 multiple answers. Three, to be precise. This leads to the theory of
 Bessel spaces, Sobolev-Slobodeckij spaces and Besov spaces
-
 
 <div>
 $$\begin{aligned}
@@ -131,6 +130,7 @@ $$\begin{aligned}
 W^{s ,p}(U):= \left\{u \in W^{k ,p}(U): \left\lVert u \right\rVert\U {W^{s,p}(U)}<\infty\right\},
 
 \end{aligned}$$
+
 </div>
 
 where
@@ -141,21 +141,19 @@ $$\begin{align}
 \left\lVert u \right\rVert\U {W^{s,p}(U)}:= \left(\left\lVert u \right\rVert\U {W^{k,p}(U)}^p+ \sum\U {\left| \alpha \right|=k }\int\U {U}\int\U {U}\frac{\left| D^\alpha u(x+y)-D^\alpha u(x) \right|^p}{\left| y \right|^{d+\gamma p}}\,\mathrm{d}x \,\mathrm{d}y\right)^\frac{1}{p}.
 
 \end{align}$$
+
 </div>
 
 For $p = \infty$, we define
 $W^{s,\infty}(U):= C^{k,\gamma}(U)$. The norm is then given by
-
 
 <div>
 $$\begin{aligned}
 \left\lVert u \right\rVert\U {W^{s,\infty}(U)}= \left\lVert u \right\rVert\U {C^{k}(U)}+ \sum\U {\left| \alpha \right| =k}  \sup \U {x, y \in U, x \neq y} \frac{|D^\alpha u(x)- D^\alpha u(y)|}{|x-y|^\gamma }.
 
 \end{aligned}$$
+
 </div>
-
-
-
 
 We will later define $W^{s,p}(U)$ also for negative $s$ (see Definition
 <a href="#negative s Slobodeckij">13</a>). We observe that the above
@@ -163,9 +161,7 @@ definition coincides with our usual definition of Sobolev space when
 $s=k \in \mathbb{N}\U 0$ and mimics that of the Hölder spaces, coinciding
 exactly when $p=\infty$.
 
-
 <b>Exercise 1</b>. Show that $W^{s,p}(U)$ is a Banach space.
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -178,11 +174,13 @@ $$\begin{aligned}
 f\U u(x,y):=\frac{D^\alpha u(x+y)-D^\alpha u(x)}{y^{\frac{d}{p}+\gamma}}.
 
 \end{aligned}$$
+
 </div>
 
 Given a Cauchy sequence show that, since $L^p(U)$ is
 complete, $u\U n \to u$ in $L^p(U)$ and that $f\U {u\U n} \to f\U u$ in
 $L^p(U\times U)$ to conclude that $u\U n \to u$ in $W^{s,p}(U)$.
+
 </div>
 </div>
 
@@ -196,16 +194,13 @@ enough. Otherwise, basic properties such as the following break down
 domain](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=extend%20Sobolev%20functions)
 for $W^{1,p}$. Then, for $p \in [1,\infty)$ and $0<s<s'$ it holds that
 
-
 <div>
 $$\begin{aligned}
 W^{s',p}(\Omega )\hookrightarrow W^{s,p}(\Omega ).
 
 \end{aligned}$$
+
 </div>
-
-
-
 
 The proof can be found in [Di, 2020](https://www.sciencedirect.com/science/article/pii/S0007449711001254) page 10. The regularity
 of the domain is necessary to be able to extend functions in
@@ -218,7 +213,6 @@ We now give a second definition of fractional Sobolev spaces through the
 Fourier transform. Here, it is immediately possible to define everything
 for negative $s$.
 
-
 <b>Definition 3</b>. Let $s\in\mathbb{R}$ and
 $u \in \mathcal{S}'(\mathbb{R}^d)$. We define the Bessel potential
 operator $\Lambda^s$ by
@@ -228,10 +222,8 @@ $$\begin{aligned}
 \Lambda^s u := \mathcal{F}^{-1}\left(\left\langle\xi\right\rangle^s \widehat{u}(\xi)\right).
 
 \end{aligned}$$
+
 </div>
-
-
-
 
 In the definition above, we used the notation
 $\left\langle\xi\right\rangle:=\sqrt{1+|\xi|^2}$. As we saw when we
@@ -248,7 +240,7 @@ u \in H^k(\mathbb{R}^d) \iff \Lambda^k u \in L^2(\mathbb{R}^d).
 </div>
 
 Equation
-(\ref{motivation Bessel})  motivates the following extension to
+(\ref{motivation Bessel}) motivates the following extension to
 general $p$.
 
  <a name="bessel potential def">
@@ -261,6 +253,7 @@ $$\begin{aligned}
 H^{s,p}(\mathbb{R}^d):=\left\{u \in \mathcal{S}^{\prime}(\mathbb{R}^d): \Lambda ^s u \in L^p(\mathbb{R}^d)\right\},
 
 \end{aligned}$$
+
 </div>
 
 and give it the norm
@@ -270,27 +263,21 @@ $$\begin{aligned}
 \left\lVert u \right\rVert\U {H^{s,p}(\mathbb{R}^d)}:= \left\lVert \Lambda^s u \right\rVert\U {L^p(\mathbb{R}^d)}.
 
 \end{aligned}$$
+
 </div>
-
-
-
 
 By construction, $H^{k,2}(\mathbb{R}^d)=H^{k}(\mathbb{R}^d)$.
 
-
 <b>Exercise 2</b>. Show that $\Lambda^s\Lambda^r=\Lambda^{s+r}$. Use this
 to show that the following is an invertible isomorphism
-
 
 <div>
 $$\begin{aligned}
 \Lambda^r: H^{r+s,p}(\mathbb{R}^d) \xrightarrow{\sim}H^{s,p}(\mathbb{R}^d).
 
 \end{aligned}$$
+
 </div>
-
-
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -312,6 +299,7 @@ $$\begin{aligned}
 H^{s,p}(U ):=\left\{u \in \mathcal{D}^{\prime}(U ): \text{ there exists } v \in H^{s,p}(\mathbb{R}^d) \text{ with } \left.v\right|\U {U }=u\right\},
 
 \end{aligned}$$
+
 </div>
 
 and give it the norm
@@ -321,14 +309,11 @@ $$\begin{aligned}
 \left\lVert u \right\rVert\U {H^{s,p}(U )}:= \inf \left\{\left\lVert v \right\rVert\U {H^{s,p}(\mathbb{R}^d)}: \left.v\right|\U {U }=u\right\}.
 
 \end{aligned}$$
+
 </div>
-
-
-
 
 The restriction above is in the sense of distributions. That is, we
 define the restriction of $u$ to $U$ as the distribution $v$ such that
-
 
 <div>
 $$\begin{aligned}
@@ -336,23 +321,17 @@ $$\begin{aligned}
 \end{aligned}$$
 </div>
 
-
-
-
 <b>Observation 1</b>. It is tempting to define
 $\left\lVert u \right\rVert\U {H^{s,p}(U )}:=\left\lVert \Lambda^s v \right\rVert\U {L^p(U )}$.
 However, since the Fourier transform, and thus $\Lambda^s$, is a
 nonlocal operator, the norm would depend on the extension $v$ of $u$ to
 $\mathbb{R}^d$ and be ill-defined.
 
-
-
 <b>Observation 2</b>. It would also make sense to define $H^{s,p}(U )$
 through complex interpolation. This is likely different from the above
 definition, however, as we will later see, this will coincide with the
 definition above when $\Omega$ is smooth enough (for example Lipschitz).
 See also [Leoni, 2020](https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover) page 328 for a similar remark.
-
 
 ## Besov spaces
 
@@ -367,6 +346,7 @@ $$\begin{aligned}
 B^{s ,p}(U):= \left\{u \in W^{k\U {-} ,p}(U): \left\lVert u \right\rVert\U {B^{s,p}(U)}<\infty\right\},
 
 \end{aligned}$$
+
 </div>
 
 where
@@ -376,11 +356,11 @@ $$\begin{aligned}
 \left\lVert u \right\rVert\U {B^{s,p}(U)}:= \left(\left\lVert u \right\rVert\U {W^{k\U {-},p}(U)}^p+ \sum\U {\left| \alpha \right|=k\U - }\int\U {U}\int\U {U}\frac{\left| D^\alpha u(x+y)-D^\alpha u(x) \right|^p}{\left| y \right|^{d+\gamma p}}\,\mathrm{d}x \,\mathrm{d}y\right)^\frac{1}{p}.
 
 \end{aligned}$$
+
 </div>
 
 For $p = \infty$, we define
 $B^{s,\infty}(U):= C^{k\U {-},\gamma}(U)$.
-
 
 The above definition is extremely similar in form to that of the
 Sobolev-Slobodeckij spaces <a href="#soledkij def">1</a>. In fact, it is equivalent when
@@ -400,27 +380,21 @@ $$\begin{aligned}
 \|u\|\U {B^{s,p}(\mathbb{R}^d)}=\|\Lambda^{s-\sigma} u\|\U {W^{\sigma,p}(\mathbb{R}^d)}.
 
 \end{aligned}$$
+
 </div>
-
-
-
 
 The requirement $\sigma >0$ is necessary as
 $B^{s,p}(\mathbb{R}^d)\neq H^{s,p}(\mathbb{R}^d)$.
 
-
 <b>Exercise 3</b>. Show that $\Lambda ^r$ defines an invertible isomorphism
-
 
 <div>
 $$\begin{aligned}
 \Lambda ^r: B^{s,p}(\mathbb{R}^d)\xrightarrow{\sim}H^{s-r,p}(\mathbb{R}^d).
 
 \end{aligned}$$
+
 </div>
-
-
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -439,12 +413,12 @@ potential spaces, once more the same observations apply.
 <b>Definition 8</b> </a>  (Besov spaces on $\Omega$). Let
 $\Omega  \subset \mathbb{R}^d$ be an smooth. We define,
 
-
 <div>
 $$\begin{aligned}
 B^{s,p}(\Omega):=\left\{u \in \mathcal{D}^{\prime}(\Omega ): \text{ there exists } v \in B^{s,p}(\mathbb{R}^d) \text{ such that } \left.v\right|\U {\Omega }=u\right\},
 
 \end{aligned}$$
+
 </div>
 
 and give it the norm
@@ -454,23 +428,20 @@ $$\begin{aligned}
 \left\lVert u \right\rVert\U {B^{s,p}(\Omega)}:= \inf \left\{\left\lVert v \right\rVert\U {B^{s,p}(\mathbb{R}^d)}: \left.v\right|\U {\Omega }=u\right\}.
 
 \end{aligned}$$
+
 </div>
-
-
-
-
 
 <b>Observation 3</b>. Different authors use different notations for these
 spaces. For example, in [Triebel, 2020](https://link.springer.com/book/10.1007/978-3-0346-0419-2), the notation
 $W^{s,p}(\mathbb{R}^d):= B^{s,p}(\mathbb{R}^d)$ is used. With this
 notation, one has that, for $p \neq 2$, and $k \in \mathbb{N}\U 0$,
 
-
 <div>
 $$\begin{aligned}
 W^{k,p}(\mathbb{R}^d) \neq \left\{ u \in \mathcal{D}'(\mathbb{R}^d) : D^\alpha u \in L^p(\mathbb{R}^d) \quad \forall \left| \alpha \right|\leq   k\right\}= W^{k,p}(\mathbb{R}^d).
 
 \end{aligned}$$
+
 </div>
 
 This clashes with the definition of integer-valued
@@ -478,7 +449,6 @@ Sobolev spaces, so we do not use this notation. Other notations which
 can be found are the notation $B^{s,p}= \Lambda^{p}\U s$ and
 $H^{s,p}= \mathcal{L}^{p}\U s$. See [Stein, 2020](https://www.degruyter.com/document/doi/10.1515/9781400883882/html) and
 [Biccari, 2020](https://link.springer.com/chapter/10.1007/978-3-319-97613-6_12).
-
 
 ## Extension domains
 
@@ -498,21 +468,17 @@ a constant $C>0$ such that
 $$\lambda_d(B(x, r) \cap \Omega) \geq C r^d$$
 </div>
 
-
 for all $x \in \Omega$ and all $0<r \leq 1$. Where $\lambda\U d$ is the
 Lebesgue measure on $\mathbb{R}^d$.
 
-
 For higher orders of regularity, the following is sufficient: see
 [Leoni, 2020](https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover) and [Sawano, 2020](https://link.springer.com/book/10.1007/978-981-13-0836-9) section 5.1.
-
 
 <b>Theorem 10</b>. Let $\Omega \subset \mathbb{R}^d$ be open with
 [uniformly Lipschitz
 boundary](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=has-,uniformly%20Lipschitz%20boundary,-if%20there%20exists)
 and consider $p\in [1,\infty), s\in[1,\infty)$. Then, $\Omega$ is an
 extension domain for $W^{s,p},H^{s,p},B^{s,p}$.
-
 
 ## Interpolation
 
@@ -533,21 +499,21 @@ $$\begin{aligned}
 s=s\U 1(1-\theta)+s\U 2 \theta, \quad p=p\U 1(1-\theta)+p\U 2 \theta.
 
 \end{aligned}$$
+
 </div>
 
 Then, given an extension domain $\Omega$ it holds that
-
 
 <div>
 $$\begin{aligned}
 H^{s,p}(\Omega )=\left[H^{s\U 1,p\U 1}(\Omega), H^{s\U 2,p\U 2}(\Omega)\right]\U {\theta},\quad B^{s,p}(\Omega )=\left[B^{s\U 1,p}(\Omega ), B^{s\U 2, p}(\Omega )\right]\U \theta,
 
 \end{aligned}$$
+
 </div>
 
 where $[X,Y]\U \theta$ denotes the complex interpolation
 space.
-
 
 The result can be found in [Triebel, 2020](https://link.springer.com/book/10.1007/978-3-0346-0419-2) page 45 for
 $\Omega = \mathbb{R}^d$. The general result follows by extension. In
@@ -560,8 +526,6 @@ H^{s,p}(\Omega ) & =\left[H^{k,p}(\Omega), H^{k+1,p}(\Omega)\right]\U {\gamma }=
 B^{s,p}(\Omega ) & =\left[B^{k,p}(\Omega), B^{k+1,p}(\Omega)\right]\U {\gamma }= \left[L^p(\Omega ), B^{k+1,p}(\Omega)\right]\U {s/(k+1) }.
 \end{aligned}$$
 </div>
-
-
 
 # Relationship between the definitions
 
@@ -579,6 +543,7 @@ H^{s+\epsilon,p}(\Omega ) & \subset B^{s,p}(\Omega )  \subset H^{s,p}(\Omega )\q
 B^{s+\epsilon,p}(\Omega ) & \subset H^{s,p}(\Omega )  \subset B^{s,p}(\Omega )\quad \forall p \in [2,\infty),
 
 \end{aligned}$$
+
 </div>
 
 where the above inclusions are continuous and dense.
@@ -593,6 +558,7 @@ B^{s,p}(\Omega ) & \text{ if } s \notin \mathbb{N}\U 0
 \end{cases}.
 
 \end{align}$$
+
 </div>
 
 In consequence, for $p=2$,
@@ -603,13 +569,11 @@ $$\begin{align}
 H^{s,2}(\Omega )=W^{s,2}(\Omega )=B^{s,2}(\Omega ).
 
 \end{align}$$
+
 </div>
 
-
-
-
 The equality in
-(\ref{Slobodeckij equivalence})  shows that, as long as we
+(\ref{Slobodeckij equivalence}) shows that, as long as we
 understand the behaviour of $H^{s,p}(\Omega )$ and $B^{s,p}(\Omega )$,
 we can completely determine that of $W^{s,p}(\Omega )$. It also
 justifies the following extension of $W^{s,p}(\Omega )$ to negative
@@ -629,12 +593,10 @@ B^{s,p}(\Omega ) & \text{ if } s \notin \mathbb{Z}\U 0
 \end{cases}.
 
 \end{aligned}$$
+
 </div>
 
-
-
-
-The equality for $p=2$ in (\ref{p=2})  justifies that, for sufficiently regular domains, all
+The equality for $p=2$ in (\ref{p=2}) justifies that, for sufficiently regular domains, all
 three spaces are written $H^s(\Omega )$. We will prove the left-hand
 side of this equivalence in Exercise
 <a href="#equivalence of fractional spaces">4</a>. For $p\neq 2$, the
@@ -650,22 +612,20 @@ $$\begin{aligned}
 H^{s,2}(\mathbb{R}^d)=W^{s,2}(\mathbb{R}^d).
 
 \end{aligned}$$
+
 </div>
-
-
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
 <div class="exercise-text">
 We want to show that the norms are equivalent. That is, that
 
-
 <div>
 $$\begin{aligned}
 \left\lVert u \right\rVert\U {H^{s,2}(\mathbb{R}^d)}\sim\left\lVert u \right\rVert\U {W^{s,2}(\mathbb{R}^d)}.
 
 \end{aligned}$$
+
 </div>
 
 We already know this is the case when $s$ is an integer,
@@ -677,6 +637,7 @@ $$\begin{aligned}
 |u|\U {\gamma ,2}^2\sim \int\U {\mathbb{R}^d}|\xi|^{2 \gamma }|\mathcal{F} u(\xi)|^2 d \xi , \quad\forall \gamma \in (0,1).
 
 \end{aligned}$$
+
 </div>
 
 By Plancherel's theorem and a calculation of the Fourier
@@ -688,12 +649,12 @@ $$\begin{aligned}
 & =\int\U {\mathbb{R}^d}\int\U {\mathbb{R}^d}  \frac{|e^{2 \pi i x \cdot \xi}-1|^2}{\left| x \right|^{d+2\gamma    }}|\widehat{u}(\xi)|^2\,\mathrm{d}x\,\mathrm{d}\xi                                                                                                                                                                     \\&=2\int\U {\mathbb{R}^d}\left(\int\U {\mathbb{R}^d}  \frac{1-\cos(2\pi \xi\cdot x)}{\left| x \right|^{d+2\gamma }}\,\mathrm{d}x\right)|\widehat{u}(\xi)|^2\,\mathrm{d}\xi.
 
 \end{aligned}$$
+
 </div>
 
 To treat the inner integral, we note that it is
 rotationally invariant, and so, by rotating $\xi$ to the first axis and
 later changing variable $x \to x / \left| \xi \right|$, we get
-
 
 <div>
 $$\begin{aligned}
@@ -701,6 +662,7 @@ $$\begin{aligned}
 & =\left| \xi \right|^{2 \gamma } \int\U {\mathbb{R}^d}  \frac{1-\cos(2\pi  x\U 1) }{\left| x \right|^{d+2\gamma    }}\,\mathrm{d}x\sim \left| \xi \right|^{2 \gamma }.
 
 \end{aligned}$$
+
 </div>
 
 The last integral is finite as, since $d+2\gamma >d$,
@@ -709,9 +671,9 @@ $1-\cos(2\pi x\U 1)\sim x\U 1^2\leq \left| x \right|^2$ the integrand has
 order $-d+2(1-\gamma)>-d$ for $\left| \xi \right|\sim 0$ . That said,
 substituting this back into the previous expression gives the desired
 result.
-</div>
-</div>
 
+</div>
+</div>
 
 <b>Exercise 5</b>. Use the previous exercise
 <a href="#equivalence of fractional spaces">4</a> to show that if $\Omega$
@@ -722,10 +684,8 @@ $$\begin{aligned}
 H^{s,2}(\Omega )=W^{s,2}(\Omega ).
 
 \end{aligned}$$
+
 </div>
-
-
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -741,20 +701,20 @@ $$\begin{aligned}
 \left\lVert u \right\rVert\U {H^{s,2}(\Omega)}= \lim\U {n\to\infty}\left\lVert v\U n \right\rVert\U {H^{2,2}(\mathbb{R}^d)}\sim \lim\U {n\to\infty}\left\lVert v\U n \right\rVert\U {W^{s,2}(\mathbb{R}^d)}\geq \left\lVert u \right\rVert\U {W^{s,2}(\Omega )}.
 
 \end{aligned}$$
+
 </div>
 
 To obtain the reverse inequality, use the existence of a
 continuous extension operator
 $E: W^{s,2}(\Omega )\to W^{s,2}(\mathbb{R}^d)$ to obtain
 
-
 <div>
 $$\begin{aligned}
 \left\lVert u \right\rVert\U {W^{s,2}(\Omega )}\sim \left\lVert Eu \right\rVert\U {W^{s,2}(\mathbb{R}^d)}\geq \left\lVert u \right\rVert\U {H^{s,2}(\mathbb{R}^d)}.
 
 \end{aligned}$$
-</div>
 
+</div>
 
 </div>
 </div>
@@ -765,20 +725,16 @@ definition of the Slobodeckij spaces
 correspond to differentiating a fractional amount of times. This indeed
 is the case
 
-
 <b>Definition 14</b>. Given $s \in [0,+\infty)$ and
 $u \in \mathcal{S}(\mathbb{R}^d)$ we define the fractional Laplacian as
-
 
 <div>
 $$\begin{aligned}
 (-\Delta )^{s }u(x):= \mathcal{F}^{-1}(\left| 2\pi\xi \right|^{2 s }\widehat{u}(\xi )).
 
 \end{aligned}$$
+
 </div>
-
-
-
 
  <a name="fractional laplacian">
 <b>Proposition 15</b> </a> . For $\gamma  \in (0,1)$ and
@@ -789,11 +745,10 @@ $$\begin{aligned}
 (-\Delta )^{\gamma }u(x)=C\int\U {\mathbb{R}^d}\frac{u(x)-u(x+y)}{\left| y \right|^{d+2\gamma}}\,\mathrm{d}y,
 
 \end{aligned}$$
+
 </div>
 
 where $C$ is a constant that depends on $d,\gamma$.
-
-
 
 <b>Proof.</b> The above equality may seem odd at first if we compare it with
 the integral in <a href="#soledkij def">1</a> where a square appears in the numerator, which
@@ -805,6 +760,7 @@ $$\begin{aligned}
 \int\U {\mathbb{R}^d}\frac{u(x)-u(x+y)}{\left| y \right|^{d+2\gamma}}\,\mathrm{d}y=\int\U {\mathbb{R}^d}\frac{u(x)-u(x-y)}{\left| y \right|^{d+2\gamma}}\,\mathrm{d}y.
 
 \end{aligned}$$
+
 </div>
 
 So, we can get the second order difference in the
@@ -816,20 +772,21 @@ $$\begin{align}
 \int\U {\mathbb{R}^d}\frac{u(x)-u(x+y)}{\left| y \right|^{d+2\gamma}}\,\mathrm{d}y=-\frac{1}{2}\int\U {\mathbb{R}^d}\frac{u(x+y)-2u(x)+u(x-y)}{\left| y \right|^{d+2\gamma}}\,\mathrm{d}y.
 
 \end{align}$$
+
 </div>
 
 We will conclude the proof if we show that
-
 
 <div>
 $$\begin{aligned}
 \left| \xi \right|^{2\gamma }\widehat{u}(\xi )\sim \mathcal{F}\left(\int\U {\mathbb{R}^d}\frac{u(x)-u(x+y)}{\left| y \right|^{d+2\gamma}}\,\mathrm{d}y\right).
 
 \end{aligned}$$
+
 </div>
 
 Using
-(\ref{second order})  and proceeding as in Exercise
+(\ref{second order}) and proceeding as in Exercise
 <a href="#equivalence fractional spaces">12</a> gives
 
 <div>
@@ -838,6 +795,7 @@ $$\begin{aligned}
 & =\int\U {\mathbb{R}^d}\left(\int\U {\mathbb{R}^d}\frac{1-\cos(2\pi y \cdot \xi)}{\left| y \right|^{d+2\gamma}}\,\mathrm{d}y\right) \widehat{u}(\xi)\,\mathrm{d}\xi =\int\U {\mathbb{R}^d}  \frac{1-\cos(2\pi  y\U 1) }{\left| y \right|^{d+2\gamma    }}\,\mathrm{d}y\int\U {\mathbb{R}^d}\left| \xi \right|^{2 \gamma }\widehat{u}(\xi)\,\mathrm{d}\xi \\& \sim \left| \xi \right|^{2 \gamma }\widehat{u}(\xi)\,\mathrm{d}\xi.
 
 \end{aligned}$$
+
 </div>
 
 This completes the proof and shows that the explicit
@@ -848,10 +806,10 @@ $$\begin{aligned}
 C=\frac{1}{(2\pi)^{2 \gamma }}\int\U {\mathbb{R}^d}  \frac{1-\cos(2\pi  y\U 1) }{\left| y \right|^{d+2\gamma }}\,\mathrm{d}y.
 
 \end{aligned}$$
+
 </div>
 
 ◻
-
 
 # Dual of Sobolev spaces and correspondence with negative regularity
 
@@ -867,16 +825,13 @@ $p$. We then have the following result (see [Evans, 2020](https://math24.files.w
 <b>Theorem 16</b> </a> . For all $k \in \mathbb{Z}$ and $p \in [1,\infty)$ and
 $\Omega$ an extension domain for $W^{k,p}$, it holds that
 
-
 <div>
 $$\begin{aligned}
 H^{k,p}\U 0(\Omega )' = H^{-k,p'}(\Omega ), \quad W^{k,p}\U 0(\Omega )' = W^{-k,p'}(\Omega ).
 
 \end{aligned}$$
+
 </div>
-
-
-
 
 The first equality will be discussed in the next subsection and is most
 easily proved when $\Omega =\mathbb{R}^d$, in which case one can use the
@@ -889,7 +844,6 @@ $W^{k,p}(\Omega )=H^{k,p}(\Omega )$ of Theorem
 regularities, we have the following result, which can be found in
 [Agranovich, 2020](https://link.springer.com/book/10.1007/978-3-319-14648-5) page 228.
 
-
 <b>Theorem 17</b>. Given $s>0, p \in [1,\infty)$ and $\Omega$ an extension
 domain, it holds that the spaces
 $W^{s,p}(\Omega ),H^{s,p}(\Omega ),B^{s,p}(\Omega )$ are reflexive
@@ -900,6 +854,7 @@ $$\begin{aligned}
 W^{s,p}(\Omega )'=  W^{-s,p'}\U {\overline{\Omega } }(\mathbb{R}^d ), \quad H^{s,p}(\Omega )' = H^{-s,p'}\U {\overline{\Omega } }(\mathbb{R}^d ), \quad B^{s,p}(\Omega )' = B^{-s,p'}\U {\overline{\Omega } }(\mathbb{R}^d ).
 
 \end{aligned}$$
+
 </div>
 
 where given a space of distributions $X$ on
@@ -907,17 +862,13 @@ $\mathbb{R}^d$ we define $X\U {\overline{\Omega }}$ as the space of
 distributions on $\mathbb{R}^d$ which are supported in
 $\overline{\Omega }$. In particular, for $\Omega =\mathbb{R}^d$,
 
-
 <div>
 $$\begin{aligned}
 W^{s,p}(\mathbb{R}^d )'=    W^{-s,p'}(\mathbb{R}^d ), \quad H^{s,p}(\mathbb{R}^d )' = H^{-s,p'}(\mathbb{R}^d ), \quad B^{s,p}(\mathbb{R}^d )' = B^{-s,p'}(\mathbb{R}^d ).
 
 \end{aligned}$$
+
 </div>
-
-
-
-
 
 <b>Observation 4</b>. Some authors define given $s>0$ and
 $p \in [1,\infty)$
@@ -928,15 +879,15 @@ $$\begin{align}
 W^{-s,p'}(\Omega )':=   W^{s,p}\U 0(\Omega )'.
 
 \end{align}$$
+
 </div>
 
 See, for example, [Biccari, 2020](https://link.springer.com/chapter/10.1007/978-3-319-97613-6_12), [Leoni, 2020](https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover)
 page 228. The definition in
-(\ref{alternative negative})  is equivalent to Definition
+(\ref{alternative negative}) is equivalent to Definition
 <a href="#negative s Slobodeckij">13</a> when $\Omega = \mathbb{R}^d$ or when
 $s \in k$. However, in other cases, the two definitions are not
 equivalent.
-
 
 ## The dual of $H^{s,p}(\mathbb{R}^d)$ and $B^{s,p}(\mathbb{R}^d)$
 
@@ -948,7 +899,6 @@ $H\U 0^{s,p}(\mathbb{R}^d)=H^{s,p}(\mathbb{R}^d)$.
 <b>Exercise 6</b> </a>  (Dual identification). Prove the identification
 $H^{-s,p'}(\mathbb{R}^d)=H^{s,p}(\mathbb{R}^d)'$ for $s>0$ and
 $p \in [1,\infty)$.
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -962,6 +912,7 @@ $$\begin{aligned}
 \ell\U f(u):= \int\U {\mathbb{R}^d}(\Lambda^s u)(\Lambda ^{-s}f).
 
 \end{aligned}$$
+
 </div>
 
 Show that this mapping is well-defined and continuous.
@@ -974,6 +925,7 @@ $$\begin{aligned}
 (u,\ell )=(\Lambda ^s u,\Lambda ^{-s}\ell ).
 
 \end{aligned}$$
+
 </div>
 
 Since $\Lambda ^s u \in L^p(\mathbb{R}^d)$ we deduce
@@ -988,16 +940,13 @@ H^{s,p}(\mathbb{R}^d)'                & \longrightarrow H^{-s,p'}(\mathbb{R}^d);
 \end{aligned}$$
 </div>
 
-
 </div>
 </div>
-
 
 <b>Exercise 7</b>. Since $H^{s}(\mathbb{R}^d)$ is a Hilbert space, by the
 Riesz representation theorem, we have the identification
 $H^s(\mathbb{R}^d) = H^{s}(\mathbb{R}^d)'$. As a result, by the previous
 exercise $H^{-s}(\mathbb{R}^d)= H^s(\mathbb{R}^d)$ How is this possible?
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -1014,11 +963,13 @@ $$\begin{aligned}
 & u \longmapsto   \left\langle\cdot, u\right\rangle\U {H^s(\mathbb{R}^d)}= \left\langle\cdot, \Lambda^{2s} u \right\rangle \mapsto \Lambda ^{2s} u.
 
 \end{aligned}$$
+
 </div>
 
 However, the composition
 $H^s(\mathbb{R}^d) \xrightarrow{\sim}H^{-s}(\mathbb{R}^d)$ is
 $\Delta ^{2s}$, which is hardly the identity mapping.
+
 </div>
 </div>
 
@@ -1065,7 +1016,6 @@ $Y^\circ:=\left\\{\ell \in X': Y \subset \mathrm{ker}(\ell)\right\\}$.
 Since, by the Hahn Banach theorem, the restriction is surjective, we
 obtain the
 [factorization](https://math.la.asu.edu/~quigg/teach/courses/578/2008/notes/adjoints.pdf)
-
 
 <div>
 $$\begin{align}
@@ -1126,11 +1076,8 @@ $$\begin{aligned}
 \sum\U {1\leq\left| \alpha \right|\leq k} D^\alpha u\U \alpha\in \mathcal{D}'(\Omega ),\quad \text{where }    u\U \alpha \in L^{p'}(\Omega ).
 
 \end{aligned}$$
+
 </div>
-
-
-
-
 
 <b>Proof.</b> Define the mapping
 
@@ -1140,6 +1087,7 @@ T: W^{k,p}(\Omega ) & \longrightarrow L^p(\Omega \to \mathbb{R}^d)              
 u                   & \longmapsto(D^\alpha u)\U {1 \leq\left| \alpha \right|\leq k}.
 
 \end{aligned}$$
+
 </div>
 
 Where the notation says that we send $u$ to the vector
@@ -1148,12 +1096,12 @@ $W^{k,p}(\Omega )$, we have that $T$ is an isometry and, in particular,
 continuously invertible on its image. Denote the image of $T$ by
 $X:=\mathrm{Im}(T)$. Given $\ell \in W^{-k,p'}(\Omega )$ we define
 
-
 <div>
 $$\begin{aligned}
 \ell\U 0: X \to \mathbb{R}, \quad \ell\U 0(\mathbf{w}):= \ell(T^{-1}\mathbf{w}), \quad \forall \mathbf{w} \in X.
 
 \end{aligned}$$
+
 </div>
 
 By Hahn Banach's theorem, we can extend $\ell\U 0$ from
@@ -1167,6 +1115,7 @@ $$\begin{aligned}
 \ell\U 1(\mathbf{w})=\int\U {\Omega}\mathbf{w}\cdot \mathbf{h}, \quad \forall \mathbf{w} \in L^p(\Omega \to \mathbb{R}^d).
 
 \end{aligned}$$
+
 </div>
 
 By construction, it holds that, for all
@@ -1177,6 +1126,7 @@ $$\begin{aligned}
 \ell(v)=\ell\U 0(Tv)=\int\U {\Omega}Tv\cdot \mathbf{f}=\sum\U {1\leq\left| \alpha \right|\leq k}\int\U {\Omega}f\U \alpha D^\alpha v .
 
 \end{aligned}$$
+
 </div>
 
 In particular, this holds for
@@ -1190,6 +1140,7 @@ $$\begin{align}
 \ell(v)=\left(v,\sum\U {1\leq\left| \alpha \right|\leq k} D^\alpha u\U \alpha\right)=: \omega(v)
 
 \end{align}$$
+
 </div>
 
 (we recall the notation $(v,\omega)$ for the duality
@@ -1200,7 +1151,6 @@ $\mathcal{D}(\Omega )$ in $W^{k,p}(\Omega )$ which is
 $W^{k,p}\U 0(\Omega )$. By
 (\ref{representation}) , the extension is necessarily $\omega$. This
 completes the proof. ◻
-
 
 The above theorem shows that $W^{-k,p'}(\Omega )$ can be equivalently
 formed by differentiating $k$ times functions in $L^{p'}(\Omega )$. The
@@ -1215,22 +1165,18 @@ $u\U \alpha$ will not be, for example, if $\left| \alpha \right|>0$ it is
 possible to add a constant to $u\U \alpha$ and still obtain the same
 result.
 
-
 <b>Exercise 8</b>. Show that for $s= \gamma +k$ where
 $k \in \mathbb{N}\U 0, \gamma \in [0,1)$ and $p \in [1,\infty)$ and an
 extension domain for $H^{s,p}$, every element in $H^{-s,p'}(\Omega )$
 can be written in the form $\left.w\right|\U {\partial \Omega }$, where
-
 
 <div>
 $$\begin{aligned}
 w=\sum\U {0\leq\left| \alpha \right|\leq k} \Lambda^{\gamma } D^\alpha u\U \alpha\in \mathcal{D}'(\mathbb{R}^d ),\quad \text{where }    u\U \alpha \in L^{p'}(\mathbb{R}^d ).
 
 \end{aligned}$$
+
 </div>
-
-
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -1241,22 +1187,22 @@ is an isomorphism and the just proved theorem
 <a href="#riesz representation">18</a> together with the integer equivalence
 in Theorem <a href="#equivalence fractional spaces">12</a> to show that
 
-
 <div>
 $$\begin{aligned}
 H^{s,p}(\mathbb{R}^d)' = \left\{ \sum\U {0\leq\left| \alpha \right|\leq k} \Lambda^{\gamma } D^\alpha u\U \alpha\in \mathcal{D}'(\mathbb{R}^d ),\quad \text{where }    u\U \alpha \in L^{p'}(\mathbb{R}^d )\right\}.
 
 \end{aligned}$$
+
 </div>
 
 Now conclude by the definition of $H^{-s,p'}(\Omega )$
 for open domains <a href="#bessel potential def Omega">5</a>.
+
 </div>
 </div>
 
 The above results extend to Besov spaces; see [Agranovich, 2020](https://link.springer.com/book/10.1007/978-3-319-14648-5)
 page 227. This gives,
-
 
 <b>Theorem 19</b>. Let
 $k \in \mathbb{N}\U 0, \gamma \in [0,1), \theta \in (0,1)$ and
@@ -1270,10 +1216,8 @@ H^{\gamma -k,p}(\Omega )  & = \left\{ \sum\U {0\leq\left| \alpha \right|\leq k} 
 W^{\gamma -k,p}(\Omega )  & = \left\{ \sum\U {0\leq\left| \alpha \right|\leq k} D^\alpha u\U \alpha\in \mathcal{D}'(\Omega ),\quad \text{where }    u\U \alpha \in W^{\gamma ,p}(\Omega )\right\}.
 
 \end{aligned}$$
+
 </div>
-
-
-
 
 # Some applications: Trace, embeddings and regularity
 
@@ -1291,7 +1235,7 @@ $$\begin{align}
 Then, it is necessary to know exactly what boundary data
 $g$ is admissible. Suppose that $\mathcal{L}$ is of order $k$ so we
 require $u \in W^{k,p}(\Omega )$. Will
-(\ref{PDE})  have a solution?
+(\ref{PDE}) have a solution?
 To be able to answer this question, we need to know the image of the
 trace operator. If $g \notin \operatorname{Tr}(W^{k,p}(\Omega ))$, then
 there is no hope of finding a solution. The following theorem
@@ -1310,6 +1254,7 @@ $$\begin{aligned}
 \operatorname{Tr}: H^{s,p}(\Omega ) \to B^{s-1/p,p}(\partial\Omega), \quad \operatorname{Tr}: B^{s,p}(\Omega ) \to B^{s-1/p,p}(\partial\Omega).
 
 \end{aligned}$$
+
 </div>
 
 Furthermore, given $g \in B^{s-1/p,p}(\partial\Omega)$,
@@ -1321,10 +1266,8 @@ $$\begin{aligned}
 \left\lVert u \right\rVert\U {W^{s,p}(\Omega )}\lesssim \left\lVert g \right\rVert\U {B^{s-1/p,p}(\partial\Omega)}.
 
 \end{aligned}$$
+
 </div>
-
-
-
 
 Note that, since we have equality of $W^{s,p}(\Omega )$ with
 $H^{s,p}(\Omega )$ and $B^{s,p}(\Omega )$ for integer and non-integer
@@ -1336,15 +1279,12 @@ $$\begin{aligned}
 \end{aligned}$$
 </div>
 
-
-
 ## Fractional Sobolev embeddings
 
 In this section, we state the fractional analogue of the Sobolev
 embedding theorems for regularity $\gamma \in (0,1)$. Here, the
 [analogous](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#global:~:text=concludes%20the%20proof.%C2%A0%E2%97%BB-,Exercise,-24%20.%20Given)
 of the exponent $p\U k^{\star }$ is
-
 
 <b>Definition 21</b>. Given $p \in [1,\infty)$ and $s>0$, with
 $s\in (d/p, \infty)$, we define the Sobolev critical exponent $p\U s^\star $
@@ -1355,10 +1295,8 @@ $$\begin{aligned}
 \frac{1}{p\U s ^\star }:=\frac{1}{p}-\frac{s }{d}.
 
 \end{aligned}$$
+
 </div>
-
-
-
 
 The natural extension of the Sobolev embedding theorem to the fractional
 case is the following. First, we introduce the following notation for
@@ -1369,8 +1307,6 @@ $$\begin{aligned}
 \left| u \right|\U {W^{\gamma, p}(\Omega )}:=\int\U {\mathbb{R}^d}\int\U {\mathbb{R}^d}\frac{\left| u(x+y)-u(y) \right|}{\left| x \right|^{d+\gamma p}}\,\mathrm{d}x \,\mathrm{d}y.
 \end{aligned}$$
 </div>
-
-
 
 See [Leoni, 2020](https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover) page 262 for the following result.
 
@@ -1384,6 +1320,7 @@ $$\begin{aligned}
 \|u\|\U {L^{p\U \gamma^\star }(\Omega )} \lesssim |u|\U {W^{\gamma, p}(\Omega )}, \quad\forall \gamma <  \frac{d}{p}
 
 \end{aligned}$$
+
 </div>
 
 In particular, by interpolation, for all
@@ -1394,10 +1331,8 @@ $$\begin{aligned}
 \|u\|\U {L^{q}(\Omega )} \lesssim \left\lVert u \right\rVert\U {W^{\gamma, p}(\Omega )}, \quad\forall \gamma <  \frac{d}{p}.
 
 \end{aligned}$$
+
 </div>
-
-
-
 
 The critical case $\gamma=\frac{d}{p}$ corresponding to
 $p\U \gamma^\star =\infty$ is now (see [Leoni, 2020](https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover) page 265)
@@ -1406,22 +1341,17 @@ $p\U \gamma^\star =\infty$ is now (see [Leoni, 2020](https://www.google.co.uk/bo
 <b>Theorem 23</b> </a> . Given an extension domain $\Omega$ for $W^{\gamma,p}$
 and $\gamma \in (0,1), q \in [p,\infty)$, it holds that
 
-
 <div>
 $$\begin{aligned}
 \|u\|\U {L^q(\Omega )} \lesssim\|u\|\U {W^{\gamma, p}(\Omega)}, \quad \gamma =  \frac{d}{p}.
 
 \end{aligned}$$
+
 </div>
-
-
-
-
 
 <b>Exercise 9</b>. Using Theorem
 <a href="#subcritical embedding">22</a> prove Theorem
 <a href="#critical embedding">23</a>
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -1435,9 +1365,11 @@ $$\begin{aligned}
 \|u\|\U {L^{p\U r^\star }(\Omega )}\leq \|u\|\U {L^{p\U r^\star }(\mathbb{R}^d )}  \lesssim \left\lVert u \right\rVert\U {W^{r, p}(\mathbb{R}^d )}\leq \left\lVert u \right\rVert\U {W^{\gamma, p}(\mathbb{R}^d  )}\lesssim \left\lVert u \right\rVert\U {W^{\gamma, p}(\Omega )}.
 
 \end{aligned}$$
+
 </div>
 
 Conclude by finding $r$ such that $p\U r^\star =q$.
+
 </div>
 </div>
 
@@ -1450,17 +1382,16 @@ $C^{\lfloor r \rfloor, r-\lfloor r \rfloor}$.
 <b>Theorem 24</b> </a>  (Morrey's fractional embedding). Let $\Omega$ be an
 extension domain for $W^{s,p}$, we have a continuous embedding
 
-
 <div>
 $$\begin{aligned}
 W^{s,p}(\Omega) \hookrightarrow  C^{s-d/p}(\Omega), \quad\forall s> \frac{d}{p}.
 
 \end{aligned}$$
+
 </div>
 
 This embedding also holds for $s=d / p$ provided that
 $s-d/p$ is non-integer.
-
 
 As in the non-fractional case, one can also consider higher smoothness
 on the right-hand side (see [Leoni, 2020](https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&gbpv=1&dq=giovanni+leoni+fractional+sobolev&pg=PP1&printsec=frontcover) page 290).
@@ -1476,17 +1407,13 @@ $$\begin{aligned}
 \left\lVert u \right\rVert\U {W^{\gamma\U 1,p\U 1}(\Omega )}\lesssim \left\lVert u \right\rVert\U {W^{\gamma\U 2,p\U 2}(\Omega )}, \quad\forall \gamma\U 2 - \frac{d}{p\U 2} = \gamma\U 1 - \frac{d}{p\U 1}.
 
 \end{aligned}$$
+
 </div>
-
-
-
-
 
 <b>Exercise 10</b>. Justify via a scaling argument that the condition
 $\gamma\U 2 - \frac{d}{p\U 2} = \gamma\U 1 - \frac{d}{p\U 1}$ is necessary for
 the embedding in Theorem
 <a href="#higher smoothness embedding">25</a>.
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -1510,20 +1437,17 @@ $$\begin{aligned}
 \|u\|\U {W^{s, p}(\mathbb{R}^d)} \lesssim\|u\|\U {W^{\gamma\U 1, p\U 1}(\mathbb{R}^d)}^\theta\|u\|\U {W^{\gamma\U 2, p\U 2}(\mathbb{R}^d)}^{1-\theta}
 
 \end{aligned}$$
+
 </div>
-
-
 
 for all
 $u \in W^{\gamma\U 1, p\U 1}(\mathbb{R}^d) \cap W^{\gamma\U 2, p\U 2}(\mathbb{R}^d)$,
 where $\frac{1}{p}=\frac{\theta}{p\U 1}+\frac{1-\theta}{p\U 2}$ and
 $s=\theta \gamma\U 1+$ $(1-\theta) \gamma\U 2.$
 
-
 The above results can also be formulated in terms of the Sobolev
 seminorm. For example, Theorem
 <a href="#interpolation embedding">26</a> can be formulated as
-
 
 <div>
 $$\begin{aligned}
@@ -1545,13 +1469,11 @@ $\gamma =s-k$. Then, it holds that
 $$\begin{aligned}
 & W^{s, p}(\Omega) \hookrightarrow L^q(\Omega), \quad \forall q \in [1, p\U k^\star ) \quad \text { and } s<\frac{d}{p} \\
 & W^{s, p}(\Omega) \hookrightarrow L^q(\Omega), \quad \forall q \in[p, \infty) \quad \text { and } s=\frac{d}{p} \\
-& W^{s, p}(\Omega) \hookrightarrow C^{s-d/p}(\bar{\Omega})\hspace{71pt}\text { and } s>\frac{d}{p},
+& W^{s, p}(\Omega) \hookrightarrow C^{s-d/p}(\bar{\Omega})\hspace{61pt}\text { and } s>\frac{d}{p},
 
 \end{aligned}$$
+
 </div>
-
-
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -1563,6 +1485,7 @@ $$\begin{aligned}
 \frac{1}{(p\U \gamma ^\star )\U k^\star }=\frac{1}{p\U \gamma }-\frac{k}{d}=\frac{1}{p}-\frac{s}{d}= \frac{1}{p\U s^\star }.
 
 \end{aligned}$$
+
 </div>
 
 The result follows from Theorem
@@ -1577,16 +1500,17 @@ $$\begin{aligned}
 \left\lVert D^\alpha u \right\rVert\U {L^{p\U \gamma ^\star }(\Omega )}\lesssim \left\lVert D^\alpha u \right\rVert\U {W^{\gamma ,p}(\Omega )} \lesssim \left\lVert u \right\rVert\U {W^{s,p}(\Omega )}, \quad \forall \left| \alpha \right|\leq k.
 
 \end{aligned}$$
+
 </div>
 
 Then, using the integer case, we conclude
-
 
 <div>
 $$\begin{aligned}
 \left\lVert u \right\rVert\U {L^{p\U s^\star }(\Omega )}=\left\lVert u \right\rVert\U {L^{(p\U \gamma ^\star )\U k ^\star }(\Omega )}\lesssim \left\lVert u \right\rVert\U {W^{k,p\U \gamma ^\star }(\Omega )}\lesssim \left\lVert u \right\rVert\U {W^{s,p}(\Omega )}.
 
 \end{aligned}$$
+
 </div>
 
 For the second case, by Theorem
@@ -1598,19 +1522,12 @@ $$\begin{aligned}
 \left\lVert u \right\rVert\U {W^{k,p\U \gamma ^\star }(\Omega )}\lesssim \left\lVert u \right\rVert\U {W^{s,p}(\Omega )},
 
 \end{aligned}$$
+
 </div>
 
 where by a calculation $k = d / p\U \gamma ^\star $. So, we
-conclude once more by using the integer case. Likewise, for the final
-case, we use Theorem <a href="#morrey embedding">24</a> to directly obtain
-
-<div>
-$$\begin{aligned}
-\left\lVert u \right\rVert\U {C^{k,\gamma}(\Omega )}\lesssim \left\lVert u \right\rVert\U {W^{s,p}(\Omega )}.
-
-\end{aligned}$$
-</div>
-
+conclude once more by using the integer case. For the final
+case, we use Theorem <a href="#morrey embedding">24</a> directly.
 
 </div>
 </div>
@@ -1623,7 +1540,6 @@ increasing to infinity around the critical threshold $s=d/p$.
 
 <img src="{{'assets/img/Figures/regularity_coefficient.svg'| relative_url }}" alt="Sobolev critical exponent for p=2 and d=1,2,3 " width="90%" id="fig:regularity_coefficient">
 
-
 <b>Exercise 12</b>. Let $\Omega$ be an extension domain for $W^{s\U 1,p}$.
 Show that, given $p\U 1, p\U 2 \in [1,\infty)$ and $0 \leq s\U 2<s\U 1 <\infty$,
 it holds that
@@ -1633,10 +1549,8 @@ $$\begin{aligned}
 W^{s\U 1, p\U 1}(\Omega ) \hookrightarrow W^{s\U 2, p\U 2}(\Omega ), \quad s\U 1 - \frac{d}{p\U 1} = s\U 2 - \frac{d}{p\U 2}.
 
 \end{aligned}$$
+
 </div>
-
-
-
 
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
@@ -1651,6 +1565,7 @@ $$\begin{aligned}
 \left\lVert D^\alpha u \right\rVert\U {W^{\gamma\U 2, p\U 2}(\Omega )}\lesssim \left\lVert D^\alpha u \right\rVert\U {W^{\gamma \U 1,p\U 1}(\Omega )} \leq \left\lVert u \right\rVert\U {W^{s\U 1,p\U 1}(\Omega )}, \quad \forall \left| \alpha \right|\leq k\U 2.
 
 \end{aligned}$$
+
 </div>
 
 Deduce that
@@ -1660,8 +1575,8 @@ $$\begin{aligned}
 \left\lVert u \right\rVert\U {W^{s\U 2,p\U 2}(\Omega )}\lesssim \left\lVert u \right\rVert\U {W^{s\U 1,p\U 1}(\Omega )}.
 
 \end{aligned}$$
-</div>
 
+</div>
 
 </div>
 </div>
@@ -1670,21 +1585,17 @@ For more higher order embeddings see also [Leoni, 2020](https://www.google.co.uk
 11.4. Finally, embeddings can be similarly formulated for Besov spaces.
 See [Sawano, 2020](https://link.springer.com/book/10.1007/978-981-13-0836-9) page 219 for the following result.
 
-
 <b>Theorem 27</b> (Embedding for Besov spaces). Let $\Omega$ be an
 extension domain, and consider
 $1 \leq p\U 1<p\U 2 \leq \infty, - \infty <s\U 2<s\U 1<\infty$. Then,
-
 
 <div>
 $$\begin{aligned}
 B^{s\U 1,p\U 1}(\Omega) \hookrightarrow B^{s\U 2,p\U 2}(\Omega), \quad s\U 1-\frac{n}{p\U 1}=s\U 2-\frac{n}{p\U 2} .
 
 \end{aligned}$$
+
 </div>
-
-
-
 
 This and other results can be formulated for the more general spaces
 $B^{s,p}\U q$. Where $B^{s,p}= B^{s,p}\U p$. See, [Triebel, 2020](https://link.springer.com/book/10.1007/978-3-0346-0419-2),
