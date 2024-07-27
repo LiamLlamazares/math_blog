@@ -294,7 +294,7 @@ conditions.
  <a name="well-posed 1">
 <b>Theorem 5</b> </a> . Let $U \subset \mathbb{R}^d$ be an arbitrary open set.
 Suppose Assumption <a href="#Ass1">1</a>
-holds and let $\mathbf{b}=0$ . Then, equation
+holds and let $\mathbf{b}=0$. Then, if $c >0$ equation
 (\ref{PDE})  is well-posed,
 and we have the homeomorphism
 
@@ -387,7 +387,7 @@ $\mathcal{L}\U \gamma$
 
 <div>
 $$\begin{aligned}
-B\U \gamma (u,v):= (u, \mathcal{L}\U \gamma u)=B(u,v) + \gamma (u,v).
+B\U \gamma (u,v):= (v, \mathcal{L}\U \gamma u)=B(u,v) + \gamma (u,v).
 
 \end{aligned}$$
 </div>
@@ -1147,7 +1147,7 @@ as sums and products of derivatives up to order $k+2$ of $u,\mathbf{A}$ and
 up to order $k+1$ of $\mathbf{b}$ and $c$. As a result, by the conditions on
 the coefficients in
 (\ref{coefficients k1})  and the induction hypothesis
-$u \in H^{k+2}(\mathbb{R}^d)$, we have that
+(\ref{hi}) , we have that
 $\widetilde{f} \in L^2(\mathbb{R}^d)$ with
 
 <div>
@@ -1159,9 +1159,9 @@ $$\begin{align}
 </div>
 
 By equation
-(\ref{weak solk}) , $\widetilde{u}$ is a solution to problem
-(\ref{PDE})  and applying the
-case $k=0$ (Theorem <a href="#improved reg Rd">11</a>) together with
+(\ref{weak solk}) , $\widetilde{u}$ is a solution to
+$\mathcal{L}\widetilde{u}= \widetilde{f}$ and applying the case $k=0$
+(Theorem <a href="#improved reg Rd">11</a>) together with
 (\ref{hi})  and
 (\ref{Hkr})  shows that
 $\widetilde{u} \in H^{2}(\mathbb{R}^d)$ with
@@ -1294,9 +1294,8 @@ of functions in $H\U 0^1(\mathbb{R}^d)$. For example, if
 $u \in H^2(U) \cap H\U 0^1(U)$ we do not necessarily have that
 $\widetilde{u}$ is in $H^2(\mathbb{R}^d)$. Consider for example
 $U=(-1,1)$ and $u(x)=1-\frac{1}{2} x^2$. Then, $u$ solves our equation
-(\ref{PDE})  with $f=1$.
-However, $\widetilde{u}$ is not in $H^2(\mathbb{R})$ and given
-$\varphi \in C\U c^\infty(\mathbb{R})$
+(\ref{PDE})  with $f=1$ and,
+given $\varphi \in C\U c^\infty(\mathbb{R})$,
 
 <div>
 $$\begin{aligned}
@@ -1305,7 +1304,8 @@ $$\begin{aligned}
 \end{aligned}$$
 </div>
 
-
+However, $\widetilde{u}$ is not in $H^2(\mathbb{R})$ as
+$\widetilde{u}''= \delta \U {-1}+ \delta \U 1 -2 \cdot  1\U U \in \mathcal{D}'(\mathbb{R})$.
 </div>
 </div>
 
@@ -1361,7 +1361,7 @@ Proceeding as in the proof of Theorem
 
 <div>
 $$\begin{aligned}
-\int\U V\left|D\U j^h \nabla u\right|^2 d x \leq \int\U U \eta^2\left|D\U j^h D u\right|^2 d x \lesssim C \int\U U f^2+u^2+|\nabla u|^2.
+\int\U V\left|D\U j^h \nabla u\right|^2 d x \leq \int\U U \eta^2\left|D\U j^h \nabla u\right|^2 d x \lesssim C \int\U U f^2+u^2+|\nabla u|^2.
 
 \end{aligned}$$
 </div>
@@ -1490,7 +1490,7 @@ as sums and products of derivatives up to order $k+2$ of $u,\mathbf{A}$ and
 up to order $k+1$ of $\mathbf{b}$ and $c$. As a result, by the conditions on
 the coefficients in
 (\ref{coefficients k12})  and the induction hypothesis
-$u \in H \U {\mathrm{loc}}^{k+2}(U)$, we have that
+(\ref{hi2}) , we have that
 $\widetilde{f} \in L^2(V)$ with
 
 <div>
@@ -1503,8 +1503,8 @@ $$\begin{align}
 
 By equation
 (\ref{weak solk2}) , $\widetilde{u}$ is a solution to
-(\ref{PDE})  on $V$ and
-applying (\ref{hi2})  and
+$\mathcal{L}\widetilde{u}=\widetilde{f}$ on $V$ and applying
+(\ref{hi2})  and
 (\ref{Hk})  shows that
 $\widetilde{u} \in H^{2} \U {\mathrm{loc}}(V)$ with
 
@@ -1516,7 +1516,7 @@ $$\begin{aligned}
 </div>
 
 Since $\alpha$ was any coefficient of order $k+1$, we
-deduce that $u \in H^{k+3}(W)$ with
+deduce that $u \in H^{k+3}(V)$ with
 
 <div>
 $$\begin{aligned}
@@ -1956,7 +1956,7 @@ inequality and the regularity of the coefficients, we obtain the bound
 
 <div>
 $$\begin{aligned}
-\left\lVert u \right\rVert\U {H^{2}(V\U {x\U 0} )} \lesssim \left\lVert u \right\rVert\U {H^2(\widetilde{V} )} \lesssim \left\lVert f \right\rVert\U {H^k(\Omega )}+\left\lVert g \right\rVert\U {H^{k+1/2}(\partial \Omega )}+\left\lVert u \right\rVert\U {L^2(\Omega )}.
+\left\lVert u \right\rVert\U {H^{2}(V\U {x\U 0} )} \lesssim \left\lVert u \right\rVert\U {H^2(\widetilde{V} )} \lesssim \left\lVert f \right\rVert\U {L^2(\Omega )}+\left\lVert g \right\rVert\U {H^{-1/2}(\partial \Omega )}+\left\lVert u \right\rVert\U {L^2(\Omega )}.
 
 \end{aligned}$$
 </div>
