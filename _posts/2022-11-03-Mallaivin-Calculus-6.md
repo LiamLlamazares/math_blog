@@ -74,7 +74,7 @@ Malliavin differentiable and we have that
  $$D\U r \int\U {0}^t X(s) dW(s)=X(r)+\int\U {r}^t X(s) dW(s), \quad\forall r\leq t.$$
 </div>
 
-Proof. Suppose that $D\U tX$ is progressively measurable. Then, using
+_Proof._ Suppose that $D\U tX$ is progressively measurable. Then, using
 the previously studied divergence [property](https://nowheredifferentiable.com/2022-07-02-Malliavin-Calculus-4/#:~:text=be%20a-,stochastic,-process%20such%20that) and the fact that the
 Skorohod integral is an [extension of the Itô integral](https://nowheredifferentiable.com/2022-06-10-Malliavin-Calculus-2/#:~:text=As%20we%20saw%20in%20the%20previous%20theorem) gives
 
@@ -126,7 +126,7 @@ Then, given $h\in L^2(I)$ it holds that
  $$D\U t\left\langle X,h\right\rangle\U {L^2(I)}=\left\langle D\U tX,h\right\rangle\U {L^2(I)}.$$
 </div>
 
-Proof. We will apply Fubini, we have that
+_Proof._ We will apply Fubini, we have that
 
 <div>
  $$\left\langle D\U rX,h\right\rangle\U {L^2(I)}=\int\U I\sum\U {n=0}^{\infty}nI\U {n-1}(f\U n(\cdot ,r,s))ds=\sum\U {n=0}^{\infty}nI\U {n-1}\left(\int\U If\U n(\cdot ,r,s)h(s)ds\right).$$
@@ -187,7 +187,7 @@ solution $X\U t$ and for all $r\leq t$ we have
     \end{gathered}$$
 </div>
 
-Proof. The proof is quite technical and we merely sketch it. The full
+_Proof._ The proof is quite technical and we merely sketch it. The full
 detail in [2](https://www.cambridge.org/core/books/introduction-to-malliavin-calculus/8E17E009769FE6797351721C024BDCAE) page 120. By the previous discussion, it
 is only necessary to show that $X$ verifies the conditions of the lemma,
 i.e. is Malliavin differentiable and its differential verifies that
@@ -249,7 +249,7 @@ differentiable on $[0,t]$ with
  $$D\U r X\U t=\sigma\left(X\U t\right) \exp \left(\int\U r^t\left(b\left(X\U s\right)-\frac{1}{2}\left(\sigma^{\prime}\right)^2\left(X\U s\right)\right) d s+\int\U r^t \sigma^{\prime}\left(X\U s\right) d W(s)\right).$$
 </div>
 
-Proof. Let us fix any $r\leq t$ and set. Then
+_Proof._ Let us fix any $r\leq t$ and set. Then
 
 <div>
  $$Y\U r(s):=D\U rX(s);\quad  u(s):=b'(X(s));\quad v(s):=\sigma'(X(s))$$

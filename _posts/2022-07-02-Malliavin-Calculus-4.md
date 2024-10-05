@@ -135,7 +135,7 @@ More concretely,
         }\right].$$
 </div>
 
-Proof. As usual, we apply the definitions in terms of the chaos
+_Proof._ As usual, we apply the definitions in terms of the chaos
 expansions. Let
 
 <div>
@@ -239,7 +239,7 @@ $X \in L^2(\zl 0,T\zr \times\Omega)$ and $Y
 $L^2(\zl 0,T\zr \times\Omega)$, and $\delta{X^N} \to Y$ in $L^2(\Omega)$. Then
 $X$ is Skorokhod integrable, and $\delta{X^N} \to \delta{X}$.
 
-Proof. Recall that Skorokhod integrability of $X$ can be expressed in
+_Proof._ Recall that Skorokhod integrability of $X$ can be expressed in
 terms of convergence of the series
 
 <div>
@@ -289,7 +289,7 @@ $$Y \int\U 0^T X\U t \, \delta{W}\U t
 
 almost surely.
 
-Proof. Suppose $Y$ has finite chaos expansion, and choose some
+_Proof._ Suppose $Y$ has finite chaos expansion, and choose some
 $Z \in \mathbb{D}^{1, 2}$ also with finite chaos expansion. Then by
 adjointness and the product rule,
 

@@ -54,7 +54,7 @@ differentiable random variables.
 **Proposition 1**. Let $X\in \mathbb{D}^{1,2}$, then the support of $X$
 is an interval.
 
-Proof. Suppose not, then there must exist $a<x<b$ where $a,b$ are in
+_Proof._ Suppose not, then there must exist $a<x<b$ where $a,b$ are in
 the support of $X$ and $x$ isn't. In particular, there exists
 $\epsilon >0$ such that
 
@@ -109,7 +109,7 @@ a fluke.
 **Theorem 1** (Existence of densities). Let $X\in \mathbb{D}^{1,2}$. If
 $\norm{DX}\U {H}>0$ almost everywhere, then $X$ has a density.
 
-Proof. By the [Radon Nikodyn theorem](https://en.wikipedia.org/wiki/Radon%E2%80%93Nikodym_theorem#Formal_description:~:text=%5Bedit%5D-,Radon%E2%80%93Nikodym%20theorem,-%5Bedit%5D) all we need to do is show
+_Proof._ By the [Radon Nikodyn theorem](https://en.wikipedia.org/wiki/Radon%E2%80%93Nikodym_theorem#Formal_description:~:text=%5Bedit%5D-,Radon%E2%80%93Nikodym%20theorem,-%5Bedit%5D) all we need to do is show
 that $\mathbb{P}\U X$ is absolutely continuous with respect to the
 Lebesgue measure $\lambda$. That is, we must show that if,
 $\lambda (A)=0$ then also $\mathbb{P}\U X(A)=0$. Let us set $g(y):=1\U A(y)$
@@ -148,7 +148,7 @@ $DX/\norm{DX}^2\U {H}\in \text{dom} (\delta )$. Then $X$ has a density
  $$p(x):=\mathbb{E}\left[1\U {X\leq x}\delta \left(\frac{DX}{\norm{DX}\U {H}^2}\right) \right] .$$
 </div>
 
-Proof. Let us consider $g\in C\U c^\infty({\mathbb R})$ and set as
+_Proof._ Let us consider $g\in C\U c^\infty({\mathbb R})$ and set as
 before
 
 <div>
@@ -189,7 +189,7 @@ there exists $H\U {k}(X,Y)\in \mathbb{D}^\infty$ such that
  $$\mathbb{E}[ \varphi^{(k)}(X)Y] =\mathbb{E}[ \varphi(X)H\U k(X,Y)] .$$
 </div>
 
-Proof. We proceed by induction and consider first the case $k=1$. We
+_Proof._ We proceed by induction and consider first the case $k=1$. We
 want to integrate parts in a probabilistic integral, as opposed to a
 classical deterministic one, against the Lebesgue measure. The idea is
 therefore to find a way to introduce the Malliavin differential and then
@@ -231,7 +231,7 @@ then so can its density.
 $X\in \mathbb{D}^\infty$ such that $\norm{DX}\U {H}>0$ almost everywhere,
 then $X$ has a smooth density with respect to the Lebesgue measure.
 
-Proof. By Theorem [2](<https://nowheredifferentiable.com/2022-11-02-Malliavin-Calculus-5/#:~:text=our%20last%20one.-,Theorem%202,-(Density%20expression).%20Let>) we know that $X$ has a density $p(x)$. To show
+_Proof._ By Theorem [2](<https://nowheredifferentiable.com/2022-11-02-Malliavin-Calculus-5/#:~:text=our%20last%20one.-,Theorem%202,-(Density%20expression).%20Let>) we know that $X$ has a density $p(x)$. To show
 that $p$ is smooth, by [Sobolev embedding](https://mathworld.wolfram.com/SobolevEmbeddingTheorem.html) it is sufficient to show
 that $p$ is weakly differentiable with order $n$ for all
 $n \in \mathbb{N}$. That is, for all

@@ -76,7 +76,7 @@ $\mathbb{D}\U {1,2}$ and establishes a linear isometry
         .\end{aligned}$$
 </div>
 
-Proof. The proof of the first part of the proposition is a
+_Proof._ The proof of the first part of the proposition is a
 straightforward application of Itô's $n$-th isometry and the monotone
 convergence theorem as we have that
 
@@ -106,7 +106,7 @@ a seminormed space. Furthermore
  $$\|X\|\U {\mathbb{D}\U {1,2}}=0 \iff DX=0\iff X\in {\mathbb R}.$$
 </div>
 
-Proof. The triangle inequality and the absolute homogeneity are direct
+_Proof._ The triangle inequality and the absolute homogeneity are direct
 consequences of the isometry of the previous proposition. This shows
 that $\norm{\cdot }\U {\mathbb{D}\U {1,2}}$ is a seminorm. The second part
 follows from the fact that
@@ -152,7 +152,7 @@ there exists $X \in \mathbb{D}\U {1,2}$ such that
  $$\lim\U {m \to \infty}\|X\U m-X\|\U {L^2(\Omega)}=\lim\U {n \to \infty}\|DX\U m-DX\|\U {L^2(I\times\Omega)}.$$
 </div>
 
-Proof. First of all, we note that since $L^2(\Omega)$ is complete
+_Proof._ First of all, we note that since $L^2(\Omega)$ is complete
 $X\U m$ must converge to some $X\in L^2(\Omega)$. Let us write the
 respective chaos expansions as
 
@@ -279,7 +279,7 @@ $q=p/(\alpha+1)$. Furthermore,
  $$D\varphi(X)=\nabla \varphi(X) \cdot D X.$$
 </div>
 
-Proof. By the mean value inequality we have that
+_Proof._ By the mean value inequality we have that
 
 <div>
  $$\abs{\varphi(x)}\leq C'(1+\norm{x}^{\alpha+1})=C'(1+\norm{x}^{\frac{p}{q}}).$$

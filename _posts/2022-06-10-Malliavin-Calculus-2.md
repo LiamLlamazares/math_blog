@@ -63,7 +63,7 @@ $t \in I$, then $X$ is adapted iff
  $$f\U n(t\U 1,\ldots,t\U n,t)=0,\quad\forall t\leq\max\U {i=1,\ldots,n} t\U i .$$
 </div>
 
-Proof. Firstly, we note that a stochastic process $X$ is adapted iff
+_Proof._ Firstly, we note that a stochastic process $X$ is adapted iff
 
 <div>
  $$X(t)=\mathbb{E}\U {\mathcal{F}\U t}\zl X(t)\zr \quad\forall t\in I.$$
@@ -99,7 +99,7 @@ integral of $X$ is
  $$\int\U {I} X(t) dW(t)=\sum\U {n=0}^{\infty} I\U {n+1}(f\U {n,S}).$$
 </div>
 
-Proof. This is a direct calculation using the previous result as
+_Proof._ This is a direct calculation using the previous result as
 
 <div>
  $$\begin{gathered}
@@ -122,7 +122,7 @@ Denote by $X(t):=\sum\U {n=0}^\infty X\U n(t)$. Then if $X \in L^2(I\times \Omeg
  $$\lim\U{N\to\infty}\norm{X-\sum\U{n=0}^N X\U n}\U {L^2(I\times\Omega)}=0. $$
 </div>
 
-Proof. We have that
+_Proof._ We have that
 
 <div>
  $$ \lim \U {N\to\infty}\norm{X-\sum\U{n=0}^N X\U n}\U{L^2(I\times\Omega)}=\lim \U {N\to\infty}\left\|\norm{\sum\U{n=N}^\infty X\U n}\U{L^2(\Omega)}\right\|\U{L^2(I)}=\left\|\lim \U {N\to\infty}\norm{\sum\U{n=N}^\infty X\U n}\U{L^2(\Omega)}\right\|\U{L^2(I)}=0.$$
@@ -161,7 +161,7 @@ $X\in L^2(I\times \Omega)$ has a Skorohod integral iff
  $$\sum\U {n=0}^{\infty} (n+1)!\|f\U {n,S}\|^2\U {L^2(I^{n+1})}<\infty.$$
 </div>
 
-Proof. By Itô's $n$-th isometry we have that
+_Proof._ By Itô's $n$-th isometry we have that
 
 <div>
  $$\norm{\delta(X)}^2\U {L^2(\Omega)}=\sum\U {n=0}^{\infty} \norm{I\U {n+1}(f\U {n,S})}^2\U {L^2(\Omega)}=\sum\U {n=0}^{\infty} (n+1)!\norm{f\U {n,S}}^2\U {L^2(I^{n+1})}.$$
@@ -235,7 +235,7 @@ $\lambda \in {\mathbb{R}}$. Then it holds that
  $$\int\U {A}X(t) \delta(t)+ \int\U {B}X(t)\delta W(t):=\delta(X\cdot 1\U A)+\delta(X\cdot 1\U B)=\delta(X).$$
 </div>
 
-Proof. The first property is a consequence of the chaos expansion's
+_Proof._ The first property is a consequence of the chaos expansion's
 linearity (which is itself a consequence of the linearity of iterated
 Itô integration). The second is due to the expectation of the Itô
 integral being $0$. The final property is a consequence of the fact that

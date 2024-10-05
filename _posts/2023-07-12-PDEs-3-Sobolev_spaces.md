@@ -641,7 +641,7 @@ $$\begin{align}
 
 is injective and continuous.
 
-Proof. We begin by showing that $T\U u \in \mathcal{D}'(U)$. Firstly,
+_Proof._ We begin by showing that $T\U u \in \mathcal{D}'(U)$. Firstly,
 the integral in (\ref{duality}) is finite as $\varphi$ has compact support.
 Secondly, if we write $K$ for the support of $\varphi$, it holds that
 
@@ -766,7 +766,7 @@ w=0 \text{ on  } U\U \alpha , \quad\forall \alpha \in I.
 Then $w$ vanished on
 $U:=\bigcup\U {\alpha \in  I}U\U \alpha$.
 
-Proof. Let $\varphi$ have support in $U$. Then, by compactness, we can
+_Proof._ Let $\varphi$ have support in $U$. Then, by compactness, we can
 extract a finite covering $\left\\{U\U i\right\\}\U {i=1}^n$ of
 $\mathbf{supp}(\varphi)$. Let $\left\\{\rho \U i\right\\}\U {i=1}^n$ be a
 partition of unity subordinate to $U\U i$ (see Appendix
@@ -910,7 +910,7 @@ $k \in \mathbb{N}$ and $p \in [1,\infty]$ both $W^{k,p}(U)$ and
 $W^{k,p}\U {\mathrm{loc}}(U)$ are Banach spaces. If $p \in (1,\infty)$
 these spaces are also reflexive.
 
-Proof. Let $\left\\{u\U n\right\\}\U {n=1}^\infty$ be a Cauchy sequence in
+_Proof._ Let $\left\\{u\U n\right\\}\U {n=1}^\infty$ be a Cauchy sequence in
 $W^{k,p}(U)$. Then, by definition of the norm on $W^{k,p}(U)$ the
 sequence of derivatives $D^\alpha u\U n$ is Cauchy in $L^p(U)$ for each
 $\left| \alpha \right|\leq k$ and since $L^p(U)$ is complete, converge
@@ -986,7 +986,7 @@ D^\alpha (v\star u)= v\star  D^\alpha u
 \end{aligned}$$
 </div>
 
-Proof. Points 1 and 2 follow by the definition of weak derivative and
+_Proof._ Points 1 and 2 follow by the definition of weak derivative and
 the relevant properties for classical derivatives. The third property
 follows from the second as, by Fubini,
 
@@ -1097,7 +1097,7 @@ $$\begin{aligned}
 \end{aligned}$$
 </div>
 
-Proof. Given a compactly embedded set $V \Subset U$ we can take $n$
+_Proof._ Given a compactly embedded set $V \Subset U$ we can take $n$
 large enough so that $V+  B \left(0, \frac{1}{n}\right) \subset U$ and
 as a result, the convolution $\varphi\U n:= \tilde{u} \star  \phi\U n$ verifies
 (see Observation [6](#local smoothing))
@@ -1186,7 +1186,7 @@ $$\begin{aligned}
 \end{aligned}$$
 </div>
 
-Proof. Let $\eta   \in C\U c^\infty(\mathbb{R}^d)$ be equal to $1$ on
+_Proof._ Let $\eta   \in C\U c^\infty(\mathbb{R}^d)$ be equal to $1$ on
 $B\U 1$ and set $\eta  \U n(x):=\eta  (x /n)$. Then, given
 $u \in W^{k,p}(\mathbb{R}^n)$ and a smooth approximation to unity
 $\phi\U n$, we obtain that by the triangle inequality
@@ -1211,7 +1211,7 @@ $$\begin{aligned}
 \end{aligned}$$
 </div>
 
-Proof. The proof is an instructive way of using a partition of unity
+_Proof._ The proof is an instructive way of using a partition of unity
 to piece together a local result (in this case, Theorem
 [3](#local)) to get a global
 one. Let $\epsilon >0$ and consider an open covering
@@ -1353,7 +1353,7 @@ $$\begin{aligned}
 \end{aligned}$$
 </div>
 
-Proof. The idea will be to locally translate points close to the
+_Proof._ The idea will be to locally translate points close to the
 boundary further into $\Omega$ so that we can convolve with an
 approximation of unity and then recover the global case with a partition
 of unity. We begin by "straightening the boundary". That is, since
@@ -1497,7 +1497,7 @@ The following theorem shows that if $\partial\Omega$ is uniformly Lipschitz, $\O
 **Theorem 8** </a>  (General extension). Let $\Omega\subset \mathbb{R}^d$ be
 an open set with uniformly Lipschitz boundary. Then $\Omega$ is an extension domain for $W^{k,p}(\Omega)$ and $C^k(\Omega)$ for all $p \in [1,\infty]$.
 
-Proof. We prove the result when the domain is bounded with $C^k$ boundary and when $p<\infty$. The general result can be found in [Leoni, 2017](https://www.google.co.uk/books/edition/A_First_Course_in_Sobolev_Spaces/qoA8DwAAQBAJ?hl=en&gbpv=0) page 424.
+_Proof._ We prove the result when the domain is bounded with $C^k$ boundary and when $p<\infty$. The general result can be found in [Leoni, 2017](https://www.google.co.uk/books/edition/A_First_Course_in_Sobolev_Spaces/qoA8DwAAQBAJ?hl=en&gbpv=0) page 424.
 work first in the upper half-space (the canonical example of
 a manifold with boundary)
 
@@ -1691,7 +1691,7 @@ $$\begin{aligned}
 Such that $\operatorname{Tr}(u) =\left.u\right|\U {\partial \Omega}$ for
 all $u \in C(\overline{\Omega}) \cap W^{1,p}(\Omega)$.
 
-Proof. We will only prove the case where $\Omega$ is bounded and of class $C^1$. The proof of the general statement can once more be found in [Leoni, 2017](https://www.google.co.uk/books/edition/A_First_Course_in_Sobolev_Spaces/qoA8DwAAQBAJ?hl=en&gbpv=0) page 592.
+_Proof._ We will only prove the case where $\Omega$ is bounded and of class $C^1$. The proof of the general statement can once more be found in [Leoni, 2017](https://www.google.co.uk/books/edition/A_First_Course_in_Sobolev_Spaces/qoA8DwAAQBAJ?hl=en&gbpv=0) page 592.
 
 As in previous results, the trick is to suppose first $u$ is
 smooth, work locally, and then obtain a global result using a partition
@@ -1780,7 +1780,7 @@ $$\begin{aligned}
 \end{aligned}$$
 </div>
 
-Proof. Straightening out the boundary and using the extension operator
+_Proof._ Straightening out the boundary and using the extension operator
 as in the trace theorem [8](#trace), it is sufficient to work in the case where $u$ is
 smooth and defined on $\mathcal{H}^{d}$. By Fourier inversion, if we
 write $\xi=(\xi',\xi \U d)$
@@ -2010,7 +2010,7 @@ $$\begin{align}
 \end{align}$$
 </div>
 
-Proof. The case $d=2$ is immediate by Fubini. The general case follows
+_Proof._ The case $d=2$ is immediate by Fubini. The general case follows
 from induction on $d$. We write $(x\U 1,\ldots x\U {d+1})=(x',x\U {d+1})$
 
 <div>
@@ -2057,7 +2057,7 @@ $$\begin{aligned}
 \end{aligned}$$
 </div>
 
-Proof. By density (see Theorem [4](#approx rd)), it is enough to take
+_Proof._ By density (see Theorem [4](#approx rd)), it is enough to take
 $u \in C\U c^\infty(\mathbb{R}^d)$. Applying the fundamental theorem of
 calculus gives
 
@@ -2134,7 +2134,7 @@ W^{1,d}(\mathbb{R}^d) \hookrightarrow L^q(\mathbb{R}^d) , \quad\forall  q \in [d
 \end{aligned}$$
 </div>
 
-Proof. Setting $p=d$ in our estimate
+_Proof._ Setting $p=d$ in our estimate
 (\ref{hard}) gives
 
 <div>
@@ -2323,7 +2323,7 @@ Furthermore, if $\Omega$ is **bounded** the first, second, fourth, and third com
 inclusions are
 [compact](https://en.wikipedia.org/wiki/Compact_embedding).
 
-Proof. The fact that the above inclusions are continuous, follows by
+_Proof._ The fact that the above inclusions are continuous, follows by
 our three Sobolev inequalities in Exercises
 [24](#est12),[25](#est22),[26](#est32)
 together with the extension theorem <a href="#extension general">8</a>.
@@ -2448,7 +2448,7 @@ W^{k,p}(\Omega) \hookrightarrow L^p(\Omega).
 
 </div>
 
-Proof. For any of the cases in [Rellich-Kondrachov's theorem](rellich), the
+_Proof._ For any of the cases in [Rellich-Kondrachov's theorem](rellich), the
 condition on $q$ holds. The first part of the result then follows as
 $C^k(\overline{\Omega}) \hookrightarrow L^q(\Omega)$ and the second part
 from the fact that $p< p^{k^\star }$. ◻
@@ -2480,7 +2480,7 @@ W^{k+l,p}(\Omega)\hookrightarrow W^{l,q}(\Omega)
 
 is also compact.
 
-Proof. Let $u\U n \in W^{k+l,p}(U)$ be a bounded sequence. By assumption
+_Proof._ Let $u\U n \in W^{k+l,p}(U)$ be a bounded sequence. By assumption
 $W^{k,p}(\Omega)$ is compact in $L^q(\Omega)$, so we may extract a
 subsequence $u\U {n\U k}$ such that, for $\abs{\alpha} \leq l$,
 
@@ -2527,7 +2527,7 @@ Using Observation [4](#traceobs) we can also obtain Sobolev embeddings for non-s
 domain. Then, the conclusions of Theorem [13](rellich), Proposition
 [0](higher), and Corollary [0.1](higher 2) hold for the space hold if we swap everywhere $W^{k,p}(\Omega)$ for $W^{k,p}\U 0(U)$ and $W^{k+l,p}(\Omega)$ for $W^{k+l,p}\U 0(U)$.
 
-Proof. The proof follows in an identical method as the aforementioned results as we still have density of smooth functions $W^{k,p}\U 0(U)$ and the extension theorem, which is now given by Exercise [21](extensiontrace). ◻
+_Proof._ The proof follows in an identical method as the aforementioned results as we still have density of smooth functions $W^{k,p}\U 0(U)$ and the extension theorem, which is now given by Exercise [21](extensiontrace). ◻
 
 The main utility of all these compact embeddings is that given a
 sequence $u\U n$ whose derivatives are bounded in certain $L^p$ norms we
@@ -2544,7 +2544,7 @@ $$\begin{aligned}
 \end{aligned}$$
 </div>
 
-Proof. By density (which holds by definition of $W^{k,p}\U 0(U)$) of it
+_Proof._ By density (which holds by definition of $W^{k,p}\U 0(U)$) of it
 is sufficient to reason for $u \in C\U c^\infty(U)$ and pass to the limit.
 By relabelling, we may suppose $U$ is bounded along the $x\U d$ axis. That
 is, for some finite $a<b$
@@ -2629,7 +2629,7 @@ $$\begin{aligned}
 
 In any of the above cases, $f\star g=g\star f$.
 
-Proof. The first point follows from the triangle inequality for the
+_Proof._ The first point follows from the triangle inequality for the
 Bochner integral (in this context, this is also called Minkowski's
 integral inequality) as
 
@@ -2713,7 +2713,7 @@ $X+Y$ has law $\mu \star \nu$. Furthermore, if $X, Y$ are independent and
 $\mu,\nu$ are absolutely continuous with densities $f,g$ then $X+Y$ is
 absolutely continuous with density $f\star g$.
 
-Proof. The first part is by definition of pushforward. To show that
+_Proof._ The first part is by definition of pushforward. To show that
 $\mu \star \nu$ has density $f\star g$ it suffices to read the reasoning in
 equation (\ref{push})
 backward. ◻
@@ -2732,7 +2732,7 @@ $$\begin{aligned}
 \end{aligned}$$
 </div>
 
-Proof. This follows directly from the definition of convolution. ◻
+_Proof._ This follows directly from the definition of convolution. ◻
 
 One technical point is that to define the convolution of two objects, they must be defined globally. For example if
 $U \subsetneq \mathbb{R}^d$, we can't convolve $f \in L^p(\mathbb{R}^d)$
@@ -2922,7 +2922,7 @@ convolution exists. First, we need the following lemma.
 **Lemma 4** </a> . The space $C\U c(\mathbb{R}^d)$ is dense in
 $L^p(\mathbb{R}^d)$ for all $p \in [1,\infty)$.
 
-Proof. Consider $f \in  L^p(\mathbb{R}^d)$. If $f =1\U A$ for some
+_Proof._ Consider $f \in  L^p(\mathbb{R}^d)$. If $f =1\U A$ for some
 measurable set $A$ with finite measure then, by the outer and inner
 regularity of the Lebesgue measure, we may take $U, K$ open and compact
 respectively with $U \subset A \subset K$ and
@@ -2963,7 +2963,7 @@ $$\begin{aligned}
 \end{aligned}$$
 </div>
 
-Proof. Consider $\epsilon >0$. Using that $\phi\U n$ has mass $1$ and is
+_Proof._ Consider $\epsilon >0$. Using that $\phi\U n$ has mass $1$ and is
 supported on $B(0,1/n)$.
 
 <div>
@@ -3038,7 +3038,7 @@ D^\alpha(f \star \phi)=f\star D^\alpha \phi , \quad\forall \alpha \in \mathbb{N}
 Furthermore, if $f$ is compactly supported then
 $f\star \phi \in  C\U c^\infty(\mathbb{R}^d)$.
 
-Proof. By induction, it suffices to consider the case
+_Proof._ By induction, it suffices to consider the case
 $D^\alpha = \partial \U i$ for some $1 \leq i \leq d$. This case can be
 proved by a [differentiation under the integral
 sign](https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=Proposition%202%20)
@@ -3077,7 +3077,7 @@ Where the closures are respectively in the
 $L^p(\mathbb{R}^d)$ and the uniform topology $($given by
 $\left\lVert \cdot  \right\rVert\U {\infty})$.
 
-Proof. This follows immediately from Proposition
+_Proof._ This follows immediately from Proposition
 [6](#app pn) and Proposition
 [7](#smooth). ◻
 
@@ -3129,7 +3129,7 @@ $$\begin{aligned}
 \end{aligned}$$
 </div>
 
-Proof. The first part can be proved by the same method as in Lemma
+_Proof._ The first part can be proved by the same method as in Lemma
 [4](#Uryshon) (note that
 Uryshon's lemma [still
 holds](https://planetmath.org/ApplicationsOfUrysohnsLemmaToLocallyCompactHausdorffSpaces)
@@ -3186,7 +3186,7 @@ may be done. Other constructions are, of course, possible.
 exists $\eta \in C\U c^\infty(\mathbb{R}^d)$ with support in $U$, equal to
 $1$ on $V$ and with $0\leq \eta \leq 1$.
 
-Proof. Since $V \Subset U$, there exists a compact $K$ with
+_Proof._ Since $V \Subset U$, there exists a compact $K$ with
 
 <div>
 $$\begin{aligned}
@@ -3217,7 +3217,7 @@ $$\begin{aligned}
 And
 $\left\lVert \eta\U n \right\rVert\U {C^k(\mathbb{R}^d)} \leq \left\lVert \eta\U 1 \right\rVert$.
 
-Proof. Let $\eta\U 1 \in C\U c^\infty(\mathbb{R}^d)$ be any (for example
+_Proof._ Let $\eta\U 1 \in C\U c^\infty(\mathbb{R}^d)$ be any (for example
 that of (\ref{bump example}) ). Then we can take $\eta\U n(x):=\eta(x /n)$. ◻
 
 In the opposite direction. One is often in a situation where it is
