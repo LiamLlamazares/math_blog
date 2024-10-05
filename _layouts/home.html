@@ -2,8 +2,7 @@
 layout: page
 ---
 
-{{ content }} {% assign posts = paginator.posts | default: site.posts %} {%
-assign posts = paginator.posts | default: site.posts %}
+{{ content }} {% assign posts = paginator.posts | default: site.posts %}
 
 <!-- role="list" needed so that `list-style: none` in Safari doesn't remove the list semantics -->
 <ul class="posts-list list-unstyled" role="list">
@@ -36,7 +35,7 @@ assign posts = paginator.posts | default: site.posts %}
       {% endif %}
       <p class="post-meta">
         {% assign date_format = site.date_format | default: "%B %-d, %Y" %}
-        Posted on {{ post.date | date: date_format }} by {{ post.authorpost }}
+        Posted on {{ post.date | date: date_format }}
       </p>
 
       {% if thumbnail != "" %}
