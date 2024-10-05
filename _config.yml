@@ -21,9 +21,8 @@ author: Liam Llamazares-Elias
 
 navbar-links:
   About: "aboutme"
-  Posts:
-    - Tags: "https://nowheredifferentiable.com/tags/"
-    - All posts: "posts_list"
+  Posts by Tag: "https://nowheredifferentiable.com/tags/"
+
   Resources:
     - A much better blog: "https://terrytao.wordpress.com/"
     - My supervisor: "https://scholar.google.com/citations?user=oYSH-mwAAAAJ&hl=fr&oi=ao"
