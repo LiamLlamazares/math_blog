@@ -5,7 +5,7 @@ subtitle: An appendix for a series on PDEs
 thumbnail-img: /assets/img/Narici.jpg
 share-img: /assets/img/Narici.jpg
 tags: [PDEs]
-authorpost: L.Llamazares-Elias
+author: L.Llamazares-Elias
 ---
 
 # Three line summary

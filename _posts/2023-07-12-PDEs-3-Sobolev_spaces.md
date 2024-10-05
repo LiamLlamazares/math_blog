@@ -5,7 +5,7 @@ subtitle: Density, trace and embeddings
 thumbnail-img: /assets/img/sobolev_leoni.jpg
 share-img: /assets/img/sobolev_leoni.jpg
 tags: [PDEs]
-authorpost: L.Llamazares-Elias
+author: L.Llamazares-Elias
 ---
 
 # Three line summary

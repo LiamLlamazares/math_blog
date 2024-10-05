@@ -5,7 +5,7 @@ subtitle: The holy trinity
 thumbnail-img: /assets/img/Taylor1.jpg
 share-img: /assets/img/Taylor1.jpg
 tags: [PDEs]
-authorpost: L.Llamazares-Elias
+author: L.Llamazares-Elias
 ---
 
 # Three line summary

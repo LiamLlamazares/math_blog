@@ -5,7 +5,7 @@ subtitle: Part 4 of the series on Malliavin calculus
 thumbnail-img: /assets/img/Malliavin.jpg
 share-img: /assets/img/Malliavin.jpg
 tags: [Malliavin calculus]
-authorpost: B. Summers
+author: B. Summers
 ---
 
 # A word of thanks

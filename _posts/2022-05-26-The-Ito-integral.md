@@ -5,7 +5,7 @@ subtitle: Can you really construct this thing?
 thumbnail-img: /assets/img/karatzas.jpg
 share-img: /assets/img/karatzas.jpg
 tags: [Stochastic calculus]
-authorpost: L. Llamazares-Elias
+author: L. Llamazares-Elias
 ---
 
 # Three line summary

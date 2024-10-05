@@ -5,7 +5,7 @@ subtitle: Part 6 of the series on Malliavin calculus
 thumbnail-img: /assets/img/Malliavin.jpg
 share-img: /assets/img/Malliavin.jpg
 tags: [Malliavin calculus]
-authorpost: L.Llamazares-Elias
+author: L.Llamazares-Elias
 ---
 
 # Three line summary
