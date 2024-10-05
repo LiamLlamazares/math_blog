@@ -11,7 +11,6 @@
 
 # Name of website
 title: NoWhere Differentiable Math
-title: My website
 
 # Your name to show in the footer
 author: Liam Llamazares-Elias
@@ -46,7 +45,6 @@ round-avatar: true
 # then specify the following parameter
 #title-img: /path/to/image
 
-
 #####################################
 # --- Footer social media links --- #
 #####################################
@@ -56,7 +54,7 @@ round-avatar: true
 # Uncomment the links you want to show and add your information to each one.
 social-network-links:
   email: "someone@example.com"
-  rss: true  # remove this line if you don't want to show an RSS link at the bottom
+  rss: true # remove this line if you don't want to show an RSS link at the bottom
   facebook: deanattali
   github: daattali
   twitter: daattali
@@ -194,7 +192,6 @@ gtag: "UA-230263372-2"
 
 google_analytics: "UA-230263372-2"
 
-
 # Google Universal Analytics ID -- deprecated
 # As of July 2023 this is no longer supported by Google! If you are still using `google_analytics`,
 # you should switch to using the `gtag` field above instead.
@@ -273,6 +270,7 @@ markdown: kramdown
 highlighter: rouge
 permalink: /:year-:month-:day-:title/
 paginate: 5
+paginate_path: "/page:num/"
 
 kramdown:
   input: GFM
