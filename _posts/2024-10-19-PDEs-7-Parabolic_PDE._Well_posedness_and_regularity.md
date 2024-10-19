@@ -998,18 +998,16 @@ as the number of basis functions increases, the solution converges to
 $1$ when $t=0$ and becomes quite oscillatory at the boundary to try to
 adapt to the admittedly somewhat incompatible boundary conditions.
 
-![Galerkin solution to the parabolic problem (\ref{parabolic 2})  with $n=3$ basis
-functions](Galerkin_n_3.pdf){width="80%"}
+<img src="{{'assets/img/Figures/Galerkin_n_3.svg'| relative_url }}" alt="Galerkin solution to the parabolic problem (\ref{parabolic 2})  with n=3 basis functions" width="90%" id="width="90%"">
 
-![Galerkin solution to the parabolic problem (\ref{parabolic 2})  with $n=20$ basis
-functions](Galerkin_n_20.pdf){width="80%"}
+<img src="{{'assets/img/Figures/Galerkin_n_20.svg'| relative_url }}" alt="Galerkin solution to the parabolic problem (\ref{parabolic 2})  with n=20 basis functions" width="90%" id="width="90%"">
 
 We also include a figure to show how the boundary condition $g=1$ may be
 approximated in $H\U 0^1(U)$ using the basis functions $\phi\U j$. We note
 that the approximating sequence does not converge $H\U 0^1$ as the
 derivative explodes at the boundary.
 
-<img src="{{'assets/img/Figures/approx_boundary_l2.svg'| relative_url }}" alt="Approximation of g=1 in L^2(U) using the basis functions \phi_j \in H_0^1(U)" width="90%" id="width="80%"">
+<img src="{{'assets/img/Figures/approx_boundary_l2.svg'| relative_url }}" alt="Approximation of g=1 in L^2(U) using the basis functions \phi_j \in H_0^1(U)" width="90%" id="width="90%"">
 
 Next, we show a case where the exact solution can be calculated. We take
 $U=(0,1)$ and $I=(0,1)$ and consider the problem
@@ -1039,10 +1037,9 @@ $$\begin{aligned}
 as before for $n=20$ basis functions. As we can see, the
 Galerkin solution and the exact solution are quite close.
 
-![Exact solution to the parabolic problem (\ref{exact}) ](Galerkin_exact.pdf){width="80%"}
+<img src="{{'assets/img/Figures/Galerkin_exact.svg'| relative_url }}" alt="Exact solution to the parabolic problem (\ref{exact}) " width="90%" id="width="90%"">
 
-![Galerkin solution to the parabolic problem (\ref{exact})  with
-$n=20$ basis functions](Galerkin_n_20_2.pdf){width="80%"}
+<img src="{{'assets/img/Figures/Galerkin_n_20_2.svg'| relative_url }}" alt="Galerkin solution to the parabolic problem (\ref{exact})  with n=20 basis functions" width="90%" id="width="90%"">
 
 # Regularity of the solutions
 
