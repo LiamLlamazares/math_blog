@@ -1127,15 +1127,19 @@ it, we bring this series on linear PDEs to a, at least momentary, end.
 We began our study with the Fourier transform, then ventured into the
 thick jungle of distributions, emerging into the open plains of Sobolev
 spaces. There, we lingered, marveling at its vast expanse and many
-corners---
-layout: post
-title: Parabolic PDE. Well posedness and regularity
-subtitle: A journey through time and space
-thumbnail-img: /assets/img/Evans_PDE.jpg
-share-img: /assets/img/Evans_PDE.jpg
-tags: [PDEs]
-author: L.Llamazares-Elias
----and there are many to choose from---such as the nature of
+corners, fractional and otherwise. Armed with newfound knowledge, we
+marched bravely into the land of elliptic PDEs and, with our trusty aide
+Lax-Milgram and a few carefully derived energy estimates, made short
+work of the enemy. In this final stop, we added time into the mix and,
+wielding the ideas of Bochner, Galerkin, and Grönwall (plus our
+ever-reliable bag of tricks), secured the well-posedness and regularity
+of solutions.
+
+At times, our journey may have seemed arduous, long, and winding, but I
+hope you found it as rewarding as I did. Though we now move on to fresh
+pastures, our hard-earned map of the land of linear PDEs will surely
+serve us well in future adventures. Next, we turn our sights to new
+horizons, and there are many to choose from, such as the nature of
 probability, Bayesian inference, and stochastic partial differential
 equations. The road ahead is filled with possibilities, and I hope
 you'll join us for this next leg of our journey.
