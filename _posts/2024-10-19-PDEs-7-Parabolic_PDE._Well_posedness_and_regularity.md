@@ -969,7 +969,7 @@ In this section, we show some numerical illustrations of the
 well-posedness of the parabolic problem. The code to calculate the
 numerical solutions and generate the figures using Mathematica can be
 downloaded by clicking
-<a href="https://nowheredifferentiable.com/assets/code/PDEs/Galerkin_solutions.nb">here</a>.
+<a href="https://nowheredifferentiable.com/assets/code/Galerkin_solutions.nb">here</a>.
 We first consider the problem
 
 <div>
