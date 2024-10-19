@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[   1355728,      22818]
-NotebookOptionsPosition[   1352304,      22752]
-NotebookOutlinePosition[   1352704,      22768]
-CellTagsIndexPosition[   1352661,      22765]
+NotebookDataLength[   1354058,      22778]
+NotebookOptionsPosition[   1350735,      22713]
+NotebookOutlinePosition[   1351135,      22729]
+CellTagsIndexPosition[   1351092,      22726]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -18557,7 +18557,7 @@ eicb9oQsDGP+VsjLwPxFv1N5p3PIkhW3zP7MkQGvL8E3rsyuNfwfAc7lew==
    3.9378428176170673`*^9}, {3.937842878152567*^9, 3.937842902799389*^9}, 
    3.937843269530913*^9, 3.937845329785263*^9, 3.937845367144844*^9, {
    3.938269448512112*^9, 3.938269470654066*^9}, 3.938269585403293*^9, 
-   3.9382759590097246`*^9},
+   3.9382759590097237`*^9},
  CellLabel->
   "Out[241]=",ExpressionUUID->"04d64cee-3763-8a45-9dd9-c6cbdbf15741"]
 }, Open  ]]
@@ -22708,46 +22708,7 @@ lpDbkyHkr/2Vc0/BJADd8yfPLBIgRUrgjdbjYVR641NdH9skZBhbin1ti4cM
    3.938272327000908*^9}, 3.938276038420849*^9},
  CellLabel->
   "Out[257]=",ExpressionUUID->"28a46ba8-21b5-5b49-b4bc-a5514297dbc3"]
-}, Open  ]],
-
-Cell[BoxData[{
- RowBox[{
-  RowBox[{"Export", "[", 
-   RowBox[{
-   "\"\<C:\\\\Users\\\\liaml\\\\Documentos\\\\LiamLlamazares.github.io\\\\\
-assets\\\\img\\\\Figures\\\\Galerkin_n_20.svg\>\"", ",", "p20"}], "]"}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"Export", "[", 
-   RowBox[{
-   "\"\<C:\\\\Users\\\\liaml\\\\Documentos\\\\LiamLlamazares.github.io\\\\\
-assets\\\\img\\\\Figures\\\\Galerkin_n_3.svg\>\"", ",", "p3"}], "]"}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"Export", "[", 
-   RowBox[{
-   "\"\<C:\\\\Users\\\\liaml\\\\Documentos\\\\LiamLlamazares.github.io\\\\\
-assets\\\\img\\\\Figures\\\\approx_boundary_l2.svg\>\"", ",", "papproxg"}], 
-   "]"}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"Export", "[", 
-   RowBox[{
-   "\"\<C:\\\\Users\\\\liaml\\\\Documentos\\\\LiamLlamazares.github.io\\\\\
-assets\\\\img\\\\Figures\\\\Galerkin_n_20_2.svg\>\"", ",", "q20"}], "]"}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"Export", "[", 
-   RowBox[{
-   "\"\<C:\\\\Users\\\\liaml\\\\Documentos\\\\LiamLlamazares.github.io\\\\\
-assets\\\\img\\\\Figures\\\\Galerkin_exact.svg\>\"", ",", "qexact"}], "]"}], 
-  ";"}]}], "Input",
- CellChangeTimes->{{3.938265983641226*^9, 3.93826603304567*^9}, {
-  3.9382664177171135`*^9, 3.938266419766012*^9}, {3.938268902884208*^9, 
-  3.93826890999391*^9}, {3.938272332698704*^9, 3.938272359882042*^9}, {
-  3.9382844959476757`*^9, 3.9382845101164246`*^9}, {3.938284615938177*^9, 
-  3.938284711204481*^9}},
- CellLabel->
-  "In[177]:=",ExpressionUUID->"249d507f-c0de-b847-9821-eba1e8492d27"]
+}, Open  ]]
 }, Open  ]]
 },
 WindowSize->{638, 721},
@@ -22817,8 +22778,7 @@ Cell[1116264, 18799, 122748, 2038, 200, "Output",ExpressionUUID->"84b5ec53-cfb6-
 Cell[CellGroupData[{
 Cell[1239049, 20842, 1022, 25, 67, "Input",ExpressionUUID->"6887b8cb-5994-6449-95c1-a8f8922f8980"],
 Cell[1240074, 20869, 110633, 1840, 198, "Output",ExpressionUUID->"28a46ba8-21b5-5b49-b4bc-a5514297dbc3"]
-}, Open  ]],
-Cell[1350722, 22712, 1566, 37, 349, "Input",ExpressionUUID->"249d507f-c0de-b847-9821-eba1e8492d27"]
+}, Open  ]]
 }, Open  ]]
 }
 ]
