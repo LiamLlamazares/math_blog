@@ -5,7 +5,7 @@ subtitle: A journey through time and space
 thumbnail-img: /assets/img/Evans_PDE.jpg
 share-img: /assets/img/Evans_PDE.jpg
 tags: [PDEs]
-authorpost: L.Llamazares-Elias
+author: L.Llamazares-Elias
 ---
 
 # Three point summary
@@ -998,16 +998,16 @@ as the number of basis functions increases, the solution converges to
 $1$ when $t=0$ and becomes quite oscillatory at the boundary to try to
 adapt to the admittedly somewhat incompatible boundary conditions.
 
-<figure><img src="{{'assets/img/Figures/Galerkin_n_3.svg'| relative_url }}" alt="Galerkin solution to the parabolic problem (\ref{parabolic 2})  with n=3 basis functions" width="90%" id="fig:Galerkin-n-3"><figcaption>Galerkin solution to the parabolic problem (\ref{parabolic 2})  with $n=3$ basis functions</figcaption></figure>
+<figure style="text-align: center;"><img src="{{'assets/img/Figures/Galerkin_n_3.svg'| relative_url }}" alt="Galerkin solution to the parabolic problem (\ref{parabolic 2})  with n=3 basis functions" width="90%" id="fig:Galerkin-n-3"><figcaption style="text-align: center;">Galerkin solution to the parabolic problem (\ref{parabolic 2})  with $n=3$ basis functions</figcaption></figure>
 
-<figure><img src="{{'assets/img/Figures/Galerkin_n_20.svg'| relative_url }}" alt="Galerkin solution to the parabolic problem (\ref{parabolic 2})  with n=20 basis functions" width="90%" id="fig:Galerkin-n-20"><figcaption>Galerkin solution to the parabolic problem (\ref{parabolic 2})  with $n=20$ basis functions</figcaption></figure>
+<figure style="text-align: center;"><img src="{{'assets/img/Figures/Galerkin_n_20.svg'| relative_url }}" alt="Galerkin solution to the parabolic problem (\ref{parabolic 2})  with n=20 basis functions" width="90%" id="fig:Galerkin-n-20"><figcaption style="text-align: center;">Galerkin solution to the parabolic problem (\ref{parabolic 2})  with $n=20$ basis functions</figcaption></figure>
 
 We also include a figure to show how the boundary condition $g=1$ may be
 approximated in $H\U 0^1(U)$ using the basis functions $\phi\U j$. We note
 that the approximating sequence does not converge $H\U 0^1$ as the
 derivative explodes at the boundary.
 
-<figure><img src="{{'assets/img/Figures/approx_boundary_l2.svg'| relative_url }}" alt="Approximation of g=1 in L^2(U) using the basis functions \phi_j \in H_0^1(U)" width="90%" id="fig:approx-boundary-l2"><figcaption>Approximation of $g=1$ in $L^2(U)$ using the basis functions $\phi\U j \in H\U 0^1(U)$</figcaption></figure>
+<figure style="text-align: center;"><img src="{{'assets/img/Figures/approx_boundary_l2.svg'| relative_url }}" alt="Approximation of g=1 in L^2(U) using the basis functions \phi_j \in H_0^1(U)" width="90%" id="fig:approx-boundary-l2"><figcaption style="text-align: center;">Approximation of $g=1$ in $L^2(U)$ using the basis functions $\phi\U j \in H\U 0^1(U)$</figcaption></figure>
 
 Next, we show a case where the exact solution can be calculated. We take
 $U=(0,1)$ and $I=(0,1)$ and consider the problem
@@ -1037,9 +1037,9 @@ $$\begin{aligned}
 as before for $n=20$ basis functions. As we can see, the
 Galerkin solution and the exact solution are quite close.
 
-<figure><img src="{{'assets/img/Figures/Galerkin_exact.svg'| relative_url }}" alt="Exact solution to the parabolic problem (\ref{exact}) " width="90%" id="fig:Galerkin-exact"><figcaption>Exact solution to the parabolic problem (\ref{exact}) </figcaption></figure>
+<figure style="text-align: center;"><img src="{{'assets/img/Figures/Galerkin_exact.svg'| relative_url }}" alt="Exact solution to the parabolic problem (\ref{exact}) " width="90%" id="fig:Galerkin-exact"><figcaption style="text-align: center;">Exact solution to the parabolic problem (\ref{exact}) </figcaption></figure>
 
-<figure><img src="{{'assets/img/Figures/Galerkin_n_20_2.svg'| relative_url }}" alt="Galerkin solution to the parabolic problem (\ref{exact})  with n=20 basis functions" width="90%" id="fig:Galerkin-n-20-2"><figcaption>Galerkin solution to the parabolic problem (\ref{exact})  with $n=20$ basis functions</figcaption></figure>
+<figure style="text-align: center;"><img src="{{'assets/img/Figures/Galerkin_n_20_2.svg'| relative_url }}" alt="Galerkin solution to the parabolic problem (\ref{exact})  with n=20 basis functions" width="90%" id="fig:Galerkin-n-20-2"><figcaption style="text-align: center;">Galerkin solution to the parabolic problem (\ref{exact})  with $n=20$ basis functions</figcaption></figure>
 
 # Regularity of the solutions
 
@@ -1134,7 +1134,7 @@ subtitle: A journey through time and space
 thumbnail-img: /assets/img/Evans_PDE.jpg
 share-img: /assets/img/Evans_PDE.jpg
 tags: [PDEs]
-authorpost: L.Llamazares-Elias
+author: L.Llamazares-Elias
 ---and there are many to choose from---such as the nature of
 probability, Bayesian inference, and stochastic partial differential
 equations. The road ahead is filled with possibilities, and I hope
