@@ -1,7 +1,3 @@
-Can you help me improve the aboutthisblog.md for my blog.
-
-
-
 ---
 
 layout: page
@@ -24,7 +20,7 @@ I'm a firm believer that to understand anything, you have to make it your own, d
 
 - Posts will have a *why should I care section?* (always a good question to ask) to place the information in context.
 
-- Exercises with hints that I've used to build my own understanding and that you can test yours on.
+- Exercises with hints that I've used to build my own understanding, and that you can test yours on.
 
 - Finally, the finer workings of the topic (definitions, propositions, theorems, and examples) will be discussed with a focus on the key ideas that make everything fit together. When proofs are very technical, I will present the main details and cite primary sources for the details.
 
