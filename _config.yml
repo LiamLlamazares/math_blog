@@ -25,7 +25,6 @@ navbar-links:
 
   Resources:
     - A much better blog: "https://terrytao.wordpress.com/"
-    - My supervisor: "https://scholar.google.com/citations?user=oYSH-mwAAAAJ&hl=fr&oi=ao"
     - My friend's blog: "https://lukasz.ls314.com/"
   Subscribe: "http://eepurl.com/itcRso"
 
@@ -72,7 +71,7 @@ social-network-links:
 #  mastodon: instance.url/@username
 #  bluesky: yourname
 #  ORCID: your ORCID ID
-google-scholar: "https://scholar.google.com/citations?user=nW7-c62TwJ0C&hl=fr"
+google-scholar: "nW7-c62TwJ0C&hl=fr"
 #  discord: "invite_code" or "users/userid" or "invite/invite_code"
 #  kaggle: yourname
 #  hackerrank: yourname
