@@ -9,3 +9,31 @@ body {
 .MathJax, .katex {
     font-size: 1.1em;
 }
+
+/* Default: Hide TOC on mobile */
+.sidebar-toc { display: none; }
+
+/* On large screens, float it to the right */
+ @media (min-width: 1200px) {
+  .post-container {
+    position: relative;
+  }
+  .sidebar-toc {
+    display: block;
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    width: 250px;
+    font-size: 16px;
+    border-left: 2px solid #eee;
+    padding-left: 15px;
+  }
+  /* Make sure the TOC links don't look like normal heavy links */
+  .sidebar-toc a {
+    color: #666;
+    text-decoration: none;
+  }
+  .sidebar-toc a:hover {
+    color: #0085a1; /* Theme blue color */
+  }
+}
