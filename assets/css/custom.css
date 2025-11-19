@@ -1,0 +1,11 @@
+/* Increase body text size and spacing */
+body {
+    font-size: 20px;      /* Default is usually 16-18px */
+    line-height: 1.8;     /* Gives math more vertical breathing room */
+    color: #222;          /* Slightly darker text for better contrast */
+}
+
+/* Ensure inline math doesn't look tiny compared to text */
+.MathJax, .katex {
+    font-size: 1.1em;
+}
