@@ -13,8 +13,8 @@ body {
 /* Default: Hide TOC on mobile */
 .sidebar-toc { display: none; }
 
-/* On large screens, float it to the right */
- @media (min-width: 1200px) {
+/* On large screens, position it on the left */
+@media (min-width: 1200px) {
   .post-container {
     position: relative;
   }
@@ -22,18 +22,28 @@ body {
     display: block;
     position: fixed;
     top: 100px;
-    right: 20px;
+    left: 20px; /* Moved to the left */
     width: 250px;
     font-size: 16px;
-    border-left: 2px solid #eee;
-    padding-left: 15px;
+    border-right: 2px solid #eee; /* Border on the right now */
+    padding-right: 15px;
   }
-  /* Make sure the TOC links don't look like normal heavy links */
+  
+  /* Inactive TOC links are greyed out for scroll-spying effect */
   .sidebar-toc a {
-    color: #666;
+    color: #999;
     text-decoration: none;
+    display: block; /* Ensures proper spacing and clicking */
+    padding: 2px 0;
   }
+
+  /* Active link is highlighted with the theme color */
+  .sidebar-toc a.active {
+    color: #0085a1;
+    font-weight: bold;
+  }
+  
   .sidebar-toc a:hover {
-    color: #0085a1; /* Theme blue color */
+    color: #0085a1; /* Hover color remains the theme color */
   }
 }
