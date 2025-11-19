@@ -11,6 +11,7 @@ _site
 .blg
 .bll
 .gz
+.log
 .latexmk
 
 # general
