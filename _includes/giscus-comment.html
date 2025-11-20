@@ -26,23 +26,19 @@
   <script>
     (function() {
       function handleDeepLink() {
-        // 1. Check if the URL has a comment hash
         const hash = window.location.hash;
+        // Check for 'discussioncomment' (no hyphen)
         if (!hash || !hash.includes('discussioncomment')) return;
 
-        // 2. Scroll the Main Page down to the comments section
-        // This fixes the issue of "staying at the top"
         const container = document.getElementById('giscus-container');
         if (container) {
           container.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
-        // 3. Force the Iframe to load the specific comment
         const iframe = document.querySelector('iframe.giscus-frame');
         if (iframe) {
           try {
             const url = new URL(iframe.src);
-            // Only reload if the hash is actually different
             if (url.hash !== hash) {
               url.hash = hash;
               iframe.src = url.toString();
@@ -51,13 +47,8 @@
         }
       }
 
-      // Run on initial load
       window.addEventListener('load', handleDeepLink);
-      
-      // Run when the user clicks a sidebar link (hash change)
       window.addEventListener('hashchange', handleDeepLink);
-
-      // Run when Giscus says "I'm ready" (backup)
       window.addEventListener('message', function(event) {
         if (event.origin === 'https://giscus.app' && 
             event.data && 
