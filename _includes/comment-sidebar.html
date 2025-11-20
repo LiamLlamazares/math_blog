@@ -12,23 +12,34 @@
     <ul class="comment-list">
     {% if site.data.recent_comments.data.repository.discussions.nodes %}
       {% for discussion in site.data.recent_comments.data.repository.discussions.nodes %}
-        {% assign latest_comment = discussion.comments.nodes[0] %}
-        {% if latest_comment %}
+        
+        {% assign matching_post = site.posts | where: "title", discussion.title | first %}
+        
+        {% if matching_post %}
+          {% assign target_link = matching_post.url %}
+        {% else %}
+          {% assign target_link = discussion.url %}
+        {% endif %}
+
+        {% for comment in discussion.comments.nodes reversed %}
         <li class="comment-item">
-          <img src="{{ latest_comment.author.avatarUrl }}" alt="{{ latest_comment.author.login }}" class="comment-avatar">
+          <img src="{{ comment.author.avatarUrl }}" alt="{{ comment.author.login }}" class="comment-avatar">
           
           <div class="comment-details">
-            <span class="comment-author">{{ latest_comment.author.login }}</span>
+            <span class="comment-author">{{ comment.author.login }}</span>
             <span class="comment-context"> on </span>
-            <a href="{{ discussion.url }}" class="comment-link">
+            
+            <a href="{{ target_link }}" class="comment-link">
               {{ discussion.title | truncate: 35 }}
             </a>
+            
             <p class="comment-snippet">
-              "{{ latest_comment.bodyText | truncate: 50 }}"
+              "{{ comment.bodyText | truncate: 50 }}"
             </p>
           </div>
         </li>
-        {% endif %}
+        {% endfor %}
+        
       {% endfor %}
     {% else %}
       <li style="padding: 20px; text-align: center; color: #777;">Loading...</li>
@@ -87,7 +98,7 @@
   .sidebar-header h4 { margin: 0; font-size: 16px; font-weight: bold; color: #333; }
   .close-btn { background: none; border: none; font-size: 20px; cursor: pointer; color: #666; }
 
-  /* 4. The List Items (Matching your screenshot) */
+  /* 4. The List Items */
   .comment-list { list-style: none; padding: 0; margin: 0; }
   .comment-item {
     display: flex;
@@ -101,14 +112,14 @@
   .comment-avatar {
     width: 40px;
     height: 40px;
-    border-radius: 50%; /* Makes it round */
+    border-radius: 50%;
     margin-right: 12px;
     border: 1px solid #ddd;
   }
 
   /* Text Details */
   .comment-details { flex: 1; font-size: 13px; line-height: 1.4; }
-  .comment-author { font-weight: bold; color: #8B4513; /* Brownish color like screenshot */ }
+  .comment-author { font-weight: bold; color: #8B4513; }
   .comment-context { color: #666; }
   .comment-link { 
     font-weight: bold; 

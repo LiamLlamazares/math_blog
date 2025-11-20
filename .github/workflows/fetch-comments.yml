@@ -22,15 +22,16 @@ jobs:
           gh api graphql -f query='
             query($owner: String!, $name: String!, $categoryId: ID!) {
               repository(owner: $owner, name: $name) {
-                discussions(first: 5, categoryId: $categoryId, orderBy: {field: UPDATED_AT, direction: DESC}) {
+                discussions(first: 6, categoryId: $categoryId, orderBy: {field: UPDATED_AT, direction: DESC}) {
                   nodes {
                     title
                     url
-                    comments(last: 1) {
+                    comments(last: 5) {    
                       nodes {
                         author { login avatarUrl }
                         bodyText
                         createdAt
+                        url
                       }
                     }
                   }
