@@ -1,0 +1,62 @@
+---
+layout: base
+---
+<div class="dashboard-container">
+
+  <div class="dashboard-top">
+    
+    {% assign featured = site.posts.first %}
+    <div class="pane featured-pane">
+      <span class="pane-label">Latest Result</span>
+      <a href="{{ featured.url | relative_url }}" class="featured-link">
+        {% if featured.header-img %}
+          <div class="featured-image" style="background-image: url('{{ featured.header-img | relative_url }}');"></div>
+        {% else %}
+          <div class="featured-image" style="background: linear-gradient(135deg, #2c3e50, #4ca1af);">
+             <div class="math-overlay">$\int_{\Omega}$</div>
+          </div>
+        {% endif %}
+        
+        <h2 class="math-font">{{ featured.title }}</h2>
+        <p class="excerpt">{{ featured.excerpt | strip_html | truncatewords: 25 }}</p>
+        <span class="read-more">View Proof &rarr;</span>
+      </a>
+    </div>
+
+    <div class="pane recent-list-pane">
+      <span class="pane-label">Recent Activity</span>
+      <ul>
+        {% for post in site.posts offset:1 limit:4 %}
+        <li>
+          <span class="date">{{ post.date | date: "%b %d" }}</span>
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <div class="dashboard-grid">
+    {% assign sorted_tags = site.tags | sort %}
+    
+    {% for tag in site.tags %}
+      {% assign tag_name = tag[0] %}
+      {% assign tag_posts = tag[1] %}
+      
+      {% if tag_posts.size > 2 %}
+      <div class="pane tag-pane">
+        <div class="tag-header">
+          <h3 class="math-font">{{ tag_name }}</h3>
+          <span class="count">{{ tag_posts.size }} $\nabla$</span>
+        </div>
+        <ul class="tag-post-list">
+          {% for post in tag_posts limit:3 %}
+          <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+          {% endfor %}
+        </ul>
+        <a href="{{ '/tags' | relative_url }}#{{ tag_name | slugify }}" class="pane-footer">Explore Topic &rarr;</a>
+      </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
