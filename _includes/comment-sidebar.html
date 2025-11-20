@@ -1,0 +1,128 @@
+<div id="comment-sidebar" class="comment-sidebar">
+  <button onclick="toggleSidebar()" class="sidebar-toggle">
+    <span style="font-size: 1.2em;">💬</span>
+  </button>
+
+  <div class="sidebar-content">
+    <div class="sidebar-header">
+      <h4>Recent Comments</h4>
+      <button onclick="toggleSidebar()" class="close-btn">&times;</button>
+    </div>
+    
+    <ul class="comment-list">
+    {% if site.data.recent_comments.data.repository.discussions.nodes %}
+      {% for discussion in site.data.recent_comments.data.repository.discussions.nodes %}
+        {% assign latest_comment = discussion.comments.nodes[0] %}
+        {% if latest_comment %}
+        <li class="comment-item">
+          <img src="{{ latest_comment.author.avatarUrl }}" alt="{{ latest_comment.author.login }}" class="comment-avatar">
+          
+          <div class="comment-details">
+            <span class="comment-author">{{ latest_comment.author.login }}</span>
+            <span class="comment-context"> on </span>
+            <a href="{{ discussion.url }}" class="comment-link">
+              {{ discussion.title | truncate: 35 }}
+            </a>
+            <p class="comment-snippet">
+              "{{ latest_comment.bodyText | truncate: 50 }}"
+            </p>
+          </div>
+        </li>
+        {% endif %}
+      {% endfor %}
+    {% else %}
+      <li style="padding: 20px; text-align: center; color: #777;">Loading...</li>
+    {% endif %}
+    </ul>
+  </div>
+</div>
+
+<style>
+  /* 1. The Container */
+  .comment-sidebar {
+    position: fixed;
+    right: 0;
+    top: 20%;
+    z-index: 9999;
+    display: flex;
+    align-items: flex-start;
+    transform: translateX(300px); /* Hidden by default */
+    transition: transform 0.3s ease;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  .comment-sidebar.open {
+    transform: translateX(0);
+  }
+
+  /* 2. The Button (Visible when closed) */
+  .sidebar-toggle {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 15px 10px;
+    cursor: pointer;
+    border-radius: 5px 0 0 5px;
+    box-shadow: -2px 2px 5px rgba(0,0,0,0.2);
+  }
+
+  /* 3. The Panel (Hidden content) */
+  .sidebar-content {
+    width: 300px;
+    background: #fcfcfc;
+    border: 1px solid #ddd;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    height: auto;
+    max-height: 60vh; /* Max height so it doesn't overflow screen */
+    overflow-y: auto;
+  }
+
+  .sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: #f5f5f5;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar-header h4 { margin: 0; font-size: 16px; font-weight: bold; color: #333; }
+  .close-btn { background: none; border: none; font-size: 20px; cursor: pointer; color: #666; }
+
+  /* 4. The List Items (Matching your screenshot) */
+  .comment-list { list-style: none; padding: 0; margin: 0; }
+  .comment-item {
+    display: flex;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    transition: background 0.2s;
+  }
+  .comment-item:hover { background: #fff; }
+
+  /* Avatar */
+  .comment-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Makes it round */
+    margin-right: 12px;
+    border: 1px solid #ddd;
+  }
+
+  /* Text Details */
+  .comment-details { flex: 1; font-size: 13px; line-height: 1.4; }
+  .comment-author { font-weight: bold; color: #8B4513; /* Brownish color like screenshot */ }
+  .comment-context { color: #666; }
+  .comment-link { 
+    font-weight: bold; 
+    color: #333; 
+    text-decoration: none; 
+    display: block; 
+    margin-bottom: 4px; 
+  }
+  .comment-link:hover { color: #008AFF; text-decoration: underline; }
+  .comment-snippet { margin: 0; color: #666; font-style: italic; }
+</style>
+
+<script>
+  function toggleSidebar() {
+    document.getElementById('comment-sidebar').classList.toggle('open');
+  }
+</script>
