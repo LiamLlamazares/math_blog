@@ -9,7 +9,7 @@ layout: base
     <div class="pane featured-pane">
       <span class="pane-label">Latest Result</span>
       <a href="{{ featured.url | relative_url }}" class="featured-link">
-        {% if featured.header-img %}
+        {% if featured.thumbnail-img %}
           <div class="featured-image" style="background-image: url('{{ featured.header-img | relative_url }}');"></div>
         {% else %}
           <div class="featured-image" style="background: linear-gradient(135deg, #2c3e50, #4ca1af);">
