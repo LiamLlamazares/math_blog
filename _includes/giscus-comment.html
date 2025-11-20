@@ -2,11 +2,11 @@
 <div class="giscus-comments">
   
   <div style="background: #f9f9f9; border-left: 4px solid #008AFF; padding: 10px; margin-bottom: 20px; font-size: 0.9em; color: #555; border-radius: 0 4px 4px 0;">
-    <strong>Note:</strong> Latex can be input as $x$ with no spaces ($ x $ will not work). To edit or delete your comment, click the 
+    <strong>Note:</strong> Latex can be input as &#36;x&#36; with no spaces (&#36; x &#36; will not work). To edit or delete your comment, click the 
     <strong>timestamp</strong> (e.g., "5 minutes ago") to manage it directly on GitHub.
   </div>
 
-  <div class="giscus"></div>
+  <div class="giscus" id="giscus-container"></div>
   
   <script src="https://{{ site.giscus.hostname }}/client.js"
           data-repo="{{ site.giscus.repository }}"
@@ -25,39 +25,45 @@
 
   <script>
     (function() {
-      function getGiscusIframe() {
-        return document.querySelector('iframe.giscus-frame');
-      }
+      function handleDeepLink() {
+        // 1. Check if the URL has a comment hash
+        const hash = window.location.hash;
+        if (!hash || !hash.includes('discussioncomment')) return;
 
-      function syncHash() {
-        const iframe = getGiscusIframe();
-        if (!iframe) return;
-        
-        // FIXED: We look for 'discussioncomment' (no hyphen)
-        if (window.location.hash && window.location.hash.includes('discussioncomment')) {
+        // 2. Scroll the Main Page down to the comments section
+        // This fixes the issue of "staying at the top"
+        const container = document.getElementById('giscus-container');
+        if (container) {
+          container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // 3. Force the Iframe to load the specific comment
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (iframe) {
           try {
             const url = new URL(iframe.src);
-            url.hash = window.location.hash;
-            
-            // Force the Iframe to reload with the anchor
-            iframe.src = url.toString();
-          } catch (e) {
-            console.error("Could not sync Giscus hash:", e);
-          }
+            // Only reload if the hash is actually different
+            if (url.hash !== hash) {
+              url.hash = hash;
+              iframe.src = url.toString();
+            }
+          } catch (e) { console.error(e); }
         }
       }
 
-      // Listen for clicks on the sidebar (hash changes)
-      window.addEventListener('hashchange', syncHash);
+      // Run on initial load
+      window.addEventListener('load', handleDeepLink);
+      
+      // Run when the user clicks a sidebar link (hash change)
+      window.addEventListener('hashchange', handleDeepLink);
 
-      // Listen for the page loading (wait for Giscus to be ready)
+      // Run when Giscus says "I'm ready" (backup)
       window.addEventListener('message', function(event) {
         if (event.origin === 'https://giscus.app' && 
             event.data && 
             event.data.giscus && 
             event.data.giscus.resizeHeight) {
-          // Wait 0.5s for the iframe to settle, then scroll
-          setTimeout(syncHash, 500);
+          setTimeout(handleDeepLink, 500);
         }
       });
     })();
