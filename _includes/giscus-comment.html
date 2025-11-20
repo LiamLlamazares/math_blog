@@ -3,7 +3,6 @@
   
   <div style="background: #f9f9f9; border-left: 4px solid #008AFF; padding: 10px; margin-bottom: 20px; font-size: 0.9em; color: #555; border-radius: 0 4px 4px 0;">
     <strong>Note:</strong> Latex can be input as $x$ with no spaces ($ x $ will not work). To edit or delete your comment, click the 
-    <strong>Note:</strong> Latex can be input as &#36;x&#36; with no spaces (&#36; x &#36; will not work). To edit or delete your comment, click the 
     <strong>timestamp</strong> (e.g., "5 minutes ago") to manage it directly on GitHub.
   </div>
 
@@ -22,6 +21,46 @@
           data-lang="en"
           crossorigin="anonymous"
           async>
+  </script>
+
+  <script>
+    (function() {
+      function getGiscusIframe() {
+        return document.querySelector('iframe.giscus-frame');
+      }
+
+      function syncHash() {
+        const iframe = getGiscusIframe();
+        if (!iframe) return;
+        
+        // FIXED: We look for 'discussioncomment' (no hyphen)
+        if (window.location.hash && window.location.hash.includes('discussioncomment')) {
+          try {
+            const url = new URL(iframe.src);
+            url.hash = window.location.hash;
+            
+            // Force the Iframe to reload with the anchor
+            iframe.src = url.toString();
+          } catch (e) {
+            console.error("Could not sync Giscus hash:", e);
+          }
+        }
+      }
+
+      // Listen for clicks on the sidebar (hash changes)
+      window.addEventListener('hashchange', syncHash);
+
+      // Listen for the page loading (wait for Giscus to be ready)
+      window.addEventListener('message', function(event) {
+        if (event.origin === 'https://giscus.app' && 
+            event.data && 
+            event.data.giscus && 
+            event.data.giscus.resizeHeight) {
+          // Wait 0.5s for the iframe to settle, then scroll
+          setTimeout(syncHash, 500);
+        }
+      });
+    })();
   </script>
 </div>
 {% endif %}
