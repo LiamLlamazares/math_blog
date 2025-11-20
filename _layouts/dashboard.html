@@ -9,8 +9,16 @@ layout: base
     <div class="pane featured-pane">
       <span class="pane-label">Latest Result</span>
       <a href="{{ featured.url | relative_url }}" class="featured-link">
-        {% if featured.thumbnail-img %}
-          <div class="featured-image" style="background-image: url('{{ featured.header-img | relative_url }}');"></div>
+        {% assign feat_img = featured.header-img %}
+        {% unless feat_img %}
+          {% assign feat_img = featured.thumbnail-img %}
+        {% endunless %}
+        {% unless feat_img %}
+          {% assign feat_img = featured.share-img %}
+        {% endunless %}
+
+        {% if feat_img %}
+          <div class="featured-image" style="background-image: url('{{ feat_img | relative_url }}');"></div>
         {% else %}
           <div class="featured-image" style="background: linear-gradient(135deg, #2c3e50, #4ca1af);">
              <div class="math-overlay">$\int_{\Omega}$</div>
@@ -49,12 +57,14 @@ layout: base
           <h3 class="math-font">{{ tag_name }}</h3>
           <span class="count">{{ tag_posts.size }} $\nabla$</span>
         </div>
-        <ul class="tag-post-list">
-          {% for post in tag_posts limit:3 %}
-          <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
-          {% endfor %}
-        </ul>
-        <a href="{{ '/tags' | relative_url }}#{{ tag_name | slugify }}" class="pane-footer">Explore Topic &rarr;</a>
+        <div class="pane-content">
+          <ul class="tag-post-list">
+            {% for post in tag_posts limit:3 %}
+            <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+            {% endfor %}
+          </ul>
+          <a href="{{ '/tags' | relative_url }}#{{ tag_name | slugify }}" class="pane-footer">Explore Topic &rarr;</a>
+        </div>
       </div>
       {% endif %}
     {% endfor %}

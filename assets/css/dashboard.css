@@ -2,76 +2,131 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&display=swap');
 
 .dashboard-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+    /* Graph Paper Background */
+    background-color: #f8f9fa;
+    background-image: linear-gradient(#e5e7eb 1px, transparent 1px), linear-gradient(90deg, #e5e7eb 1px, transparent 1px);
+    background-size: 20px 20px;
+    border-radius: 8px;
+    /* Soften the container edges */
 }
 
 /* Utility Class for Math Headers */
 .math-font {
-  font-family: 'Cormorant Garamond', 'Times New Roman', serif;
-  font-weight: 600;
-  letter-spacing: -0.5px;
+    font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+    font-weight: 600;
+    letter-spacing: -0.5px;
 }
 
 .pane {
-  background: #fff;
-  border: 1px solid #eaeaea;
-  border-radius: 6px; /* Sharper corners for academic look */
-  padding: 25px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-  transition: all 0.2s ease;
-  display: flex;
-  flex-direction: column;
+    background: #fff;
+    /* Remove border, use soft shadow */
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    /* Clip the header corners */
+}
+
+/* Padding for panes that don't have the banner header (like recent activity) */
+.pane.featured-pane,
+.pane.recent-list-pane {
+    padding: 25px;
+}
+
+/* Tag Pane Specifics */
+.pane.tag-pane {
+    padding: 0;
+    /* Flush header */
+}
+
+.pane-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .pane:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-  border-color: #008AFF; /* Your theme link color */
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
 }
 
 /* Grid Logic */
 .dashboard-top {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 25px;
-  margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 25px;
+    margin-bottom: 40px;
 }
 
 .dashboard-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 25px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
 }
 
 .featured-image {
-  width: 100%;
-  height: 220px;
-  background-size: cover;
-  background-position: center;
-  border-radius: 4px;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255,255,255,0.2);
-  font-size: 5rem;
-  overflow: hidden;
+    width: 100%;
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 5rem;
+    overflow: hidden;
 }
 
+/* Tag Header Banner Style */
 .tag-header {
-  border-bottom: 2px solid #f0f0f0;
-  margin-bottom: 15px;
-  padding-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    background: linear-gradient(135deg, #4b6cb7, #182848);
+    /* Academic Blue/Slate Gradient */
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    /* Flush */
 }
 
-.tag-header h3 { margin: 0; font-size: 1.5rem; }
+.tag-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.tag-header .count {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+}
+
+.tag-post-list {
+    margin-bottom: 15px;
+    padding-left: 20px;
+    /* Indent list items */
+}
+
+.pane-footer {
+    margin-top: auto;
+    font-size: 0.9rem;
+    color: #008AFF;
+    text-decoration: none;
+    font-weight: 600;
+}
 
 /* Mobile Breakpoint */
 @media (max-width: 768px) {
-  .dashboard-top { grid-template-columns: 1fr; }
+    .dashboard-top {
+        grid-template-columns: 1fr;
+    }
 }
