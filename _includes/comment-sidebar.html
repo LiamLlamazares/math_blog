@@ -13,123 +13,80 @@
     {% if site.data.recent_comments.data.repository.discussions.nodes %}
       {% for discussion in site.data.recent_comments.data.repository.discussions.nodes %}
         
-        {% assign matching_post = site.posts | where: "title", discussion.title | first %}
-        
-        {% if matching_post %}
-          {% assign target_link = matching_post.url %}
-        {% else %}
-          {% assign target_link = discussion.url %}
-        {% endif %}
+        {% assign target_link = discussion.url %} {% for post in site.posts %}
+          {% if post.title == discussion.title or discussion.title contains post.title or post.title contains discussion.title %}
+            {% assign target_link = post.url | relative_url %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
 
         {% for comment in discussion.comments.nodes reversed %}
-        <li class="comment-item">
-          <img src="{{ comment.author.avatarUrl }}" alt="{{ comment.author.login }}" class="comment-avatar">
           
-          <div class="comment-details">
-            <span class="comment-author">{{ comment.author.login }}</span>
-            <span class="comment-context"> on </span>
-            
-            <a href="{{ target_link }}" class="comment-link">
-              {{ discussion.title | truncate: 35 }}
-            </a>
-            
-            <p class="comment-snippet">
-              "{{ comment.bodyText | truncate: 50 }}"
-            </p>
-          </div>
-        </li>
+          <li class="comment-item">
+            <img src="{{ comment.author.avatarUrl }}" alt="{{ comment.author.login }}" class="comment-avatar">
+            <div class="comment-details">
+              <span class="comment-author">{{ comment.author.login }}</span>
+              <span class="comment-context"> on </span>
+              <a href="{{ target_link }}" class="comment-link">
+                {{ discussion.title | truncate: 35 }}
+              </a>
+              <p class="comment-snippet">"{{ comment.bodyText | truncate: 60 }}"</p>
+            </div>
+          </li>
+
+          {% for reply in comment.replies.nodes %}
+          <li class="comment-item reply-item">
+            <div class="reply-indicator">↳</div>
+            <img src="{{ reply.author.avatarUrl }}" alt="{{ reply.author.login }}" class="comment-avatar small">
+            <div class="comment-details">
+              <span class="comment-author">{{ reply.author.login }}</span>
+              <span class="comment-context"> replied:</span>
+              <a href="{{ target_link }}" class="comment-link" style="font-weight: normal;">
+                ...
+              </a>
+              <p class="comment-snippet">"{{ reply.bodyText | truncate: 50 }}"</p>
+            </div>
+          </li>
+          {% endfor %}
+
         {% endfor %}
         
       {% endfor %}
     {% else %}
-      <li style="padding: 20px; text-align: center; color: #777;">Loading...</li>
+      <li style="padding: 20px; text-align: center; color: #777;">Loading recent comments...</li>
     {% endif %}
     </ul>
   </div>
 </div>
 
 <style>
-  /* 1. The Container */
-  .comment-sidebar {
-    position: fixed;
-    right: 0;
-    top: 20%;
-    z-index: 9999;
-    display: flex;
-    align-items: flex-start;
-    transform: translateX(300px); /* Hidden by default */
-    transition: transform 0.3s ease;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  }
-  .comment-sidebar.open {
-    transform: translateX(0);
-  }
-
-  /* 2. The Button (Visible when closed) */
-  .sidebar-toggle {
-    background: #333;
-    color: white;
-    border: none;
-    padding: 15px 10px;
-    cursor: pointer;
-    border-radius: 5px 0 0 5px;
-    box-shadow: -2px 2px 5px rgba(0,0,0,0.2);
-  }
-
-  /* 3. The Panel (Hidden content) */
-  .sidebar-content {
-    width: 300px;
-    background: #fcfcfc;
-    border: 1px solid #ddd;
-    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-    height: auto;
-    max-height: 60vh; /* Max height so it doesn't overflow screen */
-    overflow-y: auto;
-  }
-
-  .sidebar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    background: #f5f5f5;
-    border-bottom: 1px solid #eee;
-  }
+  /* ---CSS --- */
+  .comment-sidebar { position: fixed; right: 0; top: 20%; z-index: 9999; display: flex; align-items: flex-start; transform: translateX(300px); transition: transform 0.3s ease; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  .comment-sidebar.open { transform: translateX(0); }
+  .sidebar-toggle { background: #333; color: white; border: none; padding: 15px 10px; cursor: pointer; border-radius: 5px 0 0 5px; box-shadow: -2px 2px 5px rgba(0,0,0,0.2); }
+  .sidebar-content { width: 320px; background: #fcfcfc; border: 1px solid #ddd; box-shadow: -5px 0 15px rgba(0,0,0,0.1); height: auto; max-height: 70vh; overflow-y: auto; }
+  .sidebar-header { display: flex; justify-content: space-between; align-items: center; padding: 15px; background: #f5f5f5; border-bottom: 1px solid #eee; }
   .sidebar-header h4 { margin: 0; font-size: 16px; font-weight: bold; color: #333; }
   .close-btn { background: none; border: none; font-size: 20px; cursor: pointer; color: #666; }
-
-  /* 4. The List Items */
   .comment-list { list-style: none; padding: 0; margin: 0; }
-  .comment-item {
-    display: flex;
-    padding: 15px;
-    border-bottom: 1px solid #eee;
-    transition: background 0.2s;
-  }
+  
+  /* Comment Items */
+  .comment-item { display: flex; padding: 15px; border-bottom: 1px solid #eee; transition: background 0.2s; }
   .comment-item:hover { background: #fff; }
+  
+  /* --- NEW: Reply Styling --- */
+  .reply-item { background-color: #fafafa; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; }
+  .reply-indicator { color: #ccc; margin-right: 8px; font-size: 1.2em; user-select: none; }
+  .comment-avatar.small { width: 28px; height: 28px; margin-right: 8px; }
 
-  /* Avatar */
-  .comment-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 12px;
-    border: 1px solid #ddd;
-  }
-
-  /* Text Details */
-  .comment-details { flex: 1; font-size: 13px; line-height: 1.4; }
+  /* Avatars & Text */
+  .comment-avatar { width: 40px; height: 40px; border-radius: 50%; margin-right: 12px; border: 1px solid #ddd; }
+  .comment-details { flex: 1; font-size: 13px; line-height: 1.4; overflow: hidden; }
   .comment-author { font-weight: bold; color: #8B4513; }
   .comment-context { color: #666; }
-  .comment-link { 
-    font-weight: bold; 
-    color: #333; 
-    text-decoration: none; 
-    display: block; 
-    margin-bottom: 4px; 
-  }
+  .comment-link { font-weight: bold; color: #333; text-decoration: none; display: block; margin-bottom: 4px; }
   .comment-link:hover { color: #008AFF; text-decoration: underline; }
-  .comment-snippet { margin: 0; color: #666; font-style: italic; }
+  .comment-snippet { margin: 0; color: #666; font-style: italic; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 </style>
 
 <script>
