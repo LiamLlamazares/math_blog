@@ -13,9 +13,9 @@
     {% if site.data.recent_comments.data.repository.discussions.nodes %}
       {% for discussion in site.data.recent_comments.data.repository.discussions.nodes %}
         
-        {% assign target_link = discussion.url %} {% for post in site.posts %}
+        {% assign base_link = discussion.url %} {% for post in site.posts %}
           {% if post.url contains discussion.title or discussion.title contains post.url %}
-            {% assign target_link = post.url | relative_url %}
+            {% assign base_link = post.url | relative_url %}
             {% break %}
           {% endif %}
         {% endfor %}
@@ -27,7 +27,7 @@
             <div class="comment-details">
               <span class="comment-author">{{ comment.author.login }}</span>
               <span class="comment-context"> on </span>
-              <a href="{{ target_link }}" class="comment-link">
+              <a href="{{ base_link }}#discussion-comment-{{ comment.databaseId }}" class="comment-link">
                 {{ discussion.title | truncate: 30 }}
               </a>
               <p class="comment-snippet">"{{ comment.bodyText | truncate: 60 }}"</p>
@@ -42,7 +42,7 @@
               <div class="comment-details">
                 <span class="comment-author">{{ reply.author.login }}</span>
                 <span class="comment-context"> replied:</span>
-                <a href="{{ target_link }}" class="comment-link" style="font-weight: normal;">
+                <a href="{{ base_link }}#discussion-comment-{{ reply.databaseId }}" class="comment-link" style="font-weight: normal;">
                   ...
                 </a>
                 <p class="comment-snippet">"{{ reply.bodyText | truncate: 50 }}"</p>

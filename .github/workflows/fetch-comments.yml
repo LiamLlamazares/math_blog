@@ -28,12 +28,14 @@ jobs:
                     url
                     comments(last: 10) {
                       nodes {
+                        databaseId   # <--- NEW: We need this ID number
                         author { login avatarUrl }
                         bodyText
                         createdAt
                         url
                         replies(last: 3) {
                           nodes {
+                            databaseId  # <--- NEW: We need this for replies too
                             author { login avatarUrl }
                             bodyText
                             createdAt
