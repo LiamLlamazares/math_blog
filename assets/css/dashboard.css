@@ -2,10 +2,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&display=swap');
 
 .dashboard-container {
-    margin: 1200px auto 0;
-    padding: 20px;
+    max-width: 1200px;
+    /* Slightly wider to fit 3 cards easily */
+    margin: 0 auto;
+
+    /* FIX 1: Add top padding to clear the navbar */
+    padding-top: 100px;
+    padding-bottom: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+
     background-color: #f8f9fa;
-    /* Clean, solid background (No Graph Paper) */
     border-radius: 8px;
 }
 
@@ -13,6 +20,7 @@
     font-family: 'Cormorant Garamond', 'Times New Roman', serif;
     font-weight: 600;
     letter-spacing: -0.5px;
+    ss
 }
 
 .pane {
