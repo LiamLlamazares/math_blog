@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&display=swap');
 
 .dashboard-container {
-    margin: 120px auto 0;
+    margin: 1200px auto 0;
     padding: 20px;
     background-color: #f8f9fa;
     /* Clean, solid background (No Graph Paper) */
