@@ -2,7 +2,7 @@
 layout: post
 title: Parabolic PDE. Well posedness and regularity
 subtitle: A journey through time and space
-thumbnail-img: /assets/img/Evans_PDE.jpg
+thumbnail-img: /assets/img/Figures/Galerkin_exact.svg
 share-img: /assets/img/Figures/Galerkin_exact.svg
 tags: [PDEs]
 author: L.Llamazares-Elias

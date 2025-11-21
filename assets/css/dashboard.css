@@ -82,6 +82,12 @@
     overflow: hidden;
 }
 
+.pane-label {
+    margin: 0 0 15px 0;
+    font-size: 1.6rem;
+    color: #2d2d2d;
+}
+
 /* --- FIXED HEADER STYLING --- */
 .tag-header {
     background: linear-gradient(135deg, #4b6cb7, #182848);

@@ -7,7 +7,7 @@ layout: base
     
     {% assign featured = site.posts.first %}
     <div class="pane featured-pane">
-      <span class="pane-label">Latest Result</span>
+      <h3 class="pane-label math-font">Latest Post</h3>
       <a href="{{ featured.url | relative_url }}" class="featured-link">
         {% assign feat_img = featured.header-img %}
         {% unless feat_img %}
@@ -26,13 +26,14 @@ layout: base
         {% endif %}
         
         <h2 class="math-font">{{ featured.title }}</h2>
-        <p class="excerpt">{{ featured.excerpt | strip_html | truncatewords: 25 }}</p>
-        <span class="read-more">View Proof &rarr;</span>
+        <p class="excerpt">{{ featured.subtitle | strip_html}}</p>
+        <!-- <p class="excerpt">{{ featured.excerpt | strip_html | truncatewords: 25 }}</p> -->
+        <span class="read-more">Read more &rarr;</span>
       </a>
     </div>
 
     <div class="pane recent-list-pane">
-      <span class="pane-label">Recent Activity</span>
+      <h3 class="pane-label math-font">Most recent posts </h3>
       <ul>
         {% for post in site.posts offset:1 limit:4 %}
         <li>
