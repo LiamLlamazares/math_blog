@@ -286,7 +286,7 @@ plugins:
 
 # Tag Banner Images (Map your tags to your generated images)
 tag_banners:
-  PDEs: "/assets/img/generated/cover_PDE.jpg"
-  Stochastic calculus: "/assets/img/generated/cover_SC.jpg"
-  "Malliavin calculus": "/assets/img/generated/cover_MC.jpg"
+  PDEs: "/assets/img/Collection_covers/cover_PDE.jpg"
+  Stochastic calculus: "/assets/img/Collection_covers/cover_SC.jpg"
+  "Malliavin calculus": "/assets/img/Collection_covers/cover_MC.jpg"
   # Add more tags here as needed...

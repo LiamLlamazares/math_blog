@@ -54,6 +54,7 @@ layout: base
       {% if tag_posts.size > 1 %}
       {% assign banner_url = site.tag_banners[tag_name] %}
       
+      <div class="pane tag-pane">
       <div class="tag-header" 
            {% if banner_url %}
            style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('{{ banner_url | relative_url }}'); background-size: cover; background-position: center;"
