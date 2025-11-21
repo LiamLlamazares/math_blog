@@ -1,19 +1,15 @@
-/* Import Computer Modern Serif for that "Textbook" look */
+/* Import Computer Modern Serif */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&display=swap');
 
 .dashboard-container {
     max-width: 1100px;
     margin: 0 auto;
     padding: 20px;
-    /* Graph Paper Background */
     background-color: #f8f9fa;
-    background-image: linear-gradient(#e5e7eb 1px, transparent 1px), linear-gradient(90deg, #e5e7eb 1px, transparent 1px);
-    background-size: 20px 20px;
+    /* Clean, solid background (No Graph Paper) */
     border-radius: 8px;
-    /* Soften the container edges */
 }
 
-/* Utility Class for Math Headers */
 .math-font {
     font-family: 'Cormorant Garamond', 'Times New Roman', serif;
     font-weight: 600;
@@ -22,7 +18,6 @@
 
 .pane {
     background: #fff;
-    /* Remove border, use soft shadow */
     border: none;
     border-radius: 6px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -30,19 +25,15 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    /* Clip the header corners */
 }
 
-/* Padding for panes that don't have the banner header (like recent activity) */
 .pane.featured-pane,
 .pane.recent-list-pane {
     padding: 25px;
 }
 
-/* Tag Pane Specifics */
 .pane.tag-pane {
     padding: 0;
-    /* Flush header */
 }
 
 .pane-content {
@@ -57,7 +48,6 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
 }
 
-/* Grid Logic */
 .dashboard-top {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -86,35 +76,45 @@
     overflow: hidden;
 }
 
-/* Tag Header Banner Style */
+/* --- FIXED HEADER STYLING --- */
 .tag-header {
     background: linear-gradient(135deg, #4b6cb7, #182848);
-    /* Academic Blue/Slate Gradient */
     color: white;
+
+    /* 1. Increase height to show the image */
+    height: 140px;
+
     padding: 15px 20px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+
+    /* 2. Align text to bottom so it doesn't float in the middle of the art */
+    align-items: flex-end;
+
     margin: 0;
-    /* Flush */
 }
 
 .tag-header h3 {
     margin: 0;
-    font-size: 1.5rem;
-    color: white;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    font-size: 1.6rem;
+    color: #2d2d2d;
+    /* Dark text for sketch covers */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    /* Glow to make text readable over drawings */
 }
 
 .tag-header .count {
-    color: rgba(255, 255, 255, 0.8);
+    color: #555;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 2px 8px;
+    border-radius: 4px;
     font-size: 0.9rem;
+    font-weight: bold;
 }
 
 .tag-post-list {
     margin-bottom: 15px;
     padding-left: 20px;
-    /* Indent list items */
 }
 
 .pane-footer {
@@ -125,7 +125,6 @@
     font-weight: 600;
 }
 
-/* Mobile Breakpoint */
 @media (max-width: 768px) {
     .dashboard-top {
         grid-template-columns: 1fr;
