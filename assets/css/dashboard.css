@@ -185,3 +185,73 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* --- DARK MODE STYLES --- */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode .dashboard-container {
+    background-color: #121212;
+}
+
+body.dark-mode .pane {
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .pane-label {
+    color: #e0e0e0;
+}
+
+body.dark-mode .tag-header h3 {
+    color: #e0e0e0;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+body.dark-mode .featured-link,
+body.dark-mode .recent-list-pane ul li a,
+body.dark-mode .tag-post-list li a {
+    color: #e0e0e0;
+}
+
+body.dark-mode .featured-link:hover,
+body.dark-mode .recent-list-pane ul li a:hover,
+body.dark-mode .tag-post-list li a:hover {
+    color: #64b5f6;
+}
+
+body.dark-mode .excerpt {
+    color: #b0b0b0;
+}
+
+body.dark-mode .read-more,
+body.dark-mode .pane-footer {
+    color: #64b5f6;
+}
+
+body.dark-mode .navbar-custom {
+    background-color: #1e1e1e;
+    border-bottom: 1px solid #333;
+}
+
+body.dark-mode .navbar-custom .navbar-brand,
+body.dark-mode .navbar-custom .nav-link {
+    color: #e0e0e0;
+}
+
+body.dark-mode .navbar-custom .nav-link:hover {
+    color: #64b5f6;
+}
+
+/* Adjust the tag header count badge in dark mode */
+body.dark-mode .tag-header .count {
+    background: rgba(30, 30, 30, 0.8);
+    color: #e0e0e0;
+}
+
+/* Invert the leaf icon brightness if needed, or keep it as is */
+body.dark-mode .leaf-icon {
+    filter: invert(1);
+}
