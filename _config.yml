@@ -283,3 +283,10 @@ plugins:
   - jekyll-sitemap
 # Beautiful Jekyll / Dean Attali
 # 2fc73a3a967e97599c9763d05e564189
+
+# Tag Banner Images (Map your tags to your generated images)
+tag_banners:
+  PDEs: "/assets/img/generated/cover_PDE.jpg"
+  Stochastic calculus: "/assets/img/generated/cover_SC.jpg"
+  "Malliavin calculus": "/assets/img/generated/cover_MC.jpg"
+  # Add more tags here as needed...

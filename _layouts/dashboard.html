@@ -47,16 +47,21 @@ layout: base
   <div class="dashboard-grid">
     {% assign sorted_tags = site.tags | sort %}
     
-    {% for tag in site.tags %}
+    {% for tag in sorted_tags %}
       {% assign tag_name = tag[0] %}
       {% assign tag_posts = tag[1] %}
       
-      {% if tag_posts.size > 2 %}
-      <div class="pane tag-pane">
-        <div class="tag-header">
-          <h3 class="math-font">{{ tag_name }}</h3>
-          <span class="count">{{ tag_posts.size }} $\nabla$</span>
-        </div>
+      {% if tag_posts.size > 1 %}
+      {% assign banner_url = site.tag_banners[tag_name] %}
+      
+      <div class="tag-header" 
+           {% if banner_url %}
+           style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('{{ banner_url | relative_url }}'); background-size: cover; background-position: center;"
+           {% endif %}>
+        
+        <h3 class="math-font">{{ tag_name }}</h3>
+        <span class="count">{{ tag_posts.size }} $\nabla$</span>
+      </div>
         <div class="pane-content">
           <ul class="tag-post-list">
             {% for post in tag_posts limit:3 %}
