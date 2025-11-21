@@ -140,6 +140,15 @@
     border-radius: 4px;
     font-size: 0.9rem;
     font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.leaf-icon {
+    height: 16px;
+    width: auto;
+    opacity: 0.8;
 }
 
 .tag-post-list {
