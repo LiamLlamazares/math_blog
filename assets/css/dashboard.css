@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&display=swap');
 
 .dashboard-container {
-    max-width: 1200px;
+    max-width: 1400px;
     /* Slightly wider to fit 3 cards easily */
     margin: 0 auto;
 
