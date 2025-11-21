@@ -1,6 +1,10 @@
 /* Import Computer Modern Serif */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&display=swap');
 
+html {
+    scroll-behavior: smooth;
+}
+
 .dashboard-container {
     max-width: 1100px;
     /* Slightly wider to fit 3 cards easily */
