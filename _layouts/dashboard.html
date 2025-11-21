@@ -69,7 +69,7 @@ layout: base
             <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
             {% endfor %}
           </ul>
-          <a href="{{ '/tags' | relative_url }}#{{ tag_name | slugify }}" class="pane-footer">Explore Topic &rarr;</a>
+          <a href="{{ '/tags' | relative_url }}/#/{{ tag_name | uri_escape }}" class="pane-footer">Explore Topic &rarr;</a>
         </div>
       </div>
       {% endif %}
