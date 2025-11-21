@@ -137,6 +137,22 @@
     font-weight: 600;
 }
 
+/* --- LINK STYLING --- */
+.featured-link,
+.recent-list-pane ul li a,
+.tag-post-list li a {
+    color: #2d2d2d;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.featured-link:hover,
+.recent-list-pane ul li a:hover,
+.tag-post-list li a:hover {
+    color: #008AFF;
+    text-decoration: none;
+}
+
 @media (max-width: 768px) {
     .dashboard-top {
         grid-template-columns: 1fr;
