@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Comment Formatting Guide
+title: Comment Formatting
 subtitle: How to write mathematics in the comments
 ---
 
