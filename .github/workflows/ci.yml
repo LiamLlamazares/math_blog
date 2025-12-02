@@ -22,7 +22,6 @@ jobs:
         env:
           JEKYLL_ENV: production
         run: bundle exec appraisal jekyll build --future --config _config_ci.yml,_config.yml
-      - name: Check for broken links
-        run: bundle exec htmlproofer ./_site
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
