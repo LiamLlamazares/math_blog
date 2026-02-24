@@ -1,0 +1,65 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "NoWhere Differentiable Math"
+  site-url: "https://nowheredifferentiable.com"
+  description: "A blog about Mathematics, Spatial statistics, stochastic analysis, and PDEs."
+  
+  navbar:
+    background: "#EAEAEA"
+    foreground: "#404040"
+    left:
+      - text: "HOME PAGE"
+        href: index.qmd
+      - text: "About"
+        href: aboutme.qmd
+    right:
+      - text: "Posts by Tag"
+        href: "https://nowheredifferentiable.com/tags/"
+      - text: "Resources"
+        menu:
+          - text: "Terence Tao's blog"
+            href: "https://terrytao.wordpress.com/"
+          - text: "Lukasz Sliwinski's blog"
+            href: "https://lukasz.ls314.com/"
+      - text: "Subscribe"
+        href: "http://eepurl.com/itcRso"
+      - icon: github
+        href: https://github.com/LiamLlamazares
+
+  search: true
+
+  page-footer:
+    left: "L. Llamazares-Elias"
+    right: 
+      - icon: github
+        href: https://github.com/LiamLlamazares
+      - text: "Google Scholar"
+        href: "https://scholar.google.com/citations?user=nW7-c62TwJ0C"
+
+format:
+  html:
+    theme:
+      light: flatly
+      dark: darkly
+    css: styles.css
+    toc: true
+    html-math-method: mathjax
+    include-in-header:
+      text: |
+        <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          jax: ["input/TeX", "output/HTML-CSS"],
+          tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\\[','\\]'] ],
+            processEscapes: true
+          },
+          TeX: {
+            extensions: ["AMSmath.js","AMSsymbols.js","physics.js"],
+            equationNumbers: { autoNumber: "AMS" }
+          }
+        });
+        </script>

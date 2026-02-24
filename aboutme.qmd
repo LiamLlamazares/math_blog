@@ -1,0 +1,15 @@
+---
+title: "About"
+image: assets/img/tree.jpg
+about:
+  template: jolla
+  links:
+    - icon: envelope
+      text: Email
+      href: mailto:l.llamazares@lancaster.ac.uk
+    - icon: github
+      text: Github
+      href: https://github.com/LiamLlamazares
+---
+
+My name is Liam Llamazares-Elias...
