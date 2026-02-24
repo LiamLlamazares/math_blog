@@ -68,6 +68,7 @@ format:
               abs: ["\\left| #1 \\right|", 1],
               alf: "{\\alpha}",
               b: ["{\\bm{#1}}", 1],
+              bm: ["\\boldsymbol{#1}", 1],
               br: ["\\left\\langle#1\\right\\rangle", 1],
               bt: "\\beta",
               co: ["\\overset{\\circ}{#1}", 1],
@@ -113,15 +114,16 @@ format:
 The theory of Gaussian measures is built by considering first the $\R$ valued case 
 
 ::: {#def-1}
+
 We say that $\mu$ is a Gaussian measure on $\Bb(\R)$ if there exist $m \in \R, \sigma>0$ such that either $\mu=\delta_m$ or $\mu$ has density 
-    
+
 $$
 \begin{aligned}
 p(t)= \frac{1}{\sqrt{2\pi\sigma^2} }\ex{\frac{-(t-m)^2}{2\sigma^2}}.
 \end{aligned}
 $$ {#eq-density}
 
-    In this case we write $\mu \sim \Nn(m, \sigma^2)$
+In this case we write $\mu \sim \Nn(m, \sigma^2)$
 
 :::
 
@@ -130,8 +132,9 @@ The Gaussian trick of multiplying by $p(s)$ and switching to polar coordinates s
 A fundamental tool for analyzing measures is the Fourier transform
 
 ::: {#def-2}
+
 Given a measure $\mu$ on $\Bb(\R)$ we define the Fourier transform of $\mu$ as 
-    
+
 $$
 \begin{aligned}
 \wh{\mu}(u):= \int_{\R^n}\ex{i u \cdot x} \mu(\mathrm{d}x),\quad\forall u \in \R^n
@@ -143,7 +146,8 @@ $$
 The characteristic function has the following useful properties  [@ash2000probability, Theorem 7.1.3, Theorem 7.2.8, 7.1.2]
 
 ::: {#prp-1}
-Let $\mu,\nu, \mu_n$ be measures on $\Bb(\R)$, then 
+
+    Let $\mu,\nu, \mu_n$ be measures on $\Bb(\R)$, then 
 1. Inversion: $\wh{\mu}=\wh{\nu}$ if and only if $\mu- \nu$.
 2. Convergence: $\mu_n \to \mu$ (weakly) if and only $\wh{\mu}_n \to \wh{\mu}$ (pointwise).
 3. Independence: Consider random variables $X_1,\dots,X_n$ with distributions $\mu_{X_i}$ and write $\mu_S$ for the distribution of the sum $S_n= \sum_{i=1}^{n} X_n $. Then 
@@ -159,6 +163,7 @@ $$
 A calculation using that @eq-density integrates to one, a contour integration  and the inversion property shows the following [@ash2000probability] 
 
 ::: {#prp-2}
+
 A measure $\mu$ on $\Bb(\R)$ is Gaussian if and only if 
 
 $$
@@ -174,53 +179,53 @@ One can use this  prove the central limit theorem which heuristically states tha
 
 $$
 \begin{aligned}
-X_1 + \cdots X_n \to \Nn\qty(m, \frac{\sigma^2}{n})
+X_1 + \cdots X_n \to \Nn\left(m, \frac{\sigma^2}{n}\right)
 \end{aligned}
 $$
 
 Tha is, the sum of i.id variables converges to their mean plus a Gaussian with vanishingly small variance equal to $\sigma^2/n$.  
 
 ::: {#thm-1}
+
 Let $X_1,\dots,X_n$ be a sequence of i.i.d variables with mean $m$ and variance $\sigma^2$. Write
-    
+
 $$
 \begin{aligned}
 Y_i:= \frac{X_i-m}{\sigma}, \quad S_n:=\frac{ 1}{\sqrt{n}}(Y_1+\dots+ Y_n).
 \end{aligned}
 $$
 
-    Then, $S_n $ converges (weakly) to a Gaussian with mean $0$ and variance $1$.
+Then, $S_n $ converges (weakly) to a Gaussian with mean $0$ and variance $1$.
 
 :::
 
 ::: {.proof}
 
-    Since $Y_i$ have finite variance (equal to $1$), the characteristic functions $\varphi_{Y_i}$ are twice differentiable with 
-    
+Since $Y_i$ have finite variance (equal to $1$), the characteristic functions $\varphi_{Y_i}$ are twice differentiable with 
+
 $$
 \begin{aligned}
 \varphi_{Y_i}(t) = 1- \frac{1}{2}t^2+ \Oo(t^3)
 \end{aligned}
 $$
 
-    By @independence and a change of variables 
-    
+By @independence and a change of variables 
+
 $$
 \begin{aligned}
-\varphi_{S_n}(t)=  \qty(\varphi_{Y_i}\qty(\frac{t}{\sqrt{n} } ))^n=\qty(1- \frac{t^2/2}{n}+ \Oo\qty(\frac{1}{n^{3/2}}))^n
+\varphi_{S_n}(t)=  \left(\varphi_{Y_i}\left(\frac{t}{\sqrt{n} } \right)\right)^n=\left(1- \frac{t^2/2}{n}+ \Oo\left(\frac{1}{n^{3/2}}\right)\right)^n
 \end{aligned}
 $$
 
-    Taking limits shows that 
-    
+Taking limits shows that 
+
 $$
 \begin{aligned}
 \lim_{n \to \infty}\varphi_{S_n}(t) = e^{-t^2/2}.
 \end{aligned}
 $$
 
-    By @characteristic-prop  this is the FT of a Gaussian with mean $0$ and variance $1$. The result follows by @convergence and @inversion. 
-     
+By @characteristic-prop  this is the FT of a Gaussian with mean $0$ and variance $1$. The result follows by @convergence and @inversion. 
 
 :::
 
@@ -229,6 +234,7 @@ $$
 In $\mathbb{R}^n$  a measure is Gaussian if and only if its pushforward by any linear map is Gaussian. This extends naturally to more general spaces 
 
 ::: {#def-3 name="Heuristic"}
+
 We say a measure $\mu$ on a space $E$ is Gaussian if $\ell_{\#} \mu$ is a Gaussian measure on $\R$ for all $\ell E'$.
 
 :::
@@ -236,18 +242,19 @@ We say a measure $\mu$ on a space $E$ is Gaussian if $\ell_{\#} \mu$ is a Gaussi
 We now make precise on what kind of space we may define such a thing, clearly we need for the dual to exist
 
 ::: {#def-4}
+
 Given a topological vector space $V$ over {$\K=\R$ or $\K=\C$}   we denote its *dual space*
 
 $$
 V':=\set{\ell :V\to {\K}: \text{ linear and continuous}}.
 $$
 
-  
 :::
 
 However, the dual space needs to not only exist, but also to be rich enough to provide enough information about the space as the following example shows.
 
 ::: {#exm-1}
+
 For $p \in (0,1)$ the spaces $L^p[0,1]$ are complete metric spaces but not LC and have the trivial dual $L^p[0,1]'= \set{0} $.
 
 :::
@@ -255,6 +262,7 @@ For $p \in (0,1)$ the spaces $L^p[0,1]$ are complete metric spaces but not LC an
 As a result, *every* measure on $L^p[0,1]$ would be Gaussian. To guard against this we consider the following spaces.
 
 ::: {#def-5}
+
 We say that $E$ is locally convex (LC) if it is a topological vector space with a family of seminorms $\{p_\alpha\}_{\alpha \in A }$ which separates points, that is such that given $x \in E$ there exists $\alpha \in A$ such that $p_\alpha(x)>0$
 
 :::
@@ -264,6 +272,7 @@ Examples include the Schwartz-space $\Ss(\R^d)$, the locally integrable spaces $
 LC spaces provide enough structure to be able apply the [Hahn Banach theorem](https://en.wikipedia.org/wiki/Hahn%E2%80%93Banach_theorem#Hahn%E2%80%93Banach_theorem:~:text=The-,Hahn%E2%80%93Banach%20theorem,-can%20be%20used) and its many corollaries 
 
 ::: {#thm-2 name="Hahn Banach"}
+
 Let $E$ be LC and $E_0 \subset E$  a linear subspace. Then given $ \ell \in E_0'$ there exists an extension of $L \in E'$ to all of $E$ with $\norm{L}_{E'}=\norm{\ell}_{E_0'}$.
 
 :::
@@ -271,8 +280,9 @@ Let $E$ be LC and $E_0 \subset E$  a linear subspace. Then given $ \ell \in E_0'
 This makes the dual of LC spaces  sufficiently rich to separate points and provides a suitable ambient space for Gaussian measures. In terms of the sigma-algebra, since we are only measuring through linear functions we consider the following
 
 ::: {#def-6}
+
 Let $E$ be LC, we define the *cylindrical* $\sigma$-algebra to be 
-    
+
 $$
 \begin{aligned}
 \Ee(E) := \sigma(\set{\ell ^{-1}(U): U \subset \Bb(\R), \ell \in E'}).
@@ -286,14 +296,14 @@ With this we can now formally define the concept of a Gaussian measure
 
 ::: {#def-gm-def}
 
-    Let $E$ be LC. We say that a measure $\mu$ on $\Ee(E)$ is a Gaussian measure if $\ell _{\#}\mu$ is a Gaussian measure on $\Bb(\R)$ for all $\ell \in E'$.
+Let $E$ be LC. We say that a measure $\mu$ on $\Ee(E)$ is a Gaussian measure if $\ell _{\#}\mu$ is a Gaussian measure on $\Bb(\R)$ for all $\ell \in E'$.
 
 :::
  
 
 ::: {#exr-1}
+
 Show that @gm-def is equivalent to requiring that that $\bm{\ell }_{\#}\mu$ is a Gaussian measure on $\Bb(\R^n)$ for all $\bm{\ell }:=(\ell_1,\ldots, \ell _n )$ where $\ell _1,\ldots, \ell _n \in E'$.
-    
 
 :::
 
@@ -306,59 +316,59 @@ The new definition clearly implies the first by setting $n=1$. To see the conver
 Gaussian measures can be fully characterized using their Fourier transform
 
 ::: {#def-7}
+
 Given a measure $\mu$ on $\Ee(E)$ we define the Fourier transform (FT) or characteristic function of $\mu$ as 
-    
+
 $$
 \begin{aligned}
 \wh{\mu}(\ell ):= \int_{E}\exp{i \ell(x)}\mu(\mathrm{d} x).
 \end{aligned}
 $$
 
-    
-
 :::
 
 ::: {#thm-3}
+
 Let $E$ be LC, a measure $\mu$ on $\Ee(E)$ is a Gaussian measure if and only if there exist linear $m \in E' \to \R$ and symmetric bilinear and non-negative $\Kk:E'\times E' \to \R$ such that
-    
+
 $$
 \begin{aligned}
 \wh{\mu}(\ell )= \exp{i m(\ell )- \frac{1}{2}\Kk(\ell ,\ell )}
 \end{aligned}
 $$
 
-    
-
 :::
 
 ::: {.proof}
 
-    The measure $\ell _{\#}\mu$ is a one-dimensional Gaussian  with mean $m(\ell )$ and variance $\Kk(\ell,\ell)$, where  
-    
+The measure $\ell _{\#}\mu$ is a one-dimensional Gaussian  with mean $m(\ell )$ and variance $\Kk(\ell,\ell)$, where  
+
 $$
 \begin{aligned}
 m(\ell )= \int_{E}\ell (x)\mu(\mathrm{d}x), \quad  \Kk(\ell _1,\ell _2)= \int_{E}(\ell_1 (x)-m(\ell _1))(\ell_2 (x)-m(\ell _2)) \mu(\mathrm{d}x).
 \end{aligned}
 $$
 
-    The theorem follows by theory of real Gaussian variables. 
+The theorem follows by theory of real Gaussian variables. 
 
 :::
 
 The Fourier transform is in fact enough to characterize these measures 
 
 ::: {#thm-4}
+
 Let $\mu,\nu$ be Gaussian measures on LC E. Then $\mu= \nu$ if and only if $\wh{\mu}= \wh{\nu}$
 
 :::
 
 ::: {.proof}
 
-   By theory of real Gaussian variables we have that $\ell _{\#}\mu= \ell _{\#}\nu$ if and only if 
+By theory of real Gaussian variables we have that $\ell _{\#}\mu= \ell _{\#}\nu$ if and only if 
 
 :::
 
 ::: {#prp-3}
+
 On separable (or Radon) spaces we have that $\Ee(E)= \Bb(E)$.
 
 :::
@@ -366,6 +376,7 @@ On separable (or Radon) spaces we have that $\Ee(E)= \Bb(E)$.
 ### Gaussian random fields
 
 ::: {#def-8}
+
 Given a topological vector space $V$, we say that a *Gaussian measure * is a measure on $\Bb(V)$ such that $\ell $ is a real valued Gaussian variable for all $\ell \in V'$.
 
 :::
@@ -379,6 +390,7 @@ A $V$ valued random variable $u$ is a *Gaussian random variable* if the pushforw
 When $V=\R^d$ @def-def-gaussian-random-variable coincides with the standard definition of a finite-dimensional Gaussian random variable. 
 
 ::: {#def-9}
+
 Let $(V,\Bb(V),\mu )$ be a topological vector space such that, for all  $\ell ,h\in V'$,
 
 $$
@@ -396,20 +408,22 @@ $$
 $$ {#eq-covariance-operator}
 
 ::: {#def-10}
+
 The operator $\Kk_\mu $ defined by @eq-covariance-operator is the *covariance operator* of $\mu $.
 
 :::
 
 ::: {#prp-covariance-kernel-gaussian}
- Let $H$ be a separable Hilbert space.
+
+Let $H$ be a separable Hilbert space.
     1. Given a Gaussian measure $\mu $ on  $(H,\Bb(H))$, its covariance operator is trace class. That is, $K_\mu \in \Ll_1^+(H)$.
 2. Given $\Kk\in \Ll_1^+(H)$ there exists a Gaussian measure $\mu $ on $(H,\Bb(H))$ such that $\Kk =\Kk _\mu $.
 
 :::
 
 ::: {.proof}
- 
-    The first point follows from Fernique's theorem and the second by letting $\mu $ be the pushforward by $u =\sum_{k=1}^\infty \lambda_k e_k \xi_k$ where $\xi_k\sim\mathcal{N}(0,1)$ are iid and $\{e_k\}_{k=1}^\infty$ is an orthonormal basis of $H$ that diagonalizes $\Kk$ (this exists as $\Kk $ is self-adjoint and compact) with eigenvalues $\{\lambda_k^2\}_{k=1}^\infty$  {[@ash2000probability]}.
+
+The first point follows from Fernique's theorem and the second by letting $\mu $ be the pushforward by $u =\sum_{k=1}^\infty \lambda_k e_k \xi_k$ where $\xi_k\sim\mathcal{N}(0,1)$ are iid and $\{e_k\}_{k=1}^\infty$ is an orthonormal basis of $H$ that diagonalizes $\Kk$ (this exists as $\Kk $ is self-adjoint and compact) with eigenvalues $\{\lambda_k^2\}_{k=1}^\infty$  {[@ash2000probability]}.
 
 :::
 
@@ -419,7 +433,7 @@ An abstract Wiener space is a triple $(X,H,\mu)$ where $X$ is a separable Banach
 
 $$
 \begin{aligned}
-\phi_{\#} \mu \sim \Nn \qty(0, \norm{i^*\phi}_H^2),\quad \forall \phi \in X'.
+\phi_{\#} \mu \sim \Nn \left(0, \norm{i^*\phi}_H^2\right),\quad \forall \phi \in X'.
 \end{aligned}
 $$
 
@@ -432,8 +446,8 @@ W_t = \sum_{j=1}^{\infty} \bt_j(t) h_j.
 $$
 
 ::: {#exr-2}
+
 Show that $ii^*= \Kk$ as operators from $X'\to X$.
-    
 
 :::
 
@@ -464,20 +478,20 @@ Then $H$ is a separable Hilbert space and dense in $X$. Furthermore, let  $\set{
 :::
 
 ::: {#exr-3}
+
 Prove @covariance-space-lemma.
-    
 
 :::
 
 ::: {.callout-tip collapse="true" title="Hint"}
 
-    The operators $\Kk^{1/2}, \Kk^{-1/2}$ and the onb of eigenvectors exists by spectral theory. By linearity of $\Kk^{1/2}$ $\br{ \cdot ,\cdot  } $ is an inner product. A calculation shows that $h_j \in H$ are orthonormal in $X$ and they form a basis of $H$. To show density use that $e_j = \Kk^{1/2} (\lambda_j ^{-1}e_j) \in H$. This concludes the proof.
+The operators $\Kk^{1/2}, \Kk^{-1/2}$ and the onb of eigenvectors exists by spectral theory. By linearity of $\Kk^{1/2}$ $\br{ \cdot ,\cdot  } $ is an inner product. A calculation shows that $h_j \in H$ are orthonormal in $X$ and they form a basis of $H$. To show density use that $e_j = \Kk^{1/2} (\lambda_j ^{-1}e_j) \in H$. This concludes the proof.
 
 :::
 
 ::: {#exm-2}
+
 Let $X$ bs a separable Hilbert space and $\mu \sim \Nn (0,\Kk)$ be non-degenerate. Write $ H=\Kk^{1/2}(X) $.Then $(X,H,\mu)$ is an AWS.
-    
 
 :::
 
@@ -496,7 +510,7 @@ By definition of AWS, also
 
 $$
 \begin{aligned}
-\phi^j_{\#}\mu \sim \Nn \qty(0, \norm{i^*\phi^j}_H^2).
+\phi^j_{\#}\mu \sim \Nn \left(0, \norm{i^*\phi^j}_H^2\right).
 \end{aligned}
 $$
 
@@ -513,6 +527,7 @@ Thus $(X,H,\mu)$ verify the statemtns as in the theorem. Furthermore, given any 
 :::
 
 ::: {#prp-4}
+
 Let $X$ be a Hilbert space, then there exists a Gaussian measure with covariance $\Kk: H \to H$ if and only if $\Kk$ is self-adjoint positive semi-definite and trace class.
 
 :::
@@ -544,32 +559,33 @@ As a result, by .... $X$ is Gaussian random variable and, by construction, $X \s
 As a result we obtain the following corollary
 
 ::: {#cor-1}
+
 A Wiener space  $(X,H,\mu)$ ve $X$ is  a finite dimensional Wiener space and $\mu \sim \Nn (0,1)$.
 
 :::
 
 ::: {.proof}
 
-  Suppose $(X,X,\mu)$ is an AWS  By definition of AWS we require that $X$ is a separable Hilbert space and that 
-  
+Suppose $(X,X,\mu)$ is an AWS  By definition of AWS we require that $X$ is a separable Hilbert space and that 
+
 $$
 \begin{aligned}
 \norm{}
 \end{aligned}
 $$
 
-  
-
 :::
 
 ### The CM space and the RKHS space
 
 ::: {#def-11}
+
 The *Cameron Martin*(CM) space is $H$.
 
 :::
 
 ::: {#def-12}
+
 The *reproducing kernel Hilbert space is* ....
 
 :::
@@ -577,11 +593,13 @@ The *reproducing kernel Hilbert space is* ....
 When we have a kernel and functions are continuous also... this is equivalent as the following shows..
 
 ::: {#prp-5}
+
 RKHS1=RKHS2
 
 :::
 
 ::: {#prp-6}
+
 There is an isomorphism between the CM and RKHS spaces when....
 
 :::
@@ -590,28 +608,29 @@ There is an isomorphism between the CM and RKHS spaces when....
 We define using $d_H$ but since ac property is only preserved by moving in $H$ KL only stays finite if mvoing in $H$. As a result we have the following 
 
 ::: {#prp-7}
+
 Let $(X,H,\mu)$ be a AWS. If $X$ is a Hilbert space then gradient flow  in $(X,d_X)$ of KL equals gradient flow in $(X,d_H)$. 
 
 :::
 
 ::: {.proof}
 
-   Write $\Ff= \KL{\cdot}{\mu}$ By definition of gradient flow 
-    
+Write $\Ff= \KL{\cdot}{\mu}$ By definition of gradient flow 
+ 
 $$
 \begin{aligned}
 \lim_{\eps \to 0} \frac{\Ff(\mu_{t+\eps})-\Ff(\mu_t)}{\eps}= \norm{ \nabla F(\mu_t) }_{L^2(\mu_t)}
 \end{aligned}
 $$
 
-    ...
-    
+ ...
 
 :::
 
 ## Spectral theory
 
 ::: {#thm-5}
+
 Let $\Kk$ be spsd on a separbale Hilbert space then...
 
 :::

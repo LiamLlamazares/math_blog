@@ -1,9 +1,7 @@
 ---
 title: "NoWhere Differentiable Math"
 listing:
-  contents: 
-    - posts
-    - "Intro_Gaussian_Measures/index.qmd"
+  contents: posts
   sort: "date desc"
   type: default
   categories: true
@@ -12,3 +10,4 @@ listing:
 page-layout: full
 title-block-banner: true
 ---
+

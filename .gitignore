@@ -22,3 +22,6 @@ ehthumbs.db
 Gemfile.lock
 
 beautiful-jekyll-theme-*.gem
+
+/.quarto/
+**/*.quarto_ipynb

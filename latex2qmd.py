@@ -21,6 +21,7 @@ import re
 import sys
 import os
 import shutil
+import textwrap
 from datetime import date
 from pathlib import Path
 
@@ -221,11 +222,22 @@ def parse_preamble_macros(sty_path: Path) -> dict:
 
         pos = i + 1
 
+    # Inject physics-package macros that come from LaTeX \usepackage{physics}
+    # and can't be extracted from preamble.sty via \newcommand parsing.
+    physics_fallbacks = {
+        # \bm{x} → \boldsymbol{x}  (bm package, no MathJax extension needed)
+        'bm': (r'\boldsymbol{#1}', 1),
+        # \qty is handled at the Python level via _expand_qty(), not as a macro
+    }
+    for name, val in physics_fallbacks.items():
+        if name not in macros:
+            macros[name] = val
+
     return macros
 
 
 def format_mathjax_macros(macros: dict) -> str:
-    """Format macros dict into a MathJax configuration JS block."""
+    """Format macros dict into a MathJax JS configuration block."""
     lines = []
     for name, (repl, nargs) in sorted(macros.items()):
         # Escape backslashes for JS string
@@ -276,14 +288,49 @@ def _find_matching_end(text: str, env_name: str, start: int) -> int:
     return pos
 
 
+def _expand_qty(text: str) -> str:
+    """Convert \\qty(expr) -> \\left(expr\\right), \\qty[...] -> \\left[...\\right], \\qty{...} -> \\left\\{...\\right\\}.
+    Uses balanced-delimiter matching so nested \\qty calls work correctly.
+    """
+    OPEN  = {'(': ')', '[': ']', '{': '}'}
+    LATEX = {'(': ('\\left(', '\\right)'),
+              '[': ('\\left[', '\\right]'),
+              '{': ('\\left\\{', '\\right\\}')}
+    result = []
+    i = 0
+    while i < len(text):
+        if text[i:i+4] == '\\qty' and (i + 4) < len(text) and text[i+4] in OPEN:
+            delim = text[i+4]
+            close = OPEN[delim]
+            latex_open, latex_close = LATEX[delim]
+            depth = 1
+            j = i + 5
+            while j < len(text) and depth > 0:
+                if text[j] == delim:
+                    depth += 1
+                elif text[j] == close:
+                    depth -= 1
+                j += 1
+            inner = text[i+5:j-1]
+            result.append(latex_open)
+            result.append(_expand_qty(inner))  # recurse for nested \qty
+            result.append(latex_close)
+            i = j
+        else:
+            result.append(text[i])
+            i += 1
+    return ''.join(result)
+
+
 def convert_body(body: str) -> str:
     """Apply all mechanical transformations to the LaTeX body."""
     text = body
 
-    # --- Pass 0: Strip TODO notes and end-of-theorem symbols ---
+    # --- Pass 0: Strip TODO notes, end-of-theorem symbols, and expand \qty ---
     text = re.sub(r'\\liam\{[^}]*\}', '', text)
     text = re.sub(r'\\exampleSymbol', '', text)
     text = re.sub(r'\\exerciseSymbol', '', text)
+    text = _expand_qty(text)
 
     # --- Pass 1: Sections ---
     text = re.sub(r'\\section\{([^}]*)\}', r'## \1', text)
@@ -318,20 +365,22 @@ def convert_body(body: str) -> str:
 
     # Match \begin{theorem}\label{X}, \begin{theorem}[Name]\label{X}, etc.
     for env_name in THEOREM_ENVS:
-        # Pattern: \begin{env}[optional name]\label{optional label}
+        # Pattern: \begin{env}[optional name]\label{optional label} ... \end{env}
         pattern = re.compile(
             r'\\begin\{' + env_name + r'\}'
             r'(?:\[([^\]]*)\])?'       # optional [Name]
-            r'\s*'
             r'(?:\\label\{([^}]*)\})?'  # optional \label{X}
+            r'[ \t]*\n?'                # consume spaces and up to one newline
+            r'(.*?)'                    # inner content
+            r'\\end\{' + env_name + r'\}',
+            re.DOTALL
         )
-        # We need to swap group order: the regex captures [Name] as group 1 and \label as group 2
-        # but our replace function expects label as group 2 and opt_name as group 3
-        # Let's restructure
         def make_replacer(env):
             def replacer(m):
                 opt_name = m.group(1)  # [Name] or None
                 label = m.group(2)     # \label{X} or None
+                inner = m.group(3)     # inner content
+                
                 prefix = THEOREM_ENVS[env]
                 if label:
                     label_id = label.replace(':', '-').replace(' ', '-').replace('_', '-').lower()
@@ -339,23 +388,34 @@ def convert_body(body: str) -> str:
                 else:
                     env_counter[env] = env_counter.get(env, 0) + 1
                     div_id = f"#{prefix}-{env_counter[env]}"
+                
                 attrs = [div_id]
                 if opt_name:
                     attrs.append(f'name="{opt_name}"')
-                return f'\n::: {{{" ".join(attrs)}}}\n'
+                
+                # Dedent inner content to prevent 4-space markdown indents parsing as code blocks
+                dedented = textwrap.dedent(inner.strip('\n'))
+                # Pandoc requires blank lines after the opening fence and before the closing fence
+                return f'\n::: {{{" ".join(attrs)}}}\n\n{dedented}\n\n:::\n'
             return replacer
 
         text = pattern.sub(make_replacer(env_name), text)
-        # Close the environment
-        text = re.sub(r'\\end\{' + env_name + r'\}', '\n:::\n', text)
 
     # --- Pass 2b: Proof environment ---
-    text = re.sub(r'\\begin\{proof\}', '\n::: {.proof}\n', text)
-    text = re.sub(r'\\end\{proof\}', '\n:::\n', text)
+    def dedent_proof(m):
+        inner = m.group(1)
+        dedented = textwrap.dedent(inner.strip('\n'))
+        return f'\n::: {{.proof}}\n\n{dedented}\n\n:::\n'
+
+    text = re.sub(r'\\begin\{proof\}[ \t]*\n?(.*?)\\end\{proof\}', dedent_proof, text, flags=re.DOTALL)
 
     # --- Pass 2c: Hint environment ---
-    text = re.sub(r'\\begin\{hint\}', '\n::: {.callout-tip collapse="true" title="Hint"}\n', text)
-    text = re.sub(r'\\end\{hint\}', '\n:::\n', text)
+    def dedent_hint(m):
+        inner = m.group(1)
+        dedented = textwrap.dedent(inner.strip('\n'))
+        return f'\n::: {{.callout-tip collapse="true" title="Hint"}}\n\n{dedented}\n\n:::\n'
+
+    text = re.sub(r'\\begin\{hint\}[ \t]*\n?(.*?)\\end\{hint\}', dedent_hint, text, flags=re.DOTALL)
 
     # --- Pass 3: Display math environments ---
     # aligneq = equation + aligned, aligneq* = equation* + aligned
@@ -591,6 +651,7 @@ def build_qmd(meta: dict, info: dict, body: str, mathjax_macros: str) -> str:
         lines.append('            tags: "ams",')
         lines.append('            macros: {')
         lines.append(mathjax_macros)
+        # Ensure physics-package macros are always available as fallbacks
         lines.append('            }')
         lines.append('          }')
         lines.append('        };')

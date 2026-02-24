@@ -44,22 +44,6 @@ format:
     theme:
       light: flatly
       dark: darkly
-    css: styles.css
     toc: true
     html-math-method: mathjax
-    include-in-header:
-      text: |
-        <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-          jax: ["input/TeX", "output/HTML-CSS"],
-          tex2jax: {
-            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
-            displayMath: [ ['$$','$$'], ['\\[','\\]'] ],
-            processEscapes: true
-          },
-          TeX: {
-            extensions: ["AMSmath.js","AMSsymbols.js","physics.js"],
-            equationNumbers: { autoNumber: "AMS" }
-          }
-        });
-        </script>
+
