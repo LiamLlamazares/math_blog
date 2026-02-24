@@ -222,16 +222,11 @@ def parse_preamble_macros(sty_path: Path) -> dict:
 
         pos = i + 1
 
-    # Inject physics-package macros that come from LaTeX \usepackage{physics}
-    # and can't be extracted from preamble.sty via \newcommand parsing.
-    physics_fallbacks = {
-        # \bm{x} → \boldsymbol{x}  (bm package, no MathJax extension needed)
-        'bm': (r'\boldsymbol{#1}', 1),
-        # \qty is handled at the Python level via _expand_qty(), not as a macro
-    }
-    for name, val in physics_fallbacks.items():
-        if name not in macros:
-            macros[name] = val
+    # Physics-package macros: \qty is handled at Python level via _expand_qty().
+    # \bm is provided as a macro fallback since the MathJax bm extension
+    # is not available on all CDN builds.
+    if 'bm' not in macros:
+        macros['bm'] = (r'\boldsymbol{#1}', 1)
 
     return macros
 
@@ -326,6 +321,11 @@ def convert_body(body: str) -> str:
     """Apply all mechanical transformations to the LaTeX body."""
     text = body
 
+    # Map of LaTeX labels to generated Quarto IDs, populated during conversion
+    label_map = {}  # e.g. {'density': 'eq-density', 'independence': 'prp-1', ...}
+    # For item-level labels: label -> (parent_qid, item_name)
+    item_label_map = {}  # e.g. {'inversion': ('prp-1', 'Inversion')}
+
     # --- Pass 0: Strip TODO notes, end-of-theorem symbols, and expand \qty ---
     text = re.sub(r'\\liam\{[^}]*\}', '', text)
     text = re.sub(r'\\exampleSymbol', '', text)
@@ -385,9 +385,28 @@ def convert_body(body: str) -> str:
                 if label:
                     label_id = label.replace(':', '-').replace(' ', '-').replace('_', '-').lower()
                     div_id = f"#{prefix}-{label_id}"
+                    label_map[label] = f"{prefix}-{label_id}"
                 else:
                     env_counter[env] = env_counter.get(env, 0) + 1
                     div_id = f"#{prefix}-{env_counter[env]}"
+                
+                # Map orphan \label{X} (not inside \begin{aligneq}...\end{aligneq})
+                # to this env's div ID. Labels inside math envs are handled by Pass 3.
+                qid = div_id.lstrip('#')
+                # Find labels NOT inside a math env by stripping math envs first
+                stripped = re.sub(r'\\begin\{aligneq\*?\}.*?\\end\{aligneq\*?\}', '', inner, flags=re.DOTALL)
+                # For labels on \item lines, extract the item name (first word after \item)
+                for il_m in re.finditer(r'\\item\s+(\w+).*?\\label\{([^}]*)\}', stripped):
+                    item_name = il_m.group(1)
+                    il = il_m.group(2)
+                    label_map[il] = qid
+                    item_label_map[il] = (qid, item_name)
+                # Also map any remaining orphan labels (not on \item lines)
+                for il in re.findall(r'\\label\{([^}]*)\}', stripped):
+                    if il not in label_map:
+                        label_map[il] = qid
+                # Only strip orphan labels (outside math envs)
+                inner = re.sub(r'(?<!\\end\{aligneq\})\\label\{([^}]*)\}', lambda lm: '' if lm.group(1) in label_map and label_map[lm.group(1)] == qid else lm.group(0), inner)
                 
                 attrs = [div_id]
                 if opt_name:
@@ -395,6 +414,10 @@ def convert_body(body: str) -> str:
                 
                 # Dedent inner content to prevent 4-space markdown indents parsing as code blocks
                 dedented = textwrap.dedent(inner.strip('\n'))
+                # Force-lstrip each line to avoid 4-space code block parsing
+                lines_d = dedented.split('\n')
+                lines_d = [l.lstrip() if l.strip() else l for l in lines_d]
+                dedented = '\n'.join(lines_d)
                 # Pandoc requires blank lines after the opening fence and before the closing fence
                 return f'\n::: {{{" ".join(attrs)}}}\n\n{dedented}\n\n:::\n'
             return replacer
@@ -471,6 +494,7 @@ def convert_body(body: str) -> str:
 
             if label:
                 label_id = label.replace(':', '-').replace(' ', '-').replace('_', '-').lower()
+                label_map[label] = f"eq-{label_id}"
                 result.append(f'\n$$ {{#eq-{label_id}}}\n')
             else:
                 result.append('\n$$\n')
@@ -548,9 +572,16 @@ def convert_body(body: str) -> str:
 
     # \Cref{X} and \cref{X} → @prefix-X  (best effort)
     def convert_cref(m):
-        label = m.group(1).replace(':', '-').replace(' ', '-').replace('_', '-').lower()
+        raw_label = m.group(1)
+        label = raw_label.replace(':', '-').replace(' ', '-').replace('_', '-').lower()
+        # First check if this is an item-level label (emit descriptive text)
+        if raw_label in item_label_map:
+            parent_qid, item_name = item_label_map[raw_label]
+            return f'@{parent_qid} ({item_name})'
+        # Then check if this label was mapped during theorem/equation conversion
+        if raw_label in label_map:
+            return f'@{label_map[raw_label]}'
         # Try to guess the prefix from the label convention
-        # Common patterns: "def:X", "thm:X", "GM def", "covariance-space-lemma"
         if label.startswith('def'):
             return f'@def-{label}'
         elif label.startswith('thm'):
@@ -585,6 +616,47 @@ def convert_body(body: str) -> str:
     # --- Pass 8: Clean up ---
     # Remove stray \label{} that weren't consumed
     text = re.sub(r'\\label\{[^}]*\}', '', text)
+
+    # Strip whitespace inside inline $...$ delimiters
+    # Pandoc requires no space adjacent to $ for inline math.
+    # Character-level scan to properly skip $$ display math boundaries.
+    def _fix_inline_math_spaces(text):
+        result = []
+        i = 0
+        while i < len(text):
+            if text[i] == '$':
+                # Check for $$ (display math) — skip it entirely
+                if i + 1 < len(text) and text[i + 1] == '$':
+                    # Find closing $$
+                    end = text.find('$$', i + 2)
+                    if end == -1:
+                        result.append(text[i:])
+                        break
+                    result.append(text[i:end + 2])
+                    i = end + 2
+                    continue
+                # Single $ — inline math. Find matching closing $
+                j = i + 1
+                while j < len(text):
+                    if text[j] == '$':
+                        break
+                    if text[j] == '\n':
+                        # Inline math can't span newlines in Pandoc
+                        break
+                    j += 1
+                if j < len(text) and text[j] == '$':
+                    inner = text[i + 1:j]
+                    result.append('$' + inner.strip() + '$')
+                    i = j + 1
+                else:
+                    # No matching $ on same line — not inline math
+                    result.append(text[i])
+                    i += 1
+            else:
+                result.append(text[i])
+                i += 1
+        return ''.join(result)
+    text = _fix_inline_math_spaces(text)
 
     # Remove multiple blank lines (keep max 2)
     text = re.sub(r'\n{3,}', '\n\n', text)
@@ -651,7 +723,6 @@ def build_qmd(meta: dict, info: dict, body: str, mathjax_macros: str) -> str:
         lines.append('            tags: "ams",')
         lines.append('            macros: {')
         lines.append(mathjax_macros)
-        # Ensure physics-package macros are always available as fallbacks
         lines.append('            }')
         lines.append('          }')
         lines.append('        };')
@@ -729,8 +800,17 @@ def main():
     # Assemble output
     qmd = build_qmd(meta, info, converted_body, mathjax_macros)
 
-    # Write index.qmd into the source folder
-    out_path = folder / args.output
+    # Determine output location
+    if args.blog_dir:
+        blog_dir = Path(args.blog_dir).resolve()
+        posts_dir = blog_dir / 'posts'
+        dest = posts_dir / folder.name
+        dest.mkdir(parents=True, exist_ok=True)
+        out_path = dest / args.output
+    else:
+        out_path = folder / args.output
+
+    # Write index.qmd
     with open(out_path, "w", encoding="utf-8") as f:
         f.write(qmd)
     print(f"\n  Output written to: {out_path}")

@@ -147,11 +147,11 @@ The characteristic function has the following useful properties  [@ash2000probab
 
 ::: {#prp-1}
 
-    Let $\mu,\nu, \mu_n$ be measures on $\Bb(\R)$, then 
+Let $\mu,\nu, \mu_n$ be measures on $\Bb(\R)$, then 
 1. Inversion: $\wh{\mu}=\wh{\nu}$ if and only if $\mu- \nu$.
 2. Convergence: $\mu_n \to \mu$ (weakly) if and only $\wh{\mu}_n \to \wh{\mu}$ (pointwise).
-3. Independence: Consider random variables $X_1,\dots,X_n$ with distributions $\mu_{X_i}$ and write $\mu_S$ for the distribution of the sum $S_n= \sum_{i=1}^{n} X_n $. Then 
-    
+3. Independence: Consider random variables $X_1,\dots,X_n$ with distributions $\mu_{X_i}$ and write $\mu_S$ for the distribution of the sum $S_n= \sum_{i=1}^{n} X_n$. Then 
+
 $$
 \begin{aligned}
 \wh{\mu_{S_n}}(t)=\wh{\mu}_{X_1}(t) \cdots \wh{\mu}_{X_n}(t).
@@ -195,7 +195,7 @@ Y_i:= \frac{X_i-m}{\sigma}, \quad S_n:=\frac{ 1}{\sqrt{n}}(Y_1+\dots+ Y_n).
 \end{aligned}
 $$
 
-Then, $S_n $ converges (weakly) to a Gaussian with mean $0$ and variance $1$.
+Then, $S_n$ converges (weakly) to a Gaussian with mean $0$ and variance $1$.
 
 :::
 
@@ -209,7 +209,7 @@ $$
 \end{aligned}
 $$
 
-By @independence and a change of variables 
+By @prp-1 and a change of variables 
 
 $$
 \begin{aligned}
@@ -225,7 +225,7 @@ $$
 \end{aligned}
 $$
 
-By @characteristic-prop  this is the FT of a Gaussian with mean $0$ and variance $1$. The result follows by @convergence and @inversion. 
+By @eq-characteristic-prop  this is the FT of a Gaussian with mean $0$ and variance $1$. The result follows by @prp-1 (Convergence) and @prp-1 (Inversion). 
 
 :::
 
@@ -255,7 +255,7 @@ However, the dual space needs to not only exist, but also to be rich enough to p
 
 ::: {#exm-1}
 
-For $p \in (0,1)$ the spaces $L^p[0,1]$ are complete metric spaces but not LC and have the trivial dual $L^p[0,1]'= \set{0} $.
+For $p \in (0,1)$ the spaces $L^p[0,1]$ are complete metric spaces but not LC and have the trivial dual $L^p[0,1]'= \set{0}$.
 
 :::
 
@@ -273,7 +273,7 @@ LC spaces provide enough structure to be able apply the [Hahn Banach theorem](ht
 
 ::: {#thm-2 name="Hahn Banach"}
 
-Let $E$ be LC and $E_0 \subset E$  a linear subspace. Then given $ \ell \in E_0'$ there exists an extension of $L \in E'$ to all of $E$ with $\norm{L}_{E'}=\norm{\ell}_{E_0'}$.
+Let $E$ be LC and $E_0 \subset E$  a linear subspace. Then given $\ell \in E_0'$ there exists an extension of $L \in E'$ to all of $E$ with $\norm{L}_{E'}=\norm{\ell}_{E_0'}$.
 
 :::
 
@@ -377,7 +377,7 @@ On separable (or Radon) spaces we have that $\Ee(E)= \Bb(E)$.
 
 ::: {#def-8}
 
-Given a topological vector space $V$, we say that a *Gaussian measure * is a measure on $\Bb(V)$ such that $\ell $ is a real valued Gaussian variable for all $\ell \in V'$.
+Given a topological vector space $V$, we say that a *Gaussian measure * is a measure on $\Bb(V)$ such that $\ell$ is a real valued Gaussian variable for all $\ell \in V'$.
 
 :::
 
@@ -397,7 +397,7 @@ $$
 C_\mu (\ell ,h):=\int_{V}\ell (v) \overline{h(v)}\mu (\rm{d} v)-\int_{V}\ell (v) \mu (\rm{d} v)\overline{\int_{V}h(v)\mu (\rm{d} v)}
 $$
 
-is finite. We call $C_\mu $ the  *covariance form* of $\mu $. 
+is finite. We call $C_\mu$ the  *covariance form* of $\mu$. 
 
 :::
 
@@ -409,21 +409,21 @@ $$ {#eq-covariance-operator}
 
 ::: {#def-10}
 
-The operator $\Kk_\mu $ defined by @eq-covariance-operator is the *covariance operator* of $\mu $.
+The operator $\Kk_\mu$ defined by @eq-covariance-operator is the *covariance operator* of $\mu$.
 
 :::
 
 ::: {#prp-covariance-kernel-gaussian}
 
 Let $H$ be a separable Hilbert space.
-    1. Given a Gaussian measure $\mu $ on  $(H,\Bb(H))$, its covariance operator is trace class. That is, $K_\mu \in \Ll_1^+(H)$.
-2. Given $\Kk\in \Ll_1^+(H)$ there exists a Gaussian measure $\mu $ on $(H,\Bb(H))$ such that $\Kk =\Kk _\mu $.
+1. Given a Gaussian measure $\mu$ on  $(H,\Bb(H))$, its covariance operator is trace class. That is, $K_\mu \in \Ll_1^+(H)$.
+2. Given $\Kk\in \Ll_1^+(H)$ there exists a Gaussian measure $\mu$ on $(H,\Bb(H))$ such that $\Kk =\Kk _\mu$.
 
 :::
 
 ::: {.proof}
 
-The first point follows from Fernique's theorem and the second by letting $\mu $ be the pushforward by $u =\sum_{k=1}^\infty \lambda_k e_k \xi_k$ where $\xi_k\sim\mathcal{N}(0,1)$ are iid and $\{e_k\}_{k=1}^\infty$ is an orthonormal basis of $H$ that diagonalizes $\Kk$ (this exists as $\Kk $ is self-adjoint and compact) with eigenvalues $\{\lambda_k^2\}_{k=1}^\infty$  {[@ash2000probability]}.
+The first point follows from Fernique's theorem and the second by letting $\mu$ be the pushforward by $u =\sum_{k=1}^\infty \lambda_k e_k \xi_k$ where $\xi_k\sim\mathcal{N}(0,1)$ are iid and $\{e_k\}_{k=1}^\infty$ is an orthonormal basis of $H$ that diagonalizes $\Kk$ (this exists as $\Kk$ is self-adjoint and compact) with eigenvalues $\{\lambda_k^2\}_{k=1}^\infty$  {[@ash2000probability]}.
 
 :::
 
@@ -437,7 +437,7 @@ $$
 \end{aligned}
 $$
 
-The Wiener process on the AWS $(X,H,\mu)$ is denoted by $W_t$. Given Wiener processes on $\R$ and an orthonormal basis $\set{h_j}_{j=1}^\infty $ of $H$
+The Wiener process on the AWS $(X,H,\mu)$ is denoted by $W_t$. Given Wiener processes on $\R$ and an orthonormal basis $\set{h_j}_{j=1}^\infty$ of $H$
 
 $$
 \begin{aligned}
@@ -465,7 +465,7 @@ $$
 
 ::: {#lem-covariance-space-lemma}
 
-    Let $X$ be a separable Hilbert space, let $\Kk$ be a symmetric positive definite operator. Define  $ H=\Kk^{1/2}(X) $ with the inner product
+Let $X$ be a separable Hilbert space, let $\Kk$ be a symmetric positive definite operator. Define  $H=\Kk^{1/2}(X)$ with the inner product
 
 $$
 \begin{aligned}
@@ -479,26 +479,26 @@ Then $H$ is a separable Hilbert space and dense in $X$. Furthermore, let  $\set{
 
 ::: {#exr-3}
 
-Prove @covariance-space-lemma.
+Prove @lem-covariance-space-lemma.
 
 :::
 
 ::: {.callout-tip collapse="true" title="Hint"}
 
-The operators $\Kk^{1/2}, \Kk^{-1/2}$ and the onb of eigenvectors exists by spectral theory. By linearity of $\Kk^{1/2}$ $\br{ \cdot ,\cdot  } $ is an inner product. A calculation shows that $h_j \in H$ are orthonormal in $X$ and they form a basis of $H$. To show density use that $e_j = \Kk^{1/2} (\lambda_j ^{-1}e_j) \in H$. This concludes the proof.
+The operators $\Kk^{1/2}, \Kk^{-1/2}$ and the onb of eigenvectors exists by spectral theory. By linearity of $\Kk^{1/2}$ $\br{ \cdot ,\cdot  }$ is an inner product. A calculation shows that $h_j \in H$ are orthonormal in $X$ and they form a basis of $H$. To show density use that $e_j = \Kk^{1/2} (\lambda_j ^{-1}e_j) \in H$. This concludes the proof.
 
 :::
 
 ::: {#exm-2}
 
-Let $X$ bs a separable Hilbert space and $\mu \sim \Nn (0,\Kk)$ be non-degenerate. Write $ H=\Kk^{1/2}(X) $.Then $(X,H,\mu)$ is an AWS.
+Let $X$ bs a separable Hilbert space and $\mu \sim \Nn (0,\Kk)$ be non-degenerate. Write $H=\Kk^{1/2}(X)$.Then $(X,H,\mu)$ is an AWS.
 
 :::
 
 ::: {.proof}
 
 We show that $(X,H,\mu)$ verify all properties of the AWS.
-let  $\set{e_j,\lambda_j^2}_{j \in \N} $ be an orthonormal eigenbasis and eigenvalues for $\Kk$. Let $\phi^j = \br{ \cdot ,e_j } \in X' $. Then, by definition of $e_j, \lambda_j$ and covariance operator 
+let  $\set{e_j,\lambda_j^2}_{j \in \N}$ be an orthonormal eigenbasis and eigenvalues for $\Kk$. Let $\phi^j = \br{ \cdot ,e_j } \in X'$. Then, by definition of $e_j, \lambda_j$ and covariance operator 
 
 $$
 \begin{aligned}
@@ -536,7 +536,7 @@ Let $X$ be a Hilbert space, then there exists a Gaussian measure with covariance
 
    Let $\mu$ be a  Gaussian measure on $\Xx$. We have already seen that the covariance $\Kk: H \to H$ is self-adjoint and positive semi-definite. To show it is trace class use theorem... or CLT.
 
-For the converse, let $\set{e_j,\lambda_j^2}_{j \in \N} $ be an orthonormal eigenbasis and eigenvalues for $\Kk$ (this exists as $\Kk$ is self-adjoint and positive semi-definite). Let $(\Omega,\Ff,\PP)$ be a probability space supporting $X_j \sim \Nn (0,1)$ i.i.d (these exist by...) and consider the random variable
+For the converse, let $\set{e_j,\lambda_j^2}_{j \in \N}$ be an orthonormal eigenbasis and eigenvalues for $\Kk$ (this exists as $\Kk$ is self-adjoint and positive semi-definite). Let $(\Omega,\Ff,\PP)$ be a probability space supporting $X_j \sim \Nn (0,1)$ i.i.d (these exist by...) and consider the random variable
 
 $$
 \begin{aligned}
