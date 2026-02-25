@@ -1,0 +1,24 @@
+@book{hytonen2016analysis,
+  title     = {Analysis in Banach spaces},
+  author    = {Hyt{\"o}nen, Tuomas and Van Neerven, Jan and Veraar, Mark and Weis, Lutz},
+  volume    = {12},
+  year      = {2016},
+  publisher = {Springer},
+  url       = {https://link.springer.com/book/10.1007/978-3-319-48520-1}
+}
+@book{vakhania2012probability,
+  title     = {Probability distributions on Banach spaces},
+  author    = {Vakhania, Nicholas and Tarieladze, Vazha and Chobanyan, S},
+  volume    = {14},
+  year      = {2012},
+  publisher = {Springer Science \& Business Media},
+  url       = {https://link.springer.com/book/10.1007/978-94-009-3873-1}
+}
+@book{tao2011introduction,
+  title     = {An introduction to measure theory},
+  author    = {Tao, Terence},
+  volume    = {126},
+  year      = {2011},
+  publisher = {American Mathematical Soc.},
+  url       = {https://www.stat.rice.edu/~dobelman/courses/texts/qualify/Measure.Theory.Tao.pdf}
+}

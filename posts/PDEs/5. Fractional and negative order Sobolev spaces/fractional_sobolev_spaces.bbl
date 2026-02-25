@@ -1,0 +1,68 @@
+\begin{thebibliography}{}
+
+\bibitem[Agranovich, 2015]{agranovich2015sobolev}
+Agranovich, M.~S. (2015).
+\newblock {\em Sobolev spaces, their generalizations and elliptic problems in
+  smooth and Lipschitz domains}.
+\newblock Springer.
+
+\bibitem[Biccari et~al., 2018]{biccari2018local}
+Biccari, U., Warma, M., and Zuazua, E. (2018).
+\newblock Local regularity for fractional heat equations.
+\newblock {\em Recent Advances in PDEs: Analysis, Numerics and Control: In
+  Honor of Prof. Fern{\'a}ndez-Cara's 60th Birthday}, pages 233--249.
+
+\bibitem[Brezis and Br{\'e}zis, 2011]{brezis2011functional}
+Brezis, H. and Br{\'e}zis, H. (2011).
+\newblock {\em Functional analysis, Sobolev spaces and partial differential
+  equations}, volume~2.
+\newblock Springer.
+
+\bibitem[Di~Nezza et~al., 2012]{di2012hitchhikers}
+Di~Nezza, E., Palatucci, G., and Valdinoci, E. (2012).
+\newblock Hitchhiker's guide to the fractional sobolev spaces.
+\newblock {\em Bulletin des sciences mathematiques}, 136(5):521--573.
+
+\bibitem[Evans, 2022]{evans2022partial}
+Evans, L.~C. (2022).
+\newblock {\em Partial differential equations}, volume~19.
+\newblock American Mathematical Society.
+
+\bibitem[Leoni, 2017]{leoni2017first}
+Leoni, G. (2017).
+\newblock {\em A first course in Sobolev spaces}.
+\newblock American Mathematical Soc.
+
+\bibitem[Leoni, 2023]{leoni2023first}
+Leoni, G. (2023).
+\newblock {\em A first course in fractional Sobolev spaces}, volume 229.
+\newblock American Mathematical Society.
+
+\bibitem[Savar{\'e}, 1998]{savare1998regularity}
+Savar{\'e}, G. (1998).
+\newblock Regularity results for elliptic equations in lipschitz domains.
+\newblock {\em Journal of Functional Analysis}, 152(1):176--201.
+
+\bibitem[Sawano et~al., 2018]{sawano2018theory}
+Sawano, Y. et~al. (2018).
+\newblock {\em Theory of Besov spaces}, volume~56.
+\newblock Springer.
+
+\bibitem[Stein, 1970]{stein1970singular}
+Stein, E.~M. (1970).
+\newblock {\em Singular integrals and differentiability properties of
+  functions}.
+\newblock Princeton university press.
+
+\bibitem[Taylor, 2013]{taylor2013partial}
+Taylor, M. (2013).
+\newblock {\em Partial differential equations II: Qualitative studies of linear
+  equations}, volume 116.
+\newblock Springer Science \& Business Media.
+
+\bibitem[Triebel, 1992]{triebel1992theory}
+Triebel, H. (1992).
+\newblock {\em Theory of Function Spaces II}, volume~84.
+\newblock Birkh{\"a}user.
+
+\end{thebibliography}

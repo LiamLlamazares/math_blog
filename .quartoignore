@@ -1,0 +1,13 @@
+# LaTeX build artifacts — excluded from Quarto _site/ output
+*.aux
+*.log
+*.out
+*.toc
+*.blg
+*.bbl
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.pdf
+*.nb
+*.py

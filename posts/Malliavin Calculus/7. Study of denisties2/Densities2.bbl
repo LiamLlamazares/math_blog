@@ -1,0 +1,21 @@
+\begin{thebibliography}{1}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\href#1#2{#2} \def\path#1{#1}\fi
+
+\bibitem{nunno2008malliavin}
+G.~D. Nunno, B.~{\O}ksendal, F.~Proske,
+  \href{https://link.springer.com/book/10.1007/978-3-540-78572-9}{Malliavin
+  calculus for L{\'e}vy processes with applications to finance}, Springer,
+  2008.
+\newline\urlprefix\url{https://link.springer.com/book/10.1007/978-3-540-78572-9}
+
+\bibitem{nualart2018introduction}
+D.~Nualart, E.~Nualart,
+  \href{https://books.google.co.uk/books?hl=zh-CN&lr=&id=l_1uDwAAQBAJ&oi=fnd&pg=PR11&dq=nualart+introduction+malliavin&ots=_JuMhMkTMt&sig=Tx5y00u4kMNs73jLtMEs-kyXAuU&redir_esc=y#v=onepage&q=nualart\%20introduction\%20malliavin&f=false}{Introduction
+  to Malliavin calculus}, Vol.~9, Cambridge University Press, 2018.
+\newline\urlprefix\url{https://books.google.co.uk/books?hl=zh-CN&lr=&id=l_1uDwAAQBAJ&oi=fnd&pg=PR11&dq=nualart+introduction+malliavin&ots=_JuMhMkTMt&sig=Tx5y00u4kMNs73jLtMEs-kyXAuU&redir_esc=y#v=onepage&q=nualart\%20introduction\%20malliavin&f=false}
+
+\end{thebibliography}

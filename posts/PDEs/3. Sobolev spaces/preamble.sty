@@ -1,0 +1,314 @@
+\ProvidesPackage{preamble}[2025/12/26 v2.0 Consolidated and Refined Setup]
+
+%==============================================================================
+% 1. ESSENTIALS & ENCODING
+%==============================================================================
+\RequirePackage[utf8]{inputenc}             % Input encoding (handles utf8 characters)
+\RequirePackage[dvipsnames]{xcolor}         % Color management with strict driver options
+                                            % Loaded early to avoid option clashes with other packages
+
+%==============================================================================
+% 2. TYPOGRAPHY & TEXT FORMATTING
+%==============================================================================
+% Moved textpos to allow it to be patched by microtype
+\RequirePackage[relative,overlay]{textpos}  % Absolute positioning of text on the page
+
+\RequirePackage{microtype}                  % Subliminal refinements towards typographical perfection
+                                            % check if compatible with your engine (pdflatex/luatex)
+
+% Disable microtype protrusion in Table of Contents (as per documentation recommendation)
+\let\oldtableofcontents\tableofcontents
+\renewcommand{\tableofcontents}{%
+  \microtypesetup{protrusion=false}%
+  \oldtableofcontents%
+  \microtypesetup{protrusion=true}%
+}
+
+\RequirePackage{csquotes}                   % Context sensitive quotation facilities
+\RequirePackage{epigraph}                   % Formatting of epigraphs (quotes at start of chapters)
+\RequirePackage{lipsum}                     % Easy access to dummy text (Lorem Ipsum)
+\setlength{\marginparwidth}{2cm}    % Fix for todonotes warning
+\RequirePackage{todonotes}                  % For TODOs (\td command) - Added based on usage
+\RequirePackage{authblk}                    % Support for footnote style author/affiliation blocks
+\RequirePackage{multicol}                   % Support for multi-column layout
+
+%==============================================================================
+% 3. MATHEMATICS
+%==============================================================================
+% NOTE: Order matters here to avoid conflicts (e.g., \div)
+
+\RequirePackage{mathtools}                  % Loads amsmath and adds fixes/extensions
+\RequirePackage{amssymb}                    % Mathematical symbols (loads amsfonts)
+
+% mathabx provides many symbols but can conflict with physics. 
+% Loaded BEFORE physics to allow physics to overwrite or coexist where possible.
+\RequirePackage{mathabx}                    
+
+\RequirePackage{physics}                    % Macros for physics (dirac notation \bra\ket, gradients, etc.)
+\RequirePackage{bm}                         % Access bold math symbols (\bm{})
+\RequirePackage{nicefrac}                   % Compact fractions like 1/2 using \nicefrac
+\RequirePackage{dsfont}                     % Double struck font (often used for indicator \mathbb{1})
+\RequirePackage{bbm}                        % Alternative double struck font
+
+%==============================================================================
+% 4. FIGURES, GRAPHICS & FLOATS
+%==============================================================================
+\RequirePackage{graphicx}                   % Essential for including images
+\graphicspath{{Figures/}}                   % Set default search path for images
+
+\RequirePackage{animate}                    % Support for PDF animations
+\RequirePackage{tikz}                       % Powerful procedural drawing package
+\RequirePackage{float}                      % Improved interface for floating objects (H option)
+\RequirePackage{subcaption}                 % Support for subfigures (replacing obsolete subfig/subfigure)
+
+%==============================================================================
+% 5. TABLES & LISTS
+%==============================================================================
+\RequirePackage{booktabs}                   % Professional quality tables (different rule weights)
+\RequirePackage{longtable}                  % Tables that can span multiple pages
+\RequirePackage{multirow}                   % Create tabular cells spanning multiple rows
+\RequirePackage{enumitem}                   % Control layout of itemize, enumerate, description
+
+%==============================================================================
+% 6. MISCELLANEOUS UTILITIES
+%==============================================================================
+\RequirePackage{fontawesome}                % Access to FontAwesome icons
+
+%==============================================================================
+% 7. BIBLIOGRAPHY (BibLaTeX)
+%==============================================================================
+\RequirePackage[round]{natbib}
+\bibliographystyle{apalike}
+
+% Reduce font size for bibliography to save space
+% \renewcommand*{\bibfont}{\tiny}
+
+%==============================================================================
+% 8. HYPERLINKS & REFERENCES
+%==============================================================================
+% hyperref should usually be loaded late, but before cleveref
+\RequirePackage{hyperref} 
+\hypersetup{
+    colorlinks=true,
+    linkcolor=RoyalBlue,    % Custom color for internal links
+    citecolor=ForestGreen,  % Custom color for citations
+    urlcolor=NavyBlue,      % Custom color for URLs
+    linktoc=all             % Make both section numbers and titles clickable in ToC
+}
+
+%==============================================================================
+% 9. THEOREMS & CLEVEREF
+%==============================================================================
+\RequirePackage{amsthm}                     % Enhanced theorem environments
+\RequirePackage{aliascnt}                   % For correct counting of shared theorem counters with cleveref
+\RequirePackage[capitalise,noabbrev]{cleveref} % Intelligent cross-referencing (must be loaded last)
+                                            % capitalise: "Theorem 1" instead of "theorem 1"
+                                            % noabbrev: "Theorem" instead of "Thm."
+
+% --- Cleveref Configuration ---
+% Syntax: \crefname{<type>}{<singular>}{<plural>}
+% Explains to cleveref how to label the reference. 
+% e.g. \cref{thm:1} -> "Theorem 1" (singular) or "Theorems 1 and 2" (plural)
+
+\crefname{theorem}{theorem}{theorems}
+\crefname{proposition}{proposition}{propositions}
+\crefname{lemma}{lemma}{lemmas}
+\crefname{corollary}{corollary}{corollaries}
+\crefname{definition}{definition}{definitions}
+\crefname{example}{example}{examples}
+\crefname{remark}{remark}{remarks}
+\crefname{observation}{observation}{observations}
+\crefname{assumption}{assumption}{assumptions}
+
+% --- Theorem Definitions ---
+\newtheorem{theorem}{Theorem}[section]
+
+% Use aliascnt to share the 'theorem' counter but let cleveref distinguish them
+\newaliascnt{proposition}{theorem}
+\newtheorem{proposition}[proposition]{Proposition}
+\aliascntresetthe{proposition}
+
+\newaliascnt{lemma}{theorem}
+\newtheorem{lemma}[lemma]{Lemma}
+\aliascntresetthe{lemma}
+
+\newaliascnt{corollary}{theorem}
+\newtheorem{corollary}[corollary]{Corollary}
+\aliascntresetthe{corollary}
+
+\newaliascnt{definition}{theorem}
+\newtheorem{definition}[definition]{Definition}
+\aliascntresetthe{definition}
+
+\theoremstyle{definition} % Definition style (non-italic body)
+\newaliascnt{example}{theorem}
+\newtheorem{example}[example]{Example}
+\aliascntresetthe{example}
+
+\newtheorem{observation}{Observation}
+\newtheorem{assumption}{Assumption}
+\newtheorem{problem}{Problem}
+\newtheorem*{problem*}{Problem} % Unnumbered problem
+\newtheorem{exercise}{Exercise}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{hint}{Hint}
+
+\newenvironment{exerciseandhint}[2]
+    {\begin{exercise} #1 \par \emph{Hint: #2}}
+    {\end{exercise}}
+
+% Custom Align Environments
+\DeclareDocumentEnvironment{aligneq}{ o }{%
+    \begin{equation}
+    \IfValueT{#1}{\tag{#1}}
+    \begin{aligned}
+}{%
+    \end{aligned}
+    \end{equation}
+}
+\DeclareDocumentEnvironment{aligneq*}{ o }{%
+    \begin{equation*}
+    \IfValueT{#1}{\tag{#1}}
+    \begin{aligned}
+}{%
+    \end{aligned}
+    \end{equation*}
+}
+
+\newcommand\summaryname{Abstract}
+\newenvironment{Abstract}%
+    {\small\begin{center}\bfseries{\summaryname} \end{center}}{}
+
+%==============================================================================
+% 10. CUSTOM COMMANDS & SHORTCUTS
+%==============================================================================
+
+% --- 10.1 Formatting & Helpers ---
+\newcommand{\red}[1]{{\color{red}#1}}
+\newcommand{\green}[1]{\textcolor{green!75!black}{#1}}
+\newcommand{\darkgreen}[1]{\textcolor{darkgreen}{#1}}
+\definecolor{DeepPurple}{RGB}{61, 0, 249} 
+\definecolor{darkgreen}{rgb}{0.0, 0.6, 0.} 
+% \newcommand{\liam}{\textcolor{DeepPurple}} 
+
+\newcommand{\liam}{\todo[inline,color=green!40]}      % TODO notes
+
+
+\newcommand{\email}[1]{\faEnvelopeO~\href{mailto:#1}{#1}}
+\newcommand*\samethanks[1][\value{footnote}]{\footnotemark[#1]}
+\newcommand{\xqed}[1]{\leavevmode\unskip\penalty9999 \hbox{}\nobreak\hfill \quad\hbox{#1}}
+\newcommand{\exampleSymbol}{\xqed{$\triangle$}}
+\newcommand{\exerciseSymbol}{\xqed{$\bigcirc$}} % Suggested symbol for exercises
+\newcommand{\rm}[1]{\mathrm{#1}}
+
+% --- 10.2 Sets (Blackboard Bold) ---
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\II}{\mathbb{I}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\LL}{\mathbb{L}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\X}{\mathbb{X}} 
+\newcommand{\Z}{\mathbb{Z}}
+
+% --- 10.3 Vectors & Bold Math ---
+\renewcommand{\b}[1]{{\bm{#1}}}      % PRO: Generic bold vector using bm package
+\newcommand{\x}{\bm{x}}              
+\newcommand{\y}{\bm{y}}              
+\newcommand{\Th}{{\bm{\theta}}}      
+\newcommand{\Thh}{{\bm{\Theta}}}     
+\newcommand{\et}{{\bm{\eta}}}
+\newcommand{\xxi}{{\bm{\xi}}}        
+\newcommand{\om}{\omega}
+\newcommand{\alf}{{\alpha}}
+\newcommand{\bt}{\beta}
+
+% --- 10.4 Operators ---
+\newcommand{\diag}[1]{\operatorname{diag}\left(#1\right)}
+\newcommand{\vol}{\mathrm{vol}}
+\renewcommand{\ker}{\bm{ker}}
+\renewcommand{\Im}{\bm{Im}}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Pbb}{\mathbb{P}}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\mspan}{span}
+\DeclareMathOperator*{\argn}{arg\,min} % * allows limits to be placed under the operator
+\DeclareMathOperator*{\argx}{arg\,max}
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+
+% --- 10.5 Delimiters & Paired Operators ---
+% Using \left and \right automatically resizes delimiters
+\newcommand{\br}[1]{\left\langle#1\right\rangle} % Inner product <x,y>
+\newcommand{\set}[1]{\left\{#1\right\}}           % Set {x}
+\newcommand{\qp}[1]{\left(#1\right)}              % Parentheses (x)
+\newcommand{\qb}[1]{\left[#1\right]}              % Brackets [x]
+\newcommand{\qt}[1]{\left(#1\right)}              % Alias for parentheses
+\renewcommand{\norm}[1]{\left\lVert #1 \right\rVert} % Norm ||x||
+\renewcommand{\abs}[1]{\left| #1 \right|}         % Absolute value |x|
+\newcommand{\mins}[2][]{\min_{#1} \set{#2}}
+\newcommand{\maxs}[2][]{\max_{#1} \set{#2}}
+\newcommand{\argns}[2][]{\argn_{#1} \set{#2}}
+\newcommand{\argxs}[2][]{\argx_{#1} \set{#2}}
+
+% --- 10.6 Calculus & Analysis ---
+\renewcommand{\dd}{\mathrm{d}}   
+\renewcommand{\d}{\,\mathrm{d}}      % Differential d (with spacing)
+\newcommand{\dx}{\,\mathrm{d}x}
+\newcommand{\dy}{\,\mathrm{d}y}
+\newcommand\restr[2]{\left.#1\right|{#2}} % Restriction f|_A
+\newcommand{\wh}[1]{\widehat{#1}}     % Wide hat
+\newcommand{\tl}[1]{\widetilde{#1}}   % Tilde
+\newcommand{\tll}[1]{\widetilde{#1}}  % Tilde alias
+\newcommand{\fk}[1]{\mathfrak{#1}}    % Fraktur font
+\newcommand{\co}[1]{\overset{\circ}{#1}} % Interior of a set
+\newcommand{\ex}[1]{\mathrm{exp}\left(#1\right)}           % Exponential shorthand
+\newcommand{\KL}[2]{\rm{KL}\left(#1 \| #2\right)} % KL divergence with proper spacing
+\newcommand{\fracc}[2]{{#1}/{#2}}     % Inline fraction
+\newcommand{\frc}[2]{\left(#2)^{-1}(#1\right)} % Inverse notation
+
+% --- 10.7 Special Symbols & Matrices ---
+\newcommand{\Id}{\bm{I}}              % Identity matrix
+\newcommand{\eps}{\varepsilon}        % Epsilon variant
+\newcommand{\iso}{\xrightarrow{\sim}} % Isomorphism arrow
+\renewcommand{\star}{*}               % Star symbol
+\newcommand{\U}{}                     % Placeholder
+\newcommand{\mat}[1]{\begin{bmatrix}{#1}\end{bmatrix}} % Matrix shorthand
+\newcommand{\proj}{\mathrm{proj}}          % Projection operator
+% --- 10.8 Calligraphic Letters ---
+\newcommand{\Aa}{\mathcal{A}}
+\newcommand{\Bb}{\mathcal{B}}
+\newcommand{\Cc}{\mathcal{C}}
+\newcommand{\Dd}{\mathcal{D}}
+\newcommand{\Ee}{\mathcal{E}}
+\newcommand{\Ff}{\mathcal{F}}
+\newcommand{\Gg}{\mathcal{G}}
+\newcommand{\Hh}{\mathcal{H}}
+\newcommand{\Ii}{\mathcal{I}}
+\newcommand{\Jj}{\mathcal{J}}
+\newcommand{\Kk}{\mathcal{K}}
+\newcommand{\Ll}{\mathcal{L}}
+\newcommand{\Mm}{\mathcal{M}}
+\newcommand{\Nn}{\mathcal{N}}
+\newcommand{\Oo}{\mathcal{O}}
+\newcommand{\Pp}{\mathcal{P}}
+\newcommand{\Qq}{\mathcal{Q}}
+\newcommand{\Rr}{\mathcal{R}}
+\newcommand{\Ss}{\mathcal{S}}
+\newcommand{\Tt}{\mathcal{T}}
+\newcommand{\Uu}{\mathcal{U}}
+\newcommand{\Vv}{\mathcal{V}}
+\newcommand{\Ww}{\mathcal{W}}
+\newcommand{\Xx}{\mathcal{X}}
+\newcommand{\Yy}{\mathcal{Y}}
+\newcommand{\Zz}{\mathcal{Z}}
+
+\endinput

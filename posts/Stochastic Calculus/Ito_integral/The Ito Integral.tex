@@ -1,0 +1,148 @@
+\documentclass[12pt]{article}
+\special{papersize=3in,5in}
+\usepackage[utf8]{inputenc}
+%PACKAGES
+\usepackage[colorlinks = true,
+	linkcolor = blue,
+	urlcolor  = black,
+	citecolor = blue,
+	anchorcolor = blue]{hyperref}
+\usepackage[T1]{fontenc}
+\makeatletter
+\def\ps@pprintTitle{%
+	\let\@oddhead\@empty
+	\let\@evenhead\@empty
+	\let\@oddfoot\@empty
+	\let\@evenfoot\@oddfoot
+}
+\usepackage{amssymb,amsmath,physics,amsthm,xcolor,graphicx}
+\usepackage[shortlabels]{enumitem}
+\newtheorem{observation}{Observation}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{definition}{Definition}
+\newtheorem{corollary}{Corollary}
+\newcommand{\red}[1]{{\color{red}#1}}
+\usepackage[colorlinks = true,
+	linkcolor = blue,
+	urlcolor  = black,
+	citecolor = blue,
+	anchorcolor = blue]{hyperref}
+\usepackage{cleveref}
+\bibliographystyle{elsarticle-num}
+\newcommand{\A}{\mathbb{A}}\newcommand{\C}{\mathbb{C}}\newcommand{\E}{\mathbb{E}}\newcommand{\F}{\mathbb{F}}\newcommand{\K}{\mathbb{K}}\newcommand{\LL}{\mathbb{L}}\newcommand{\M}{\mathbb{M}}\newcommand{\N}{\mathbb{N}}\newcommand{\PP}{\mathbb{P}}\newcommand{\Q}{\mathbb{Q}}\newcommand{\R}{{\mathbb R}}\newcommand{\T}{{\mathbb T}}\newcommand{\Z}{{\mathbb Z}}
+\newcommand{\Aa}{\mathcal{A}}\newcommand{\Bb}{\mathcal{B}}\newcommand{\Cc}{\mathcal{C}}\newcommand{\Ee}{\mathcal{E}}\newcommand{\Ff}{\mathcal{F}}\newcommand{\Gg}{\mathcal{G}}\newcommand{\Hh}{\mathcal{H}}\newcommand{\Kk}{\mathcal{K}}\newcommand{\Ll}{\mathcal{L}}\newcommand{\Mm}{\mathcal{M}}\newcommand{\Nn}{\mathcal{N}}\newcommand{\Pp}{\mathcal{P}}\newcommand{\Qq}{\mathcal{Q}}\newcommand{\Rr}{{\mathcal R}}\newcommand{\Tt}{{\mathcal T}}\newcommand{\Zz}{{\mathcal Z}}\newcommand{\Uu}{{\mathcal U}}
+\pagestyle{empty}
+\newcommand\restr[2]{{\left.\kern-\nulldelimiterspace #1\vphantom{\big|} \right|_{#2}}}
+\setlength{\parindent}{0in}
+
+\begin{document}
+\title{Construction of the stochastic integral}
+\author{Liam Llamazares}
+\date{5/22/2022}
+\maketitle
+\section{Three line summary}
+\begin{itemize}
+	\item The Itô integral is a way of integrating random variables against Brownian motion.
+	\item The Itô integral is well defined for piecewise constant adapted processes $\mathcal{E}$ and turns them isometrically into square integrable continuous martingales ($\Mm_I^2$).
+	\item As a result the Itô integral can be extended isometrically to a function $\overline{\Ee}\to \Mm_I^2$. Furthermore $\overline{\Ee}$ can be characterised explicitly as the square integrable adapted processes that are measurable in time and space. \end{itemize}
+\section{Why should I care?}
+The Itô integral forms the basis of the whole of stochastic calculus. This comprises SDEs, SPDEs. Knowledge of what functions can be integrated and what properties the integrated function has is instrumental. In this post we construct the integral and address both of the preceding issues.
+\section{Notation}
+Given two measure spaces $(\Omega,\Ff),(\Omega',\Ff')$ we abbreviate that $f:\Omega\to\Omega'$ is measurable between $\Ff$ and $\Ff'$ as
+$f:\Ff\to\Ff'.$ Furthermore we will take $I=[0,T]$ or $I=[0,+\infty)$ to be the index set of our stochastic processes and by abuse of notation write $\Ff_\infty$ to mean $\Ff_T$ in the former case and $\Ff_\infty$ in the latter.
+
+\section{Integrable functions: progressive measurability}
+As we will soon see the only stochastic process that can be integrated are the square integrable and progressively measurable. But what does this mysterious term mean?
+\begin{definition}
+	A stochastic process $\{X_t\}_{t\in I}$  is \emph{progressively measurable} if $$X:\Bb([0,t])\otimes\Ff_t\to \Hh$$ is measurable for all $t\in I$.
+\end{definition}
+Whenever we're given a stochastic process and a filtration the first thing to check is that it is adapted. In fact, since $\omega\to(t,\omega)$ is $\Ff_t\to \Bb([0,t])\otimes \Ff_t$ measurable for all $t$ we have that the following holds.
+\begin{lemma}
+	Progressively measurable processes are adapted.
+\end{lemma}
+Additionally, stochastic processes can be viewed path-wise but also be seen as functions of a product space, this leads to the following definition.
+\begin{definition}
+	We say that a stochastic process $\{X_t\}_{t\in I}$ is jointly measurable if $$X:\Bb(I)\otimes\Ff_\infty\to \Hh$$
+	where $\Ff_\infty:=\vee_{t\in I}\Ff_t$.
+\end{definition}
+In the definition of progressive measurability we imposed some kind of measurability, in fact the condition leads to the following
+\begin{proposition}[Progressive implies jointly measurable]
+	Let $I\subset\R$, and $\{X_t\}_{t\in I}$ be progressively measurable. Then it is also jointly measurable.
+\end{proposition}
+\begin{proof}
+	Given $A\in\mathcal{H}$ we have that
+	\begin{multline*}
+		\left.{X^{-1}}\right|_{[0,t]\times\Omega}(A)\in\Bb([0,t])\otimes\Ff_t\quad\forall t\in I\\ \iff X^{-1}(A)\cap([0,t]\times\Omega)\in\Bb([0,t])\otimes\Ff_t\quad\forall t\in I\\\implies X^{-1}(A)=\bigcup_{n \in  \N}X^{-1}(A)\cap([0,t_n]\times\Omega) \in\Bb(I)\otimes\Ff_\infty
+	\end{multline*}
+	Where $t_n\in I$ is a sequence converging to the endpoint of $I$.
+\end{proof}
+Note however that the converse isn't true, for example if $X$ is constant in $t$ then, for some $B\subset \Omega$
+\begin{equation*}
+	X^{-1}(A)=I\times B;\quad {X^{-1}}|_{[0,t]\times\Omega}(A)= [0,t]\times B
+\end{equation*}
+So it suffices to consider some Construction where $B\in\Ff_\infty$ but $B\not\in\Ff_t$.
+It is also important to note the following.
+\begin{lemma}[SDE coefficients are progressive]
+	Let $X_t$ be a  progressively measurable stochastic process and let $f:\Hh\to\Gg$ be measurable, then $f(t,X_t)$ is progressively measurable.
+\end{lemma}
+\begin{proof}
+	This follows from considering $(t,\omega)\to (t,X(t,w))$. Where the arrow is measurable as, due to the progressive measurability of $X$, each component is adapted.
+\end{proof}
+The difference between progressively measurable and adapted is quite subtle. In fact every adapted and jointly measurable stochastic process has a progressively measurable modification (see \cite{Karatzas1987BrownianMA} page $5$). The proof of this fact is very lengthy and technical. Thus, if $X\in L^2(\Bb(I)\otimes\Ff_\infty)$ (and in particular is jointly measurable), we may always choose a representative that is progressively measurable. This leads to some authors giving the defintion of the class of Itô integrable functions in terms of joint measurability instead of progressive measurability. In the end both lead to equivalent definition. That said, this technicality is usually of little importance due to the following result.
+\begin{lemma}[Continuity is progressive]
+	Let $\{X_t\}_{t\in I}$ be a left or right continuous stochastic process. Then $X$ is progressively measurable.
+\end{lemma}
+\begin{proof}
+	Suppose for example that $X$ is right continuous, then we consider
+	\begin{equation*}
+		X_{s}^{(n)}(\omega)=X_{(k+1) ! / 2^{n}}(\omega) \text { for } \frac{k t}{2^{n}}<s \leq \frac{k+1}{2^{n}} t
+	\end{equation*}
+	The pre-image of any set $A\in\Hh$ is of the form
+	\begin{equation*}
+		X^{-1}(A)=\bigcup_{i\in \N}(t_i,t_{i+1}]\times X_{t_i}^{-1}(A).
+	\end{equation*}
+	So $X^{(n)}$ is progressively measurable.	We conclude as by right continuity $\lim_{n \to \infty}X^{(n)}=X$.
+\end{proof}
+Also we used that the pointwise limit of progressively measurable functions is progressively measurable. This is because the pointwise limit of measurable functions is measurable.
+\begin{lemma}
+	For any $p \in[1, \infty)$, the elementary processes are $L^{p}$-dense in the space $\mathbb{L}^{p}(I\times\Omega)$ of progressively measurable processes in $L^p(\Bb(I)\otimes\Ff_\infty)$. That is, for any $Y \in \mathbb{L}^{p}$ there is a sequence $V_{n}$ of elementary functions such that
+	$$
+		\E[\int_{I}\left|Y(t)-V_{n}(t)\right|^{p} dt] \longrightarrow 0.
+	$$
+\end{lemma}
+The proof of this fact is also rather technical and long. See Chapter $2$ of \cite{Lalley2013NOTESOT}. Furthermore, we have that
+\begin{theorem}
+	Let $(\Ee,\|\cdot\|_{L^2(I\times\Omega)},\Ff_t)$ be the set of simple stochastic processes adapted to $\{\Ff_t\}_{t\in I}$ with the $L^2$ norm. Then it's completion is
+	\begin{equation*}
+		\mathbb{L}^2(I\times\Omega):=\{X\in L^2([0,T]\times\Omega)\text{ progressively measurable }\}.
+	\end{equation*}
+\end{theorem}
+The proof of this is by the previous approximation result together with the fact that the Ito integral of simple processes is an isometry and the fact that $\mathbb{L}^2(I\times\Omega)$ is complete. This last property follows from the completeness of the $L^p$ spaces and the fact that pointwise limits of progressively measurable functions are progressively measurable (and from every convergent sequence in $L^p$ we can extract a convergent sub-sequence which must also converge to the $L^p$ limit).
+This finally leads us to be able to define the stochastic integral.
+\begin{theorem}
+	Let $t\in I$ and define for a simple process $f\in\Ee$ $$\int_{0}^t X dW=\sum_{n=0}^{N-1} X(t_n)(W(t\cap t_{n+1})-W(t_n)).$$
+	Then the above defines an isometry to the space of continuous square integrable martingales $\Mm_I^2$ as
+	\begin{align*}
+		int: \left(\mathcal{E},\|\cdot\|\U {L^2(I\times\Omega)}\right) & \longrightarrow  \left(\mathcal{M}\U I^2,\|\cdot\|\U {L^2(I\times\Omega)}\right) \\
+		X(t)                                                           & \longmapsto \int\U {0}^t X dW
+		.\end{align*}
+	Thus, it extends uniquely to the closure $\overline{\Ee}=\mathbb{L}^2(I\times\Omega)$. Furthermore the extension also has image in $\Mm_I^2.$
+\end{theorem}
+\begin{proof}
+	The first part of the proof is a calculation using the definition of integral of simple process, the adaptedness of $X$ and the definition of  $W$. The second part is slightly more tricky. The fact that $X$ is a martingale is due to  $L^2$ convergence ($L^1$ would suffice).\\\\ Then, one takes a sequence of elementary processes  $X_n$ converging to  $X$. By the first part one may apply Doob's martingale inequality and $L^2$ convergence to get a measure of the set where the supremum
+	\begin{equation*}
+		\sup_{t\in I}  |X_n(t)-X_m(t)|>2^{-k},
+	\end{equation*}
+	which can be made small for $n,m \to\infty$. One can then extract a subsequence and apply Borel-Cantelli to deduce that the above supremum goes to $0$ almost everywhere. This shows that  $X_n$ is almost everywhere Cauchy in  $L^\infty$ and thus converges almost everywhere to some continuous process $Y$. This process must be $X$ by  $L^2$ convergence to  $X$ which concludes the proof.
+
+\end{proof}
+
+
+\bibliography{biblio.bib}
+\begin{equation*}
+	W(A):=\int_{A} dW(t).
+\end{equation*}
+
+\end{document}

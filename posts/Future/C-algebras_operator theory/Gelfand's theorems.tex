@@ -1,0 +1,306 @@
+\documentclass[12pt]{article}
+\special{papersize=3in,5in}
+\usepackage[utf8]{inputenc}
+%PACKAGES
+\usepackage{CJKutf8}
+\usepackage[colorlinks = true,
+	linkcolor = blue,
+	urlcolor  = black,
+	citecolor = blue,
+	anchorcolor = blue]{hyperref}
+\usepackage[T1]{fontenc}
+\makeatletter
+\def\ps@pprintTitle{%
+	\let\@oddhead\@empty
+	\let\@evenhead\@empty
+	\let\@oddfoot\@empty
+	\let\@evenfoot\@oddfoot
+}
+\usepackage{amssymb,amsmath,physics,amsthm,xcolor,graphicx}
+\usepackage[shortlabels]{enumitem}
+\newtheorem{observation}{Observation}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{example}{Example}
+\newtheorem{definition}{Definition}
+\newtheorem{corollary}{Corollary}
+\newcommand{\red}[1]{{\color{red}#1}}
+\usepackage[colorlinks = true,
+	linkcolor = blue,
+	urlcolor  = black,
+	citecolor = blue,
+	anchorcolor = blue]{hyperref}
+\usepackage{cleveref}
+\bibliographystyle{elsarticle-num}
+\newcommand{\fk}[1]{\mathfrak{#1}}\newcommand{\wh}[1]{\widehat{#1}}
+\newcommand{\br}[1]{\left\langle#1\right\rangle} \newcommand{\set}[1]{\left\{#1\right\}} \newcommand{\qp}[1]{\left(#1\right)}\newcommand{\qb}[1]{\left[#1\right]}
+\newcommand{\Id}{\mathbf{I}}\renewcommand{\ker}{\mathbf{ker}}\newcommand{\supp}[1]{\mathbf{supp}(#1)}\renewcommand{\tr}[1]{\mathrm{tr}\left(#1\right)}
+\renewcommand{\norm}[1]{\lVert #1 \rVert}\renewcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\lb}{\left\{} \newcommand{\rb}{\right\}}\newcommand{\zl}{\left[}\newcommand{\zr}{\right]}\newcommand{\U}{_}\renewcommand{\star}{*}
+
+\newcommand{\A}{\mathbb{A}}\newcommand{\C}{\mathbb{C}}\newcommand{\E}{\mathbb{E}}\newcommand{\F}{\mathbb{F}}\newcommand{\II}{\mathbb{I}}\newcommand{\K}{\mathbb{K}}\newcommand{\LL}{\mathbb{L}}\newcommand{\M}{\mathbb{M}}\newcommand{\N}{\mathbb{N}}\newcommand{\PP}{\mathbb{P}}\newcommand{\Q}{\mathbb{Q}}\newcommand{\R}{\mathbb{R}}\newcommand{\T}{\mathbb{T}}\newcommand{\W}{\mathbb{W}}\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Aa}{\mathcal{A}}\newcommand{\Bb}{\mathcal{B}}\newcommand{\Cc}{\mathcal{C}}\newcommand{\Dd}{\mathcal{D}}\newcommand{\Ee}{\mathcal{E}}\newcommand{\Ff}{\mathcal{F}}\newcommand{\Gg}{\mathcal{G}}\newcommand{\Hh}{\mathcal{H}}\newcommand{\Kk}{\mathcal{K}}\newcommand{\Ll}{\mathcal{L}}\newcommand{\Mm}{\mathcal{M}}\newcommand{\Nn}{\mathcal{N}}\newcommand{\Pp}{\mathcal{P}}\newcommand{\Qq}{\mathcal{Q}}\newcommand{\Rr}{\mathcal{R}}\newcommand{\Ss}{\mathcal{S}}\newcommand{\Tt}{\mathcal{T}}\newcommand{\Uu}{\mathcal{U}}\newcommand{\Ww}{\mathcal{W}}\newcommand{\XX}{\mathcal {X}}\newcommand{\Zz}{\mathcal{Z}}
+\renewcommand{\d}{\,\mathrm{d}}
+\newcommand\restr[2]{\left.#1\right|_{#2}}
+\pagestyle{empty}
+\setlength{\parindent}{0in}
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+	\title{Gelfand's theorems}
+	\author{Liam Llamazares}
+	\date{05/12/2023}
+	\maketitle
+	\section{ Three line summary}
+	\begin{itemize}
+		\item The spectrum can be thought of heuristically as the frequencies that represent an element of a Banach algebra.
+		\item In a unital Banach algebra every element has non-empty spectrum.
+		\item A commutative Banach algebra $A$ can be thought of as a subgroup of continuous functions.
+	\end{itemize}
+	\section{Why should I care?}
+	We introduce the basis of spectral theory which is useful to ...
+	\section{Preliminary definitions}
+	Here I include all the needed definitions. Many of them will be familiar if the reader has an algebra background and can be skimmed over.
+	\begin{definition}
+		An \emph{algebra} $A$ is a vector space together with a multiplication which is bilinear and associative. That is,
+		\begin{align*}
+			(a+b)c=ac+bc;\quad a(b+c)=ab+ac; \quad a(bc)=(ab)c \forall a,b,c \in A.
+		\end{align*}
+		Note that in general we do not require that the product is commutative. Though this will be a common requirement later on. We will take $A$ for the remainder to be a vectro space over  $\C$
+	\end{definition}
+	\begin{definition}
+		Given a norm $\norm{\cdot }$ on algebra $A$ we say that $(A, \norm{})$ is a \emph{ normed algebra} if the norm is \emph{ submultiplicative}. That is,
+		\begin{align*}
+			\norm{ab}\leq \norm{a}\norm{b} .
+		\end{align*}
+
+	\end{definition}
+	\begin{definition}
+		We say that a normed algebra $(A,\norm{\cdot })$ is a \emph{Banach algebra} if it is complete. We say that it is \emph{unital} if there exists an identity $1$ for the multiplication
+		\begin{align}\label{e3}
+			a 1=1 a, \quad\forall a\in A.
+		\end{align}
+
+		and we say that it is \emph{commutative} if
+		\begin{align*}
+			ab= ba , \quad\forall a,b \in A.
+		\end{align*}
+	\end{definition}
+	\begin{definition}
+		Given $a \in  A$ we say that $\lambda  \in \C$ is in the \emph{spectrum} of $a$ if  $ \lambda 1-a$ is \textbf{not} invertible. We write $\sigma (a) \subset \C$ for the set of such $\lambda $.
+	\end{definition}
+	\begin{definition}
+		Given two algebras $A,B$ we say that  $\varphi: A\to B$ is a \emph{homomorphism} if it is linear and respects the product. That is,
+		\begin{align*}
+			\varphi(a+ \lambda b)= \varphi(a)+ \lambda  \varphi(b);\quad \varphi(ab)=\varphi(a) \varphi(b) , \quad\forall a ,b \in  A.
+		\end{align*}
+		If $A,B$ are unital and  $\varphi(1)=1$ we say that $\varphi$ is \emph{unital}. If $\varphi$ has an inverse $\varphi$ and $\varphi$ and $\varphi^{-1}$ are continuous we say that it is a \emph{homeomorphism}
+	\end{definition}
+	Note that any morphism $\varphi$ between unital algebras conserves invertability. However that, even if $A,B$ are unital it may be the case that  $\varphi(1)$ is not (consider for example the zero morphism).
+	\begin{definition}
+		We say that $\varphi$ is a character of $A$ if  $\varphi:A\to \C$ is a homomorphism.
+	\end{definition}
+	\begin{definition}
+		Given an algebra $A$ we say that  $B \subset A$ is a sub-algebra if it is subspace of $A$ closed under multiplication.    That is $B$ itself is an algebra.
+	\end{definition}
+
+	\begin{definition}
+		Given an algebra $A$, we say that $I \subset A$ is an \emph{ideal}  of $A$ if $I$ is stable under multiplication with elements is  $A$. That is
+		\begin{align*}
+			AI := \{ a b: a\in A, \quad  b \in I \} \subset I; \quad IA \subset I .
+		\end{align*}
+		We say that $I$ is \emph{maximal }if given any other ideal  $J$ such that $I\subset J$ it holds that $J=A$.
+	\end{definition}
+	We recall that, by Zorn's Lemma every algebra has a maximal ideal.
+	\begin{definition}
+		Given a closed ideal $I $ of an algebra $A$ we define the quotient algebra  $A/I$ to be the set of equivalence classes under the relation
+		\begin{align*}
+			a \sim b \iff a-b \in I.
+		\end{align*}
+		With the product $\overline{a}\overline{b}:= \overline{ab}$ and the norm
+		\begin{align*}
+			\norm{\overline{a}}:= \inf_{ b \in  I } \norm{a+b}.
+		\end{align*}
+	\end{definition}
+	We note that it is necessary for $I$ to be closed so that if $\norm{\overline{a}}=0$ then $a \in I$, that is $\overline{a}=0$.
+	\section{Introduction}
+	\section{The big theorems}
+	We now state the main theorems and outline the proof
+	\begin{theorem}
+		Given a unital Banach algebra $A$ it holds that
+		\begin{enumerate}
+			\item The set of invertible elements in $A$ is open.
+			\item Taking the inverse is smooth.
+			\item $\sigma (a)$ is a closed subset of $\subset B(0,\norm{a})$
+		\end{enumerate}
+	\end{theorem}
+	\begin{proof}
+		All of these facts can be proved via the Von-Neumman series for the inverse
+		\begin{align*}
+			(1 -a)^{-1}=\sum_{n=0}^{\infty} a^n, \quad\forall a \in B(0,1) .
+		\end{align*}
+	\end{proof}
+
+
+	\begin{theorem}[Gelfand's theorem]
+		Given a unital Banach algebra $A$,  $\sigma (a)\neq \emptyset $ for all $a\in A$.
+	\end{theorem}
+	\begin{proof}
+		Suppose not, then $(\lambda 1-a)^{-1}$ exists for all $\lambda \in  \C$. Let us consider the function $f:\C \to \C$
+		\begin{align}\label{e1}
+			f(\lambda):= (\lambda 1-a)^{-1}.
+		\end{align}
+		Since taking inverse is smooth, $f$ is smooth and thus bounded on $B(0,2\norm{a})$. Furthermore, using Neumann's series for the inverse  we obtain that
+		\begin{align*}
+			\norm{f(\lambda )} = \abs{\lambda^{-1}} \norm{\sum_{n=0}^{\infty}  (a / \lambda)^n }\leq \abs{\lambda}^{-1} \sum_{n=0}^{\infty} (\norm{a} / \lambda)^n \leq \frac{1}{\abs{ \lambda }}\leq \frac{1}{2 \norm{a}}  .
+		\end{align*}
+		As a result $f$ is a bounded smooth function and $ \ell (f(\lambda ))$ is a bounded entire function for any $\ell \in A^*$. By Liouville's theorem  $ \ell (f(\lambda ))$  is constant. Since this holds for all $\ell \in  A^*$ we deduce that $f(\lambda )$ is constant. This leads to a contradiction by taking $\lambda =1, \lambda =0$ as we get
+		\begin{align}\label{e2}
+			I -a= a   .
+		\end{align}
+		Citing \eqref{e1} and \eqref{e2} and referencing \cite{murphy2014c}.
+	\end{proof}
+	We now discuss Gelfand's representation theorem. First some lemmas
+	\begin{lemma}[\textbf{Codimension of a maximal ideal is 1} ] Let $I$ be a maximal ideal in a commutative unital Banach Algebra  $A$, then  $A \simeq I+ \C \cdot 1$.
+	\end{lemma}
+	\begin{proof}
+		We must show that any $a \in A$ can be written $b+\lambda $ where $b\in I$. Given $\overline{a} \in A/I$ there exists by Gelfand's theorem $\lambda  \in  \C$ such that $\overline{\lambda -a}$ is not invertible. Since $A /I$ is a field we deduce that $\overline{\lambda -a}=0$, that is there exists $ b \in  I$ such that $b+ \lambda =a$ as desired.
+	\end{proof}
+
+	\begin{proposition}
+		Let $A$ be a commutative Banach algebra.There is a bijective correspondence
+
+		\begin{align*}
+			\Omega(A): & \simeq \{\text{Maximal ideals } I \subset A\}  . \\
+			           & \varphi    \longmapsto \text{ker}(\varphi).
+		\end{align*}
+		\begin{proof}
+			The mapping is well defined as $a -\varphi(a) \in \text{ker}(\varphi)$ for all $a\in  A$ so $\text{ker}(\varphi) $ is maximal. The mapping is surjective by the previous lemma as given a maximal ideal $I$ we have that  $A=I \oplus \C$ and we can define $\varphi((a,\lambda )):= \lambda $. The mapping is injective as if $\text{ker}\varphi_1=\text{ker} \varphi_2   $ then $\varphi_1(a -\varphi_2(a))=0$ for all $a \in  A$.
+		\end{proof}
+	\end{proposition}
+	\begin{proposition}
+		Let $A$ be a commutative Banach algebra. Then $\norm{\varphi}=1$ for every $\varphi \in A$.
+	\end{proposition}
+	\begin{proof}
+		We have that $\varphi(a) \subset \sigma (a)\subset B(0,\norm{a})$ as a result $\norm{\varphi}\leq 1$. On the other hand $\varphi(1)^2=1$ proves that $\varphi(1)=1$ (we recall that characters by definition are non-zero). This shows that $\norm{\varphi} \geq 1$ and concludes the proof.
+	\end{proof}
+	\begin{theorem}
+		Given a commutative unital Banach algebra $A$ it holds that
+		\begin{align*}
+			\sigma (a)=\{\varphi(a): \varphi \in \Omega(A)\} .
+		\end{align*}
+		If $A$ is not unital then
+		\begin{align*}
+			\sigma (a)=\{\varphi(a): \varphi \in \Omega(A)\} \cup \{0\}  .
+		\end{align*}
+	\end{theorem}
+	\begin{proof}
+		To prove the direct inclusion consider  $\lambda \not\in \sigma (a)$, then we may take by Zorn's lemma a proper maximal ideal $I$ with $\lambda -a \in I$. By the previous proposition we can take $I =\text{ker} \varphi $ for some character $\varphi$, from which we deduce that $\varphi(\lambda -a)=\lambda -\varphi(a)=0$.
+
+		The reverse inclusion is immediate from the fact that $\varphi(a-\varphi(a))=0 $ so $a- \varphi(a)$ is not invertible for any $a \in  A$.
+
+		Suppose now $A$ is not unital, then we unitize it by considering  $\tilde{A}$ as previously. The characters of $\tilde{A}$ are $\Omega(A) \cup \{\tau_0\} $ where $\tau_0((a,\lambda )):= \lambda $. Applying the just prove result to $\tilde{A}$ shows that, since $\tau_0(a,0)=0$
+		\begin{align*}
+			\sigma (a):=\sigma (\tilde{a})=\{\varphi(a): \varphi \in \Omega(A)\} \cup \{0\}  .
+		\end{align*}
+	\end{proof}
+	We now consider $A^*$ with the weak* topology and  $\Omega(A)$ included within it. We recall that $A^*$ is Hausdorff and thus so must be  $\Omega(A)$.
+	\begin{theorem}Let $A$ be an Abelian Banach algebra. Then $\Omega(A)$ is locally compact. Furthermore, if $A$ is also unital then  $\Omega(A)$ is compact.
+	\end{theorem}
+	\begin{proof}
+		By the previous theorem we know that $\Omega(A) \subset B(0,1)$ whihc is compact with the weak star topology (Banach Aloglu's theorem). Now, if $\varphi_n(a) \to \varphi(a)$ for all $a \in A$ then it holds that, by a simple argument $\varphi$ is also a morphism.  Thus $\varphi$ will be a character if and only if $\varphi \neq 0$. For this reason it is necessary to adjoin $0$ if $A$ is not unital. This shows that  $\Omega(A) \cup  \{0\} $ is closed in $B(0,1)$ and is thus compact. In consequence  $\Omega(A)$ is locally compact.
+
+		Suppose now that $A$ is unital, then  we have seen than $\norm{\varphi}=1$ for all $\varphi \in  \Omega(A)$. The previous argument shows that $\Omega(A)$ is closed (we can never reach $0$) and as a result $\Omega(A)$ is compact.
+	\end{proof}
+	We can now identify $A$ with a sub-algebra of continuous functions on $\Omega(A)$ via the mapping $a \to \wh{a}$ where we define $\wh{a}(\varphi):= \varphi(a)$. Let us denote the image of this mapping by $\wh{A}$, then we obtain the following theorem
+	\begin{theorem}[\textbf{Gelfand's represntation theorem}]
+		Let $A$ be a commutative Banach algebra, then the mapping
+		\begin{align*}
+			A \to\wh{A} \subset C_0(\Omega(A)); \quad a\to \wh{a}.
+		\end{align*}
+		is a norm decreasing  injective homomorphism with $\norm{\wh{a}}= r(a)$. Furhtermore, if $a$ is unital then  $\sigma (a)=\wh{a}(\Omega(A))$ and otherwise $\sigma (a)=\wh{a}(\Omega(A)) \cup  \{0\}$.
+	\end{theorem}
+	\begin{proof}
+		To show that $\wh{a}$ vanishes at infinity note that the set
+		\begin{align*}
+			\{\varphi : \wh{a}(\varphi) \geq \epsilon \} =\wh{a}^{-1}([\epsilon ,\norm{a}]).
+		\end{align*}
+		Which is a closed subset in the compact $B(0,a)$ and thus compact.
+	\end{proof}
+	We note however that the mapping $a \to \wh{a}$ is in general neither injective (this means the identification isn't prefect) not surjective.
+
+	\begin{example}[Continuous Fourier Transform]
+		Consider the Banach Algebra $A=L^1(\R^d)$ with multiplication given by the convolution
+		\begin{align*}
+			f\star g(x):= \int_{\R^d}f(y)g(x-y) \d y.
+		\end{align*}
+		Then the Gelfand transform can be identified with the Fourier transform and	\begin{align*}
+			\wh{f}(\Omega)= \left\{ \wh{f}(\omega):= \int_{\R^d} f(x)e^{-2\pi i \omega \cdot  x} \d x:\omega\in \R^d\right\} .
+		\end{align*}
+	\end{example}
+	\begin{proof}
+
+
+		We know that the dual of $L^1(\R^d)$ is $L^\infty(\R^d)$. In particular every character is of the form
+		\begin{align*}
+			\varphi_g (f)= \int_{\R^d}f \overline{g}.
+		\end{align*}
+		The condition that $\varphi_g$ preserves multiplication becomes by a change of variable
+		\begin{align*}
+			g(x+y)=g(x)g(y), \quad\forall x,y \in \R^d.
+		\end{align*}
+		The only $g \in L^\infty (\R^d)$ verifying the above are of the form $g(x)= e^{2\pi i \omega \cdot  x}$ for some $\omega \in \R^d$. That is, the character group is
+		\begin{align*}
+			\Omega(L^1(\R^d))\simeq\{e^{2\pi i \omega \cdot }: \omega \in \R^d\} .
+		\end{align*}
+		This concludes the proof (we use the abuse of notation $\wh{f}(\omega):=\wh{f}(\varphi_{e^{2\pi i \omega \cdot }})$).
+	\end{proof}
+
+
+	\begin{example}[Discrete Fourier Transform]
+		Consider the Banach Algebra $A=\ell ^\infty(\Z^d)$ with multiplication given by the convolution
+		\begin{align*}
+			g\star h(k):= \sum_{k \in \Z^d}g(j)h(k-j) .
+		\end{align*}
+		Then the Gelfand transform can be identified with the (inverse) Fourier transform and	\begin{align*}
+			\wh{g}(\Omega)= \left\{ \check{g}(k):= \sum_{k \in \Z^d} g(x)e^{2\pi i k \cdot  x} \d x: k\in \Z^d\right\} .
+		\end{align*}
+	\end{example}
+	Furthermore
+	\begin{align*}
+		g(k)=\int_{0}^1 \check{g}(k)e^{2 \pi i (j-k) \cdot x}\d x.
+	\end{align*}
+	\begin{proof}
+		Let $e_1,\ldots e_d \in A$  be defined by
+		\begin{align*}
+			e_n(k):= \delta _{nk_1}, \quad\forall n=1,\ldots d, k\in \Z^d .
+		\end{align*}
+		Then we have that $A$ is generated by  $e_{1},\ldots e_n$ with
+		\begin{align*}
+			g(k) =\sum_{k} g(k) e_1^{k_1}\ldots e_d ^{k_d} .
+		\end{align*}
+		Any character $\varphi$ is thus determined by where it sends the $e_n$ and they take the form
+		\begin{align*}
+			\Omega(A)= \left\{ \varphi_z (g):= \sum_{k \in \Z^d} g(k) z^k: z \in \T^d  \right\} \simeq \T^d .
+		\end{align*}
+		Noting that $\T^d= \left\{ e^{ 2\pi i x}: x \in \R^d \right\} $ and defining
+		\begin{align*}
+			\check{g}(x):= \varphi_{e^{ 2\pi i x \cdot  }}(g)=\sum_{k \in \Z^d} g(k) e^{2 \pi  i k \cdot x}.
+		\end{align*}
+		Gives the first part of the proof and using the orthonormality trick
+		\begin{align*}
+			\int_{0}^1 \check{g}(x) e^{-2 \pi i k \cdot x}\d x=\sum_{j \in \Z^d} g(j)  \int_{0}^1 e^{2 \pi i (j-k) \cdot x}\d x= g(k).
+		\end{align*}
+		Gives the second. Where in the above we applied the dominated convergence theorem.
+	\end{proof}
+
+
+
+
+\end{CJK*}
+
+
+
+\bibliography{biblio.bib}
+\end{document}

@@ -1,11 +1,67 @@
-Future things to implement
+# NoWhere Differentiable Math — Site Instructions
 
-Things to implement. 1 by 1. Do not start on next one till first is complete.
-1. Improve GUI of blog (brainstorm options for this)
-2. Make creating and editingposts easier by implementing the following
-    a) All latex files for blogposts are in the Blog_latex folder. When one of these files is edited the relevant post should be updated.
-    b) The post is updated as follows: Pandoc is run as detailed in the mathematica conversion file. Then The mathematica file is run on the output to convert this to markdown. The conversion step should be implemented in a python file instead with calls pandoc and then applies the same rules as in the mathematica file (or possibl a cleaner version on them to generate the outputted post).
-    c) Once the conversion is done the relevant post in the _posts folder is updated
-    d) One the girhub repository is pushed the blog updates online per normal
+## Converting a LaTeX post to Quarto
 
-3. Implement a way of testing how a markdown file looks without creating a whole blog post
+1. Place your LaTeX folder inside `posts/<collection>/`, e.g.:
+   ```
+   posts/Analysis on Banach spaces/My_Post/
+       main.tex
+       preamble.sty
+       biblio.bib
+       cover.jpg          ← optional, shown as the post image
+   ```
+
+2. Add blog metadata to your `main.tex` (alongside `\title`, `\author`, `\date`):
+   ```latex
+   \subtitle{One sentence description of the post.}
+   \tags{Analysis, Measure Theory}   % optional — defaults to collection folder name
+   ```
+   Add to your shared `preamble.sty` (once only):
+   ```latex
+   \newcommand{\subtitle}[1]{}
+   \newcommand{\tags}[1]{}
+   ```
+
+3. Copy `latex2qmd.py` into the post folder (done once per post). Then from inside the folder run:
+   ```powershell
+   py .\latex2qmd.py
+   ```
+   This writes `index.qmd` in the same folder.
+
+---
+
+## Previewing locally
+
+Start a live preview server (hot-reloads on file changes):
+```powershell
+quarto preview index.qmd
+```
+Then open **http://127.0.0.1:4256/** in your browser.
+
+To do a full site build without the server:
+```powershell
+quarto render
+```
+
+---
+
+## Deploying to GitHub Pages
+
+Just push to `main`:
+```powershell
+git add .
+git commit -m "Add <post name>"
+git push
+```
+GitHub Actions (`ci.yml`) builds and deploys the site automatically.
+
+The `fetch-comments.yml` workflow runs every hour to update the recent comments sidebar.
+
+---
+
+## Dashboard tags and ordering
+
+- Posts are ordered by `date` (newest first) on the homepage.
+- Tags come from `\tags{}` in `main.tex`, or default to the parent collection folder name.
+- The featured post (large card) is always the most recent post.
+- To hide a post from the site, place it inside `posts/Future/` — this folder is excluded from rendering.

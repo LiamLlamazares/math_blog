@@ -3,6 +3,12 @@ project:
   output-dir: _site
   resources:
     - _data/recent_comments.json
+  render:
+    - "!posts/Future/**"
+    - "*.qmd"
+    - "*.md"
+    - "posts/**/*.qmd"
+    - "posts/**/*.md"
 
 website:
   title: "NoWhere Differentiable Math"

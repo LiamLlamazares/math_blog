@@ -1,0 +1,193 @@
+\documentclass[12pt]{article}
+\special{papersize=3in,5in}
+\usepackage[utf8]{inputenc}
+%PACKAGES
+\usepackage[colorlinks = true,
+	linkcolor = blue,
+	urlcolor  = black,
+	citecolor = blue,
+	anchorcolor = blue]{hyperref}
+\usepackage[T1]{fontenc}
+\makeatletter
+\def\ps@pprintTitle{%
+	\let\@oddhead\@empty
+	\let\@evenhead\@empty
+	\let\@oddfoot\@empty
+	\let\@evenfoot\@oddfoot
+}
+\usepackage{amssymb,amsmath,physics,amsthm,xcolor,graphicx}
+\usepackage[shortlabels]{enumitem}
+\newtheorem{observation}{Observation}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{definition}{Definition}
+\newtheorem{corollary}{Corollary}
+\newcommand{\red}[1]{{\color{red}#1}}
+\usepackage[colorlinks = true,
+	linkcolor = blue,
+	urlcolor  = black,
+	citecolor = blue,
+	anchorcolor = blue]{hyperref}
+\usepackage{cleveref}
+\bibliographystyle{elsarticle-num}
+\newcommand{\A}{\mathbb{A}}\newcommand{\C}{\mathbb{C}}\newcommand{\E}{\mathbb{E}}\newcommand{\F}{\mathbb{F}}\newcommand{\K}{\mathbb{K}}\newcommand{\LL}{\mathbb{L}}\newcommand{\M}{\mathbb{M}}\newcommand{\N}{\mathbb{N}}\newcommand{\PP}{\mathbb{P}}\newcommand{\Q}{\mathbb{Q}}\newcommand{\R}{{\mathbb R}}\newcommand{\T}{{\mathbb T}}\newcommand{\Z}{{\mathbb Z}}
+\newcommand{\Aa}{\mathcal{A}}\newcommand{\Bb}{\mathcal{B}}\newcommand{\Cc}{\mathcal{C}}\newcommand{\Ee}{\mathcal{E}}\newcommand{\Ff}{\mathcal{F}}\newcommand{\Gg}{\mathcal{G}}\newcommand{\Hh}{\mathcal{H}}\newcommand{\Kk}{\mathcal{K}}\newcommand{\Ll}{\mathcal{L}}\newcommand{\Mm}{\mathcal{M}}\newcommand{\Nn}{\mathcal{N}}\newcommand{\Pp}{\mathcal{P}}\newcommand{\Qq}{\mathcal{Q}}\newcommand{\Rr}{{\mathcal R}}\newcommand{\Tt}{{\mathcal T}}\newcommand{\Zz}{{\mathcal Z}}\newcommand{\Uu}{{\mathcal U}}
+\newcommand\restr[2]{{\left.\kern-\nulldelimiterspace #1\vphantom{\big|} \right|_{#2}}}
+\newcommand{\br}[1]{\left\langle#1\right\rangle}
+\pagestyle{empty}
+\setlength{\parindent}{0in}
+\begin{document}
+\title{Martingales in Banach spaces}
+\author{Liam Llamazares}
+\date{23-05-2022}
+\maketitle
+\section{Three line summary}
+\begin{itemize}
+	\item Conditional expectations exist in a natural way for simple functions, by taking extensions they also exist for integrable functions to a Banach space $L^1(\Omega\to E)$.
+	\item Using conditional expectations we can define what a martingale is just like in the real case.
+	\item The space of continuous $p$-integrable martingales is a Banach space.
+\end{itemize}
+\section{Why should I care?}
+Banach valued martingales form the basis of SPDEs. This is because analogously to Itô integration of real-valued processes. Integrating against a Wiener process valued in a Banach space the same will produce a square integrable continuous martingale.
+\section{Conditional expectation}
+In graduate-level probability courses, given a $\sigma-$algebra $\Gg$ one shows that by applying Radon-Nikodyn's theorem, for any real-valued random variable $X\in L^1(\Omega\to R)$ there exists a conditional expectation $\E_{\Gg}[X]$ verifying that
+\begin{equation*}
+	\int_A \E_{\Gg}[X]=\int_A X,\quad \forall A\in\Gg.
+\end{equation*}
+Of course, now that we have created an integral for integral random variables to a Banach space $L^1(\Omega\to X)$ we would like to see whether such a conditional expectation also exists for these functions. If we are given a simple function
+\begin{equation*}
+	X=\sum_{k=1}^n x_k 1_{A_k}, \quad x_k\in E, A_k\in\Gg.
+\end{equation*}
+It is a simple calculation to show that, since $1_{A_k}$ are real-valued and thus $\E_{\Gg}[1_{A_k}]$ are well defined, then
+\begin{equation*}
+	\E_{\Gg}[X]=\sum_{k=1}^n x_k \E_{\Gg}[1_{A_k}],
+\end{equation*}
+verifies the desired formula. Furthermore, we have that $\mathbb{E}_\mathcal{F}$ is a linear, and pointwise continuous operator with
+\begin{equation*}
+	\left\|\E_{\Gg}[X]\right\|\leq \sum_{k=1}^n \|x_k\| \E_{\Gg}[1_{A_k}]=\E_{\Gg}\left[\sum_{k=1}^n \|x_k\|1_{A_k}\right]=\E_{\Gg}\left[\|X\|\right].
+\end{equation*}
+This allows us to show the following
+\begin{theorem}[Existence and uniqueness of conditional expectation]
+	Let $X\in L^1(\Omega\to E)$ for some Banach space $E$. Then $X$ has a conditional expectation satisfying
+	\begin{equation*}
+		\left\|\E_{\Gg}[X]\right\|\leq\E_{\Gg}\left[\|X\|\right].
+	\end{equation*}
+\end{theorem}
+\begin{proof}
+	We have already proved the above inequality for simple processes. By the previous post, \cite{Bochner} we can take $X_n$ converging to $X$ in $L^1(\Omega\to E)$ to obtain that
+	\begin{multline*}
+		\left\|\E_{\Gg}[X_n-X_m]\right\|\leq\E_{\Gg}\left[\|X_n-X_m\|\right]\\\implies \E[\left\|\E_{\Gg}[X_n]-\E_{\Gg}[X_m]\right\|]\leq \E\left[\|X_n-X_m\|\right]\to 0
+	\end{multline*}
+	As a result, $\E_{\Gg}[X_n]$ is a Cauchy sequence in $L^1(\Omega\to E)$ and converges to some function $Y$, passing to the limit in the defining equation for the conditional expectation shows that $Z=\mathbb{E}_\mathcal{G}[X]$. Finally, to prove uniqueness we have that if both $Z_1,Z_2$ satisfy
+	\begin{equation*}
+		\int_A Z_1=\int_A X=\int_A Z_2,\quad \forall A\in\Gg.
+	\end{equation*}
+	Then using the linearity of the integral we obtain that $w(Z_1)=w(Z_2)$ for all linear function $w$, so $Z_1=Z_2$.
+\end{proof}
+\section{Martingales}
+Okay, so we leveraged some inequalities to prove the existence of a conditional expectation. This done, the following definition mimicking the real case is quite natural
+\begin{definition}
+	Let $\{M(t)\}_{t\in I}$, be a stochastic process on $(\Omega, \mathcal{F}, \mathbb{P})$ with a filtration $\{\mathcal{F}_{t}\}_{t \in I}$. The process $M$ is called an $\mathcal{F}_{t}$-martingale, if:
+	\begin{enumerate}
+		\item $M(t)\in L^1(\Omega\to E)$ for all $t\in I$
+		\item $M(t):\mathcal{F}_{t} \to \mathcal{B}(E)$ for all $t\in I$,
+		\item $\E_{\mathcal{F}_{s}}\left[M(t)\right]=M(s)$ for all $s \leq t$.
+	\end{enumerate}
+\end{definition}
+The concept of submartingale is  defined by replacing the equality in 3. with a $\geq$. Let us abbreviate $\E_{\mathcal{F}_t}$ by $\E_t$. Then, as in the real case, we have the following.
+\begin{lemma}[Norm is submartingale]\label{norm is submart}
+	Let $M(t)$ be a martingale, then $\norm{M(t)}$ is a martingale
+\end{lemma}
+\begin{proof}
+	We recall that, by the Hahn Banach theorem, it holds for any metric space that given $y\in E$
+	\begin{equation*}
+		\norm{z}=\sup_{\ell\in E^*:\|\ell\|=1}\ell(z)
+	\end{equation*}
+	As a result, by the linearity of the integral and abbreviating the supremum to just $\sup_\ell$,
+	\begin{multline*}
+		\|M(s)\|=\|\E_{s}[M(t)]\|= \sup_\ell \ell\left(\E_{s}[M(t)]\right)=\sup_\ell\|{\E_{s}\left[\ell(M(t))\right]\|}\\
+		\leq \E_{s}\left[\sup_\ell\ell(M(t))\right]=\E_{s}\left[\|M(t)\|\right]
+	\end{multline*}
+\end{proof}
+Let us recall the following result for real-valued martingales
+\begin{lemma}[Doob's maximal Martingale inequality]
+	Let $\{X_k\}_{k=1}^\infty$ be a real-valued sub-martingale. Then it holds that
+	\begin{equation*}
+		\norm{\max_{k\in\{1,...,n\}}X_k}_{L^p(\Omega)}\leq \frac{p}{p-1}\norm{X_n}_{L^p(\Omega)}
+	\end{equation*}
+	As a consequence, if $X_t,t\in[0,T]$ is left (or right) continuous then
+	\begin{equation*}
+		\norm{\max_{t\in[0,T]}X_k}_{L^p(\Omega)}\leq \frac{p}{p-1}\norm{X_T}_{L^p(\Omega)}.
+	\end{equation*}
+\end{lemma}
+The idea of the above result is that, since $X_k$ is a submartingale, $X_k\lesssim X_{k+1}\lesssim...\lesssim X_n$. Getting from the continuous to the discrete case is possible by using the continuity of $X$ and approximating it on some finer and finer mesh $t_0,...,t_n$. This said, applying Doob's maximal martingale inequality together with the Lemma \ref{norm is submart} gives that
+\begin{theorem}[Maximal Inequality]\label{doobs Hilbert} Let $p>1$ and let $E$ be a separable Banach space.
+	If $M(t)$, is a right-continuous $E$-valued $\mathcal{F}_{t}$-martingale, then
+	\begin{multline*}
+		\left(E\left(\sup _{t \in[0, T]}\|M(t)\|^{p}\right)\right)^{\frac{1}{p}} \leq \frac{p}{p-1} \sup _{t \in[0, T]}\left(E\left(\|M(t)\|^{p}\right)\right)^{\frac{1}{p}} \\
+		=\frac{p}{p-1}\left(E\left(\|M(T)\|^{p}\right)\right)^{\frac{1}{p}}
+	\end{multline*}
+\end{theorem}
+\begin{proof}
+	This follows by using that $\norm{M(t)}$ is a sub-martingale and Doob's maximal inequality.
+\end{proof}
+Doob's inequality is essentially an equality between different function norms we can place on the space of continuous Martingales and will provide a very powerful tool later on.
+\begin{corollary}
+	Let $M$ be a (left or right) continuous martingale to a separable Banach space $E$. Then the following are equivalent
+	\begin{itemize}
+		\item $M\in \hat{L}^\infty([0,T]\to \hat{L}^2(\Omega\to E))$
+		\item  $M\in \hat{L}^2(\Omega\to \hat{L}^\infty([0,T]\to E))$
+		\item $\mathbb{E}[\norm{M(T)}^2]<\infty$
+	\end{itemize}
+	Where we recall from the previous post that $\hat{L}^p$ symbolizes that $M$ may not be separately valued and only have an integrable norm. That said, the same reasoning shows that the above result also holds for the integrable $L^p$ spaces.
+\end{corollary}
+A useful space of Martingales is as follows
+\begin{definition}
+	Let $M(t)$ be a $E$ valued martingale with index set $I=[0,T]$, then we define
+	\begin{equation*}
+		\mathcal{M}_T^2(E):=\left\{\text{continuous martingales } M:\mathbb{E}[\norm{M(T)}^2]<\infty\right\}
+	\end{equation*}
+	and give it the norm
+	\begin{equation*}
+		\norm{M}_{\mathcal{M}_T^2(E)}:=\mathbb{E}[\norm{M(T)}^2].
+	\end{equation*}
+\end{definition}
+By Theorem \ref{doobs Hilbert} we have that
+\begin{equation*}
+	\mathcal{M}_T^2(E)\subset \hat{L}^\infty([0,T]\to \hat{L}^2(\Omega\to E))\cap \hat{L}^2(\Omega\to \hat{L}^\infty([0,T]\to E)).
+\end{equation*}
+and that any of the norms of these spaces is equivalent to the one set on $\mathcal{M}_T^2(E)$. This is useful in the following result
+\begin{proposition}
+	Let $E$ be a separable Banach space, then $\mathcal{M}_T^2(E)$ is a Banach space.
+\end{proposition}
+\begin{proof}
+	By the previous observation  and the completeness of the $\hat{L}^p$ spaces proved in the previous post, $\mathcal{M}_T^2(E)$ is a subspace of a Hilbert space. As a result, it is sufficient to show that it is closed. Let $M_n$ converge to $M$. Then, by the equivalence of the norms we have that $M_n(t)\to M(t)\in \hat{L}^1(\Omega\to E)\subset \hat{L}^2(\Omega\to E)$ so that for all $A\in\mathcal{F}_s$
+	\begin{equation*}
+		\int_A M(s)d\mathbb{P}=\lim_{n\to\infty}\int_A M_n(s)d\mathbb{P}=\lim_{n\to\infty}\int_A M_n(t)d\mathbb{P}=\int_A M(t)d\mathbb{P}.
+	\end{equation*}
+	This shows that $M$ is a martingale. Furthermore, as was seen in the previous post, there exists a subsequence $M_{n_k}$ such that
+	\begin{equation*}
+		\lim_{n\to\infty}{M_{n_k}}(\cdot,\omega)=M(\cdot,\omega)\in \hat{L}^\infty([0,T]\to E)\quad a.e.\quad \omega\in\Omega
+	\end{equation*}
+	Since $M_{n_k}(\cdot,\omega)$ are continuous and continuity is preserved by uniform limits this proves that $M$ is continuous almost everywhere. This concludes the proof.
+\end{proof}
+In future installments, we will prove that a Banach valued Wiener process belongs to this space and use it to define the stochastic integral that leads to the construction of SPDEs.
+\begin{proposition}
+	Let $W(t)$ be a $E$ valued $\Sigma$-Wiener process with respect to a filtration $\mathcal{F}_t$. Then $W(t)\in \mathcal{M}_T^2(E)$.
+\end{proposition}
+\begin{proof}
+	It is a martingale as it is adapted and, given $A\in\Gg_S$ and $u\in E$, by the linearity of the integral and Independence of $W(t)-W(s)$ with $\Gg_s$
+	\begin{multline*}
+		\br{\int_A W(t)-W(s)d\PP,u}=\int_A \br{W(t)-W(s),u}d\PP\\=
+		\PP(A)\E[\br{W(t)-W(s),u}]=0
+	\end{multline*}
+	As a result
+	\begin{equation*}
+		\int_A W(t)d\PP=\int_A W(s)d\PP=0\quad \forall A\in\Gg_s\implies \E_s[W(t)]=W(s).
+	\end{equation*}
+	Finally, we have that $\E[W(t)^2]=t<\infty$ for all $t$ and $W$ is continuous by construction. This concludes the proof.
+\end{proof}
+
+\bibliography{biblio.bib}
+\end{document}

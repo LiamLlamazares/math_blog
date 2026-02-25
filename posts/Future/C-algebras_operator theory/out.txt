@@ -1,0 +1,395 @@
+::: CJK*
+UTF8gbsn
+
+#  Three line summary
+
+-   The spectrum can be thought of heuristically as the frequencies that
+    represent an element of a Banach algebra
+    [test](https://nowheredifferentiable.com/2023-01-29-PDE-1/#:~:text=the%20Fourier%20transform-,The,-study%20of%20the).
+    Cite me 2 [\[e2\]](#e2){reference-type="eqref" reference="e2"} and
+    mr murhp [@murphy2014c] and someone else [@adler2007random].
+
+-   In a unital Banach algebra every element has non-empty spectrum.
+
+-   A commutative Banach algebra $A$ can be thought of as a subgroup of
+    continuous functions.
+
+# Why should I care?
+
+We introduce the basis of spectral theory which is useful to \...
+
+# Preliminary definitions
+
+Here I include all the needed definitions. Many of them will be familiar
+if the reader has an algebra background and can be skimmed over.
+
+::: definition
+**Definition 1**. *An *algebra* $A$ is a vector space together with a
+multiplication which is bilinear and associative. That is,
+$$\begin{aligned}
+			(a+b)c=ac+bc;\quad a(b+c)=ab+ac; \quad a(bc)=(ab)c \forall a,b,c \in A.
+		
+\end{aligned}$$ Note that in general we do not require that the product
+is commutative. Though this will be a common requirement later on. We
+will take $A$ for the remainder to be a vectro space over $\mathbb{C}$*
+:::
+
+::: definition
+**Definition 2**. *Given a norm $\lVert \cdot  \rVert$ on algebra $A$ we
+say that $(A, \lVert  \rVert)$ is a *normed algebra* if the norm is
+*submultiplicative*. That is, $$\begin{aligned}
+			\lVert ab \rVert\leq \lVert a \rVert\lVert b \rVert.
+		
+\end{aligned}$$*
+:::
+
+::: definition
+**Definition 3**. *We say that a normed algebra
+$(A,\lVert \cdot  \rVert)$ is a *Banach algebra* if it is complete. We
+say that it is *unital* if there exists an identity $1$ for the
+multiplication $$\begin{aligned}
+\label{e3}
+			a 1=1 a, \quad\forall a\in A.
+		
+\end{aligned}$$*
+
+*and we say that it is *commutative* if $$\begin{aligned}
+			ab= ba , \quad\forall a,b \in A.
+		
+\end{aligned}$$*
+:::
+
+::: definition
+**Definition 4**. *Given $a \in  A$ we say that
+$\lambda  \in \mathbb{C}$ is in the *spectrum* of $a$ if $\lambda 1-a$
+is **not** invertible. We write $\sigma (a) \subset \mathbb{C}$ for the
+set of such $\lambda$.*
+:::
+
+::: definition
+**Definition 5**. *Given two algebras $A,B$ we say that
+$\varphi: A\to B$ is a *homomorphism* if it is linear and respects the
+product. That is, $$\begin{aligned}
+			\varphi(a+ \lambda b)= \varphi(a)+ \lambda  \varphi(b);\quad \varphi(ab)=\varphi(a) \varphi(b) , \quad\forall a ,b \in  A.
+		
+\end{aligned}$$ If $A,B$ are unital and $\varphi(1)=1$ we say that
+$\varphi$ is *unital*. If $\varphi$ has an inverse $\varphi$ and
+$\varphi$ and $\varphi^{-1}$ are continuous we say that it is a
+*homeomorphism**
+:::
+
+Note that any morphism $\varphi$ between unital algebras conserves
+invertability. However that, even if $A,B$ are unital it may be the case
+that $\varphi(1)$ is not (consider for example the zero morphism).
+
+::: definition
+**Definition 6**. *We say that $\varphi$ is a character of $A$ if
+$\varphi:A\to \mathbb{C}$ is a homomorphism.*
+:::
+
+::: definition
+**Definition 7**. *Given an algebra $A$ we say that $B \subset A$ is a
+sub-algebra if it is subspace of $A$ closed under multiplication. That
+is $B$ itself is an algebra.*
+:::
+
+::: definition
+**Definition 8**. *Given an algebra $A$, we say that $I \subset A$ is an
+*ideal* of $A$ if $I$ is stable under multiplication with elements is
+$A$. That is $$\begin{aligned}
+			AI := \{ a b: a\in A, \quad  b \in I \} \subset I; \quad IA \subset I .
+		
+\end{aligned}$$ We say that $I$ is *maximal* if given any other ideal
+$J$ such that $I\subset J$ it holds that $J=A$.*
+:::
+
+We recall that, by Zorn's Lemma every algebra has a maximal ideal.
+
+::: definition
+**Definition 9**. *Given a closed ideal $I$ of an algebra $A$ we define
+the quotient algebra $A/I$ to be the set of equivalence classes under
+the relation $$\begin{aligned}
+			a \sim b \iff a-b \in I.
+		
+\end{aligned}$$ With the product
+$\overline{a}\overline{b}:= \overline{ab}$ and the norm
+$$\begin{aligned}
+			\lVert \overline{a} \rVert:= \inf_{ b \in  I } \lVert a+b \rVert.
+		
+\end{aligned}$$*
+:::
+
+We note that it is necessary for $I$ to be closed so that if
+$\lVert \overline{a} \rVert=0$ then $a \in I$, that is $\overline{a}=0$.
+
+# Introduction
+
+# The big theorems
+
+We now state the main theorems and outline the proof
+
+::: theorem
+**Theorem 1**. *Given a unital Banach algebra $A$ it holds that*
+
+1.  *The set of invertible elements in $A$ is open.*
+
+2.  *Taking the inverse is smooth.*
+
+3.  *$\sigma (a)$ is a closed subset of $\subset B(0,\lVert a \rVert)$*
+:::
+
+::: proof
+*Proof.* All of these facts can be proved via the Von-Neumman series for
+the inverse $$\begin{aligned}
+			(1 -a)^{-1}=\sum_{n=0}^{\infty} a^n, \quad\forall a \in B(0,1) .
+		
+\end{aligned}$$ ◻
+:::
+
+::: theorem
+**Theorem 2** (Gelfand's theorem). *Given a unital Banach algebra $A$,
+$\sigma (a)\neq \emptyset$ for all $a\in A$.*
+:::
+
+::: proof
+*Proof.* Suppose not, then $(\lambda 1-a)^{-1}$ exists for all
+$\lambda \in  \mathbb{C}$. Let us consider the function
+$f:\mathbb{C}\to \mathbb{C}$ $$\begin{aligned}
+\label{e1}
+			f(\lambda):= (\lambda 1-a)^{-1}.
+		
+\end{aligned}$$ Since taking inverse is smooth, $f$ is smooth and thus
+bounded on $B(0,2\lVert a \rVert)$. Furthermore, using Neumann's series
+for the inverse we obtain that $$\begin{aligned}
+			\lVert f(\lambda ) \rVert = \left| \lambda^{-1} \right| \lVert \sum_{n=0}^{\infty}  (a / \lambda)^n  \rVert\leq \left| \lambda \right|^{-1} \sum_{n=0}^{\infty} (\lVert a \rVert / \lambda)^n \leq \frac{1}{\left|  \lambda  \right|}\leq \frac{1}{2 \lVert a \rVert}  .
+		
+\end{aligned}$$ As a result $f$ is a bounded smooth function and
+$\ell (f(\lambda ))$ is a bounded entire function for any
+$\ell \in A^*$. By Liouville's theorem $\ell (f(\lambda ))$ is constant.
+Since this holds for all $\ell \in  A^*$ we deduce that $f(\lambda )$ is
+constant. This leads to a contradiction by taking
+$\lambda =1, \lambda =0$ as we get $$\begin{aligned}
+\label{e2}
+			I -a= a   .
+		
+\end{aligned}$$ Citing [\[e1\]](#e1){reference-type="eqref"
+reference="e1"} and [\[e2\]](#e2){reference-type="eqref" reference="e2"}
+and referencing [@murphy2014c]. ◻
+:::
+
+We now discuss Gelfand's representation theorem. First some lemmas
+
+::: lemma
+**Lemma 1** (**Codimension of a maximal ideal is 1** ). *Let $I$ be a
+maximal ideal in a commutative unital Banach Algebra $A$, then
+$A \simeq I+ \mathbb{C}\cdot 1$.*
+:::
+
+::: proof
+*Proof.* We must show that any $a \in A$ can be written $b+\lambda$
+where $b\in I$. Given $\overline{a} \in A/I$ there exists by Gelfand's
+theorem $\lambda  \in  \mathbb{C}$ such that $\overline{\lambda -a}$ is
+not invertible. Since $A /I$ is a field we deduce that
+$\overline{\lambda -a}=0$, that is there exists $b \in  I$ such that
+$b+ \lambda =a$ as desired. ◻
+:::
+
+::: proposition
+**Proposition 1**. *Let $A$ be a commutative Banach algebra.There is a
+bijective correspondence*
+
+*$$\begin{aligned}
+			\Omega(A): & \simeq \{\text{Maximal ideals } I \subset A\}  . \\
+			           & \varphi    \longmapsto \text{ker}(\varphi).
+		
+\end{aligned}$$*
+
+::: proof
+**Proof.* The mapping is well defined as
+$a -\varphi(a) \in \text{ker}(\varphi)$ for all $a\in  A$ so
+$\text{ker}(\varphi)$ is maximal. The mapping is surjective by the
+previous lemma as given a maximal ideal $I$ we have that
+$A=I \oplus \mathbb{C}$ and we can define
+$\varphi((a,\lambda )):= \lambda$. The mapping is injective as if
+$\text{ker}\varphi_1=\text{ker} \varphi_2$ then
+$\varphi_1(a -\varphi_2(a))=0$ for all $a \in  A$. ◻*
+:::
+:::
+
+::: proposition
+**Proposition 2**. *Let $A$ be a commutative Banach algebra. Then
+$\lVert \varphi \rVert=1$ for every $\varphi \in A$.*
+:::
+
+::: proof
+*Proof.* We have that
+$\varphi(a) \subset \sigma (a)\subset B(0,\lVert a \rVert)$ as a result
+$\lVert \varphi \rVert\leq 1$. On the other hand $\varphi(1)^2=1$ proves
+that $\varphi(1)=1$ (we recall that characters by definition are
+non-zero). This shows that $\lVert \varphi \rVert \geq 1$ and concludes
+the proof. ◻
+:::
+
+::: theorem
+**Theorem 3**. *Given a commutative unital Banach algebra $A$ it holds
+that $$\begin{aligned}
+			\sigma (a)=\{\varphi(a): \varphi \in \Omega(A)\} .
+		
+\end{aligned}$$ If $A$ is not unital then $$\begin{aligned}
+			\sigma (a)=\{\varphi(a): \varphi \in \Omega(A)\} \cup \{0\}  .
+		
+\end{aligned}$$*
+:::
+
+::: proof
+*Proof.* To prove the direct inclusion consider
+$\lambda \not\in \sigma (a)$, then we may take by Zorn's lemma a proper
+maximal ideal $I$ with $\lambda -a \in I$. By the previous proposition
+we can take $I =\text{ker} \varphi$ for some character $\varphi$, from
+which we deduce that $\varphi(\lambda -a)=\lambda -\varphi(a)=0$.
+
+The reverse inclusion is immediate from the fact that
+$\varphi(a-\varphi(a))=0$ so $a- \varphi(a)$ is not invertible for any
+$a \in  A$.
+
+Suppose now $A$ is not unital, then we unitize it by considering
+$\tilde{A}$ as previously. The characters of $\tilde{A}$ are
+$\Omega(A) \cup \{\tau_0\}$ where $\tau_0((a,\lambda )):= \lambda$.
+Applying the just prove result to $\tilde{A}$ shows that, since
+$\tau_0(a,0)=0$ $$\begin{aligned}
+			\sigma (a):=\sigma (\tilde{a})=\{\varphi(a): \varphi \in \Omega(A)\} \cup \{0\}  .
+		
+\end{aligned}$$ ◻
+:::
+
+We now consider $A^*$ with the weak\* topology and $\Omega(A)$ included
+within it. We recall that $A^*$ is Hausdorff and thus so must be
+$\Omega(A)$.
+
+::: theorem
+**Theorem 4**. *Let $A$ be an Abelian Banach algebra. Then $\Omega(A)$
+is locally compact. Furthermore, if $A$ is also unital then $\Omega(A)$
+is compact.*
+:::
+
+::: proof
+*Proof.* By the previous theorem we know that $\Omega(A) \subset B(0,1)$
+whihc is compact with the weak star topology (Banach Aloglu's theorem).
+Now, if $\varphi_n(a) \to \varphi(a)$ for all $a \in A$ then it holds
+that, by a simple argument $\varphi$ is also a morphism. Thus $\varphi$
+will be a character if and only if $\varphi \neq 0$. For this reason it
+is necessary to adjoin $0$ if $A$ is not unital. This shows that
+$\Omega(A) \cup  \{0\}$ is closed in $B(0,1)$ and is thus compact. In
+consequence $\Omega(A)$ is locally compact.
+
+Suppose now that $A$ is unital, then we have seen than
+$\lVert \varphi \rVert=1$ for all $\varphi \in  \Omega(A)$. The previous
+argument shows that $\Omega(A)$ is closed (we can never reach $0$) and
+as a result $\Omega(A)$ is compact. ◻
+:::
+
+We can now identify $A$ with a sub-algebra of continuous functions on
+$\Omega(A)$ via the mapping $a \to \widehat{a}$ where we define
+$\widehat{a}(\varphi):= \varphi(a)$. Let us denote the image of this
+mapping by $\widehat{A}$, then we obtain the following theorem
+
+::: theorem
+**Theorem 5** (**Gelfand's represntation theorem**). *Let $A$ be a
+commutative Banach algebra, then the mapping $$\begin{aligned}
+			A \to\widehat{A} \subset C_0(\Omega(A)); \quad a\to \widehat{a}.
+		
+\end{aligned}$$ is a norm decreasing injective homomorphism with
+$\lVert \widehat{a} \rVert= r(a)$. Furhtermore, if $a$ is unital then
+$\sigma (a)=\widehat{a}(\Omega(A))$ and otherwise
+$\sigma (a)=\widehat{a}(\Omega(A)) \cup  \{0\}$.*
+:::
+
+::: proof
+*Proof.* To show that $\widehat{a}$ vanishes at infinity note that the
+set $$\begin{aligned}
+			\{\varphi : \widehat{a}(\varphi) \geq \epsilon \} =\widehat{a}^{-1}([\epsilon ,\lVert a \rVert]).
+		
+\end{aligned}$$ Which is a closed subset in the compact $B(0,a)$ and
+thus compact. ◻
+:::
+
+We note however that the mapping $a \to \widehat{a}$ is in general
+neither injective (this means the identification isn't prefect) not
+surjective.
+
+::: example
+**Example 1** (Continuous Fourier Transform). *Consider the Banach
+Algebra $A=L^1(\mathbb{R}^d)$ with multiplication given by the
+convolution $$\begin{aligned}
+			f*g(x):= \int_{\mathbb{R}^d}f(y)g(x-y) \,\mathrm{d}y.
+		
+\end{aligned}$$ Then the Gelfand transform can be identified with the
+Fourier transform and $$\begin{aligned}
+			\widehat{f}(\Omega)= \left\{ \widehat{f}(\omega):= \int_{\mathbb{R}^d} f(x)e^{-2\pi i \omega \cdot  x} \,\mathrm{d}x:\omega\in \mathbb{R}^d\right\} .
+		
+\end{aligned}$$*
+:::
+
+::: proof
+*Proof.* We know that the dual of $L^1(\mathbb{R}^d)$ is
+$L^\infty(\mathbb{R}^d)$. In particular every character is of the form
+$$\begin{aligned}
+			\varphi_g (f)= \int_{\mathbb{R}^d}f \overline{g}.
+		
+\end{aligned}$$ The condition that $\varphi_g$ preserves multiplication
+becomes by a change of variable $$\begin{aligned}
+			g(x+y)=g(x)g(y), \quad\forall x,y \in \mathbb{R}^d.
+		
+\end{aligned}$$ The only $g \in L^\infty (\mathbb{R}^d)$ verifying the
+above are of the form $g(x)= e^{2\pi i \omega \cdot  x}$ for some
+$\omega \in \mathbb{R}^d$. That is, the character group is
+$$\begin{aligned}
+			\Omega(L^1(\mathbb{R}^d))\simeq\{e^{2\pi i \omega \cdot }: \omega \in \mathbb{R}^d\} .
+		
+\end{aligned}$$ This concludes the proof (we use the abuse of notation
+$\widehat{f}(\omega):=\widehat{f}(\varphi_{e^{2\pi i \omega \cdot }})$). ◻
+:::
+
+::: example
+**Example 2** (Discrete Fourier Transform). *Consider the Banach Algebra
+$A=\ell ^\infty(\mathbb{Z}^d)$ with multiplication given by the
+convolution $$\begin{aligned}
+			g*h(k):= \sum_{k \in \mathbb{Z}^d}g(j)h(k-j) .
+		
+\end{aligned}$$ Then the Gelfand transform can be identified with the
+(inverse) Fourier transform and $$\begin{aligned}
+			\widehat{g}(\Omega)= \left\{ \check{g}(k):= \sum_{k \in \mathbb{Z}^d} g(x)e^{2\pi i k \cdot  x} \,\mathrm{d}x: k\in \mathbb{Z}^d\right\} .
+		
+\end{aligned}$$*
+:::
+
+Furthermore $$\begin{aligned}
+		g(k)=\int_{0}^1 \check{g}(k)e^{2 \pi i (j-k) \cdot x}\,\mathrm{d}x.
+	
+\end{aligned}$$
+
+::: proof
+*Proof.* Let $e_1,\ldots e_d \in A$ be defined by $$\begin{aligned}
+			e_n(k):= \delta _{nk_1}, \quad\forall n=1,\ldots d, k\in \mathbb{Z}^d .
+		
+\end{aligned}$$ Then we have that $A$ is generated by $e_{1},\ldots e_n$
+with $$\begin{aligned}
+			g(k) =\sum_{k} g(k) e_1^{k_1}\ldots e_d ^{k_d} .
+		
+\end{aligned}$$ Any character $\varphi$ is thus determined by where it
+sends the $e_n$ and they take the form $$\begin{aligned}
+			\Omega(A)= \left\{ \varphi_z (g):= \sum_{k \in \mathbb{Z}^d} g(k) z^k: z \in \mathbb{T}^d  \right\} \simeq \mathbb{T}^d .
+		
+\end{aligned}$$ Noting that
+$\mathbb{T}^d= \left\{ e^{ 2\pi i x}: x \in \mathbb{R}^d \right\}$ and
+defining $$\begin{aligned}
+			\check{g}(x):= \varphi_{e^{ 2\pi i x \cdot  }}(g)=\sum_{k \in \mathbb{Z}^d} g(k) e^{2 \pi  i k \cdot x}.
+		
+\end{aligned}$$ Gives the first part of the proof and using the
+orthonormality trick $$\begin{aligned}
+			\int_{0}^1 \check{g}(x) e^{-2 \pi i k \cdot x}\,\mathrm{d}x=\sum_{j \in \mathbb{Z}^d} g(j)  \int_{0}^1 e^{2 \pi i (j-k) \cdot x}\,\mathrm{d}x= g(k).
+		
+\end{aligned}$$ Gives the second. Where in the above we applied the
+dominated convergence theorem. ◻
+:::
+:::
