@@ -58,7 +58,7 @@ The first questions to be asked is: ``what kind of object is the Malliavin deriv
 In summary, the Malliavin derivative turns a square-integrable random variable into
 a possibly non-adapted, stochastic process. You may recall from our previous posts that we had an operator that went in the opposite direction. The Skorokhod integral $\delta $. In fact, the Malliavin derivative and the Skorokhod integral are adjoint operators in a sense that will be made precise in the next post. For now, we show that, as occurs with the ordinary derivative, a random variable has Malliavin derivative $0$ if and only if it is constant.
 \begin{corollary}\label{normedspace}
-	$(\mathbb{D}_{1,2},\|\cdot \|_{\mathbb{D}_{1,2}})$ is a inner product space. Furthermore
+	$(\mathbb{D}_{1,2},\|\cdot \|_{\mathbb{D}_{1,2}})$ is an inner product space. Furthermore
 	\begin{equation*}
 		D X=0 \in L^2(I \times \Omega)\iff X\in \R.
 	\end{equation*}
@@ -79,7 +79,7 @@ This said, we now show that $\mathbb{D}_{1,2}$ is closed in the sense that: give
 	The space $\mathbb{D}_{1,2}$ is a Hilbert space.
 \end{proposition}
 \begin{proof}
-It only remains to show that $\norm{\cdot }_{\mathbb{D}_{1,2}}$ is complete. Let $\set{X_m}_{m \in \N} \subset  \mathbb{D}_{1,2}$ be Cauchy. Or equivalently, by \Cref{normedspace}, $X_m$ is Cauchy in $L^2(\Omega)$ and $DX$ in $L^2(I \times \Omega)$.
+It only remains to show that $\norm{\cdot }_{\mathbb{D}_{1,2}}$ is complete. Let $\set{X_m}_{m \in \N} \subset  \mathbb{D}_{1,2}$ be Cauchy. Or equivalently, by \Cref{normedspace}, $X_m$ is Cauchy in $L^2(\Omega)$ and $DX_m$ in $L^2(I \times \Omega)$.
 
 Since $L^2(\Omega)$ is complete $X_m$ must converge to some  $X\in L^2(\Omega)$. Let us write the respective chaos expansions as
 	\begin{equation*}
@@ -131,7 +131,7 @@ Analogously to how one defines the norm on Sobolev spaces, we now take any $1\le
 \begin{equation*}
 	\norm{X}_{\mathbb{D}^{1,p}}:=\norm{X}_{L^p(\Omega)}+\norm{DX}_{L^p(\Omega\to L^2(I))},\quad X\in \W.
 \end{equation*}
-Then, $D$ is a continuous linear operator on $(\W,\norm{\cdot }_{\mathbb{D}^{1,p}})$ to $L^2(\Omega\to L^2(I))$. As a result, $D$ may be extended to the closure of $(\W,\norm{\cdot }_{\mathbb{D}^{1,p}})$. We denote this closure by $\mathbb{D}^{1,p}$ and by abuse of notation also write $D$ for the continuous extension of  $D$ to $\mathbb{D}^{1,p}$. Note that by definition of the norm $\norm{\cdot }_{\mathbb{D}^{1,p}}$, necessarily $\mathbb{D}^{1,p}$ is a subset of $L^p(\Omega)$. In this way, we have been
+Then, $D$ is a continuous linear operator on $(\W,\norm{\cdot }_{\mathbb{D}^{1,p}})$ to $L^2(\Omega\to L^2(I))$. As a result, $D$ may be extended to the closure of $(\W,\norm{\cdot }_{\mathbb{D}^{1,p}})$ (this relies on Meyer inequalities  show that the Malliavin derivative is closable in $L^p$ for $p \neq  2$). We denote this closure by $\mathbb{D}^{1,p}$ and by abuse of notation also write $D$ for the continuous extension of  $D$ to $\mathbb{D}^{1,p}$. Note that by definition of the norm $\norm{\cdot }_{\mathbb{D}^{1,p}}$, necessarily $\mathbb{D}^{1,p}$ is a subset of $L^p(\Omega)$. In this way, we have been
 able to extend the Malliavin differential to $\mathbb{D}^{1,p}\subset L^p(\Omega)$. Explicitly, we have that
 \begin{equation*}
 	D X:=\lim_{n \to \infty}D X_n \in L^p(\Omega\to L^2(I)).
