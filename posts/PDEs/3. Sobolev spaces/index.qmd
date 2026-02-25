@@ -1,8 +1,9 @@
 ---
-title: "Sobolev spaces"
+title: "PDEs 3: Sobolev spaces"
 author: "Liam Llamazares--Elias"
-date: "2023-06-08"
+date: "2023-07-12"
 categories: [Pdes]
+description: "Density, trace and embeddings"
 bibliography: biblio.bib
 format:
   html:
@@ -64,15 +65,14 @@ format:
               Yy: "\\mathcal{Y}",
               Z: "\\mathbb{Z}",
               Zz: "\\mathcal{Z}",
-              abs: ["\\left| #1 \\right|", 1],
+              abs: ["{\\left| #1 \\right|}", 1],
               alf: "{\\alpha}",
               b: ["{\\bm{#1}}", 1],
               bm: ["\\boldsymbol{#1}", 1],
               br: ["\\left\\langle#1\\right\\rangle", 1],
               bt: "\\beta",
               co: ["\\overset{\\circ}{#1}", 1],
-              d: "\\,\\mathrm{d}",
-              dd: "\\mathrm{d}",
+              d: "\\mathrm{d}",
               diag: ["\\operatorname{diag}\\left(#1\\right)", 1],
               dx: "\\,\\mathrm{d}x",
               dy: "\\,\\mathrm{d}y",
@@ -89,6 +89,7 @@ format:
               mathds: ["\\mathbb{#1}", 1],
               norm: ["\\left\\lVert #1 \\right\\rVert", 1],
               om: "\\omega",
+              postref: ["\\href{https://nowheredifferentiable.com/posts/#1/}{#3}", 3],
               proj: "\\mathrm{proj}",
               qb: ["\\left[#1\\right]", 1],
               qp: ["\\left(#1\\right)", 1],
@@ -193,7 +194,7 @@ $$
 \end{aligned}
 $$ {#eq-pde1}
 
-Where $D$ is some domain in $\R^d$. In a previous post on the [Fourier transform](https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=Sobolev%20spaces-,Sobolev,-spaces%20form%20a) we saw how to define the Sobolev spaces $H^s(D)$ when $D$ is the whole Euclidean space $\R^d$ or the torus $\T^d$. These spaces correspond to $s$-times weakly differentiable functions and we saw how these spaces could help us solve @eq-pde1. However, in practice $D$ may be an open set in $\R^d$ or even some $d$-dimensional manifold with a boundary condition
+Where $D$ is some domain in $\R^d$. In a previous post on the [Fourier transform](https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=Sobolev%20spaces-,Sobolev,-spaces%20form%20a) we saw how to define the Sobolev spaces $H^s(D)$ when $D$ is the whole Euclidean space $\R^d$ or the torus $\T^d$. These spaces correspond to $s$-times weakly differentiable functions and we saw how these spaces could help us solve @eq-pde1.  However, in practice $D$ may be an open set in $\R^d$ or even some $d$-dimensional manifold with a boundary condition
 
 $$
 \begin{aligned}
@@ -455,7 +456,7 @@ Show that $C_c^\infty(\Omega)$ with the smooth topology is complete.
 
 ::: {.callout-tip collapse="true" title="Hint"}
 
-Given a Cauchy net $\varphi_{\bullet} \in C_c^\infty(U)$ show as in Exercise @exr-local-convergence that the support of  $\varphi_{\bullet}$ cannot escape a compact set $K$. Conclude using the completeness on  $C_c^\infty(K)$ and Exercise @exr-convergence-tvs.
+Given a Cauchy net $\varphi_{\bullet} \in C_c^\infty(U)$ show as in Exercise @exr-local-convergence that the support of  $\varphi_{\bullet}$ cannot escape a compact set $K$. Conclude using the completeness on  $C_c^\infty(K)$ and Exercise @exr-convergence-tvs. 
 
 :::
 
@@ -633,7 +634,7 @@ $$
 \end{aligned}
 $$
 
-Then $u=0$. Consider a compact set $K \subset U$ and write  $g$ for the extension of $\mathrm{sign}(u)$ by zero outside of  $K$. Clearly $g \subset L^1(\R^d)$. Consider an approximation to the identity $\phi_n$ (see Appendix @smooth-section ) and set
+Then $u=0$. Consider a compact set $K \subset U$ and write  $g$ for the extension of $\mathrm{sign}(u)$ by zero outside of  $K$. Clearly $g \subset L^1(\R^d)$. Consider an approximation to the identity $\phi_n$ (see Appendix @thm-smooth-section ) and set
 
 $$
 \begin{aligned}
@@ -725,7 +726,7 @@ Then $w$ vanished on  $U:=\bigcup_{\alpha \in  I}U_\alpha$.
 
 ::: {.proof}
 
-Let $\varphi$ have support in $U$. Then,     by compactness, we can extract a finite covering $\set{U_i}_{i=1}^n$ of $\supp{\varphi}$. Let $\set{\rho _i}_{i=1}^n$ be a partition of unity  subordinate to $U_i$ (see Appendix @local-to-global). Then
+Let $\varphi$ have support in $U$. Then,     by compactness, we can extract a finite covering $\set{U_i}_{i=1}^n$ of $\supp{\varphi}$. Let $\set{\rho _i}_{i=1}^n$ be a partition of unity  subordinate to $U_i$ (see Appendix @thm-local-to-global). Then
 
 $$
 \begin{aligned}
@@ -825,7 +826,7 @@ W^{k,p}(U):=\set{ u: D^{\alpha}u \in L^p(U) \hookrightarrow \Dd'(U), \quad\foral
 \end{aligned}
 $$
 
-Where $L^p(U)$ is identified as a subspace of  $\Dd'(U)$ by Theorem @thm-motivation. We give $W^{k,p}(U)$ the norm
+Where $L^p(U)$ is identified as a subspace of  $\Dd'(U)$ by Theorem @thm-motivation.  We give $W^{k,p}(U)$ the norm
 
 $$
 \begin{aligned}
@@ -967,7 +968,7 @@ The definition of weak derivative requires one to integrate against smooth funct
 3. Obtain a result that holds for all Sobolev functions (and not just the classically smooth ones).
 This process can be rigorously justified by the density of various spaces of smooth functions in Sobolev spaces. Or to use Tao's terminology, by giving ourselves [an epsilon of room](https://terrytao.wordpress.com/2009/02/28/tricks-wiki-give-yourself-an-epsilon-of-room/).
 
-In this section, we prove the relevant results. These rely heavily on the analogous density results for functions in $L^p(U)$ (see Appendix @smooth-section). As a result, they will not when $p=\infty$. We start without making any assumptions on $U$ and obtain two local-type results. Throughout this section we will often be switching between different open sets and, if following the proofs, making some drawings is recommended.
+In this section, we prove the relevant results. These rely heavily on the analogous density results for functions in $L^p(U)$ (see Appendix @thm-smooth-section). As a result, they will not when $p=\infty$. We start without making any assumptions on $U$ and obtain two local-type results. Throughout this section we will often be switching between different open sets and, if following the proofs, making some drawings is recommended.
 
 ::: {#thm-local name="Local approximation by smooth functions"}
 
@@ -1183,7 +1184,7 @@ Divide by zero.
 
 :::
 
-Now we provide a final global approximation result in the case where the domain is smooth (see Appendix @boundary for a review on manifolds with boundary) and bounded.
+Now we provide a final global approximation result in the case where the domain is smooth (see Appendix @thm-boundary for a review on manifolds with boundary) and bounded.
 
 ::: {#thm-global name="Global, smooth on boundary approximation"}
 
@@ -1411,7 +1412,7 @@ That is, functions in $W^{k,p}(\Omega),C^{k}(\Omega)$ are equal to the restricti
 
 ::: {.callout-tip collapse="true" title="Hint"}
 
-Given $u \in W^{k,p}(\Omega)$ we can extend it to $Eu \in W^{k,p}(\R^d)$ by the just proved extension theorem @thm-extension. By definition $u= \restr{Eu}{\Omega}$. The case $u \in C^k(\R^d)$ is identical.
+Given $u \in W^{k,p}(\Omega)$ we can extend it to $Eu \in W^{k,p}(\R^d)$ by the just proved extension theorem @thm-extension.  By definition $u= \restr{Eu}{\Omega}$. The case $u \in C^k(\R^d)$ is identical.
 
 :::
 
@@ -1451,7 +1452,7 @@ Such that $Tu =\restr{u}{\partial \Omega}$ for all $u \in C(\overline{\Omega}) \
 
 ::: {.proof}
 
-As in previous results, the trick is to suppose first $u$ is smooth, work locally, and then obtain a global result using a partition of unity and the density in Theorem @thm-global. \\
+As in previous results, the trick is to suppose first $u$ is smooth, work locally, and then obtain a global result using a partition of unity and the density in Theorem @thm-global.  \\
 
 Given $x_0 \in \partial  \Omega$ we take a open set $U \subset \R^d$ containing $x_0$. Flattening out the boundary by $\Phi : U \simeq U'$ where necessarily the boundary is preserved
 
@@ -1847,7 +1848,7 @@ $$
 
 ::: {.callout-tip collapse="true" title="Hint"}
 
-Apply induction on $k$ using Theorem @thm-est1.
+Apply induction on $k$ using Theorem @thm-est1. 
 
 :::
 
@@ -1941,7 +1942,7 @@ $$
 
 ::: {.callout-tip collapse="true" title="Hint"}
 
-Use induction on $k$  with Theorem @thm-estt2.
+Use induction on $k$  with Theorem @thm-estt2. 
 
 :::
 
@@ -2051,7 +2052,7 @@ The continuous embeddings above also hold for $\Omega = \R^d$ (by the Sobolev in
 
 ::: {.proof}
 
-The fact that the above inclusions are continuous follows by our three Sobolev inequalities in Exercises @exr-est12,@exr-est22,@exr-est32 together with the extension theorem @thm-extension.
+The fact that the above inclusions are continuous follows by our three Sobolev inequalities in Exercises @exr-est12,@exr-est22,@exr-est32 together with the extension theorem @thm-extension. 
 
 The compactness of the embeddings requires reduce to showing that the unit ball in each of the embedded spaces is [equicontinuous](https://en.wikipedia.org/wiki/Equicontinuity).
 1. For the first inclusion we will use [Fréchet–Kolmogorov's](https://en.wikipedia.org/wiki/Fr%C3%A9chet%E2%80%93Kolmogorov_theorem) theorem. First we note that we can suppose $q>p$ as  $L^q(\Omega) \hookrightarrow L^p(\Omega)$ (since $\Omega$ is bounded). Let $B_1$ be the unit ball in $W^{k,p}(\Omega)$. By continuity of the inclusion $B_1$ is bounded in $L^q(\Omega)$ and it only remains to show that  $B_1$ is equicontinuous. We have that
@@ -2696,7 +2697,7 @@ Where the closures are respectively in the $L^p(\R^d)$ and the uniform topology 
 
 ::: {.proof}
 
-This follows immediately from Proposition @prp-app-pn and Proposition @prp-smooth.
+This follows immediately from Proposition @prp-app-pn and Proposition @prp-smooth. 
 
 :::
 
@@ -2750,7 +2751,7 @@ $$
 
 ::: {.proof}
 
-The first part can be proved by the same method as in Lemma @lem-uryshon (note that Uryshon's lemma [still holds](https://planetmath.org/ApplicationsOfUrysohnsLemmaToLocallyCompactHausdorffSpaces) for LCH spaces). The second part follows by copying the proof of Propositions @prp-app-pn and @prp-smooth.
+The first part can be proved by the same method as in Lemma @lem-uryshon (note that Uryshon's lemma [still holds](https://planetmath.org/ApplicationsOfUrysohnsLemmaToLocallyCompactHausdorffSpaces) for LCH spaces). The second part follows by copying the proof of Propositions @prp-app-pn and @prp-smooth. 
 
 :::
 
@@ -2862,7 +2863,7 @@ $$
 g=\sum_{\alpha \in I}\rho_\alpha g_\alpha .
 \end{aligned}
 $$
-In addition to the approximation and extension theorems in Section @extension-section, partitions of unity can be used to show that: every manifold has a [Riemannian metric](https://en.wikipedia.org/wiki/Riemannian_manifold), show that a function is smooth on some none-open set $S \subset M$ iff it is the restriction of a smooth function defined on a neighborhood of $S$, prove the existence of an outward pointing vector on manifolds with boundary, define integration over an orientable manifold $M$, prove [Stoke's theorem](https://en.wikipedia.org/wiki/Generalized_Stokes_theorem).
+In addition to the approximation and extension theorems in Section @thm-extension-section, partitions of unity can be used to show that: every manifold has a [Riemannian metric](https://en.wikipedia.org/wiki/Riemannian_manifold), show that a function is smooth on some none-open set $S \subset M$ iff it is the restriction of a smooth function defined on a neighborhood of $S$, prove the existence of an outward pointing vector on manifolds with boundary, define integration over an orientable manifold $M$, prove [Stoke's theorem](https://en.wikipedia.org/wiki/Generalized_Stokes_theorem).
 
 ::: {#thm-partition}
 

@@ -830,7 +830,7 @@ def convert_body(body: str, label_registry: dict | None = None,
     # --- Pass 6: Cross-references ---
     # \eqref{X} → @eq-X
     def convert_eqref(m):
-        raw_label = m.group(1)
+        raw_label = m.group(2)
         label = sanitize_label(raw_label)
         
         # Check label_map first (handles aliases in align blocks)
@@ -844,11 +844,9 @@ def convert_body(body: str, label_registry: dict | None = None,
             return f'@{label}'
         return f'@eq-{label}'
 
-    text = re.sub(r'\\eqref\{([^}]*)\}', convert_eqref, text)
-
     # \Cref{X} and \cref{X} → @prefix-X  (best effort)
     def convert_cref(m):
-        raw_label = m.group(1)
+        raw_label = m.group(2)
         label = sanitize_label(raw_label)
         
         target = f'@{label}'
@@ -877,27 +875,35 @@ def convert_body(body: str, label_registry: dict | None = None,
         else:
             # Fallback: assume it's a theorem if no prefix
             target = f'@thm-{label}'
-            
-        # Fix for Pandoc ID termination: if followed by a letter or a dot+letter, add a space
-        # We check the character after the match in the original text.
-        # However, we are inside a sub... we can't easily check the outer text.
-        # Instead, we'll return a special marker or just assume best-effort.
-        # Actually, let's just use the fact that convert_cref is called via re.sub.
-        # We can broaden the regex to include the next char.
         return target
 
-    def convert_cref_wrapper(m):
-        # group 1: command name, group 2: label, group 3: character following the ref
-        res = convert_cref(m)
-        following = m.group(3) if m.group(3) else ""
-        # If followed by a word character or a dot+word character, add a space to aid Pandoc/Quarto
-        if re.match(r'^[\w\.]', following):
-            return f"{res} "
-        return res
+    def convert_cref_wrapper(text, cmd_pattern):
+        def repl(m):
+            res = convert_cref(m)
+            following = m.group(3) if m.group(3) else ""
+            # If followed by a word character or a dot+word character, add a space to aid Pandoc/Quarto
+            # We want to keep the dot but add a space after it IF it's followed by a letter
+            # Wait, we can't see what's *after* the dot easily here unless we lookahead in the regex.
+            if following == ".":
+                return f"{res}. "
+            elif following and re.match(r'\w', following):
+                return f"{res} {following}"
+            return f"{res}{following}"
+        
+        # Use a lookahead to see if a dot is followed by a non-whitespace character (like a letter)
+        # Or just be aggressive and add space after ref if not followed by whitespace.
+        pattern = re.compile(cmd_pattern + r'(\.?)')
+        return pattern.sub(repl, text)
 
-    text = re.sub(r'(\\[Cc]ref\{([^}]*)\})(\.?)', convert_cref_wrapper, text)
-    text = re.sub(r'(\\ref\{([^}]*)\})(\.?)', convert_cref_wrapper, text)
-    text = re.sub(r'(\\eqref\{([^}]*)\})(\.?)', convert_cref_wrapper, text)
+    text = convert_cref_wrapper(text, r'(\\[Cc]ref\{([^}]*)\})')
+    text = convert_cref_wrapper(text, r'(\\ref\{([^}]*)\})')
+    # Use eqref specific replacer if needed, but convert_cref logic is mostly same for IDs
+    def repl_eqref(m):
+        res = convert_eqref(m)
+        following = m.group(3) if m.group(3) else ""
+        if following == ".": return f"{res}. "
+        return f"{res}{following}"
+    text = re.sub(r'(\\eqref\{([^}]*)\})(\.?)', repl_eqref, text)
 
     # Also fix plain @rawlabel references emitted by earlier passes
     # If a label in label_map appears as @label (without prefix), replace it.

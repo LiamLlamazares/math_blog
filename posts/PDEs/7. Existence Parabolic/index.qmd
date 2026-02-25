@@ -1,8 +1,9 @@
 ---
-title: "Parabolic PDE, well-posedness and regularity"
+title: "PDEs 7: Parabolic PDE, well-posedness and regularity"
 author: "Liam Llamazares-Elias"
-date: "2026-02-25"
+date: "2024-10-19"
 categories: [Pdes]
+description: "A journey through time and space"
 bibliography: biblio.bib
 format:
   html:
@@ -64,7 +65,7 @@ format:
               Yy: "\\mathcal{Y}",
               Z: "\\mathbb{Z}",
               Zz: "\\mathcal{Z}",
-              abs: ["\\left| #1 \\right|", 1],
+              abs: ["{\\left| #1 \\right|}", 1],
               alf: "{\\alpha}",
               b: ["{\\bm{#1}}", 1],
               bm: ["\\boldsymbol{#1}", 1],
@@ -315,7 +316,7 @@ and @eq-weak is verified for all $v \in L^2_tH^1_{0,x}$.
 
 :::
 
-With the above definition, all the terms @eq-weak are well defined, where the duality pairing is to be interpreted as the one given by @eq-duality. Furthermore, the boundary condition $u=0$ on $\partial U$ is automatically satisfied as $u(t) \in H_0^1(U)$ for almost all $t$ and a quick sanity check shows that the various functional spaces in definition @def-weak-def are logical as if $u \in L^2_t H^1_{0,x}$ then $\Ll u \in L^2_t H^{-1}_x$ and from @eq-parabolic we should also have $u' \in L^2_t H^{-1}_x$. It only remains to justify that $u(0)$ is well-defined. This is proved in the following lemma.
+With the above definition, all the terms @eq-weak are well defined, where the duality pairing is to be interpreted as the one given by @eq-duality.  Furthermore, the boundary condition $u=0$ on $\partial U$ is automatically satisfied as $u(t) \in H_0^1(U)$ for almost all $t$ and a quick sanity check shows that the various functional spaces in definition @def-weak-def are logical as if $u \in L^2_t H^1_{0,x}$ then $\Ll u \in L^2_t H^{-1}_x$ and from @eq-parabolic we should also have $u' \in L^2_t H^{-1}_x$. It only remains to justify that $u(0)$ is well-defined. This is proved in the following lemma.
 
 ::: {#lem-continuity-weak}
 
@@ -482,7 +483,7 @@ $$
 
 The equivalence of solving @eq-galerkin and @eq-galerkin-2 is obtained by setting $u_n(t) = \sum_{j=1}^n [\bm{\lambda}_n]_j \phi_j$.
 
-Since $\phi _i \in C_c^\infty(U)$, by the boundedness of the coefficients in Assumption @thm-ass, and by the construction of $\bm{B}_n,\bm{f}_n$. It holds that $\bm{B}_n \in L^\infty_t$ and $\bm{f}_n \in L^2_t$. As a result, according to standard ODE theory, there exists a unique continuous solution $\bm{\lambda }$ to @eq-galerkin-2. One can even write out the explicit expression for $\bm{\lambda }$ using Duhamel's formula,
+Since $\phi _i \in C_c^\infty(U)$, by the boundedness of the coefficients in Assumption @thm-ass, and by the construction of $\bm{B}_n,\bm{f}_n$. It holds that $\bm{B}_n \in L^\infty_t$ and $\bm{f}_n \in L^2_t$. As a result, according to standard ODE theory, there exists a unique continuous solution $\bm{\lambda }$ to @eq-galerkin-2.  One can even write out the explicit expression for $\bm{\lambda }$ using Duhamel's formula,
       
 $$
 \begin{aligned}
@@ -605,7 +606,7 @@ $$
 \end{aligned}
 $$ {#eq-i3}
 
-Now, combining @eq-ub and @eq-hb, @eq-i3 and taking square roots, we obtain the desired bound @eq-bound.
+Now, combining @eq-ub and @eq-hb, @eq-i3 and taking square roots, we obtain the desired bound @eq-bound. 
 4. Uniqueness:  To conclude uniqueness, let $u_n^{{1}}, u_n^{{2}}$ be two solutions to the Galerkin problem. Then, $w_n := u_n^{{1}}-u_n^{{2}}$ verifies the homogeneous problem
       
 $$
@@ -651,7 +652,7 @@ $$ {#eq-bound-p}
 
 ::: {.proof}
 
-Let $\set{u_n}_{n=1}^\infty$ be the sequence of solutions to the Galerkin problem @eq-galerkin guaranteed by Theorem @eq-galerkin. By said theorem, $u_n$ and $u'_n$ are bounded sequences in $L_t^2H_{0,x}^1$ and $L_t^2 H_x^{-1}$ respectively. Since these spaces are Hilbert spaces, they are reflexive, and we deduce by the [Banach-Alaoglu theorem](https://en.wikipedia.org/wiki/Banach%E2%80%93Alaoglu_theorem) that respective subsequences converge in their respective spaces to some $u \in L_tH_{0,x}^1$ and $\tl{u} \in L_t H_x^{-1}$. That is, 
+Let $\set{u_n}_{n=1}^\infty$ be the sequence of solutions to the Galerkin problem @eq-galerkin guaranteed by Theorem @eq-galerkin.  By said theorem, $u_n$ and $u'_n$ are bounded sequences in $L_t^2H_{0,x}^1$ and $L_t^2 H_x^{-1}$ respectively. Since these spaces are Hilbert spaces, they are reflexive, and we deduce by the [Banach-Alaoglu theorem](https://en.wikipedia.org/wiki/Banach%E2%80%93Alaoglu_theorem) that respective subsequences converge in their respective spaces to some $u \in L_tH_{0,x}^1$ and $\tl{u} \in L_t H_x^{-1}$. That is, 
  
 $$
 \begin{aligned}
@@ -667,7 +668,7 @@ $$
 \end{aligned}
 $$
 
-where in the first equality we used the weak convergence of $u'_{n_k}$ to $\tl{u}$ in $L_t H_x^{-1}$, in the second equality we used the definition of weak derivative, and in the last we used the convergence of $u_{n_k}$ to $u$ in $L_t^2H_{0,x}^1$. This shows that $u' = \tl{u}$ almost everywhere. We now show that $u$ solves the weak problem @eq-weak. By construction of the Galerkin solutions in @eq-galerkin and integrating over $I$, we deduce for any $v \in \Ss_{n_k}$ 
+where in the first equality we used the weak convergence of $u'_{n_k}$ to $\tl{u}$ in $L_t H_x^{-1}$, in the second equality we used the definition of weak derivative, and in the last we used the convergence of $u_{n_k}$ to $u$ in $L_t^2H_{0,x}^1$. This shows that $u' = \tl{u}$ almost everywhere. We now show that $u$ solves the weak problem @eq-weak.  By construction of the Galerkin solutions in @eq-galerkin and integrating over $I$, we deduce for any $v \in \Ss_{n_k}$ 
  
 $$
 \begin{aligned}
@@ -788,7 +789,7 @@ as before for $n=20$ basis functions. As we can see, the Galerkin solution and t
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\textwidth]{Galerkin_exact.pdf}
-  \caption{Exact solution to the parabolic problem @eq-exact.}
+  \caption{Exact solution to the parabolic problem @eq-exact. }
 \end{figure}
 \begin{figure}[H]
   \centering

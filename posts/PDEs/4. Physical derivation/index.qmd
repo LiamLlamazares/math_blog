@@ -1,8 +1,9 @@
 ---
-title: "Elliptic PDE: Well posedness"
+title: "PDES 4: Elliptic PDE: Well posedness"
 author: "Liam Llamazares--Elias"
-date: "2026-02-25"
+date: "2023-12-23"
 categories: [Pdes]
+description: "Just have to balance the mass"
 bibliography: biblio.bib
 format:
   html:
@@ -64,7 +65,7 @@ format:
               Yy: "\\mathcal{Y}",
               Z: "\\mathbb{Z}",
               Zz: "\\mathcal{Z}",
-              abs: ["\\left| #1 \\right|", 1],
+              abs: ["{\\left| #1 \\right|}", 1],
               alf: "{\\alpha}",
               b: ["{\\bm{#1}}", 1],
               bm: ["\\boldsymbol{#1}", 1],
@@ -150,7 +151,7 @@ by calculating the rate of change of the ``mass'' of the system in terms of its 
 
 ## A physical derivation
 
-**Warning, proceed with caution**: the following section contains a physical derivation of  @eq-pde. As a result, some physical intuition and approximate reasoning is used. All functions are supposed smooth and integrable as needed.
+**Warning, proceed with caution**: the following section contains a physical derivation of  @eq-pde.  As a result, some physical intuition and approximate reasoning is used. All functions are supposed smooth and integrable as needed.
 This disclaimer out of the way, let's consider a spatial domain $\Omega \subset \R^d$ filled with fluid in which some solute is dissolved. Our goal is to describe the concentration (density) of the solute $u(t,\bm{x})$ as the system evolves in time and space. We know that the amount of fluid within any subregion $V \subset  \Omega$ is
 
 $$
@@ -365,7 +366,7 @@ $$
 	      Equivalently, $u$ is a function of the torus  $\R^d/ (\Z^d \cdot (\bm{b}-\bm{a}))$. These boundary conditions are typically used to approximate a system evolving on a very large domain by working only with a representative cell $[\bm{a},\bm{b}]$.
 Finally, mathematically, it also makes sense to work with infinite domains such as the whole Euclidean space $\R^d$. In this case, rather than a boundary condition, one imposes suitable decay on the function such as $u \in L^p(\R^d)$ or its derivatives such as $u \in W^{k,p}(\R^d)$.
 
-We end the post by commenting that non-linear terms may be considered in the PDE @eq-parabolic-@eq-elliptic. Many examples can be found [here](https://en.wikipedia.org/wiki/List_of_nonlinear_partial_differential_equations). However, the mathematical theory of nonlinear PDE is much more complicated (think Navier Stokes). The linear case, which we begin to develop in the next post, will keep us busy for a while.
+We end the post by commenting that non-linear terms may be considered in the PDE @eq-parabolic-@eq-elliptic.  Many examples can be found [here](https://en.wikipedia.org/wiki/List_of_nonlinear_partial_differential_equations). However, the mathematical theory of nonlinear PDE is much more complicated (think Navier Stokes). The linear case, which we begin to develop in the next post, will keep us busy for a while.
 
 ## References
 

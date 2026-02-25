@@ -1,8 +1,9 @@
 ---
-title: "Elliptic PDE I"
+title: "PDEs 6: Elliptic PDE"
 author: "Liam Llamazares--Elias"
-date: "2026-02-25"
+date: "2024-02-28"
 categories: [Pdes]
+description: "From rough beginnings to smooth endings"
 bibliography: biblio.bib
 format:
   html:
@@ -64,7 +65,7 @@ format:
               Yy: "\\mathcal{Y}",
               Z: "\\mathbb{Z}",
               Zz: "\\mathcal{Z}",
-              abs: ["\\left| #1 \\right|", 1],
+              abs: ["{\\left| #1 \\right|}", 1],
               alf: "{\\alpha}",
               b: ["{\\bm{#1}}", 1],
               bm: ["\\boldsymbol{#1}", 1],
@@ -293,7 +294,7 @@ If $U$ is bounded, the above also holds for $c\geq 0$.
 
 ::: {.proof}
 
-The continuity of $B$ is a consequence of Exercise @exr-domain-l. It remains to see that $B$ is coercive. For smooth $u \in C_c^\infty(U)$ we have that
+The continuity of $B$ is a consequence of Exercise @exr-domain-l.  It remains to see that $B$ is coercive. For smooth $u \in C_c^\infty(U)$ we have that
 
 $$
 \begin{aligned}
@@ -305,7 +306,7 @@ Where in the first inequality, we used the ellipticity assumption on $\bm{A}$, a
 
 :::
 
-Theorem @thm-well-posed-1 is an example of the advantages of working with a weak formulation instead of solutions differentiable in a classical sense. The weak formulation allows us not only to make sense of our equation @eq-pde for a wider class of coefficients but also provides a natural framework to study the well-posedness of @eq-pde.
+Theorem @thm-well-posed-1 is an example of the advantages of working with a weak formulation instead of solutions differentiable in a classical sense. The weak formulation allows us not only to make sense of our equation @eq-pde for a wider class of coefficients but also provides a natural framework to study the well-posedness of @eq-pde. 
 
 ::: {#exr-1}
 
@@ -345,7 +346,7 @@ B_\gamma (u,v):= (v, \Ll_\gamma u)=B(u,v) + \gamma (u,v).
 \end{aligned}
 $$
 
-The calculation proceeds similarly to @eq-b-0. We recall the Cauchy inequality
+The calculation proceeds similarly to @eq-b-0.  We recall the Cauchy inequality
 
 $$
 \begin{aligned}
@@ -385,9 +386,9 @@ Equation @eq-pd also shows that $\Ll_\gamma$ is positive definite and the proof 
 
 ### Fredholm alternative
 
-We now analyze further what we can say about the well-posedness of @eq-pde. What has to happen for the equation to be ill-posed? If there are multiple solutions, what does the space of solutions look like? As we will see, this is intimately linked to the spectrum of the operator $\Ll$ and the Fredholm alternative will provide the answers we are looking for,
+We now analyze further what we can say about the well-posedness of @eq-pde.  What has to happen for the equation to be ill-posed? If there are multiple solutions, what does the space of solutions look like? As we will see, this is intimately linked to the spectrum of the operator $\Ll$ and the Fredholm alternative will provide the answers we are looking for,
 
-We begin by considering $\Ll u =\lambda u+f$, which is a small generalization of our original problem @eq-pde. We take $\gamma > \abs{\lambda }$ large enough as in Theorem @thm-mod and note that
+We begin by considering $\Ll u =\lambda u+f$, which is a small generalization of our original problem @eq-pde.  We take $\gamma > \abs{\lambda }$ large enough as in Theorem @thm-mod and note that
 
 $$
 \begin{aligned}
@@ -441,7 +442,7 @@ $$
 $$ {#eq-original}
 
 Then, the following hold:
-1. Equation @eq-original is well-posed if and only if @eq-originalh has no non-zero solutions. That is, if and only if $\lambda \notin \sigma(\Ll)$.
+1. Equation @eq-original is well-posed if and only if @eq-original has no non-zero solutions. That is, if and only if $\lambda \notin \sigma(\Ll)$.
 2. The spectrum $\sigma (\Ll )$ is discrete. If $\sigma(\Ll )= \{\lambda_n \}_{n=1}^\infty$ is infinite, then $\lambda _n \to +\infty$.
 3. The dimensions of the following spaces are equal
 
@@ -489,17 +490,17 @@ u =Kv.
 \end{aligned}
 $$
 
-By Theorem @thm-well-posed-1 we know that $Kv = \Ll _\gamma ^{-1} v \in H_0^1(U)$ for all $v \in L^2(U)$ . As a result, $u$ solves problem @eq-original, and by the transformation $v \leftrightarrow u$ problem @eq-fred has a solution if and only if problem @eq-original has a solution. Taking $f=0$, we also obtain that $u$ solves problem @eq-originalh if and only $v$ solves problem @eq-fredh. In conclusion,
+By Theorem @thm-well-posed-1 we know that $Kv = \Ll _\gamma ^{-1} v \in H_0^1(U)$ for all $v \in L^2(U)$ . As a result, $u$ solves problem @eq-original, and by the transformation $v \leftrightarrow u$ problem @eq-fred has a solution if and only if problem @eq-original has a solution. Taking $f=0$, we also obtain that $u$ solves problem @eq-original if and only $v$ solves problem @eq-fred.  In conclusion,
 
 $$
 \begin{aligned}
-@eq-original \text{ is } \rmm{w.p} \iff @eq-fred \text{ is } \rmm{w.p} \iff \ker(T) =0 \iff \ker(\Ll -\lambda \bm{I} )=0,
+@eq-original \text{ is } \rm{w.p} \iff @eq-fred \text{ is } \rm{w.p} \iff \ker(T) =0 \iff \ker(\Ll -\lambda \bm{I} )=0,
 \end{aligned}
 $$
 
 where the second equivalence is due to the Fredholm alternative, and the third can be verified by an algebraic manipulation. This proves the first point.
 
-To see the second point, note that, by definition of $T$, equation @eq-fredh has non-zero solutions if and only if $\mu ^{-1} \in \sigma (K)$. Since $K$ is compact, $\sigma(K)$ is discrete and if $\sigma (K)$ is infinite, then its eigenvalues, which we denote by $\left\{\mu _n^{-1}\right\}_{n=1}^\infty$, go to $0$. Furthermore, since by Theorem @thm-mod $K$ is positive definite, $\mu_n >0$ and the claim follows by the correspondence $\lambda_n =\mu_n -\gamma$.
+To see the second point, note that, by definition of $T$, equation @eq-fred has non-zero solutions if and only if $\mu ^{-1} \in \sigma (K)$. Since $K$ is compact, $\sigma(K)$ is discrete and if $\sigma (K)$ is infinite, then its eigenvalues, which we denote by $\left\{\mu _n^{-1}\right\}_{n=1}^\infty$, go to $0$. Furthermore, since by Theorem @thm-mod $K$ is positive definite, $\mu_n >0$ and the claim follows by the correspondence $\lambda_n =\mu_n -\gamma$.
 
 For the third and fourth points, we use that, as we have already proved, $\ker(T)=N$. Additionally,
 
@@ -563,7 +564,7 @@ Show using Theorem @thm-well-posedness-fredholm that equation @eq-fred (the gene
 
 ::: {.callout-tip collapse="true" title="Hint"}
 
-Combine the first and second points of Theorem @thm-well-posedness-fredholm.
+Combine the first and second points of Theorem @thm-well-posedness-fredholm. 
 
 :::
 
@@ -589,7 +590,7 @@ $$
 
 We have so far seen that, under the previous assumptions, solutions to @eq-pde are in $H_0^1(U)$. However, analogously to the classical setting, we may expect that $u$ is two degrees of regularity smoother than $f$. That is that $u \in H^2(U)$. This improved regularity is true, but only with the caveat that the domain $U$ is sufficiently regular. Counterexamples with non-smooth domains exist. See [@savare1998regularity].
 
-We will also see how, for smoother coefficients, we can iterate to obtain a higher regularity of $u$. As a result, when the coefficients of @eq-pde are smooth, $u$ will be as well, and we will obtain a classical solution to problem @eq-pde.
+We will also see how, for smoother coefficients, we can iterate to obtain a higher regularity of $u$. As a result, when the coefficients of @eq-pde are smooth, $u$ will be as well, and we will obtain a classical solution to problem @eq-pde. 
 
 ### Finite differences
 
@@ -656,13 +657,13 @@ Let $p \in (1, +\infty)$, $C>0$ be a constant and $V \Subset U$ open. Then, the 
 
 ::: {#exr-6}
 
-Prove Lemma @lem-difference-quotients-2.
+Prove Lemma @lem-difference-quotients-2. 
 
 :::
 
 ::: {.callout-tip collapse="true" title="Hint"}
 
-Adapt the proof of Lemma @lem-difference-quotients-1. Take $\varphi \in C_c^\infty(V)$ for the first point. For the second point, use the [local density](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=drawings%20is%20recommended.-,Theorem%203,-(Local%20approximation%20by) of smooth functions in $W^{1,p}(U)$.
+Adapt the proof of Lemma @lem-difference-quotients-1.  Take $\varphi \in C_c^\infty(V)$ for the first point. For the second point, use the [local density](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=drawings%20is%20recommended.-,Theorem%203,-(Local%20approximation%20by) of smooth functions in $W^{1,p}(U)$.
 
 :::
 
@@ -724,7 +725,7 @@ $$
 \end{aligned}
 $$ {#eq-second}
 
-We now estimate the right-hand side of @eq-start. We have that, by Cauchy's inequality and the second point of Lemma @lem-difference-quotients-1,
+We now estimate the right-hand side of @eq-start.  We have that, by Cauchy's inequality and the second point of Lemma @lem-difference-quotients-1,
 
 $$
 \begin{aligned}
@@ -800,7 +801,7 @@ $$
 
 ::: {.proof}
 
-The theorem holds for $k=0$ by Theorem @thm-improved-reg-rd.
+The theorem holds for $k=0$ by Theorem @thm-improved-reg-rd. 
 Suppose by hypothesis of induction that the theorem holds up to order $k$. Let
 
 $$
@@ -861,7 +862,7 @@ The equation above is the hypothesis of induction for $k+1$, and the proof is co
 
 :::
 
-Iterating the above theorem, we obtain that if the coefficients of $\Ll$ are smooth, then the solution to @eq-pde is smooth as well. And $u$ is a classical solution to @eq-pde.
+Iterating the above theorem, we obtain that if the coefficients of $\Ll$ are smooth, then the solution to @eq-pde is smooth as well. And $u$ is a classical solution to @eq-pde. 
 
 ::: {#thm-infinite-interior-regularity name="Infinite regularity on $\R^d$"}
 
@@ -918,7 +919,7 @@ $$
 \end{aligned}
 $$
 
-Whereas we only know that $u$ solves @eq-weak-def. That is,
+Whereas we only know that $u$ solves @eq-weak-def.  That is,
 
 $$
 \begin{aligned}
@@ -1028,13 +1029,13 @@ $$
 
 ::: {#exr-8}
 
-Prove Theorem @thm-higher-regularity-2.
+Prove Theorem @thm-higher-regularity-2. 
 
 :::
 
 ::: {.callout-tip collapse="true" title="Hint"}
 
-The theorem holds for $k=0$ by Theorem @thm-higher-regularity.
+The theorem holds for $k=0$ by Theorem @thm-higher-regularity. 
 Suppose by hypothesis of induction that the theorem holds up to order $k$. Let
 
 $$
@@ -1121,11 +1122,11 @@ By Theorem @thm-higher-regularity-2, we have that $u \in H^k(U)$ for all $k \in 
 
 Regularity at the boundary can also be obtained; however, in this case, it is necessary to impose the boundary condition $\restr{u}{\partial \Omega }=0$.  We can then work on bounded smooth domains $\Omega$  by reasoning first on $B(0,1) \cap \R^d_+$ and then using a finite covering of $\overline{\Omega }$ and a  change of coordinates to translate these results back to $\Omega$.
 
-We summarize and sketch the proofs of the main results, which are analogous to the interior regularity results of Theorems @thm-higher-regularity, @thm-higher-regularity-2 and @thm-infinite-interior-regularity2.The details For the partition to be finite, it is further necessary for $\Omega$ to be bounded.  We sketch the proof which can be found in [@evans2022partial] pages $334-343$ and [@gilbarg1977elliptic] pages 183-188.
+We summarize and sketch the proofs of the main results, which are analogous to the interior regularity results of Theorems @thm-higher-regularity, @thm-higher-regularity-2 and @thm-infinite-interior-regularity2. The details For the partition to be finite, it is further necessary for $\Omega$ to be bounded.  We sketch the proof which can be found in [@evans2022partial] pages $334-343$ and [@gilbarg1977elliptic] pages 183-188.
 
 ::: {#thm-improved-regularity-boundary name="Improved regularity at the boundary"}
 
-Let $\Omega \subset \R^d$ be bounded with $\partial \Omega  \in   C^2$. Let $A_{ij} \in C^{1}(\overline{\Omega})$ be elliptic and $b_i,c \in L^\infty(\Omega)$. Let $u \in H^1_0(\Omega)$ be a weak solution to @eq-pde. Then, $u \in H^2(\Omega)$ with
+Let $\Omega \subset \R^d$ be bounded with $\partial \Omega  \in   C^2$. Let $A_{ij} \in C^{1}(\overline{\Omega})$ be elliptic and $b_i,c \in L^\infty(\Omega)$. Let $u \in H^1_0(\Omega)$ be a weak solution to @eq-pde.  Then, $u \in H^2(\Omega)$ with
 
 $$
 \begin{aligned}
@@ -1154,7 +1155,7 @@ $$
 \end{aligned}
 $$
 
-Let us define $\tl{u}:= u \circ \varphi ^{-1}$ on $\tl{\Omega }$. Then, $\tl{u}$ verifies a PDE of the same form as our original PDE @eq-pde. Where now the boundary condition holds only on the straight part *straight part* $\partial \tl{\Omega }_0$.
+Let us define $\tl{u}:= u \circ \varphi ^{-1}$ on $\tl{\Omega }$. Then, $\tl{u}$ verifies a PDE of the same form as our original PDE @eq-pde.  Where now the boundary condition holds only on the straight part *straight part* $\partial \tl{\Omega }_0$.
 
 $$
 \begin{aligned}
@@ -1219,11 +1220,11 @@ Since $\partial \Omega$ is compact, we can cover $\Omega$  with a finite number 
 
 :::
 
-The following can now be proved by induction, just as in Theorems @thm-higher-regularity and @thm-higher-regularity-2.
+The following can now be proved by induction, just as in Theorems @thm-higher-regularity and @thm-higher-regularity-2. 
 
 ::: {#thm-higher-regularity-boundary name="Higher regularity at the boundary"}
 
-Let $\Omega \subset \R^d$ be bounded with $\partial \Omega  \in   C^{k+2}$. Let $A_{ij} \in C^1(\overline{\Omega})\cap W^{k, \infty}(\Omega)$ be elliptic and $b_i,c \in H^k(\Omega)\cap W^{k,\infty}(\Omega)$ and $f \in H^k(\Omega )$ . Let $u \in H^1_0(\Omega)$ be a weak solution to @eq-pde. Then, $u \in H^{k+2}(\Omega)$ with
+Let $\Omega \subset \R^d$ be bounded with $\partial \Omega  \in   C^{k+2}$. Let $A_{ij} \in C^1(\overline{\Omega})\cap W^{k, \infty}(\Omega)$ be elliptic and $b_i,c \in H^k(\Omega)\cap W^{k,\infty}(\Omega)$ and $f \in H^k(\Omega )$ . Let $u \in H^1_0(\Omega)$ be a weak solution to @eq-pde.  Then, $u \in H^{k+2}(\Omega)$ with
 
 $$
 \begin{aligned}
@@ -1237,7 +1238,7 @@ Once more, by Sobolev embeddings we obtain infinite regularity at the boundary.
 
 ::: {#thm-1 name="Infinite regularity at the boundary"}
 
-Let $\Omega \subset \R^d$ be bounded of class $C^{\infty}$. Let $A_{ij}, b_i,c \in C^{\infty}(\overline{\Omega})$ with $\bm{A}$ elliptic. Let $u \in H^1_0(\Omega)$ be a weak solution to @eq-pde. Then, $u \in C^\infty(\overline{\Omega})$.
+Let $\Omega \subset \R^d$ be bounded of class $C^{\infty}$. Let $A_{ij}, b_i,c \in C^{\infty}(\overline{\Omega})$ with $\bm{A}$ elliptic. Let $u \in H^1_0(\Omega)$ be a weak solution to @eq-pde.  Then, $u \in C^\infty(\overline{\Omega})$.
 
 :::
 
@@ -1258,7 +1259,7 @@ $$
 \end{aligned}
 $$ {#eq-pde-dirichlet}
 
-For @eq-pde-dirichlet to hold, it is necessary that $g$ is the restriction to $\partial \Omega$ of some function $\tl{g}$ called a *lifting* of $\tl{g}$ onto $\Omega$   (in particular it is the restriction of  $u$ to $\partial \Omega$ ). That is, $\tl{g}  \in \rmm{Tr}(H^m(\Omega ))$ where $\rmm{Tr}$ is the trace operator and $m$ is the desired regularity of $u$. By [theory of the trace operator](https://nowheredifferentiable.com/2024-02-27-PDEs-5-Fractional_Sobolev_spaces/#:~:text=2020%20page%20390.-,Theorem%2020,-(Fractional%20trace%20theorem), we know that this is equivalent to $g \in H^{m-1/2}(\partial \Omega )$. Then, by forming $w:= u-\tl{g}$ we obtain that $w$ solves the homogeneous Dirichlet problem 
+For @eq-pde-dirichlet to hold, it is necessary that $g$ is the restriction to $\partial \Omega$ of some function $\tl{g}$ called a *lifting* of $\tl{g}$ onto $\Omega$   (in particular it is the restriction of  $u$ to $\partial \Omega$ ). That is, $\tl{g}  \in \rm{Tr}(H^m(\Omega ))$ where $\rm{Tr}$ is the trace operator and $m$ is the desired regularity of $u$. By [theory of the trace operator](https://nowheredifferentiable.com/2024-02-27-PDEs-5-Fractional_Sobolev_spaces/#:~:text=2020%20page%20390.-,Theorem%2020,-(Fractional%20trace%20theorem), we know that this is equivalent to $g \in H^{m-1/2}(\partial \Omega )$. Then, by forming $w:= u-\tl{g}$ we obtain that $w$ solves the homogeneous Dirichlet problem 
 
 $$
 \begin{aligned}
@@ -1277,7 +1278,7 @@ $$
 \end{aligned}
 $$
 
-The transformation $u \leftrightarrow w$ maintains regularity up to order $m$  for $g \in H^{m-1/2}(\Omega )$ and as a result, we can apply all the previous results on well-posedness, the spectrum of $\Ll$ and regularity to the problem @eq-pde-dirichlet. For example, the following holds.
+The transformation $u \leftrightarrow w$ maintains regularity up to order $m$  for $g \in H^{m-1/2}(\Omega )$ and as a result, we can apply all the previous results on well-posedness, the spectrum of $\Ll$ and regularity to the problem @eq-pde-dirichlet.  For example, the following holds.
 
 ::: {#thm-2}
 
@@ -1369,7 +1370,7 @@ $$
 \end{aligned}
 $$
 
-Using a covering of $\Omega$ gives $u \in H^2(\Omega )$ and the result follows by induction as in Theorem @thm-higher-regularity-boundary.
+Using a covering of $\Omega$ gives $u \in H^2(\Omega )$ and the result follows by induction as in Theorem @thm-higher-regularity-boundary. 
 
 :::
 
@@ -1422,7 +1423,7 @@ Furthermore, show that the solution is unique up to a constant on each connected
 
 ::: {.callout-tip collapse="true" title="Hint"}
 
-Apply the final point  of the Fredholm alternative (Theorem @thm-well-posedness-fredholm) together with Exercise @exr-eigensapace.
+Apply the final point  of the Fredholm alternative (Theorem @thm-well-posedness-fredholm) together with Exercise @exr-eigensapace. 
 
 :::
 

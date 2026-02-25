@@ -65,7 +65,7 @@ format:
               Yy: "\\mathcal{Y}",
               Z: "\\mathbb{Z}",
               Zz: "\\mathcal{Z}",
-              abs: ["\\left| #1 \\right|", 1],
+              abs: ["{\\left| #1 \\right|}", 1],
               alf: "{\\alpha}",
               b: ["{\\bm{#1}}", 1],
               bm: ["\\boldsymbol{#1}", 1],
@@ -228,7 +228,7 @@ $$
 \end{aligned}
 $$
 
-By @eq-characteristic-prop  this is the FT of a Gaussian with mean $0$ and variance $1$. The result follows by @prp-1 (Convergence) and @prp-1 (Inversion). 
+By @eq-characteristic-prop  this is the FT of a Gaussian with mean $0$ and variance $1$. The result follows by @prp-1 (Convergence) and @prp-1 (Inversion).  
 
 :::
 
@@ -488,7 +488,7 @@ Then $H$ is a separable Hilbert space and dense in $X$. Furthermore, let  $\set{
 
 ::: {#exr-3}
 
-Prove @lem-covariance-space-lemma.
+Prove @lem-covariance-space-lemma. 
 
 :::
 

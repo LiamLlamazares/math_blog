@@ -1,8 +1,9 @@
 ---
 title: "Fractional Sobolev spaces"
 author: "Liam Llamazares--Elias"
-date: "2026-02-25"
+date: "2024-02-27"
 categories: [Pdes]
+description: "Filling in the gaps"
 bibliography: biblio.bib
 format:
   html:
@@ -64,7 +65,7 @@ format:
               Yy: "\\mathcal{Y}",
               Z: "\\mathbb{Z}",
               Zz: "\\mathcal{Z}",
-              abs: ["\\left| #1 \\right|", 1],
+              abs: ["{\\left| #1 \\right|}", 1],
               alf: "{\\alpha}",
               b: ["{\\bm{#1}}", 1],
               bm: ["\\boldsymbol{#1}", 1],
@@ -362,7 +363,7 @@ For $p = \infty$, we define $B^{s,\infty}(U):= C^{k_{-},\gamma}(U)$.
 
 :::
 
-The above definition is extremely similar in form to that of the Sobolev-Slobodeckij spaces @def-soledkij-def. In fact, it is equivalent when $s \notin \N$. The difference is that in the definition of Besov spaces @def-besov-def, we require that $\gamma >0$. As a result, always $k_{-}<s$. We have chosen to indicate this fact by the index ``$-$'' on $k_{-}$. An equivalent definition is possible which extends the above to negative values of $s$
+The above definition is extremely similar in form to that of the Sobolev-Slobodeckij spaces @def-soledkij-def.  In fact, it is equivalent when $s \notin \N$. The difference is that in the definition of Besov spaces @def-besov-def, we require that $\gamma >0$. As a result, always $k_{-}<s$. We have chosen to indicate this fact by the index ``$-$'' on $k_{-}$. An equivalent definition is possible which extends the above to negative values of $s$
 
 ::: {#def-besov-def-negative name="Besov spaces, negative $s$"}
 
@@ -542,7 +543,7 @@ $$
 
 :::
 
-The equality for $p=2$ in @eq-p-2 justifies that, for sufficiently regular domains, all three spaces are written $H^s(\Omega )$.   We will prove the left-hand side of this equivalence in Exercise @exr-equivalence-of-fractional-spaces. For $p\neq 2$, the inclusions are, in general, strict. An example is constructed in [@stein1970singular] page 161 exercise 6.8.
+The equality for $p=2$ in @eq-p-2 justifies that, for sufficiently regular domains, all three spaces are written $H^s(\Omega )$.   We will prove the left-hand side of this equivalence in Exercise @exr-equivalence-of-fractional-spaces.  For $p\neq 2$, the inclusions are, in general, strict. An example is constructed in [@stein1970singular] page 161 exercise 6.8.
 
 ::: {#exr-equivalence-of-fractional-spaces name="Equivalence of fractional spaces"}
 
@@ -717,7 +718,7 @@ $$
 
 :::
 
-The first equality will be discussed in the next subsection and is most easily proved when $\Omega =\R^d$, in which case one can use the homeomorphism $\Lambda ^s: H^{r,p}(\R^d )\iso H^{r-s,p}(\R^d )$ together with the reflexivity of $L^p(\R^d )$. The second equality is a direct consequence of the integer order equality $W^{k,p}(\Omega )=H^{k,p}(\Omega )$ of Theorem @thm-equivalence-fractional-spaces. For fractional order regularities, we have the following result, which can be found in [@agranovich2015sobolev] page 228.
+The first equality will be discussed in the next subsection and is most easily proved when $\Omega =\R^d$, in which case one can use the homeomorphism $\Lambda ^s: H^{r,p}(\R^d )\iso H^{r-s,p}(\R^d )$ together with the reflexivity of $L^p(\R^d )$. The second equality is a direct consequence of the integer order equality $W^{k,p}(\Omega )=H^{k,p}(\Omega )$ of Theorem @thm-equivalence-fractional-spaces.  For fractional order regularities, we have the following result, which can be found in [@agranovich2015sobolev] page 228.
 
 ::: {#thm-2}
 
@@ -851,7 +852,7 @@ Y' \simeq X'\backslash Y^\circ.
 \end{aligned}
 $$ {#eq-dual-isomormphism}
 
-Applying this to $Y= H^{k,p}_0(\Omega )\hookrightarrow H^{k,p}(\R^d) =X$ we obtain the result of Theorem @thm-dual-of-integer-sobolev.
+Applying this to $Y= H^{k,p}_0(\Omega )\hookrightarrow H^{k,p}(\R^d) =X$ we obtain the result of Theorem @thm-dual-of-integer-sobolev. 
 
 $$
 \begin{aligned}
@@ -859,7 +860,7 @@ H^{k,p}_0(\Omega )' \simeq H^{k,p}(\R^d)'\backslash H^{k,p}(\Omega)^\circ\simeq 
 \end{aligned}
 $$
 
-where the second equality is by Exercise @exr-dual-exercise. This coincides well with what we observed in @eq-ismorphism and justifies an extension of @eq-ismorphism for negative $s$.
+where the second equality is by Exercise @exr-dual-exercise.  This coincides well with what we observed in @eq-ismorphism and justifies an extension of @eq-ismorphism for negative $s$.
 
 As a final note, if $\Omega \neq \R^d$, then  $H_0^k(\Omega )'$ and $H^k(\Omega )'$ are not equal. Rather,
 
@@ -958,7 +959,7 @@ H^{s,p}(\R^d)' = \set{ \sum_{0\leq\abs{\alpha}\leq k} \Lambda^{\gamma } D^\alpha
 \end{aligned}
 $$
 
-Now conclude by the definition of $H^{-s,p'}(\Omega )$ for open domains @def-bessel-potential-def-omega.
+Now conclude by the definition of $H^{-s,p'}(\Omega )$ for open domains @def-bessel-potential-def-omega. 
 
 :::
 
@@ -1133,7 +1134,7 @@ $$
 
 ::: {#exr-8}
 
-Justify via a scaling argument that the condition $\gamma_2 - \frac{d}{p_2} = \gamma_1 - \frac{d}{p_1}$ is necessary for the embedding in Theorem @thm-higher-smoothness-embedding.
+Justify via a scaling argument that the condition $\gamma_2 - \frac{d}{p_2} = \gamma_1 - \frac{d}{p_1}$ is necessary for the embedding in Theorem @thm-higher-smoothness-embedding. 
 
 :::
 

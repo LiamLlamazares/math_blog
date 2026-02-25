@@ -63,7 +63,7 @@ format:
               Yy: "\\mathcal{Y}",
               Z: "\\mathbb{Z}",
               Zz: "\\mathcal{Z}",
-              abs: ["\\left| #1 \\right|", 1],
+              abs: ["{\\left| #1 \\right|}", 1],
               alf: "{\\alpha}",
               b: ["{\\bm{#1}}", 1],
               bm: ["\\boldsymbol{#1}", 1],
@@ -139,7 +139,7 @@ $$
 E_{n+1}=\frac{1}{2(n+1)}(E_n+1)+(1-\frac{1}{2n+1})E_n=E_n+ \frac{1}{2(n+1)}=\sum_{j=0}^{n} \frac{1}{2j+1}.
 $$
 
-	Where in the last equality we used the hypothesis of induction  @eq-hi. This concludes the proof.
+	Where in the last equality we used the hypothesis of induction  @eq-hi.  This concludes the proof.
 
 \end{CJK*}
 

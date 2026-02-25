@@ -1,8 +1,9 @@
 ---
-title: "What is a Hilbert space?"
+title: "PDEs 2: What is a Hilbert space?"
 author: "Liam Llamazares--Elias"
 date: "2023-05-30"
 categories: [Pdes]
+description: "An appendix for a series on PDEs"
 bibliography: biblio.bib
 format:
   html:
@@ -64,7 +65,7 @@ format:
               Yy: "\\mathcal{Y}",
               Z: "\\mathbb{Z}",
               Zz: "\\mathcal{Z}",
-              abs: ["\\left| #1 \\right|", 1],
+              abs: ["{\\left| #1 \\right|}", 1],
               alf: "{\\alpha}",
               b: ["{\\bm{#1}}", 1],
               bm: ["\\boldsymbol{#1}", 1],
@@ -109,13 +110,6 @@ format:
         };
         </script>
 ---
-
-\begin{CJK*}{UTF8}{gbsn}
-	
-	
-	
-	
-	
 
 ##  Three line summary
 
@@ -969,7 +963,7 @@ Let $K \in \Kk(X,Y), T_1\in \Ll(W,X), T_2 \in L(Y,Z)$. Where $W,X,Y,Z$ are metri
 	
 ::: {.proof}
 
-This follows by the last equivalent characterization in Proposition @prp-equivalent.
+This follows by the last equivalent characterization in Proposition @prp-equivalent. 
 
 :::
 
@@ -984,7 +978,7 @@ Let $X,Y$ be metric spaces then  $\Kk(X,Y)$ is a vector space. Furthermore, if $
   
 ::: {.proof}
 
-The first part again follows fromb the last equivalent characterization in Proposition @prp-equivalent. The second part relies on the fact that in complete spaces compact and [totally bounded](https://en.wikipedia.org/wiki/Totally_bounded_space#:~:text=not%20in%20general.-,In,-metric%20spaces%5B) are equivalent.
+The first part again follows fromb the last equivalent characterization in Proposition @prp-equivalent.  The second part relies on the fact that in complete spaces compact and [totally bounded](https://en.wikipedia.org/wiki/Totally_bounded_space#:~:text=not%20in%20general.-,In,-metric%20spaces%5B) are equivalent.
 
 :::
 
@@ -1081,7 +1075,7 @@ We have that $T= i \circ T$ so we conclude by Rellich-Kondrachov's theorem @thm-
 	
 $$
 \begin{aligned}
-\sigma (T):=\left\{\lambda \in \mathbb{K}: \lambda \I -T \text{ is not invertible } \right\} .
+\sigma (T):=\left\{\lambda \in \mathbb{K}: \lambda \b{I} -T \text{ is not invertible } \right\} .
 \end{aligned}
 $$
 
@@ -1128,8 +1122,6 @@ Furthermore, it holds that
 :::
 
 	We delay the proof till another day, in the meantime, see [@evans2022partial] page 725.
-
-\end{CJK*}
 
 ## References
 
