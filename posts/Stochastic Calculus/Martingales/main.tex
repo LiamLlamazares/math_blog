@@ -47,9 +47,9 @@ This allows us to show the following
 \end{theorem}
 \begin{proof}
 	We have already proved the above inequality for simple processes. By the previous post, \cite{Bochner} we can take $X_n$ converging to $X$ in $L^1(\Omega\to E)$ to obtain that
-	\begin{multline*}
-		\left\|\E_{\Gg}[X_n-X_m]\right\|\leq\E_{\Gg}\left[\|X_n-X_m\|\right]\\\implies \E[\left\|\E_{\Gg}[X_n]-\E_{\Gg}[X_m]\right\|]\leq \E\left[\|X_n-X_m\|\right]\to 0
-	\end{multline*}
+	\begin{align*}
+		\left\|\E_{\Gg}[X_n-X_m]\right\|&\leq\E_{\Gg}\left[\|X_n-X_m\|\right]\\&\implies \E[\left\|\E_{\Gg}[X_n]-\E_{\Gg}[X_m]\right\|]\leq \E\left[\|X_n-X_m\|\right]\to 0
+	\end{align*}
 	As a result, $\E_{\Gg}[X_n]$ is a Cauchy sequence in $L^1(\Omega\to E)$ and converges to some function $Y$, passing to the limit in the defining equation for the conditional expectation shows that $Z=\mathbb{E}_\mathcal{G}[X]$. Finally, to prove uniqueness we have that if both $Z_1,Z_2$ satisfy
 	\begin{equation*}
 		\int_A Z_1=\int_A X=\int_A Z_2,\quad \forall A\in\Gg.
@@ -67,7 +67,7 @@ Okay, so we leveraged some inequalities to prove the existence of a conditional 
 	\end{enumerate}
 \end{definition}
 The concept of submartingale is  defined by replacing the equality in 3. with a $\geq$. Let us abbreviate $\E_{\mathcal{F}_t}$ by $\E_t$. Then, as in the real case, we have the following.
-\begin{lemma}[Norm is submartingale]\label{norm is submart}
+\begin{lemma}[Norm is submartingale]\label{lem:norm_is_submart}
 	Let $M(t)$ be a martingale, then $\norm{M(t)}$ is a martingale
 \end{lemma}
 \begin{proof}
@@ -92,13 +92,13 @@ Let us recall the following result for real-valued martingales
 		\norm{\max_{t\in[0,T]}X_k}_{L^p(\Omega)}\leq \frac{p}{p-1}\norm{X_T}_{L^p(\Omega)}.
 	\end{equation*}
 \end{lemma}
-The idea of the above result is that, since $X_k$ is a submartingale, $X_k\lesssim X_{k+1}\lesssim...\lesssim X_n$. Getting from the continuous to the discrete case is possible by using the continuity of $X$ and approximating it on some finer and finer mesh $t_0,...,t_n$. This said, applying Doob's maximal martingale inequality together with the Lemma \ref{norm is submart} gives that
-\begin{theorem}[Maximal Inequality]\label{doobs Hilbert} Let $p>1$ and let $E$ be a separable Banach space.
+The idea of the above result is that, since $X_k$ is a submartingale, $X_k\lesssim X_{k+1}\lesssim...\lesssim X_n$. Getting from the continuous to the discrete case is possible by using the continuity of $X$ and approximating it on some finer and finer mesh $t_0,...,t_n$. This said, applying Doob's maximal martingale inequality together with \Cref{lem:norm_is_submart} gives that
+\begin{theorem}[Maximal Inequality]\label{thm:doobs_hilbert} Let $p>1$ and let $E$ be a separable Banach space.
 	If $M(t)$, is a right-continuous $E$-valued $\mathcal{F}_{t}$-martingale, then
-	\begin{multline*}
-		\left(E\left(\sup _{t \in[0, T]}\|M(t)\|^{p}\right)\right)^{\frac{1}{p}} \leq \frac{p}{p-1} \sup _{t \in[0, T]}\left(E\left(\|M(t)\|^{p}\right)\right)^{\frac{1}{p}} \\
-		=\frac{p}{p-1}\left(E\left(\|M(T)\|^{p}\right)\right)^{\frac{1}{p}}
-	\end{multline*}
+	\begin{aligneq*}
+		\left(E\left(\sup _{t \in[0, T]}\|M(t)\|^{p}\right)\right)^{\frac{1}{p}} &\leq \frac{p}{p-1} \sup _{t \in[0, T]}\left(E\left(\|M(t)\|^{p}\right)\right)^{\frac{1}{p}} \\
+		&=\frac{p}{p-1}\left(E\left(\|M(T)\|^{p}\right)\right)^{\frac{1}{p}}
+	\end{aligneq*}
 \end{theorem}
 \begin{proof}
 	This follows by using that $\norm{M(t)}$ is a sub-martingale and Doob's maximal inequality.
@@ -124,7 +124,7 @@ A useful space of Martingales is as follows
 		\norm{M}_{\mathcal{M}_T^2(E)}:=\mathbb{E}[\norm{M(T)}^2].
 	\end{equation*}
 \end{definition}
-By Theorem \ref{doobs Hilbert} we have that
+By \Cref{thm:doobs_hilbert} we have that
 \begin{equation*}
 	\mathcal{M}_T^2(E)\subset \hat{L}^\infty([0,T]\to \hat{L}^2(\Omega\to E))\cap \hat{L}^2(\Omega\to \hat{L}^\infty([0,T]\to E)).
 \end{equation*}
@@ -149,14 +149,14 @@ In future installments, we will prove that a Banach valued Wiener process belong
 \end{proposition}
 \begin{proof}
 	It is a martingale as it is adapted and, given $A\in\Gg_S$ and $u\in E$, by the linearity of the integral and Independence of $W(t)-W(s)$ with $\Gg_s$
-	\begin{multline*}
-		\br{\int_A W(t)-W(s)d\PP,u}=\int_A \br{W(t)-W(s),u}d\PP\\=
+	\begin{aligneq*}
+		\br{\int_A W(t)-W(s)d\PP,u}&=\int_A \br{W(t)-W(s),u}d\PP\\&=
 		\PP(A)\E[\br{W(t)-W(s),u}]=0
-	\end{multline*}
+	\end{aligneq*}
 	As a result
-	\begin{equation*}
+	\begin{align*}
 		\int_A W(t)d\PP=\int_A W(s)d\PP=0\quad \forall A\in\Gg_s\implies \E_s[W(t)]=W(s).
-	\end{equation*}
+	\end{align*}
 	Finally, we have that $\E[W(t)^2]=t<\infty$ for all $t$ and $W$ is continuous by construction. This concludes the proof.
 \end{proof}
 
