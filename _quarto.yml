@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: _site
+  resources:
+    - _data/recent_comments.json
 
 website:
   title: "NoWhere Differentiable Math"
@@ -46,4 +48,15 @@ format:
       dark: darkly
     toc: true
     html-math-method: mathjax
+    include-in-header:
+      text: |
+        <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$','$'], ['\\(','\\)']],
+            displayMath: [['$$','$$'], ['\\[','\\]']],
+            processEscapes: true
+          }
+        };
+        </script>
 

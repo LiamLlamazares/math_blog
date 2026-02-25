@@ -3,11 +3,12 @@ title: "NoWhere Differentiable Math"
 listing:
   contents: posts
   sort: "date desc"
-  type: default
-  categories: true
-  sort-ui: false
-  filter-ui: false
+  type: custom
+  template: dashboard.ejs
+  feed: true
+css:
+  - assets/css/dashboard.css
+include-after-body: _includes/comment-sidebar.html
 page-layout: full
-title-block-banner: true
+title-block-banner: false
 ---
-

@@ -4,6 +4,7 @@ author: "Liam Llamazares"
 date: "2026-02-24"
 categories: [Measure theory, Gaussian measures]
 description: "An introduction to Gaussian measure theory"
+image: /assets/img/Collection_covers/cover_MC.jpg
 bibliography: biblio.bib
 format:
   html:

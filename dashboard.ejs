@@ -1,0 +1,76 @@
+<%
+if (items.length > 0) {
+  const featured = items[0];
+  const recent = items.slice(1, 5);
+
+  const tags = {};
+  for (const item of items) {
+    if (item.categories) {
+      for (const cat of item.categories) {
+        if (!tags[cat]) tags[cat] = [];
+        tags[cat].push(item);
+      }
+    }
+  }
+
+  const getBannerStyle = (cat) => {
+    return "linear-gradient(135deg, rgba(44,62,80,0.8), rgba(76,161,175,0.8))";
+  };
+%>
+
+``` {=html}
+<div class="quarto-listing quarto-listing-container-custom">
+<div class="dashboard-container">
+<div class="dashboard-top">
+
+<div class="pane featured-pane">
+<h3 class="pane-label math-font">Latest Post</h3>
+<a href="<%- featured.path %>" class="featured-link">
+<% if (featured.image) { %>
+<div class="featured-image" style="background-image: url('<%- featured.image %>');"></div>
+<% } %>
+<h2 class="math-font"><%- featured.title %></h2>
+<p class="excerpt"><%- featured.description || featured.subtitle || '' %></p>
+<span class="read-more">Read more &rarr;</span>
+</a>
+</div>
+
+<div class="pane recent-list-pane">
+<h3 class="pane-label math-font">Most recent posts </h3>
+<ul>
+<% for (const post of recent) { %>
+<li><a href="<%- post.path %>"><%- post.title %></a>, <span class="date"><%- post.date %></span></li>
+<% } %>
+</ul>
+</div>
+
+</div>
+
+<div class="dashboard-grid">
+<% 
+  const sortedTags = Object.keys(tags).sort();
+  for (let t = 0; t < sortedTags.length; t++) {
+    const tag = sortedTags[t];
+    const tagPosts = tags[tag];
+    const styleAttr = `style="background: ${getBannerStyle(tag)};"`;
+    if (tagPosts.length > 1) { 
+%>
+<div class="pane tag-pane">
+<div class="tag-header" <%- styleAttr %>>
+<h3 class="math-font"><%- tag %></h3>
+<span class="count"><%- tagPosts.length %> <img src="/assets/img/svgs/leaf.svg" alt="leaf" class="leaf-icon"></span>
+</div>
+<div class="pane-content">
+<ul class="tag-post-list">
+<% for (let i = 0; i < Math.min(3, tagPosts.length); i++) { %>
+<li><a href="<%- tagPosts[i].path %>"><%- tagPosts[i].title %></a></li>
+<% } %>
+</ul>
+<a href="/index.html#category=<%- encodeURIComponent(tag) %>" class="pane-footer">Explore Topic &rarr;</a>
+</div>
+</div>
+<% } } %>
+</div>
+</div>
+```
+<% } %>
