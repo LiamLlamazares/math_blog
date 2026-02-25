@@ -1,45 +1,16 @@
-\documentclass[12pt]{article}
-\special{papersize=3in,5in}
-\usepackage[utf8]{inputenc}
-%PACKAGES
-\usepackage[colorlinks = true,
-    linkcolor = blue,
-    urlcolor  = black,
-    citecolor = blue,
-    anchorcolor = blue]{hyperref}
-\usepackage[T1]{fontenc}
-\makeatletter
-\def\ps@pprintTitle{%
-    \let\@oddhead\@empty
-    \let\@evenhead\@empty
-    \let\@oddfoot\@empty
-    \let\@evenfoot\@oddfoot
-}
-\usepackage{amssymb,amsmath,physics,amsthm,xcolor,graphicx}
-\usepackage[shortlabels]{enumitem}
-\newtheorem{observation}{Observation}
-\newtheorem{theorem}{Theorem}
-\newtheorem{proposition}{Proposition}
-\newtheorem{lemma}{Lemma}
-\newtheorem{definition}{Definition}
-\newtheorem{corollary}{Corollary}
-\newcommand{\red}[1]{{\color{red}#1}}
-\usepackage[colorlinks = true,
-    linkcolor = blue,
-    urlcolor  = black,
-    citecolor = blue,
-    anchorcolor = blue]{hyperref}
-\usepackage{cleveref}
-\bibliographystyle{elsarticle-num}
-\newcommand{\A}{\mathbb{A}}\newcommand{\C}{\mathbb{C}}\newcommand{\E}{\mathbb{E}}\newcommand{\F}{\mathbb{F}}\newcommand{\K}{\mathbb{K}}\newcommand{\LL}{\mathbb{L}}\newcommand{\M}{\mathbb{M}}\newcommand{\N}{\mathbb{N}}\newcommand{\PP}{\mathbb{P}}\newcommand{\Q}{\mathbb{Q}}\newcommand{\R}{{\mathbb R}}\newcommand{\T}{{\mathbb T}}\newcommand{\Z}{{\mathbb Z}}
-\newcommand{\Aa}{\mathcal{A}}\newcommand{\Bb}{\mathcal{B}}\newcommand{\Cc}{\mathcal{C}}\newcommand{\Ee}{\mathcal{E}}\newcommand{\Ff}{\mathcal{F}}\newcommand{\Gg}{\mathcal{G}}\newcommand{\Hh}{\mathcal{H}}\newcommand{\Kk}{\mathcal{K}}\newcommand{\Ll}{\mathcal{L}}\newcommand{\Mm}{\mathcal{M}}\newcommand{\Nn}{\mathcal{N}}\newcommand{\Pp}{\mathcal{P}}\newcommand{\Qq}{\mathcal{Q}}\newcommand{\Rr}{{\mathcal R}}\newcommand{\Tt}{{\mathcal T}}\newcommand{\Zz}{{\mathcal Z}}\newcommand{\Uu}{{\mathcal U}}
-\newcommand\restr[2]{{\left.\kern-\nulldelimiterspace #1\vphantom{\big|} \right|_{#2}}}
-\newcommand{\br}[1]{\left\langle#1\right\rangle}
-\pagestyle{empty}
-\setlength{\parindent}{0in}
+\documentclass[
+    a4paper,
+    DIV=14,
+    abstract=true,
+    numbers=noenddot
+]{scrartcl}
+
+\usepackage{preamble}
 
 \begin{document}
-\title{The Skorokhod Integral}
+\title{MC 2: The Skorokhod Integral}
+\postsubtitle{How does one generalize the Itô integral?}
+\posttags{Malliavin calculus}
 \author{Liam Llamazares--Elias}
 \date{05-28-2022}
 \maketitle
@@ -69,9 +40,9 @@ Let us write $f_{n}(\cdot,t):=f_{n,t}$. Note that we are now considering $f_n$ a
 	Firstly, we note that a stochastic process $X$ is adapted iff $$X_t=\E_{\Ff_t}[X(t)]\quad\forall t\in I.$$ Since the Itô integral is a martingale, we obtain that, by commuting the sum and using the uniqueness of the chaos expansion this is equivalent to requiring that, for all $t$
 	\begin{multline*}
 		I_n(f_n(\cdot,t))\\=	n!\E_{\Ff_t} \left[\int_{I} \left( \int_{0}^{t_n}\cdots \int_{0}^{t_2}f(t_1\ldots t_n,t) dW(t_1) \cdots dW(t_{n-1}) \right)dW(t_n)\right]\\
-		=n!\int_{0}^t \int_{0}^{t_n}\cdots \int_{0}^{t_2}f(t_1\ldots t_n,t) dW(t_1) \cdots dW(t_{n-1})dW(t_n)\\= I_n(f_n(\cdot,t) 1_{\max_{t_i\leq t}})
+		=n!\int_{0}^t \int_{0}^{t_n}\cdots \int_{0}^{t_2}f(t_1\ldots t_n,t) dW(t_1) \cdots dW(t_{n-1})dW(t_n)\\= I_n(f_n(\cdot,t) 1_{\max_{t_i\leq t}}),
 	\end{multline*}
-	Where the commutation of the sum and the integral is justified by the $L^2(\Omega)$ convergence of the chaos expansion ($L^1(\Omega)$ convergence would have been enough).
+	where the commutation of the sum and the integral is justified by the $L^2(\Omega)$ convergence of the chaos expansion ($L^1(\Omega)$ convergence would have been enough).
 \end{proof}
 In particular, we obtain that, since $f_n$ is already symmetric in its first n-coordinates, its symmetrization verifies that
 \begin{equation*}
@@ -101,13 +72,14 @@ The last term appearing in the equality is what we will call the Skorokhod integ
 	\begin{equation*}
 		\delta(X):=\int_{I} X(t)\delta W(t):=\sum_{n=0}^{\infty} I_{n+1}(f_{n,S})\in L^2(\Omega).
 	\end{equation*}
-	Then we will say that $X$ has Skorokhod integral $\delta(X)$ and write $X\in dom(\delta)$.
+	Then we will say that $X$ has Skorokhod integral $\delta(X)$ and write $X\in \rm{dom}
+\delta)$.
 \end{definition}
 As we saw in the previous theorem the Skorokhod integral is equal to the Itô integral for all stochastic processes in $\mathbb{L}^2(I\times\Omega)$. However, it may also be defined for non-adapted stochastic processes. In fact, by using the orthogonality of the iterated integrals (what we called \emph{Itô's} $n$-\emph{th isometry} in the last post \cite{Chaosblog}, we deduce the following).
 \begin{proposition}
 	A stochastic process $X(t)\in L^2(\Omega,\Ff_\infty)$ has a Skorokhod integral iff
 	\begin{equation*}
-		\sum_{n=0}^{\infty} (n+1)!\|f_{n,S}\|^2_{L^2([0,T]^n)}<\infty.
+		\sum_{n=0}^{\infty} (n+1)!\|f_{n,S}\|^2_{L^2([0,T]^{n+1})}<\infty.
 	\end{equation*}
 
 \end{proposition}
@@ -125,9 +97,10 @@ Thus, for all $t\in I$ we have that
 \begin{equation*}
 	f_1=1;\quad f_n=0\quad\forall n \in \N \setminus \{1\}  .
 \end{equation*}
-So $X\in dom(\delta)$ with
+So $X\in \rm{dom}
+\delta)$ with
 \begin{equation*}
-	\delta(X)= I_2(1)=\int_{0}^T\int_{0}^t dW(t_1)dW(t)=\int_{0}^T W(t) dW(t)= W^2(T)-T.
+	\delta(X)= I_2(1)=\int_{0}^T\int_{0}^t dW(t_1)dW(t)=\int_{0}^T W(t) dW(t)= \frac{1}{2}(W^2(T)-T).
 \end{equation*}
 Note however that the Itô integral of $W(T)$ is undefined as it is not  $\Ff_t$ adapted. Since the Skorokhod integral of $1$ is equal to  $W(T)$, the above example shows how one cannot simply ``pull out constants in $t$'' in the sense that, if $G$ is a random variable independent of  $t$ and  $X(t)=G\cdot u(t)$, then
 \begin{equation*}
@@ -135,17 +108,20 @@ Note however that the Itô integral of $W(T)$ is undefined as it is not  $\Ff_t$
 \end{equation*}
 Though this may seem unintuitive, it is a consequence of the fact that, even though $f_i$ may not depend on  $t$, the terms
 \begin{equation*}
-	g(t):=\int_{0}^t\int_{0}^{t_{n}}\cdots \int_{0}^{t_2} f_i dW(t_1)\cdots dW(t_{n-1})dW(t_n).
+	g(t):=\int_{0}^t\int_{0}^{t_{n}}\cdots \int_{0}^{t_2} f_i dW(t_1)\cdots dW(t_{n-1})dW(t_n)
 \end{equation*}
-Can depend on $t$. Despite this, the Skorokhod integral still maintains some of the natural properties we associate with integration.
+can depend on $t$. Despite this, the Skorokhod integral still maintains some of the natural properties we associate with integration.
 \begin{proposition}
-	Let $X(t), Y(t)\in dom(\delta)$, $\lambda \in \R$. Then it holds that
+	Let $X(t), Y(t)\in \rm{dom}
+\delta)$, $\lambda \in \R$. Then it holds that
 	\begin{itemize}
-		\item $X(t)+ \lambda Y(t) \in dom(\delta)$ with $\delta(X+\lambda Y)=\delta(X)+\lambda \delta(Y)$.
+		\item $X(t)+ \lambda Y(t) \in \rm{dom}
+\delta)$ with $\delta(X+\lambda Y)=\delta(X)+\lambda \delta(Y)$.
 		\item $\E[\delta(X)]=0$.
-		\item $X\cdot 1_A \in dom(\delta)$ for any measurable subset $A \subset I$. Furthermore, if $A \cup B =I$ then
+		\item $X\cdot 1_A \in \rm{dom}
+\delta)$ for any measurable subset $A \subset I$. Furthermore, if $A \cup B =I$ then
 		      \begin{equation*}
-			      \int_{A}X(t) \delta(t)+ \int_{B}X(t)\delta W(t):=\delta(X\cdot 1_A)+\delta(X\cdot 1_B)=\delta(X).
+			      \int_{A}X(t) \delta W(t)+ \int_{B}X(t)\delta W(t):=\delta(X\cdot 1_A)+\delta(X\cdot 1_B)=\delta(X).
 		      \end{equation*}
 
 	\end{itemize}
@@ -156,7 +132,8 @@ Can depend on $t$. Despite this, the Skorokhod integral still maintains some of 
 	\begin{equation*}
 		X\cdot 1_A=\sum_{n=0}^{\infty} I_{n}([f_n 1_A]_S).
 	\end{equation*}
-	Which shown by the equivalent characterization of Skorokhod functions that $X\cdot 1_A\in dom(\delta)$. The final property is a consequence of the previously proved linearity.
+	Which shown by the equivalent characterization of Skorokhod functions that $X\cdot 1_A\in \rm{dom}
+\delta)$. The final property is a consequence of the previously proved linearity.
 \end{proof}
 We now know what the Skorokhod expansion is, how to characterize it, and its main properties, in the next post we will construct the Malliavin derivative as its adjoint.
 
@@ -164,7 +141,5 @@ We now know what the Skorokhod expansion is, how to characterize it, and its mai
 
 
 \bibliography{biblio.bib}
-Testing
 \end{document}
-嘿加奥，我看到Mihail来到了。我有有些中文的问题。如果你有时间以后可能我们可以聊天一下吗？
-我也有一个开会一点时候直到二点半。所以如果你的会议到一点还没完了没事。我们可以改天再谈。
+
