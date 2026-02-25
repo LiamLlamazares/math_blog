@@ -23,7 +23,7 @@
 \section{Why should I care?}
 If you want to define the Malliavin derivative you need the Skorokhod integral.
 \section{Notation}
-The same as in the previous post \cite{Chaosblog} on the chaos expansion. We will also write $\mathbb{L}^2(I\times \Omega)$ for the space of Itô integrable functions (this was defined in \cite{Itointblog}).
+The same as in \postref{Malliavin Calculus/1.Chaos_expansion}{}{the previous post} on the chaos expansion. We will also write $\mathbb{L}^2(I\times \Omega)$ for the space of  \postref{Stochastic Calculus/Ito_integral}{}{Itô integrable} functions.
 \section{The chaos expansion of an Itô integral}
 Our goal in this post is to construct the Skorokhod integral. This serves as a generalization of the Itô integral and the starting point for the definition of the Malliavin derivative. How is this done? Let us first consider a (not-necessarily adapted) stochastic process $X$ such that $X_t\in L^2(\Omega,\Ff_\infty)$ for each $t \in I$. Then we know that by the chaos expansion proved in the previous post, for each $t$ there exists  $f_{n,t}\in L^2(S_n)$ such that
 \begin{equation*}
@@ -136,10 +136,5 @@ can depend on $t$. Despite this, the Skorokhod integral still maintains some of 
 \delta)$. The final property is a consequence of the previously proved linearity.
 \end{proof}
 We now know what the Skorokhod expansion is, how to characterize it, and its main properties, in the next post we will construct the Malliavin derivative as its adjoint.
-
-
-
-
-\bibliography{biblio.bib}
 \end{document}
 
