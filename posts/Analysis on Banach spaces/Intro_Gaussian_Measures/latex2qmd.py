@@ -13,7 +13,7 @@ Input folder must contain:
 
 Metadata is extracted from:
     - \title{}, \author{}, \date{} — standard LaTeX commands
-    - \description{} — becomes the post subtitle
+    - \subtitle{} — becomes the post subtitle
     - Parent folder name — becomes the default tag
     - cover.* — auto-detected as post image
 
@@ -816,7 +816,7 @@ def main():
     print(f"  Author: {meta.get('author', '???')}")
     print(f"  Date:   {meta.get('date', '???')}")
 
-    # Extract subtitle from \description{}
+    # Extract subtitle from \subtitle{}
     print(f"  Subtitle: {meta.get('subtitle', '(none)')}")
 
     # Infer tags from parent folder

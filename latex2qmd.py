@@ -13,7 +13,7 @@ Input folder must contain:
 
 Metadata is extracted from:
     - \title{}, \author{}, \date{} — standard LaTeX commands
-    - \description{} — becomes the post subtitle
+    - \subtitle{} — becomes the post subtitle
     - Parent folder name — becomes the default tag
     - cover.* — auto-detected as post image
 
