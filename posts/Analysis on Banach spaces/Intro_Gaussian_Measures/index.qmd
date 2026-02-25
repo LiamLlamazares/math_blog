@@ -303,7 +303,7 @@ Let $E$ be LC. We say that a measure $\mu$ on $\Ee(E)$ is a Gaussian measure if 
 
 ::: {#exr-1}
 
-Show that @gm-def is equivalent to requiring that that $\bm{\ell }_{\#}\mu$ is a Gaussian measure on $\Bb(\R^n)$ for all $\bm{\ell }:=(\ell_1,\ldots, \ell _n )$ where $\ell _1,\ldots, \ell _n \in E'$.
+Show that gaussian def is equivalent to requiring that that $\bm{\ell }_{\#}\mu$ is a Gaussian measure on $\Bb(\R^n)$ for all $\bm{\ell }:=(\ell_1,\ldots, \ell _n )$ where $\ell _1,\ldots, \ell _n \in E'$.
 
 :::
 

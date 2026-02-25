@@ -345,6 +345,9 @@ def convert_body(body: str) -> str:
     # For item-level labels: label -> (parent_qid, item_name)
     item_label_map = {}  # e.g. {'inversion': ('prp-1', 'Inversion')}
 
+    def sanitize_label(l):
+        return l.replace(':', '-').replace(' ', '-').replace('_', '-').lower()
+
     # --- Pass 0: Strip TODO notes, end-of-theorem symbols, expand \qty,
     #             and strip blog metadata commands from body ---
     text = re.sub(r'\\liam\{[^}]*\}', '', text)
@@ -406,9 +409,10 @@ def convert_body(body: str) -> str:
                 
                 prefix = THEOREM_ENVS[env]
                 if label:
-                    label_id = label.replace(':', '-').replace(' ', '-').replace('_', '-').lower()
+                    label_id = sanitize_label(label)
                     div_id = f"#{prefix}-{label_id}"
                     label_map[label] = f"{prefix}-{label_id}"
+                    label_map[label_id] = f"{prefix}-{label_id}" # Also map sanitized version
                 else:
                     env_counter[env] = env_counter.get(env, 0) + 1
                     div_id = f"#{prefix}-{env_counter[env]}"
@@ -517,8 +521,9 @@ def convert_body(body: str) -> str:
                 result.append(inner.strip())
 
             if label:
-                label_id = label.replace(':', '-').replace(' ', '-').replace('_', '-').lower()
+                label_id = sanitize_label(label)
                 label_map[label] = f"eq-{label_id}"
+                label_map[label_id] = f"eq-{label_id}"
                 result.append(f'\n$$ {{#eq-{label_id}}}\n')
             else:
                 result.append('\n$$\n')
@@ -605,6 +610,9 @@ def convert_body(body: str) -> str:
         # Then check if this label was mapped during theorem/equation conversion
         if raw_label in label_map:
             return f'@{label_map[raw_label]}'
+
+        if label in label_map:
+            return f'@{label_map[label]}'
         # Try to guess the prefix from the label convention
         if label.startswith('def'):
             return f'@def-{label}'
