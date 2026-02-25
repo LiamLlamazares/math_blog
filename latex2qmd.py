@@ -777,34 +777,13 @@ def build_qmd(meta: dict, body: str, mathjax_macros: str) -> str:
 # 6. MAIN
 # ---------------------------------------------------------------------------
 
-def main():
-    parser = argparse.ArgumentParser(
-        description='Convert a LaTeX folder into a Quarto blog post. '
-                    'If run with no arguments, converts the current directory.'
-    )
-    parser.add_argument('folder', type=str, nargs='?', default='.',
-                        help='Path to the LaTeX folder (default: current directory)')
-    parser.add_argument('--tex', type=str, default='main.tex',
-                        help='Name of the .tex file (default: main.tex)')
-    parser.add_argument('--preamble', type=str, default='preamble.sty',
-                        help='Name of the .sty file (default: preamble.sty)')
-    parser.add_argument('--output', type=str, default='index.qmd',
-                        help='Output filename (default: index.qmd)')
-    parser.add_argument('--blog-dir', type=str, default=None,
-                        help='Path to the Quarto blog repo. '
-                             'If given, copies the folder into blog/posts/<folder-name>/')
-
-    args = parser.parse_args()
-
-    folder = Path(args.folder).resolve()
-    if not folder.is_dir():
-        print(f"ERROR: {folder} is not a directory.")
-        sys.exit(1)
-
-    tex_path = folder / args.tex
+def convert_folder(folder: Path, tex_name='main.tex', preamble_name='preamble.sty',
+                   output_name='index.qmd', blog_dir=None):
+    """Convert a single LaTeX folder to a Quarto post."""
+    tex_path = folder / tex_name
     if not tex_path.exists():
-        print(f"ERROR: {tex_path} not found.")
-        sys.exit(1)
+        print(f"  SKIP: {tex_path} not found.")
+        return False
 
     # Read LaTeX source
     with open(tex_path, "r", encoding="utf-8") as f:
@@ -815,8 +794,6 @@ def main():
     print(f"  Title:  {meta.get('title', '???')}")
     print(f"  Author: {meta.get('author', '???')}")
     print(f"  Date:   {meta.get('date', '???')}")
-
-    # Extract subtitle from \description{}
     print(f"  Subtitle: {meta.get('subtitle', '(none)')}")
 
     # Infer tags from parent folder
@@ -833,9 +810,9 @@ def main():
         print(f"  Image:    (none)")
 
     # Parse preamble for MathJax macros
-    sty_path = folder / args.preamble
+    sty_path = folder / preamble_name
     macros = parse_preamble_macros(sty_path)
-    print(f"  Extracted {len(macros)} macros from {args.preamble}")
+    print(f"  Extracted {len(macros)} macros from {preamble_name}")
     mathjax_macros = format_mathjax_macros(macros)
 
     # Extract and convert body
@@ -846,28 +823,22 @@ def main():
     qmd = build_qmd(meta, converted_body, mathjax_macros)
 
     # Determine output location
-    if args.blog_dir:
-        blog_dir = Path(args.blog_dir).resolve()
+    if blog_dir:
+        blog_dir = Path(blog_dir).resolve()
         posts_dir = blog_dir / 'posts'
         dest = posts_dir / folder.name
         dest.mkdir(parents=True, exist_ok=True)
-        out_path = dest / args.output
+        out_path = dest / output_name
     else:
-        out_path = folder / args.output
+        out_path = folder / output_name
 
     # Write index.qmd
     with open(out_path, "w", encoding="utf-8") as f:
         f.write(qmd)
-    print(f"\n  Output written to: {out_path}")
+    print(f"  Output written to: {out_path}")
 
     # Auto-copy to blog posts/ directory if --blog-dir is given
-    if args.blog_dir:
-        blog_dir = Path(args.blog_dir).resolve()
-        posts_dir = blog_dir / 'posts'
-        dest = posts_dir / folder.name
-
-        # Selectively copy only what Quarto needs to render the post.
-        # Excluded: .tex, .sty, .aux, .log, .out, .toc, .synctex.gz, .pdf, info.txt
+    if blog_dir:
         EXCLUDE_SUFFIXES = {'.tex', '.sty', '.aux', '.log', '.out', '.toc',
                             '.synctex', '.gz', '.blg', '.bbl', '.fls', '.fdb_latexmk'}
         EXCLUDE_NAMES = {'info.txt'}
@@ -877,7 +848,6 @@ def main():
             if src_item.is_dir():
                 continue
             rel = src_item.relative_to(folder)
-            # Skip LaTeX build artifacts and source
             if src_item.suffix.lower() in EXCLUDE_SUFFIXES:
                 continue
             if src_item.name in EXCLUDE_NAMES:
@@ -886,7 +856,7 @@ def main():
             dst_item.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(src_item, dst_item)
 
-        # Ensure custom_theorems.css exists (create default if missing)
+        # Ensure custom_theorems.css exists
         css_dest = dest / 'custom_theorems.css'
         if not css_dest.exists():
             css_content = '''/* LaTeX-style theorem environments */
@@ -913,11 +883,69 @@ def main():
                 f.write(css_content)
 
         print(f"  Post deployed to: {dest}")
-        print(f"  Run 'quarto preview' in {blog_dir} to see it.")
+    return True
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description='Convert a LaTeX folder into a Quarto blog post. '
+                    'If run with no arguments, converts the current directory.'
+    )
+    parser.add_argument('folder', type=str, nargs='?', default='.',
+                        help='Path to the LaTeX folder (default: current directory)')
+    parser.add_argument('--all', action='store_true',
+                        help='Batch mode: find all folders containing main.tex '
+                             'under the given path (excluding Future/) and convert them all.')
+    parser.add_argument('--tex', type=str, default='main.tex',
+                        help='Name of the .tex file (default: main.tex)')
+    parser.add_argument('--preamble', type=str, default='preamble.sty',
+                        help='Name of the .sty file (default: preamble.sty)')
+    parser.add_argument('--output', type=str, default='index.qmd',
+                        help='Output filename (default: index.qmd)')
+    parser.add_argument('--blog-dir', type=str, default=None,
+                        help='Path to the Quarto blog repo. '
+                             'If given, copies the folder into blog/posts/<folder-name>/')
+
+    args = parser.parse_args()
+
+    folder = Path(args.folder).resolve()
+    if not folder.is_dir():
+        print(f"ERROR: {folder} is not a directory.")
+        sys.exit(1)
+
+    if args.all:
+        # Batch mode: find all folders with main.tex, excluding Future/
+        targets = []
+        for tex_file in folder.rglob(args.tex):
+            post_folder = tex_file.parent
+            # Skip Future/ folders
+            rel = post_folder.relative_to(folder)
+            if any(part.lower() == 'future' for part in rel.parts):
+                continue
+            targets.append(post_folder)
+
+        if not targets:
+            print(f"No folders with {args.tex} found under {folder}")
+            sys.exit(1)
+
+        print(f"Found {len(targets)} post(s) to convert:\n")
+        ok, fail = 0, 0
+        for t in sorted(targets):
+            print(f"{'='*60}")
+            print(f"  Converting: {t.relative_to(folder)}")
+            print(f"{'='*60}")
+            if convert_folder(t, args.tex, args.preamble, args.output, args.blog_dir):
+                ok += 1
+            else:
+                fail += 1
+            print()
+
+        print(f"\nDone. {ok} converted, {fail} skipped.")
     else:
-        print(f"  To deploy: copy this folder into your blog's posts/ directory.")
-        print(f"  Or re-run with: --blog-dir /path/to/blog")
+        # Single folder mode
+        convert_folder(folder, args.tex, args.preamble, args.output, args.blog_dir)
 
 
 if __name__ == '__main__':
     main()
+
