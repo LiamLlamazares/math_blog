@@ -156,7 +156,7 @@ That is, the problem $\Ll u +\gamma u =f$ is well-posed for all $\gamma > \nu$.
     \begin{align}\label{b not 0}
         B(u,u) \geq \frac{\alpha}{2} \norm{\nabla u}^2_{L^2(U \to \R^d)} -\nu \norm{u}^2_{L^2(U)}.
     \end{align}
-    Where we defined $\nu = \norm{\bm{b}}_{L^\infty(U)} \varepsilon ^{-1}+\norm{c}_{L^\infty(U)}$. The theorem follows from  \eqref{b not 0} as for all $\gamma > \nu$
+    Where we defined $\nu = \frac{1}{2}\norm{\bm{b}}_{L^\infty(U)} \varepsilon ^{-1}+\norm{c}_{L^\infty(U)}$. The theorem follows from  \eqref{b not 0} as for all $\gamma > \nu$
     \begin{align}\label{pd}
         B_\gamma (u,u)=B(u,u)+ \gamma \norm{u}^2_{L^2(U)} \geq\frac{\alpha}{2} \norm{\nabla u}^2_{L^2(U \to \R^d)}+(\gamma - \nu) \norm{u}^2_{L^2(U)}\gtrsim \norm{u}^2_{H_0^1(U)} .
     \end{align}
@@ -198,7 +198,7 @@ Equation \eqref{reasoning} is exactly the form the \href{https://nowheredifferen
         \item The spectrum $\sigma (\Ll )$ is discrete. If $\sigma(\Ll )= \{\lambda_n \}_{n=1}^\infty$ is infinite, then $\lambda _n \to +\infty$.
         \item The dimensions of the following spaces are equal
               \begin{align*}
-                  N:= \set{u \in H_0^1(U): \Ll u = \lambda u}, \quad N^*:= \set{w \in L^2(U): \Ll^* w = \lambda w},
+                  N:= \set{u \in H_0^1(U): \Ll u = \lambda u}, \quad N^*:= \set{w \in H_0^1(U): \Ll^* w = \lambda w},
               \end{align*}
         \item Equation, \eqref{original} has a solution if and only if $f \in (N^*)^\perp$ $($equivalently $\br{w,f}=0$ for all $w \in N^* )$.
     \end{enumerate}
