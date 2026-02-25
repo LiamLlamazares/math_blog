@@ -1,0 +1,38 @@
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const meta = document.querySelector('.quarto-title-meta');
+  if (!meta) return;
+
+  // 1. Try to get PDF from meta tag if Quarto has it
+  // Since Quarto doesn't always put custom YAML into meta tags, 
+  // we look for a hidden element that our EJS might have provided 
+  // or just search for links again but with better logic.
+  
+  let pdfUrl = null;
+  const links = document.querySelectorAll('a[href$=".pdf"]');
+  if (links.length > 0) {
+    pdfUrl = links[0].getAttribute('href');
+  }
+
+  // If no link found, we can't really "guess" the path without help.
+  // We'll stick to link detection for now as it's the most robust way 
+  // to ensure the file actually exists and Quarto knows about it.
+
+  if (pdfUrl && meta) {
+    // Check if we already injected it
+    if (document.querySelector('.quarto-title-meta-pdf')) return;
+
+    const pdfDiv = window.document.createElement('div');
+    pdfDiv.className = 'quarto-title-meta-pdf';
+    pdfDiv.innerHTML = `
+      <div class="quarto-title-meta-heading">PDF Version</div>
+      <div class="quarto-title-meta-contents">
+        <p><a href="${pdfUrl}" target="_blank">
+          <i class="bi bi-file-earmark-pdf"></i> PDF version
+        </a></p>
+      </div>
+    `;
+    meta.appendChild(pdfDiv);
+  }
+});
+</script>

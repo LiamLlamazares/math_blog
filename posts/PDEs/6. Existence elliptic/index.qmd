@@ -7,7 +7,6 @@ description: "From rough beginnings to smooth endings"
 bibliography: biblio.bib
 format:
   html:
-    css: custom_theorems.css
     toc: true
     number-sections: true
     html-math-method: mathjax
@@ -116,7 +115,7 @@ format:
 [Download PDF version](Elliptic_PDE_1.pdf)
 :::
 
-##  Three point summary
+## Three point summary
 
 - Elliptic partial differential equations (PDE) are PDE with no time variable and whose leading order derivatives satisfy a positivity condition.
 
@@ -143,7 +142,7 @@ $$
 
 ## Introduction
 
-Welcome back to the second post on our series of PDE. In post [4](<../../PDEs/4. Physical derivation/index.qmd>), we gave a physical derivation of PDE (both parabolic and elliptic) that justify why we are interested in such equations. In posts [1](<../../PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>), [2](<../../PDEs/2. What is a Hilbert space/index.qmd>), [3](<../../PDEs/3. Sobolev spaces/index.qmd>), [5](<../../PDEs/5. Fractional and negative order Sobolev spaces/index.qmd>) of the series we built up the theoretical framework necessary to define Sobolev spaces, spaces of weakly differentiable functions to which we could extend the concept of differentiation (I know, the order is a bit messed up).  We are now going to use the previous theory to study these equations.
+Welcome back to the second post on our series of PDE. In post [4](</posts/PDEs/4. Physical derivation/index.qmd>), we gave a physical derivation of PDE (both parabolic and elliptic) that justify why we are interested in such equations. In posts [1](</posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>), [2](</posts/PDEs/2. What is a Hilbert space/index.qmd>), [3](</posts/PDEs/3. Sobolev spaces/index.qmd>), [5](</posts/PDEs/5. Fractional and negative order Sobolev spaces/index.qmd>) of the series we built up the theoretical framework necessary to define Sobolev spaces, spaces of weakly differentiable functions to which we could extend the concept of differentiation (I know, the order is a bit messed up).  We are now going to use the previous theory to study these equations.
 
 ## The problem: Mathematical framework
 
@@ -152,15 +151,15 @@ We consider the following problem: given a bounded open set $U \subset \R^n$ and
 $$
 \begin{aligned}
 \begin{cases}
-        \Ll u:=  -\nabla \cdot (\bm{A} \nabla u)+ \nabla \cdot (\bm{b} u)+cu=f, & \text{in } U,          \\
-        u=0,                                                                    & \text{on } \partial U,
-    \end{cases}
+\Ll u:=  -\nabla \cdot (\bm{A} \nabla u)+ \nabla \cdot (\bm{b} u)+cu=f, & \text{in } U,          \\
+u=0,                                                                    & \text{on } \partial U,
+\end{cases}
 \end{aligned}
 $$ {#eq-pde}
 
 where $f: U \to \R$ is some known function, $u$ is the solution we want to find. In the case where $U = \R^d$ the boundary condition is vacuous as $\partial \R^d = \emptyset$.
 
-We recall from post [4](<../../PDEs/4. Physical derivation/index.qmd>) that physically; we can interpret $u$ as the density of some substance, $\bm{A}$ as a diffusion matrix, $\bm{b}$ as a transport vector, $c$ as a reaction coefficient and $f$ as the source term. For the mathematical theory, we will need some conditions on the coefficients. Primarily, we require that $\bm{A}$ is *elliptic*.
+We recall from post [4](</posts/PDEs/4. Physical derivation/index.qmd>) that physically; we can interpret $u$ as the density of some substance, $\bm{A}$ as a diffusion matrix, $\bm{b}$ as a transport vector, $c$ as a reaction coefficient and $f$ as the source term. For the mathematical theory, we will need some conditions on the coefficients. Primarily, we require that $\bm{A}$ is *elliptic*.
 
 ::: {#def-1 name="Ellipticity"}
 
@@ -184,7 +183,7 @@ We also say that $\bm{A}$ is elliptic.
 
 :::
 
-There are some points to clear up. Firstly, if this is the first time you've encountered the ellipticity condition in ([-@eq-elliptic]), then it may seem a bit strange. With the previous physical interpretation, the ellipticity condition ([-@eq-elliptic]) says that diffusion occurs from the region of [higher to lower density](<../../PDEs/4. Physical derivation/index.qmd>). Mathematically speaking, ([-@eq-elliptic]) will prove necessary to apply [Lax Milgram's theorem](<../../PDEs/2. What is a Hilbert space/index.qmd>) and obtain regularity estimates on $u$. 
+There are some points to clear up. Firstly, if this is the first time you've encountered the ellipticity condition in ([-@eq-elliptic]), then it may seem a bit strange. With the previous physical interpretation, the ellipticity condition ([-@eq-elliptic]) says that diffusion occurs from the region of [higher to lower density](</posts/PDEs/4. Physical derivation/index.qmd>). Mathematically speaking, ([-@eq-elliptic]) will prove necessary to apply [Lax Milgram's theorem](</posts/PDEs/2. What is a Hilbert space/index.qmd>) and obtain regularity estimates on $u$. 
 
 Next, when developing the mathematical theory of any equation, the first step is to establish whether the equation is *well-posed*.
 
@@ -232,7 +231,7 @@ $$
 
 :::
 
-For more details on why we denote the dual using negative exponents, see the [relevant section](<../../PDEs/5. Fractional and negative order Sobolev spaces/index.qmd>) in the previous post on fractional Sobolev spaces. We [recall](<../../PDEs/5. Fractional and negative order Sobolev spaces/index.qmd>) also that every element in $H^{-k}(U)$ can be written as the sum of derivatives up to order $k$ of a function in $L^2(U)$.
+For more details on why we denote the dual using negative exponents, see the [relevant section](</posts/PDEs/5. Fractional and negative order Sobolev spaces/index.qmd>) in the previous post on fractional Sobolev spaces. We [recall](</posts/PDEs/5. Fractional and negative order Sobolev spaces/index.qmd>) also that every element in $H^{-k}(U)$ can be written as the sum of derivatives up to order $k$ of a function in $L^2(U)$.
 
 ::: {#exr-domain-l}
 
@@ -312,7 +311,7 @@ B(u,u) & = \int_{U}\bm{A} \nabla u \cdot \nabla u + \int_{U} cu^2 \geq \alpha \n
 \end{aligned}
 $$ {#eq-b-0}
 
-Where in the first inequality, we used the ellipticity assumption on $\bm{A}$, and in the last inequality, we used [Poincaré's inequality](<../../PDEs/3. Sobolev spaces/index.qmd>) if $U$ is bounded. The result now follows from [Lax Milgram's theorem](<../../PDEs/2. What is a Hilbert space/index.qmd>).
+Where in the first inequality, we used the ellipticity assumption on $\bm{A}$, and in the last inequality, we used [Poincaré's inequality](</posts/PDEs/3. Sobolev spaces/index.qmd>) if $U$ is bounded. The result now follows from [Lax Milgram's theorem](</posts/PDEs/2. What is a Hilbert space/index.qmd>).
 
 :::
 
@@ -326,7 +325,7 @@ Show that, under the conditions of @thm-well-posed-1, if $U$ is bounded, there i
 
 ::: {.callout-tip collapse="true" title="Hint"}
 
-By [Rellich's theorem](<../../PDEs/3. Sobolev spaces/index.qmd>) $\Ll^{-1}: L^2(U) \to L^2(U)$ is compact and, since $\bm{b}$ is $0$, $\Ll$ is also is self adjoint. As a result, so there is a countable basis of eigenvectors in $L^2(U)$.
+By [Rellich's theorem](</posts/PDEs/3. Sobolev spaces/index.qmd>) $\Ll^{-1}: L^2(U) \to L^2(U)$ is compact and, since $\bm{b}$ is $0$, $\Ll$ is also is self adjoint. As a result, so there is a countable basis of eigenvectors in $L^2(U)$.
 
 :::
 
@@ -370,7 +369,7 @@ to $a=\nabla u$ and $b= v$, shows that
 $$
 \begin{aligned}
 B(u,u) & = \int_{U}(\bm{A} \nabla u) \cdot \nabla u + \int_{U} \bm{b}\cdot (\nabla u) u + \int_{U} cu^2 \geq \alpha \norm{\nabla u}^2_{L^2(U \to \R^d)}                          \\
-           & - \frac{1}{2}\norm{\bm{b}}_{L^\infty(U)} \qt{\varepsilon \norm{\nabla u}_{L^2(U)}^2+ \varepsilon ^{-1}\norm{u}^2_{L^2(U)}}- \norm{c}_{L^\infty(U)}\norm{u}^2_{L^2(U)} .
+& - \frac{1}{2}\norm{\bm{b}}_{L^\infty(U)} \qt{\varepsilon \norm{\nabla u}_{L^2(U)}^2+ \varepsilon ^{-1}\norm{u}^2_{L^2(U)}}- \norm{c}_{L^\infty(U)}\norm{u}^2_{L^2(U)} .
 \end{aligned}
 $$
 
@@ -414,7 +413,7 @@ $$
 \end{aligned}
 $$ {#eq-below}
 
-where $\bm{I}$ is the identity operator. Suppose now that $U$ is bounded, then, by [Rellich's theorem](<../../PDEs/3. Sobolev spaces/index.qmd>), we know that the following inclusion is compact
+where $\bm{I}$ is the identity operator. Suppose now that $U$ is bounded, then, by [Rellich's theorem](</posts/PDEs/3. Sobolev spaces/index.qmd>), we know that the following inclusion is compact
 
 $$
 \begin{aligned}
@@ -438,7 +437,7 @@ $$
 \end{aligned}
 $$ {#eq-reasoning}
 
-Equation ([-@eq-reasoning]) is exactly the form the [Fredholm alternative](<../../PDEs/2. What is a Hilbert space/index.qmd>) takes ($\mu$ can be incorporated into  the compact operator $K$) and justifies the following.
+Equation ([-@eq-reasoning]) is exactly the form the [Fredholm alternative](</posts/PDEs/2. What is a Hilbert space/index.qmd>) takes ($\mu$ can be incorporated into  the compact operator $K$) and justifies the following.
 
 ::: {#thm-well-posedness-fredholm}
 
@@ -447,7 +446,7 @@ Let $U\subset \R^d$ be bounded, let $\Ll$ verify Assumption @thm-ass1, and $\lam
 $$
 \begin{aligned}
 \mathcal{L}u & = \lambda u + f \quad \text{and} \quad u \in H_0^1(U)                            \\
-\mathcal{L}u & = \lambda u \quad \hspace{17pt}\text{and} \quad u \in H_0^1(U)
+\mathcal{L}u & = \lambda u \quad \text{and} \quad u \in H_0^1(U)
 \end{aligned}
 $$ {#eq-original}
 
@@ -484,7 +483,7 @@ $$
 $$
 \begin{aligned}
 Tv & = f  \quad \text{and} \quad  v \in L^2(U),              \\
-    Tv & = 0 \quad \text{and} \quad  v \in L^2(U).
+Tv & = 0 \quad \text{and} \quad  v \in L^2(U).
 \end{aligned}
 $$ {#eq-fred}
 
@@ -566,7 +565,7 @@ Where does the proof of @thm-well-posedness-fredholm break down if we replace $U
 
 ::: {.callout-tip collapse="true" title="Hint"}
 
-Can you apply  [Rellich's theorem](<../../PDEs/3. Sobolev spaces/index.qmd>) to unbounded domains? What is the spectrum of the Laplacian on $\R^d$?
+Can you apply  [Rellich's theorem](</posts/PDEs/3. Sobolev spaces/index.qmd>) to unbounded domains? What is the spectrum of the Laplacian on $\R^d$?
 
 :::
 
@@ -635,7 +634,7 @@ We begin by proving the first point. Since $L^p(\R^d)$ is reflexive, every bound
 $$
 \begin{aligned}
 \int_{\R^d} v \varphi & = \lim_{n \to \infty} \int_{\R^d} D_j^{h_n} u \varphi = \lim_{n \to \infty} \int_{\R^d} u(x)\frac{\varphi(x-h_n e_j)- \varphi (x)}{h_n}\d x
-    \\&= \int_{\R^d} u(x)\lim_{n \to \infty} -D_j^{-h_n} \varphi \d x =-\int_{\R^d} u \partial_j \varphi,\notag
+\\&= \int_{\R^d} u(x)\lim_{n \to \infty} -D_j^{-h_n} \varphi \d x =-\int_{\R^d} u \partial_j \varphi,\notag
 \end{aligned}
 $$ {#eq-weak-int-parts}
 
@@ -681,11 +680,11 @@ Prove @lem-difference-quotients-2.
 
 ::: {.callout-tip collapse="true" title="Hint"}
 
-Adapt the proof of @lem-difference-quotients-1.  Take $\varphi \in C_c^\infty(V)$ for the first point. For the second point, use the [local density](<../../PDEs/3. Sobolev spaces/index.qmd>) of smooth functions in $W^{1,p}(U)$.
+Adapt the proof of @lem-difference-quotients-1.  Take $\varphi \in C_c^\infty(V)$ for the first point. For the second point, use the [local density](</posts/PDEs/3. Sobolev spaces/index.qmd>) of smooth functions in $W^{1,p}(U)$.
 
 :::
 
-### Regularity on $\R^d$ 
+### Regularity on $\R^d$
 
 By using second-order finite difference, we now show that the solution to ([-@eq-pde]) is in $H^2(\R^d)$ if we impose additionally that $\bm{A}$ is continuously differentiable.
 
@@ -890,7 +889,7 @@ Let $A_{ij}, b_i,c \in C^{\infty}(\R^d)$ with $\bm{A}$ elliptic. Then, if $u \in
 
 ::: {.proof}
 
-By @thm-higher-regularity-2, we have that $u \in H^k(\R^d)$ for all $k \in \N$. By [Sobolev embeddings](<../../PDEs/3. Sobolev spaces/index.qmd>) we deduce that $u \in C^\infty(\R^d)$.
+By @thm-higher-regularity-2, we have that $u \in H^k(\R^d)$ for all $k \in \N$. By [Sobolev embeddings](</posts/PDEs/3. Sobolev spaces/index.qmd>) we deduce that $u \in C^\infty(\R^d)$.
 
 :::
 
@@ -900,7 +899,7 @@ At first sight, it may seem as if the above results can be extended to solutions
 
 The following argument is **false**. Show the flaw in the reasoning.
 
-Let $U \subset \R^d$ be any open subset. Suppose that $A_{ij}\in C^1(\overline{U} )$ is elliptic and that $b_i, c \in L^\infty(U)$ . Let $u \in H_0^1(U)$ solve $\Ll u=f$. The [extension](<../../PDEs/3. Sobolev spaces/index.qmd>) $\tl{u}$ to $\R^d$ by zero of $u$ is in $H^1(\R^d)$. The coefficients $b,c$ can likewise be extended by $0$ to functions $\tl{\bm{b}}, \tl{c} \in  L^\infty(\R^d)$. Likewise for $f$ to $\tl{f} \in L^2(\R^d)$ and by Assumption, $\bm{A}$ is the restriction to $U$ of some function $\tl{A} \in C^1(\R^d)$. We have that 
+Let $U \subset \R^d$ be any open subset. Suppose that $A_{ij}\in C^1(\overline{U} )$ is elliptic and that $b_i, c \in L^\infty(U)$ . Let $u \in H_0^1(U)$ solve $\Ll u=f$. The [extension](</posts/PDEs/3. Sobolev spaces/index.qmd>) $\tl{u}$ to $\R^d$ by zero of $u$ is in $H^1(\R^d)$. The coefficients $b,c$ can likewise be extended by $0$ to functions $\tl{\bm{b}}, \tl{c} \in  L^\infty(\R^d)$. Likewise for $f$ to $\tl{f} \in L^2(\R^d)$ and by Assumption, $\bm{A}$ is the restriction to $U$ of some function $\tl{A} \in C^1(\R^d)$. We have that 
 
 $$
 \begin{aligned}
@@ -961,7 +960,7 @@ However, $\tl{u}$ is not in $H^2(\R)$ as $\tl{u}''= \delta _{-1}+ \delta _1 -2 \
 
 We have just seen that a direct generalization of @thm-improved-reg-rd to unbounded domains is not possible using an extension by zero. However, by adapting the proof of @thm-improved-reg-rd, one can prove the analogous result.
 
-In this case, however, one has to be careful as the difference quotients may not be well defined at the boundary. As a result, it is necessary to work locally and use a [bump function](<../../PDEs/3. Sobolev spaces/index.qmd>). This makes the proofs a bit messier, though the idea is the same. We sketch the proof, which can also be found in [@evans2022partial] page 326
+In this case, however, one has to be careful as the difference quotients may not be well defined at the boundary. As a result, it is necessary to work locally and use a [bump function](</posts/PDEs/3. Sobolev spaces/index.qmd>). This makes the proofs a bit messier, though the idea is the same. We sketch the proof, which can also be found in [@evans2022partial] page 326
 
 ::: {#thm-higher-regularity name="Improved interior regularity"}
 
@@ -1178,9 +1177,9 @@ Let us define $\tl{u}:= u \circ \varphi ^{-1}$ on $\tl{\Omega }$. Then, $\tl{u}$
 $$
 \begin{aligned}
 \begin{cases}
-        \tl{\Ll }\tl{u} =\tl{f} & \text{in } \tl{\Omega }             \\
-        \tl{u}=0                & \text{on } \partial \tl{\Omega }_0.
-    \end{cases}
+\tl{\Ll }\tl{u} =\tl{f} & \text{in } \tl{\Omega }             \\
+\tl{u}=0                & \text{on } \partial \tl{\Omega }_0.
+\end{cases}
 \end{aligned}
 $$
 
@@ -1262,7 +1261,7 @@ Let $\Omega \subset \R^d$ be bounded of class $C^{\infty}$. Let $A_{ij}, b_i,c \
 
 ## Other boundary conditions
 
-So far, we have only worked with homogeneous Dirichlet boundary conditions. However, it often makes more sense to work with the non-homogeneous case. We also show how to extend the results to Neumann or Robin [boundary conditions](<../../PDEs/4. Physical derivation/index.qmd>). In this section, we will see how to adapt the results of the previous section to these cases.
+So far, we have only worked with homogeneous Dirichlet boundary conditions. However, it often makes more sense to work with the non-homogeneous case. We also show how to extend the results to Neumann or Robin [boundary conditions](</posts/PDEs/4. Physical derivation/index.qmd>). In this section, we will see how to adapt the results of the previous section to these cases.
 
 ### Non-homogeneous Dirichlet boundary conditions
 
@@ -1271,20 +1270,20 @@ Consider the problem with non-homogeneous Dirichlet boundary conditions on a dom
 $$
 \begin{aligned}
 \begin{cases}
-        \Ll u =f & \text{in } \Omega ,          \\
-        u=g      & \text{on } \partial \Omega .
-    \end{cases}
+\Ll u =f & \text{in } \Omega ,          \\
+u=g      & \text{on } \partial \Omega .
+\end{cases}
 \end{aligned}
 $$ {#eq-pde-dirichlet}
 
-For ([-@eq-pde-dirichlet]) to hold, it is necessary that $g$ is the restriction to $\partial \Omega$ of some function $\tl{g}$ called a *lifting* of $\tl{g}$ onto $\Omega$   (in particular it is the restriction of  $u$ to $\partial \Omega$ ). That is, $\tl{g}  \in \rm{Tr}(H^m(\Omega ))$ where $\rm{Tr}$ is the trace operator and $m$ is the desired regularity of $u$. By [theory of the trace operator](<../../PDEs/5. Fractional and negative order Sobolev spaces/index.qmd>), we know that this is equivalent to $g \in H^{m-1/2}(\partial \Omega )$. Then, by forming $w:= u-\tl{g}$ we obtain that $w$ solves the homogeneous Dirichlet problem 
+For ([-@eq-pde-dirichlet]) to hold, it is necessary that $g$ is the restriction to $\partial \Omega$ of some function $\tl{g}$ called a *lifting* of $\tl{g}$ onto $\Omega$   (in particular it is the restriction of  $u$ to $\partial \Omega$ ). That is, $\tl{g}  \in \rm{Tr}(H^m(\Omega ))$ where $\rm{Tr}$ is the trace operator and $m$ is the desired regularity of $u$. By [theory of the trace operator](</posts/PDEs/5. Fractional and negative order Sobolev spaces/index.qmd>), we know that this is equivalent to $g \in H^{m-1/2}(\partial \Omega )$. Then, by forming $w:= u-\tl{g}$ we obtain that $w$ solves the homogeneous Dirichlet problem 
 
 $$
 \begin{aligned}
 \begin{cases}
-        \Ll w =\tl{f} & \text{in } \Omega ,          \\
-        w=0           & \text{on } \partial \Omega ,
-    \end{cases}
+\Ll w =\tl{f} & \text{in } \Omega ,          \\
+w=0           & \text{on } \partial \Omega ,
+\end{cases}
 \end{aligned}
 $$
 
@@ -1317,9 +1316,9 @@ Consider a bounded domain $\Omega$ with boundary of type $C^{0,1}$ (Lipschitz bo
 $$
 \begin{aligned}
 \begin{cases}
-        \Ll u =f                                   & \text{in } \Omega ,          \\
-        \bm{A} \nabla u \cdot \bm{n} =g + \sigma u & \text{on } \partial \Omega ,
-    \end{cases}.
+\Ll u =f                                   & \text{in } \Omega ,          \\
+\bm{A} \nabla u \cdot \bm{n} =g + \sigma u & \text{on } \partial \Omega ,
+\end{cases}.
 \end{aligned}
 $$ {#eq-pde-neumann}
 
@@ -1332,7 +1331,7 @@ B(u,v):= \int_{\Omega } \bm{A} \nabla u \cdot \nabla v +\int_{\Omega } \bm{b} \n
 \end{aligned}
 $$ {#eq-weak-def-neumann}
 
-For the weak form to be well defined we need for $f$ to be in the dual space $H^1(\Omega )'$ (this is [different](<../../PDEs/5. Fractional and negative order Sobolev spaces/index.qmd>) from $H^{-1}(\Omega ):= H^1(\Omega )'$)and $g \in H^{-1/2}(\partial \Omega )$ . A similar reasoning to previously shows the following. 
+For the weak form to be well defined we need for $f$ to be in the dual space $H^1(\Omega )'$ (this is [different](</posts/PDEs/5. Fractional and negative order Sobolev spaces/index.qmd>) from $H^{-1}(\Omega ):= H^1(\Omega )'$)and $g \in H^{-1/2}(\partial \Omega )$ . A similar reasoning to previously shows the following. 
 
 ::: {#thm-3}
 
@@ -1372,9 +1371,9 @@ The third point can be seen by first repeating the proof of @thm-improved-regula
 $$
 \begin{aligned}
 \begin{cases}
-        \Ll \tl{u} =\tl{f}                                             & \text{in } \tl{\Omega },            \\
-        \bm{A} \nabla \tl{u} \cdot \bm{n} =\tl{g} + \tl{\sigma} \tl{u} & \text{on } \partial \tl{\Omega_0 }.
-    \end{cases}
+\Ll \tl{u} =\tl{f}                                             & \text{in } \tl{\Omega },            \\
+\bm{A} \nabla \tl{u} \cdot \bm{n} =\tl{g} + \tl{\sigma} \tl{u} & \text{on } \partial \tl{\Omega_0 }.
+\end{cases}
 \end{aligned}
 $$
 
@@ -1408,7 +1407,7 @@ $$
 \end{aligned}
 $$
 
-Note carefully that $B$ is *not* coercive on $H^1(\Omega )$ as [Poincaré's inequality](<../../PDEs/3. Sobolev spaces/index.qmd>) does not hold for Neumann boundary conditions.
+Note carefully that $B$ is *not* coercive on $H^1(\Omega )$ as [Poincaré's inequality](</posts/PDEs/3. Sobolev spaces/index.qmd>) does not hold for Neumann boundary conditions.
 
 ::: {#exr-eigensapace}
 

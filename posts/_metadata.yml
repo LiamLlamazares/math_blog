@@ -2,3 +2,4 @@ format:
   html:
     include-after-body: 
       - ../giscus.html
+      - ../_includes/pdf-link-injector.html

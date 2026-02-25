@@ -468,10 +468,10 @@ def build_label_registry(posts_root: Path, tex_name: str = 'main.tex') -> dict:
                     registry[folder_str][label] = qid
                     registry[folder_str][qid] = qid
 
-        # Scan sections for labels
-        sec_pattern = re.compile(r'\\(?:section|subsection|subsubsection)\{([^}]*)\}(?:\s*\\label\{([^}]*)\})?')
+        # Scan sections for labels (including starred versions)
+        sec_pattern = re.compile(r'\\(?:section|subsection|subsubsection)(\*?)\{([^}]*)\}(?:\s*\\label\{([^}]*)\})?')
         for m in sec_pattern.finditer(body):
-            label = m.group(2)
+            label = m.group(3)
             if label:
                 label_id = sanitize(label)
                 if not label_id.startswith('sec-'):
@@ -561,7 +561,12 @@ def convert_body(body: str, label_registry: dict | None = None,
                  pdf_filename: str | None = None) -> str:
     r"""Apply all mechanical transformations to the LaTeX body.
     """
-    text = body
+    # --- Pass 0a: Structural Normalization ---
+    # Split, lstrip, and rejoin to prevent 4-space/tab indented code blocks in Markdown.
+    # We do this first because LaTeX source indentation is purely cosmetic,
+    # but Markdown indentation is semantic.
+    lines = [l.lstrip() for l in body.split('\n')]
+    text = '\n'.join(lines)
 
     # Insert PDF Link at the top if available
     if pdf_filename:
@@ -570,9 +575,14 @@ def convert_body(body: str, label_registry: dict | None = None,
         pdf_banner = f"::: {{.callout-note appearance=\"minimal\"}}\n[Download PDF version]({pdf_url})\n:::\n\n"
         text = pdf_banner + text
 
-    # Strip legacy "outdated PDF" disclaimers
+    # Strip legacy "outdated PDF" disclaimers and spacing commands
     text = re.sub(r'(?i)link to a (?:possibly )?outdated PDF content.*?\.', '', text)
     text = re.sub(r'(?i)a possibly outdated version of the PDF.*?\.', '', text)
+    
+    # Clean up LaTeX specific spacing markers
+    text = re.sub(r'\\(?:bigbreak|medbreak|smallbreak|noindent|hfill)', '', text)
+    text = re.sub(r'\\hspace\{[^}]*\}', '', text)
+    text = re.sub(r'\\vspace\{[^}]*\}', '', text)
 
     # Map of LaTeX labels to generated Quarto IDs, populated during conversion
     label_map = {}  # e.g. {'density': 'eq-density', 'independence': 'prp-1', ...}
@@ -599,8 +609,9 @@ def convert_body(body: str, label_registry: dict | None = None,
     # --- Pass 1: Sections ---
     def replace_sections(m):
         level = m.group(1)
-        title = m.group(2)
-        label = m.group(3)
+        is_starred = m.group(2) == '*'
+        title = m.group(3).strip()
+        label = m.group(4)
         hashes = '##' if level == 'section' else '###' if level == 'subsection' else '####'
         if label:
             label_id = sanitize_label(label)
@@ -608,9 +619,15 @@ def convert_body(body: str, label_registry: dict | None = None,
                 label_id = f"sec-{label_id}"
             label_map[label] = label_id
             return f'\n\n{hashes} {title} {{#{label_id}}}\n\n'
+        if is_starred:
+            return f'\n\n{hashes} {title} {{.unnumbered}}\n\n'
         return f'\n\n{hashes} {title}\n\n'
 
-    text = re.sub(r'\\(section|subsection|subsubsection)\{([^}]*)\}(?:\s*\\label\{([^}]*)\})?', replace_sections, text)
+    text = re.sub(r'\\(section|subsection|subsubsection)(\*?)\{([^}]*)\}(?:\s*\\label\{([^}]*)\})?', replace_sections, text)
+
+    # --- Pass 1b: Convert \[ ... \] to $$ ... $$ ---
+    # We do this before theorem processing so internal math is standardized
+    text = re.sub(r'\\\[(.*?)\\\]', r'\n\n$$\1$$\n\n', text, flags=re.DOTALL)
 
     # --- Pass 2: Theorem-like environments ---
     # Process from innermost out: we iterate until no more matches
@@ -641,14 +658,15 @@ def convert_body(body: str, label_registry: dict | None = None,
     # Match \begin{theorem}\label{X}, \begin{theorem}[Name]\label{X}, etc.
     for env_name in THEOREM_ENVS:
         # Pattern: \begin{env}[optional name]\label{optional label} ... \end{env}
+        # Handles nested braces in [Name] by using a non-greedy balance check
         pattern = re.compile(
             r'\\begin\{' + env_name + r'\}'
-            r'(?:\[([^\]]*)\])?'       # optional [Name]
-            r'(?:\\label\{([^}]*)\})?'  # optional \label{X}
-            r'[ \t]*'                   # consume spaces
-            r'(?:%.*?\n)?'              # consume optional comment
-            r'\s*'                      # consume remaining whitespace/newlines
-            r'(.*?)'                    # inner content
+            r'(?:\[((?:\{[^{}]*\}|[^\]])*)\])?'  # optional [Name], supporting one level of {braces}
+            r'(?:\\label\{([^}]*)\})?'            # optional \label{X}
+            r'[ \t]*'                             # consume spaces
+            r'(?:%.*?\n)?'                        # consume optional comment
+            r'\s*'                                # consume remaining whitespace/newlines
+            r'(.*?)'                              # inner content
             r'\\end\{' + env_name + r'\}',
             re.DOTALL
         )
@@ -1108,25 +1126,11 @@ def convert_body(body: str, label_registry: dict | None = None,
             print(f"  WARNING: \\postref folder '{folder_arg}' not found in registry")
 
         # Use Quarto-native relative paths to .qmd files
-        if current_folder:
-            from pathlib import PurePosixPath
-            src = PurePosixPath(current_folder)
-            dst_clean = folder_arg.replace('\\', '/')
-            
-            # Both are relative to posts/, so compute relative
-            # We go up from src, then down to dst
-            up = '/'.join(['..'] * len(src.parts))
-            # Quarto will automatically convert index.qmd to the correct HTML route
-            # Use <> brackets to handle potential spaces in the folder names
-            rel_path = f"{up}/{dst_clean}/index.qmd" if up else f"{dst_clean}/index.qmd"
-            return f'[{display}](<{rel_path}{anchor}>)'
-        else:
-            # Fallback: absolute URL
-            import urllib.parse
-            folder_url = urllib.parse.quote(folder_arg, safe='/')
-            return f'[{display}](https://nowheredifferentiable.com/posts/{folder_url}/)'
-
-        return f'[{display}]({rel_path}{anchor})'
+        # Use absolute path from project root for maximum reliability in Quarto
+        # Quarto resolves paths starting with / relative to the project root.
+        dst_clean = folder_arg.replace('\\', '/')
+        target = f"/posts/{dst_clean}/index.qmd"
+        return f'[{display}](<{target}{anchor}>)'
 
     # --- Pass 7c: Internal References (\ref, \eqref, \Cref) ---
     def convert_refs(m):
@@ -1239,7 +1243,6 @@ def build_qmd(meta: dict, body: str, mathjax_macros: str) -> str:
     # Format block with MathJax
     lines.append('format:')
     lines.append('  html:')
-    lines.append('    css: custom_theorems.css')
     lines.append('    toc: true')
     lines.append('    number-sections: true')
     lines.append('    html-math-method: mathjax')

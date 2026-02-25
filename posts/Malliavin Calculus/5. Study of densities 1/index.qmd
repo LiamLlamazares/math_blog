@@ -7,7 +7,6 @@ description: "Part 5 of the series on Malliavin calculus"
 bibliography: biblio.bib
 format:
   html:
-    css: custom_theorems.css
     toc: true
     number-sections: true
     html-math-method: mathjax
@@ -116,16 +115,7 @@ format:
 [Download PDF version](main.pdf)
 :::
 
-	
-	
-	
-	
-	
-	
-
 ## Three line summary
-
-	
 
 - A Malliavin differentiable random variable $X\in \mathbb{D}^{1,2}$ is supported in intervals.
 
@@ -133,41 +123,33 @@ format:
 
 - If  $X$ is smooth then  $p$ is smooth.
 
-	
-
 ## Why should I care?
 
-	The density of a random variable (if it exists) gives us complete information about it and is the fundamental goal of statistical inference.
-	
+The density of a random variable (if it exists) gives us complete information about it and is the fundamental goal of statistical inference.
 
 ## Notation
 
-	Same as other posts, we recall in particular that $\mathbb{D}^\infty$ is the space of Malliavin smooth random variables. Additionally, to simplify many expressions, we  introduce the notation
-	
+Same as other posts, we recall in particular that $\mathbb{D}^\infty$ is the space of Malliavin smooth random variables. Additionally, to simplify many expressions, we  introduce the notation
+
 $$
 H:=L^2(I).
 $$
 
-	
-
 ## Introduction
 
-	Our goal is to establish some fundamental properties on the existence of densities using Malliavin calculus. This is one of the first reasons why Malliavin calculus was conceived. Firstly, we recall that given a random variable $X:\Omega\to M$ valued in some metric space $M$, the support of  $X$ is defined to be the set of points $x\in M$ such that
-	
+Our goal is to establish some fundamental properties on the existence of densities using Malliavin calculus. This is one of the first reasons why Malliavin calculus was conceived. Firstly, we recall that given a random variable $X:\Omega\to M$ valued in some metric space $M$, the support of  $X$ is defined to be the set of points $x\in M$ such that
+
 $$
 \mathbb{P}_X(B_\varepsilon(x))>0,\quad\forall \varepsilon>0.
 $$
 
-	That is, $X$ has a positive probability of falling in any ball that contains  $x$. Our first result characterizes the support of real-valued Malliavin differentiable random variables.
-	
+That is, $X$ has a positive probability of falling in any ball that contains  $x$. Our first result characterizes the support of real-valued Malliavin differentiable random variables.
 
 ::: {#prp-1}
 
 Let $X\in \mathbb{D}^{1,2}$, then the support of $X$ is an interval.
 
 :::
-
-	
 
 ::: {.proof}
 
@@ -178,7 +160,7 @@ $$
 $$ {#eq-sup}
 
 Where we also take $\varepsilon$ small enough so that $a<x-\varepsilon<x+\varepsilon<b$.
-Now take a smooth and bounded function $\varphi$ with $\varphi(y)=0$ for $y<x-\varepsilon$ and with $\varphi(y)=1$ for $y>x+\varepsilon$. By ([-@eq-sup]) it holds that (almost everywhere) $\varphi(X)=1_{X>x+\varepsilon}$. Combining [proposition 5](<../../Malliavin Calculus/3.Malliavin_derivative_1/index.qmd#prp-5>) and [corollary 1](<../../Malliavin Calculus/3.Malliavin_derivative_1/index.qmd#cor-1>) of the previous post, we obtain that $1_{X>x+\varepsilon}$ is either $0$ or $1$ almost everywhere. That is,
+Now take a smooth and bounded function $\varphi$ with $\varphi(y)=0$ for $y<x-\varepsilon$ and with $\varphi(y)=1$ for $y>x+\varepsilon$. By ([-@eq-sup]) it holds that (almost everywhere) $\varphi(X)=1_{X>x+\varepsilon}$. Combining [proposition 5](</posts/Malliavin Calculus/3.Malliavin_derivative_1/index.qmd#prp-5>) and [corollary 1](</posts/Malliavin Calculus/3.Malliavin_derivative_1/index.qmd#cor-1>) of the previous post, we obtain that $1_{X>x+\varepsilon}$ is either $0$ or $1$ almost everywhere. That is,
 
 $$
 \mathbb{P}(X>x+\varepsilon)=0\quad \text{or}\quad \mathbb{P}(X\leq x+\varepsilon)<0 .
@@ -188,17 +170,14 @@ But this contradicts that both $a,b$ are in the support of $X$. This concludes t
 
 :::
 
-	Ok, now we know the support of Malliavin differentiable functions are nicely shaped intervals. But what about densities, when can we guarantee their existence? Consider for example the simplest of all cases, $X=x\in \R$. That is $X$ always takes the value  $x$. Then  $X$ is Malliavin differentiable, however, it admits no density (no, the $\delta$ function does not count as a density).
-	Let's consider a case that is a bit less trivial, set  $$X=I_1(f)= \int_{I}f(t) dW(t),\quad f \in H.$$  Then, we have that $X$ is a Gaussian random variable with  $$X\sim \Nn(0,\norm{f}^2_{H}).$$ As a result, we obtain that $X$  will fail to have a density if (and only if) $\norm{f}_{H}=\norm{DX}_{H}=0$. Notice that, in the previously considered case where $X$ failed to have a density, we also had that $\norm{DX}_{H}$ became $0$.  The next proposition shows that this is not a fluke.
-	
+Ok, now we know the support of Malliavin differentiable functions are nicely shaped intervals. But what about densities, when can we guarantee their existence? Consider for example the simplest of all cases, $X=x\in \R$. That is $X$ always takes the value  $x$. Then  $X$ is Malliavin differentiable, however, it admits no density (no, the $\delta$ function does not count as a density).
+Let's consider a case that is a bit less trivial, set  $$X=I_1(f)= \int_{I}f(t) dW(t),\quad f \in H.$$  Then, we have that $X$ is a Gaussian random variable with  $$X\sim \Nn(0,\norm{f}^2_{H}).$$ As a result, we obtain that $X$  will fail to have a density if (and only if) $\norm{f}_{H}=\norm{DX}_{H}=0$. Notice that, in the previously considered case where $X$ failed to have a density, we also had that $\norm{DX}_{H}$ became $0$.  The next proposition shows that this is not a fluke.
 
 ::: {#thm-1 name="Existence of densities"}
 
 Let $X\in \mathbb{D}^{1,2}$. If $\norm{DX}_{H}>0$ almost everywhere, then $X$ has a density.
 
 :::
-
-	
 
 ::: {.proof}
 
@@ -208,7 +187,7 @@ $$
 \varphi(x):=\int_{-\infty}^x g(y)dy.
 $$
 
-Then, by construction $\varphi=0$, so also $\varphi(X)=0$. Suppose now that $g$ were continuous. Then we would have that, by the fundamental theorem of calculus $\varphi'(x)=g(x)$. So by the [chain rule](<../../Malliavin Calculus/3.Malliavin_derivative_1/index.qmd#prp-5>)
+Then, by construction $\varphi=0$, so also $\varphi(X)=0$. Suppose now that $g$ were continuous. Then we would have that, by the fundamental theorem of calculus $\varphi'(x)=g(x)$. So by the [chain rule](</posts/Malliavin Calculus/3.Malliavin_derivative_1/index.qmd#prp-5>)
 
 $$
 0=D \varphi(X)=\varphi'(X)DX=g(X)DX.
@@ -218,8 +197,7 @@ By taking $H$ norms on each side, we would deduce that, since $DX$ is non-zero, 
 
 :::
 
-	The question is, can we give an explicit formula for the density of $X$. The answer is (under some stricter conditions) yes, and the proof uses a similar trick as our last one.
-	
+The question is, can we give an explicit formula for the density of $X$. The answer is (under some stricter conditions) yes, and the proof uses a similar trick as our last one.
 
 ::: {#thm-dens-exists name="Density expression"}
 
@@ -231,8 +209,6 @@ $$
 
 :::
 
-	
-
 ::: {.proof}
 
 Let us consider $g\in C_c^\infty(\R)$ and set as before
@@ -241,18 +217,18 @@ $$
 \varphi(X):=\int_{-\infty}^X g(x)dx.
 $$
 
-Then by the [chain rule](<../../Malliavin Calculus/3.Malliavin_derivative_1/index.qmd#prp-5>) and the fundamental theorem of calculus, we have that
+Then by the [chain rule](</posts/Malliavin Calculus/3.Malliavin_derivative_1/index.qmd#prp-5>) and the fundamental theorem of calculus, we have that
 
 $$
 \br{D\varphi(X),\frac{DX}{\norm{DX}^2_{H}}}_{H}=g(X).
 $$
 
-By taking expectations on both sides, and using that the Skorokhod integral is the [adjoint](<../../Malliavin Calculus/4.Malliavin_derivative_2/index.qmd#thm-1>) of the Malliavin derivative, and Fubini we obtain
+By taking expectations on both sides, and using that the Skorokhod integral is the [adjoint](</posts/Malliavin Calculus/4.Malliavin_derivative_2/index.qmd#thm-1>) of the Malliavin derivative, and Fubini we obtain
 
 $$
 \begin{aligned}
 & \E[g(X)]=\E\left[\br{D\varphi(X),\frac{DX}{\norm{DX}^2_{H}}}_{H}\right]=\E\left[\varphi(X)\delta\left(\frac{DX}{\norm{DX}_{H}^2}\right)\right]                                 \\
-	 & =\E\left[\left(\int_{\R}1_{x<X} g(x)dx\right)\delta\left(\frac{DX}{\norm{DX}^2_{H}}\right)\right]=\int_{\R}g(x)\E\left[1_{x<X}\delta \left(\frac{DX}{\norm{DX}_{H}^2}\right) \right] \\&=\int_{\R}g(x)p(x).
+& =\E\left[\left(\int_{\R}1_{x<X} g(x)dx\right)\delta\left(\frac{DX}{\norm{DX}^2_{H}}\right)\right]=\int_{\R}g(x)\E\left[1_{x<X}\delta \left(\frac{DX}{\norm{DX}_{H}^2}\right) \right] \\&=\int_{\R}g(x)p(x).
 \end{aligned}
 $$
 
@@ -260,8 +236,7 @@ Since $g$ was any smooth function this concludes the proof (as we can always app
 
 :::
 
-	To show the differentiability of $p(x)$ we need the following lemma which will let us transfer- derivatives onto the density $p$.
-	
+To show the differentiability of $p(x)$ we need the following lemma which will let us transfer- derivatives onto the density $p$.
 
 ::: {#lem-1 name="Integration by parts"}
 
@@ -299,8 +274,7 @@ By the previous comment, since $H_n(X,Y)\in \mathbb{D}^\infty$ also $H_{n+1}(X,Y
 
 :::
 
-	We now finally show that, if $X$ can be differentiated multiple times, then so can its density.
-	
+We now finally show that, if $X$ can be differentiated multiple times, then so can its density.
 
 ::: {#thm-2 name="Smooth variables have smooth densities"}
 
@@ -310,7 +284,7 @@ Let $X\in \mathbb{D}^\infty$ such that  $\norm{DX}_{H}>0$ almost everywhere, the
 
 ::: {.proof}
 
-By @thm-dens-exists we know that $X$ has a density $p(x)$. To show that $p$ is smooth, by [Sobolev embeddings](<../../PDEs/3. Sobolev spaces/index.qmd#thm-rellich>) it is sufficient to show that $p$ is weakly differentiable with order $n$ for all $n \in \N$. That is, for all $\varphi\in C_c^\infty(\R)$, there exists a function $p^{(n)}$ such that
+By @thm-dens-exists we know that $X$ has a density $p(x)$. To show that $p$ is smooth, by [Sobolev embeddings](</posts/PDEs/3. Sobolev spaces/index.qmd#thm-rellich>) it is sufficient to show that $p$ is weakly differentiable with order $n$ for all $n \in \N$. That is, for all $\varphi\in C_c^\infty(\R)$, there exists a function $p^{(n)}$ such that
 
 $$
 \E[\varphi^{(n)}(X)]=\int_{\R}\varphi^{(n)}(x)p(x) dx=(-1)^n\int_{\R}\varphi(x) p^{(n)}(x) dx.
@@ -342,9 +316,9 @@ Since this bounded expectation exists for all $n$, $p$ is smooth.
 
 :::
 
-	Finally, we comment that all these theorems carry over to the case where $X$ is a vector-valued random variable (as opposed to real-valued). In this case, the condition
-	for the existence of densities becomes that the matrix of derivatives $(\br{DX_i,DX_j}_{H})_{i,j}$ has non-zero determinant almost everywhere. We refer the reader to [@nualart2018introduction] 
-	Chapter  $7$ or [@hairer2021introduction]  chapter $4$ for the multidimensional theory.
+Finally, we comment that all these theorems carry over to the case where $X$ is a vector-valued random variable (as opposed to real-valued). In this case, the condition
+for the existence of densities becomes that the matrix of derivatives $(\br{DX_i,DX_j}_{H})_{i,j}$ has non-zero determinant almost everywhere. We refer the reader to [@nualart2018introduction] 
+Chapter  $7$ or [@hairer2021introduction]  chapter $4$ for the multidimensional theory.
 
 ## References
 

@@ -7,7 +7,6 @@ description: "Part 6 of the series on Malliavin calculus"
 bibliography: biblio.bib
 format:
   html:
-    css: custom_theorems.css
     toc: true
     number-sections: true
     html-math-method: mathjax
@@ -116,7 +115,7 @@ format:
 [Download PDF version](main.pdf)
 :::
 
-##  Three line summary
+## Three line summary
 
 - Solutions to SDEs of the form $dX=b(X) d t +\sigma (X)dW$ are Malliavin differentiable if $b,\sigma \in C^1(\R)$.
 
@@ -227,8 +226,8 @@ Where both Fubini and the commutation of the sum and the integrals are justified
 $$
 \begin{aligned}
 &\int_{I} \norm{\sum_{n=0}^{\infty}nI_{n-1}\left(\int_If_n(\cdot ,r,s)h(s)ds\right)}_{L^2(\Omega)}^2d r  \\
-	&\leq \int_{I}\sum_{n=0}^{\infty}n^2 \left(\int_{\R}\norm{I_{n-1}f_n(\cdot ,r,s)}^2_{L^2(\Omega)}d r\right)ds \norm{h}^2_{L^2(I)}\\
-	&=\norm{h}^2_{L^2(I)}\int_{I}\sum_{n=0}^{\infty}\norm{D_tX}_{L^2(I\times\Omega)}d t<\infty .
+&\leq \int_{I}\sum_{n=0}^{\infty}n^2 \left(\int_{\R}\norm{I_{n-1}f_n(\cdot ,r,s)}^2_{L^2(\Omega)}d r\right)ds \norm{h}^2_{L^2(I)}\\
+&=\norm{h}^2_{L^2(I)}\int_{I}\sum_{n=0}^{\infty}\norm{D_tX}_{L^2(I\times\Omega)}d t<\infty .
 \end{aligned}
 $$
 

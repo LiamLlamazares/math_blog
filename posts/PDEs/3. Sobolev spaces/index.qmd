@@ -7,7 +7,6 @@ description: "Density, trace and embeddings"
 bibliography: biblio.bib
 format:
   html:
-    css: custom_theorems.css
     toc: true
     number-sections: true
     html-math-method: mathjax
@@ -116,7 +115,7 @@ format:
 [Download PDF version](Sobolev%20spaces.pdf)
 :::
 
-##  Three line summary
+## Three line summary
 
 - Given open $U \subset \R^d$ the Sobolev spaces $W^{k,p}(U)$ are **complete** spaces of ** weakly differentiable** functions.
 
@@ -210,7 +209,7 @@ $$
 \end{aligned}
 $$ {#eq-pde1}
 
-Where $D$ is some domain in $\R^d$. In a previous post on the [Fourier transform](<../../PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>) we saw how to define the Sobolev spaces $H^s(D)$ when $D$ is the whole Euclidean space $\R^d$ or the torus $\T^d$. These spaces correspond to $s$-times weakly differentiable functions and we saw how these spaces could help us solve ([-@eq-pde1]).  However, in practice $D$ may be an open set in $\R^d$ or even some $d$-dimensional manifold with a boundary condition
+Where $D$ is some domain in $\R^d$. In a previous post on the [Fourier transform](</posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>) we saw how to define the Sobolev spaces $H^s(D)$ when $D$ is the whole Euclidean space $\R^d$ or the torus $\T^d$. These spaces correspond to $s$-times weakly differentiable functions and we saw how these spaces could help us solve ([-@eq-pde1]).  However, in practice $D$ may be an open set in $\R^d$ or even some $d$-dimensional manifold with a boundary condition
 
 $$
 \begin{aligned}
@@ -235,7 +234,7 @@ Suppose for example $D=U$ is an open set and $u: U \to \R$. Then, we can try to 
     \end{aligned}
     $$
 
-2. Studying if $\tilde{u} \in  H^s(\R^d)$. That is, as we saw in the [previous post](<../../PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>), checking if
+2. Studying if $\tilde{u} \in  H^s(\R^d)$. That is, as we saw in the [previous post](</posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>), checking if
 
     $$
     \begin{aligned}
@@ -279,7 +278,7 @@ As we will see later (@exr-restriction) this is a better approach. However, it i
 
 ### Seminorms and their topologies
 
-We need a new approach. Motivated as in the previous post by [duality](<../../PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>) we should begin by defining what is meant by a weak derivative of a function $u$ in $L^p(U)$. If $u,\varphi$ are smooth functions then we have by integration by parts
+We need a new approach. Motivated as in the previous post by [duality](</posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>) we should begin by defining what is meant by a weak derivative of a function $u$ in $L^p(U)$. If $u,\varphi$ are smooth functions then we have by integration by parts
 
 $$
 \begin{aligned}
@@ -313,7 +312,7 @@ C_c^\infty(K):= \set{\varphi \in C_c^\infty(U): \supp{\varphi} \subset K } .
 \end{aligned}
 $$
 
-We endow  $C_c^\infty(K)$ with the [topology generated  by the countable family of seminorms](<../../PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>)
+We endow  $C_c^\infty(K)$ with the [topology generated  by the countable family of seminorms](</posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>)
 
 $$
 \begin{aligned}
@@ -401,7 +400,7 @@ Show that $C_c^\infty(K)$ is complete and thus a [Fréchet](<https://en.wikipedi
 
 ::: {.callout-tip collapse="true" title="Hint"}
 
-The topology is [metrizable](<../../PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>) as the family of seminorms is countable
+The topology is [metrizable](</posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>) as the family of seminorms is countable
 Use @exr-convergence-tvs  to show that if $\varphi_n \in C_c^\infty(K)$ is Cauchy then the sequence of derivatives $D^\alpha \varphi_n$ converge uniformly to $\varphi^{(\alpha)} \in C_c^0(K)$ for all $\alpha$. It remains to show that
 
 $$
@@ -560,7 +559,7 @@ Of course, not all smooth functions have compact support. Other (in this case Fr
 $$
 \begin{aligned}
 C^\infty(U)                & :=\set{\varphi: \norm{\varphi}_j:= \sup_{\abs{\alpha} \leq j}  \norm{D^\alpha \varphi}_{L^\infty(U)}<\infty,\quad \forall k \in \mathbb{N} }                  \\
-	C^\infty_{\mathrm{loc}}(U) & :=\set{\varphi: \norm{\varphi}_{k,K}:= \sup_{\abs{\alpha} \leq k}  \norm{D^\alpha \varphi}_{L^\infty(K)}<\infty,\quad \forall k \in \mathbb{N}, K \subset U }
+C^\infty_{\mathrm{loc}}(U) & :=\set{\varphi: \norm{\varphi}_{k,K}:= \sup_{\abs{\alpha} \leq k}  \norm{D^\alpha \varphi}_{L^\infty(K)}<\infty,\quad \forall k \in \mathbb{N}, K \subset U }
 \end{aligned}
 $$
 
@@ -578,7 +577,7 @@ is continuous on $C^\infty(U)$.
 ### Locally integrable functions as distributions
 
 %
-In our post on the Fourier transform [we saw](<../../PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>) that integrable functions could naturally be considered as tempered distributions. The analogous is true for distributions. In this case, since our test functions are compactly supported, the functions we pair them up with only need to be locally integrable. We recall the definition
+In our post on the Fourier transform [we saw](</posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>) that integrable functions could naturally be considered as tempered distributions. The analogous is true for distributions. In this case, since our test functions are compactly supported, the functions we pair them up with only need to be locally integrable. We recall the definition
 
 ::: {#def-6}
 
@@ -590,7 +589,7 @@ L^p_{\mathrm{loc}}(U):= \set{f: \norm{f}_{L^p(K)}< \infty, \,\text{   for all co
 \end{aligned}
 $$
 
-And endow it with the [topology generated by the family of seminorms](<../../PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd#eq-seminormsgivemetric>)
+And endow it with the [topology generated by the family of seminorms](</posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd#eq-seminormsgivemetric>)
 
 $$
 \begin{aligned}
@@ -613,7 +612,7 @@ Show that $L^p_{\mathrm{loc} }(U)$ is a Fréchet space.
 
 ::: {.callout-tip collapse="true" title="Hint"}
 
-The topology is [metrizable](<../../PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>) as the family of seminorms is countable. By @exr-convergence-tvs  if $f_n \in L^p_{\mathrm{loc}}(U)$ is Cauchy then $f_n$ is Cauchy for all  $L^p(K)$ $D^\alpha \varphi_n$ so converges to some $f_K \in L^p(K)$. Show that $f_K= \restr{f}{K}$ where $f \in L^p_{\mathrm{loc}}(U)$    to conclude the proof.
+The topology is [metrizable](</posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>) as the family of seminorms is countable. By @exr-convergence-tvs  if $f_n \in L^p_{\mathrm{loc}}(U)$ is Cauchy then $f_n$ is Cauchy for all  $L^p(K)$ $D^\alpha \varphi_n$ so converges to some $f_K \in L^p(K)$. Show that $f_K= \restr{f}{K}$ where $f \in L^p_{\mathrm{loc}}(U)$    to conclude the proof.
 
 :::
 
@@ -917,9 +916,9 @@ Where the first and last inequality follows from the continuous immersion of $L^
 $$
 \begin{aligned}
 T: W^{k,p}(U) & \longrightarrow (L^p(U))_{\abs{\alpha}\leq k }
-	\\
-	u             & \longmapsto     (D^{\alpha}(u))_{\abs{\alpha}\leq k }
-	.
+\\
+u             & \longmapsto     (D^{\alpha}(u))_{\abs{\alpha}\leq k }
+.
 \end{aligned}
 $$
 
@@ -962,7 +961,7 @@ Points 1 and 2 follow by the definition of weak derivative and the relevant prop
 $$
 \begin{aligned}
 & (v*u,D^\alpha\varphi )  = \int_{\R^d}v(y)\qt{\int_{\R^d}D^\alpha \varphi(x) u(x-y) \d x } \d y \\&
-	=(-1)^{\abs{\alpha} } \int_{\R^d}v(y)  \qt{\int_{\R^d}\varphi(x) D^\alpha u(x-y) \d x } \d y             =(-1)^{\abs{\alpha} }(v*D^\alpha u, \varphi).
+=(-1)^{\abs{\alpha} } \int_{\R^d}v(y)  \qt{\int_{\R^d}\varphi(x) D^\alpha u(x-y) \d x } \d y             =(-1)^{\abs{\alpha} }(v*D^\alpha u, \varphi).
 \end{aligned}
 $$
 
@@ -1135,35 +1134,35 @@ $$
 ::: {.proof}
 
 The proof is an instructive way of using a partition of unity to piece together a local result (in this case @thm-local) to get a global one. Let $\eps >0$ and consider an open covering $\set{V_i}_{i=0}^\infty$ of $U$ with $V_0 =\emptyset$ and $V_{i} \Subset V_{i+1}$. By @thm-partition we may obtain a partition of unity $\rho _i$ subordinate to the ``rings'' $U_{i}:= V_{i+1}\setminus \overline{V_{i-1}}$ (the trickery with the indices is so that the $U_i$ actually  cover $U$). Where we relabel so that
-	
+
 $$
 \begin{aligned}
 \supp{\rho _i}\subset U_i .
 \end{aligned}
 $$
 
-	We have that $\rho_i u \in C_c^\infty({V_{i+1}})$ with $V_{i+1} \Subset U$ so by the local approximation in @thm-local we can find $n_i$ such that
-	
+We have that $\rho_i u \in C_c^\infty({V_{i+1}})$ with $V_{i+1} \Subset U$ so by the local approximation in @thm-local we can find $n_i$ such that
+
 $$
 \begin{aligned}
 \norm{\phi_{n_i}*(\rho_i u)-\rho_i u}_{W^{k,p}(U)}=\norm{\phi_{n_i}*(\rho_i u)-\rho_i u}_{V_{i+1}}\leq \frac{\eps }{2^i} .
 \end{aligned}
 $$
 
-	Now we obtain the global approximation by taking
-	
+Now we obtain the global approximation by taking
+
 $$
 \begin{aligned}
 \varphi:= \sum_{i=1}^\infty \phi_{n_i}* (\rho_i u) \in C_{\mathrm{loc}}^\infty(U) .
 \end{aligned}
 $$
 
-	As then
-	
+As then
+
 $$
 \begin{aligned}
 \norm{\varphi-u}
-		_{W^{k,p}(U)}\leq\sum_{i=1}^\infty \norm{\phi_{n_i}*(\rho_i u)-\rho_i u }_{W^{k,p}(U)}\leq \sum_{i=1}^\infty \frac{\eps }{2^i}=\eps   .
+_{W^{k,p}(U)}\leq\sum_{i=1}^\infty \norm{\phi_{n_i}*(\rho_i u)-\rho_i u }_{W^{k,p}(U)}\leq \sum_{i=1}^\infty \frac{\eps }{2^i}=\eps   .
 \end{aligned}
 $$
 
@@ -1358,9 +1357,9 @@ By @thm-global we also give ourselves an epsilon of room by supposing that $u \i
 $$
 \begin{aligned}
 Eu(x) = \begin{cases}
-		        u(x) \quad                                 & x_{d}                                 \geq 0      \\
-		        \sum_{j=1}^{k+1} a_j  u_j(x - j e_d) \quad & x_d                                           < 0
-	        \end{cases}.
+u(x) \quad                                 & x_{d}                                 \geq 0      \\
+\sum_{j=1}^{k+1} a_j  u_j(x - j e_d) \quad & x_d                                           < 0
+\end{cases}.
 \end{aligned}
 $$
 
@@ -1787,8 +1786,8 @@ The case $d=2$ is immediate by Fubini. The general case follows from induction o
 $$
 \begin{aligned}
 & \norm{F_{d+1}}_{L^{p /d}(\R^{d+1})}  =\qt{\int_{\R}\qt{\int_{\R^d} F_d(x)^{\frac{p}{d}} f_{d+1}(x')^{\frac{p}{d}} \d x'  }  \d x_{d+1} }^{\frac{d}{p} }          \\
-	 & \leq \qt{\int_{\R}         \qt{\int_{\R^d} F_d(x)^{\frac{p}{d-1}} \d x'  }^{\frac{d-1}{d}}\d x_{d+1} }^{\frac{d}{p} }\norm{f_{d+1}}_{L^p(\R^d)}      \notag      \\
-	 & \leq \qt{\int_{\R} \prod_{i=1}^d\left\|f_i(x_{d+1})\right\|_{L^p\left(\mathbb{R}^{d}\right)}^{\frac{p}{d}} \d x_{d+1}}^{\frac{d}{p}}\norm{f_{d+1}}_{L^p(\R^{d})}
+& \leq \qt{\int_{\R}         \qt{\int_{\R^d} F_d(x)^{\frac{p}{d-1}} \d x'  }^{\frac{d-1}{d}}\d x_{d+1} }^{\frac{d}{p} }\norm{f_{d+1}}_{L^p(\R^d)}      \notag      \\
+& \leq \qt{\int_{\R} \prod_{i=1}^d\left\|f_i(x_{d+1})\right\|_{L^p\left(\mathbb{R}^{d}\right)}^{\frac{p}{d}} \d x_{d+1}}^{\frac{d}{p}}\norm{f_{d+1}}_{L^p(\R^{d})}
 \end{aligned}
 $$ {#eq-induc}
 
@@ -1990,7 +1989,7 @@ W^{1,d}(\R^d) \hookrightarrow L^\infty(\R^d).
 \end{aligned}
 $$
 
-This holds if and only if $d=1$. Otherwise, we require more integrability. However, this extra integrability can be converted into regularity in the style of [Sobolev spaces](<../../PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>). First, we recall the following definition
+This holds if and only if $d=1$. Otherwise, we require more integrability. However, this extra integrability can be converted into regularity in the style of [Sobolev spaces](</posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>). First, we recall the following definition
 
 ::: {#def-13}
 
@@ -2384,7 +2383,7 @@ Now, if we consider $f,g$ to be the densities of some finite (signed) measures  
 $$
 \begin{aligned}
 (h, \mu *\nu) & := \int_{\R^d} h(x) f*g(x) \d x = \int_{\R^d}\int_{\R^d}  h(x+y) f(x)  g(y)\d x \d y \\
-	              & = \int_{\R^d \times\R^d} f(x+y) \d (\mu \otimes \nu)(x,y)\notag .
+& = \int_{\R^d \times\R^d} f(x+y) \d (\mu \otimes \nu)(x,y)\notag .
 \end{aligned}
 $$ {#eq-push}
 
@@ -2449,9 +2448,9 @@ requires we evaluate $f$ on all of  $\R^d$. One workaround is, if $\phi\in L^1(\
 $$
 \begin{aligned}
 \tilde{f}(x)=\begin{cases}
-		             f(x) \quad & x \in U     \\
-		             g(x) \quad & x \not\in U
-	             \end{cases}.
+f(x) \quad & x \in U     \\
+g(x) \quad & x \not\in U
+\end{cases}.
 \end{aligned}
 $$
 
@@ -2519,7 +2518,7 @@ Convolution of distribution and test function is smooth:
 
 :::
 
-The previous definitions all go through word by word in the case where we substitute the domain from Euclidean space  $\R^d$ to a [LCA group with Haar measure](<../../PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>) $\mu$. For example
+The previous definitions all go through word by word in the case where we substitute the domain from Euclidean space  $\R^d$ to a [LCA group with Haar measure](</posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>) $\mu$. For example
 
 $$
 \begin{aligned}
@@ -2649,7 +2648,7 @@ Consider $\eps >0$. Using that $\phi_n$ has mass $1$ and is supported on  $B(0,1
 $$
 \begin{aligned}
 g*\phi_n(x)-g(x) & = \int_{B(0, \frac{1}{n})}(g(x-y)-g(x)) \phi_n(y) \d y
-	.
+.
 \end{aligned}
 $$
 
@@ -2684,7 +2683,7 @@ Now using the triangle inequality and  Young's convolution inequality @prp-young
 $$
 \begin{aligned}
 \norm{f*\phi_n-f}_{L^p(\R^d)} & \leq\norm{(f-g)*\phi_n}_{L^p(\R^d)}+\norm{g*\phi_n-g}_{L^p(\R^d)}          \\
-	                              & +\norm{g-f}_{L^p(\R^d)}\leq \eps + M^{\frac{1}{p}}\eps +\eps .
+& +\norm{g-f}_{L^p(\R^d)}\leq \eps + M^{\frac{1}{p}}\eps +\eps .
 \end{aligned}
 $$
 
@@ -2710,7 +2709,7 @@ Furthermore, if $f$ is compactly supported then  $f*\phi \in  C_c^\infty(\R^d)$.
 
 ::: {.proof}
 
-By induction, it suffices to consider the case $D^\alpha = \partial _i$ for some $1 \leq i \leq d$. This case can be proved by a [differentiation under the integral sign](<../../PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>) as, given $\abs{x}\leq M$
+By induction, it suffices to consider the case $D^\alpha = \partial _i$ for some $1 \leq i \leq d$. This case can be proved by a [differentiation under the integral sign](</posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>) as, given $\abs{x}\leq M$
 
 $$
 \begin{aligned}
@@ -3058,7 +3057,7 @@ We deduce that,  once more reducing the size of $U_\alpha$ if necessary and depe
 $$
 \begin{aligned}
 (M \setminus \partial M) \cap U_\alpha & =\set{x \in U_\alpha : x_d>\gamma_\alpha(x_1,\ldots,x_{d-1}) }        \\
-	(M \setminus \partial M) \cap U_\alpha & =\set{x \in U_\alpha : x_d<\gamma_\alpha(x_1,\ldots,x_{d-1}) }\notag.
+(M \setminus \partial M) \cap U_\alpha & =\set{x \in U_\alpha : x_d<\gamma_\alpha(x_1,\ldots,x_{d-1}) }\notag.
 \end{aligned}
 $$ {#eq-alt3}
 

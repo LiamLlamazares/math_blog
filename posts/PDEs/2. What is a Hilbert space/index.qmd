@@ -7,7 +7,6 @@ description: "An appendix for a series on PDEs"
 bibliography: biblio.bib
 format:
   html:
-    css: custom_theorems.css
     toc: true
     number-sections: true
     html-math-method: mathjax
@@ -116,16 +115,7 @@ format:
 [Download PDF version](Hilbert_spaces.pdf)
 :::
 
-	
-	
-	
-	
-	
-	
-
-##  Three line summary
-
-	
+## Three line summary
 
 - Hilbert spaces are Banach spaces with an inner product. They correspond to an infinite dimensional version of $\R^n$ or $\C^n$.
 
@@ -133,34 +123,28 @@ format:
 
 - Compact operators are a simple kind of operator that can be approximated by infinite dimensional ones.
 
-	
-
 ## Why should I care?
 
-	Hilbert spaces come with beautiful geometry and give us tools that are not available in ordinary Banach spaces. These allow us to prove the existence of infinite dimensional equations and even pose them as minimization problems. When you can use a Hilbert space to analyze your problem your life is always a lot easier.
-	
+Hilbert spaces come with beautiful geometry and give us tools that are not available in ordinary Banach spaces. These allow us to prove the existence of infinite dimensional equations and even pose them as minimization problems. When you can use a Hilbert space to analyze your problem your life is always a lot easier.
 
 ## Notation
 
-	Given $\lambda \in \C$ we will write $\overline{\lambda }$ for the conjugate of $\lambda$.
+Given $\lambda \in \C$ we will write $\overline{\lambda }$ for the conjugate of $\lambda$.
 
-	Given a subset $A$ of some topological space, it is also common to write  $\overline{A}$ for the closure of $A$. Though this is a slight abuse of notation we will do the same as the meaning will always be clear from context.
+Given a subset $A$ of some topological space, it is also common to write  $\overline{A}$ for the closure of $A$. Though this is a slight abuse of notation we will do the same as the meaning will always be clear from context.
 
-	Given two topological vector spaces $X, Y$ we write  $\Ll(X, Y)$ for the space of continuous linear operators from $X$ to  $Y$ and $X'$ for the space of continuous linear functions to the base field of $X$.
-
-	
+Given two topological vector spaces $X, Y$ we write  $\Ll(X, Y)$ for the space of continuous linear operators from $X$ to  $Y$ and $X'$ for the space of continuous linear functions to the base field of $X$.
 
 ## Introduction
 
-	In writing the next post in the series of PDEs I realized that there were many results from functional analysis which had not been discussed and would be necessary. As such, this post is meant as a short, yet rather longer than I intended, introduction to the basic theory that will be required.
+In writing the next post in the series of PDEs I realized that there were many results from functional analysis which had not been discussed and would be necessary. As such, this post is meant as a short, yet rather longer than I intended, introduction to the basic theory that will be required.
 
-	I'm going to assume you know nothing (please don't feel insulted) and go over the main ideas and results.	Much of the material may be familiar so please feel free to skim briefly through the results or skip entirely. There is a lot of theory to cover so the proofs will only be sketched.
-	For more details see for example [@Bachman2000functional].     
+I'm going to assume you know nothing (please don't feel insulted) and go over the main ideas and results.	Much of the material may be familiar so please feel free to skim briefly through the results or skip entirely. There is a lot of theory to cover so the proofs will only be sketched.
+For more details see for example [@Bachman2000functional].     
 
 ## A brief recap of Hilbert spaces
 
-	Firstly what is a Hilbert space? To answer that question let's start with what kind of spaces we want to model.
-	
+Firstly what is a Hilbert space? To answer that question let's start with what kind of spaces we want to model.
 
 ::: {#exm-1}
 
@@ -174,8 +158,6 @@ $$
 
 :::
 
-	
-
 ::: {#exm-2}
 
 The complex Euclidean space $\C^n$ together with the inner product
@@ -188,24 +170,23 @@ $$
 
 :::
 
-	You might be wondering why we took the conjugate in the definition of the inner product above. That is simply because we want the inner product to define a norm by
-	
+You might be wondering why we took the conjugate in the definition of the inner product above. That is simply because we want the inner product to define a norm by
+
 $$
 \begin{aligned}
 \norm{x}^2:= \br{x,x}.
 \end{aligned}
 $$
 
-	In the cases above note that this is the standard Euclidean norm
-	
+In the cases above note that this is the standard Euclidean norm
+
 $$
 \begin{aligned}
 \norm{x}^2= \br{x,x}= \abs{x_1} ^2+\ldots +\abs{x_n}^2 .
 \end{aligned}
 $$
 
-	A Hilbert space is just this construction generalized to infinite dimensions. Firstly, the inner product is generalized as follows.
-	
+A Hilbert space is just this construction generalized to infinite dimensions. Firstly, the inner product is generalized as follows.
 
 ::: {#def-1}
 
@@ -227,17 +208,16 @@ Such that the following hold for all $x,y,z \in V$ and all $\lambda \in \K$
 
 :::
 
-	In what follows we will take always take the base field to be $\K$, that is, we will consider real and complex vector spaces as the theory is the same. In the real case, the conjugate
-	function just being the identity. Note that the first two properties also imply  ``antilinearity'' of the second component as
-	
+In what follows we will take always take the base field to be $\K$, that is, we will consider real and complex vector spaces as the theory is the same. In the real case, the conjugate
+function just being the identity. Note that the first two properties also imply  ``antilinearity'' of the second component as
+
 $$
 \begin{aligned}
 \br{z,\lambda x+  y}=\overline{\br{\lambda  x+ y,z}}= \overline{\lambda }\br{z,x}+ \lambda _2\br{z,y}.
 \end{aligned}
 $$
 
-	A vector space with an inner product is called an inner product space. This inner product gives us a concept of geometry.
-	
+A vector space with an inner product is called an inner product space. This inner product gives us a concept of geometry.
 
 ::: {#def-2}
 
@@ -253,15 +233,15 @@ Furthermore, we say that $x,y$ are orthogonal if $\br{x,y}=0$.
 
 :::
 
-	With this definition, Pythagoras's theorem follows directly, as if $x,y$ are orthogonal then by the linearity of the inner product.
-	
+With this definition, Pythagoras's theorem follows directly, as if $x,y$ are orthogonal then by the linearity of the inner product.
+
 $$
 \begin{aligned}
 \norm{x+y}^2 = \br{x+y,x+y}= \norm{x}^2 +\norm{y}^2.
 \end{aligned}
 $$
 
-	An important property of the inner product is the following
+An important property of the inner product is the following
 
 ::: {#prp-cs name="Cauchy Schwartz"}
 
@@ -275,7 +255,7 @@ $$
 
 :::
 
-	In particular, this implies that the inner product is continuous jointly, and in each component. An inner product space keeps the key properties of Euclidean space, namely the vector space structure and inner product. The third key property is that of completeness.
+In particular, this implies that the inner product is continuous jointly, and in each component. An inner product space keeps the key properties of Euclidean space, namely the vector space structure and inner product. The third key property is that of completeness.
 
 ::: {#def-3}
 
@@ -289,24 +269,23 @@ $$
 
 :::
 
-	Cool! Now we know what is a Hilbert space. Some examples that have come up in previous posts are the space of [square-integrable functions](<../../Analysis on Banach spaces/Bochner_integral/index.qmd>) valued in  another Hilbert space $H$ with the inner product
-	
+Cool! Now we know what is a Hilbert space. Some examples that have come up in previous posts are the space of [square-integrable functions](</posts/Analysis on Banach spaces/Bochner_integral/index.qmd>) valued in  another Hilbert space $H$ with the inner product
+
 $$
 \begin{aligned}
 \br{f,g}_{L^2(\Omega \to H)}:= \int_{\Omega} \br{f,g} d\mu .
 \end{aligned}
 $$
 
-	Another are the [Sobolev spaces](<../../Analysis on Banach spaces/Bochner_integral/index.qmd>) $H^s(\R^d)$ with the inner product
-	
+Another are the [Sobolev spaces](</posts/Analysis on Banach spaces/Bochner_integral/index.qmd>) $H^s(\R^d)$ with the inner product
+
 $$
 \begin{aligned}
 \br{f,g}_{H^s(\R^d)}:= \int_{\R^d} \br{\omega}^{2s} \wh{f}(\xi ) \overline{\wh{g}(\xi )}d\xi  .
 \end{aligned}
 $$
 
-	(I apologize for using the same notation for the Japanese bracket and the inner product). One result that carries over from Euclidean spaces to Hilbert spaces is the existence of projections.
-	
+(I apologize for using the same notation for the Japanese bracket and the inner product). One result that carries over from Euclidean spaces to Hilbert spaces is the existence of projections.
 
 ::: {#thm-projection name="Projection theorem"}
 
@@ -328,8 +307,6 @@ $$
 
 :::
 
-	
-
 ::: {.proof}
 
 The idea of the proof is to consider a sequence $f_n$ that approaches the minimum distance
@@ -344,8 +321,7 @@ The inner product comes in to show that  $f_n$ is a Cauchy sequence. Since $H$ i
 
 :::
 
-	A consequence of the above theorem is that orthogonal complements in Hilbert spaces exist.
-	
+A consequence of the above theorem is that orthogonal complements in Hilbert spaces exist.
 
 ::: {#thm-complement-theorem name="Orthogonal complement"}
 
@@ -369,8 +345,6 @@ $$
 
 :::
 
-	
-
 ::: {.proof}
 
 Given $h \in  H$ we know that there exists a unique closest point  $v_1 \in V$ to $V$ (the projection of $h$ onto  $v$). Furthermore, $v_2:=h-v \in V^\perp$ so we get the decomposition
@@ -385,8 +359,7 @@ This proves bijectivity, whereas the isomorphism property follows quickly from t
 
 :::
 
-	An important corollary of this is the following
-	
+An important corollary of this is the following
 
 ::: {#cor-cor}
 
@@ -400,16 +373,15 @@ $$
 
 :::
 
-	Note that the imposition that $V$ is closed in @thm-complement-theorem is necessary. Finite-dimensional subspaces are always closed, but infinite-dimensional subspaces may not be. For example, consider $H=L^2(I)$ for some bounded $I$ and take  $V$ to polynomials on $I$ . By the [Stone-Weierstrass](<https://en.wikipedia.org/wiki/Stone%E2%80%93Weierstrass_theorem>) theorem $V$ is dense  in $H$. That is $H=\overline{V}$, whereas
-	
+Note that the imposition that $V$ is closed in @thm-complement-theorem is necessary. Finite-dimensional subspaces are always closed, but infinite-dimensional subspaces may not be. For example, consider $H=L^2(I)$ for some bounded $I$ and take  $V$ to polynomials on $I$ . By the [Stone-Weierstrass](<https://en.wikipedia.org/wiki/Stone%E2%80%93Weierstrass_theorem>) theorem $V$ is dense  in $H$. That is $H=\overline{V}$, whereas
+
 $$
 \begin{aligned}
 H \neq V \oplus V^\perp =V \oplus \set{0} .
 \end{aligned}
 $$
 
-	Another property of Euclidean space that Hilbert spaces reproduce is that of the existence of an orthonormal basis
-	
+Another property of Euclidean space that Hilbert spaces reproduce is that of the existence of an orthonormal basis
 
 ::: {#def-4}
 
@@ -431,8 +403,7 @@ $$ {#eq-sum}
 
 :::
 
-	Note that we impose no conditions on the Index set $I$ which may be countable or uncountable.
-	
+Note that we impose no conditions on the Index set $I$ which may be countable or uncountable.
 
 ::: {#def-5}
 
@@ -454,8 +425,7 @@ $$
 
 :::
 
-	If $I$ is countable, the definition says that $\sum_{\alpha \in I} x_\alpha$ converges to $x$ regardless of the order in which we sum. In fact, the following shows that, even if we start with an uncountable sequence we will always end up back in this case.
-	
+If $I$ is countable, the definition says that $\sum_{\alpha \in I} x_\alpha$ converges to $x$ regardless of the order in which we sum. In fact, the following shows that, even if we start with an uncountable sequence we will always end up back in this case.
 
 ::: {#prp-1}
 
@@ -467,8 +437,6 @@ x= \sum_{n=0}^{\infty} x_n.
 $$
 
 :::
-
-	
 
 ::: {.proof}
 
@@ -484,16 +452,13 @@ Then $J:= \cup_n J_n$ is countable (it is a countable union of countable sets) a
 
 :::
 
-	Now that we made sense of the sum over a potentially uncountable number of basis elements in ([-@eq-sum]), it remains to address the question of the existence of orthonormal basis.
-	
+Now that we made sense of the sum over a potentially uncountable number of basis elements in ([-@eq-sum]), it remains to address the question of the existence of orthonormal basis.
 
 ::: {#thm-existence name="Existence of orthonormal basis"}
 
 Every Hilbert space has an orthonormal basis $\Bb$.
 
 :::
-
-	
 
 ::: {.proof}
 
@@ -517,8 +482,7 @@ As a result by [Zorn's lemma](<https://en.wikipedia.org/wiki/Zorn%27s_lemma>) th
 
 :::
 
-	The next result is the natural  generalization of Pythagoras's theorem to Hilbert spaces.
-	
+The next result is the natural  generalization of Pythagoras's theorem to Hilbert spaces.
 
 ::: {#thm-parseval name="Parseval"}
 
@@ -531,8 +495,6 @@ f= \sum_{\alpha \in  I} \br{f,\phi_\alpha}\phi_\alpha;\quad \norm{f}^2=\sum_{\al
 $$
 
 :::
-
-	
 
 ::: {.proof}
 
@@ -557,16 +519,15 @@ This proves the first part of the theorem. The second follows by the first toget
 
 :::
 
-	The above shows that, on fixing a basis, every Hilbert space can be identified with a space of square-integrable sequences by the bijective isometry
-	
+The above shows that, on fixing a basis, every Hilbert space can be identified with a space of square-integrable sequences by the bijective isometry
+
 $$
 \begin{aligned}
 H\to \ell ^2(I); \quad f \to \set{\br{f,\phi_{\alpha}}}_{\alpha \in I}.
 \end{aligned}
 $$
 
-	In particular, every Hilbert space with a countable basis is isometric to $\ell ^2(\N)$. However, the identification is not ``canonical'' as it depends on the bases chosen. The next example is all pervasive (in fact it has [even invaded our blog](<../../PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>))
-	
+In particular, every Hilbert space with a countable basis is isometric to $\ell ^2(\N)$. However, the identification is not ``canonical'' as it depends on the bases chosen. The next example is all pervasive (in fact it has [even invaded our blog](</posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>))
 
 ::: {#exm-3 name="Plancherel"}
 
@@ -596,24 +557,23 @@ $$
 
 :::
 
-	Another interesting property of Euclidean space is that every element of the dual $\ell :\C^n \to \C$ is represented by a vector in the space, that is
-	
+Another interesting property of Euclidean space is that every element of the dual $\ell :\C^n \to \C$ is represented by a vector in the space, that is
+
 $$
 \begin{aligned}
 \ell (x)= \br{x,y_\ell }, \quad\forall  x \in \C^n.
 \end{aligned}
 $$
 
-	Here one can calculate directly that $y_\ell$ is the conjugate of the ``matrix'' defined by $\ell$ as a linear function
-	
+Here one can calculate directly that $y_\ell$ is the conjugate of the ``matrix'' defined by $\ell$ as a linear function
+
 $$
 \begin{aligned}
 y_\ell =(\overline{\ell (e_1)},\ldots,\overline{\ell (e_n)}) .
 \end{aligned}
 $$
 
-	Where $e_i$ is the standard orthonormal basis of  $\C^n$. In Hilbert spaces, the same result holds for Hilbert spaces
-	
+Where $e_i$ is the standard orthonormal basis of  $\C^n$. In Hilbert spaces, the same result holds for Hilbert spaces
 
 ::: {#thm-riesz-theorem name="Riesz representation "}
 
@@ -628,8 +588,6 @@ $$ {#eq-riesz}
 Furthermore, $\norm{f_\ell }=\norm{\ell }$.
 
 :::
-
-	
 
 ::: {.proof}
 
@@ -661,16 +619,15 @@ The equality shows that $\norm{\ell }\geq \norm{f_\ell }$ whereas the inequality
 
 :::
 
-	The previous theorem says that we have an antilinear isometry
-	
+The previous theorem says that we have an antilinear isometry
+
 $$
 \begin{aligned}
 \Phi_1:    H\to H';\quad f_\ell  \to \ell .
 \end{aligned}
 $$
 
-	This allows us to identify $H$ with  $H'$. The identification is canonical as it does not depend on the bases chosen. Yes, we fixed a basis to prove it but the vector $f_\ell$ is unique independently of the basis. This allows us to make $H'$ into a Hilbert space in a canonical way
-	
+This allows us to identify $H$ with  $H'$. The identification is canonical as it does not depend on the bases chosen. Yes, we fixed a basis to prove it but the vector $f_\ell$ is unique independently of the basis. This allows us to make $H'$ into a Hilbert space in a canonical way
 
 ::: {#prp-2}
 
@@ -684,31 +641,30 @@ $$
 
 :::
 
-	Where we had to ``swap the order'' of the representatives of $\ell_1, \ell_2$ due to the anti-linearity of the mapping $\ell \to f_\ell$. Since $H'$ is also a Hilbert space we can apply Riesz's theorem to $H'$ to show that $H''$ is also a Hilbert space and there exists a canonical antilinear isometry
-	
+Where we had to ``swap the order'' of the representatives of $\ell_1, \ell_2$ due to the anti-linearity of the mapping $\ell \to f_\ell$. Since $H'$ is also a Hilbert space we can apply Riesz's theorem to $H'$ to show that $H''$ is also a Hilbert space and there exists a canonical antilinear isometry
+
 $$
 \begin{aligned}
 \Phi_2:  H'\to H''; \ell_\varphi \to \varphi .
 \end{aligned}
 $$
 
-	By construction, of $\Phi_1,\Phi_2$ it holds that
-	
+By construction, of $\Phi_1,\Phi_2$ it holds that
+
 $$
 \begin{aligned}
 \Phi_2 \circ \Phi_1 (f) (\ell )= \ell(f).
 \end{aligned}
 $$
 
-	That is, $H$ is identified canonically with  $H''$ and, the identification is such that 
+That is, $H$ is identified canonically with  $H''$ and, the identification is such that 
 $$
 \begin{aligned}
 f(\ell )=\ell (f).
 \end{aligned}
 $$
 
-	In other words.
-	
+In other words.
 
 ::: {#thm-1}
 
@@ -716,37 +672,34 @@ Every Hilbert space is reflexive.
 
 :::
 
-	Consider now a Hilbert space $H$ and a linear operator $T: H \to H$.
-	Then, for each $g \in H$ we can define the linear form
+Consider now a Hilbert space $H$ and a linear operator $T: H \to H$.
+Then, for each $g \in H$ we can define the linear form
 
-	
 $$
 \begin{aligned}
 \ell_ g := \left\langle T\cdot ,g\right\rangle.
 \end{aligned}
 $$
 
-	As a result, there exists a unique representative of
-	$\ell \U g$ in $H$ which, to track the dependence on $g$, we denote by
-	$h\U g$. That is, $h\U g$ verifies
-	
+As a result, there exists a unique representative of
+$\ell \U g$ in $H$ which, to track the dependence on $g$, we denote by
+$h\U g$. That is, $h\U g$ verifies
+
 $$
 \begin{aligned}
 \left\langle T f,g\right\rangle= \left\langle f,h\U g\right\rangle, \quad\forall f \in H.
 \end{aligned}
 $$
 
-	A small reasoning shows that $h\U g$ is a linear
-	function of $g$, that is, there exists $T^\star :H \to H$ with $T^\star  g=h\U g$,
-	or in other words
-	
+A small reasoning shows that $h\U g$ is a linear
+function of $g$, that is, there exists $T^\star :H \to H$ with $T^\star  g=h\U g$,
+or in other words
+
 $$
 \begin{aligned}
 \left\langle Tf,g\right\rangle=\left\langle f, T^\star g\right\rangle , \quad\forall f,g \in  H.
 \end{aligned}
 $$ {#eq-adjoint}
-
-	
 
 ::: {#def-6}
 
@@ -757,13 +710,12 @@ $T=T^\star$ we say that $T$ is self adjoint.
 
 :::
 
-	If we think in terms of complex numbers, the adjoint of an element
-	$\lambda  \in \mathbb{C}$ is $\overline{\lambda }$ and $T$ is self
-	adjoint if and only if it is real. If now we consider the case where $H$
-	is $\mathbb{C}^n$ and $T$ is given by some matrix $A$ then
-	$A^\star =A^\dagger:= \overline{A^T}$. As in these finite dimensional cases,
-	the following proof is not difficult.
-	
+If we think in terms of complex numbers, the adjoint of an element
+$\lambda  \in \mathbb{C}$ is $\overline{\lambda }$ and $T$ is self
+adjoint if and only if it is real. If now we consider the case where $H$
+is $\mathbb{C}^n$ and $T$ is given by some matrix $A$ then
+$A^\star =A^\dagger:= \overline{A^T}$. As in these finite dimensional cases,
+the following proof is not difficult.
 
 ::: {#prp-3}
 
@@ -773,8 +725,7 @@ $\left\lVert T \right\rVert=\left\lVert T^\star  \right\rVert$.
 
 :::
 
-	Hilbert spaces provide us a way to guarantee existence and uniqueness to a wide class of problems, an important tool is Lax-Milgram's theorem. We first need two definitions
-	
+Hilbert spaces provide us a way to guarantee existence and uniqueness to a wide class of problems, an important tool is Lax-Milgram's theorem. We first need two definitions
 
 ::: {#def-7}
 
@@ -796,8 +747,6 @@ $$
 
 :::
 
-	
-
 ::: {#def-8}
 
 Let $V$ be a normed vector space then we say that a sesquilinear form  $B$ is $\alpha$ coercive if it is continuous and there exists a constant $\alpha>0$ such that
@@ -810,8 +759,7 @@ $$
 
 :::
 
-	The coercivity condition essentially imposes that the bilinear form is not degenerate. As a particular example, a symmetric sesquilinear form is an inner product.
-	
+The coercivity condition essentially imposes that the bilinear form is not degenerate. As a particular example, a symmetric sesquilinear form is an inner product.
 
 ::: {#thm-lax-theorem name="Lax Milgram"}
 
@@ -839,8 +787,6 @@ $$
 $$
 
 :::
-
-	
 
 ::: {.proof}
 
@@ -905,16 +851,15 @@ Dividing on either side by $\alpha \norm{u}$ concludes the proof.
 
 :::
 
-	If we had assumed that $B$ were anti-symmetric then the proof would have been simplified as $B$ would define an inner product  $\br{\cdot ,\cdot }_B$. Applying Riesz's theorem to this inner product (as opposed to the original one) would transform our equation ([-@eq-lax-eq]) into
-	
+If we had assumed that $B$ were anti-symmetric then the proof would have been simplified as $B$ would define an inner product  $\br{\cdot ,\cdot }_B$. Applying Riesz's theorem to this inner product (as opposed to the original one) would transform our equation ([-@eq-lax-eq]) into
+
 $$
 \begin{aligned}
 \br{v,u}_B= \br{v,f} , \quad\forall v\in H.
 \end{aligned}
 $$
 
-	That is, to solve ([-@eq-lax-eq]) it would suffice to take $u=f$. In the case where $B$ is symmetric and real, we can also find $u$ by solving a minimization problem
-	
+That is, to solve ([-@eq-lax-eq]) it would suffice to take $u=f$. In the case where $B$ is symmetric and real, we can also find $u$ by solving a minimization problem
 
 ::: {#prp-4 name="Minimization formulation"}
 
@@ -927,8 +872,6 @@ J(u):= \frac{1}{2}B(u,u)-L(u) .
 $$
 
 :::
-
-	
 
 ::: {.proof}
 
@@ -960,12 +903,9 @@ Taking $h=u+v$ and $h=u-v$ where $v$ is any shows  $-L(v) \leq -B(u,v)$ and $L(v
 
 :::
 
-	
-
 ## A little bit of operator theory
 
-	Finally, we wrap up with some operator theory. This will be revisited in a more detailed blog post on spectral theory. For now, we give the essentials.
-	
+Finally, we wrap up with some operator theory. This will be revisited in a more detailed blog post on spectral theory. For now, we give the essentials.
 
 ::: {#def-9}
 
@@ -973,14 +913,13 @@ We say that a linear operator $K: X \to Y$ where $X,Y$ are two metric spaces is 
 
 :::
 
-	The above will be abbreviated $K \in  \Kk(X,Y)$. Note that, since every compact set is bounded $K$ must be bounded and thus continuous. That is 
+The above will be abbreviated $K \in  \Kk(X,Y)$. Note that, since every compact set is bounded $K$ must be bounded and thus continuous. That is 
 
 $$
 \Kk(X,Y)\subset \Ll(X,Y).
 $$
 
-  In practice, the following equivalent characterizations are useful. 
-  
+In practice, the following equivalent characterizations are useful. 
 
 ::: {#prp-equivalent}
 
@@ -994,8 +933,6 @@ c. From every sequence  $Kx_n$ where  $x_n \in B_X$ one can extract a subsequenc
 
 :::
 
- 
-
 ::: {.proof}
 
 The prove the first two points are equivalent we observe that every bounded set $B \subset  X$ is contained in $\lambda B_X$ for $\lambda$ big enough. A general fact from topology is that closed subsets of compact sets are compact. This is enough to conclude the equivalence. 
@@ -1004,8 +941,7 @@ To prove that the last two points are equivalent we recall that in metric spaces
 
 :::
 
-  An important property of compact operators is that they are preserved by continuous ones.
-	
+An important property of compact operators is that they are preserved by continuous ones.
 
 ::: {#prp-comp}
 
@@ -1013,16 +949,13 @@ Let $K \in \Kk(X,Y), T_1\in \Ll(W,X), T_2 \in L(Y,Z)$. Where $W,X,Y,Z$ are metri
 
 :::
 
-	
-
 ::: {.proof}
 
 This follows by the last equivalent characterization in @prp-equivalent. 
 
 :::
 
-  We already saw that the space of compact operators $\Kk(X,Y)$ is a subset of the space of linear operators. The structure of $\Kk(X,Y)$ as a subspace is as follows 
-  
+We already saw that the space of compact operators $\Kk(X,Y)$ is a subset of the space of linear operators. The structure of $\Kk(X,Y)$ as a subspace is as follows 
 
 ::: {#prp-5}
 
@@ -1030,19 +963,15 @@ Let $X,Y$ be metric spaces then  $\Kk(X,Y)$ is a vector space. Furthermore, if $
 
 :::
 
-  
-
 ::: {.proof}
 
 The first part again follows fromb the last equivalent characterization in @prp-equivalent.  The second part relies on the fact that in complete spaces compact and [totally bounded](<https://en.wikipedia.org/wiki/Totally_bounded_space#:~:text=not%20in%20general.-,In,-metric%20spaces%5B>) are equivalent.
 
 :::
 
-      
-  The reason we are interested in compact operators is that they are particularly simple.
-  Note that every finite-dimensional operator (that is operators whose image is finite-dimensional) is compact by the Heine-Borel theorem. In fact, a good way of thinking of compact operators is to see them as finite-dimensional operators . Or more precisely,
-	as the limit of them
-	
+The reason we are interested in compact operators is that they are particularly simple.
+Note that every finite-dimensional operator (that is operators whose image is finite-dimensional) is compact by the Heine-Borel theorem. In fact, a good way of thinking of compact operators is to see them as finite-dimensional operators . Or more precisely,
+as the limit of them
 
 ::: {#prp-6}
 
@@ -1056,19 +985,17 @@ $$
 
 :::
 
-	
-
 ::: {.proof}
 
-		Since $H$ is separable there exists a countable orthonormal basis $\set{\phi_n}_{n \in \N}$. If we denote $T_n$ for the projection of $K$ onto the space generated by  $\set{\phi_1,\ldots,\phi_n}$ then, by Parseval's Theorem pointwise convergence holds
-		
+Since $H$ is separable there exists a countable orthonormal basis $\set{\phi_n}_{n \in \N}$. If we denote $T_n$ for the projection of $K$ onto the space generated by  $\set{\phi_1,\ldots,\phi_n}$ then, by Parseval's Theorem pointwise convergence holds
+
 $$
 \begin{aligned}
 K_n(x) \to K(x) , \quad\forall x \in  H.
 \end{aligned}
 $$
 
-		Consider the unit ball $B_X$ in  $X$. Then  $K(B_X)$ is relatively compact. So $K(B_X)$  is totally bounded and given $\varepsilon >0$ we can form a finite $\varepsilon$ net $Kx_1,\ldots,Kx_m$ of $K(B_X)$. By pointwise convergence, we can now take $n_0$ large enough so that for all $N \geq n_0$
+Consider the unit ball $B_X$ in  $X$. Then  $K(B_X)$ is relatively compact. So $K(B_X)$  is totally bounded and given $\varepsilon >0$ we can form a finite $\varepsilon$ net $Kx_1,\ldots,Kx_m$ of $K(B_X)$. By pointwise convergence, we can now take $n_0$ large enough so that for all $N \geq n_0$
 
 $$
 \begin{aligned}
@@ -1076,21 +1003,19 @@ $$
 \end{aligned}
 $$
 
-		Now for any  $x\in B_X$ we can find $x_j$ such that  $\norm{Tx_j-Tx}< \varepsilon$. Using the triangle inequality
-		
+Now for any  $x\in B_X$ we can find $x_j$ such that  $\norm{Tx_j-Tx}< \varepsilon$. Using the triangle inequality
+
 $$
 \begin{aligned}
 \norm{Kx-K_N x} \leq \norm{Kx-K x_j}+ \norm{K x_j-K_N x_{j}}+ \norm{K_N x_j-K_N x} < 3\varepsilon .
 \end{aligned}
 $$
 
-		This concludes the proof.
+This concludes the proof.
 
 :::
 
-	
-	For us, an important example of compact operators will be the solution operator $\Ll^{-1}$ of a PDE. This is because of the following theorem
-	
+For us, an important example of compact operators will be the solution operator $\Ll^{-1}$ of a PDE. This is because of the following theorem
 
 ::: {#thm-rellich name="Rellich-Kondrachov"}
 
@@ -1106,8 +1031,7 @@ is compact for all $\sigma >0$.
 
 :::
 
-	For the proof of a more general version see [@taylor2013partial] page 334. It is important to observe the restriction that $U$ is bounded is necessary and the theorem no longer holds if  $U$ is replaced by  $\R^n$.
-	
+For the proof of a more general version see [@taylor2013partial] page 334. It is important to observe the restriction that $U$ is bounded is necessary and the theorem no longer holds if  $U$ is replaced by  $\R^n$.
 
 ::: {#cor-addd name="Adding differentiability is compact"}
 
@@ -1123,26 +1047,23 @@ is compact.
 
 :::
 
-	
-
 ::: {.proof}
 
 We have that $T= i \circ T$ so we conclude by Rellich-Kondrachov's @thm-rellich and the preservation of compact operators by continuous ones (@prp-comp).
 
 :::
 
-	Compact operators also have a nice spectral theory. Where we recall that
-	the spectrum of an operator $T$ is defined as
-	
+Compact operators also have a nice spectral theory. Where we recall that
+the spectrum of an operator $T$ is defined as
+
 $$
 \begin{aligned}
 \sigma (T):=\left\{\lambda \in \mathbb{K}: \lambda \b{I} -T \text{ is not invertible } \right\} .
 \end{aligned}
 $$
 
-	Firstly, the spectrum of a compact operator is equal
-	to it's eigenvalues. Secondly the following holds
-	
+Firstly, the spectrum of a compact operator is equal
+to it's eigenvalues. Secondly the following holds
 
 ::: {#thm-2 name="Spectral theorem"}
 
@@ -1156,14 +1077,13 @@ $$
 
 :::
 
-	A more general result is possible but requires more theory so we reserve
-	it for another day. That said, this type of discrete representation of
-	$T$ is very useful and links up with the theory of trace class and
-	Hilbert-Schmidt operators which we will discuss more in the future.
+A more general result is possible but requires more theory so we reserve
+it for another day. That said, this type of discrete representation of
+$T$ is very useful and links up with the theory of trace class and
+Hilbert-Schmidt operators which we will discuss more in the future.
 
-	To end it all off we state without proof a theorem that will be useful
-	in proving properties about the solution space to the solution of PDEs
-	
+To end it all off we state without proof a theorem that will be useful
+in proving properties about the solution space to the solution of PDEs
 
 ::: {#thm-3 name="Fredholm alternative"}
 
@@ -1187,7 +1107,7 @@ d. $\mathrm{dim}(\ker(T))=\mathrm{dim}(\ker(T^*))$
 
 :::
 
-	We delay the proof till another day, in the meantime, see [@evans2022partial] page 725.
+We delay the proof till another day, in the meantime, see [@evans2022partial] page 725.
 
 ## References
 

@@ -7,7 +7,6 @@ description: "Can you really construct this thing?"
 bibliography: biblio.bib
 format:
   html:
-    css: custom_theorems.css
     toc: true
     number-sections: true
     html-math-method: mathjax
@@ -179,7 +178,7 @@ Let $I\subset\R$, and $\{X_t\}_{t\in I}$ be progressively measurable. Then it is
 
 Let  $\{t_n\}_{n\in\N}\subset I$ be a sequence converging to $\sup I$ and with $t_0=T$ if $T<\infty$. Given $A\in\mathcal{H}$ we have that
 \begin{multline*}
-	(X|_{[0,t]\times\Omega})^{-1}(A)\in\Bb([0,t])\otimes\Ff_t\quad\forall t\in I\\ \iff X^{-1}(A)\cap([0,t]\times\Omega)\in\Bb([0,t])\otimes\Ff_t\quad\forall t\in I\\\implies X^{-1}(A)=\bigcup_{n \in  \N}\left(X^{-1}(A)\cap([0,t_n]\times\Omega)\right), \in\Bb(I)\otimes\Ff_\infty.
+(X|_{[0,t]\times\Omega})^{-1}(A)\in\Bb([0,t])\otimes\Ff_t\quad\forall t\in I\\ \iff X^{-1}(A)\cap([0,t]\times\Omega)\in\Bb([0,t])\otimes\Ff_t\quad\forall t\in I\\\implies X^{-1}(A)=\bigcup_{n \in  \N}\left(X^{-1}(A)\cap([0,t_n]\times\Omega)\right), \in\Bb(I)\otimes\Ff_\infty.
 \end{multline*}
 
 :::

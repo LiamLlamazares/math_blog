@@ -7,7 +7,6 @@ description: "Wait a second, how many integrals are there?"
 bibliography: biblio.bib
 format:
   html:
-    css: custom_theorems.css
     toc: true
     number-sections: true
     html-math-method: mathjax
@@ -111,10 +110,6 @@ format:
         };
         </script>
 ---
-
-::: {.callout-note appearance="minimal"}
-[Download PDF version](The-Bochner-Integral.pdf)
-:::
 
 This is the first post in a series on extending analysis from real-valued functions to functions valued in Banach spaces. Our first topic is the Bochner integral. That is, the extension of the Lebesgue integral to functions valued in Banach spaces.
 
@@ -664,7 +659,7 @@ The triangle inequality concludes the proof.
 
 :::
 
-The dominated convergence theorem is a powerful tool that allows us to pass to the limit under the integral sign. For example, it can be used to show that, under necessary conditions, if $f(t,\omega )$ is continuous (differentiable) in $t$ then so is $\int f(t,\omega )\d\mu(\omega)$ (see [here](<../../PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>) for a proof). These results, together with the density of simple functions, can be used to prove the [standard approximation theorems](<../../PDEs/3. Sobolev spaces/index.qmd>).
+The dominated convergence theorem is a powerful tool that allows us to pass to the limit under the integral sign. For example, it can be used to show that, under necessary conditions, if $f(t,\omega )$ is continuous (differentiable) in $t$ then so is $\int f(t,\omega )\d\mu(\omega)$ (see [here](</posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>) for a proof). These results, together with the density of simple functions, can be used to prove the [standard approximation theorems](</posts/PDEs/3. Sobolev spaces/index.qmd>).
 
 ::: {#thm-thm:approx name="Convolution, regularization and smooth approximation"}
 

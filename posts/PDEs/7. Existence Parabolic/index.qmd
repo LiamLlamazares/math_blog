@@ -8,7 +8,6 @@ image: "cover.png"
 bibliography: biblio.bib
 format:
   html:
-    css: custom_theorems.css
     toc: true
     number-sections: true
     html-math-method: mathjax
@@ -119,7 +118,7 @@ format:
 
 ## Three point summary
 
-- A parabolic PDE describes how a function evolves over time under the influence of an elliptic operator. Unlike their elliptic counterparts, parabolic PDEs are typically [well-posed](<../../PDEs/6. Existence elliptic/index.qmd>). For well-behaved coefficients, a unique solution always exists and depends continuously on the initial data.
+- A parabolic PDE describes how a function evolves over time under the influence of an elliptic operator. Unlike their elliptic counterparts, parabolic PDEs are typically [well-posed](</posts/PDEs/6. Existence elliptic/index.qmd>). For well-behaved coefficients, a unique solution always exists and depends continuously on the initial data.
 
 - Solutions to parabolic PDEs can be viewed as functions mapping an instant in time to a function in a Banach space. From this viewpoint, the PDE becomes an infinite dimensional ODE. The Galerkin method is a powerful tool to prove the well-posedness of the problem and approximate its solutions using a finite-dimensional ODE that approximates the original infinite-dimensional problem.
 
@@ -141,14 +140,14 @@ format:
 
 ## Introduction
 
-In the [elliptic case](<../../PDEs/6. Existence elliptic/index.qmd>), we studied the well-posedness and regularity of solutions to an elliptic PDE of the form
+In the [elliptic case](</posts/PDEs/6. Existence elliptic/index.qmd>), we studied the well-posedness and regularity of solutions to an elliptic PDE of the form
 
 $$
 \begin{aligned}
 \begin{cases}
-    \Ll u = f & \text{in } U     \\
- u = 0   & \text{on } \partial U
-  \end{cases}
+\Ll u = f & \text{in } U     \\
+u = 0   & \text{on } \partial U
+\end{cases}
 \end{aligned}
 $$
 
@@ -175,10 +174,10 @@ $$ {#eq-elliptic-operator}
 $$
 \begin{aligned}
 \begin{cases}
-    \partial_t u + \Ll u = f & \text{in } I\times U      \\
- u(0) = g         & \text{on } U          \\
- u = 0          & \text{on } I\times \partial U,
-  \end{cases}
+\partial_t u + \Ll u = f & \text{in } I\times U      \\
+u(0) = g         & \text{on } U          \\
+u = 0          & \text{on } I\times \partial U,
+\end{cases}
 \end{aligned}
 $$ {#eq-parabolic}
 
@@ -199,7 +198,7 @@ $$
 
 where $X$ is some Banach space of function on $U$ (such as $L^2(U), H_0^1(U),...$) and we use the notation $u(t)(x):= u(t,x)$. This way of viewing $u$ is an essential tool in the theory of evolution PDEs, which transform the PDE ([-@eq-parabolic]) into an *infinite dimensional linear ODE*.
 
-To be able to proceed, we need to define an integral on functions valued in Banach spaces. This integral is called the [Bochner integral](<../../Analysis on Banach spaces/Bochner_integral/index.qmd>). To briefly summarize,
+To be able to proceed, we need to define an integral on functions valued in Banach spaces. This integral is called the [Bochner integral](</posts/Analysis on Banach spaces/Bochner_integral/index.qmd>). To briefly summarize,
 given a separable Banach space $X$ and $p \in [1, \infty]$ we define
 
 $$
@@ -213,7 +212,7 @@ where functions equal almost everywhere are identified, and the norm is defined 
 $$
 \begin{aligned}
 \norm{f}_{L^p(I,X)}  &:= \left( \int_I \norm{f(t)}_X^p \d t \right)^{1/p}, \quad p \in [1, \infty),\\
-  \|f\|_{L^{\infty}(I\rightarrow X)}:=\inf \left\{r>0: \mu\left(\{t \in I : \|f(t)\|_X > r\}\right)=0\right\}.
+\|f\|_{L^{\infty}(I\rightarrow X)}:=\inf \left\{r>0: \mu\left(\{t \in I : \|f(t)\|_X > r\}\right)=0\right\}.
 \end{aligned}
 $$
 
@@ -235,7 +234,7 @@ $$
 \end{aligned}
 $$
 
-With this identification, the dual of $L^p(I \to X)$ is equal to $L^{p'}(I \to X')$ . We will also use that if $\phi_n \in C^\infty(I)$ is a [smooth approximation of unity](<../../PDEs/3. Sobolev spaces/index.qmd>) then, for $p \in [1, \infty)$ 
+With this identification, the dual of $L^p(I \to X)$ is equal to $L^{p'}(I \to X')$ . We will also use that if $\phi_n \in C^\infty(I)$ is a [smooth approximation of unity](</posts/PDEs/3. Sobolev spaces/index.qmd>) then, for $p \in [1, \infty)$ 
 
 $$
 \begin{aligned}
@@ -248,7 +247,7 @@ To make the notation more readable we will use the convention of denoting functi
 $$
 \begin{aligned}
 L^2_t H^1_{0,x} & := L^2(I \to H^1_0(U)), \quad L^2_t H^{-1}_{x} := L^2(I \to H^{-1}(U))   \\
- L_{t,x}^\infty & := L^\infty(I \times U), \quad\quad\qquad\quad  L^2_x     := L^2(U).
+L_{t,x}^\infty & := L^\infty(I \times U), \quad\quad\qquad\quad  L^2_x     := L^2(U).
 \end{aligned}
 $$
 
@@ -343,7 +342,7 @@ $$
 ::: {.proof}
 
 Let $\phi_n \in C_c^ \infty(I)$ be a smooth approximation to the identity and define $u_n(t):=(u* \phi_n)(t)$ (we use the convention of extending $u$ by zero outside of $I$ so the convolution is well defined). Then, $u_n \in C^\infty_t L_x^2$ converges almost everywhere and in $L_t^2 H_x^1$ to $u$ and $u_n '$ converges in $L_t^2 H_x^{-1}$ to $u'$ (see ([-@eq-approximation])).Given $n , m >0$ write $w_{n,m}:= u_n - u_m$. We have that,
- 
+
 $$
 \begin{aligned}
 \left(\norm{u_n(t)}^2_{L_x^2}\right)' = 2\br{u_n(t),u_n'(t)}_{L^2_x}.
@@ -351,7 +350,7 @@ $$
 $$
 
 As a result, by the fundamental theorem of calculus, given any $s,t \in I$,
- 
+
 $$
 \begin{aligned}
 \norm{w_{n,m}(t)}_{L^2_x}^2 = \norm{w_{n,m}(s)}_{L^2_x}^2 +2\int_{s}^t \br{w_{n,m}(r),w_{n,m}'(r)}_{L^2_x} \d r.
@@ -359,7 +358,7 @@ $$
 $$
 
 Taking any $s$ such that $u_n(s) \to u(s)$ and the max over $t$ gives
- 
+
 $$
 \begin{aligned}
 \limsup_{n , m \to \infty} \max_{t \in I}\norm{w_{n,m}(t) }_{L^2_x}^2 \lesssim 0 + \limsup_{n , m \to \infty}\int_{I} \norm{w_{n,m}(r) }_{H^1_x}^2 \d r + \int_{I} \norm{w'_{n,m}(r)}_{H^{-1}_x}^2 \d r=0,
@@ -371,7 +370,7 @@ where in the last equality we used that $u_n ,u'_n$ converge to $u,u'$ in the re
 Equation ([-@eq-cauchy]) shows that $u_n$ is a Cauchy sequence in the Banach space $C_t L_x^2$ and, as a result, converges to a continuous function $v$ in $C_t L_x^2$. Since it also converges almost everywhere to $u$, we must have that $v=u$. This shows that $u \in C_t L_x^2$.
 
 To prove the bound of the theorem, suppose first that $u$ is smooth in $t$. Then, by the fundamental theorem of calculus and the definition of the dual norm
- 
+
 $$
 \begin{aligned}
 \norm{u(t)}_{L_x^2}^2 & = \norm{u(0)}_{L_x^2}^2 + 2\int_I \br{u'(r),u(r)}_{L_x^2} \d r \\&\leq \norm{u(0)}_{L_x^2}^2 + 2 \int_I \norm{u'(r)}_{L^2_tH_x^{-1}}\norm{u(r)}_{L^2_tH_x^1} \d r.
@@ -428,7 +427,7 @@ $$
 
 Since $L^2(U)$ is separable, it has a countable dense subset $\set{f_i}_{i=1}^\infty \subset L^2(U)$. Since $C_c^\infty(U)$ is dense in $L^2(U)$, for each $f_i$ there exists a sequence $\set{\phi_{i,n}}_{n=1}^\infty \subset C_c^\infty(U)$ that converges to $f_i$ in $L^2(U)$. Then, the set $\set{\phi_{i,n}}_{i,n}$ is a countable dense subset of $L^2(U)$, and we can apply the Gram-Schmidt process to obtain an orthonormal basis. 
 
-Alternatively, if $U$ is bounded and smooth, $\Delta ^{-1}$ is compact and self-adjoint. Hence, it has a countable orthonormal basis of eigenfunctions which are smooth by the [previous post](<../../PDEs/6. Existence elliptic/index.qmd>) and induction.  
+Alternatively, if $U$ is bounded and smooth, $\Delta ^{-1}$ is compact and self-adjoint. Hence, it has a countable orthonormal basis of eigenfunctions which are smooth by the [previous post](</posts/PDEs/6. Existence elliptic/index.qmd>) and induction.  
 
 :::
 
@@ -445,7 +444,7 @@ Consider the problem of finding $u_n \in \Ss_n$ such that, for all $i=1,....,n$ 
 $$
 \begin{aligned}
 \br{\phi_i, u'_n(t)}_{L^2_x} + B(\phi_i,u_n(t);t) & = (\phi _i, f(t)),\quad
- \br{\phi_i, u_n(0)}_{L^2_x}           = \br{\phi_i,g}_{L_x^2},
+\br{\phi_i, u_n(0)}_{L^2_x}           = \br{\phi_i,g}_{L_x^2},
 \end{aligned}
 $$ {#eq-galerkin}
 
@@ -474,7 +473,6 @@ $$ {#eq-bound}
 ::: {.proof}
 
 We divide the proof into three parts. Existence, continuity, and uniqueness.
- 
 
 a. Existence of solutions:  Since the $\phi_i$ are orthonormal and we impose $u_n \in \Ss _n$, solving ([-@eq-galerkin]) is equivalent to finding $\bm{\lambda}_n\in C(I \to \R^n)$ such that
 
@@ -528,7 +526,7 @@ b. Continuity in the data: The plan will be to apply Gronwall's inequality. By (
     \end{aligned}
     $$ {#eq-b-bound}
 
-    (this is the same as [what was proved](<../../PDEs/6. Existence elliptic/index.qmd>) as in the elliptic case).
+    (this is the same as [what was proved](</posts/PDEs/6. Existence elliptic/index.qmd>) as in the elliptic case).
     Whereas, by definition of the dual and by Cauchy's inequality, the bound of the right-hand side of ([-@eq-sol-un]) is,
 
     $$
@@ -665,71 +663,71 @@ $$ {#eq-bound-p}
 
 ::: {.proof}
 
- Let $\set{u_n}_{n=1}^\infty$ be the sequence of solutions to the Galerkin problem ([-@eq-galerkin]) guaranteed by Theorem ([-@eq-galerkin]).  By said theorem, $u_n$ and $u'_n$ are bounded sequences in $L_t^2H_{0,x}^1$ and $L_t^2 H_x^{-1}$ respectively. Since these spaces are Hilbert spaces, they are reflexive, and we deduce by the [Banach-Alaoglu theorem](<https://en.wikipedia.org/wiki/Banach%E2%80%93Alaoglu_theorem>) that respective subsequences converge weakly in their respective spaces to some $u \in L_tH_{0,x}^1$ and $\tl{u} \in L_t H_x^{-1}$. That is, 
-  
+Let $\set{u_n}_{n=1}^\infty$ be the sequence of solutions to the Galerkin problem ([-@eq-galerkin]) guaranteed by Theorem ([-@eq-galerkin]).  By said theorem, $u_n$ and $u'_n$ are bounded sequences in $L_t^2H_{0,x}^1$ and $L_t^2 H_x^{-1}$ respectively. Since these spaces are Hilbert spaces, they are reflexive, and we deduce by the [Banach-Alaoglu theorem](<https://en.wikipedia.org/wiki/Banach%E2%80%93Alaoglu_theorem>) that respective subsequences converge weakly in their respective spaces to some $u \in L_tH_{0,x}^1$ and $\tl{u} \in L_t H_x^{-1}$. That is, 
+
 $$
 \begin{aligned}
 u_{n_k} \rightharpoonup u \text{ weakly in } L_t^2H_{0,x}^1, \quad u_{n_k}' \rightharpoonup \tl{u} \text{ weakly in } L_t^2 H_x^{-1}.
 \end{aligned}
 $$
 
- We first show that $\tl{u} = u'$. We have that, given $\phi \in C_c^\infty(I \times U)$
-  
+We first show that $\tl{u} = u'$. We have that, given $\phi \in C_c^\infty(I \times U)$
+
 $$
 \begin{aligned}
 (\phi,\tl{u}')\lim_{k \to \infty} \left(\phi, u_{n_k}'\right) & = \lim_{k \to \infty} \left(-\phi', u_{n_k}\right) = \left(-\phi', u\right) ,
 \end{aligned}
 $$
 
- where in the first equality we used the weak convergence of $u'_{n_k}$ to $\tl{u}$ in $L_t H_x^{-1}$, in the second equality we used the definition of weak derivative, and in the last we used the convergence of $u_{n_k}$ to $u$ in $L_t^2H_{0,x}^1$. This shows that $u' = \tl{u}$ almost everywhere. We now show that $u$ solves the weak problem ([-@eq-weak]).  By construction of the Galerkin solutions in ([-@eq-galerkin]) and integrating over $I$, we deduce for any $v \in \Ss_{n_k}$ 
-  
+where in the first equality we used the weak convergence of $u'_{n_k}$ to $\tl{u}$ in $L_t H_x^{-1}$, in the second equality we used the definition of weak derivative, and in the last we used the convergence of $u_{n_k}$ to $u$ in $L_t^2H_{0,x}^1$. This shows that $u' = \tl{u}$ almost everywhere. We now show that $u$ solves the weak problem ([-@eq-weak]).  By construction of the Galerkin solutions in ([-@eq-galerkin]) and integrating over $I$, we deduce for any $v \in \Ss_{n_k}$ 
+
 $$
 \begin{aligned}
 (v, u'_{n_k})+ (\nabla v, \bm{A} \nabla u_{n_k}) + (\nabla v, \bm{b} u_{n_k}) + (v, cu_{n_k}) = (v, f).
 \end{aligned}
 $$ {#eq-weak-k}
 
- As a result, taking limits in $k$ shows that, for all $v \in \Ss _n$
-  
+As a result, taking limits in $k$ shows that, for all $v \in \Ss _n$
+
 $$
 \begin{aligned}
 (v, u')+ (\nabla v, \bm{A} \nabla u) + (\nabla v, \bm{b} u) + (v, cu) = (v, f).
 \end{aligned}
 $$
 
- Since the space $\Ss _n$ is dense in $L_t^2H_{0,x}^1$ we deduce that
-  
+Since the space $\Ss _n$ is dense in $L_t^2H_{0,x}^1$ we deduce that
+
 $$
 \begin{aligned}
 (v, u')+ (\nabla v, \bm{A} \nabla u) + (\nabla v, \bm{b} u) + (v, cu) = (v, f), \quad \forall v \in L_t^2H_{0,x}^1.
 \end{aligned}
 $$
 
- We now check that $u(0)=g$. To do so, we now consider $v \in C^1_tH_{0,x}^1 \cap \Ss _{n_k}$ such that $v(T)=0$. Then, integrating by parts over $I$ and using ([-@eq-weak-k]) gives
-  
+We now check that $u(0)=g$. To do so, we now consider $v \in C^1_tH_{0,x}^1 \cap \Ss _{n_k}$ such that $v(T)=0$. Then, integrating by parts over $I$ and using ([-@eq-weak-k]) gives
+
 $$
 \begin{aligned}
 & -(v', u_{n_k}) + (\nabla v, \bm{A} \nabla u_{n_k}) + (\nabla v, \bm{b} u_{n_k}) + (v, cu_{n_k}) \\&= (v, f)+  \br{v(0),g}_{L_x^2}=(v, f)+  \br{v(0),u_{n_k}(0)}_{L_x^2}.
 \end{aligned}
 $$
 
- Taking limits above and by density of $\Ss_n$ in $C_t^1H_{0,x}^1$ we obtain that
-  
+Taking limits above and by density of $\Ss_n$ in $C_t^1H_{0,x}^1$ we obtain that
+
 $$
 \begin{aligned}
 \br{v(0),g}_{L_x^2} = \br{v(0),u(0)}_{L_x^2}, \quad \forall v \in C_t^1H_{0,x}^1.
 \end{aligned}
 $$
 
- where we used that by @lem-continuity-weak $u_{n_k} \to u \in C_t L_x^2$. In particular,
-  
+where we used that by @lem-continuity-weak $u_{n_k} \to u \in C_t L_x^2$. In particular,
+
 $$
 \begin{aligned}
 \br{w,g}_{L_x^2} = \br{w,u(0)}_{L_x^2}, \quad \forall w \in H_{0,x}^1.
 \end{aligned}
 $$
 
- Since $H_{0,x}^1$ is dense in $L_x^2$ this shows that $u(0)=g$ and concludes the proof.
+Since $H_{0,x}^1$ is dense in $L_x^2$ this shows that $u(0)=g$ and concludes the proof.
 
 :::
 
@@ -746,10 +744,10 @@ In this section, we show some numerical illustrations of the well-posedness of t
 $$
 \begin{aligned}
 \begin{cases}
-    \partial_t u - \Delta u + \cos(x) \nabla u + \sin(x) =1 & \text{in } I\times U      \\
- u(0) = 1         & \text{on } U          \\
- u = 0          & \text{on } I\times \partial U.
-  \end{cases}
+\partial_t u - \Delta u + \cos(x) \nabla u + \sin(x) =1 & \text{in } I\times U      \\
+u(0) = 1         & \text{on } U          \\
+u = 0          & \text{on } I\times \partial U.
+\end{cases}
 \end{aligned}
 $$ {#eq-parabolic-2}
 
@@ -776,10 +774,10 @@ Next, we show a case where the exact solution can be calculated. We take $U=(0,1
 $$
 \begin{aligned}
 \begin{cases}
-    \partial_t u - \Delta u + \nabla u + 1 =(-1 + x) x + t (-3 + x + x^2) & \text{in } I\times U      \\
- u(0) = 1         & \text{on } U          \\
- u = 0          & \text{on } I\times \partial U,
-  \end{cases}
+\partial_t u - \Delta u + \nabla u + 1 =(-1 + x) x + t (-3 + x + x^2) & \text{in } I\times U      \\
+u(0) = 1         & \text{on } U          \\
+u = 0          & \text{on } I\times \partial U,
+\end{cases}
 \end{aligned}
 $$ {#eq-exact}
 
@@ -799,7 +797,7 @@ as before for $n=20$ basis functions. As we can see, the Galerkin solution and t
 
 ## Regularity of the solutions
 
-Having proved the well-posedness of the parabolic problem ([-@eq-parabolic]) and its finite-dimensional Galerkin approximation, we can now move on to study the regularity of the solutions. The proof is similar to the one given in the [elliptic case](<../../PDEs/6. Existence elliptic/index.qmd>) but more technical, and we will mainly cite some main results without proof. 
+Having proved the well-posedness of the parabolic problem ([-@eq-parabolic]) and its finite-dimensional Galerkin approximation, we can now move on to study the regularity of the solutions. The proof is similar to the one given in the [elliptic case](</posts/PDEs/6. Existence elliptic/index.qmd>) but more technical, and we will mainly cite some main results without proof. 
 
 As one expects from the elliptic case, the spatial regularity of the solutions is increased by $2$. Our study of the previous section shows that the regularity of the time derivatives of the solution is $2$ orders lower. In fact, it is two orders lower for each time derivative taken. To be able to obtain higher regularity however, we will need to impose some compatibility between the boundary condition $f$ and the initial data $g$. The following can be found in Section 7.13 of [@evans2022partial]
 
@@ -841,7 +839,7 @@ In consequence, if $f \in C^\infty_{t,x}, g \in C^\infty_x$ then $u \in C^\infty
 
 :::
 
-We also show a result where the coefficients are allowed to depend on time. The following can be found in Chapter $3$ of [@Friedman1983PartialDE] and assumes that the coefficients are [Hölder continuous](<../../PDEs/3. Sobolev spaces/index.qmd>)
+We also show a result where the coefficients are allowed to depend on time. The following can be found in Chapter $3$ of [@Friedman1983PartialDE] and assumes that the coefficients are [Hölder continuous](</posts/PDEs/3. Sobolev spaces/index.qmd>)
 
 ::: {#thm-4}
 

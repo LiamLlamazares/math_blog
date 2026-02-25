@@ -7,7 +7,6 @@ description: "Part 3 of the series on Malliavin calculus"
 bibliography: biblio.bib
 format:
   html:
-    css: custom_theorems.css
     toc: true
     number-sections: true
     html-math-method: mathjax
@@ -179,8 +178,8 @@ The proof of the first part of the proposition is a straightforward application 
 $$
 \begin{aligned}
 \|D  X\|^2_{L^2(I\times\Omega)}&=\int_{I}\left\|\sum_{n=1}^{\infty} n I_{n-1}(f_{n}(\cdot ,t))\right\|_{L^2(\Omega)}^2 d t\\
-	&=\sum_{n=1}^{\infty} n^2(n-1)!\int_{I}\|f_n(\cdot ,t)\|^2 dt=\sum_{n=1}^{\infty} n n!\|f_{n}\|^2_{L^2([0,T]^n)}\\
-	&=\norm{X}_{\mathbb{D}_{1,2}}^2- \norm{X}_{L^2(\Omega)}^2.
+&=\sum_{n=1}^{\infty} n^2(n-1)!\int_{I}\|f_n(\cdot ,t)\|^2 dt=\sum_{n=1}^{\infty} n n!\|f_{n}\|^2_{L^2([0,T]^n)}\\
+&=\norm{X}_{\mathbb{D}_{1,2}}^2- \norm{X}_{L^2(\Omega)}^2.
 \end{aligned}
 $$
 
@@ -233,22 +232,22 @@ The space $\mathbb{D}_{1,2}$ is a Hilbert space.
 It only remains to show that $\norm{\cdot }_{\mathbb{D}_{1,2}}$ is complete. Let $\set{X_m}_{m \in \N} \subset  \mathbb{D}_{1,2}$ be Cauchy. Or equivalently, by @cor-normedspace, $X_m$ is Cauchy in $L^2(\Omega)$ and $DX_m$ in $L^2(I \times \Omega)$.
 
 Since $L^2(\Omega)$ is complete $X_m$ must converge to some  $X\in L^2(\Omega)$. Let us write the respective chaos expansions as
-	
+
 $$
 X=\sum_{n=0}^{\infty} I_n(f_n);\quad X_m=\sum_{n=0}^{\infty} I_n(f_n^{(m)}).
 $$
 
-	By Itô's $n$-th isometry and the convergence $X_m\to X\in L^2(\Omega)$ we deduce that also $f^{(m)}_n\to f_n\in L^2(I^n)$ for each $n$.    By now applying Fatou's lemma and the fact that $X_m$ is by hypothesis Cauchy in  $\mathbb{D}_{1,2}$ we obtain that
-	
+By Itô's $n$-th isometry and the convergence $X_m\to X\in L^2(\Omega)$ we deduce that also $f^{(m)}_n\to f_n\in L^2(I^n)$ for each $n$.    By now applying Fatou's lemma and the fact that $X_m$ is by hypothesis Cauchy in  $\mathbb{D}_{1,2}$ we obtain that
+
 $$
 \begin{aligned}
 \lim_{m \to \infty}\|DX-DX_m\|_{L^2(I \times \Omega)}&=\lim_{m \to \infty}\sum_{n=1}^{\infty} n!n \|f_n(x)-f_n^{(m)}\|_{L^2(I^n)}\\
-		&\leq \lim_{m \to \infty}\liminf_{k \to \infty}\sum_{n=1}^{\infty} n!n \|f_n^{(k)}(x)-f_n^{(m)}\|_{L^2(I^n)}\\
-		&=\lim_{m \to \infty}\liminf_{k \to \infty}\norm{DX_m-DX_k}_{L^2(I \times \Omega)}=0.
+&\leq \lim_{m \to \infty}\liminf_{k \to \infty}\sum_{n=1}^{\infty} n!n \|f_n^{(k)}(x)-f_n^{(m)}\|_{L^2(I^n)}\\
+&=\lim_{m \to \infty}\liminf_{k \to \infty}\norm{DX_m-DX_k}_{L^2(I \times \Omega)}=0.
 \end{aligned}
 $$
 
-	As desired.
+As desired.
 
 :::
 

@@ -6,7 +6,6 @@ categories: [Malliavin calculus]
 description: "How does one generalize the Itô integral?"
 format:
   html:
-    css: custom_theorems.css
     toc: true
     number-sections: true
     html-math-method: mathjax
@@ -115,7 +114,7 @@ format:
 [Download PDF version](main.pdf)
 :::
 
-##  Three line summary
+## Three line summary
 
 - By fixing $t$, one can obtain a chaos expansion for (possibly non-adapted) square integrable stochastic processes $X(t)$.
 
@@ -129,7 +128,7 @@ If you want to define the Malliavin derivative you need the Skorokhod integral.
 
 ## Notation
 
-The same as in [the previous post](<../../Malliavin Calculus/1.Chaos_expansion/index.qmd>) on the chaos expansion. We will also write $\mathbb{L}^2(I\times \Omega)$ for the space of  [Itô integrable](<../../Stochastic Calculus/Ito_integral/index.qmd>) functions.
+The same as in [the previous post](</posts/Malliavin Calculus/1.Chaos_expansion/index.qmd>) on the chaos expansion. We will also write $\mathbb{L}^2(I\times \Omega)$ for the space of  [Itô integrable](</posts/Stochastic Calculus/Ito_integral/index.qmd>) functions.
 
 ## The chaos expansion of an Itô integral
 
@@ -155,8 +154,8 @@ $$
 
 Firstly, we note that a stochastic process $X$ is adapted iff $$X_t=\E_{\Ff_t}[X(t)]\quad\forall t\in I.$$ Since the Itô integral is a martingale, we obtain that, by commuting the sum and using the uniqueness of the chaos expansion this is equivalent to requiring that, for all $t$
 \begin{multline*}
-	I_n(f_n(\cdot,t))\\=	n!\E_{\Ff_t} \left[\int_{I} \left( \int_{0}^{t_n}\cdots \int_{0}^{t_2}f(t_1\ldots t_n,t) dW(t_1) \cdots dW(t_{n-1}) \right)dW(t_n)\right]\\
-	=n!\int_{0}^t \int_{0}^{t_n}\cdots \int_{0}^{t_2}f(t_1\ldots t_n,t) dW(t_1) \cdots dW(t_{n-1})dW(t_n)\\= I_n(f_n(\cdot,t) 1_{\max_{t_i\leq t}}),
+I_n(f_n(\cdot,t))\\=	n!\E_{\Ff_t} \left[\int_{I} \left( \int_{0}^{t_n}\cdots \int_{0}^{t_2}f(t_1\ldots t_n,t) dW(t_1) \cdots dW(t_{n-1}) \right)dW(t_n)\right]\\
+=n!\int_{0}^t \int_{0}^{t_n}\cdots \int_{0}^{t_2}f(t_1\ldots t_n,t) dW(t_1) \cdots dW(t_{n-1})dW(t_n)\\= I_n(f_n(\cdot,t) 1_{\max_{t_i\leq t}}),
 \end{multline*}
 where the commutation of the sum and the integral is justified by the $L^2(\Omega)$ convergence of the chaos expansion ($L^1(\Omega)$ convergence would have been enough).
 
@@ -185,7 +184,7 @@ $$
 This is a direct calculation using the previous result as
 
 \begin{multline*}
-	\int_{I} X(t) dW(t)=\sum_{n=0}^{\infty}\int_{I} I_n(f_{n,t})dW(t)\\=\sum_{n=0}^{\infty}n! \int_{I}\int_{S_n}f_{n,t}(t_1,\ldots,t_n) dW(t_1)\ldots dW(t_n) dW(t)\\=\sum_{n=0}^{\infty}(n+1)! \int_{I}\int_{S_n}f_{n,S}(t_1,\ldots,t_n,t) dW(t_1)\ldots dW(t_n) dW(t)\\=\sum_{n=0}^{\infty}(n+1)! J_{n+1}(f_{n,S}) =\sum_{n=0}^{\infty}  I_{n+1}(f_{n,S}).
+\int_{I} X(t) dW(t)=\sum_{n=0}^{\infty}\int_{I} I_n(f_{n,t})dW(t)\\=\sum_{n=0}^{\infty}n! \int_{I}\int_{S_n}f_{n,t}(t_1,\ldots,t_n) dW(t_1)\ldots dW(t_n) dW(t)\\=\sum_{n=0}^{\infty}(n+1)! \int_{I}\int_{S_n}f_{n,S}(t_1,\ldots,t_n,t) dW(t_1)\ldots dW(t_n) dW(t)\\=\sum_{n=0}^{\infty}(n+1)! J_{n+1}(f_{n,S}) =\sum_{n=0}^{\infty}  I_{n+1}(f_{n,S}).
 \end{multline*}
 
 :::
@@ -285,13 +284,13 @@ Let $X(t), Y(t)\in \rm{dom}
 
 ::: {.proof}
 
-	The first property is a consequence of the chaos expansion's linearity (which is itself  a consequence of the linearity of iterated Itô integration). The second is due to the expectation of the Itô integral being $0$. The final property is a consequence of the fact that the chaos expansion of $X\cdot 1_A$ is
-	
+The first property is a consequence of the chaos expansion's linearity (which is itself  a consequence of the linearity of iterated Itô integration). The second is due to the expectation of the Itô integral being $0$. The final property is a consequence of the fact that the chaos expansion of $X\cdot 1_A$ is
+
 $$
 X\cdot 1_A=\sum_{n=0}^{\infty} I_{n}([f_n 1_A]_S).
 $$
 
-	Which shown by the equivalent characterization of Skorokhod functions that $X\cdot 1_A\in \rm{dom}
+Which shown by the equivalent characterization of Skorokhod functions that $X\cdot 1_A\in \rm{dom}
 \delta)$. The final property is a consequence of the previously proved linearity.
 
 :::

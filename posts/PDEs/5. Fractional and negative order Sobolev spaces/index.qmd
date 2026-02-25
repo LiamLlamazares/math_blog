@@ -7,7 +7,6 @@ description: "Filling in the gaps"
 bibliography: biblio.bib
 format:
   html:
-    css: custom_theorems.css
     toc: true
     number-sections: true
     html-math-method: mathjax
@@ -127,13 +126,13 @@ format:
 
 4. All these spaces coincide with $H^s(\Omega )$  when $p=2$.
 
-    \item There is a natural correspondence between negative regularity and the dual. Additionally, negative regularity can be obtained by differentiating functions with higher regularity.
-    \item Fractional sobolev spaces appear naturally in the study of PDEs. For example, the trace of Sobolev functions $W^{s,p}(\Omega)$ is equal to the fractional space $B^{s-1/p,p}(\partial \Omega)$. And finer embeddings and regularity results can be obtained by using these spaces.
+\item There is a natural correspondence between negative regularity and the dual. Additionally, negative regularity can be obtained by differentiating functions with higher regularity.
+\item Fractional sobolev spaces appear naturally in the study of PDEs. For example, the trace of Sobolev functions $W^{s,p}(\Omega)$ is equal to the fractional space $B^{s-1/p,p}(\partial \Omega)$. And finer embeddings and regularity results can be obtained by using these spaces.
 \end{enumerate}
 
 ## Introduction
 
-In previous posts, we covered the theory of [Sobolev spaces](<../../PDEs/3. Sobolev spaces/index.qmd>) $W^{k,p}(\Omega )$ where $k$ is an integer. In the case $k=2$ and when $\Omega =\R^d$ we saw that this space coincided with $H^k(\R^d)$. Furthermore, [we also saw](<../../PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>) how to define $H^s(\R^d)$ when $s$ was any real number. This motivates the following two questions.
+In previous posts, we covered the theory of [Sobolev spaces](</posts/PDEs/3. Sobolev spaces/index.qmd>) $W^{k,p}(\Omega )$ where $k$ is an integer. In the case $k=2$ and when $\Omega =\R^d$ we saw that this space coincided with $H^k(\R^d)$. Furthermore, [we also saw](</posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>) how to define $H^s(\R^d)$ when $s$ was any real number. This motivates the following two questions.
 
 1. How can we define $H^s(\Omega )$  when $\Omega$ is not $\R^d$ and $s$ is not an integer ?
 
@@ -153,7 +152,7 @@ We will cover the basic properties of these spaces as well as their relationship
 
 In terms of notation, we will always denote $U$ by an arbitrary open subset of $\R^d$  whereas $\Omega \subset \R^d$ will be open with a smooth enough boundary (in a sense to be made precise later).
 
-We make frequent use of the fact that, as [shown](<../../PDEs/3. Sobolev spaces/index.qmd>) in a previous post, functions in $L^p(U)$ can be identified as elements of the larger space of *distributions* $\Dd '(U ):= C_c^\infty(U)'$. This is done by identifying a function $f \in L^p(U)$ with the linear functional 
+We make frequent use of the fact that, as [shown](</posts/PDEs/3. Sobolev spaces/index.qmd>) in a previous post, functions in $L^p(U)$ can be identified as elements of the larger space of *distributions* $\Dd '(U ):= C_c^\infty(U)'$. This is done by identifying a function $f \in L^p(U)$ with the linear functional 
 
 $$
 \begin{aligned}
@@ -161,7 +160,7 @@ T_f:\phi \mapsto \int_U f\phi \d x.
 \end{aligned}
 $$
 
-This identification between $f$ and $T_f$  allows us to extend by [duality](<../../PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>) operators that are defined on $C_c^\infty(U)$ to $L^p(U)$. For example, given $u \in L^p(U) \in \Dd'(\Omega )$ we can define its Fourier transform $\Ff u$  and  $\alpha$-th derivative $D^\alpha u$  to be the distributions defined by
+This identification between $f$ and $T_f$  allows us to extend by [duality](</posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>) operators that are defined on $C_c^\infty(U)$ to $L^p(U)$. For example, given $u \in L^p(U) \in \Dd'(\Omega )$ we can define its Fourier transform $\Ff u$  and  $\alpha$-th derivative $D^\alpha u$  to be the distributions defined by
 
 $$
 \begin{aligned}
@@ -244,7 +243,7 @@ Though the Sobolev-Slobodeckij spaces can be defined for any open set $U$, they 
 
 ::: {#prp-inclusion-ordered-by-regularity name="Inclusion ordered by regularity"}
 
-Let  $\Omega$ be an [extension domain](<../../PDEs/3. Sobolev spaces/index.qmd>) for $W^{1,p}$.  Then, for $p \in [1,\infty)$ and $0<s<s'$ it holds that
+Let  $\Omega$ be an [extension domain](</posts/PDEs/3. Sobolev spaces/index.qmd>) for $W^{1,p}$.  Then, for $p \in [1,\infty)$ and $0<s<s'$ it holds that
 
 $$
 \begin{aligned}
@@ -272,7 +271,7 @@ $$
 
 :::
 
-In the definition above, we used the notation $\br{\xi}:=\sqrt{1+|\xi|^2}$. As we saw when we studied Sobolev spaces through the [Fourier transform](<../../PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>), using the fact that $\Ff$ is an isometry which transforms differentiation into polynomial multiplication
+In the definition above, we used the notation $\br{\xi}:=\sqrt{1+|\xi|^2}$. As we saw when we studied Sobolev spaces through the [Fourier transform](</posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>), using the fact that $\Ff$ is an isometry which transforms differentiation into polynomial multiplication
 
 $$
 \begin{aligned}
@@ -476,7 +475,7 @@ For higher orders of regularity, the following is sufficient: see [@leoni2023fir
 
 ::: {#thm-1}
 
-Let $\Omega \subset \R^d$ be open with [uniformly Lipschitz boundary](<../../PDEs/3. Sobolev spaces/index.qmd>) and consider   $p\in [1,\infty), s\in[1,\infty)$. Then, $\Omega$ is an extension domain for $W^{s,p},H^{s,p},B^{s,p}$.
+Let $\Omega \subset \R^d$ be open with [uniformly Lipschitz boundary](</posts/PDEs/3. Sobolev spaces/index.qmd>) and consider   $p\in [1,\infty), s\in[1,\infty)$. Then, $\Omega$ is an extension domain for $W^{s,p},H^{s,p},B^{s,p}$.
 
 :::
 
@@ -511,7 +510,7 @@ The result can be found in [@triebel1992theory] page 45 for $\Omega = \R^d$. The
 $$
 \begin{aligned}
 H^{s,p}(\Omega ) & =\left[H^{k,p}(\Omega), H^{k+1,p}(\Omega)\right]_{\gamma }= \left[L^p(\Omega ), H^{k+1,p}(\Omega)\right]_{s/(k+1) }  \\
-    B^{s,p}(\Omega ) & =\left[B^{k,p}(\Omega), B^{k+1,p}(\Omega)\right]_{\gamma }= \left[L^p(\Omega ), B^{k+1,p}(\Omega)\right]_{s/(k+1) }.
+B^{s,p}(\Omega ) & =\left[B^{k,p}(\Omega), B^{k+1,p}(\Omega)\right]_{\gamma }= \left[L^p(\Omega ), B^{k+1,p}(\Omega)\right]_{s/(k+1) }.
 \end{aligned}
 $$
 
@@ -605,7 +604,7 @@ By Plancherel's theorem and a calculation of the Fourier transform of the transl
 $$
 \begin{aligned}
 |u|_{\gamma ,2}^2 & =\int_{\R^d}\int_{\R^d}\frac{\abs{u(x+y)-u(y)}^2}{\abs{x}^{d+2\gamma	}}\d x \d y                                                                                                       = \int_{\R^d}\frac{\norm{\Ff \{u(x+\cdot )-u\}}^2_{L^2(\R^d)}}{\abs{x}^{d+2\gamma	}}\d x \\
-                      & =\int_{\R^d}\int_{\R^d}  \frac{|e^{2 \pi i x \cdot \xi}-1|^2}{\abs{x}^{d+2\gamma	}}|\wh{u}(\xi)|^2\d x\d\xi                                                                                                                                                                     \\&=2\int_{\R^d}\left(\int_{\R^d}  \frac{1-\cos(2\pi \xi\cdot x)}{\abs{x}^{d+2\gamma	}}\d x\right)|\wh{u}(\xi)|^2\d\xi.
+& =\int_{\R^d}\int_{\R^d}  \frac{|e^{2 \pi i x \cdot \xi}-1|^2}{\abs{x}^{d+2\gamma	}}|\wh{u}(\xi)|^2\d x\d\xi                                                                                                                                                                     \\&=2\int_{\R^d}\left(\int_{\R^d}  \frac{1-\cos(2\pi \xi\cdot x)}{\abs{x}^{d+2\gamma	}}\d x\right)|\wh{u}(\xi)|^2\d\xi.
 \end{aligned}
 $$
 
@@ -614,7 +613,7 @@ To treat the inner integral, we note that it is rotationally invariant, and so, 
 $$
 \begin{aligned}
 \int_{\R^d}  \frac{1-\cos(2\pi \xi\cdot x)}{\abs{x}^{d+2\gamma	}}\d x & =\int_{\R^d}  \frac{1-\cos(2\pi \abs{\xi}x_1 )}{\abs{x}^{d+2\gamma	}}\d x                                          \\
-                                                                          & =\abs{\xi}^{2 \gamma } \int_{\R^d}  \frac{1-\cos(2\pi  x_1) }{\abs{x}^{d+2\gamma	}}\d x\sim \abs{\xi}^{2 \gamma }.
+& =\abs{\xi}^{2 \gamma } \int_{\R^d}  \frac{1-\cos(2\pi  x_1) }{\abs{x}^{d+2\gamma	}}\d x\sim \abs{\xi}^{2 \gamma }.
 \end{aligned}
 $$
 
@@ -713,7 +712,7 @@ Using ([-@eq-second-order]) and proceeding as in @thm-equivalence-fractional-spa
 $$
 \begin{aligned}
 & \Ff \left(\int_{\R^d}\frac{u(x)-u(x+y)}{\abs{y}^{d+2\gamma}}\d y\right)= -\frac{1}{2} \int_{\R^d}\left(\int_{\R^d}\frac{e^{2\pi i y \cdot \xi}-2+e^{-2\pi i y \cdot \xi}}{\abs{y}^{d+2\gamma}}\d y\right) \wh{u}(\xi)\d \xi       \\
-     & =\int_{\R^d}\left(\int_{\R^d}\frac{1-\cos(2\pi y \cdot \xi)}{\abs{y}^{d+2\gamma}}\d y\right) \wh{u}(\xi)\d \xi =\int_{\R^d}  \frac{1-\cos(2\pi  y_1) }{\abs{y}^{d+2\gamma	}}\d y\int_{\R^d}\abs{\xi}^{2 \gamma }\wh{u}(\xi)\d \xi \\& \sim \abs{\xi}^{2 \gamma }\wh{u}(\xi)\d \xi.
+& =\int_{\R^d}\left(\int_{\R^d}\frac{1-\cos(2\pi y \cdot \xi)}{\abs{y}^{d+2\gamma}}\d y\right) \wh{u}(\xi)\d \xi =\int_{\R^d}  \frac{1-\cos(2\pi  y_1) }{\abs{y}^{d+2\gamma	}}\d y\int_{\R^d}\abs{\xi}^{2 \gamma }\wh{u}(\xi)\d \xi \\& \sim \abs{\xi}^{2 \gamma }\wh{u}(\xi)\d \xi.
 \end{aligned}
 $$
 
@@ -831,7 +830,7 @@ It does **not** hold that $H^{-s}(\R^d)= H^s(\R^d)$. The problem occurs when con
 $$
 \begin{aligned}
 & H^{s}(\R^d) \iso   H^s(\R^d)' \iso H^{-s}(\R^d)                                                 \\
-     & u \longmapsto   \br{\cdot, u}_{H^s(\R^d)}= \br{\cdot, \Lambda^{2s} u } \mapsto \Lambda ^{2s} u.
+& u \longmapsto   \br{\cdot, u}_{H^s(\R^d)}= \br{\cdot, \Lambda^{2s} u } \mapsto \Lambda ^{2s} u.
 \end{aligned}
 $$
 
@@ -868,7 +867,7 @@ H^{s,p}_K(\R^d):= \set{u \in H^{s,p}(\R^d): \rm{supp}(u) \subset K},
 \end{aligned}
 $$
 
-the support being understood [in the sense of distributions](<../../PDEs/3. Sobolev spaces/index.qmd>)
+the support being understood [in the sense of distributions](</posts/PDEs/3. Sobolev spaces/index.qmd>)
 Now, given a Banach space $X$ and a closed subspace $Y \hookrightarrow X$, elements of $X'$ can be restricted to $Y$, obtaining functionals in $Y'$. The kernel of this restriction is $Y^\circ:=\set{\ell \in X': Y \subset \rm{ker}(\ell)}$. Since, by the Hahn Banach theorem, the restriction is surjective, we obtain the [factorization](<https://math.la.asu.edu/~quigg/teach/courses/578/2008/notes/adjoints.pdf>)
 
 $$
@@ -920,7 +919,7 @@ Define the mapping
 $$
 \begin{aligned}
 T: W^{k,p}(\Omega ) & \longrightarrow L^p(\Omega \to \R^d)                \\
-    u                   & \longmapsto(D^\alpha u)_{1 \leq\abs{\alpha}\leq k}.
+u                   & \longmapsto(D^\alpha u)_{1 \leq\abs{\alpha}\leq k}.
 \end{aligned}
 $$
 
@@ -1049,7 +1048,7 @@ $$
 ### Fractional Sobolev embeddings
 
 In this section, we state the fractional analogue of the Sobolev embedding theorems for regularity $\gamma \in (0,1)$.
-Here, the [analogous](<../../PDEs/3. Sobolev spaces/index.qmd>) of the exponent $p_k^{*}$ is
+Here, the [analogous](</posts/PDEs/3. Sobolev spaces/index.qmd>) of the exponent $p_k^{*}$ is
 
 ::: {#def-3}
 
@@ -1203,7 +1202,7 @@ $$
 \begin{aligned}
 & W^{s, p}(\Omega) \hookrightarrow L^q(\Omega), \quad \forall q \in [p, p_k^*) \quad \text { and } s<\frac{d}{p} \\
 & W^{s, p}(\Omega) \hookrightarrow L^q(\Omega), \quad \forall q \in[p, \infty) \quad \text { and } s=\frac{d}{p} \\
-& W^{s, p}(\Omega) \hookrightarrow C^{s-d/p}(\bar{\Omega})\hspace{71pt}\text { and } s>\frac{d}{p},
+& W^{s, p}(\Omega) \hookrightarrow C^{s-d/p}(\bar{\Omega})\text { and } s>\frac{d}{p},
 \end{aligned}
 $$
 
@@ -1219,7 +1218,7 @@ $$
 \end{aligned}
 $$
 
-The result follows from @thm-subcritical-embedding,  @thm-morrey-embedding together with the [integer-case](<../../PDEs/3. Sobolev spaces/index.qmd>) embeddings. For the first case, by @thm-subcritical-embedding, we have
+The result follows from @thm-subcritical-embedding,  @thm-morrey-embedding together with the [integer-case](</posts/PDEs/3. Sobolev spaces/index.qmd>) embeddings. For the first case, by @thm-subcritical-embedding, we have
 
 $$
 \begin{aligned}

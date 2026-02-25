@@ -4,6 +4,7 @@ project:
   resources:
     - _data/recent_comments.json
     - assets/
+    - custom_theorems.css
   render:
     - "!posts/Future/**"
     - "*.qmd"
@@ -54,6 +55,7 @@ format:
       light: flatly
       dark: darkly
     toc: true
+    css: custom_theorems.css
     html-math-method: mathjax
     include-in-header:
       text: |

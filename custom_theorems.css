@@ -1,0 +1,19 @@
+/* LaTeX-style theorem environments */
+.theorem, .lemma, .corollary, .proposition, .conjecture, .definition, .example, .remark {
+  border: none !important;
+  background-color: transparent !important;
+  padding: 0 !important;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+.theorem-title, .lemma-title, .corollary-title, .proposition-title,
+.conjecture-title, .definition-title, .example-title, .remark-title {
+  display: inline !important;
+  font-weight: bold;
+  color: inherit !important;
+  margin-right: 0.5em;
+}
+.theorem-title::after, .lemma-title::after, .corollary-title::after,
+.proposition-title::after, .definition-title::after { content: "."; }
+.theorem-body, .lemma-body, .corollary-body, .proposition-body { font-style: italic; }
+.definition-body, .example-body, .remark-body { font-style: normal; }

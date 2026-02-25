@@ -38,6 +38,11 @@ if (items.length > 0) {
     const key = String(catName).toLowerCase().trim();
     return covers[key] || null;
   };
+
+  const getPdfPath = (post) => {
+    if (!post.pdf) return null;
+    return post.path.replace(/\/[^\/]*$/, '') + '/' + post.pdf;
+  };
 %>
 
 ``` {=html}
@@ -53,7 +58,17 @@ if (items.length > 0) {
 <% } %>
 <h2 class="math-font"><%- featured.title %></h2>
 <p class="excerpt"><%- featured.description || featured.subtitle || '' %></p>
+
+<div class="featured-actions">
 <span class="read-more">Read more &rarr;</span>
+<% if (featured.pdf) { %>
+<object data="<%- getPdfPath(featured) %>" type="application/pdf" style="display:none;"></object>
+<span href="<%- getPdfPath(featured) %>" class="pdf-download-link" onclick="event.preventDefault(); window.open('<%- getPdfPath(featured) %>');">
+  <img src="https://img.icons8.com/material-outlined/24/000000/pdf.png" style="height: 16px; vertical-align: middle; margin-right: 4px; filter: opacity(0.6);"/>
+  PDF Version
+</span>
+<% } %>
+</div>
 </a>
 </div>
 
@@ -61,7 +76,14 @@ if (items.length > 0) {
 <h3 class="pane-label math-font">Most recent posts </h3>
 <ul>
 <% for (const post of recent) { %>
-<li><a href="<%- post.path %>"><%- post.title %></a>, <span class="date"><%- post.date %></span></li>
+<li>
+  <a href="<%- post.path %>"><%- post.title %></a>, <span class="date"><%- post.date %></span>
+  <% if (post.pdf) { %>
+    <span onclick="event.preventDefault(); window.open('<%- getPdfPath(post) %>');" class="recent-pdf-link" title="Download PDF">
+      [PDF]
+    </span>
+  <% } %>
+</li>
 <% } %>
 </ul>
 </div>
