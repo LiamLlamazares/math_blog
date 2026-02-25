@@ -1,27 +1,69 @@
-# project
+# Quarto / Jekyll
 _site
+.jekyll-cache
 .sass-cache
 .vagrant
-.out
-.blg
-.fdb
-.fls
-.log
-.gz
-.blg
-.bll
-.gz
-.log
-.latexmk
+/.quarto/
+**/*.quarto_ipynb
 
-# general
+# OS generated files
 .DS_Store
 Thumbs.db
 ehthumbs.db
 
+# Ruby
 Gemfile.lock
-
 beautiful-jekyll-theme-*.gem
 
-/.quarto/
-**/*.quarto_ipynb
+# Local LaTeX build artifacts and auxiliary files
+# Logs and intermediate files
+*.aux
+*.bbl
+*.bbl-SAVE-ERROR
+*.bcf
+*.blg
+*.idx
+*.ind
+*.ilg
+*.lof
+*.log
+*.lot
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.xdv
+*._prw
+
+# Files created by biblatex package
+*.lbx
+*-blx.bib
+*.run.xml
+
+# Files created by glossaries package
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+
+# Files created by minted package
+_minted*
+*.pyg
+
+# Files created by beamer
+*.nav
+*.snm
+*.vrb
+
+# Other temporary/backup files
+*.bak
+*~
+*.backup
+*.swp
+
+# Locally compiled PDF output
+*.pdf
