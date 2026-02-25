@@ -13,7 +13,7 @@ Input folder must contain:
 
 Metadata is extracted from:
     - \title{}, \author{}, \date{} — standard LaTeX commands
-    - \subtitle{} — becomes the post subtitle
+    - \postsubtitle{} — becomes the post subtitle
     - Parent folder name — becomes the default tag
     - cover.* — auto-detected as post image
 
@@ -98,7 +98,7 @@ def parse_tex_metadata(tex: str) -> dict:
     else:
         meta['date'] = date.today().isoformat()
 
-    # Extract \subtitle{...} → subtitle
+    # Extract \postsubtitle{...} → subtitle
     desc = _extract_braced(tex, 'subtitle')
     if desc:
         meta['subtitle'] = desc
@@ -350,7 +350,7 @@ def convert_body(body: str) -> str:
     text = re.sub(r'\\exampleSymbol', '', text)
     text = re.sub(r'\\exerciseSymbol', '', text)
     # Strip blog metadata commands that should only appear in front matter
-    text = re.sub(r'\\subtitle\{[^}]*\}', '', text)
+    text = re.sub(r'\\postsubtitle\{[^}]*\}', '', text)
     text = re.sub(r'\\tags\{[^}]*\}', '', text)
     text = _expand_qty(text)
 
@@ -816,7 +816,7 @@ def main():
     print(f"  Author: {meta.get('author', '???')}")
     print(f"  Date:   {meta.get('date', '???')}")
 
-    # Extract subtitle from \subtitle{}
+    # Extract subtitle from \postsubtitle{}
     print(f"  Subtitle: {meta.get('subtitle', '(none)')}")
 
     # Infer tags from parent folder

@@ -2,7 +2,7 @@
 title: "A bit of Gaussian measure theory"
 author: "Liam Llamazares"
 date: "2026-02-25"
-categories: [Analysis On Banach Spaces]
+categories: [Analysis on Banach spaces, Gaussian Measures]
 description: "Intro to Gaussians"
 bibliography: biblio.bib
 format:

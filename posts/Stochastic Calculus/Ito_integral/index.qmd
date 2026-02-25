@@ -2,7 +2,7 @@
 title: "Construction of the stochastic integral"
 author: "Liam Llamazares"
 date: "5/22/2022"
-categories: [Stochastic Calculus]
+categories: [Stochastic Calculus, Ito Integral]
 description: "Can you really construct this thing?"
 bibliography: biblio.bib
 format:
@@ -87,7 +87,6 @@ format:
               mat: ["\\begin{bmatrix}{#1}\\end{bmatrix}", 1],
               norm: ["\\left\\lVert #1 \\right\\rVert", 1],
               om: "\\omega",
-              posttags: ["\\tags{#1}", 1],
               proj: "\\mathrm{proj}",
               qb: ["\\left[#1\\right]", 1],
               qp: ["\\left(#1\\right)", 1],

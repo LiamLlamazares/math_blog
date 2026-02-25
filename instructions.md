@@ -13,12 +13,12 @@
 
 2. Add blog metadata to your `main.tex` (alongside `\title`, `\author`, `\date`):
    ```latex
-   \subtitle{One sentence description of the post.}
+   \postsubtitle{One sentence description of the post.}
    \posttags{Analysis, Measure Theory}   % optional — defaults to collection folder name
    ```
    Add to your shared `preamble.sty` (once only):
    ```latex
-   \providecommand{\subtitle}[1]{}
+   \providecommand{\postsubtitle}[1]{}
    \providecommand{\posttags}[1]{}
    ```
 
@@ -82,3 +82,6 @@ The `fetch-comments.yml` workflow runs every hour to update the recent comments 
 | Global MathJax config (delimiters, macros) | `_quarto.yml` | No |
 | How LaTeX is converted (equation labels, figure syntax, cross-refs) | `latex2qmd.py` | **Yes** — `py latex2qmd.py posts --all` |
 | Post-specific macros | Edit `preamble.sty`, then re-run converter | **Yes**, on affected posts |
+| Equation Labels (names instead of numbers) | Use `\tag{label}` inside math envs | **Yes** |
+| Post tags/categories | Use `\posttags{...}` in `main.tex` | **Yes** |
+| Post subtitle | Use `\postsubtitle{...}` in `main.tex` | **Yes** |

@@ -62,7 +62,7 @@ It is also important to note the following.
 \begin{proof}
 	This follows from considering $(t,\omega)\to (t,X(t,w))$. Where the arrow is measurable as, due to the progressive measurability of $X$, each component is adapted.
 \end{proof}
-The difference between progressively measurable and adapted is quite subtle. In fact every adapted and jointly measurable stochastic process has a progressively measurable modification (see \cite{Karatzas1987BrownianMA} page $5$). The proof of this fact is very lengthy and technical. Thus, if $X\in L^2(\Bb(I)\otimes\Ff_\infty)$ (and in particular is jointly measurable), we may always choose a representative that is progressively measurable. This leads to some authors giving the defintion of the class of Itô integrable functions in terms of joint measurability instead of progressive measurability. In the end both lead to equivalent definition. That said, this technicality is usually of little importance due to the following result.
+The difference between progressively measurable and adapted is quite subtle. In fact every adapted and jointly measurable stochastic process has a progressively measurable modification (see \cite{Karatzas1987BrownianMA} page $5$). The proof of this fact is very lengthy and technical. Thus, if $X\in L^2(\Bb(I)\otimes\Ff_\infty)$ (and in particular is jointly measurable), we may always choose a representative that is progressively measurable. This leads to some authors giving the definition of the class of Itô integrable functions in terms of joint measurability instead of progressive measurability. In the end both lead to equivalent definition. That said, this technicality is usually of little importance due to the following result.
 \begin{lemma}[Continuity is progressive]
 	Let $\{X_t\}_{t\in I}$ be a left or right continuous stochastic process. Then $X$ is progressively measurable.
 \end{lemma}
@@ -103,18 +103,14 @@ This finally leads us to be able to define the stochastic integral.
 	Thus, it extends uniquely to the closure $\overline{\Ee}=\mathbb{L}^2(I\times\Omega)$. Furthermore the extension also has image in $\Mm_I^2.$
 \end{theorem}
 \begin{proof}
-	The first part of the proof is a calculation using the definition of integral of simple process, the adaptedness of $X$ and the definition of  $W$. The second part is slightly more tricky. The fact that $X$ is a martingale is due to  $L^2$ convergence ($L^1$ would suffice).\\\\ Then, one takes a sequence of elementary processes  $X_n$ converging to  $X$. By the first part one may apply Doob's martingale inequality and $L^2$ convergence to get a measure of the set where the supremum
+	The first part of the proof is a calculation using the definition of integral of simple process, the adaptedness of $X$ and the definition of  $W$. The second part is slightly more tricky. The fact that $X$ is a martingale is due to  $L^2$ convergence ($L^1$ would suffice). Then, one takes a sequence of elementary processes  $X_n$ converging to  $X$. By the first part one may apply Doob's martingale inequality and $L^2$ convergence to get a measure of the set where the supremum
 	\begin{equation*}
 		\sup_{t\in I}  |X_n(t)-X_m(t)|>2^{-k},
 	\end{equation*}
 	which can be made small for $n,m \to\infty$. One can then extract a subsequence and apply Borel-Cantelli to deduce that the above supremum goes to $0$ almost everywhere. This shows that  $X_n$ is almost everywhere Cauchy in  $L^\infty$ and thus converges almost everywhere to some continuous process $Y$. This process must be $X$ by  $L^2$ convergence to  $X$ which concludes the proof.
-
 \end{proof}
 
 
 \bibliography{biblio.bib}
-\begin{equation*}
-	W(A):=\int_{A} dW(t).
-\end{equation*}
 
 \end{document}
