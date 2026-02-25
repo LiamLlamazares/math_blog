@@ -74,7 +74,7 @@ given a separable Banach space $X$ and $p \in [1, \infty]$ we define
 where functions equal almost everywhere are identified, and the norm is defined as
 \begin{align*}
 \norm{f}_{L^p(I,X)}  &:= \left( \int_I \norm{f(t)}_X^p \d t \right)^{1/p}, \quad p \in [1, \infty),\\
-  \|f\|_{L^{\infty}(I\rightarrow X)}&:=\inf \{r>0: \mu(\|f\|>r)=0\}.
+  \|f\|_{L^{\infty}(I\rightarrow X)}:=\inf \left\{r>0: \mu\left(\{t \in I : \|f(t)\|_X > r\}\right)=0\right\}.
 \end{align*}
 Then, hte spaces $L^p(I \to X)$ are Banach spaces and functions $f$ in $L^1(I \to X)$ have a well defined Bochner integral
 \begin{align*}
@@ -110,7 +110,7 @@ As may have become familiar at this point of the series, to derive the weak form
 \end{align}
 where for brevity in the notation we omitted the customary $\dx \d t$ in the integrals and wrote $u'= \partial _t u$. Equivalently, with the notation for the duality pairing, we can write \eqref{weak 0} and the boundary condition as
 \begin{align}\label{weak}
- (v, u')+ (\nabla v, \bm{A} \nabla u) + ( v, \bm{b}\nabla u) + (v, cu) = (v, f), \quad u(0) = g.
+ (v, u')+ (\nabla v, \bm{A} \nabla u) + ( v, \bm{b}\cdot \nabla u) + (v, cu) = (v, f), \quad u(0) = g.
 \end{align}
 For the following theory we need some assumption on the coefficients and the data. Firstly, we give the following definition
 \begin{definition}
@@ -328,9 +328,9 @@ A common technique in PDE is to modify your initial problem $P$ by some quantity
   \end{align}
 \end{theorem}
 \begin{proof}
- Let $\set{u_n}_{n=1}^\infty$ be the sequence of solutions to the Galerkin problem \eqref{galerkin} guaranteed by Theorem \eqref{galerkin}. By said theorem, $u_n$ and $u'_n$ are bounded sequences in $L_t^2H_{0,x}^1$ and $L_t^2 H_x^{-1}$ respectively. Since these spaces are Hilbert spaces, they are reflexive, and we deduce by the \href{https://en.wikipedia.org/wiki/Banach%E2%80%93Alaoglu_theorem}{Banach-Alaoglu theorem} that respective subsequences converge in their respective spaces to some $u \in L_tH_{0,x}^1$ and $\tl{u} \in L_t H_x^{-1}$. That is, 
+ Let $\set{u_n}_{n=1}^\infty$ be the sequence of solutions to the Galerkin problem \eqref{galerkin} guaranteed by Theorem \eqref{galerkin}. By said theorem, $u_n$ and $u'_n$ are bounded sequences in $L_t^2H_{0,x}^1$ and $L_t^2 H_x^{-1}$ respectively. Since these spaces are Hilbert spaces, they are reflexive, and we deduce by the \href{https://en.wikipedia.org/wiki/Banach%E2%80%93Alaoglu_theorem}{Banach-Alaoglu theorem} that respective subsequences converge weakly in their respective spaces to some $u \in L_tH_{0,x}^1$ and $\tl{u} \in L_t H_x^{-1}$. That is, 
   \begin{align*}
- u= \lim_{k \to \infty}u_{n_k} \in L_t^2H_{0,x}^1, \quad \tl{u}= \lim_{k \to \infty}u_{n_k} \in L_t^2 H_x^{-1}.
+u_{n_k} \rightharpoonup u \text{ weakly in } L_t^2H_{0,x}^1, \quad u_{n_k}' \rightharpoonup \tl{u} \text{ weakly in } L_t^2 H_x^{-1}.
   \end{align*}
  We first show that $\tl{u} = u'$. We have that, given $\phi \in C_c^\infty(I \times U)$
   \begin{align*}
@@ -352,9 +352,9 @@ A common technique in PDE is to modify your initial problem $P$ by some quantity
   \begin{align*}
     & -(v', u_{n_k}) + (\nabla v, \bm{A} \nabla u_{n_k}) + (\nabla v, \bm{b} u_{n_k}) + (v, cu_{n_k}) \\&= (v, f)+  \br{v(0),g}_{L_x^2}=(v, f)+  \br{v(0),u_{n_k}(0)}_{L_x^2}.
   \end{align*}
- Taking limits above and by density of $\Ss_n$ in $C_t^2H_{0,x}^1$ we obtain that
+ Taking limits above and by density of $\Ss_n$ in $C_t^1H_{0,x}^1$ we obtain that
   \begin{align*}
-    \br{v(0),g}_{L_x^2} = \br{v(0),u(0)}_{L_x^2}, \quad \forall v \in C_t^2H_{0,x}^1.
+    \br{v(0),g}_{L_x^2} = \br{v(0),u(0)}_{L_x^2}, \quad \forall v \in C_t^1H_{0,x}^1.
   \end{align*}
  where we used that by \Cref{continuity weak} $u_{n_k} \to u \in C_t L_x^2$. In particular,
   \begin{align*}
