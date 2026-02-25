@@ -109,16 +109,22 @@ format:
 ---
 
 ## Three line summary
+
 - The Itô integral is a way of integrating random variables against Brownian motion.
 - The Itô integral is well defined for piecewise constant adapted processes $\mathcal{E}$ and turns them isometrically into square integrable continuous martingales ($\Mm_I^2$).
 - As a result the Itô integral can be extended isometrically to a function $\overline{\Ee}\to \Mm_I^2$. Furthermore $\overline{\Ee}$ can be characterised explicitly as the square integrable adapted processes that are measurable in time and space.
+
 ## Why should I care?
+
 The Itô integral forms the basis of the whole of stochastic calculus. This comprises SDEs, SPDEs. Knowledge of what functions can be integrated and what properties the integrated function has is instrumental. In this post we construct the integral and address both of the preceding issues.
+
 ## Notation
+
 Given two measure spaces $(\Omega,\Ff),(\Omega',\Ff')$ we abbreviate that $f:\Omega\to\Omega'$ is measurable between $\Ff$ and $\Ff'$ as
 $f:\Ff\to\Ff'.$ Furthermore we will take $I=[0,T]$ or $I=[0,+\infty)$ to be the index set of our stochastic processes and by abuse of notation write $\Ff_\infty$ to mean $\Ff_T$ in the former case and $\Ff_\infty$ in the latter.
 
 ## Integrable functions: progressive measurability
+
 Perhaps the best way to understand a $\sigma$-algebra is as a set of available information. With this interpretation we understand $\Ff_t$ as the information available to us by time $t$. A basic property of a stochastic process is that at time $t$ they are determined by this information.
 
 ::: {#def-1}
@@ -250,9 +256,11 @@ Let $t\in I$ and define for a simple process $f\in\Ee$ $$\int_{0}^t X dW=\sum_{n
 Then the above defines an isometry to the space of continuous square integrable martingales $\Mm_I^2$ as
 
 $$
+\begin{aligned}
 \rm{int }: \left(\mathcal{E},\norm{\cdot }_ {L^2(I\times\Omega)}\right) & \longrightarrow  \left(\mathcal{M}_ I^2,\norm{\cdot }_{L^2(I\times\Omega)}\right) \\
 X(t)                                                           & \longmapsto \int_ {0}^t X dW
 .
+\end{aligned}
 $$
 
 Thus, it extends uniquely to the closure $\overline{\Ee}=\mathbb{L}^2(I\times\Omega)$. Furthermore the extension also has image in $\Mm_I^2.$

@@ -111,6 +111,7 @@ format:
 ## Section Name
 
 ## One dimensional Gaussians
+
 The theory of Gaussian measures is built by considering first the $\R$ valued case 
 
 ::: {#def-1}
@@ -246,7 +247,9 @@ We now make precise on what kind of space we may define such a thing, clearly we
 Given a topological vector space $V$ over {$\K=\R$ or $\K=\C$}   we denote its *dual space*
 
 $$
+\begin{aligned}
 V':=\set{\ell :V\to {\K}: \text{ linear and continuous}}.
+\end{aligned}
 $$
 
 :::
@@ -404,7 +407,9 @@ is finite. We call $C_\mu$ the  *covariance form* of $\mu$.
 If $V$ is a Hilbert space $H$, identifying $H$ with $H'$ we deduce the existence of $\Kk _\mu \in L(H)$ such that
 
 $$
+\begin{aligned}
 \br{\Kk _\mu f,g}= C_\mu (\br{\cdot ,f},\br{\cdot ,g})\quad\forall f,g\in H.
+\end{aligned}
 $$ {#eq-covariance-operator}
 
 ::: {#def-10}
@@ -427,7 +432,9 @@ The first point follows from Fernique's theorem and the second by letting $\mu$ 
 
 :::
 
-## Wiener spaces 
+## Wiener spaces
+
+ 
 
 An abstract Wiener space is a triple $(X,H,\mu)$ where $X$ is a separable Banach space, $H$ is a separable Hilbert space densely embedded in $X$ by $i : H \hookrightarrow X$ and $\mu \in \Pp(X)$ is a Gaussian measure such that denoting the adjoint of $i$ by $i^*: X' \to H' \simeq H$
 
@@ -605,6 +612,7 @@ There is an isomorphism between the CM and RKHS spaces when....
 :::
 
 ### GF in AWS
+
 We define using $d_H$ but since ac property is only preserved by moving in $H$ KL only stays finite if mvoing in $H$. As a result we have the following 
 
 ::: {#prp-7}

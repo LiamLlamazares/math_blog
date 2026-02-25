@@ -359,9 +359,9 @@ def convert_body(body: str) -> str:
     text = _expand_qty(text)
 
     # --- Pass 1: Sections ---
-    text = re.sub(r'\\section\{([^}]*)\}', r'## \1', text)
-    text = re.sub(r'\\subsection\{([^}]*)\}', r'### \1', text)
-    text = re.sub(r'\\subsubsection\{([^}]*)\}', r'#### \1', text)
+    text = re.sub(r'\\section\{([^}]*)\}', r'\n\n## \1\n\n', text)
+    text = re.sub(r'\\subsection\{([^}]*)\}', r'\n\n### \1\n\n', text)
+    text = re.sub(r'\\subsubsection\{([^}]*)\}', r'\n\n#### \1\n\n', text)
 
     # --- Pass 2: Theorem-like environments ---
     # Process from innermost out: we iterate until no more matches
@@ -536,9 +536,9 @@ def convert_body(body: str) -> str:
     # aligneq → wrap in \begin{aligned}...\end{aligned}
     text = replace_display_math(text, 'aligneq', wrap_aligned=True)
     text = replace_display_math(text, 'aligneq\\*', starred=True, wrap_aligned=True)
-    # align → already an alignment env, just fence with $$
-    text = replace_display_math(text, 'align', starred=False)
-    text = replace_display_math(text, 'align\\*', starred=True)
+    # align → already an alignment env, but Quarto mathjax needs aligned wrap for raw & and \\
+    text = replace_display_math(text, 'align', starred=False, wrap_aligned=True)
+    text = replace_display_math(text, 'align\\*', starred=True, wrap_aligned=True)
     # equation → just fence with $$
     text = replace_display_math(text, 'equation', starred=False)
     text = replace_display_math(text, 'equation\\*', starred=True)

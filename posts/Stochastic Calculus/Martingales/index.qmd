@@ -109,12 +109,17 @@ format:
 ---
 
 ## Three line summary
+
 - Conditional expectations exist in a natural way for simple functions, by taking extensions they also exist for integrable functions to a Banach space $L^1(\Omega\to E)$.
 - Using conditional expectations we can define what a martingale is just like in the real case.
 - The space of continuous $p$-integrable martingales is a Banach space.
+
 ## Why should I care?
+
 Banach valued martingales form the basis of SPDEs. This is because analogously to Itô integration of real-valued processes. Integrating against a Wiener process valued in a Banach space the same will produce a square integrable continuous martingale.
+
 ## Conditional expectation
+
 In graduate-level probability courses, given a $\sigma-$algebra $\Gg$ one shows that by applying Radon-Nikodyn's theorem, for any real-valued random variable $X\in L^1(\Omega\to R)$ there exists a conditional expectation $\E_{\Gg}[X]$ verifying that
 
 $$
@@ -168,6 +173,7 @@ Then using the linearity of the integral we obtain that $w(Z_1)=w(Z_2)$ for all 
 :::
 
 ## Martingales
+
 Okay, so we leveraged some inequalities to prove the existence of a conditional expectation. This done, the following definition mimicking the real case is quite natural
 
 ::: {#def-1}
