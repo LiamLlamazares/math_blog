@@ -6,7 +6,7 @@ categories: [Pdes]
 bibliography: biblio.bib
 format:
   html:
-    css: custom_theorems.css
+    css: /custom_theorems.css
     toc: true
     number-sections: true
     html-math-method: mathjax
@@ -180,7 +180,7 @@ $$
 \begin{aligned}
 \norm{u}_{W^{s,p}(U)}:= \left(\norm{u}_{W^{k,p}(U)}^p+ \sum_{\abs{\alpha}=k }\int_{U}\int_{U}\frac{\abs{D^\alpha u(x+y)-D^\alpha u(x)}^p}{\abs{y}^{d+\gamma p}}\d x \d y\right)^\frac{1}{p}.
 \end{aligned}
-$$
+$$ {#eq-norm-def}
 
 For $p = \infty$, we define $W^{s,\infty}(U):= C^{k,\gamma}(U)$. The norm is then given by
 
@@ -326,12 +326,17 @@ $$
 \end{aligned}
 $$
 
-\begin{observation}
-    It is tempting to define $\norm{u}_{H^{s,p}(U )}:=\norm{\Lambda^s v}_{L^p(U )}$. However, since the Fourier transform, and thus $\Lambda^s$, is a nonlocal operator, the norm would depend on the extension $v$  of $u$ to $\R^d$ and be ill-defined.
-\end{observation}
-\begin{observation}
-    It would also make sense to define $H^{s,p}(U )$  through complex interpolation. This is likely different from the above definition, however, as we will later see, this will coincide with the definition above when $\Omega$ is smooth enough (for example Lipschitz). See also [@leoni2023first] page 328 for a similar remark.
-\end{observation}
+::: {#rem-1}
+
+It is tempting to define $\norm{u}_{H^{s,p}(U )}:=\norm{\Lambda^s v}_{L^p(U )}$. However, since the Fourier transform, and thus $\Lambda^s$, is a nonlocal operator, the norm would depend on the extension $v$  of $u$ to $\R^d$ and be ill-defined.
+
+:::
+
+::: {#rem-2}
+
+It would also make sense to define $H^{s,p}(U )$  through complex interpolation. This is likely different from the above definition, however, as we will later see, this will coincide with the definition above when $\Omega$ is smooth enough (for example Lipschitz). See also [@leoni2023first] page 328 for a similar remark.
+
+:::
 
 ### Besov spaces
 
@@ -413,17 +418,19 @@ $$
 
 :::
 
-\begin{observation}
-    Different authors use different notations for these spaces. For example, in [@triebel1992theory], the notation $W^{s,p}(\R^d):= B^{s,p}(\R^d)$ is used. With this notation, one has that, for $p \neq 2$, and $k \in \N_0$,
-    
+::: {#rem-3}
+
+Different authors use different notations for these spaces. For example, in [@triebel1992theory], the notation $W^{s,p}(\R^d):= B^{s,p}(\R^d)$ is used. With this notation, one has that, for $p \neq 2$, and $k \in \N_0$,
+
 $$
 \begin{aligned}
 W^{k,p}(\R^d) \neq \set{ u \in \Dd'(\R^d) : D^\alpha u \in L^p(\R^d) \quad \forall \abs{\alpha}\leq   k}= W^{k,p}(\R^d).
 \end{aligned}
 $$
 
-    This clashes with the definition of integer-valued Sobolev spaces, so we do not use this notation. Other notations which can be found are  the notation $B^{s,p}= \Lambda^{p}_s$ and $H^{s,p}= \Ll ^{p}_s$. See [@stein1970singular] and [@biccari2018local].
-\end{observation}
+This clashes with the definition of integer-valued Sobolev spaces, so we do not use this notation. Other notations which can be found are  the notation $B^{s,p}= \Lambda^{p}_s$ and $H^{s,p}= \Ll ^{p}_s$. See [@stein1970singular] and [@biccari2018local].
+
+:::
 
 ### Extension domains
 
@@ -506,7 +513,7 @@ H^{s,p}(\Omega ) & \text{ if } s \in \N_0    \\
 B^{s,p}(\Omega ) & \text{ if } s \notin \N_0
 \end{cases}.
 \end{aligned}
-$$
+$$ {#eq-slobodeckij-equivalence}
 
 In consequence, for $p=2$,
 
@@ -514,7 +521,7 @@ $$
 \begin{aligned}
 H^{s,2}(\Omega )=W^{s,2}(\Omega )=B^{s,2}(\Omega ).
 \end{aligned}
-$$
+$$ {#eq-p-2}
 
 :::
 
@@ -732,17 +739,19 @@ $$
 
 :::
 
-\begin{observation}
-    Some authors define given $s>0$ and $p \in [1,\infty)$
-    
+::: {#rem-4}
+
+Some authors define given $s>0$ and $p \in [1,\infty)$
+
 $$
 \begin{aligned}
 W^{-s,p'}(\Omega )':=	W^{s,p}_0(\Omega )'.
 \end{aligned}
 $$ {#eq-alternative-negative}
 
-    See, for example, [@biccari2018local], [@leoni2023first] page 228. The definition in @eq-alternative-negative is equivalent to Definition @def-negative-s-slobodeckij when $\Omega = \R^d$ or when $s \in k$. However, in other cases, the two definitions are not equivalent.
-\end{observation}
+See, for example, [@biccari2018local], [@leoni2023first] page 228. The definition in @eq-alternative-negative is equivalent to Definition @def-negative-s-slobodeckij when $\Omega = \R^d$ or when $s \in k$. However, in other cases, the two definitions are not equivalent.
+
+:::
 
 ### The dual of $H^{s,p
 

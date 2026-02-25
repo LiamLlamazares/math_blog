@@ -6,7 +6,7 @@ categories: [Pdes]
 bibliography: biblio.bib
 format:
   html:
-    css: custom_theorems.css
+    css: /custom_theorems.css
     toc: true
     number-sections: true
     html-math-method: mathjax
@@ -162,7 +162,7 @@ $$
 \begin{aligned}
 \Ll u:= -\nabla \cdot (\bm{A} \nabla u)+ \nabla \cdot (\bm{b} u)+c
 \end{aligned}
-$$
+$$ {#eq-operator}
 
 is *elliptic* if there exists $\alpha>0$ such that
 
@@ -170,7 +170,7 @@ $$
 \begin{aligned}
 \xi ^T\bm{A}(x) \xi \geq \alpha \abs{\xi }^2 , \quad\forall \xi \in \R^d , \quad\forall x \in U .
 \end{aligned}
-$$
+$$ {#eq-elliptic}
 
 We also say that $\bm{A}$ is elliptic.
 
@@ -192,14 +192,22 @@ We say that an equation is *well-posed* if
 The above definition originates from the work of Hadamard and is standard in the context of PDE. The three properties above make the problem nice to work with and may be familiar from the basic theory of ODE. However, not all problems are well-posed. Ill-posedness often arises when one works with inverse problems, such as the backward heat equation, where one tries to recover the initial heat distribution from the final one.
 
 The well-posedness of any given PDE is highly contingent on the space considered. In our case, we still need to define which function space our coefficients $\bm{A,b},c$ live in and what space $\Ll$ acts on. It would be natural to assume that we need $\bm{A}$ and $\bm{b}$ to be differentiable. However, the following will suffice.
-\begin{assumption}
-    We assume that $A_{ij}, b_i, c \in L^\infty (U)$ for all $i,j=1,\ldots,d$. Furthermore, $\bm{A}$ is symmetric ($A_{ij}=A_{ji}$) and elliptic.
-\end{assumption}
+
+::: {#thm-ass1}
+
+We assume that $A_{ij}, b_i, c \in L^\infty (U)$ for all $i,j=1,\ldots,d$. Furthermore, $\bm{A}$ is symmetric ($A_{ij}=A_{ji}$) and elliptic.
+
+:::
+
 In the future, $i,j$ will always run from $1$ to $d$, where $d$ is the dimension of the space.
-\begin{observation}
-    We lose no generality by assuming that $\bm{A}$ is symmetric as $\partial _{ij} u =\partial _{ji} u$. If $\bm{A}$ is not symmetric, we can replace $\bm{A}$ by $(\bm{A}+\bm{A}^T)/2$ and equation @eq-pde will remain unchanged.
-\end{observation}
-The first part of Assumption @ass1 will make it easy to get bounds on $\Ll$, and the second part will prove useful when we look at the spectral theory of $\Ll$. Now, to make sense of our problem @eq-pde, we need to define what we mean by a solution. Here, the theory of Sobolev Spaces and the Fourier transform prove crucial. We will work with the following space.
+
+::: {#rem-1}
+
+We lose no generality by assuming that $\bm{A}$ is symmetric as $\partial _{ij} u =\partial _{ji} u$. If $\bm{A}$ is not symmetric, we can replace $\bm{A}$ by $(\bm{A}+\bm{A}^T)/2$ and equation @eq-pde will remain unchanged.
+
+:::
+
+The first part of Assumption @thm-ass1 will make it easy to get bounds on $\Ll$, and the second part will prove useful when we look at the spectral theory of $\Ll$. Now, to make sense of our problem @eq-pde, we need to define what we mean by a solution. Here, the theory of Sobolev Spaces and the Fourier transform prove crucial. We will work with the following space.
 
 ::: {#def-dual-definition-2 name="Negative Sobolev space"}
 
@@ -263,7 +271,7 @@ $$
 \begin{aligned}
 B(u,v):= (v, \Ll u)=\int_{U}\bm{A} \nabla u \cdot \nabla v + \int_{U} \bm{b} \cdot ( \nabla u) v + \int_{U} cuv= (v,f), \quad \forall v \in H_0^1(U).
 \end{aligned}
-$$
+$$ {#eq-weak-def}
 
 :::
 
@@ -271,7 +279,7 @@ In @eq-weak-def we used the ``duality notation'' $(v,f):= f(v)$ for $f \in X, v 
 
 ::: {#thm-well-posed-1}
 
-Let $U \subset \R^d$ be an arbitrary open set. Suppose Assumption @ass1 holds and let $\bm{b}=0$. Then, if $c >0$  equation @eq-pde is well-posed, and we have the homeomorphism
+Let $U \subset \R^d$ be an arbitrary open set. Suppose Assumption @thm-ass1 holds and let $\bm{b}=0$. Then, if $c >0$  equation @eq-pde is well-posed, and we have the homeomorphism
 
 $$
 \begin{aligned}
@@ -291,7 +299,7 @@ $$
 \begin{aligned}
 B(u,u) & = \int_{U}\bm{A} \nabla u \cdot \nabla u + \int_{U} cu^2 \geq \alpha \norm{\nabla u}^2_{L^2(U \to \R^d)} + \int_{U}c u^2 \gtrsim \norm{u}^2_{H^1_0(U)}.
 \end{aligned}
-$$ {#eq-b=0}
+$$ {#eq-b-0}
 
 Where in the first inequality, we used the ellipticity assumption on $\bm{A}$, and in the last inequality, we used [Poincaré's inequality](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=in%20future%20posts-,Theorem,-14%20(Poincar%C3%A9%20inequality) if $U$ is bounded. The result now follows from [Lax Milgram's theorem](https://nowheredifferentiable.com/2023-05-30-PDE-2-Hilbert/#:~:text=an%20inner%20product.-,Theorem,-7%20(Lax%20Milgram).
 
@@ -315,7 +323,7 @@ In Theorem @thm-well-posed-1, we somewhat unsatisfyingly had to impose the extra
 
 ::: {#thm-mod name="Modified problem"}
 
-Let $U \subset \R^d$ be any open set and let Assumption @ass1 hold. Then, there exists some constant $\nu \geq 0$ (depending on the coefficients) such that for all $\gamma \geq \nu$ the operator $\Ll_\gamma := \Ll + \gamma \bm{I}$ is positive definite and defines a homeomorphism
+Let $U \subset \R^d$ be any open set and let Assumption @thm-ass1 hold. Then, there exists some constant $\nu \geq 0$ (depending on the coefficients) such that for all $\gamma \geq \nu$ the operator $\Ll_\gamma := \Ll + \gamma \bm{I}$ is positive definite and defines a homeomorphism
 
 $$
 \begin{aligned}
@@ -423,14 +431,14 @@ Equation @eq-reasoning is exactly the form the [Fredholm alternative](https://no
 
 ::: {#thm-well-posedness-fredholm}
 
-Let $U\subset \R^d$ be bounded, let $\Ll$ verify Assumption @ass1, and $\lambda \in \R, f \in L^2(U)$ be any. Consider the problems
+Let $U\subset \R^d$ be bounded, let $\Ll$ verify Assumption @thm-ass1, and $\lambda \in \R, f \in L^2(U)$ be any. Consider the problems
 
 $$
 \begin{aligned}
 \mathcal{L}u & = \lambda u + f \quad \text{and} \quad u \in H_0^1(U)                            \\
 \mathcal{L}u & = \lambda u \quad \hspace{17pt}\text{and} \quad u \in H_0^1(U)
 \end{aligned}
-$$
+$$ {#eq-original}
 
 Then, the following hold:
 1. Equation @eq-original is well-posed if and only if @eq-originalh has no non-zero solutions. That is, if and only if $\lambda \notin \sigma(\Ll)$.
@@ -461,7 +469,7 @@ $$
 $$
 \begin{aligned}
 Tv & = f  \quad \text{and} \quad  v \in L^2(U),              \\
-    Tv & = 0 \quad \text{and} \quad  v \in L^2(U). 
+    Tv & = 0 \quad \text{and} \quad  v \in L^2(U).
 \end{aligned}
 $$ {#eq-fred}
 
@@ -879,7 +887,7 @@ $$
 \begin{aligned}
 \tl{\Ll} \tl{u} := -\nabla \cdot (\tl{A} \nabla \tl{u})+ \tl{b} \cdot \nabla \tl{u} + \tl{c} \tl{u} =\tl{f} .
 \end{aligned}
-$$
+$$ {#eq-extension}
 
 As a result by Theorem @thm-improved-reg-rd it holds that $\tl{u} \in H^2(\R^d)$ with
 

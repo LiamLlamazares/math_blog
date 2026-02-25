@@ -7,7 +7,7 @@ description: "Intro to Gaussians"
 bibliography: biblio.bib
 format:
   html:
-    css: custom_theorems.css
+    css: /custom_theorems.css
     toc: true
     number-sections: true
     html-math-method: mathjax
@@ -386,13 +386,13 @@ Given a topological vector space $V$, we say that a *Gaussian measure * is a mea
 
 :::
 
-::: {#def-def-gaussian-random-variable}
+::: {#def-def:gaussian-random-variable}
 
 A $V$ valued random variable $u$ is a *Gaussian random variable* if the pushforward measure $\mathbb{P}_u$ is a Gaussian measure on $V$.
 
 :::
 
-When $V=\R^d$ @def-def-gaussian-random-variable coincides with the standard definition of a finite-dimensional Gaussian random variable. 
+When $V=\R^d$ @def-def:gaussian-random-variable coincides with the standard definition of a finite-dimensional Gaussian random variable. 
 
 ::: {#def-9}
 

@@ -6,7 +6,7 @@ categories: [Malliavin calculus]
 description: "How does one generalize the Itô integral?"
 format:
   html:
-    css: custom_theorems.css
+    css: /custom_theorems.css
     toc: true
     number-sections: true
     html-math-method: mathjax

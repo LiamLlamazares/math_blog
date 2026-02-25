@@ -7,7 +7,7 @@ description: "Doob's Martingale inequality is cool"
 bibliography: biblio.bib
 format:
   html:
-    css: custom_theorems.css
+    css: /custom_theorems.css
     toc: true
     number-sections: true
     html-math-method: mathjax
@@ -194,7 +194,7 @@ Let $\{M(t)\}_{t\in I}$ be a stochastic process on $(\Omega, \Ff, \PP)$ with a f
 
 The concept of submartingale is  defined by replacing the equality in 3. with a $\geq$. Let us abbreviate $\E_{\Ff_t}$ by $\E_t$. Then, as in the real case, we have the following.
 
-::: {#lem-lem-norm-is-submart name="Norm: martingale $\to$ submartingale"}
+::: {#lem-lem:norm-is-submart name="Norm: martingale $\to$ submartingale"}
 
 Let $M(t)$ be a martingale, then $\norm{M(t)}$ is a submartingale.
 
@@ -237,9 +237,9 @@ $$
 
 :::
 
-The idea of the above result is that, since $X_k$ is a submartingale, $X_k\lesssim X_{k+1}\lesssim...\lesssim X_n$. Getting from the continuous to the discrete case is possible by using the continuity of $X$ and approximating it on some finer and finer mesh $t_0,...,t_n$. This said, applying Doob's maximal martingale inequality together with @lem-lem-norm-is-submart gives that
+The idea of the above result is that, since $X_k$ is a submartingale, $X_k\lesssim X_{k+1}\lesssim...\lesssim X_n$. Getting from the continuous to the discrete case is possible by using the continuity of $X$ and approximating it on some finer and finer mesh $t_0,...,t_n$. This said, applying Doob's maximal martingale inequality together with @lem-lem:norm-is-submart gives that
 
-::: {#thm-thm-doobs-hilbert name="Maximal Inequality"}
+::: {#thm-thm:doobs-hilbert name="Maximal Inequality"}
 
 Let $p>1$ and let $E$ be a separable Banach space.
 If $M(t)$, is a right-continuous $E$-valued $\mathcal{F}_{t}$-martingale, then
@@ -289,7 +289,7 @@ $$
 
 :::
 
-By @thm-thm-doobs-hilbert we have that
+By @thm-thm:doobs-hilbert we have that
 
 $$
 \mathcal{M}_T^2(E)\subset \hat{L}^\infty([0,T]\to \hat{L}^2(\Omega\to E))\cap \hat{L}^2(\Omega\to \hat{L}^\infty([0,T]\to E)).

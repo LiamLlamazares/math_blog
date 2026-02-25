@@ -185,6 +185,25 @@ def extract_body(tex: str) -> str:
     return body
 
 
+def extract_balanced(text: str, start_pos: int) -> tuple[str, int]:
+    """Helper to extract balanced {...} starting at start_pos.
+    Returns (content_inside, end_pos_after_closing_brace)."""
+    if start_pos >= len(text) or text[start_pos] != '{':
+        return "", start_pos
+    
+    depth = 0
+    i = start_pos
+    while i < len(text):
+        if text[i] == '{':
+            depth += 1
+        elif text[i] == '}':
+            depth -= 1
+            if depth == 0:
+                return text[start_pos+1:i], i + 1
+        i += 1
+    return text[start_pos+1:], i
+
+
 # ---------------------------------------------------------------------------
 # 3. PARSE preamble.sty FOR MATHJAX MACROS
 # ---------------------------------------------------------------------------
@@ -450,6 +469,9 @@ THEOREM_ENVS = {
     'exercise': 'exr',
     'remark': 'rem',
     'conjecture': 'cnj',
+    'observation': 'rem',
+    'note': 'rem',
+    'assumption': 'thm',
 }
 
 
@@ -521,7 +543,11 @@ def convert_body(body: str, label_registry: dict | None = None,
     item_label_map = {}  # e.g. {'inversion': ('prp-1', 'Inversion')}
 
     def sanitize_label(l):
-        return l.replace(':', '-').replace(' ', '-').replace('_', '-').lower()
+        # Replace all non-alphanumeric (except hyphens and colons) with hyphens
+        s = re.sub(r'[^a-zA-Z0-9:-]', '-', l)
+        # Replace multiple hyphens with one
+        s = re.sub(r'-+', '-', s)
+        return s.strip('-').lower()
 
     # --- Pass 0: Strip TODO notes, end-of-theorem symbols, expand \qty,
     #             and strip blog metadata commands from body ---
@@ -571,7 +597,9 @@ def convert_body(body: str, label_registry: dict | None = None,
             r'\\begin\{' + env_name + r'\}'
             r'(?:\[([^\]]*)\])?'       # optional [Name]
             r'(?:\\label\{([^}]*)\})?'  # optional \label{X}
-            r'[ \t]*\n?'                # consume spaces and up to one newline
+            r'[ \t]*'                   # consume spaces
+            r'(?:%.*?\n)?'              # consume optional comment
+            r'\s*'                      # consume remaining whitespace/newlines
             r'(.*?)'                    # inner content
             r'\\end\{' + env_name + r'\}',
             re.DOTALL
@@ -596,7 +624,8 @@ def convert_body(body: str, label_registry: dict | None = None,
                 # to this env's div ID. Labels inside math envs are handled by Pass 3.
                 qid = div_id.lstrip('#')
                 # Find labels NOT inside a math env by stripping math envs first
-                stripped = re.sub(r'\\begin\{aligneq\*?\}.*?\\end\{aligneq\*?\}', '', inner, flags=re.DOTALL)
+                math_envs_pat = re.compile(r'\\begin\{(aligneq\*?|align\*?|equation\*?)\}.*?\\end\{\1\}', re.DOTALL)
+                stripped = math_envs_pat.sub('', inner)
                 # For labels on \item lines, extract the item name (first word after \item)
                 for il_m in re.finditer(r'\\item\s+(\w+).*?\\label\{([^}]*)\}', stripped):
 
@@ -608,8 +637,16 @@ def convert_body(body: str, label_registry: dict | None = None,
                 for il in re.findall(r'\\label\{([^}]*)\}', stripped):
                     if il not in label_map:
                         label_map[il] = qid
-                # Only strip orphan labels (outside math envs)
-                inner = re.sub(r'(?<!\\end\{aligneq\})\\label\{([^}]*)\}', lambda lm: '' if lm.group(1) in label_map and label_map[lm.group(1)] == qid else lm.group(0), inner)
+                # Only strip orphan labels (captured by Pass 2) if they match this div's qid
+                # (Avoid stripping labels meant for math blocks or other environments)
+                text_label_pat = re.compile(r'\\label\{([^}]*)\}')
+                def strip_if_mapped_to_us(lm):
+                    l = lm.group(1)
+                    if l in label_map and label_map[l] == qid:
+                        return ''
+                    return lm.group(0)
+                
+                inner = text_label_pat.sub(strip_if_mapped_to_us, inner)
                 
                 attrs = [div_id]
                 if opt_name:
@@ -684,24 +721,48 @@ def convert_body(body: str, label_registry: dict | None = None,
                 inner_label = re.search(r'\\label\{([^}]*)\}', inner)
                 if inner_label:
                     label = inner_label.group(1)
-                    inner = inner[:inner_label.start()] + inner[inner_label.end():]
+
+            # Move ALL labels to the global label map, associating them with the block ID
+            # This ensures @eq-secondary-label works (pointing to the same block)
+            # and removes them from the math text to avoid MathJax/Quarto conflicts
+            inner_labels = list(re.finditer(r'\\label\{([^}]*)\}', inner))
+            
+            # Remove ALL labels from internal text for display
+            clean_inner = re.sub(r'\\label\{([^}]*)\}', '', inner).strip()
 
             # Build the output block
             if wrap_aligned:
                 result.append('\n$$\n\\begin{aligned}\n')
-                result.append(inner.strip())
+                result.append(clean_inner)
                 result.append('\n\\end{aligned}')
             else:
                 result.append('\n$$\n')
-                result.append(inner.strip())
+                result.append(clean_inner)
 
             if label:
                 label_id = sanitize_label(label)
-                label_map[label] = f"eq-{label_id}"
-                label_map[label_id] = f"eq-{label_id}"
-                result.append(f'\n$$ {{#eq-{label_id}}}\n')
+                qid = f"eq-{label_id}"
+                label_map[label] = qid
+                label_map[label_id] = qid
+                # Also map any secondary labels in the same block to this qid
+                for il in inner_labels:
+                    l = il.group(1)
+                    if l != label:
+                        label_map[l] = qid
+                
+                result.append(f'\n$$ {{#{qid}}}\n')
             else:
-                result.append('\n$$\n')
+                # Still register any secondary labels if they exist
+                for il in inner_labels:
+                    l = il.group(1)
+                    # We need a qid here. If no primary label, use the first secondary one.
+                    secondary_label_id = sanitize_label(il.group(1))
+                    qid = f"eq-{secondary_label_id}"
+                    label_map[l] = qid
+                    result.append(f'\n$$ {{#{qid}}}\n')
+                    break # Only one qid allowed per block
+                else:
+                    result.append('\n$$\n')
 
             last_end = end_pos
 
@@ -777,7 +838,7 @@ def convert_body(body: str, label_registry: dict | None = None,
     # \Cref{X} and \cref{X} → @prefix-X  (best effort)
     def convert_cref(m):
         raw_label = m.group(1)
-        label = raw_label.replace(':', '-').replace(' ', '-').replace('_', '-').lower()
+        label = sanitize_label(raw_label)
         # First check if this is an item-level label (emit descriptive text)
         if raw_label in item_label_map:
             parent_qid, item_name = item_label_map[raw_label]
@@ -818,18 +879,28 @@ def convert_body(body: str, label_registry: dict | None = None,
 
     text = re.sub(r'@([A-Za-z][\w:-]*)', fix_raw_at_ref, text)
 
-    # --- Pass 7: Inline formatting ---
+    # Pass 7: Inline formatting (using balanced brace extraction)
+    for cmd, md_wrap in [('emph', '*'), ('textbf', '**'), ('textit', '*')]:
+        cmd_pat = re.compile(r'\\' + cmd + r'\{')
+        while True:
+            m = cmd_pat.search(text)
+            if not m:
+                break
+            inner, end_pos = extract_balanced(text, m.end() - 1)
+            text = text[:m.start()] + f'{md_wrap}{inner}{md_wrap}' + text[end_pos:]
+
     # \href{url}{text} → [text](url)
-    text = re.sub(r'\\href\{([^}]*)\}\{([^}]*)\}', r'[\2](\1)', text)
-
-    # \emph{X} → *X*  (only outside math mode — simple heuristic)
-    text = re.sub(r'\\emph\{([^}]*)\}', r'*\1*', text)
-
-    # \textbf{X} → **X**
-    text = re.sub(r'\\textbf\{([^}]*)\}', r'**\1**', text)
-
-    # \textit{X} → *X*
-    text = re.sub(r'\\textit\{([^}]*)\}', r'*\1*', text)
+    href_pat = re.compile(r'\\href\{')
+    while True:
+        m = href_pat.search(text)
+        if not m:
+            break
+        url, mid_pos = extract_balanced(text, m.end() - 1)
+        if mid_pos < len(text) and text[mid_pos] == '{':
+            display, end_pos = extract_balanced(text, mid_pos)
+            text = text[:m.start()] + f'[{display}]({url})' + text[end_pos:]
+        else:
+            text = text[:m.start()] + f'<{url}>' + text[mid_pos:]
 
     # --- Pass 7b: Cross-post references (\postref) ---
     def convert_postref(m):
@@ -964,7 +1035,7 @@ def build_qmd(meta: dict, body: str, mathjax_macros: str) -> str:
     # Format block with MathJax
     lines.append('format:')
     lines.append('  html:')
-    lines.append('    css: custom_theorems.css')
+    lines.append('    css: /custom_theorems.css')
     lines.append('    toc: true')
     lines.append('    number-sections: true')
     lines.append('    html-math-method: mathjax')

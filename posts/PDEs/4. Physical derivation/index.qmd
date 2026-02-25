@@ -6,7 +6,7 @@ categories: [Pdes]
 bibliography: biblio.bib
 format:
   html:
-    css: custom_theorems.css
+    css: /custom_theorems.css
     toc: true
     number-sections: true
     html-math-method: mathjax
@@ -304,7 +304,7 @@ $$
 \begin{aligned}
 \Delta u=f.
 \end{aligned}
-$$
+$$ {#eq-poisson}
 
 If $u$ solves @eq-poisson, then $u+p$ also solves @eq-poisson where $p$ is any polynomial of degree  $0$ or  $1$.
 

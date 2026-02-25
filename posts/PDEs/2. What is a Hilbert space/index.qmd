@@ -6,7 +6,7 @@ categories: [Pdes]
 bibliography: biblio.bib
 format:
   html:
-    css: custom_theorems.css
+    css: /custom_theorems.css
     toc: true
     number-sections: true
     html-math-method: mathjax
@@ -406,7 +406,7 @@ $$
 \begin{aligned}
 f= \sum_{\alpha \in I} \lambda _\alpha \phi_\alpha .
 \end{aligned}
-$$
+$$ {#eq-sum}
 
 :::
 
@@ -593,7 +593,7 @@ $$
 \begin{aligned}
 \br{h,f_\ell }, \quad\forall h \in H.
 \end{aligned}
-$$
+$$ {#eq-riesz}
 
 Furthermore, $\norm{f_\ell }=\norm{\ell }$.
 
@@ -791,7 +791,7 @@ $$
 \begin{aligned}
 B(v,u)=L(v) \quad\forall v \in H
 \end{aligned}
-$$
+$$ {#eq-lax-eq}
 
 has a unique solution $u= \Ll^{-1} f$. Furthermore, the solution operator $\Ll^{-1}$ is continuous with 
 $$

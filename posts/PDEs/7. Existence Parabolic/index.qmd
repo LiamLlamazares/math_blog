@@ -6,7 +6,7 @@ categories: [Pdes]
 bibliography: biblio.bib
 format:
   html:
-    css: custom_theorems.css
+    css: /custom_theorems.css
     toc: true
     number-sections: true
     html-math-method: mathjax
@@ -279,28 +279,31 @@ $$
 \begin{aligned}
 (\bm{A}(t,\bm{x}) \bm{\xi}) \cdot \bm{\xi} \geq \alpha \abs{\xi}^2 \quad \forall (t,\bm{x}) \in I \times \Omega,\, \bm{\xi} \in \R^d.
 \end{aligned}
-$$
+$$ {#eq-parabolicity}
 
 :::
 
 This is the parabolic analog of the ellipticity condition we required in the previous post. Physically speaking, it guarantees that diffusion does not go to zero and occurs from regions of larger concentration to lower concentration.
-\begin{assumption}
- We assume that $\bm{A}$ is parabolic and for all $i,j=1,\dots,d$
-  
+
+::: {#thm-ass}
+
+We assume that $\bm{A}$ is parabolic and for all $i,j=1,\dots,d$
+
 $$
 \begin{aligned}
 A_{ij}, b_i , c \in L^\infty_{t,x}, \quad f \in L^2_t H^{-1}_x, \quad g \in L^2_x.
 \end{aligned}
 $$
 
-\end{assumption}
+:::
+
 The boundedness of $\bm{A},\bm{b},c$ is expedient so that the integrals in @eq-weak are well defined.
 
 For @eq-weak to make sense and verify the boundary condition $u=0$ on $\partial U$, we give the following definition.
 
 ::: {#def-weak-def name="Weak solution"}
 
-Under Assumption @ass, we say that $u$ is a *weak solution of the parabolic problem* @eq-parabolic if
+Under Assumption @thm-ass, we say that $u$ is a *weak solution of the parabolic problem* @eq-parabolic if
 
 $$
 \begin{aligned}
@@ -447,13 +450,13 @@ Equation @eq-galerkin is known as the *Galerkin problem*.
 
 ::: {#thm-1 name="Well-posedness of the Galerkin problem"}
 
-Under Assumption @ass, the Galerkin problem @eq-galerkin is well-posed. That is, a unique solution $u_n$ exists and depends continuously on the initial data. Furthermore,
+Under Assumption @thm-ass, the Galerkin problem @eq-galerkin is well-posed. That is, a unique solution $u_n$ exists and depends continuously on the initial data. Furthermore,
 
 $$
 \begin{aligned}
 \norm{u_n}_{C_t L_x^2} +\norm{u_n}_{L^2_tH_{x}^1} + \norm{u_n'}_{L^2_tH_{x}^{-1}} \lesssim_{\bm{A,b},c,T} \norm{f}_{L^2_t H_x^{-1}}+ \norm{g}_{L_x^2}.
 \end{aligned}
-$$
+$$ {#eq-bound}
 
 :::
 
@@ -479,7 +482,7 @@ $$
 
 The equivalence of solving @eq-galerkin and @eq-galerkin-2 is obtained by setting $u_n(t) = \sum_{j=1}^n [\bm{\lambda}_n]_j \phi_j$.
 
-Since $\phi _i \in C_c^\infty(U)$, by the boundedness of the coefficients in Assumption @ass, and by the construction of $\bm{B}_n,\bm{f}_n$. It holds that $\bm{B}_n \in L^\infty_t$ and $\bm{f}_n \in L^2_t$. As a result, according to standard ODE theory, there exists a unique continuous solution $\bm{\lambda }$ to @eq-galerkin-2. One can even write out the explicit expression for $\bm{\lambda }$ using Duhamel's formula,
+Since $\phi _i \in C_c^\infty(U)$, by the boundedness of the coefficients in Assumption @thm-ass, and by the construction of $\bm{B}_n,\bm{f}_n$. It holds that $\bm{B}_n \in L^\infty_t$ and $\bm{f}_n \in L^2_t$. As a result, according to standard ODE theory, there exists a unique continuous solution $\bm{\lambda }$ to @eq-galerkin-2. One can even write out the explicit expression for $\bm{\lambda }$ using Duhamel's formula,
       
 $$
 \begin{aligned}
@@ -636,13 +639,13 @@ A common technique in PDE is to modify your initial problem $P$ by some quantity
 
 ::: {#thm-2 name="Well posedness of the parabolic problem"}
 
-Under Assumption @ass, the parabolic problem @eq-parabolic is well-posed. That is, there exists a unique weak solution $u$, which depends continuously on the initial data with
+Under Assumption @thm-ass, the parabolic problem @eq-parabolic is well-posed. That is, there exists a unique weak solution $u$, which depends continuously on the initial data with
 
 $$
 \begin{aligned}
 \norm{u}_{C_t L_x^2} +\norm{u}_{L^2_tH_{x}^1} + \norm{u'}_{L^2_tH_{x}^{-1}} \lesssim_{\bm{A,b},c,T} \norm{f}_{L^2_t H_x^{-1}}+ \norm{g}_{L_x^2}.
 \end{aligned}
-$$
+$$ {#eq-bound-p}
 
 :::
 
@@ -716,9 +719,11 @@ Since $H_{0,x}^1$ is dense in $L_x^2$ this shows that $u(0)=g$ and concludes the
 
 :::
 
-\begin{observation}
- It may seem like the conclusion is impossible. After all, we did not impose that $\restr{g}{U}=0$. So how can we hope that for $u(t)$ to be $0$ on $\partial U$ if $u(0)=g$? The solution lies in the fact that $u \in C_t L_{x}^2 \cap L_t^2H_{0,x}^1$, but it may not hold that $u \in C_tH_{0,x}^1$. As a result, we only know that $u(t) \in H_0^1(U)$ for almost every $t$. And it is not required that $u(t) \in H_0^1(U)$ for $t=0$. 
-  \end{observation}
+::: {#rem-1}
+
+It may seem like the conclusion is impossible. After all, we did not impose that $\restr{g}{U}=0$. So how can we hope that for $u(t)$ to be $0$ on $\partial U$ if $u(0)=g$? The solution lies in the fact that $u \in C_t L_{x}^2 \cap L_t^2H_{0,x}^1$, but it may not hold that $u \in C_tH_{0,x}^1$. As a result, we only know that $u(t) \in H_0^1(U)$ for almost every $t$. And it is not required that $u(t) \in H_0^1(U)$ for $t=0$. 
+
+:::
 
 ## Numerical illustrations
 

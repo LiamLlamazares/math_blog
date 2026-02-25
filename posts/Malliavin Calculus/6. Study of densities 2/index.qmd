@@ -7,7 +7,7 @@ description: "Part 6 of the series on Malliavin calculus"
 bibliography: biblio.bib
 format:
   html:
-    css: custom_theorems.css
+    css: /custom_theorems.css
     toc: true
     number-sections: true
     html-math-method: mathjax
@@ -196,13 +196,13 @@ Our second lemma shows how to differentiate deterministic integrals. In this cas
 Let $X(s)\in \mathbb{D}^{1,2}$ be Malliavin differentiable for each $s\in I$ with
 
 $$
-\int_{I} \norm{D_rX}_{L^2(I\times\Omega)}^2dr
+\int_{I} \norm{D_rX}_{L^2(I\times\Omega)}^2dr<\infty.
 $$
 
 Then, given $h\in L^2(I)$ it holds that
 
 $$
-D_t\br{X,h}_{L^2(I)}=\br{D_tX,h}_{L^2(I)}.
+D_r\br{X,h}_{L^2(I)}=\br{D_rX,h}_{L^2(I)}.
 $$
 
 :::
@@ -216,11 +216,15 @@ $$
 $$
 
 Where both Fubini and the commutation of the sum and the integrals are justified by the condition of the lemma, which guarantees that the last sum has finite $L^2(I\times\Omega)$ norm as
-\begin{multline*}
-	\int_{I} \norm{\sum_{n=0}^{\infty}nI_{n-1}\left(\int_If_n(\cdot ,r,s)h(s)ds\right)}_{L^2(\Omega)}^2d r  \\
-	\leq \int_{I}\sum_{n=0}^{\infty}n^2 \left(\int_{\R}\norm{I_{n-1}f_n(\cdot ,r,s)}^2_{L^2(\Omega)}d r\right)ds \norm{h}^2_{L^2(I)}\\
-	=\norm{h}^2_{L^2(I)}\int_{I}\sum_{n=0}^{\infty}\norm{D_tX}_{L^2(I\times\Omega)}d t<\infty .
-\end{multline*}
+
+$$
+\begin{aligned}
+&\int_{I} \norm{\sum_{n=0}^{\infty}nI_{n-1}\left(\int_If_n(\cdot ,r,s)h(s)ds\right)}_{L^2(\Omega)}^2d r  \\
+	&\leq \int_{I}\sum_{n=0}^{\infty}n^2 \left(\int_{\R}\norm{I_{n-1}f_n(\cdot ,r,s)}^2_{L^2(\Omega)}d r\right)ds \norm{h}^2_{L^2(I)}\\
+	&=\norm{h}^2_{L^2(I)}\int_{I}\sum_{n=0}^{\infty}\norm{D_tX}_{L^2(I\times\Omega)}d t<\infty .
+\end{aligned}
+$$
+
 Where in the first inequality we applied Fubini, Cauchy Schwartz, and the triangle inequality, and in the equality, we used our old calculation of the norm of the Malliavin derivative (link)
 
 $$
@@ -253,9 +257,12 @@ $$
 ::: {#prp-1}
 
 Given our SDE (link) with $\sigma ,b\in C^1_b(\R)$ it holds that there exists a unique solution $X_t$ and for all $r\leq t$ we have
-\begin{multline*}
-D_rX(t)=\sigma(X_r)+\int_{r}^tb'(X(s))D_rX(s) ds+\int_{r}^t \sigma'(X(s))DX(s) dW(s) .
-\end{multline*}
+
+$$
+\begin{aligned}
+D_rX(t)=\sigma(X_r)+\int_{r}^tb'(X(s))D_rX(s) ds+\int_{r}^t \sigma'(X(s))D_rX(s) dW(s) .
+\end{aligned}
+$$
 
 :::
 
@@ -264,7 +271,7 @@ D_rX(t)=\sigma(X_r)+\int_{r}^tb'(X(s))D_rX(s) ds+\int_{r}^t \sigma'(X(s))DX(s) d
 The proof is quite technical and we merely sketch it. The full detail in [@nunno2008malliavin] page 120.    By the previous discussion, it is only necessary to show that $X$ verifies the conditions of the lemma, i.e. is Malliavin differentiable and its differential verifies that
 
 $$
-\int_{\R}\norm{D_tX}_{L^2(I\times\Omega)} d t<\infty.
+\int_{I}\norm{D_rX}_{L^2(I\times\Omega)} d r<\infty.
 $$
 
 This is proved by a Picard iteration
@@ -282,7 +289,7 @@ $$
 For the case $n=0$ this is clear as we have that
 
 $$
-D_rX_1(t)=D_r[x_0+b(x_0)t+\sigma (x_0) W(t)]=\sigma(x_0)+1_{[r,t]}.
+D_rX_1(t)=D_r[x_0+b(x_0)t+\sigma (x_0) W(t)]=\sigma(x_0)1_{[r,t]}.
 $$
 
 For the general case, the condition of the Lemma 1 is a consequence of the hypothesis of induction on $X_n$ and the chain rule.  Verifying the conditions of Lemma 2 (and in fact stronger bounds on the supremum of $X$) can be done using the Burkholder–David–Gundy inequality. Once that is done, one can prove through a discrete version of Gronwall's inequality that $D_rX_n$ are bounded uniformly in  $n$. Since we know by classical theory of SDEs that $X_n\to X\in L^2(I\times\Omega)$ this is sufficient to show that	
@@ -307,7 +314,7 @@ $$
 Then $X(t)$ is Malliavin differentiable on $[0,t]$ with
 
 $$
-D_r X_t=\sigma\left(X_t\right) \exp \left(\int_r^t\left(b\left(X_s\right)-\frac{1}{2}\left(\sigma^{\prime}\right)^2\left(X_s\right)\right) d s+\int_r^t \sigma^{\prime}\left(X_s\right) d W(s)\right).
+D_r X_t=\sigma\left(X_r\right) \exp \left(\int_r^t\left(b'\left(X_s\right)-\frac{1}{2}\left(\sigma^{\prime}\right)^2\left(X_s\right)\right) d s+\int_r^t \sigma^{\prime}\left(X_s\right) d W(s)\right).
 $$
 
 ::: {.proof}
@@ -324,7 +331,7 @@ $$
 Y_r(s)=Y_r(r)+\int_{r}^t u(s)Y_r(s) ds+\int_{r}^t v(s)Y_r(s)  dW(s) .
 $$
 
-Where we define $Y_r(0):=\sigma (X_r)$. Symbolically we have the family of linear SDEs starting at time $r$
+Where we define $Y_r(r):=\sigma (X_r)$. Symbolically we have the family of linear SDEs starting at time $r$
 
 $$
 dY_r(s)=u(s)Y_r(s) ds+v(s)Y_r(s)  dW(s);\quad Y_r(r)=\sigma(X(r)).
@@ -333,7 +340,7 @@ $$
 Consider
 
 $$
-Z(t):=\int_r^t\left(u(t)-\frac{1}{2}v^2(s)\right) d s+\int_r^t v(s) d W(s)
+Z(t) := \int_r^t\left(u(s)-\frac{1}{2}v^2(s)\right) d s + \int_r^t v(s) d W(s)
 $$
 
 Which solves the differential equation
@@ -345,8 +352,7 @@ $$
 Applying Itô to  $g(z):=e^z$ gives
 
 $$
-d g(Z)=g'dZ+\frac{1}{2}g''v^2d t= e^Z[(u-\frac{1}{2}v^2+\frac{1}{2}v^2)d t+vdW]\\=
-g(Z)(u d t +vdW).
+dg(Z) = g'dZ + \frac{1}{2}g''v^2 ds = e^Z\left[\left(u-\frac{1}{2}v^2+\frac{1}{2}v^2\right)ds + v dW(s)\right] = g(Z)(u ds + v dW(s))
 $$
 
 Setting $Y_r=Y_r(r)g(Z)$ proves the result by the uniqueness of solutions as both sides verify the same SDE (note that  $Y_r(r)g(Z)$ has the same stochastic differential as $g(Z)$ but now takes initial data  $Y_r(r)$).

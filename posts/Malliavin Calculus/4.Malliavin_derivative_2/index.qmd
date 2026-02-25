@@ -6,7 +6,7 @@ categories: [Malliavin Calculus]
 description: "Part 4 of the series on Malliavin calculus"
 format:
   html:
-    css: custom_theorems.css
+    css: /custom_theorems.css
     toc: true
     number-sections: true
     html-math-method: mathjax
@@ -131,7 +131,7 @@ $\nabla{X}$ satisfies
 	+ \rm{o}(\norm{\gamma}_{C_0([0, T])}).
 \]
 If $X$ has a Fr\'{e}chet derivative $\nabla{X} \colon C_0([0, T]) \to C_0([0,
-			T])^*$, we say it is *Fr\'{e*chet differentiable}.
+			T])^*$, we say it is *Fr\'{e}chet differentiable*.
 
 Within the Banach space $C_0([0, T])$ lies a Hilbert space $H$ of distinguished
 elements. This is the space of paths of the form

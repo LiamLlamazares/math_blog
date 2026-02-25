@@ -5,7 +5,7 @@ categories: [Analysis On Banach Spaces]
 bibliography: biblio.bib
 format:
   html:
-    css: custom_theorems.css
+    css: /custom_theorems.css
     toc: true
     number-sections: true
     html-math-method: mathjax
