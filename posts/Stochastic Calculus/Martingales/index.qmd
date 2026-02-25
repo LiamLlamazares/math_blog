@@ -85,6 +85,8 @@ format:
               iso: "\\xrightarrow{\\sim}",
               ker: "\\bm{ker}",
               mat: ["\\begin{bmatrix}{#1}\\end{bmatrix}", 1],
+              mathbbm: ["\\mathbb{#1}", 1],
+              mathds: ["\\mathbb{#1}", 1],
               norm: ["\\left\\lVert #1 \\right\\rVert", 1],
               om: "\\omega",
               proj: "\\mathrm{proj}",
@@ -179,11 +181,16 @@ Then using the linearity of the integral we obtain that $w(Z_1)=w(Z_2)$ for all 
 ## Martingales
 
 Okay, so we leveraged some inequalities to prove the existence of a conditional expectation. This done, the following definition mimicking the real case is quite natural. Given measurable spaces $(F,\Ff)$ and $(G,\Gg)$, we use the notation $f: \Ff \to \Gg$ to mean $f:(F,\Ff)\to (G,\Gg)$ is measurable.
-	Let $\{M(t)\}_{t\in I}$ be a stochastic process on $(\Omega, \Ff, \PP)$ with a filtration $\{\Ff_{t}\}_{t \in I}$. The process $M$ is called an $\Ff_{t}$-martingale, if:
-	1. $M(t)\in L^1(\Omega\to E)$ for all $t\in I$,
+
+::: {#def-1}
+
+Let $\{M(t)\}_{t\in I}$ be a stochastic process on $(\Omega, \Ff, \PP)$ with a filtration $\{\Ff_{t}\}_{t \in I}$. The process $M$ is called an $\Ff_{t}$-martingale, if:
+1. $M(t)\in L^1(\Omega\to E)$ for all $t\in I$,
 2. $M(t):\Ff_{t} \to \Bb(E)$ for all $t\in I$,
 3. $\E_{\Ff_{s}}\left[M(t)\right]=M(s)$ for all $s \leq t$.
-\end{definition}
+
+:::
+
 The concept of submartingale is  defined by replacing the equality in 3. with a $\geq$. Let us abbreviate $\E_{\Ff_t}$ by $\E_t$. Then, as in the real case, we have the following.
 
 ::: {#lem-lem-norm-is-submart name="Norm: martingale $\to$ submartingale"}
@@ -265,7 +272,7 @@ Where we recall from the previous post that $\hat{L}^p$ symbolizes that $M$ may 
 
 A useful space of Martingales is as follows
 
-::: {#def-1}
+::: {#def-2}
 
 Let $M(t)$ be a $E$ valued martingale with index set $I=[0,T]$, then we define
 

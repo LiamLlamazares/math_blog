@@ -85,6 +85,8 @@ format:
               iso: "\\xrightarrow{\\sim}",
               ker: "\\bm{ker}",
               mat: ["\\begin{bmatrix}{#1}\\end{bmatrix}", 1],
+              mathbbm: ["\\mathbb{#1}", 1],
+              mathds: ["\\mathbb{#1}", 1],
               norm: ["\\left\\lVert #1 \\right\\rVert", 1],
               om: "\\omega",
               proj: "\\mathrm{proj}",

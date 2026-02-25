@@ -246,6 +246,12 @@ def parse_preamble_macros(sty_path: Path) -> dict:
     # is not available on all CDN builds.
     if 'bm' not in macros:
         macros['bm'] = (r'\boldsymbol{#1}', 1)
+    
+    # Fallbacks for indicator functions from bbm/dsfont packages
+    if 'mathbbm' not in macros:
+        macros['mathbbm'] = (r'\mathbb{#1}', 1)
+    if 'mathds' not in macros:
+        macros['mathds'] = (r'\mathbb{#1}', 1)
 
     return macros
 
