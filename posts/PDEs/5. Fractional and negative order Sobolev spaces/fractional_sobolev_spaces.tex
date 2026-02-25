@@ -62,13 +62,20 @@ The definitions developed in the next three subsections can be found in \cite{ag
     \end{align*}
     where
     \begin{align}\label{norm def}
-        \norm{u}_{W^{s,p}(U)}:= \left(\norm{u}_{W^{k,p}(U)}^p+ \sum_{\abs{\alpha}=k }\int_{U}\int_{U}\frac{\abs{D^\alpha u(x+y)-D^\alpha u(x)}^p}{\abs{y}^{d+\gamma p}}\d x \d y\right)^\frac{1}{p}.
+        \norm{u}_{W^{s,p}(U)}:= \left(\norm{u}_{W^{k,p}(U)}^p+ \sum_{\abs{\alpha}=k }\int_{U}\int_{U}\frac{\abs{D^\alpha u(x)-D^\alpha u(y)}^p}{\abs{x-y}^{d+\gamma p}}\d x \d y\right)^\frac{1}{p}.
     \end{align}
     For $p = \infty$, we define $W^{s,\infty}(U):= C^{k,\gamma}(U)$. The norm is then given by
     \begin{align*}
         \norm{u}_{W^{s,\infty}(U)}= \norm{u}_{C^{k}(U)}+ \sum_{\abs{\alpha} =k}  \sup _{x, y \in U, x \neq y} \frac{|D^\alpha u(x)- D^\alpha u(y)|}{|x-y|^\gamma }.
     \end{align*}
 \end{definition}
+\begin{observation}
+    In the case where $U= \R^d$, by a change of variables, we can equivalently define    \begin{align}\label{norm def}
+        \norm{u}_{W^{s,p}(\R^d)}:= \left(\norm{\R^d}_{W^{k,p}(\R^d)}^p+ \sum_{\abs{\alpha}=k }\int_{\R^d}\int_{\R^d}\frac{\abs{D^\alpha u(x+y)-D^\alpha u(y)}^p}{\abs{x-y}^{d+\gamma p}}\d x \d y\right)^\frac{1}{p}.
+    \end{align}
+    If $U \neq \R^d$ this is not possible as $x+y$ may leave the domain where $u$ is defined.
+\end{observation}
+
 We will later define $W^{s,p}(U)$ also for negative $s$ (see Definition \ref{negative s Slobodeckij}). We observe that the above definition coincides with our usual definition of Sobolev space when $s=k \in \N_0$ and mimics that of the H\"older spaces, coinciding exactly when $p=\infty$.
 \begin{exercise}
     Show that $W^{s,p}(U)$ is a Banach space.
@@ -76,7 +83,7 @@ We will later define $W^{s,p}(U)$ also for negative $s$ (see Definition \ref{neg
 \begin{hint}
     To show that $|| \cdot ||_{W^{s,p}(U)}$ is a norm apply Minkowski's inequality to $u$ and to
     \begin{align*}
-        f_u(x,y):=\frac{D^\alpha u(x+y)-D^\alpha u(x)}{y^{\frac{d}{p}+\gamma}}.
+        f_u(x,y):=\frac{D^\alpha u(x)-D^\alpha u(y)}{\abs{x-y}^{\frac{d}{p}+\gamma}}.
     \end{align*}
     Given a Cauchy sequence show that, since $L^p(U)$ is complete, $u_n \to u$ in $L^p(U)$ and that $f_{u_n} \to f_u$ in $L^p(U\times U)$ to conclude that $u_n \to u$ in $W^{s,p}(U)$.
 \end{hint}
@@ -153,7 +160,7 @@ The restriction above is in the sense of distributions. That is, we define the r
     \end{align*}
     where
     \begin{align*}
-        \norm{u}_{B^{s,p}(U)}:= \left(\norm{u}_{W^{k_{-},p}(U)}^p+ \sum_{\abs{\alpha}=k_- }\int_{U}\int_{U}\frac{\abs{D^\alpha u(x+y)-D^\alpha u(x)}^p}{\abs{y}^{d+\gamma p}}\d x \d y\right)^\frac{1}{p}.
+        \norm{u}_{B^{s,p}(U)}:= \left(\norm{u}_{W^{k_{-},p}(U)}^p+ \sum_{\abs{\alpha}=k_- }\int_{U}\int_{U}\frac{\abs{D^\alpha u(x)-D^\alpha u(y)}^p}{\abs{x-y}^{d+\gamma p}}\d x \d y\right)^\frac{1}{p}.
     \end{align*}
     For $p = \infty$, we define $B^{s,\infty}(U):= C^{k_{-},\gamma}(U)$.
 \end{definition}
@@ -348,14 +355,14 @@ The above suggests that, for $p=2$, the integrals appearing in the definition of
 \section{Dual of Sobolev spaces and correspondence with negative regularity}
 Negative orders of regularity correspond to the dual of Sobolev spaces. This is best seen in the integer case. We first introduce the notation $W^{s,p}_0(U),H^{s,p}_0(U),B^{s,p}_0(U)$ for the closure of $C_c^\infty(U)$ in $W^{s,p}(U),H^{s,p}(U),B^{s,p}(U)$ respectively. We also introduce the notation $p' = p/(p-1)$ for the conjugate exponent of $p$. We then have the following result (see \cite{evans2022partial} pages 326-344 for the case $p=2$).
 \begin{theorem}\label{dual of integer sobolev}
-    For all $k \in \mathbb{Z}$ and $p \in [1,\infty)$  and $\Omega$ an extension domain for $W^{k,p}$, it holds that
+    For all $k \in \mathbb{Z}$ and $p \in (1,\infty)$  and $\Omega$ an extension domain for $W^{k,p}$, it holds that
     \begin{align*}
         H^{k,p}_0(\Omega )' = H^{-k,p'}(\Omega ), \quad W^{k,p}_0(\Omega )' = W^{-k,p'}(\Omega ).
     \end{align*}
 \end{theorem}
 The first equality will be discussed in the next subsection and is most easily proved when $\Omega =\R^d$, in which case one can use the homeomorphism $\Lambda ^s: H^{r,p}(\R^d )\iso H^{r-s,p}(\R^d )$ together with the reflexivity of $L^p(\R^d )$. The second equality is a direct consequence of the integer order equality $W^{k,p}(\Omega )=H^{k,p}(\Omega )$ of \Cref{equivalence fractional spaces}. For fractional order regularities, we have the following result, which can be found in \cite{agranovich2015sobolev} page 228.
 \begin{theorem}
-    Given $s>0, p \in [1,\infty)$ and $\Omega$ an extension domain, it holds that the spaces $W^{s,p}(\Omega ),H^{s,p}(\Omega ),B^{s,p}(\Omega )$ are reflexive Banach spaces with duals
+    Given $s>0, p \in (1,\infty)$ and $\Omega$ an extension domain, it holds that the spaces $W^{s,p}(\Omega ),H^{s,p}(\Omega ),B^{s,p}(\Omega )$ are reflexive Banach spaces with duals
     \begin{align*}
         W^{s,p}(\Omega )'=	W^{-s,p'}_{\overline{\Omega } }(\R^d ), \quad H^{s,p}(\Omega )' = H^{-s,p'}_{\overline{\Omega } }(\R^d ), \quad B^{s,p}(\Omega )' = B^{-s,p'}_{\overline{\Omega } }(\R^d ).
     \end{align*}
@@ -439,7 +446,7 @@ See \cite{taylor2013partial} Section 4 for more details.
 We know that we can homeomorphically map the spaces $H^{s,p}(\R^d )$ and $B^{s,p}(\R^d )$ to the lower order spaces $H^{s-r,p}(\R^d )$ and $B^{s-r,p}(\R^d )$ by application of $\Lambda ^r$ (differentiating $r$ times). In other words, spaces of lower-order regularity are obtained by differentiating functions with higher regularity. We show how to extend this idea to smooth domains in some particular cases.
 
 \begin{theorem}[Representation of $W_0^{k,p}(\Omega )'$]\label{riesz representation}
-    Let $\Omega \subset \R^d$ be an extension domain for $W^{k,p}$ where   $k \in \N$ and $p \in [1,\infty)$. Then, every element in $W^{-k,p'}(\Omega )=W^{k,p}_0(\Omega )'$ is the unique extension of a distribution  of the form
+    Let $\Omega \subset \R^d$ be an extension domain for $W^{k,p}$ where   $k \in \N$ and $p \in (1,\infty)$. Then, every element in $W^{-k,p'}(\Omega )=W^{k,p}_0(\Omega )'$ is the unique extension of a distribution  of the form
     \begin{align*}
         \sum_{1\leq\abs{\alpha}\leq k} D^\alpha u_\alpha\in \Dd'(\Omega ),\quad \text{where }    u_\alpha \in L^{p'}(\Omega ).
     \end{align*}
@@ -502,9 +509,9 @@ Consider $f \in L^p(\Omega )$  a PDE of the form
 \begin{align}\label{PDE}
     \Ll u =f \text{ in } \Omega , \quad \restr{u}{\partial \Omega }= g.
 \end{align}
-Then, it is necessary to know exactly what boundary data $g$ is admissible. Suppose that $\Ll $ is of order $k$ so we require  $u \in W^{k,p}(\Omega )$. Will \eqref{PDE} have a solution? To be able to answer this question, we need to know the image of the trace operator. If $g \notin \operatorname{Tr}(W^{k,p}(\Omega ))$, then there is no hope of finding a solution. The following theorem characterizes the image of the trace operator and can be found in \cite{agranovich2015sobolev} page 228 and \cite{leoni2023first} page 390.
+Then, it is necessary to know exactly what boundary data $g$ is admissible. Suppose that $\Ll $ is of order $k$ so we require  $u \in W^{k,p}(\Omega )$. Will \eqref{PDE} have a solution? To be able to answer this question, we need to know the image of the trace operator. If $g \notin \operatorname{Tr}(W^{k,p}(\Omega ))$, then there is no hope of finding a solution. The following theorem characterizes the image of the trace operator and can be found in \cite{agranovich2015sobolev} page 228 and \cite[page 350, 492]{leoni2023first}.
 \begin{theorem}[Fractional trace theorem]\label{trace theorem}
-    Let $\Omega \subset \R^d$ be open with $C^{0,1}$ boundary. Then, for all  $p\in (1,\infty), s\in (1/p,\infty) $, the trace operator $\operatorname{Tr}$ can be extended from $C(\overline{\Omega } )$  to a bounded operator
+    Let $\Omega \subset \R^d$ be open with $C^{k,1}$ boundary. Then, for all  $p\in (1,\infty), s\in (1/p,k) $, the trace operator $\operatorname{Tr}$ can be extended from $C(\overline{\Omega } )$  to a bounded operator
     \begin{align*}
         \operatorname{Tr}: H^{s,p}(\Omega ) \to B^{s-1/p,p}(\partial\Omega), \quad \operatorname{Tr}: B^{s,p}(\Omega ) \to B^{s-1/p,p}(\partial\Omega).
     \end{align*}

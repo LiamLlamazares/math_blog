@@ -682,6 +682,14 @@ def convert_body(body: str, label_registry: dict | None = None,
 
     text = re.sub(r'\\begin\{hint\}[ \t]*\n?(.*?)\\end\{hint\}', dedent_hint, text, flags=re.DOTALL)
 
+    # --- Pass 2d: Center environment ---
+    def dedent_center(m):
+        inner = m.group(1)
+        dedented = textwrap.dedent(inner.strip('\n'))
+        return f'\n\n::: {{style="text-align: center;"}}\n\n{dedented}\n\n:::\n\n'
+
+    text = re.sub(r'\\begin\{center\}[ \t]*\n?(.*?)\\end\{center\}', dedent_center, text, flags=re.DOTALL)
+
     # --- Pass 3: Display math environments ---
     # aligneq = equation + aligned, aligneq* = equation* + aligned
     # We convert to $$\begin{aligned}...\end{aligned}$$ so MathJax renders natively.
