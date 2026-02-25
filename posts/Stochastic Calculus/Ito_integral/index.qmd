@@ -1,7 +1,7 @@
 ---
 title: "The Itô integral"
 author: "Liam Llamazares--Elias"
-date: "5/22/2022"
+date: "2022-05-22"
 categories: [Stochastic Calculus, Ito Integral]
 description: "Can you really construct this thing?"
 bibliography: biblio.bib

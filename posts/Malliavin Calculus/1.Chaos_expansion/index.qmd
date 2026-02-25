@@ -1,7 +1,7 @@
 ---
-title: "Malliavin Calculus"
+title: "MC 1: The chaos expansion"
 author: "Liam Llamazares--Elias"
-date: "23-05-2022"
+date: "2022-05-23"
 categories: [Malliavin calculus]
 description: "Iterated Itô integrals and their consequences"
 bibliography: biblio.bib

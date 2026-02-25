@@ -1,7 +1,7 @@
 ---
 title: "Martingales in Banach spaces"
 author: "Liam Llamazares--Elias"
-date: "23-05-2022"
+date: "2022-05-23"
 categories: [Stochastic Calculus]
 description: "Doob's Martingale inequality is cool"
 bibliography: biblio.bib

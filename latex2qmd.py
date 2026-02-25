@@ -80,6 +80,41 @@ def _extract_braced(text: str, cmd: str) -> str | None:
     return text[start:i - 1].strip()
 
 
+def _normalize_date(date_str: str) -> str:
+    """Normalize a date string to ISO 8601 (YYYY-MM-DD).
+
+    Handles: YYYY-MM-DD (passthrough), DD-MM-YYYY, MM/DD/YYYY, M/DD/YYYY,
+    MM-DD-YYYY, DD/MM/YYYY. Disambiguates by checking if either component > 12.
+    """
+    date_str = date_str.strip()
+
+    # Already ISO?
+    iso_m = re.match(r'^(\d{4})-(\d{1,2})-(\d{1,2})$', date_str)
+    if iso_m:
+        return date_str
+
+    # Try patterns with / or - separator
+    m = re.match(r'^(\d{1,2})[/\-](\d{1,2})[/\-](\d{4})$', date_str)
+    if m:
+        a, b, year = int(m.group(1)), int(m.group(2)), int(m.group(3))
+        # Disambiguate: if a > 12, it must be day (DD-MM-YYYY)
+        if a > 12:
+            day, month = a, b
+        elif b > 12:
+            month, day = a, b
+        else:
+            # Ambiguous: assume MM/DD/YYYY for / separator, DD-MM-YYYY for - separator
+            sep = date_str[len(m.group(1))]
+            if sep == '/':
+                month, day = a, b
+            else:
+                day, month = a, b
+        return f"{year}-{month:02d}-{day:02d}"
+
+    # Fallback: return as-is
+    return date_str
+
+
 def parse_tex_metadata(tex: str) -> dict:
     """Extract title, author, date, description from LaTeX source."""
     meta = {}
@@ -96,7 +131,7 @@ def parse_tex_metadata(tex: str) -> dict:
         if '\\today' in date_str:
             meta['date'] = date.today().isoformat()
         else:
-            meta['date'] = date_str
+            meta['date'] = _normalize_date(date_str)
     else:
         meta['date'] = date.today().isoformat()
 

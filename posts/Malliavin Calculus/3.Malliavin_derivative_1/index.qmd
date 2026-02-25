@@ -1,0 +1,414 @@
+---
+title: "MC 3: The Malliavin Derivative 1"
+author: "Liam Llamazares--Elias"
+date: "2022-06-30"
+categories: [Malliavin Calculus]
+description: "Part 3 of the series on Malliavin calculus"
+bibliography: biblio.bib
+format:
+  html:
+    css: custom_theorems.css
+    toc: true
+    number-sections: true
+    html-math-method: mathjax
+    include-in-header:
+      text: |
+        <script>
+        window.MathJax = {
+          tex: {
+            tags: "ams",
+            macros: {
+              A: "\\mathbb{A}",
+              Aa: "\\mathcal{A}",
+              Bb: "\\mathcal{B}",
+              C: "\\mathbb{C}",
+              Cc: "\\mathcal{C}",
+              Dd: "\\mathcal{D}",
+              E: "\\mathbb{E}",
+              Ee: "\\mathcal{E}",
+              F: "\\mathbb{F}",
+              Ff: "\\mathcal{F}",
+              Gg: "\\mathcal{G}",
+              Hh: "\\mathcal{H}",
+              II: "\\mathbb{I}",
+              Id: "\\bm{I}",
+              Ii: "\\mathcal{I}",
+              Im: "\\bm{Im}",
+              Jj: "\\mathcal{J}",
+              K: "\\mathbb{K}",
+              KL: ["\\rm{KL}\\left(#1 \\| #2\\right)", 2],
+              Kk: "\\mathcal{K}",
+              LL: "\\mathbb{L}",
+              Ll: "\\mathcal{L}",
+              M: "\\mathbb{M}",
+              Mm: "\\mathcal{M}",
+              N: "\\mathbb{N}",
+              Nn: "\\mathcal{N}",
+              Oo: "\\mathcal{O}",
+              PP: "\\mathbb{P}",
+              Pp: "\\mathcal{P}",
+              Q: "\\mathbb{Q}",
+              Qq: "\\mathcal{Q}",
+              R: "\\mathbb{R}",
+              Rr: "\\mathcal{R}",
+              Ss: "\\mathcal{S}",
+              T: "\\mathbb{T}",
+              Th: "{\\bm{\\theta}}",
+              Thh: "{\\bm{\\Theta}}",
+              Tt: "\\mathcal{T}",
+              Uu: "\\mathcal{U}",
+              Vv: "\\mathcal{V}",
+              W: "\\mathbb{W}",
+              Ww: "\\mathcal{W}",
+              X: "\\mathbb{X}",
+              Xx: "\\mathcal{X}",
+              Yy: "\\mathcal{Y}",
+              Z: "\\mathbb{Z}",
+              Zz: "\\mathcal{Z}",
+              abs: ["\\left| #1 \\right|", 1],
+              alf: "{\\alpha}",
+              b: ["{\\bm{#1}}", 1],
+              bm: ["\\boldsymbol{#1}", 1],
+              br: ["\\left\\langle#1\\right\\rangle", 1],
+              bt: "\\beta",
+              co: ["\\overset{\\circ}{#1}", 1],
+              d: "\\mathrm{d}",
+              diag: ["\\operatorname{diag}\\left(#1\\right)", 1],
+              dx: "\\,\\mathrm{d}x",
+              dy: "\\,\\mathrm{d}y",
+              eps: "\\varepsilon",
+              et: "{\\bm{\\eta}}",
+              ex: ["\\mathrm{exp}\\left(#1\\right)", 1],
+              fk: ["\\mathfrak{#1}", 1],
+              fracc: ["{#1}/{#2}", 2],
+              frc: ["\\left(#2)^{-1}(#1\\right)", 2],
+              iso: "\\xrightarrow{\\sim}",
+              ker: "\\bm{ker}",
+              mat: ["\\begin{bmatrix}{#1}\\end{bmatrix}", 1],
+              mathbbm: ["\\mathbb{#1}", 1],
+              mathds: ["\\mathbb{#1}", 1],
+              norm: ["\\left\\lVert #1 \\right\\rVert", 1],
+              om: "\\omega",
+              postref: ["\\href{https://nowheredifferentiable.com/posts/#1/}{#3}", 3],
+              proj: "\\mathrm{proj}",
+              qb: ["\\left[#1\\right]", 1],
+              qp: ["\\left(#1\\right)", 1],
+              qt: ["\\left(#1\\right)", 1],
+              red: ["{\\color{red}#1}", 1],
+              rm: ["\\mathrm{#1}", 1],
+              set: ["\\left\\{#1\\right\\}", 1],
+              star: "*",
+              tl: ["\\widetilde{#1}", 1],
+              tll: ["\\widetilde{#1}", 1],
+              vol: "\\mathrm{vol}",
+              wh: ["\\widehat{#1}", 1],
+              x: "\\bm{x}",
+              xxi: "{\\bm{\\xi}}",
+              y: "\\bm{y}"
+            }
+          }
+        };
+        </script>
+---
+
+## Three line summary
+
+- The Malliavin derivative is an operator defined by manipulating the chaos expansion of a square-integrable random variable.
+- The Malliavin derivative transforms square-integrable variables into square integrable processes.
+- The Malliavin derivative shares some properties with the classic derivative such as the product rule and chain rule, but the fundamental theorem of calculus only holds in some special cases.
+
+## Why should I care?
+
+The Malliavin derivative is  (somewhat unsurprisingly) a fundamental object of Malliavin calculus and has many applications in finance, numerical methods, and optimal control.
+
+## Notation
+
+The same as in previous posts. Furthermore we will shorten the notation  $L^2(\Omega,\mathcal{F}_T)$ and $L^2(I\times\Omega,\Bb(I)\otimes \Ff_T)$ to $L^2(\Omega)$ and $L^2(I\times\Omega)$ respectively.
+
+## Introduction
+
+The Malliavin derivative was originally introduced as an operator associated with the Fréchet differential of random variables $X: C(I)\to \R$. The aforementioned construction provides some motivation behind the Malliavin derivative and will be developed in the next post. However, a more general construction  can be obtained via the chaos expansion.
+
+::: {#def-1}
+
+Given $X=\sum_{n=0}^{\infty} I_n(f_n)\in L^2(\Omega)$ we say that $X$ is *Malliavin differentiable* if
+
+$$
+\|X\|_{\mathbb{D}_{1,2}}^2 := \norm{X}_{L^2(\Omega)}^2  + \sum_{n=1}^{\infty} n n!\|f_n\|_{L^2([0,T]^n)}^2
+$$
+
+and denote the space of Malliavin differentiable functions by
+
+$$
+\mathbb{D}_{1,2}:=\{X\in L^2(\Omega):\|X\|_{\mathbb{D}_{1,2}}<\infty\}.
+$$
+
+Furthermore, we define the *Malliavin derivative* of $X$ as
+
+$$
+D_tX:=\sum_{n=1}^{\infty} n I_{n-1}(f_{n}(\cdot ,t)),
+$$
+
+:::
+
+The first questions to be asked is: ``what kind of object is the Malliavin derivative of a random variable? What is the link between $\mathbb{D}_{1,2}$ and $D_t$? Is $\|\cdot \|_{\mathbb{D}_{1,2}}$ even a norm?''. We answer this in the next proposition and corollary.
+
+::: {#prp-1}
+
+The Malliavin derivative $D$ is a bounded linear operator  $D:\mathbb{D}_{1,2} \to L^2(I \times \Omega)$ with 
+
+$$
+\begin{aligned}
+\norm{X}_{\mathbb{D}_{1,2}}^2= \norm{X}_{L^2(\Omega)}^2+\|D  X\|^2_{L^2(I\times\Omega)}
+\end{aligned}
+$$
+
+:::
+
+::: {.proof}
+
+The proof of the first part of the proposition is a straightforward application of Itô's $n$-th isometry and the monotone convergence theorem as we have that
+
+$$
+\begin{aligned}
+\|D  X\|^2_{L^2(I\times\Omega)}&=\int_{I}\left\|\sum_{n=1}^{\infty} n I_{n-1}(f_{n}(\cdot ,t))\right\|_{L^2(\Omega)}^2 d t\\
+	&=\sum_{n=1}^{\infty} n^2(n-1)!\int_{I}\|f_n(\cdot ,t)\|^2 dt=\sum_{n=1}^{\infty} n n!\|f_{n}\|^2_{L^2([0,T]^n)}\\
+	&=\norm{X}_{\mathbb{D}_{1,2}}^2- \norm{X}_{L^2(\Omega)}^2.
+\end{aligned}
+$$
+
+This establishes boundedness and the equality of the proposition. Finally, the linearity of $D$ follows from the linearity of the iterated Itô integrals (which itself is a consequence of the linearity of the Itô integral).
+
+:::
+
+In summary, the Malliavin derivative turns a square-integrable random variable into
+a possibly non-adapted, stochastic process. You may recall from our previous posts that we had an operator that went in the opposite direction. The Skorokhod integral $\delta$. In fact, the Malliavin derivative and the Skorokhod integral are adjoint operators in a sense that will be made precise in the next post. For now, we show that, as occurs with the ordinary derivative, a random variable has Malliavin derivative $0$ if and only if it is constant.
+
+::: {#cor-normedspace}
+
+$(\mathbb{D}_{1,2},\|\cdot \|_{\mathbb{D}_{1,2}})$ is an inner product space. Furthermore
+
+$$
+D X=0 \in L^2(I \times \Omega)\iff X\in \R.
+$$
+
+:::
+
+::: {.proof}
+
+The inner product properties hold as $\|\cdot\|_{\mathbb{D}_{1,2}}$ is induced by the inner product of the graph space $L^2(\Omega) \times L^2(I \times \Omega)$. This shows that $\|\cdot \|_{\mathbb{D}_{1,2}}$ is am inner product. The second part follows from the fact that
+
+$$
+\|DX\|_{L^2(I \times \Omega)}=\sum_{n=1}^{\infty} n n!\|f_{n}\|_{L^2([0,T]^n)}.
+$$
+
+So $DX=0$ if and only if  $f_n=0$ for all $n\geq 1$, which in turn is equivalent to  $X=I_0(f_0):=f_0$. Where we recall that by convention $L^2_{S}(I^0):=\R$ and $I_0$ was defined as the identity on  $\R$.  This concludes the proof.
+
+:::
+
+Before moving on we show a motivating example. Let us consider some deterministic function $f\in L^2(I)$ and set $$X:=\delta(f)= \int_{0}^T f(s)dW(s).$$ Then, by construction, we have $X=I_1(f)$ so
+
+$$
+D_t X= I_0(f(t))=f(t).
+$$
+
+This is a nice result and it might suggest something akin to the fundamental theorem of calculus such as $D_t(\delta Y)=Y$ for any Skorokhod integrable process $Y$. However, this will not hold in general and as, will be seen in the next post, occurs if and only if $Y$ is a deterministic function in $L^2(\Omega)$.\\\\
+This said, we now show that $\mathbb{D}_{1,2}$ is closed in the sense that: given a convergent sequence $X_m\to X$. If the derivatives  $D_tX_m$ converge then also $D_t X_m\to D_t X$.
+
+::: {#prp-2}
+
+The space $\mathbb{D}_{1,2}$ is a Hilbert space.
+
+:::
+
+::: {.proof}
+
+It only remains to show that $\norm{\cdot }_{\mathbb{D}_{1,2}}$ is complete. Let $\set{X_m}_{m \in \N} \subset  \mathbb{D}_{1,2}$ be Cauchy. Or equivalently, by @cor-normedspace, $X_m$ is Cauchy in $L^2(\Omega)$ and $DX_m$ in $L^2(I \times \Omega)$.
+
+Since $L^2(\Omega)$ is complete $X_m$ must converge to some  $X\in L^2(\Omega)$. Let us write the respective chaos expansions as
+	
+$$
+X=\sum_{n=0}^{\infty} I_n(f_n);\quad X_m=\sum_{n=0}^{\infty} I_n(f_n^{(m)}).
+$$
+
+	By Itô's $n$-th isometry and the convergence $X_m\to X\in L^2(\Omega)$ we deduce that also $f^{(m)}_n\to f_n\in L^2(I^n)$ for each $n$.    By now applying Fatou's lemma and the fact that $X_m$ is by hypothesis Cauchy in  $\mathbb{D}_{1,2}$ we obtain that
+	
+$$
+\begin{aligned}
+\lim_{m \to \infty}\|DX-DX_m\|_{L^2(I \times \Omega)}&=\lim_{m \to \infty}\sum_{n=1}^{\infty} n!n \|f_n(x)-f_n^{(m)}\|_{L^2(I^n)}\\
+		&\leq \lim_{m \to \infty}\liminf_{k \to \infty}\sum_{n=1}^{\infty} n!n \|f_n^{(k)}(x)-f_n^{(m)}\|_{L^2(I^n)}\\
+		&=\lim_{m \to \infty}\liminf_{k \to \infty}\norm{DX_m-DX_k}_{L^2(I \times \Omega)}=0.
+\end{aligned}
+$$
+
+	As desired.
+
+:::
+
+We now conclude this post by stating two  properties of the Malliavin derivative that are analogous to those verified by the derivative of ordinary functions. Firstly, an analog to the chain rule for the ordinary derivative. The proof can be found on page $29$ of Nunno and Øksendal's book [@nunno2008malliavin] but is rather technical and relies on Hermite polynomials which were not discussed previously, so we omit it.
+
+::: {#def-2}
+
+We write $\mathbb{D}_{1,2}^0\subset L^2(\Omega)$ for the space of square integrable random variables $X=\sum_{n=0}^{\infty} I_n(f_n)$ such that $f_n=0$ for all but finitely many  $n$.
+
+:::
+
+::: {#prp-3 name="Product rule"}
+
+Given $X_1,X_2\in \mathbb{D}^0_{1,2}$ it holds that
+
+$$
+D_t(X_1X_2)=X_1D_tX_2+X_2D_tX_1.
+$$
+
+:::
+
+Finally, though we shall not use it, we mention that if $\Omega=\mathcal{S}^*(\R)$ is the dual of the Schwartz space and we construct a probability measure $\mathbb{P}$ called the *white noise probability measure*  then the following version of the chain rule also holds (see [@nunno2008malliavin] page $89$).
+
+::: {#prp-4 name="Chain rule"}
+
+Consider $\varphi\in C_1(\R^d)$ with $\nabla \varphi\in {L^\infty(\R^d\to\R^d)}$ and $X=(X_1,\ldots,X_d)$ such that $X_i\in \mathbb{D}_{1,2}$ for each $i=1,\ldots,d$. Then it holds that $\varphi(X)\in \mathbb{D}_{1,2}$ with
+
+$$
+D_t\varphi(X)=\sum_{i=0}^{d} \frac{\partial \varphi}{\partial x_i}(X)D_t(X_i) .
+$$
+
+:::
+
+## Extending past p=2
+
+The Malliavin derivative lets us define a derivative on a subset of $L^2(\Omega)$. However, it may also be useful to have a concept of derivative
+on random variables in $L^p(\Omega)$. We now explain how to do this via an alternative construction of the Malliavin derivative. First of all, consider the set of *cylindrical variables*
+
+$$
+\W:=\left\{\varphi\left(\int_{I}h(t) dW(t)\right):\varphi\in C_b^\infty(\R^n), h\in L^2(I\to\R^n), n \in \N \right\}
+$$
+
+That is, $\W$ is the set of all smooth functions with bounded derivatives of Wiener integrals of deterministic functions. Let us use the abbreviation  $W(h):=\int_{I}h(t) dW(t)$.
+Then, the results in the previous section show that the Malliavin differential of a cylindrical variable is
+
+$$
+D_t\varphi(W(h))=\nabla\varphi(W(h))\cdot h(t)=\sum_{i=1}^{n} \frac{\partial \varphi}{\partial x_i}(W(h))h_i(t).
+$$
+
+One can also start directly with the above equation as the defintion of Malliavin differential.
+In this case it is not clear that $D_t$ is well defined (that is, independent of the representation of  $X=\varphi(W(h))$). However it is, see [@hairer2021introduction] page 10.
+Analogously to how one defines the norm on Sobolev spaces, we now take any $1\leq p< \infty$ and define a norm on $\W$ by
+
+$$
+\norm{X}_{\mathbb{D}^{1,p}}:=\norm{X}_{L^p(\Omega)}+\norm{DX}_{L^p(\Omega\to L^2(I))},\quad X\in \W.
+$$
+
+Then, $D$ is a continuous linear operator on $(\W,\norm{\cdot }_{\mathbb{D}^{1,p}})$ to $L^2(\Omega\to L^2(I))$. As a result, $D$ may be extended to the closure of $(\W,\norm{\cdot }_{\mathbb{D}^{1,p}})$ (this relies on Meyer inequalities  show that the Malliavin derivative is closable in $L^p$ for $p \neq  2$). We denote this closure by $\mathbb{D}^{1,p}$ and by abuse of notation also write $D$ for the continuous extension of  $D$ to $\mathbb{D}^{1,p}$. Note that by definition of the norm $\norm{\cdot }_{\mathbb{D}^{1,p}}$, necessarily $\mathbb{D}^{1,p}$ is a subset of $L^p(\Omega)$. In this way, we have been
+able to extend the Malliavin differential to $\mathbb{D}^{1,p}\subset L^p(\Omega)$. Explicitly, we have that
+
+$$
+D X:=\lim_{n \to \infty}D X_n \in L^p(\Omega\to L^2(I)).
+$$
+
+Where $X_n \in \W$ is a sequence converging to  $X$ in  $\mathbb{D}^{1,p}$. Furthermore, we note that by the previous discussion $D$ coincides with our previous definition
+of the Malliavin differential when $p=2$. For the case $p=\infty$ we define
+
+$$
+D^{1,\infty}:=\bigcap_{p=1} ^\infty \mathbb{D}^{1,p}.
+$$
+
+We now conclude with an extension of the chain rule which can be used even when $\varphi$ does not have bounded derivative.
+
+::: {#prp-5 name="Chain rule for $\mathbb{D}^{1,p}$"}
+
+Let $X\in \mathbb{D}^{1,p}$ and consider $\varphi\in C^1(\R^n)$ such that $\norm{\nabla\varphi(x)}\leq C(1+\norm{x}^\alpha)$ for some $0\leq \alpha\leq p-1$. Then
+$\varphi(X)\in \mathbb{D}^{1,q}$, where $q=p/(\alpha+1)$. Furthermore,
+
+$$
+D\varphi(X)=\nabla \varphi(X) \cdot D X.
+$$
+
+:::
+
+::: {.proof}
+
+By the mean value inequality we have that
+
+$$
+\abs{\varphi(x)}\leq C'(1+\norm{x}^{\alpha+1})=C'(1+\norm{x}^{\frac{p}{q}}).
+$$
+
+As a result, since $X \in L^p(\Omega)$, we have that
+
+$$
+\varphi(X) \in L^q(\Omega).
+$$ {#eq-in1}
+
+Furthermore, the growth condition $\norm{\nabla\varphi(x)}\leq C(1+\norm{x}^\alpha)$ implies $\nabla \varphi(X) \in L^{p/\alpha}(\Omega)$. Since $D X \in L^p(\Omega\to L^2(I))$ by definition, we apply the generalized Hölder inequality with exponents $p/\alpha$ and $p$. Observing that $\frac{\alpha}{p} + \frac{1}{p} = \frac{\alpha+1}{p} = \frac{1}{q}$, we obtain
+
+$$
+\norm{\nabla \varphi(X) \cdot D X}_{L^q} \leq \norm{\nabla \varphi(X)}_{L^{p/\alpha}} \norm{D X}_{L^p} < \infty.
+$$ {#eq-in2}
+
+This establishes that $\nabla \varphi(X) \cdot D X \in L^q(\Omega\to L^2(I))$.
+
+We now take a sequence of cylindrical random variables $X_n$ converging to $X$ in $\mathbb{D}^{1,p}$ and an approximation to the identity $\delta_n$. Let us set $\varphi_n:=\varphi \ast \delta_n$.
+
+$$
+D \varphi(X) = \lim_{n \to \infty} D [\varphi_n(X_n)] = \lim_{n \to \infty} (\nabla \varphi_n)(X_n)\cdot DX_n = (\nabla \varphi)(X)\cdot DX \in L^q(\Omega\to L^2(I)).
+$$
+
+The final equality holds due to the identical bound established in @eq-in2 and the convergence of $X_n,\varphi_n$ to $X,\varphi$ respectively.
+
+:::
+
+Essentially the previous proposition says that, if $X$ is differentiable and the derivative of $\varphi$ doesn't grow to fast (depending on the integrability of $DX$), then $\varphi(X)$ is also differentiable and we can apply the chain rule. The integrability of $D\varphi(X)$ depending on the integrability of $DX$ and the growth of $\nabla \varphi$.
+
+### Example application
+
+For example, in the case $p=2$ we could take $\varphi(x)=x^2$ to deduce that
+
+$$
+D(X^2)=2XDX,\quad\forall X\in \mathbb{D}^{1,2}.
+$$
+
+If $X=1_A$ is an indicator function for some  $A\in \Ff$ we obtain that
+
+$$
+D(1_A)=D(1_A^2)=21_AD(1_A).
+$$
+
+From here we deduce that $D1_A=0$. As we have seen, this occurs if and only if $1_A$ is constant, so necessarily  $1_A=0$ or  $1_A=1$. Identifying sets with functions, we have just proved the following
+
+::: {#cor-1}
+
+Given $A\in \Ff$ we have that $1_A\in \mathbb{D}^{1,2}$ if and only if (almost everywhere) $A=\emptyset$ or $A=\Omega$.
+
+:::
+
+### Multiple derivatives
+
+Finally we comment on how it is possible to iterate the Malliavin derivative. Given a cylindrical process $X=\varphi(W(h))\in \W$ we should have that, with Einstein notation
+
+$$
+D_{t_1}D_{t_2}X=D_{t_1}(\partial_i \varphi(X)h_i(t_2))=D_{t_1}(\partial_i \varphi(X))h_i(t_2)=(\partial_i\partial _j \varphi)(X)h_i(t_1)h_j(t_2).
+$$
+
+As a result, we define given $X\in \W$
+
+$$
+D^k_{t_1,\ldots,t_k} X:= \sum_{i_1,\ldots,i_k=1}^{n}  \frac{\partial \varphi}{\partial x_{i_1}\ldots\partial x_{i_k}}(X)h_{i_1}(t_1)\ldots h_{i_k}(t_k) .
+$$
+
+In the same fashion as before, we can now define the $k$-th differential norm as
+
+$$
+\norm{X}_{\mathbb{D}^{k,p}}:=\sum_{j=0}^{k}  \norm{D^j X}_{L^p(\Omega\to L^2(I^j))}.
+$$
+
+Where we use the convention $D^0 X:=X, L^2(I^0):= \R$. Then we simply define $\mathbb{D}^{k,p}$ to be the completion of $\W$ with this norm. Finally, we define
+
+$$
+\mathbb{D}^{\infty,p}:= \bigcap_{k=1}^\infty \mathbb{D}^{k,p};\quad \mathbb{D}^\infty := \bigcap_{p \geq 1} \bigcap_{k \geq 1} \mathbb{D}^{k,p}.
+$$
+
+## References
+
+::: {#refs}
+:::

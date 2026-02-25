@@ -1,180 +1,36 @@
-\documentclass[11pt, a4paper, twoside]{book}
+\documentclass[
+    a4paper,
+    DIV=14,
+    abstract=true,
+    numbers=noenddot
+]{scrartcl}
 
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{bbm}
-\bibliographystyle{elsarticle-num}
-
-\usepackage{enumitem}
-\usepackage{fancyhdr}
-\usepackage[centering]{geometry}
-\usepackage{graphicx}
-\usepackage{listings}
-\usepackage{mathptmx}
-\usepackage{mathrsfs}
-
-\usepackage{mathtools}
-\usepackage{textcomp}
-\usepackage{xcolor}
-
-
-\graphicspath{{figures/}}
-
-\theoremstyle{plain}
-\swapnumbers
-\newtheorem{theorem}{Theorem}
-\newtheorem{conjecturetheorem}[theorem]{
-	This could be a theorem if I work hard enough
-}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{corollary}[theorem]{Corollary}
-
-\theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{example}[theorem]{Example}
-
-\theoremstyle{remark}
-\newtheorem{remark}[theorem]{Remark}
-
-\lstset{%
-	basicstyle=\small\ttfamily,
-	breaklines=true,
-	frame=leftline,
-	framesep=6pt,
-	numbers=left,
-	showstringspaces=false
-}
-
-\pagestyle{fancy}
-
-\renewcommand{\d}{\mathop{}\!\mathrm{d}}
-\newcommand{\e}{\mathrm{e}}
-\renewcommand{\i}{\mathrm{i}}
-\renewcommand{\o}{\mathrm{o}}
-\newcommand{\odv}[2]{\frac{\d{#1}}{\d{#2}}}
-\newcommand{\pdv}[2]{\frac{\partial{#1}}{\partial{#2}}}
-
-\def\Xint#1{\mathchoice
-	{\XXint\displaystyle\textstyle{#1}}%
-	{\XXint\textstyle\scriptstyle{#1}}%
-	{\XXint\scriptstyle\scriptscriptstyle{#1}}%
-	{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
-	\!\int}
-\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
-			\vcenter{\hbox{$#2#3$ }}\kern-.6\wd0}}
-\def\ddashint{\Xint=}
-\def\dashint{\Xint-}
-
-\newcommand{\bbone}{\mathbbm{1}}
-\newcommand{\bbC}{\mathbb{C}}
-\newcommand{\bbD}{\mathbb{D}}
-\newcommand{\bbE}{\mathbb{E}}
-\newcommand{\bbM}{\mathbb{M}}
-\newcommand{\bbN}{\mathbb{N}}
-\newcommand{\bbP}{\mathbb{P}}
-\newcommand{\bbR}{\mathbb{R}}
-\newcommand{\bfF}{\mathbf{F}}
-\newcommand{\scrC}{\mathscr{C}}
-\newcommand{\scrF}{\mathscr{F}}
-\newcommand{\scrL}{\mathscr{L}}
-\newcommand{\scrM}{\mathscr{M}}
-\newcommand{\scrP}{\mathscr{P}}
-\newcommand{\scrX}{\mathscr{X}}
-\newcommand{\mres}{\mathbin{\vrule height 1.6ex depth 0pt width
-		0.13ex\vrule height 0.13ex depth 0pt width 1.3ex}}
-
-\newcommand{\DeltaOrd}{\Delta_\mathrm{ord}^{N-1}}
-
-\newcommand{\subsolution}{}
-
-\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
-\DeclarePairedDelimiter{\angles}{\langle}{\rangle}
-\DeclarePairedDelimiter{\eval}{.}{\rvert}
-\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
-\DeclarePairedDelimiter{\parens}{\lparen}{\rparen}
-\DeclarePairedDelimiter{\brackets}{\lbrack}{\rbrack}
-\DeclarePairedDelimiter{\set}{\{}{\}}
-
-\DeclareMathOperator\diverg{div}
-\DeclareMathOperator\supp{supp}
-\DeclareMathOperator\id{id}
-
-\renewcommand{\headrulewidth}{0.5pt}
-\renewcommand{\footrulewidth}{0.5pt}
-
-\title{The Malliavin derivative, part 2}
-
-\fancyhead[LE]{Malliavin calculus}
-\fancyhead[RO]{\nouppercase{\rightmark}}
-\fancyfoot[C]{}
-\fancyfoot[R]{\thepage}
-
-\renewcommand{\thesection}{\arabic{section}}
-
-\newenvironment{reportday}[1]
-{%
-	\hline\vspace{0.5em}
-	\noindent{\bf #1}%
-}
-{%
-	\vspace{0.5em}\hline\vspace{0.5em}
-	\normalfont
-}
-
-\newenvironment{solution}
-{%
-	\newcounter{subsolutioncounter}
-	\renewcommand{\subsolution}[1][(\alph{subsolutioncounter})]
-	{%
-		\stepcounter{subsolutioncounter}
-		\vspace{0.5em}
-		{\it {##1} \,}
-	}
-	\noindent{\it Solution}%
-}
-{%
-	\hfill \Diamond
-	\vspace{0.5em}\hline\vspace{0.5em}
-}
-
-
-\makeatletter
-\newenvironment{subxarray}{%
-	\vcenter\bgroup
-	\Let@ \restore@math@cr \default@tag
-	\baselineskip\fontdimen10 \scriptfont\tw@
-	\advance\baselineskip\fontdimen12 \scriptfont\tw@
-	\lineskip\thr@@\fontdimen8 \scriptfont\thr@@
-	\lineskiplimit\lineskip
-	\ialign\bgroup\hfil
-	$\m@th\scriptstyle##$&$\m@th\scriptstyle{}##$\hfil\crcr
-}{%
-	\crcr\egroup\egroup
-}
-\makeatother
-\author{Billy Summers}
+\usepackage{preamble}
 
 \begin{document}
+\title{MC 4: The Malliavin derivative, part 2}
+\postsubtitle{Part 4 of the series on Malliavin calculus}
+\author{Billy Summers}
+\date{2022-07-02}
 \maketitle
 
 \section{The Malliavin derivative as a Fr\'{e}chet derivative}
 Let $C_0([0, T])$ be the Banach space of all continuous functions $f \colon [0,
-		T] \to \bbR$ such that $f(0) = 0$. On this space, we can associate a special
+		T] \to \R$ such that $f(0) = 0$. On this space, we can associate a special
 Borel probability measure $\mu$ such that $W_t(\omega) := \omega(t)$ is a
 Brownian motion. Given a random variable on $C_0([0, T])$, i.e. a
-$\mu$-measurable function $X \colon C_0([0, T]) \to \bbR$, we want to know how
+$\mu$-measurable function $X \colon C_0([0, T]) \to \R$, we want to know how
 the value $X(\omega)$ changes upon perturbing the path $\omega$ by a small
 quantity $\gamma \in C_0([0, T])$. This can be described by the Fr\'{e}chet
 derivative $\nabla{X}(\omega)$, which is a bounded linear map $C_0([0, T]) \to
-	\bbR$, i.e. a member of the dual space $C_0([0, T])^*$, giving the best linear
+	\R$, i.e. a member of the dual space $C_0([0, T])^*$, giving the best linear
 approximation to the difference $X(\omega + \gamma) - X(\omega)$. Formally,
 $\nabla{X}$ satisfies
 \[
 	X(\omega + \gamma)
 	= X(\omega)
-	+ \angles{\nabla{X}(\omega), \gamma}
-	+ \o(\norm{\gamma}_{C_0([0, T])}).
+	+ \br{\nabla{X}(\omega), \gamma}
+	+ \rm{o}(\norm{\gamma}_{C_0([0, T])}).
 \]
 If $X$ has a Fr\'{e}chet derivative $\nabla{X} \colon C_0([0, T]) \to C_0([0,
 			T])^*$, we say it is \emph{Fr\'{e}chet differentiable}.
@@ -205,16 +61,16 @@ Hilbert space, the dual space $H^*$ is isomorphic to $H$ through its inner
 product, so there exists some $DX(\omega) \in L^2([0, T])$ such
 that
 \[
-	\angles*{\nabla{X}(\omega), \int_0^\cdot \psi \, \d{t}}
-	= \parens*{\int_0^\cdot D_t{X}(\omega) \, \d{t},
-	\int_0^\cdot \psi \, \d{t}}_H
+	\br{\nabla{X}(\omega), \int_0^\cdot \psi \, \d{t}}
+	= \qty(\int_0^\cdot D_t{X}(\omega) \, \d{t},
+	\int_0^\cdot \psi \, \d{t})_H
 	= \int_0^T D_t{X}(\omega) \psi(t) \, \d{t}.
 \]
 This object $DX$ is precisely the Malliavin derivative of $X$.
 
 \section{The Skorokhod integral and the Malliavin derivative}
 Given a stochastic process $(X_t)_{t \in [0, T]} \in L^2([0,T]\times\Omega,
-	\d{t}\otimes\bbP)$ such that $X_t$ is $\scrF_T$-measurable for all $t \in
+	\d{t}\otimes\P)$ such that $X_t$ is $\Ff_T$-measurable for all $t \in
 	[0, T]$, let
 \[
 	X_t = \sum_{n = 0}^\infty I_n(f_n(\cdot, t))
@@ -232,26 +88,26 @@ fundamental.
 	The Skorokhod integral and Malliavin derivative are \emph{adjoint} in the
 	following sense:
 
-	Let $(X_t)_{t \in [0, T]}$ be a Skorokhod-integrable. Let $Y \in \bbD^{1,
+	Let $(X_t)_{t \in [0, T]}$ be a Skorokhod-integrable. Let $Y \in \mathbb{D}^{1,
 			2}$ be a Malliavin differentiable random variable. Then
 	\[
-		\parens*{
+		\br{
 			Y, \int_0^T X_t \, \delta{W}_t
 		}_{L^2(\Omega)}
-		= \parens*{
+		= \br{
 			D{Y}, X
 		}_{L^2([0,T]\times\Omega)}.
 	\]
 	More concretely,
 	\[
-		\bbE\brackets*{
+		\E\qty[
 			Y \int_0^T X_t \, \delta{W}_t
-		}
-		= \bbE\brackets*{
+		]
+		= \E\qty[
 			\int_0^T
 			D_t Y X_t
 			\, \d{t}
-		}.
+		].
 	\]
 \end{theorem}
 \begin{proof}
@@ -265,35 +121,35 @@ fundamental.
 	\]
 	the chaos expansion of $Y$. Then
 	\begin{align*}
-		\bbE\brackets*{
+		\E\qty[
 			Y \int_0^T X_t \, \delta{W}_t
-		}
-		 & = \bbE\brackets*{
+		]
+		 & = \E\qty[
 			\sum_{n = 0}^\infty I_n(g_n)
 			\sum_{m = 0}^\infty I_{m + 1}({f}_{m,S})
-		}                                                                 \\
+		]                                                                 \\
 		 & = \sum_{n = 0}^\infty \sum_{m = 0}^\infty
-		\bbE[I_n(g_n) I_{m + 1}({f}_{m,S})]                               \\
-		 & = \sum_{n = 0}^\infty n! (g_n, {f}_{n - 1,S})_{L^2([0, T]^n)},
+		\E[I_n(g_n) I_{m + 1}({f}_{m,S})]                               \\
+		 & = \sum_{n = 1}^\infty n! (g_n, {f}_{n - 1,S})_{L^2([0, T]^n)},
 	\end{align*}
 	and on the other side,
 	\begin{align*}
-		\bbE\brackets*{
+		\E\qty[
 		\int_0^T D_t{Y} X_t \, \d{t}
-		}
-		 & = \int_0^T \bbE\brackets*{
+		]
+		 & = \int_0^T \E\qty[
 			\sum_{n = 1}^\infty n I_{n - 1}(g_n(\cdot, t))
 			\sum_{m = 0}^\infty I_m(f_m(\cdot, t))
-		} \, \d{t}                                            \\
+		] \, \d{t}                                            \\
 		 & = \int_0^T \sum_{n = 0}^\infty \sum_{m = 0}^\infty
-		n \bbE\brackets{
+		n \E[
 			I_{n - 1}(g_n(\cdot, t)) I_m(f_m(\cdot, t))
-		} \, \d{t}                                            \\
+		 ] \, \d{t}                                            \\
 		 & = \sum_{n = 0}^\infty
 		n (n - 1)! \int_0^T
 		(g_n(\cdot, t), f_{n - 1}(\cdot, t))_{L^2([0, T]^{n - 1})}
 		\, \d{t}                                              \\
-		 & = \sum_{n = 0}^\infty
+		 & = \sum_{n = 1}^\infty
 		n! (g_n, f_{n - 1})_{L^2([0, T]^n)}.
 	\end{align*}
 	Finally, by definition of the symmetrization,
@@ -302,7 +158,7 @@ fundamental.
 		 & = \int_{[0, T]^n}
 		g_n(t_1, \dots, t_n)
 		\frac{1}{n} \sum_{k = 1}^n
-		f(t_1, \dots, t_{k - 1}, t_n, t_{k + 1}, \dots, t_{n - 1}, t_k)
+		f_{n-1}(t_1, \dots, t_{k - 1}, t_n, t_{k + 1}, \dots, t_{n - 1}, t_k)
 		\, \d{t_1} \cdots \d{t_n}                       \\
 		 & = \frac{1}{n} \sum_{k = 0}^n \int_{[0, T]^n}
 		g_n(t_1, \dots, t_n)
@@ -317,12 +173,12 @@ fundamental.
 \begin{remark}
 	The symbol $\delta$ is often used for a divergence-like operator in Hodge
 	theory. The analogy with our case is that in the Hodge situation, $\delta$
-	is defined via a duality formula which looks like $\angles{d{\alpha},
-			\beta} = \angles{\alpha, \delta{\beta}}$, where $d$ is the exterior
+	is defined via a duality formula which looks like $\br{d{\alpha},
+			\beta} = \br{\alpha, \delta{\beta}}$, where $d$ is the exterior
 	derivative on differential forms. Indeed, even in vector calculus, the
 	negative of the divergence is in some sense adjoint to the gradient:
 	\[
-		\int_\Omega \diverg{f} \phi \, \d{x}
+		\int_\Omega \nabla\cdot{f} \phi \, \d{x}
 		= - \int_\Omega f \cdot \nabla{\phi} \, \d{x}
 	\]
 	whenever $\phi$ has zero boundary. So, in a sense, the Skorokhod integral is
@@ -332,7 +188,7 @@ fundamental.
 Using this, we can immediately prove the following:
 
 \begin{corollary}
-	Let $(X^n)_{n \in \bbN}$ be a sequence of Skorokhod-integrable stochastic
+	Let $(X^n)_{n \in \N}$ be a sequence of Skorokhod-integrable stochastic
 	processes. Suppose there exist $X \in L^2([0,T]\times\Omega)$ and $Y
 		\in L^2(\Omega)$ such that $X^N \to X$ in $L^2([0,T]\times\Omega)$, and
 	$\delta{X^N} \to Y$ in $L^2(\Omega)$. Then $X$ is Skorokhod integrable, and
@@ -350,7 +206,7 @@ Using this, we can immediately prove the following:
 	integrable, the components of their chaos expansions must satisfy the above
 	condition, and we can take limits.
 
-	Let $Z \in \bbD^{1, 2}$. Then by adjointness,
+	Let $Z \in \mathbb{D}^{1, 2}$. Then by adjointness,
 	\[
 		(Z, \delta{X^N})_{L^2(\Omega)}
 		= (DZ, X^N)_{L^2([0,T]\times\Omega)}.
@@ -362,7 +218,7 @@ Using this, we can immediately prove the following:
 		= (DZ, X)_{L^2([0,T]\times\Omega)}
 		= (Z, \delta{X})_{L^2(\Omega)}.
 	\]
-	Then, since $\bbD^{1, 2}$ is dense in $L^2(\Omega)$, we see that $Y =
+	Then, since $\mathbb{D}^{1, 2}$ is dense in $L^2(\Omega)$, we see that $Y =
 		\delta{X}$ a.s., as required.
 \end{proof}
 
@@ -376,7 +232,7 @@ Using this, we can immediately prove the following:
 
 \begin{theorem}
 	Let $X \in L^2([0,T]\times\Omega)$ be a Skorokhod integrable random
-	process, and let $Y \in \bbD^{1, 2}$ be such that $FX$ is also Skorokhod
+	process, and let $Y \in \mathbb{D}^{1, 2}$ be such that $YX$ is also Skorokhod
 	integrable. Then
 	\[
 		Y \int_0^T X_t \, \delta{W}_t
@@ -385,25 +241,25 @@ Using this, we can immediately prove the following:
 	almost surely.
 \end{theorem}
 \begin{proof}
-	Suppose $Y$ has finite chaos expansion, and choose some $Z \in \bbD^{1, 2}$
+	Suppose $Y$ has finite chaos expansion, and choose some $Z \in \mathbb{D}^{1, 2}$
 	also with finite chaos expansion. Then by adjointness and the product rule,
 	\begin{align*}
-		\bbE\brackets*{
+		\E\qty[
 			Z \int_0^T Y X_t \, \delta{W}_t
-		}
-		 & = \bbE\brackets*{
+		]
+		 & = \E\qty[
 		\int_0^T D_t{Z} Y X_t \, \d{t}
-		}                    \\
-		 & = \bbE\brackets*{
+		]                   \\
+		 & = \E\qty[
 		\int_0^T (D_t(YZ) - Z D_t{Y}) X_t \, \d{t}
-		}                    \\
-		 & = \bbE\brackets*{
+		]                    \\
+		 & = \E\qty[
 			YZ \int_0^T X_t \, \delta{W}_t
-		} - \bbE\brackets*{
+		  ] - \E\qty[
 		Z \int_0^T D_t{Y} X_t \, \d{t}
-		}.
+		].
 	\end{align*}
-	Since the set of all test functions $Z \in \bbD^{1, 2}$ with finite chaos
+	Since the set of all test functions $Z \in \mathbb{D}^{1, 2}$ with finite chaos
 	expansion is dense in $L^2(\Omega)$, we conclude the result for $Y$ with
 	finite chaos expansion. For general $Y$, we approximate.
 \end{proof}
@@ -411,12 +267,12 @@ Using this, we can immediately prove the following:
 \begin{remark}
 	A similar formula crops up in vector calculus, namely the following:
 	\[
-		\diverg(fX) = \nabla{f} \cdot X + f \diverg{X},
+		\nabla\cdot(fX) = \nabla{f} \cdot X + f \nabla\cdot{X},
 	\]
 	where $f$ is a scalar function and $X$ a vector field. Again, in the above
 	theorem, the Malliavin derivative takes the place of the gradient, the
 	Skorokhod integral take the place of the divergence, and the usual inner
-	product on $\bbR^n$ (the dot product) is replaced with the $L^2([0, T])$
+	product on $\R^n$ (the dot product) is replaced with the $L^2([0, T])$
 	inner product. There is a sign difference owing to the fact the adjointness
 	in the Malliavin case does not induce a sign change, unlike in the vector
 	calculus case (see the remark above).
@@ -424,12 +280,12 @@ Using this, we can immediately prove the following:
 
 \begin{theorem}
 	Let $X \in L^2([0,T]\times\Omega)$ be a stochastic process such that
-	for all $s \in [0, T]$, $X_s$ is in $\bbD^{1, 2}$, $D{X_s}$ is
+	for all $s \in [0, T]$, $X_s$ is in $\mathbb{D}^{1, 2}$, $D{X_s}$ is
 	Skorokhod integrable, and
 	\[
 		\int_0^T DX_s \, \delta{W}_s \in L^2([0,T]\times\Omega).
 	\]
-	Then $\delta{X}$ lies in $\bbD^{1, 2}$, and
+	Then $\delta{X}$ lies in $\mathbb{D}^{1, 2}$, and
 	\[
 		D_t(\delta{X}) = \int_0^T D_t{X_s} \, \delta{W}_s + X_t.
 	\]
@@ -446,7 +302,7 @@ Using this, we can immediately prove the following:
 	and Skorokhod integral's failure to commute, with the error simply being
 	the identity on $L^2(\Omega \times [0, 1])$. That is,
 	\[
-		D\delta = \delta D + \id.
+		D\delta = \delta D + \rm{id}.
 	\]
 	This contrasts with our vector
 	calculus analogy, where the divergence and gradient most certainly commute
