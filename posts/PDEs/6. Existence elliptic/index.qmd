@@ -345,7 +345,7 @@ B_\gamma (u,v):= (v, \Ll_\gamma u)=B(u,v) + \gamma (u,v).
 \end{aligned}
 $$
 
-The calculation proceeds similarly to @eq-b=0. We recall the Cauchy inequality
+The calculation proceeds similarly to @eq-b-0. We recall the Cauchy inequality
 
 $$
 \begin{aligned}

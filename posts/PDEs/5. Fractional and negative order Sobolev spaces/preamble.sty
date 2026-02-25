@@ -66,7 +66,9 @@
 \RequirePackage{booktabs}                   % Professional quality tables (different rule weights)
 \RequirePackage{longtable}                  % Tables that can span multiple pages
 \RequirePackage{multirow}                   % Create tabular cells spanning multiple rows
-\RequirePackage{enumitem}                   % Control layout of itemize, enumerate, description
+\RequirePackage[shortlabels]{enumitem}                   % Control layout of itemize, enumerate, description
+\newlist{alphalist}{enumerate}{2}
+\setlist[alphalist]{label=\alph*)}                % Control layout of itemize, enumerate, description
 
 %==============================================================================
 % 6. MISCELLANEOUS UTILITIES
@@ -258,7 +260,7 @@
 \newcommand{\qb}[1]{\left[#1\right]}              % Brackets [x]
 \newcommand{\qt}[1]{\left(#1\right)}              % Alias for parentheses
 \renewcommand{\norm}[1]{\left\lVert #1 \right\rVert} % Norm ||x||
-\renewcommand{\abs}[1]{\left| #1 \right|}         % Absolute value |x|
+\renewcommand{\abs}[1]{{\left| #1 \right|}}         % Absolute value |x|
 \newcommand{\mins}[2][]{\min_{#1} \set{#2}}
 \newcommand{\maxs}[2][]{\max_{#1} \set{#2}}
 \newcommand{\argns}[2][]{\argn_{#1} \set{#2}}

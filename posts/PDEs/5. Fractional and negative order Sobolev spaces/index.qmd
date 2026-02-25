@@ -542,7 +542,7 @@ $$
 
 :::
 
-The equality for $p=2$ in @eq-p=2 justifies that, for sufficiently regular domains, all three spaces are written $H^s(\Omega )$.   We will prove the left-hand side of this equivalence in Exercise @exr-equivalence-of-fractional-spaces. For $p\neq 2$, the inclusions are, in general, strict. An example is constructed in [@stein1970singular] page 161 exercise 6.8.
+The equality for $p=2$ in @eq-p-2 justifies that, for sufficiently regular domains, all three spaces are written $H^s(\Omega )$.   We will prove the left-hand side of this equivalence in Exercise @exr-equivalence-of-fractional-spaces. For $p\neq 2$, the inclusions are, in general, strict. An example is constructed in [@stein1970singular] page 161 exercise 6.8.
 
 ::: {#exr-equivalence-of-fractional-spaces name="Equivalence of fractional spaces"}
 

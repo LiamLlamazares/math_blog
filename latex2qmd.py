@@ -830,7 +830,18 @@ def convert_body(body: str, label_registry: dict | None = None,
     # --- Pass 6: Cross-references ---
     # \eqref{X} → @eq-X
     def convert_eqref(m):
-        label = m.group(1).replace(':', '-').replace(' ', '-').replace('_', '-').lower()
+        raw_label = m.group(1)
+        label = sanitize_label(raw_label)
+        
+        # Check label_map first (handles aliases in align blocks)
+        if raw_label in label_map:
+            return f'@{label_map[raw_label]}'
+        if label in label_map:
+            return f'@{label_map[label]}'
+            
+        # ensure eq- prefix
+        if label.startswith('eq-'):
+            return f'@{label}'
         return f'@eq-{label}'
 
     text = re.sub(r'\\eqref\{([^}]*)\}', convert_eqref, text)
@@ -839,35 +850,54 @@ def convert_body(body: str, label_registry: dict | None = None,
     def convert_cref(m):
         raw_label = m.group(1)
         label = sanitize_label(raw_label)
+        
+        target = f'@{label}'
         # First check if this is an item-level label (emit descriptive text)
         if raw_label in item_label_map:
             parent_qid, item_name = item_label_map[raw_label]
-            return f'@{parent_qid} ({item_name})'
+            target = f'@{parent_qid} ({item_name})'
         # Then check if this label was mapped during theorem/equation conversion
-        if raw_label in label_map:
-            return f'@{label_map[raw_label]}'
-
-        if label in label_map:
-            return f'@{label_map[label]}'
+        elif raw_label in label_map:
+            target = f'@{label_map[raw_label]}'
+        elif label in label_map:
+            target = f'@{label_map[label]}'
         # Try to guess the prefix from the label convention
-        if label.startswith('def'):
-            return f'@def-{label}'
+        elif label.startswith('def'):
+            target = f'@def-{label}'
         elif label.startswith('thm'):
-            return f'@thm-{label}'
+            target = f'@thm-{label}'
         elif label.startswith('lem'):
-            return f'@lem-{label}'
+            target = f'@lem-{label}'
         elif label.startswith('prp') or label.startswith('prop'):
-            return f'@prp-{label}'
+            target = f'@prp-{label}'
         elif label.startswith('cor'):
-            return f'@cor-{label}'
+            target = f'@cor-{label}'
         elif label.startswith('eq'):
-            return f'@eq-{label}'
+            target = f'@eq-{label}'
         else:
-            # Fallback: just reference by label
-            return f'@{label}'
+            # Fallback: assume it's a theorem if no prefix
+            target = f'@thm-{label}'
+            
+        # Fix for Pandoc ID termination: if followed by a letter or a dot+letter, add a space
+        # We check the character after the match in the original text.
+        # However, we are inside a sub... we can't easily check the outer text.
+        # Instead, we'll return a special marker or just assume best-effort.
+        # Actually, let's just use the fact that convert_cref is called via re.sub.
+        # We can broaden the regex to include the next char.
+        return target
 
-    text = re.sub(r'\\[Cc]ref\{([^}]*)\}', convert_cref, text)
-    text = re.sub(r'\\ref\{([^}]*)\}', convert_cref, text)
+    def convert_cref_wrapper(m):
+        # group 1: command name, group 2: label, group 3: character following the ref
+        res = convert_cref(m)
+        following = m.group(3) if m.group(3) else ""
+        # If followed by a word character or a dot+word character, add a space to aid Pandoc/Quarto
+        if re.match(r'^[\w\.]', following):
+            return f"{res} "
+        return res
+
+    text = re.sub(r'(\\[Cc]ref\{([^}]*)\})(\.?)', convert_cref_wrapper, text)
+    text = re.sub(r'(\\ref\{([^}]*)\})(\.?)', convert_cref_wrapper, text)
+    text = re.sub(r'(\\eqref\{([^}]*)\})(\.?)', convert_cref_wrapper, text)
 
     # Also fix plain @rawlabel references emitted by earlier passes
     # If a label in label_map appears as @label (without prefix), replace it.

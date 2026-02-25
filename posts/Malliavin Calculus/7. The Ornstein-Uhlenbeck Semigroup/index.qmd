@@ -282,16 +282,16 @@ $$
 \sqrt{2} \int_{0}^te^{s-t} dW(t)\sim \sqrt{2} e^{-t}\Nn\left(0,\norm{e^\cdot }^2_{L^2([0,t])}\right)=\sqrt{1-e^{-2t}}\Nn(0,1)
 $$
 
-	We deduce that for each fixed $t$ we can find $\gamma   \sim \Nn(0,1)$ with
+	We deduce that for each fixed $t$ we can find $\eta  \sim \Nn(0,1)$ with
 	
 $$
-X(t)=e^{-t}x+\sqrt{1-e^{-2t}}\gamma .
+X(t)=e^{-t}x+\sqrt{1-e^{-2t}}\eta .
 $$
 
 	We then get that
 	
 $$
-P_t \varphi(x)=\E\left[\varphi\left(e^{-t}x+\sqrt{1-e^{-2t}}\gamma  \right)\right]
+P_t \varphi(x)=\E\left[\varphi\left(e^{-t}x+\sqrt{1-e^{-2t}}\eta  \right)\right]
 $$
 
 	And by taking $\varphi=Id$ we recover Mehler's formula. This correspondence is expanded on in chapter $7$ of Hairer's notes [@hairer2009introduction].
