@@ -390,12 +390,12 @@ we say that $x\U \alpha$ is absolutely summable to $x$ and write
 
 </div>
 
-if given $\epsilon >0$ there exists some finite subset
+if given $\varepsilon >0$ there exists some finite subset
 $J\U 0 \in I$ such that for every $J$ containing $J\U 0$ it holds that
 
 <div>
  $$\begin{aligned}
-            \lVert x-\sum\U {\alpha\notin J} x\U \alpha \rVert<\epsilon  .
+            \lVert x-\sum\U {\alpha\notin J} x\U \alpha \rVert<\varepsilon  .
 
 \end{aligned}$$
 
@@ -1126,24 +1126,24 @@ pointwise convergence holds
 
 Consider the unit ball $B\U X$ in $X$. Then $K(B\U X)$ is
 relatively compact. So $K(B\U X)$ is totally bounded and given
-$\epsilon >0$ we can form a finite $\epsilon$ net $Kx\U 1,\ldots,Kx\U m$ of
+$\varepsilon >0$ we can form a finite $\varepsilon$ net $Kx\U 1,\ldots,Kx\U m$ of
 $K(B\U X)$. By pointwise convergence, we can now take $n\U 0$ large enough
 so that for all $N \geq n\U 0$
 
 <div>
  $$\begin{aligned}
-            \lVert Kx\U j-K\U Nx\U j \rVert < \epsilon , \quad\forall j=1,\ldots,m.
+            \lVert Kx\U j-K\U Nx\U j \rVert < \varepsilon , \quad\forall j=1,\ldots,m.
 
 \end{aligned}$$
 
 </div>
 
 Now for any $x\in B\U X$ we can find $x\U j$ such that
-$\lVert Kx\U j-Kx \rVert< \epsilon$. Using the triangle inequality
+$\lVert Kx\U j-Kx \rVert< \varepsilon$. Using the triangle inequality
 
 <div>
  $$\begin{aligned}
-            \lVert Kx-K\U N x \rVert \leq \lVert Kx-K x\U j \rVert+ \lVert K x\U j-K\U N x\U {j} \rVert+ \lVert K\U N x\U j-K\U N x \rVert < 3\epsilon .
+            \lVert Kx-K\U N x \rVert \leq \lVert Kx-K x\U j \rVert+ \lVert K x\U j-K\U N x\U {j} \rVert+ \lVert K\U N x\U j-K\U N x \rVert < 3\varepsilon .
 
 \end{aligned}$$
 

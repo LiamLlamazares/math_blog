@@ -95,6 +95,7 @@ format:
               qp: ["\\left(#1\\right)", 1],
               qt: ["\\left(#1\\right)", 1],
               red: ["{\\color{red}#1}", 1],
+              restr: ["\\left.#1\\right|{#2}", 2],
               rm: ["\\mathrm{#1}", 1],
               set: ["\\left\\{#1\\right\\}", 1],
               star: "*",
@@ -262,7 +263,7 @@ u \in H^k(\R^d) \iff \Lambda^k u \in L^2(\R^d).
 \end{aligned}
 $$ {#eq-motivation-bessel}
 
-Equation @eq-motivation-bessel motivates the following extension to general $p$.
+Equation ([-@eq-motivation-bessel]) motivates the following extension to general $p$.
 
 ::: {#def-bessel-potential-def name="Bessel potential spaces on $\R^d$ "}
 
@@ -503,12 +504,12 @@ The following result shows the inclusions between $W^{s,p}(\Omega ),H^{s,p}(\Ome
 
 ::: {#thm-equivalence-fractional-spaces}
 
-Let $s \geq 0, \epsilon >0$ and  $\Omega$ an extension domain for $H^{s+\epsilon,p},B^{s+\epsilon,p}$. Then,
+Let $s \geq 0, \varepsilon >0$ and  $\Omega$ an extension domain for $H^{s+\varepsilon,p},B^{s+\varepsilon,p}$. Then,
 
 $$
 \begin{aligned}
-H^{s+\epsilon,p}(\Omega ) & \subset B^{s,p}(\Omega )  \subset H^{s,p}(\Omega )\quad \forall p \in (1,2]       \\
-B^{s+\epsilon,p}(\Omega ) & \subset H^{s,p}(\Omega )  \subset B^{s,p}(\Omega )\quad \forall p \in [2,\infty),
+H^{s+\varepsilon,p}(\Omega ) & \subset B^{s,p}(\Omega )  \subset H^{s,p}(\Omega )\quad \forall p \in (1,2]       \\
+B^{s+\varepsilon,p}(\Omega ) & \subset H^{s,p}(\Omega )  \subset B^{s,p}(\Omega )\quad \forall p \in [2,\infty),
 \end{aligned}
 $$
 
@@ -533,7 +534,7 @@ $$ {#eq-p-2}
 
 :::
 
-The equality in @eq-slobodeckij-equivalence shows that, as long as we understand the behaviour of $H^{s,p}(\Omega )$ and $B^{s,p}(\Omega )$, we can completely determine that of $W^{s,p}(\Omega )$. It also justifies the following extension of $W^{s,p}(\Omega )$ to negative regularity.
+The equality in ([-@eq-slobodeckij-equivalence]) shows that, as long as we understand the behaviour of $H^{s,p}(\Omega )$ and $B^{s,p}(\Omega )$, we can completely determine that of $W^{s,p}(\Omega )$. It also justifies the following extension of $W^{s,p}(\Omega )$ to negative regularity.
 
 ::: {#def-negative-s-slobodeckij name="Slobodeckij space negative $s$"}
 
@@ -550,11 +551,11 @@ $$
 
 :::
 
-The equality for $p=2$ in @eq-p-2 justifies that, for sufficiently regular domains, all three spaces are written $H^s(\Omega )$.   We will prove the left-hand side of this equivalence in Exercise @exr-equivalence-of-fractional-spaces.  For $p\neq 2$, the inclusions are, in general, strict. An example is constructed in [@stein1970singular] page 161 exercise 6.8.
+The equality for $p=2$ in ([-@eq-p-2]) justifies that, for sufficiently regular domains, all three spaces are written $H^s(\Omega )$.   We will prove the left-hand side of this equivalence in @exr-equivalence-of-fractional-spaces.  For $p\neq 2$, the inclusions are, in general, strict. An example is constructed in [@stein1970singular] page 161 exercise 6.8.
 
 ::: {#exr-equivalence-of-fractional-spaces name="Equivalence of fractional spaces"}
 
-Show without using Theorem @thm-equivalence-fractional-spaces that
+Show without using @thm-equivalence-fractional-spaces that
 
 $$
 \begin{aligned}
@@ -606,7 +607,7 @@ The last integral is finite as, since $d+2\gamma >d$, the tails $\abs{\xi}\to\in
 
 ::: {#exr-4}
 
-Use the previous exercise @exr-equivalence-of-fractional-spaces to show that if $\Omega$ is an extension domain for $H^{s}$, then
+Use the previous @exr-equivalence-of-fractional-spaces to show that if $\Omega$ is an extension domain for $H^{s}$, then
 
 $$
 \begin{aligned}
@@ -690,7 +691,7 @@ $$
 \end{aligned}
 $$
 
-Using @eq-second-order and proceeding as in Exercise @thm-equivalence-fractional-spaces gives
+Using ([-@eq-second-order]) and proceeding as in @thm-equivalence-fractional-spaces gives
 
 $$
 \begin{aligned}
@@ -725,7 +726,7 @@ $$
 
 :::
 
-The first equality will be discussed in the next subsection and is most easily proved when $\Omega =\R^d$, in which case one can use the homeomorphism $\Lambda ^s: H^{r,p}(\R^d )\iso H^{r-s,p}(\R^d )$ together with the reflexivity of $L^p(\R^d )$. The second equality is a direct consequence of the integer order equality $W^{k,p}(\Omega )=H^{k,p}(\Omega )$ of Theorem @thm-equivalence-fractional-spaces.  For fractional order regularities, we have the following result, which can be found in [@agranovich2015sobolev] page 228.
+The first equality will be discussed in the next subsection and is most easily proved when $\Omega =\R^d$, in which case one can use the homeomorphism $\Lambda ^s: H^{r,p}(\R^d )\iso H^{r-s,p}(\R^d )$ together with the reflexivity of $L^p(\R^d )$. The second equality is a direct consequence of the integer order equality $W^{k,p}(\Omega )=H^{k,p}(\Omega )$ of @thm-equivalence-fractional-spaces.  For fractional order regularities, we have the following result, which can be found in [@agranovich2015sobolev] page 228.
 
 ::: {#thm-2}
 
@@ -757,7 +758,7 @@ W^{-s,p'}(\Omega )':=	W^{s,p}_0(\Omega )'.
 \end{aligned}
 $$ {#eq-alternative-negative}
 
-See, for example, [@biccari2018local], [@leoni2023first] page 228. The definition in @eq-alternative-negative is equivalent to Definition @def-negative-s-slobodeckij when $\Omega = \R^d$ or when $s \in k$. However, in other cases, the two definitions are not equivalent.
+See, for example, [@biccari2018local], [@leoni2023first] page 228. The definition in ([-@eq-alternative-negative]) is equivalent to Definition @def-negative-s-slobodeckij when $\Omega = \R^d$ or when $s \in k$. However, in other cases, the two definitions are not equivalent.
 
 :::
 
@@ -859,7 +860,7 @@ Y' \simeq X'\backslash Y^\circ.
 \end{aligned}
 $$ {#eq-dual-isomormphism}
 
-Applying this to $Y= H^{k,p}_0(\Omega )\hookrightarrow H^{k,p}(\R^d) =X$ we obtain the result of Theorem @thm-dual-of-integer-sobolev. 
+Applying this to $Y= H^{k,p}_0(\Omega )\hookrightarrow H^{k,p}(\R^d) =X$ we obtain the result of @thm-dual-of-integer-sobolev. 
 
 $$
 \begin{aligned}
@@ -867,7 +868,7 @@ H^{k,p}_0(\Omega )' \simeq H^{k,p}(\R^d)'\backslash H^{k,p}(\Omega)^\circ\simeq 
 \end{aligned}
 $$
 
-where the second equality is by Exercise @exr-dual-exercise.  This coincides well with what we observed in @eq-ismorphism and justifies an extension of @eq-ismorphism for negative $s$.
+where the second equality is by @exr-dual-exercise.  This coincides well with what we observed in ([-@eq-ismorphism]) and justifies an extension of ([-@eq-ismorphism]) for negative $s$.
 
 As a final note, if $\Omega \neq \R^d$, then  $H_0^k(\Omega )'$ and $H^k(\Omega )'$ are not equal. Rather,
 
@@ -938,7 +939,7 @@ $$
 \end{aligned}
 $$ {#eq-representation}
 
-(we recall the notation $(v,\omega)$ for the duality pairing). By definitions of the norm on $W^{k,p}(\Omega )$ and Cauchy Schwartz, we have that $\omega$ is continuous with respect to the norm on $W^{k,p}(\Omega )$ and so we may extend it uniquely to the closure of $\Dd(\Omega )$ in $W^{k,p}(\Omega )$ which is $W^{k,p}_0(\Omega )$. By @eq-representation, the extension is necessarily $\omega$. This completes the proof.
+(we recall the notation $(v,\omega)$ for the duality pairing). By definitions of the norm on $W^{k,p}(\Omega )$ and Cauchy Schwartz, we have that $\omega$ is continuous with respect to the norm on $W^{k,p}(\Omega )$ and so we may extend it uniquely to the closure of $\Dd(\Omega )$ in $W^{k,p}(\Omega )$ which is $W^{k,p}_0(\Omega )$. By ([-@eq-representation]), the extension is necessarily $\omega$. This completes the proof.
 
 :::
 
@@ -958,7 +959,7 @@ $$
 
 ::: {.callout-tip collapse="true" title="Hint"}
 
-Use that $\Lambda ^{\gamma }: H^{s,p}(\R^d) \to H^{k ,p}(\R^d)$ is an isomorphism and the just proved theorem @thm-riesz-representation together with the integer equivalence in Theorem @thm-equivalence-fractional-spaces to show that
+Use that $\Lambda ^{\gamma }: H^{s,p}(\R^d) \to H^{k ,p}(\R^d)$ is an isomorphism and the just proved @thm-riesz-representation together with the integer equivalence in @thm-equivalence-fractional-spaces to show that
 
 $$
 \begin{aligned}
@@ -998,7 +999,7 @@ $$
 \end{aligned}
 $$ {#eq-pde}
 
-Then, it is necessary to know exactly what boundary data $g$ is admissible. Suppose that $\Ll$ is of order $k$ so we require  $u \in W^{k,p}(\Omega )$. Will @eq-pde have a solution? To be able to answer this question, we need to know the image of the trace operator. If $g \notin \operatorname{Tr}(W^{k,p}(\Omega ))$, then there is no hope of finding a solution. The following theorem characterizes the image of the trace operator and can be found in [@agranovich2015sobolev] page 228 and [@leoni2023first] page 390.
+Then, it is necessary to know exactly what boundary data $g$ is admissible. Suppose that $\Ll$ is of order $k$ so we require  $u \in W^{k,p}(\Omega )$. Will ([-@eq-pde]) have a solution? To be able to answer this question, we need to know the image of the trace operator. If $g \notin \operatorname{Tr}(W^{k,p}(\Omega ))$, then there is no hope of finding a solution. The following theorem characterizes the image of the trace operator and can be found in [@agranovich2015sobolev] page 228 and [@leoni2023first] page 390.
 
 ::: {#thm-trace-theorem name="Fractional trace theorem"}
 
@@ -1091,13 +1092,13 @@ $$
 
 ::: {#exr-7}
 
-Using Theorem @thm-subcritical-embedding prove Theorem @thm-critical-embedding
+Using @thm-subcritical-embedding prove @thm-critical-embedding
 
 :::
 
 ::: {.callout-tip collapse="true" title="Hint"}
 
-We are in the subcritical case for $r<d/p=\gamma$. Extend $u$ to $\R^d$ to form $\tl{u}$. Then, by Proposition @prp-inclusion-ordered-by-regularity, we have
+We are in the subcritical case for $r<d/p=\gamma$. Extend $u$ to $\R^d$ to form $\tl{u}$. Then, by @prp-inclusion-ordered-by-regularity, we have
 
 $$
 \begin{aligned}
@@ -1141,7 +1142,7 @@ $$
 
 ::: {#exr-8}
 
-Justify via a scaling argument that the condition $\gamma_2 - \frac{d}{p_2} = \gamma_1 - \frac{d}{p_1}$ is necessary for the embedding in Theorem @thm-higher-smoothness-embedding. 
+Justify via a scaling argument that the condition $\gamma_2 - \frac{d}{p_2} = \gamma_1 - \frac{d}{p_1}$ is necessary for the embedding in @thm-higher-smoothness-embedding. 
 
 :::
 
@@ -1167,7 +1168,7 @@ for all $u \in W^{\gamma_1, p_1}(\R^d) \cap W^{\gamma_2, p_2}(\R^d)$, where $\fr
 
 :::
 
-The above results can also be formulated in terms of the Sobolev seminorm. For example, Theorem @thm-interpolation-embedding can be formulated as
+The above results can also be formulated in terms of the Sobolev seminorm. For example, @thm-interpolation-embedding can be formulated as
 
 $$
 \begin{aligned}
@@ -1201,7 +1202,7 @@ $$
 \end{aligned}
 $$
 
-The result follows from Theorem @thm-subcritical-embedding,  Theorem @thm-morrey-embedding together with the [integer-case](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#est32:~:text=Combining%20the%20three%20results) embeddings. For the first case, by Theorem @thm-subcritical-embedding, we have
+The result follows from @thm-subcritical-embedding,  @thm-morrey-embedding together with the [integer-case](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#est32:~:text=Combining%20the%20three%20results) embeddings. For the first case, by @thm-subcritical-embedding, we have
 
 $$
 \begin{aligned}
@@ -1217,7 +1218,7 @@ $$
 \end{aligned}
 $$
 
-For the second case, by Theorem @thm-subcritical-embedding and reasoning with derivatives up to order $k$, we obtain similarly
+For the second case, by @thm-subcritical-embedding and reasoning with derivatives up to order $k$, we obtain similarly
 
 $$
 \begin{aligned}
@@ -1225,7 +1226,7 @@ $$
 \end{aligned}
 $$
 
-where by a calculation $k = d / p_\gamma ^*$. So, we conclude once more by using the integer case. Likewise, for the final case, we use Theorem @thm-morrey-embedding to directly obtain
+where by a calculation $k = d / p_\gamma ^*$. So, we conclude once more by using the integer case. Likewise, for the final case, we use @thm-morrey-embedding to directly obtain
 
 $$
 \begin{aligned}
@@ -1257,7 +1258,7 @@ $$
 
 ::: {.callout-tip collapse="true" title="Hint"}
 
-Set $k_i =\left\lfloor s_i \right\rfloor$ and $\gamma_i =s_i-k_i$.  Apply Theorem @thm-higher-smoothness-embedding to the derivatives of order up to $k_2$ to obtain
+Set $k_i =\left\lfloor s_i \right\rfloor$ and $\gamma_i =s_i-k_i$.  Apply @thm-higher-smoothness-embedding to the derivatives of order up to $k_2$ to obtain
 
 $$
 \begin{aligned}
@@ -1325,7 +1326,7 @@ $$
 %     
 $$
 \begin{aligned}
-%         \Ww (\omega ) \in H^{-d/2 -\epsilon}(\R^d), \quad \text{for all } \epsilon >0.
+%         \Ww (\omega ) \in H^{-d/2 -\varepsilon}(\R^d), \quad \text{for all } \varepsilon >0.
 %
 \end{aligned}
 $$
@@ -1338,7 +1339,7 @@ $$
 % 
 $$
 \begin{aligned}
-%     W(\cdot , \omega ) \in H^{d/2 -\epsilon}(\R^d), \quad \text{for all } \epsilon >0 \in H^{1 -\epsilon}(\R^d).
+%     W(\cdot , \omega ) \in H^{d/2 -\varepsilon}(\R^d), \quad \text{for all } \varepsilon >0 \in H^{1 -\varepsilon}(\R^d).
 %
 \end{aligned}
 $$
@@ -1352,7 +1353,7 @@ $$
 \end{aligned}
 $$
 
-% verifies that $W(t, \omega ) \in H^{1/2 -\epsilon}(\R)$ for all $\epsilon >0$ and almost every $\omega \in \Omega$.
+% verifies that $W(t, \omega ) \in H^{1/2 -\varepsilon}(\R)$ for all $\varepsilon >0$ and almost every $\omega \in \Omega$.
 
 % 
 

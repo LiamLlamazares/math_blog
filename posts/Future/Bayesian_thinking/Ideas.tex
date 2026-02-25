@@ -168,17 +168,17 @@ Let us consider first a simple example
         p(y_n=1|y_1,...,y_{n-1})\approx 1.
     \end{align*}
 \end{example}
-What went wrong in Example \ref{coin} is that we did not allow for any dependence of future throws on previous ones in the likelihood $p(y|\theta )$. As a result, the model of course could not take any into account. This issue can perhaps be resolved by considering a more complex model but this is not always clear how to do. Consider the following more abstract example common in Bayesian inverse problems.
+What went wrong in \Cref{coin} is that we did not allow for any dependence of future throws on previous ones in the likelihood $p(y|\theta )$. As a result, the model of course could not take any into account. This issue can perhaps be resolved by considering a more complex model but this is not always clear how to do. Consider the following more abstract example common in Bayesian inverse problems.
 \begin{example}
     Consider a function $G: \R^n \to \R^m $. We consider the model
     \begin{align*}
-        y=G(u)+ \epsilon,
+        y=G(u)+ \varepsilon,
     \end{align*}
-    where the distribution  $(u,\epsilon)$ depends on some parameter $\theta \in \Omega$. For example, $u$ might be a spatial Gaussian field with mean and covariance parametrised by  $\theta_1 \in \R^{n_1},$ and $\epsilon$ is independent from $u$  with mean and covariance parametrised by $\theta _2 \in \R^{n_2}$ with $\theta =(\theta _1, \theta _2 )$, and $G$ is linear.
+    where the distribution  $(u,\varepsilon)$ depends on some parameter $\theta \in \Omega$. For example, $u$ might be a spatial Gaussian field with mean and covariance parametrised by  $\theta_1 \in \R^{n_1},$ and $\varepsilon$ is independent from $u$  with mean and covariance parametrised by $\theta _2 \in \R^{n_2}$ with $\theta =(\theta _1, \theta _2 )$, and $G$ is linear.
 
-    The distribution on $u,\epsilon $ determines the likelihood $p(y|u,\epsilon )$ and once we define the prior $p(\theta )$ we can then (at least in principle) calculate the posterior $p(\theta |y)$.
+    The distribution on $u,\varepsilon $ determines the likelihood $p(y|u,\varepsilon )$ and once we define the prior $p(\theta )$ we can then (at least in principle) calculate the posterior $p(\theta |y)$.
 
-    However, no matter what distribution is chosen for $u,\epsilon $ and what function $F$ is considered , if one observes for some other reasonable function $F \neq G$, say $u=(u_1,....,u_n)\to (u_1^2,0,...,0)$,
+    However, no matter what distribution is chosen for $u,\varepsilon $ and what function $F$ is considered , if one observes for some other reasonable function $F \neq G$, say $u=(u_1,....,u_n)\to (u_1^2,0,...,0)$,
     \begin{align*}
         y=F(u).
     \end{align*}
@@ -246,16 +246,16 @@ This corresponds to the assumption that
 
 Given a metric $d$ on the space of outcomes $\Yy $ we can define how close our model is for any given experiment $E$
 \begin{definition}
-    Consider a model $G(\theta )$ and an experiment $E =(\theta_E,\eta_E)$. Write $y_{\text{model}}:= G(\theta_E)$ and $y_{\text{true}}:= F(\theta_E, \eta_E)$.     We say that $G$ is an \emph{$\epsilon $ approximation of reality for experiment $E$} if
+    Consider a model $G(\theta )$ and an experiment $E =(\theta_E,\eta_E)$. Write $y_{\text{model}}:= G(\theta_E)$ and $y_{\text{true}}:= F(\theta_E, \eta_E)$.     We say that $G$ is an \emph{$\varepsilon $ approximation of reality for experiment $E$} if
     \begin{align*}
-        d(y_{\text{approx} },y_{\text{true} })< \epsilon.
+        d(y_{\text{approx} },y_{\text{true} })< \varepsilon.
     \end{align*}
 \end{definition}
-The size of $\epsilon $ is the precision of the model and an acceptable accuracy will depend on what is being measured, for example, we may be willing to tolerate smaller accuracy in the measurement of the orbit of a planet around the sun than that of an electron around a nucleus. In theory, there is no reason to expect that we can find a model that is a close approximation for reality. In fact, it is a remarkable fact that science is able to do so at the scale of subatomic particles. To quote Einstein, ``The eternal mystery of the world is its comprehensibility… The fact that it is comprehensible is a miracle.''
+The size of $\varepsilon $ is the precision of the model and an acceptable accuracy will depend on what is being measured, for example, we may be willing to tolerate smaller accuracy in the measurement of the orbit of a planet around the sun than that of an electron around a nucleus. In theory, there is no reason to expect that we can find a model that is a close approximation for reality. In fact, it is a remarkable fact that science is able to do so at the scale of subatomic particles. To quote Einstein, ``The eternal mystery of the world is its comprehensibility… The fact that it is comprehensible is a miracle.''
 
 In practice, we may be interested not with any one experiment but a collection of experiments $\Ee $
 \begin{definition}
-    Let $\Ee $ be a collection of experiments, then we say that $G$ is an \emph{$\epsilon $ approximation of reality for $\mathcal{E}$} if it is an $\epsilon $ approximation of reality for every experiment $E \in \mathcal{E} $.
+    Let $\Ee $ be a collection of experiments, then we say that $G$ is an \emph{$\varepsilon $ approximation of reality for $\mathcal{E}$} if it is an $\varepsilon $ approximation of reality for every experiment $E \in \mathcal{E} $.
 \end{definition}
 It is unreasonable to suppose that the model will perform well for every experiment. For example, a model for the trajectory of a ball using only the initial position and velocity will lose all accuracy if we exert a large external force on the ball (for example by hitting it with a bat).
 
@@ -271,9 +271,9 @@ If our Bayesian model is to be applied, we must first ``train it'' by observing 
 
 Having observed $y$ we can calculate the posterior distribution $p(\theta |y)$ which reflects our updated beliefs about the state of the experiment. However, as our model is approximate and, at least theoretically, calculate the distance between the true state of the experiment and the posterior distribution
 \begin{definition}
-    Consider an experiment $E$ with state $(\theta _E$, $\eta _E)$. Write $y$ for the observation of the experiment. Then, we say that a Bayesian model $p(y|\theta )$ is an \emph{$\epsilon $ approximation of reality for hte inverse problem under experiment $E$} if
+    Consider an experiment $E$ with state $(\theta _E$, $\eta _E)$. Write $y$ for the observation of the experiment. Then, we say that a Bayesian model $p(y|\theta )$ is an \emph{$\varepsilon $ approximation of reality for hte inverse problem under experiment $E$} if
     \begin{align*}
-        S(p(\theta  |y), \theta _E)< \epsilon.
+        S(p(\theta  |y), \theta _E)< \varepsilon.
     \end{align*}
 \end{definition}
 Here, $S$ is a \emph{score function} which measures the distance between the posterior distribution and the true state of the experiment. The choice of $S$ will depend on the nature of the experiment and the state of the experiment.
@@ -297,9 +297,9 @@ This state of events would correspond to the setting where $\theta$ appears to b
 \begin{definition}
     Consider an experiment $E$ with state $(\theta _E$, $\eta _E)$.
     Write $y'$ for the outcome of a new experiment $E'$ with state $\theta _{E'}$.
-    We say that a Bayesian model $p(y|\theta )$ is an \emph{$\epsilon $ approximation of reality for experiment $E$} if
+    We say that a Bayesian model $p(y|\theta )$ is an \emph{$\varepsilon $ approximation of reality for experiment $E$} if
     \begin{align*}
-        S(p(y'|y),y)< \epsilon,
+        S(p(y'|y),y)< \varepsilon,
     \end{align*}
 
 \end{definition}

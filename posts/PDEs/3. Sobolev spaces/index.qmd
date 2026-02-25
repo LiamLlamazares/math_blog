@@ -95,6 +95,7 @@ format:
               qp: ["\\left(#1\\right)", 1],
               qt: ["\\left(#1\\right)", 1],
               red: ["{\\color{red}#1}", 1],
+              restr: ["\\left.#1\\right|{#2}", 2],
               rm: ["\\mathrm{#1}", 1],
               set: ["\\left\\{#1\\right\\}", 1],
               star: "*",
@@ -205,7 +206,7 @@ $$
 \end{aligned}
 $$ {#eq-pde1}
 
-Where $D$ is some domain in $\R^d$. In a previous post on the [Fourier transform](https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=Sobolev%20spaces-,Sobolev,-spaces%20form%20a) we saw how to define the Sobolev spaces $H^s(D)$ when $D$ is the whole Euclidean space $\R^d$ or the torus $\T^d$. These spaces correspond to $s$-times weakly differentiable functions and we saw how these spaces could help us solve @eq-pde1.  However, in practice $D$ may be an open set in $\R^d$ or even some $d$-dimensional manifold with a boundary condition
+Where $D$ is some domain in $\R^d$. In a previous post on the [Fourier transform](https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=Sobolev%20spaces-,Sobolev,-spaces%20form%20a) we saw how to define the Sobolev spaces $H^s(D)$ when $D$ is the whole Euclidean space $\R^d$ or the torus $\T^d$. These spaces correspond to $s$-times weakly differentiable functions and we saw how these spaces could help us solve ([-@eq-pde1]).  However, in practice $D$ may be an open set in $\R^d$ or even some $d$-dimensional manifold with a boundary condition
 
 $$
 \begin{aligned}
@@ -213,7 +214,7 @@ $$
 \end{aligned}
 $$ {#eq-bc}
 
-Note that equation @eq-bc is a priori ill-defined as the Lebesgue measure of $\partial D \subset \R^d$ is zero.     Thus, it is necessary to extend the theory to a wider class of domains and to explain what we mean by the restriction of a function to its boundary of definition.
+Note that equation ([-@eq-bc]) is a priori ill-defined as the Lebesgue measure of $\partial D \subset \R^d$ is zero.     Thus, it is necessary to extend the theory to a wider class of domains and to explain what we mean by the restriction of a function to its boundary of definition.
 
 ### A first attempt
 
@@ -266,7 +267,7 @@ H^s(U)= \restr{H^s(\R^d)}{U}:= \set{\restr{f}{u}: f \in H^s(\R^d)} .
 \end{aligned}
 $$
 
-As we will see later (Corollary @exr-restriction) this is a better approach. However, it is not optimal as it requires some conditions on $U$. For example, if $U$ is not smooth we cannot assert that  $\restr{C^\infty(\R^d)}{U}= C^\infty(U)$.
+As we will see later (@exr-restriction) this is a better approach. However, it is not optimal as it requires some conditions on $U$. For example, if $U$ is not smooth we cannot assert that  $\restr{C^\infty(\R^d)}{U}= C^\infty(U)$.
 
 ## Test functions and distributions
 
@@ -397,7 +398,7 @@ Show that $C_c^\infty(K)$ is complete and thus a [Fréchet](https://en.wikipedia
 ::: {.callout-tip collapse="true" title="Hint"}
 
 The topology is [metrizable](https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=together-,with,-a%20countable%20family) as the family of seminorms is countable
-Use Exercise @exr-convergence-tvs  to show that if $\varphi_n \in C_c^\infty(K)$ is Cauchy then the sequence of derivatives $D^\alpha \varphi_n$ converge uniformly to $\varphi^{(\alpha)} \in C_c^0(K)$ for all $\alpha$. It remains to show that
+Use @exr-convergence-tvs  to show that if $\varphi_n \in C_c^\infty(K)$ is Cauchy then the sequence of derivatives $D^\alpha \varphi_n$ converge uniformly to $\varphi^{(\alpha)} \in C_c^0(K)$ for all $\alpha$. It remains to show that
 
 $$
 \begin{aligned}
@@ -476,7 +477,7 @@ Show that $C_c^\infty(\Omega)$ with the smooth topology is complete.
 
 ::: {.callout-tip collapse="true" title="Hint"}
 
-Given a Cauchy net $\varphi_{\bullet} \in C_c^\infty(U)$ show as in Exercise @exr-local-convergence that the support of  $\varphi_{\bullet}$ cannot escape a compact set $K$. Conclude using the completeness on  $C_c^\infty(K)$ and Exercise @exr-convergence-tvs. 
+Given a Cauchy net $\varphi_{\bullet} \in C_c^\infty(U)$ show as in @exr-local-convergence that the support of  $\varphi_{\bullet}$ cannot escape a compact set $K$. Conclude using the completeness on  $C_c^\infty(K)$ and @exr-convergence-tvs. 
 
 :::
 
@@ -608,7 +609,7 @@ Show that $L^p_{\mathrm{loc} }(U)$ is a Fréchet space.
 
 ::: {.callout-tip collapse="true" title="Hint"}
 
-The topology is [metrizable](https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=together-,with,-a%20countable%20family) as the family of seminorms is countable. By Exercise @exr-convergence-tvs  if $f_n \in L^p_{\mathrm{loc}}(U)$ is Cauchy then $f_n$ is Cauchy for all  $L^p(K)$ $D^\alpha \varphi_n$ so converges to some $f_K \in L^p(K)$. Show that $f_K= \restr{f}{K}$ where $f \in L^p_{\mathrm{loc}}(U)$    to conclude the proof.
+The topology is [metrizable](https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=together-,with,-a%20countable%20family) as the family of seminorms is countable. By @exr-convergence-tvs  if $f_n \in L^p_{\mathrm{loc}}(U)$ is Cauchy then $f_n$ is Cauchy for all  $L^p(K)$ $D^\alpha \varphi_n$ so converges to some $f_K \in L^p(K)$. Show that $f_K= \restr{f}{K}$ where $f \in L^p_{\mathrm{loc}}(U)$    to conclude the proof.
 
 :::
 
@@ -638,7 +639,7 @@ Is injective and continuous.
 
 ::: {.proof}
 
-We begin by showing that $T_u \in \Dd '(U)$. Firstly, the integral in @eq-duality is finite as $\varphi$ has compact support. Secondly, if we write $K$ for the support of  $\varphi$,   it holds that
+We begin by showing that $T_u \in \Dd '(U)$. Firstly, the integral in ([-@eq-duality]) is finite as $\varphi$ has compact support. Secondly, if we write $K$ for the support of  $\varphi$,   it holds that
 
 $$
 \begin{aligned}
@@ -646,7 +647,7 @@ $$
 \end{aligned}
 $$
 
-Which, by our equivalent characterization of $\Dd'(U)$  in @eq-equiv shows that $T_u \in  \Dd'(U)$. We now show that the identification is injective.  That is, if
+Which, by our equivalent characterization of $\Dd'(U)$  in ([-@eq-equiv]) shows that $T_u \in  \Dd'(U)$. We now show that the identification is injective.  That is, if
 
 $$
 \begin{aligned}
@@ -759,7 +760,7 @@ Since $\varphi$ was any test function supported in $U$ this concludes the proof.
 
 :::
 
-By the just proved Lemma @lem-biggest-vanish we see that there is a largest set on which $w$ vanishes. As a result, we can make the following definition.
+By the just proved @lem-biggest-vanish we see that there is a largest set on which $w$ vanishes. As a result, we can make the following definition.
 
 ::: {#def-support-def}
 
@@ -783,7 +784,7 @@ If  $f \in L^1_{\mathrm{loc}}(U)$ the support of $f$ is the complementary of the
 
 ::: {.callout-tip collapse="true" title="Hint"}
 
-We saw in Theorem @thm-motivation that $f$ is  $0$ almost everywhere on some open set if and only if it integrates to $0$ against any test function on the open set. This shows the first part and the second follows immediately.
+We saw in @thm-motivation that $f$ is  $0$ almost everywhere on some open set if and only if it integrates to $0$ against any test function on the open set. This shows the first part and the second follows immediately.
 
 :::
 
@@ -847,7 +848,7 @@ W^{k,p}(U):=\set{ u: D^{\alpha}u \in L^p(U) \hookrightarrow \Dd'(U), \quad\foral
 \end{aligned}
 $$
 
-Where $L^p(U)$ is identified as a subspace of  $\Dd'(U)$ by Theorem @thm-motivation.  We give $W^{k,p}(U)$ the norm
+Where $L^p(U)$ is identified as a subspace of  $\Dd'(U)$ by @thm-motivation.  We give $W^{k,p}(U)$ the norm
 
 $$
 \begin{aligned}
@@ -1039,7 +1040,7 @@ D^\alpha \varphi_n = D^\alpha u * \phi_n \quad \text{ on } V.
 \end{aligned}
 $$
 
-Taking limits we conclude from Proposition @prp-app-pn that
+Taking limits we conclude from @prp-app-pn that
 
 $$
 \begin{aligned}
@@ -1071,7 +1072,7 @@ $$
 \end{aligned}
 $$
 
-This concludes the proof as by Exercise @exr-convergence-tvs local convergence is equivalent to convergence on every compactly included subset.
+This concludes the proof as by @exr-convergence-tvs local convergence is equivalent to convergence on every compactly included subset.
 
 :::
 
@@ -1129,7 +1130,7 @@ $$
 
 ::: {.proof}
 
-The proof is an instructive way of using a partition of unity to piece together a local result (in this case Theorem @thm-local) to get a global one. Let $\eps >0$ and consider an open covering $\set{V_i}_{i=0}^\infty$ of $U$ with $V_0 =\emptyset$ and $V_{i} \Subset V_{i+1}$. By Theorem @thm-partition we may obtain a partition of unity $\rho _i$ subordinate to the ``rings'' $U_{i}:= V_{i+1}\setminus \overline{V_{i-1}}$ (the trickery with the indices is so that the $U_i$ actually  cover $U$). Where we relabel so that
+The proof is an instructive way of using a partition of unity to piece together a local result (in this case @thm-local) to get a global one. Let $\eps >0$ and consider an open covering $\set{V_i}_{i=0}^\infty$ of $U$ with $V_0 =\emptyset$ and $V_{i} \Subset V_{i+1}$. By @thm-partition we may obtain a partition of unity $\rho _i$ subordinate to the ``rings'' $U_{i}:= V_{i+1}\setminus \overline{V_{i-1}}$ (the trickery with the indices is so that the $U_i$ actually  cover $U$). Where we relabel so that
 	
 $$
 \begin{aligned}
@@ -1137,7 +1138,7 @@ $$
 \end{aligned}
 $$
 
-	We have that $\rho_i u \in C_c^\infty({V_{i+1}})$ with $V_{i+1} \Subset U$ so by the local approximation in Theorem @thm-local we can find $n_i$ such that
+	We have that $\rho_i u \in C_c^\infty({V_{i+1}})$ with $V_{i+1} \Subset U$ so by the local approximation in @thm-local we can find $n_i$ such that
 	
 $$
 \begin{aligned}
@@ -1164,7 +1165,7 @@ $$
 
 :::
 
-Note that Theorem @thm-meyers is not strictly stronger than theorem @thm-local as it is not, in general, possible to extend functions in $C^\infty_{\mathrm{loc}}(U)$ to $C_c^\infty(\R^n)$. As a corollary of Meyers-Serrin's theorem, we obtain an equivalent definition of $W^{k,p}(U)$.
+Note that @thm-meyers is not strictly stronger than @thm-local as it is not, in general, possible to extend functions in $C^\infty_{\mathrm{loc}}(U)$ to $C_c^\infty(\R^n)$. As a corollary of Meyers-Serrin's theorem, we obtain an equivalent definition of $W^{k,p}(U)$.
 
 ::: {#exr-eq-def}
 
@@ -1178,9 +1179,9 @@ Use that $W^{k,p}(U)$ is complete and that the completion of a metric space is u
 
 :::
 
-Before  Theorem @thm-meyers was proved, both our original definition  @def-sobolev-def (distributions with derivatives in $L^p(U)$) and the one in Corollary @exr-eq-def (closure of smooth functions with Sobolev norm) were used as the definition of $W^{k,p}(U)$. But it was unclear which was the ``correct'' Sobolev space. This debate was settled by Meyers and Serrin who proved that, as we just showed, both are equal.
+Before  @thm-meyers was proved, both our original definition  @def-sobolev-def (distributions with derivatives in $L^p(U)$) and the one in @exr-eq-def (closure of smooth functions with Sobolev norm) were used as the definition of $W^{k,p}(U)$. But it was unclear which was the ``correct'' Sobolev space. This debate was settled by Meyers and Serrin who proved that, as we just showed, both are equal.
 
-We now show an example of how these kinds of density results can be useful. The following generalizes the second point of Proposition @prp-properties
+We now show an example of how these kinds of density results can be useful. The following generalizes the second point of @prp-properties
 
 ::: {#exr-change-of-variables name="Change of variables"}
 
@@ -1197,15 +1198,15 @@ $$ {#eq-chain}
 ::: {.callout-tip collapse="true" title="Hint"}
 
 Give yourself an $\eps$ of room.
-By induction, it suffices to consider the case $k=1$.We can approximate $u$ on each compact  $K \subset U$ by a sequence of functions $u_n \in C_c^\infty(\R^d)$. For $u_n$ the equality @eq-chain holds. Furthermore, by a change of variables, @eq-chain is continuous in $u\in W^{1,p}(\Omega)$ so we may pass to the limit and obtain @eq-chain for $u$ on $K$. Since $K$ was any, the equality also holds on the whole of $U$.
+By induction, it suffices to consider the case $k=1$.We can approximate $u$ on each compact  $K \subset U$ by a sequence of functions $u_n \in C_c^\infty(\R^d)$. For $u_n$ the equality @eq-chain holds. Furthermore, by a change of variables, ([-@eq-chain]) is continuous in $u\in W^{1,p}(\Omega)$ so we may pass to the limit and obtain ([-@eq-chain]) for $u$ on $K$. Since $K$ was any, the equality also holds on the whole of $U$.
 
 :::
 
-In Exercise @exr-change-of-variables it is important that $\Phi$ is diffeomorphic so that composition with $\Phi$ is continuous.
+In @exr-change-of-variables it is important that $\Phi$ is diffeomorphic so that composition with $\Phi$ is continuous.
 
 ::: {#exr-12}
 
-Show that the conclusion of Exercise @exr-change-of-variables is false if we only assume that $\Phi \in C^k(\R^d)$ and do not impose invertibility.
+Show that the conclusion of @exr-change-of-variables is false if we only assume that $\Phi \in C^k(\R^d)$ and do not impose invertibility.
 
 :::
 
@@ -1247,7 +1248,7 @@ u_n(x):= u\qt{x+ \frac{2}{n}e_d }; \quad \varphi_n:= u_n *\phi_n .
 \end{aligned}
 $$
 
-For $n$ big enough we have that  $\varphi$ is well defined ans smooth on $W_0:=B_{\frac{1}{n}}(x_0)$. Since translation is continuous on $L^p(U)$ for  $p \in [1,\infty)$ and by the behavior of differentiation with convolution  (see Proposition @prp-properties), for $n$ large enough
+For $n$ big enough we have that  $\varphi$ is well defined ans smooth on $W_0:=B_{\frac{1}{n}}(x_0)$. Since translation is continuous on $L^p(U)$ for  $p \in [1,\infty)$ and by the behavior of differentiation with convolution  (see @prp-properties), for $n$ large enough
 
 $$
 \begin{aligned}
@@ -1263,7 +1264,7 @@ $$
 \end{aligned}
 $$
 
-Now we take an open set $W_{n+1} \Subset \Omega$ such that $\set{W_i}_{i=0}^{n+1}$ cover $\Omega$. By the local approximation of Theorem @thm-local we know we can approximate  $u$ on  $W_{n+1}$ by some $\varphi_{n+1} \in C_c^\infty(\R^d)$
+Now we take an open set $W_{n+1} \Subset \Omega$ such that $\set{W_i}_{i=0}^{n+1}$ cover $\Omega$. By the local approximation of @thm-local we know we can approximate  $u$ on  $W_{n+1}$ by some $\varphi_{n+1} \in C_c^\infty(\R^d)$
 
 $$
 \begin{aligned}
@@ -1271,7 +1272,7 @@ $$
 \end{aligned}
 $$
 
-Finally, we take a smooth partition of unity $\set{\rho _i}_{i=0}^{n+1}$ subordinate to $\set{W_i}_{i=0}^{n+1}$ and a bump function $\eta \in C_c^\infty(\R^d)$ which is equal to $1$ on  $\Omega$ and is supported on $\bigcup_{i=0}^{n+1} W_i$ (see example @exm-bump-example2) and set
+Finally, we take a smooth partition of unity $\set{\rho _i}_{i=0}^{n+1}$ subordinate to $\set{W_i}_{i=0}^{n+1}$ and a bump function $\eta \in C_c^\infty(\R^d)$ which is equal to $1$ on  $\Omega$ and is supported on $\bigcup_{i=0}^{n+1} W_i$ (see @exm-bump-example2) and set
 
 $$
 \begin{aligned}
@@ -1291,7 +1292,7 @@ This concludes the proof.
 
 :::
 
-In contrast to Theorem @thm-meyers, Theorem @thm-global shows that Sobolev functions on smooth bounded domains can be approximated by functions that are also **smooth on the boundary** of the domain $\Omega$. This will prove fundamental in the next section. Both to extend them to the whole of $\R^d$ and to restrict them to $\partial \Omega$.
+In contrast to @thm-meyers, @thm-global shows that Sobolev functions on smooth bounded domains can be approximated by functions that are also **smooth on the boundary** of the domain $\Omega$. This will prove fundamental in the next section. Both to extend them to the whole of $\R^d$ and to restrict them to $\partial \Omega$.
 
 ## Extensions and restrictions
 
@@ -1348,7 +1349,7 @@ $$
 \end{aligned}
 $$
 
-By Theorem @thm-global we also give ourselves an epsilon of room by supposing that $u \in C^k(\overline{\Omega})$. We define the extension of $u$ to $\Omega'$ as
+By @thm-global we also give ourselves an epsilon of room by supposing that $u \in C^k(\overline{\Omega})$. We define the extension of $u$ to $\Omega'$ as
 
 $$
 \begin{aligned}
@@ -1415,7 +1416,7 @@ Eu := \eta \tilde{u} \in C^k(\R^d).
 \end{aligned}
 $$
 
-By @eq-bound we have that
+By ([-@eq-bound]) we have that
 
 $$
 \begin{aligned}
@@ -1423,13 +1424,13 @@ $$
 \end{aligned}
 $$
 
-As a result, $E$ is a (bounded) linear operator. So far we had considered $u \in  C^k(\overline{\Omega})$. Now, since by Theorem @thm-global the space  $C^k(\overline{\Omega})$ is dense in $W^{k,p}(\Omega)$ we may extend  $E$ to a linear operator on the whole of $W^{k,p}(\Omega)$. A verification shows that $E$ is also bounded as an operator from  $C^k(\Omega)$ to  $C^k(\R^d)$. This concludes the proof.
+As a result, $E$ is a (bounded) linear operator. So far we had considered $u \in  C^k(\overline{\Omega})$. Now, since by @thm-global the space  $C^k(\overline{\Omega})$ is dense in $W^{k,p}(\Omega)$ we may extend  $E$ to a linear operator on the whole of $W^{k,p}(\Omega)$. A verification shows that $E$ is also bounded as an operator from  $C^k(\Omega)$ to  $C^k(\R^d)$. This concludes the proof.
 
 :::
 
 ::: {#exr-restriction name="Restriction"}
 
-Under the conditions of Theorem @thm-extension it holds that
+Under the conditions of @thm-extension it holds that
 
 $$
 \begin{aligned}
@@ -1443,7 +1444,7 @@ That is, functions in $W^{k,p}(\Omega),C^{k}(\Omega)$ are equal to the restricti
 
 ::: {.callout-tip collapse="true" title="Hint"}
 
-Given $u \in W^{k,p}(\Omega)$ we can extend it to $Eu \in W^{k,p}(\R^d)$ by the just proved extension theorem @thm-extension.  By definition $u= \restr{Eu}{\Omega}$. The case $u \in C^k(\R^d)$ is identical.
+Given $u \in W^{k,p}(\Omega)$ we can extend it to $Eu \in W^{k,p}(\R^d)$ by the just proved extension @thm-extension.  By definition $u= \restr{Eu}{\Omega}$. The case $u \in C^k(\R^d)$ is identical.
 
 :::
 
@@ -1483,7 +1484,7 @@ Such that $Tu =\restr{u}{\partial \Omega}$ for all $u \in C(\overline{\Omega}) \
 
 ::: {.proof}
 
-As in previous results, the trick is to suppose first $u$ is smooth, work locally, and then obtain a global result using a partition of unity and the density in Theorem @thm-global.  \\
+As in previous results, the trick is to suppose first $u$ is smooth, work locally, and then obtain a global result using a partition of unity and the density in @thm-global.  \\
 
 Given $x_0 \in \partial  \Omega$ we take a open set $U \subset \R^d$ containing $x_0$. Flattening out the boundary by $\Phi : U \simeq U'$ where necessarily the boundary is preserved
 
@@ -1493,7 +1494,7 @@ $$
 \end{aligned}
 $$
 
-and using the extension theorem @thm-extension to extend $u':= u\circ \Phi$ to $\widetilde{u}'$ with compact support $K \subset \R^d$  we obtain by the [divergence theorem](https://en.wikipedia.org/wiki/Divergence_theorem#:~:text=space%5Bedit%5D-,We,-are%20going%20to%20prove)
+and using the extension @thm-extension to extend $u':= u\circ \Phi$ to $\widetilde{u}'$ with compact support $K \subset \R^d$  we obtain by the [divergence theorem](https://en.wikipedia.org/wiki/Divergence_theorem#:~:text=space%5Bedit%5D-,We,-are%20going%20to%20prove)
 
 $$
 \begin{aligned}
@@ -1510,7 +1511,7 @@ $$
 \end{aligned}
 $$ {#eq-estimate-local}
 
-We had supposed $u$ smooth, now taking a finite covering $\set{U_i}_{i=1}^n$ of $\partial  \Omega$ (this is possible by compactness of $\partial  \Omega$) and taking a subordinate partition of unity  $\rho _i$ we conclude from @eq-estimate-local  that
+We had supposed $u$ smooth, now taking a finite covering $\set{U_i}_{i=1}^n$ of $\partial  \Omega$ (this is possible by compactness of $\partial  \Omega$) and taking a subordinate partition of unity  $\rho _i$ we conclude from ([-@eq-estimate-local])  that
 
 $$
 \begin{aligned}
@@ -1526,7 +1527,7 @@ $$
 \end{aligned}
 $$
 
-Using Theorem @thm-global to extend $T$ continuously to $W^{k,p}(\Omega)= \overline{\restr{C_c^\infty(\R^d)}{\Omega}}$ concludes the proof.
+Using @thm-global to extend $T$ continuously to $W^{k,p}(\Omega)= \overline{\restr{C_c^\infty(\R^d)}{\Omega}}$ concludes the proof.
 
 :::
 
@@ -1558,7 +1559,7 @@ $$
 
 ::: {.proof}
 
-Straightening out the boundary and using the extension operator as in the trace theorem @thm-trace, it is sufficient to work in the case where $u$ is smooth and defined on  $\Hh^{d}$.  By Fourier inversion, if we write $\xi=(\xi',\xi _d)$
+Straightening out the boundary and using the extension operator as in the trace @thm-trace, it is sufficient to work in the case where $u$ is smooth and defined on  $\Hh^{d}$.  By Fourier inversion, if we write $\xi=(\xi',\xi _d)$
 
 $$
 \begin{aligned}
@@ -1582,7 +1583,7 @@ $$
 \end{aligned}
 $$ {#eq-f2}
 
-Where in the inequality it was used that $s> 1 /2$.     We deduce from @eq-f1 and @eq-f2 on taking norms that
+Where in the inequality it was used that $s> 1 /2$.     We deduce from ([-@eq-f1]) and ([-@eq-f2]) on taking norms that
 
 $$
 \begin{aligned}
@@ -1628,7 +1629,7 @@ Use the continuity of the trace operator.
 
 :::
 
-The converse to Exercise @exr-trace-0 holds but is far from trivial.
+The converse to @exr-trace-0 holds but is far from trivial.
 
 ::: {#prp-2}
 
@@ -1753,7 +1754,7 @@ $$
 
 :::
 
-Note that $p<p^*$. The idea behind inequalities such as @eq-example  is to cash in some differentiability for some integrability. The main results used to do this are based on the fundamental theorem of calculus. First, we need the following lemma.
+Note that $p<p^*$. The idea behind inequalities such as ([-@eq-example])  is to cash in some differentiability for some integrability. The main results used to do this are based on the fundamental theorem of calculus. First, we need the following lemma.
 
 ::: {#lem-whitney name="Loomis-Whitney inequality"}
 
@@ -1802,7 +1803,7 @@ $$
 \end{aligned}
 $$
 
-Substituting into @eq-induc concludes the proof.
+Substituting into ([-@eq-induc]) concludes the proof.
 
 :::
 
@@ -1822,7 +1823,7 @@ $$
 
 ::: {.proof}
 
-By density (see Theorem @thm-approx-rd), it is enough to take $u \in C_c^\infty(\R^d)$. Applying the fundamental theorem of calculus gives
+By density (see @thm-approx-rd), it is enough to take $u \in C_c^\infty(\R^d)$. Applying the fundamental theorem of calculus gives
 
 $$
 \begin{aligned}
@@ -1838,7 +1839,7 @@ $$
 \end{aligned}
 $$
 
-Applying the Loomis-Whitney inequality @eq-loomis-ineq  ``with $p=1$'' and Hölder's inequality shows
+Applying the Loomis-Whitney inequality ([-@eq-loomis-ineq])  ``with $p=1$'' and Hölder's inequality shows
 
 $$
 \begin{aligned}
@@ -1854,7 +1855,7 @@ $$
 \end{aligned}
 $$
 
-Substituting into @eq-hard gives
+Substituting into ([-@eq-hard]) gives
 
 $$
 \begin{aligned}
@@ -1879,7 +1880,7 @@ $$
 
 ::: {.callout-tip collapse="true" title="Hint"}
 
-Apply induction on $k$ using Theorem @thm-est1. 
+Apply induction on $k$ using @thm-est1. 
 
 :::
 
@@ -1900,7 +1901,7 @@ $$
 
 ::: {.proof}
 
-Setting $p=d$ in our estimate  @eq-hard gives
+Setting $p=d$ in our estimate  ([-@eq-hard]) gives
 
 $$
 \begin{aligned}
@@ -1940,7 +1941,7 @@ $$
 \end{aligned}
 $$
 
-Which combined with @eq-step-1 and interpolating gives
+Which combined with ([-@eq-step-1]) and interpolating gives
 
 $$
 \begin{aligned}
@@ -1948,7 +1949,7 @@ $$
 \end{aligned}
 $$
 
-Iterating this process (taking $m=d+2,\ldots, m=d+k$ in @eq-22) shows that    
+Iterating this process (taking $m=d+2,\ldots, m=d+k$ in ([-@eq-22])) shows that    
 $$
 \begin{aligned}
 \norm{u}_{L^{q}(\R^d)} \lesssim  \norm{u}_{W^{1,d}(\R^d)} , \quad\forall q \in \qb{d+k,\frac{(d+k)d}{d-1}}.
@@ -1973,7 +1974,7 @@ $$
 
 ::: {.callout-tip collapse="true" title="Hint"}
 
-Use induction on $k$  with Theorem @thm-estt2. 
+Use induction on $k$  with @thm-estt2. 
 
 :::
 
@@ -2084,7 +2085,7 @@ The continuous embeddings above also hold for $\Omega = \R^d$ (by the Sobolev in
 
 ::: {.proof}
 
-The fact that the above inclusions are continuous follows by our three Sobolev inequalities in Exercises @exr-est12,@exr-est22,@exr-est32 together with the extension theorem @thm-extension. 
+The fact that the above inclusions are continuous follows by our three Sobolev inequalities in Exercises @exr-est12,@exr-est22,@exr-est32 together with the extension @thm-extension. 
 
 The compactness of the embeddings requires reduce to showing that the unit ball in each of the embedded spaces is [equicontinuous](https://en.wikipedia.org/wiki/Equicontinuity).
 
@@ -2163,7 +2164,7 @@ $$
 
 ::: {.proof}
 
-For any of the cases in Rellich-Kondrachov's theorem @thm-rellich, the condition on $q$ holds. The first part of the result then follows as  $C^k(\overline{\Omega}) \hookrightarrow L^q(\Omega)$ and the second part from the fact that  $p< p^{k^*}$.
+For any of the cases in Rellich-Kondrachov's @thm-rellich, the condition on $q$ holds. The first part of the result then follows as  $C^k(\overline{\Omega}) \hookrightarrow L^q(\Omega)$ and the second part from the fact that  $p< p^{k^*}$.
 
 :::
 
@@ -2201,11 +2202,11 @@ $$
 \end{aligned}
 $$
 
-Using the same technique as in Theorem @thm-completeness shows that $u^{(\alpha)}= D^{\alpha}u$. This shows that $u_{n_k} \to u$ in $W^{l,q}(\Omega)$ and, by the equivalence of compactness and sequential compactness, concludes the proof.
+Using the same technique as in @thm-completeness shows that $u^{(\alpha)}= D^{\alpha}u$. This shows that $u_{n_k} \to u$ in $W^{l,q}(\Omega)$ and, by the equivalence of compactness and sequential compactness, concludes the proof.
 
 :::
 
-This result can be combined directly with Rellich-Kondrachov @thm-rellich or any other embedding. For example, when combined with Corollary @cor-simple-embedding we get
+This result can be combined directly with Rellich-Kondrachov @thm-rellich or any other embedding. For example, when combined with @cor-simple-embedding we get
 
 ::: {#cor-1}
 
@@ -2290,11 +2291,11 @@ $$ {#eq-convo}
 
 :::
 
-The definition given by @eq-convo is purposefully vague. We still need to specify what spaces $f,g$ belong to so that  $f*g$ is a well-defined element (of a further unspecified space). This can be done as follows.
+The definition given by ([-@eq-convo]) is purposefully vague. We still need to specify what spaces $f,g$ belong to so that  $f*g$ is a well-defined element (of a further unspecified space). This can be done as follows.
 
 ::: {#prp-young name="Young's convolution inequality"}
 
-Consider the definition in @eq-convo and let $p,q,r \in  [1, \infty]$. Then it holds that
+Consider the definition in ([-@eq-convo]) and let $p,q,r \in  [1, \infty]$. Then it holds that
 
 1. If $f \in L^1(\R^d)$ and $g \in L^p(\R^d)$ then $f*g \in L^p(\R^d)$ with
     
@@ -2407,7 +2408,7 @@ Let $X,Y$ be random variables with law  $\mu ,\nu$ then $X+Y$ has law  $\mu *\nu
 
 ::: {.proof}
 
-The first part is by definition of pushforward. To show that  $\mu *\nu$ has density $f*g$  it suffices to read the reasoning in equation  @eq-push backward.
+The first part is by definition of pushforward. To show that  $\mu *\nu$ has density $f*g$  it suffices to read the reasoning in equation  ([-@eq-push]) backward.
 
 :::
 
@@ -2584,7 +2585,7 @@ $$ {#eq-bump-example}
 
 :::
 
-By Proposition @prp-young $(L^1(\R^d),*)$ is a [Banach algebra](https://en.wikipedia.org/wiki/Banach_algebra). However, it is a non-unital one. That is there does not exist an element $e$ such that
+By @prp-young $(L^1(\R^d),*)$ is a [Banach algebra](https://en.wikipedia.org/wiki/Banach_algebra). However, it is a non-unital one. That is there does not exist an element $e$ such that
 
 $$
 \begin{aligned}
@@ -2658,7 +2659,7 @@ $$ {#eq-nm}
 
 Where in the last inequality we used that $g$ is uniformly continuous and $\phi_n$ has mass $1$. Since $\eps >0$ was any, this shows the first part of the proposition.
 
-We now prove the second part. By Lemma @lem-uryshon we can choose $g$ such that
+We now prove the second part. By @lem-uryshon we can choose $g$ such that
 
 $$
 \begin{aligned}
@@ -2666,7 +2667,7 @@ $$
 \end{aligned}
 $$
 
-Now, since $K_n:=\supp{g* \phi_n} \subset K + B(0, 1 /n)$, whose measure is bounded by some $M>0$, the inequality in  @eq-nm shows that
+Now, since $K_n:=\supp{g* \phi_n} \subset K + B(0, 1 /n)$, whose measure is bounded by some $M>0$, the inequality in  ([-@eq-nm]) shows that
 
 $$
 \begin{aligned}
@@ -2745,7 +2746,7 @@ Where the closures are respectively in the $L^p(\R^d)$ and the uniform topology 
 
 ::: {.proof}
 
-This follows immediately from Proposition @prp-app-pn and Proposition @prp-smooth. 
+This follows immediately from @prp-app-pn and @prp-smooth. 
 
 :::
 
@@ -2763,7 +2764,7 @@ $$
 
 ::: {.callout-tip collapse="true" title="Hint"}
 
-Let $f$ be the non-smooth function to approximate, multiply it first by a mollifier $\eta_n \in C_c^\infty(U)$ equal to $1$ in $V_n\subset U$ (see Example @exm-bump-example2). Convolve to get
+Let $f$ be the non-smooth function to approximate, multiply it first by a mollifier $\eta_n \in C_c^\infty(U)$ equal to $1$ in $V_n\subset U$ (see @exm-bump-example2). Convolve to get
 
 $$
 \begin{aligned}
@@ -2771,7 +2772,7 @@ $$
 \end{aligned}
 $$
 
-Show as in Theorem @thm-density-thm that $\varphi_n$ converges appropriately.
+Show as in @thm-density-thm that $\varphi_n$ converges appropriately.
 
 :::
 
@@ -2799,7 +2800,7 @@ $$
 
 ::: {.proof}
 
-The first part can be proved by the same method as in Lemma @lem-uryshon (note that Uryshon's lemma [still holds](https://planetmath.org/ApplicationsOfUrysohnsLemmaToLocallyCompactHausdorffSpaces) for LCH spaces). The second part follows by copying the proof of Propositions @prp-app-pn and @prp-smooth. 
+The first part can be proved by the same method as in @lem-uryshon (note that Uryshon's lemma [still holds](https://planetmath.org/ApplicationsOfUrysohnsLemmaToLocallyCompactHausdorffSpaces) for LCH spaces). The second part follows by copying the proof of Propositions @prp-app-pn and @prp-smooth. 
 
 :::
 
@@ -2817,7 +2818,7 @@ $$
 
 :::
 
-Note that the second part of Corollary @cor-stone also follows from the [Stone-Weierstrass theorem](https://en.wikipedia.org/wiki/Stone%E2%80%93Weierstrass_theorem).
+Note that the second part of @cor-stone also follows from the [Stone-Weierstrass theorem](https://en.wikipedia.org/wiki/Stone%E2%80%93Weierstrass_theorem).
 Similar results hold in the space of distributions.    
 
 ::: {#prp-5}
@@ -2887,7 +2888,7 @@ And $\norm{\eta_n}_{C^k(\R^d)} \leq \norm{\eta_1}$.
 
 ::: {.proof}
 
-Let $\eta_1 \in C_c^\infty(\R^d)$ be any (for example that of @eq-bump-example). Then we can take $\eta_n(x):=\eta(x /n)$.
+Let $\eta_1 \in C_c^\infty(\R^d)$ be any (for example that of ([-@eq-bump-example])). Then we can take $\eta_n(x):=\eta(x /n)$.
 
 :::
 
@@ -2988,7 +2989,7 @@ $$
 \end{aligned}
 $$ {#eq-diff}
 
-Are diffeomorphisms on $\Hh^d$ (again with the subspace topology). Here $\Aa=\set{(U_\alpha,\Phi_\alpha)}$ is an **atlas** of $M$. We say that $\Aa$ is $C^k$ if the diffeomorphisms in @eq-diff are $C^k$ (see Definition @def-smooth-non-open).
+Are diffeomorphisms on $\Hh^d$ (again with the subspace topology). Here $\Aa=\set{(U_\alpha,\Phi_\alpha)}$ is an **atlas** of $M$. We say that $\Aa$ is $C^k$ if the diffeomorphisms in ([-@eq-diff]) are $C^k$ (see Definition @def-smooth-non-open).
 
 ::: {#def-21}
 
@@ -3024,7 +3025,7 @@ And the coordinate changes are $C^k$ as the restriction of a $C^k$ map is $C^k$.
 
 :::
 
-In our case we will always take $M$ to be a subset of  $\R^d$, in this case, different variations of the above definition are possible. For example, by the inverse function theorem and Exercise @exr-ext, we can extend the functions $\Phi_\alpha$ to diffeomorphisms on $U_\alpha$ **open in $\R^d$** so that @eq-chart-@eq-chart2 now read
+In our case we will always take $M$ to be a subset of  $\R^d$, in this case, different variations of the above definition are possible. For example, by the inverse function theorem and @exr-ext, we can extend the functions $\Phi_\alpha$ to diffeomorphisms on $U_\alpha$ **open in $\R^d$** so that ([-@eq-chart])-([-@eq-chart2]) now read
 
 $$
 \begin{aligned}
@@ -3057,7 +3058,7 @@ $$
 \end{aligned}
 $$ {#eq-alt3}
 
-The equivalent formulations in @eq-alt0 and in @eq-alt1-@eq-alt3 are used in the main exposition. Finally, in our case, we will typically take $M =\overline{\Omega}$ where $\Omega \subset \R^d$ is some open set. In this case, we adopt the following terminology.
+The equivalent formulations in ([-@eq-alt0]) and in ([-@eq-alt1])-([-@eq-alt3]) are used in the main exposition. Finally, in our case, we will typically take $M =\overline{\Omega}$ where $\Omega \subset \R^d$ is some open set. In this case, we adopt the following terminology.
 
 ::: {#def-23}
 

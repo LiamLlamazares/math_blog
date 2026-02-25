@@ -94,6 +94,7 @@ format:
               qp: ["\\left(#1\\right)", 1],
               qt: ["\\left(#1\\right)", 1],
               red: ["{\\color{red}#1}", 1],
+              restr: ["\\left.#1\\right|{#2}", 2],
               rm: ["\\mathrm{#1}", 1],
               set: ["\\left\\{#1\\right\\}", 1],
               star: "*",
@@ -150,7 +151,7 @@ by calculating the rate of change of the ``mass'' of the system in terms of its 
 
 ## A physical derivation
 
-**Warning, proceed with caution**: the following section contains a physical derivation of  @eq-pde.  As a result, some physical intuition and approximate reasoning is used. All functions are supposed smooth and integrable as needed.
+**Warning, proceed with caution**: the following section contains a physical derivation of  ([-@eq-pde]).  As a result, some physical intuition and approximate reasoning is used. All functions are supposed smooth and integrable as needed.
 This disclaimer out of the way, let's consider a spatial domain $\Omega \subset \R^d$ filled with fluid in which some solute is dissolved. Our goal is to describe the concentration (density) of the solute $u(t,\bm{x})$ as the system evolves in time and space. We know that the amount of fluid within any subregion $V \subset  \Omega$ is
 
 $$
@@ -191,7 +192,7 @@ $$
 \end{aligned}
 $$ {#eq-balance-integral}
 
-This is the integral form of the *balance equation*. To obtain the non-integral form, note that, since @eq-balance-integral holds for all $V \subset  U$, the integrands must be equal (almost) everywhere, that is
+This is the integral form of the *balance equation*. To obtain the non-integral form, note that, since ([-@eq-balance-integral]) holds for all $V \subset  U$, the integrands must be equal (almost) everywhere, that is
 
 $$
 \begin{aligned}
@@ -225,9 +226,9 @@ a. *Diffusion*: This is the process that causes the solute to move from areas of
     \end{aligned}
     $$ {#eq-diffusion}
     
-    	      That is, the solute diffuses in the direction of $\bm{e}_j$ with speed proportional to $\lambda_j$. For example, if $\bm{A}$ is a constant multiple of the identity, there is no preferred direction of flow. In this case, one says that the flow is *homogeneous*. The minus sign in @eq-diffusion together with the imposition that $\bm{A}$ is positive definite means that diffusion occurs from areas of lower to higher concentration.
+    	      That is, the solute diffuses in the direction of $\bm{e}_j$ with speed proportional to $\lambda_j$. For example, if $\bm{A}$ is a constant multiple of the identity, there is no preferred direction of flow. In this case, one says that the flow is *homogeneous*. The minus sign in ([-@eq-diffusion]) together with the imposition that $\bm{A}$ is positive definite means that diffusion occurs from areas of lower to higher concentration.
     
-    	      If diffusion is the only cause of movement in the fluid, $\bm{F}= - \bm{A}\nabla u$ and substituting  into the balance equation @eq-balance gives the (non-homogeneous) heat equation
+    	      If diffusion is the only cause of movement in the fluid, $\bm{F}= - \bm{A}\nabla u$ and substituting  into the balance equation ([-@eq-balance]) gives the (non-homogeneous) heat equation
     	      
     $$
     \begin{aligned}
@@ -251,7 +252,7 @@ $$
 \end{aligned}
 $$
 
-Substituting  this into the balance equation @eq-balance gives
+Substituting  this into the balance equation ([-@eq-balance]) gives
 
 $$
 \begin{aligned}
@@ -259,7 +260,7 @@ $$
 \end{aligned}
 $$ {#eq-balance2}
 
-Finally, we may have a change in the concentration of the solute due to the solute reacting with another substance. For example, $u$ could be the density of a contaminant which we are eliminating from the fluid via a chemical process. Alternatively, $u$ could be a radioactive substance which is decaying. The *reaction* term is typically denoted by  $R(u)$. In the simplest case, $R(u)$ is linear in  $u$, equal to  $-ru$ where the sign of $r$ determines whether the concentration of solute decreases (if $r>0$, as in the previous scenarios) or increases (if $r<0$, for example, $u$ could represent the concentration of a population of algae). Adding this reaction term to our balance equation @eq-balance2 gives
+Finally, we may have a change in the concentration of the solute due to the solute reacting with another substance. For example, $u$ could be the density of a contaminant which we are eliminating from the fluid via a chemical process. Alternatively, $u$ could be a radioactive substance which is decaying. The *reaction* term is typically denoted by  $R(u)$. In the simplest case, $R(u)$ is linear in  $u$, equal to  $-ru$ where the sign of $r$ determines whether the concentration of solute decreases (if $r>0$, as in the previous scenarios) or increases (if $r<0$, for example, $u$ could represent the concentration of a population of algae). Adding this reaction term to our balance equation ([-@eq-balance2]) gives
 
 $$
 \begin{aligned}
@@ -283,7 +284,7 @@ $$
 \end{aligned}
 $$ {#eq-parabolic}
 
-Equation @eq-parabolic is a prototypical parabolic equation. Suppose now that our system has and reaches an equilibrium state (a state in which the concentration of solute stays constant in time once reached). Then $\partial _t u=0$ and we obtain
+Equation ([-@eq-parabolic]) is a prototypical parabolic equation. Suppose now that our system has and reaches an equilibrium state (a state in which the concentration of solute stays constant in time once reached). Then $\partial _t u=0$ and we obtain
 
 $$
 \begin{aligned}
@@ -291,12 +292,12 @@ $$
 \end{aligned}
 $$ {#eq-elliptic}
 
-Equations @eq-parabolic, and @eq-elliptic are, respectively, the parabolic and elliptic PDE we were aiming for and, as we have just seen, each of their parts has a precise physical meaning in terms of diffusion, advection, reaction and source.
+Equations ([-@eq-parabolic]), and ([-@eq-elliptic]) are, respectively, the parabolic and elliptic PDE we were aiming for and, as we have just seen, each of their parts has a precise physical meaning in terms of diffusion, advection, reaction and source.
 
 ## Boundary conditions
 
 %
-In an application, the system we are studying will evolve within some smooth bounded domain $\Omega$. In order for a unique solution to be defined it is necessary to impose a boundary condition for what $u$ is allowed to do on  $\Omega$ (as well as an initial condition $u(0,\bm{x})=u_0(\bm{x})$ in the parabolic case @eq-parabolic).
+In an application, the system we are studying will evolve within some smooth bounded domain $\Omega$. In order for a unique solution to be defined it is necessary to impose a boundary condition for what $u$ is allowed to do on  $\Omega$ (as well as an initial condition $u(0,\bm{x})=u_0(\bm{x})$ in the parabolic case ([-@eq-parabolic])).
 
 ::: {#exm-1}
 
@@ -308,7 +309,7 @@ $$
 \end{aligned}
 $$ {#eq-poisson}
 
-If $u$ solves @eq-poisson, then $u+p$ also solves @eq-poisson where $p$ is any polynomial of degree  $0$ or  $1$.
+If $u$ solves ([-@eq-poisson]), then $u+p$ also solves ([-@eq-poisson]) where $p$ is any polynomial of degree  $0$ or  $1$.
 
 :::
 
@@ -332,9 +333,9 @@ b. *Robin boundary condition*: Here, it is imposed that
     \end{aligned}
     $$ {#eq-robin}
     
-    	      where $\bm{F}$ is the flux and in our case is $\bm{F}=-\bm{A} \nabla u+ \bm{v}u$. This condition imposes that a ``mass'' $g$ of substance (solute, heat, etc.) enters the domain at each point of the boundary (or leaves if the minus in @eq-robin is omitted).
+    	      where $\bm{F}$ is the flux and in our case is $\bm{F}=-\bm{A} \nabla u+ \bm{v}u$. This condition imposes that a ``mass'' $g$ of substance (solute, heat, etc.) enters the domain at each point of the boundary (or leaves if the minus in ([-@eq-robin]) is omitted).
 
-c. *Neumann boundary condition:*	This is a particular case of the Robin boundary condition where there is no diffusion. In this case, @eq-robin  becomes
+c. *Neumann boundary condition:*	This is a particular case of the Robin boundary condition where there is no diffusion. In this case, ([-@eq-robin])  becomes
     	      
     $$
     \begin{aligned}
@@ -372,7 +373,7 @@ e. *Periodic boundary conditions*: Here the domain is an interval  $\Omega=(\bm{
 
 Finally, mathematically, it also makes sense to work with infinite domains such as the whole Euclidean space $\R^d$. In this case, rather than a boundary condition, one imposes suitable decay on the function such as $u \in L^p(\R^d)$ or its derivatives such as $u \in W^{k,p}(\R^d)$.
 
-We end the post by commenting that non-linear terms may be considered in the PDE @eq-parabolic-@eq-elliptic.  Many examples can be found [here](https://en.wikipedia.org/wiki/List_of_nonlinear_partial_differential_equations). However, the mathematical theory of nonlinear PDE is much more complicated (think Navier Stokes). The linear case, which we begin to develop in the next post, will keep us busy for a while.
+We end the post by commenting that non-linear terms may be considered in the PDE ([-@eq-parabolic])-([-@eq-elliptic]).  Many examples can be found [here](https://en.wikipedia.org/wiki/List_of_nonlinear_partial_differential_equations). However, the mathematical theory of nonlinear PDE is much more complicated (think Navier Stokes). The linear case, which we begin to develop in the next post, will keep us busy for a while.
 
 ## References
 

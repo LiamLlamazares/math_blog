@@ -43,7 +43,7 @@ variable $X:\Omega\to M$ valued in some metric space $M$, the support of
 $X$ is defined to be the set of points $x\in M$ such that
 
 <div>
- $$\mathbb{P}\U X(B\U \epsilon(x))>0,\quad\forall \epsilon>0.$$
+ $$\mathbb{P}\U X(B\U \varepsilon(x))>0,\quad\forall \varepsilon>0.$$
 </div>
 
 That is, $X$
@@ -56,25 +56,25 @@ is an interval.
 
 _Proof._ Suppose not, then there must exist $a<x<b$ where $a,b$ are in
 the support of $X$ and $x$ isn't. In particular, there exists
-$\epsilon >0$ such that
+$\varepsilon >0$ such that
 
 <div>
  $$\label{sup}
-            \mathcal{P}\U X([ x-\epsilon ,x+\epsilon ] )=0.$$
+            \mathcal{P}\U X([ x-\varepsilon ,x+\varepsilon ] )=0.$$
 </div>
 
 Where we also
-take $\epsilon$ small enough so that $a<x-\epsilon<x+\epsilon<b$. Now
+take $\varepsilon$ small enough so that $a<x-\varepsilon<x+\varepsilon<b$. Now
 take a smooth and bounded function $\varphi$ with $\varphi(y)=0$ for
-$y<x-\epsilon$ and with $\varphi(y)=1$ for $y>x+\epsilon$. By
+$y<x-\varepsilon$ and with $\varphi(y)=1$ for $y>x+\varepsilon$. By
 the previousequation it holds that
-(almost everywhere) $\varphi(X)=1\U {X>x+\epsilon}$. Combining
+(almost everywhere) $\varphi(X)=1\U {X>x+\varepsilon}$. Combining
 [Proposition 4](https://nowheredifferentiable.com/2022-07-02-Malliavin-Calculus-3/#:~:text=measure%20then%20the-,following%20version,-of%20the%20chain) and [Corollary 2](https://nowheredifferentiable.com/2022-07-02-Malliavin-Calculus-3/#:~:text=proved%20the%20following-,Corollary%202,-.%20Given) of a previous post, we
-obtain that $1\U {X>x+\epsilon}$ is either $0$ or $1$ almost everywhere.
+obtain that $1\U {X>x+\varepsilon}$ is either $0$ or $1$ almost everywhere.
 That is,
 
 <div>
- $$\mathbb{P}(X>x+\epsilon)=0\quad \text{or}\quad \mathbb{P}(X\leq x+\epsilon)<0 .$$
+ $$\mathbb{P}(X>x+\varepsilon)=0\quad \text{or}\quad \mathbb{P}(X\leq x+\varepsilon)<0 .$$
 </div>
 
 But this contradicts that both $a,b$ are in the support of $X$. This

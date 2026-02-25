@@ -95,6 +95,7 @@ format:
               qp: ["\\left(#1\\right)", 1],
               qt: ["\\left(#1\\right)", 1],
               red: ["{\\color{red}#1}", 1],
+              restr: ["\\left.#1\\right|{#2}", 2],
               rm: ["\\mathrm{#1}", 1],
               set: ["\\left\\{#1\\right\\}", 1],
               star: "*",
@@ -164,7 +165,7 @@ $$
 \end{aligned}
 $$ {#eq-elliptic-operator}
 
-(by Leibnit'z rule one can move between @eq-elliptic-operator-0 and @eq-elliptic-operator) and consider the parabolic PDE
+(by Leibnit'z rule one can move between ([-@eq-elliptic-operator-0]) and ([-@eq-elliptic-operator])) and consider the parabolic PDE
 
 $$
 \begin{aligned}
@@ -177,13 +178,13 @@ $$
 $$ {#eq-parabolic}
 
 where $I=[0,T]$ is the time interval of interest and $0<T< \infty$.
-Here, we need an extra initial condition $u(0) = g$ that tells us the initial state of the system. The operator $\Ll$ has the same form as in @eq-elliptic-operator, however now the coefficients $\bm{A}(t, \bm{x}), \bm{b}(t, \bm{x}), c(t, \bm{x})$ are allowed to depend on both time and space. In the next sections, we will define the weak formulation of the problem and study the well-posedness and regularity of solutions. As we will see, within the functions spaces of interest, @eq-parabolic is always well-posed. This is in contrast to elliptic PDEs, where well-posedness was not guaranteed in general.
+Here, we need an extra initial condition $u(0) = g$ that tells us the initial state of the system. The operator $\Ll$ has the same form as in ([-@eq-elliptic-operator]), however now the coefficients $\bm{A}(t, \bm{x}), \bm{b}(t, \bm{x}), c(t, \bm{x})$ are allowed to depend on both time and space. In the next sections, we will define the weak formulation of the problem and study the well-posedness and regularity of solutions. As we will see, within the functions spaces of interest, ([-@eq-parabolic]) is always well-posed. This is in contrast to elliptic PDEs, where well-posedness was not guaranteed in general.
 
 ## Weak formulation
 
 ### Banach valued functions
 
-To define weak solutions to @eq-parabolic, it is convenient to switch our viewpoint. Instead of thinking of $u$ as a real-valued function of time and space, we think of it as a *Banach space valued function of time*
+To define weak solutions to ([-@eq-parabolic]), it is convenient to switch our viewpoint. Instead of thinking of $u$ as a real-valued function of time and space, we think of it as a *Banach space valued function of time*
 
 $$
 \begin{aligned}
@@ -191,7 +192,7 @@ u: I \to X, \quad t \mapsto u(t),
 \end{aligned}
 $$
 
-where $X$ is some Banach space of function on $U$ (such as $L^2(U), H_0^1(U),...$) and we use the notation $u(t)(x):= u(t,x)$. This way of viewing $u$ is an essential tool in the theory of evolution PDEs, which transform the PDE @eq-parabolic into an *infinite dimensional linear ODE*.
+where $X$ is some Banach space of function on $U$ (such as $L^2(U), H_0^1(U),...$) and we use the notation $u(t)(x):= u(t,x)$. This way of viewing $u$ is an essential tool in the theory of evolution PDEs, which transform the PDE ([-@eq-parabolic]) into an *infinite dimensional linear ODE*.
 
 To be able to proceed, we need to define an integral on functions valued in Banach spaces. This integral is called the [Bochner integral](https://nowheredifferentiable.com/2022-05-27-The-Bochner-integral/). To briefly summarize,
 given a separable Banach space $X$ and $p \in [1, \infty]$ we define
@@ -258,7 +259,7 @@ A tricky aspect of PDE is figuring out what space $X$ should be? The choice of $
 
 ### Weak solutions
 
-As may have become familiar at this point of the series, to derive the weak formulation of our problem @eq-parabolic, we suppose that $u$ is smooth, multiply the equation by a test function $v \in C_c^\infty(I\times U)$ and integrate over $I\times U$. We obtain that, in addition to the condition $u(0)=g$
+As may have become familiar at this point of the series, to derive the weak formulation of our problem ([-@eq-parabolic]), we suppose that $u$ is smooth, multiply the equation by a test function $v \in C_c^\infty(I\times U)$ and integrate over $I\times U$. We obtain that, in addition to the condition $u(0)=g$
 
 $$
 \begin{aligned}
@@ -266,7 +267,7 @@ $$
 \end{aligned}
 $$ {#eq-weak-0}
 
-where for brevity in the notation we omitted the customary $\dx \d t$ in the integrals and wrote $u'= \partial _t u$. Equivalently, with the notation for the duality pairing, we can write @eq-weak-0 and the boundary condition as
+where for brevity in the notation we omitted the customary $\dx \d t$ in the integrals and wrote $u'= \partial _t u$. Equivalently, with the notation for the duality pairing, we can write ([-@eq-weak-0]) and the boundary condition as
 
 $$
 \begin{aligned}
@@ -302,13 +303,13 @@ $$
 
 :::
 
-The boundedness of $\bm{A},\bm{b},c$ is expedient so that the integrals in @eq-weak are well defined.
+The boundedness of $\bm{A},\bm{b},c$ is expedient so that the integrals in ([-@eq-weak]) are well defined.
 
-For @eq-weak to make sense and verify the boundary condition $u=0$ on $\partial U$, we give the following definition.
+For ([-@eq-weak]) to make sense and verify the boundary condition $u=0$ on $\partial U$, we give the following definition.
 
 ::: {#def-weak-def name="Weak solution"}
 
-Under Assumption @thm-ass, we say that $u$ is a *weak solution of the parabolic problem* @eq-parabolic if
+Under Assumption @thm-ass, we say that $u$ is a *weak solution of the parabolic problem* ([-@eq-parabolic]) if
 
 $$
 \begin{aligned}
@@ -316,11 +317,11 @@ u \in L^2_t H^1_{0,x}, \quad u' \in L^2_t H^{-1}_x,
 \end{aligned}
 $$
 
-and @eq-weak is verified for all $v \in L^2_tH^1_{0,x}$.
+and ([-@eq-weak]) is verified for all $v \in L^2_tH^1_{0,x}$.
 
 :::
 
-With the above definition, all the terms @eq-weak are well defined, where the duality pairing is to be interpreted as the one given by @eq-duality.  Furthermore, the boundary condition $u=0$ on $\partial U$ is automatically satisfied as $u(t) \in H_0^1(U)$ for almost all $t$ and a quick sanity check shows that the various functional spaces in definition @def-weak-def are logical as if $u \in L^2_t H^1_{0,x}$ then $\Ll u \in L^2_t H^{-1}_x$ and from @eq-parabolic we should also have $u' \in L^2_t H^{-1}_x$. It only remains to justify that $u(0)$ is well-defined. This is proved in the following lemma.
+With the above definition, all the terms ([-@eq-weak]) are well defined, where the duality pairing is to be interpreted as the one given by ([-@eq-duality]).  Furthermore, the boundary condition $u=0$ on $\partial U$ is automatically satisfied as $u(t) \in H_0^1(U)$ for almost all $t$ and a quick sanity check shows that the various functional spaces in definition @def-weak-def are logical as if $u \in L^2_t H^1_{0,x}$ then $\Ll u \in L^2_t H^{-1}_x$ and from ([-@eq-parabolic]) we should also have $u' \in L^2_t H^{-1}_x$. It only remains to justify that $u(0)$ is well-defined. This is proved in the following lemma.
 
 ::: {#lem-continuity-weak}
 
@@ -336,7 +337,7 @@ $$
 
 ::: {.proof}
 
-Let $\phi_n \in C_c^ \infty(I)$ be a smooth approximation to the identity and define $u_n(t):=(u* \phi_n)(t)$ (we use the convention of extending $u$ by zero outside of $I$ so the convolution is well defined). Then, $u_n \in C^\infty_t L_x^2$ converges almost everywhere and in $L_t^2 H_x^1$ to $u$ and $u_n '$ converges in $L_t^2 H_x^{-1}$ to $u'$ (see @eq-approximation).Given $n , m >0$ write $w_{n,m}:= u_n - u_m$. We have that,
+Let $\phi_n \in C_c^ \infty(I)$ be a smooth approximation to the identity and define $u_n(t):=(u* \phi_n)(t)$ (we use the convention of extending $u$ by zero outside of $I$ so the convolution is well defined). Then, $u_n \in C^\infty_t L_x^2$ converges almost everywhere and in $L_t^2 H_x^1$ to $u$ and $u_n '$ converges in $L_t^2 H_x^{-1}$ to $u'$ (see ([-@eq-approximation])).Given $n , m >0$ write $w_{n,m}:= u_n - u_m$. We have that,
  
 $$
 \begin{aligned}
@@ -362,7 +363,7 @@ $$ {#eq-cauchy}
 
 where in the last equality we used that $u_n ,u'_n$ converge to $u,u'$ in the respective norms.
 
-Equation @eq-cauchy shows that $u_n$ is a Cauchy sequence in the Banach space $C_t L_x^2$ and, as a result, converges to a continuous function $v$ in $C_t L_x^2$. Since it also converges almost everywhere to $u$, we must have that $v=u$. This shows that $u \in C_t L_x^2$.
+Equation ([-@eq-cauchy]) shows that $u_n$ is a Cauchy sequence in the Banach space $C_t L_x^2$ and, as a result, converges to a continuous function $v$ in $C_t L_x^2$. Since it also converges almost everywhere to $u$, we must have that $v=u$. This shows that $u \in C_t L_x^2$.
 
 To prove the bound of the theorem, suppose first that $u$ is smooth in $t$. Then, by the fundamental theorem of calculus and the definition of the dual norm
  
@@ -378,11 +379,11 @@ The bound follows Cauchy-Schwartz, and the non-smooth case follows by approximat
 
 ## Well-posedness of the problem
 
-We now aim to show that the problem @eq-parabolic, or more precisely its weak formulation @eq-weak, is well-posed.
+We now aim to show that the problem ([-@eq-parabolic]), or more precisely its weak formulation ([-@eq-weak]), is well-posed.
 
 ### A naive approach
 
-As we have discussed in the previous section, equation @eq-parabolic can be seen as an infinite dimensional linear ODE. As a result, we could hope that the theory of linear ODE will give us a solution. Working directly we would write  $F(u):= -\Ll u + f$ and the equation @eq-parabolic as
+As we have discussed in the previous section, equation ([-@eq-parabolic]) can be seen as an infinite dimensional linear ODE. As a result, we could hope that the theory of linear ODE will give us a solution. Working directly we would write  $F(u):= -\Ll u + f$ and the equation ([-@eq-parabolic]) as
 
 $$
 \begin{aligned}
@@ -394,7 +395,7 @@ Then, writing once more $X =H_0^1(U)$, we could try to emulate Picard's theorem 
 
 $$
 \begin{aligned}
-\Phi: C([0,\epsilon ] \to X) \to C([0,\epsilon ] \to X), \quad u \mapsto \Phi(u)(t) := g + \int_I F(u(s)) \d s.
+\Phi: C([0,\varepsilon ] \to X) \to C([0,\varepsilon ] \to X), \quad u \mapsto \Phi(u)(t) := g + \int_I F(u(s)) \d s.
 \end{aligned}
 $$
 
@@ -451,11 +452,11 @@ B(w,v; t) := \int_U \bm{A}(t) \nabla v \cdot \nabla w + (\bm{b}(t) \cdot \nabla 
 \end{aligned}
 $$
 
-Equation @eq-galerkin is known as the *Galerkin problem*.
+Equation ([-@eq-galerkin]) is known as the *Galerkin problem*.
 
 ::: {#thm-1 name="Well-posedness of the Galerkin problem"}
 
-Under Assumption @thm-ass, the Galerkin problem @eq-galerkin is well-posed. That is, a unique solution $u_n$ exists and depends continuously on the initial data. Furthermore,
+Under Assumption @thm-ass, the Galerkin problem ([-@eq-galerkin]) is well-posed. That is, a unique solution $u_n$ exists and depends continuously on the initial data. Furthermore,
 
 $$
 \begin{aligned}
@@ -470,7 +471,7 @@ $$ {#eq-bound}
 We divide the proof into three parts. Existence, continuity, and uniqueness.
  
 
-a. Existence of solutions:  Since the $\phi_i$ are orthonormal and we impose $u_n \in \Ss _n$, solving @eq-galerkin is equivalent to finding $\bm{\lambda}_n\in C(I \to \R^n)$ such that
+a. Existence of solutions:  Since the $\phi_i$ are orthonormal and we impose $u_n \in \Ss _n$, solving ([-@eq-galerkin]) is equivalent to finding $\bm{\lambda}_n\in C(I \to \R^n)$ such that
           
     $$
     \begin{aligned}
@@ -486,9 +487,9 @@ a. Existence of solutions:  Since the $\phi_i$ are orthonormal and we impose $u_
     \end{aligned}
     $$
     
-    The equivalence of solving @eq-galerkin and @eq-galerkin-2 is obtained by setting $u_n(t) = \sum_{j=1}^n [\bm{\lambda}_n]_j \phi_j$.
+    The equivalence of solving ([-@eq-galerkin]) and ([-@eq-galerkin-2]) is obtained by setting $u_n(t) = \sum_{j=1}^n [\bm{\lambda}_n]_j \phi_j$.
     
-    Since $\phi _i \in C_c^\infty(U)$, by the boundedness of the coefficients in Assumption @thm-ass, and by the construction of $\bm{B}_n,\bm{f}_n$. It holds that $\bm{B}_n \in L^\infty_t$ and $\bm{f}_n \in L^2_t$. As a result, according to standard ODE theory, there exists a unique continuous solution $\bm{\lambda }$ to @eq-galerkin-2.  One can even write out the explicit expression for $\bm{\lambda }$ using Duhamel's formula,
+    Since $\phi _i \in C_c^\infty(U)$, by the boundedness of the coefficients in Assumption @thm-ass, and by the construction of $\bm{B}_n,\bm{f}_n$. It holds that $\bm{B}_n \in L^\infty_t$ and $\bm{f}_n \in L^2_t$. As a result, according to standard ODE theory, there exists a unique continuous solution $\bm{\lambda }$ to ([-@eq-galerkin-2]).  One can even write out the explicit expression for $\bm{\lambda }$ using Duhamel's formula,
           
     $$
     \begin{aligned}
@@ -498,7 +499,7 @@ a. Existence of solutions:  Since the $\phi_i$ are orthonormal and we impose $u_
     
     This proves existence.
 
-b. Continuity in the data: The plan will be to apply Gronwall's inequality. By @eq-galerkin and the linearity of the inner product, we obtain
+b. Continuity in the data: The plan will be to apply Gronwall's inequality. By ([-@eq-galerkin]) and the linearity of the inner product, we obtain
           
     $$
     \begin{aligned}
@@ -514,7 +515,7 @@ b. Continuity in the data: The plan will be to apply Gronwall's inequality. By @
     \end{aligned}
     $$ {#eq-derivative}
     
-    Using Cauchy's inequality $ab \leq \frac{1}{2} (\epsilon a^2+\epsilon^{-1} b^2)$, the boundedness of the coefficients and the ellipticity of $\bm{A}$ shows that, for some constants $\beta , \nu >0$
+    Using Cauchy's inequality $ab \leq \frac{1}{2} (\varepsilon a^2+\varepsilon^{-1} b^2)$, the boundedness of the coefficients and the ellipticity of $\bm{A}$ shows that, for some constants $\beta , \nu >0$
           
     $$
     \begin{aligned}
@@ -523,7 +524,7 @@ b. Continuity in the data: The plan will be to apply Gronwall's inequality. By @
     $$ {#eq-b-bound}
     
     (this is the same as [what was proved](https://nowheredifferentiable.com/2024-02-28-PDEs-6-Elliptic_PDE._Well_posedness_and_regularity/#:~:text=%20.%20We-,recall,-the%20Cauchy%20inequality) as in the elliptic case).
-    Whereas, by definition of the dual and by Cauchy's inequality, the bound of the right-hand side of @eq-sol-un is,
+    Whereas, by definition of the dual and by Cauchy's inequality, the bound of the right-hand side of ([-@eq-sol-un]) is,
           
     $$
     \begin{aligned}
@@ -531,7 +532,7 @@ b. Continuity in the data: The plan will be to apply Gronwall's inequality. By @
     \end{aligned}
     $$ {#eq-rhs-bound}
     
-    Using @eq-derivative, @eq-b-bound and @eq-rhs-bound in equation @eq-sol-un we obtain that
+    Using ([-@eq-derivative]), ([-@eq-b-bound]) and ([-@eq-rhs-bound]) in equation ([-@eq-sol-un]) we obtain that
           
     $$
     \begin{aligned}
@@ -555,7 +556,7 @@ b. Continuity in the data: The plan will be to apply Gronwall's inequality. By @
     \end{aligned}
     $$
     
-    Applying this to @eq-i00 gives
+    Applying this to ([-@eq-i00]) gives
           
     $$
     \begin{aligned}
@@ -563,7 +564,7 @@ b. Continuity in the data: The plan will be to apply Gronwall's inequality. By @
     \end{aligned}
     $$ {#eq-i1}
     
-    Taking the maximum in @eq-i1  gives the first part of the bound in @eq-bound
+    Taking the maximum in ([-@eq-i1])  gives the first part of the bound in ([-@eq-bound])
           
     $$
     \begin{aligned}
@@ -571,7 +572,7 @@ b. Continuity in the data: The plan will be to apply Gronwall's inequality. By @
     \end{aligned}
     $$ {#eq-ub}
     
-    To bound the second term in @eq-bound we combine @eq-i1 with @eq-i0 to obtain
+    To bound the second term in ([-@eq-bound]) we combine ([-@eq-i1]) with ([-@eq-i0]) to obtain
           
     $$
     \begin{aligned}
@@ -579,7 +580,7 @@ b. Continuity in the data: The plan will be to apply Gronwall's inequality. By @
     \end{aligned}
     $$ {#eq-hb0}
     
-    Integrating over $I$ in @eq-hb0 and applying the fundamental theorem of calculus together with @eq-ub gives
+    Integrating over $I$ in ([-@eq-hb0]) and applying the fundamental theorem of calculus together with ([-@eq-ub]) gives
           
     $$
     \begin{aligned}
@@ -587,7 +588,7 @@ b. Continuity in the data: The plan will be to apply Gronwall's inequality. By @
     \end{aligned}
     $$ {#eq-hb}
     
-    To bound $u_n'$ consider any $v \in H_{0,x}^1$, and write $v=v_n+v_n^\perp$ where $v_n$ is the projection of $v$ onto $V_n$ with the inner product on $H^1_x$. Since $v_n^\perp$ is orthogonal to $u_n'(t)\in V_n$ for each $t$, from @eq-galerkin we have
+    To bound $u_n'$ consider any $v \in H_{0,x}^1$, and write $v=v_n+v_n^\perp$ where $v_n$ is the projection of $v$ onto $V_n$ with the inner product on $H^1_x$. Since $v_n^\perp$ is orthogonal to $u_n'(t)\in V_n$ for each $t$, from ([-@eq-galerkin]) we have
           
     $$
     \begin{aligned}
@@ -604,7 +605,7 @@ b. Continuity in the data: The plan will be to apply Gronwall's inequality. By @
     \end{aligned}
     $$ {#eq-i2}
     
-    Integrating the square over $I$ and using @eq-hb in @eq-i2 gives
+    Integrating the square over $I$ and using ([-@eq-hb]) in ([-@eq-i2]) gives
           
     $$
     \begin{aligned}
@@ -612,7 +613,7 @@ b. Continuity in the data: The plan will be to apply Gronwall's inequality. By @
     \end{aligned}
     $$ {#eq-i3}
     
-    Now, combining @eq-ub and @eq-hb, @eq-i3 and taking square roots, we obtain the desired bound @eq-bound. 
+    Now, combining ([-@eq-ub]) and ([-@eq-hb]), ([-@eq-i3]) and taking square roots, we obtain the desired bound ([-@eq-bound]). 
 
 c. Uniqueness:  To conclude uniqueness, let $u_n^{{1}}, u_n^{{2}}$ be two solutions to the Galerkin problem. Then, $w_n := u_n^{{1}}-u_n^{{2}}$ verifies the homogeneous problem
           
@@ -622,7 +623,7 @@ c. Uniqueness:  To conclude uniqueness, let $u_n^{{1}}, u_n^{{2}}$ be two soluti
     \end{aligned}
     $$
     
-    The same reasoning that proved @eq-i00, where now $f=0$, shows that
+    The same reasoning that proved ([-@eq-i00]), where now $f=0$, shows that
           
     $$
     \begin{aligned}
@@ -643,11 +644,11 @@ c. Uniqueness:  To conclude uniqueness, let $u_n^{{1}}, u_n^{{2}}$ be two soluti
 :::
 
 Having proved the well-posedness of the Galerkin problem, we can now show that the parabolic problem is well-posed.
-A common technique in PDE is to modify your initial problem $P$ by some quantity $\epsilon$ to obtain a problem $P_ \epsilon$ that is easier to solve. Suppose one can find solutions to $P_ \epsilon$ that are bounded. In that case, a converging subsequence can typically be extracted and, under appropriate conditions, will converge to a solution to the original problem $P$. This is exactly what we show now.
+A common technique in PDE is to modify your initial problem $P$ by some quantity $\varepsilon$ to obtain a problem $P_ \varepsilon$ that is easier to solve. Suppose one can find solutions to $P_ \varepsilon$ that are bounded. In that case, a converging subsequence can typically be extracted and, under appropriate conditions, will converge to a solution to the original problem $P$. This is exactly what we show now.
 
 ::: {#thm-2 name="Well posedness of the parabolic problem"}
 
-Under Assumption @thm-ass, the parabolic problem @eq-parabolic is well-posed. That is, there exists a unique weak solution $u$, which depends continuously on the initial data with
+Under Assumption @thm-ass, the parabolic problem ([-@eq-parabolic]) is well-posed. That is, there exists a unique weak solution $u$, which depends continuously on the initial data with
 
 $$
 \begin{aligned}
@@ -659,7 +660,7 @@ $$ {#eq-bound-p}
 
 ::: {.proof}
 
-Let $\set{u_n}_{n=1}^\infty$ be the sequence of solutions to the Galerkin problem @eq-galerkin guaranteed by Theorem @eq-galerkin.  By said theorem, $u_n$ and $u'_n$ are bounded sequences in $L_t^2H_{0,x}^1$ and $L_t^2 H_x^{-1}$ respectively. Since these spaces are Hilbert spaces, they are reflexive, and we deduce by the [Banach-Alaoglu theorem](https://en.wikipedia.org/wiki/Banach%E2%80%93Alaoglu_theorem) that respective subsequences converge in their respective spaces to some $u \in L_tH_{0,x}^1$ and $\tl{u} \in L_t H_x^{-1}$. That is, 
+Let $\set{u_n}_{n=1}^\infty$ be the sequence of solutions to the Galerkin problem ([-@eq-galerkin]) guaranteed by Theorem ([-@eq-galerkin]).  By said theorem, $u_n$ and $u'_n$ are bounded sequences in $L_t^2H_{0,x}^1$ and $L_t^2 H_x^{-1}$ respectively. Since these spaces are Hilbert spaces, they are reflexive, and we deduce by the [Banach-Alaoglu theorem](https://en.wikipedia.org/wiki/Banach%E2%80%93Alaoglu_theorem) that respective subsequences converge in their respective spaces to some $u \in L_tH_{0,x}^1$ and $\tl{u} \in L_t H_x^{-1}$. That is, 
  
 $$
 \begin{aligned}
@@ -675,7 +676,7 @@ $$
 \end{aligned}
 $$
 
-where in the first equality we used the weak convergence of $u'_{n_k}$ to $\tl{u}$ in $L_t H_x^{-1}$, in the second equality we used the definition of weak derivative, and in the last we used the convergence of $u_{n_k}$ to $u$ in $L_t^2H_{0,x}^1$. This shows that $u' = \tl{u}$ almost everywhere. We now show that $u$ solves the weak problem @eq-weak.  By construction of the Galerkin solutions in @eq-galerkin and integrating over $I$, we deduce for any $v \in \Ss_{n_k}$ 
+where in the first equality we used the weak convergence of $u'_{n_k}$ to $\tl{u}$ in $L_t H_x^{-1}$, in the second equality we used the definition of weak derivative, and in the last we used the convergence of $u_{n_k}$ to $u$ in $L_t^2H_{0,x}^1$. This shows that $u' = \tl{u}$ almost everywhere. We now show that $u$ solves the weak problem ([-@eq-weak]).  By construction of the Galerkin solutions in ([-@eq-galerkin]) and integrating over $I$, we deduce for any $v \in \Ss_{n_k}$ 
  
 $$
 \begin{aligned}
@@ -699,7 +700,7 @@ $$
 \end{aligned}
 $$
 
-We now check that $u(0)=g$. To do so, we now consider $v \in C^1_tH_{0,x}^1 \cap \Ss _{n_k}$ such that $v(T)=0$. Then, integrating by parts over $I$ and using @eq-weak-k gives
+We now check that $u(0)=g$. To do so, we now consider $v \in C^1_tH_{0,x}^1 \cap \Ss _{n_k}$ such that $v(T)=0$. Then, integrating by parts over $I$ and using ([-@eq-weak-k]) gives
  
 $$
 \begin{aligned}
@@ -715,7 +716,7 @@ $$
 \end{aligned}
 $$
 
-where we used that by Lemma @lem-continuity-weak $u_{n_k} \to u \in C_t L_x^2$. In particular,
+where we used that by @lem-continuity-weak $u_{n_k} \to u \in C_t L_x^2$. In particular,
  
 $$
 \begin{aligned}
@@ -759,12 +760,12 @@ We show solutions for $n=3$ and $n=20$; as we can see, as the number of basis fu
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\textwidth]{Galerkin_n_3.pdf}
-  \caption{Galerkin solution to the parabolic problem @eq-parabolic-2 with $n=3$ basis functions.}
+  \caption{Galerkin solution to the parabolic problem ([-@eq-parabolic-2]) with $n=3$ basis functions.}
 \end{figure}
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\textwidth]{Galerkin_n_20.pdf}
-  \caption{Galerkin solution to the parabolic problem @eq-parabolic-2 with $n=20$ basis functions.}
+  \caption{Galerkin solution to the parabolic problem ([-@eq-parabolic-2]) with $n=20$ basis functions.}
 \end{figure}
 We also include a figure to show how the boundary condition $g=1$ may be approximated in $H_0^1(U)$ using the basis functions $\phi_j$. We note that the approximating sequence does not converge $H_0^1$ as the derivative explodes at the boundary.  
 \begin{figure}[H]
@@ -784,7 +785,7 @@ $$
 \end{aligned}
 $$ {#eq-exact}
 
-The exact solution to @eq-exact is $u(t,x) = t(x - 1)x$. We show the exact solution and the Galerkin solution using 
+The exact solution to ([-@eq-exact]) is $u(t,x) = t(x - 1)x$. We show the exact solution and the Galerkin solution using 
 
 $$
 \begin{aligned}
@@ -796,23 +797,23 @@ as before for $n=20$ basis functions. As we can see, the Galerkin solution and t
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\textwidth]{Galerkin_exact.pdf}
-  \caption{Exact solution to the parabolic problem @eq-exact. }
+  \caption{Exact solution to the parabolic problem ([-@eq-exact]). }
 \end{figure}
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\textwidth]{Galerkin_n_20_2.pdf}
-  \caption{Galerkin solution to the parabolic problem @eq-exact with $n=20$ basis functions.}
+  \caption{Galerkin solution to the parabolic problem ([-@eq-exact]) with $n=20$ basis functions.}
 \end{figure}
 
 ## Regularity of the solutions
 
-Having proved the well-posedness of the parabolic problem @eq-parabolic and its finite-dimensional Galerkin approximation, we can now move on to study the regularity of the solutions. The proof is similar to the one given in the [elliptic case](https://nowheredifferentiable.com/2024-02-28-PDEs-6-Elliptic_PDE._Well_posedness_and_regularity/) but more technical, and we will mainly cite some main results without proof. 
+Having proved the well-posedness of the parabolic problem ([-@eq-parabolic]) and its finite-dimensional Galerkin approximation, we can now move on to study the regularity of the solutions. The proof is similar to the one given in the [elliptic case](https://nowheredifferentiable.com/2024-02-28-PDEs-6-Elliptic_PDE._Well_posedness_and_regularity/) but more technical, and we will mainly cite some main results without proof. 
 
 As one expects from the elliptic case, the spatial regularity of the solutions is increased by $2$. Our study of the previous section shows that the regularity of the time derivatives of the solution is $2$ orders lower. In fact, it is two orders lower for each time derivative taken. To be able to obtain higher regularity however, we will need to impose some compatibility between the boundary condition $f$ and the initial data $g$. The following can be found in Section 7.13 of [@evans2022partial]
 
 ::: {#thm-3}
 
-Let $\Omega$ be a bounded domain with smooth boundary $\partial \Omega$. Let $\Ll$ be the elliptic operator in @eq-elliptic-operator and assume that the coefficients $\bm{A,b},c$ are independent of time $t$ and smooth in space. Suppose that
+Let $\Omega$ be a bounded domain with smooth boundary $\partial \Omega$. Let $\Ll$ be the elliptic operator in ([-@eq-elliptic-operator]) and assume that the coefficients $\bm{A,b},c$ are independent of time $t$ and smooth in space. Suppose that
 
 $$
 \begin{aligned}

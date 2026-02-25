@@ -534,13 +534,13 @@ $W^{s,p}(\Omega ),H^{s,p}(\Omega ),B^{s,p}(\Omega )$ and can be found in
 [Agranovich, 2015](https://link.springer.com/book/10.1007/978-3-319-14648-5) page 224 and in [Stein, 1970](https://www.degruyter.com/document/doi/10.1515/9781400883882/html) page 155.
 
  <a name="equivalence fractional spaces">
-<b>Theorem 12</b> </a> . Let $s \geq 0, \epsilon >0$ and $\Omega$ an extension
-domain for $H^{s+\epsilon,p},B^{s+\epsilon,p}$. Then,
+<b>Theorem 12</b> </a> . Let $s \geq 0, \varepsilon >0$ and $\Omega$ an extension
+domain for $H^{s+\varepsilon,p},B^{s+\varepsilon,p}$. Then,
 
 <div>
 $$\begin{aligned}
-H^{s+\epsilon,p}(\Omega ) & \subset B^{s,p}(\Omega )  \subset H^{s,p}(\Omega )\quad \forall p \in (1,2]       \\
-B^{s+\epsilon,p}(\Omega ) & \subset H^{s,p}(\Omega )  \subset B^{s,p}(\Omega )\quad \forall p \in [2,\infty),
+H^{s+\varepsilon,p}(\Omega ) & \subset B^{s,p}(\Omega )  \subset H^{s,p}(\Omega )\quad \forall p \in (1,2]       \\
+B^{s+\varepsilon,p}(\Omega ) & \subset H^{s,p}(\Omega )  \subset B^{s,p}(\Omega )\quad \forall p \in [2,\infty),
 
 \end{aligned}$$
 

@@ -95,6 +95,7 @@ format:
               qp: ["\\left(#1\\right)", 1],
               qt: ["\\left(#1\\right)", 1],
               red: ["{\\color{red}#1}", 1],
+              restr: ["\\left.#1\\right|{#2}", 2],
               rm: ["\\mathrm{#1}", 1],
               set: ["\\left\\{#1\\right\\}", 1],
               star: "*",
@@ -143,7 +144,7 @@ $$
 	Our goal is to establish some fundamental properties on the existence of densities using Malliavin calculus. This is one of the first reasons why Malliavin calculus was conceived. Firstly, we recall that given a random variable $X:\Omega\to M$ valued in some metric space $M$, the support of  $X$ is defined to be the set of points $x\in M$ such that
 	
 $$
-\mathbb{P}_X(B_\epsilon(x))>0,\quad\forall \epsilon>0.
+\mathbb{P}_X(B_\varepsilon(x))>0,\quad\forall \varepsilon>0.
 $$
 
 	That is, $X$ has a positive probability of falling in any ball that contains  $x$. Our first result characterizes the support of real-valued Malliavin differentiable random variables.
@@ -159,17 +160,17 @@ Let $X\in \mathbb{D}^{1,2}$, then the support of $X$ is an interval.
 
 ::: {.proof}
 
-Suppose not, then there must exist $a<x<b$ where  $a,b$ are in the support of  $X$ and  $x$ isn't. In particular, there exists  $\epsilon >0$ such that
+Suppose not, then there must exist $a<x<b$ where  $a,b$ are in the support of  $X$ and  $x$ isn't. In particular, there exists  $\varepsilon >0$ such that
 
 $$
-\PP_X([x-\epsilon ,x+\epsilon ])=0.
+\PP_X([x-\varepsilon ,x+\varepsilon ])=0.
 $$ {#eq-sup}
 
-Where we also take $\epsilon$ small enough so that $a<x-\epsilon<x+\epsilon<b$.
-Now take a smooth and bounded function $\varphi$ with $\varphi(y)=0$ for $y<x-\epsilon$ and with $\varphi(y)=1$ for $y>x+\epsilon$. By @eq-sup it holds that (almost everywhere) $\varphi(X)=1_{X>x+\epsilon}$. Combining [proposition 5](../../Malliavin Calculus/3.Malliavin_derivative_1/index.qmd#prp-5) and [corollary 1](../../Malliavin Calculus/3.Malliavin_derivative_1/index.qmd#cor-1) of the previous post, we obtain that $1_{X>x+\epsilon}$ is either $0$ or $1$ almost everywhere. That is,
+Where we also take $\varepsilon$ small enough so that $a<x-\varepsilon<x+\varepsilon<b$.
+Now take a smooth and bounded function $\varphi$ with $\varphi(y)=0$ for $y<x-\varepsilon$ and with $\varphi(y)=1$ for $y>x+\varepsilon$. By ([-@eq-sup]) it holds that (almost everywhere) $\varphi(X)=1_{X>x+\varepsilon}$. Combining [proposition 5](../../Malliavin Calculus/3.Malliavin_derivative_1/index.qmd#prp-5) and [corollary 1](../../Malliavin Calculus/3.Malliavin_derivative_1/index.qmd#cor-1) of the previous post, we obtain that $1_{X>x+\varepsilon}$ is either $0$ or $1$ almost everywhere. That is,
 
 $$
-\mathbb{P}(X>x+\epsilon)=0\quad \text{or}\quad \mathbb{P}(X\leq x+\epsilon)<0 .
+\mathbb{P}(X>x+\varepsilon)=0\quad \text{or}\quad \mathbb{P}(X\leq x+\varepsilon)<0 .
 $$
 
 But this contradicts that both $a,b$ are in the support of $X$. This concludes the proof.
@@ -298,7 +299,7 @@ Let $X\in \mathbb{D}^\infty$ such that  $\norm{DX}_{H}>0$ almost everywhere, the
 
 ::: {.proof}
 
-By Theorem @thm-dens-exists we know that $X$ has a density $p(x)$. To show that $p$ is smooth, by [Sobolev embeddings](../../PDEs/3. Sobolev spaces/index.qmd#thm-rellich) it is sufficient to show that $p$ is weakly differentiable with order $n$ for all $n \in \N$. That is, for all $\varphi\in C_c^\infty(\R)$, there exists a function $p^{(n)}$ such that
+By @thm-dens-exists we know that $X$ has a density $p(x)$. To show that $p$ is smooth, by [Sobolev embeddings](../../PDEs/3. Sobolev spaces/index.qmd#thm-rellich) it is sufficient to show that $p$ is weakly differentiable with order $n$ for all $n \in \N$. That is, for all $\varphi\in C_c^\infty(\R)$, there exists a function $p^{(n)}$ such that
 
 $$
 \E[\varphi^{(n)}(X)]=\int_{\R}\varphi^{(n)}(x)p(x) dx=(-1)^n\int_{\R}\varphi(x) p^{(n)}(x) dx.

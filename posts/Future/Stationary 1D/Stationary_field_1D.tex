@@ -177,7 +177,7 @@ Is, save additive constants, the unique \emph{distribution function} on $\R^d$ (
 \end{proposition}
 The proof is based on a classical result of probability called the inversion formula (see \cite{ash2000probability} page 292).\\
 \\
-In the case of Proposition \ref{Fourier inversion} above it is customary to say that $S$ is the \emph{spectral density} of $X$. We observe that the condition for the existence of the spectral density is quite weak. Essentially, all that is required is that the relationship between the field at points that are far decays to $0$ at a fast enough rate. For completeness, we mention the following equivalent definition which may be found in some references
+In the case of \Cref{Fourier inversion} above it is customary to say that $S$ is the \emph{spectral density} of $X$. We observe that the condition for the existence of the spectral density is quite weak. Essentially, all that is required is that the relationship between the field at points that are far decays to $0$ at a fast enough rate. For completeness, we mention the following equivalent definition which may be found in some references
 \begin{lemma}
 	A continuous function $r:\R^d\to\C$ is positive semi-definite if and only if for all $f\in L^1(\R^d\to\C)$
 	\begin{equation*}
@@ -185,7 +185,7 @@ In the case of Proposition \ref{Fourier inversion} above it is customary to say 
 	\end{equation*}
 \end{lemma}
 \begin{proof}
-	Let us denote the above integral by $I(f)$. First, we show that $I(f)$ is well-defined and continuous as a function of $f \in L^1(\R^d\to\C)$. By Bochner's theorem (Theorem \ref{Bochner's theorem}) $r$ takes a maximum at  $0$ so
+	Let us denote the above integral by $I(f)$. First, we show that $I(f)$ is well-defined and continuous as a function of $f \in L^1(\R^d\to\C)$. By Bochner's theorem (\Cref{Bochner's theorem}) $r$ takes a maximum at  $0$ so
 	\begin{equation*}
 		\abs{I(f)}\leq r(0)\abs{\int_{\R^d}f(x)dx}\abs{\int_{\R^d}\overline{f(y)}dy}\leq r(0)\norm{f}_{L^1(\R^d\to \C)}^2
 	\end{equation*}
@@ -296,7 +296,7 @@ We now prove an interesting corollary of the spectral representation theorem.
 	\end{equation*}
 \end{corollary}
 \begin{proof}
-	We recall that, by the basic theory of Gaussian random variables, if $Y_n$ is a sequence of Gaussian random variables converging in distribution to $Y$ then $Y$ is also Gaussian. Furthermore, as we showed in Theorem \ref{spectral theorem} (the spectral theorem) for each $f$,
+	We recall that, by the basic theory of Gaussian random variables, if $Y_n$ is a sequence of Gaussian random variables converging in distribution to $Y$ then $Y$ is also Gaussian. Furthermore, as we showed in \Cref{spectral theorem} (the spectral theorem) for each $f$,
 	$$dZ(f)\in\overline{\text{Span}(\{X(u)\}_{u\in\R^d})}\subset L^2(\R^d\to C,dF).$$
 	Since convergence in $L^p$ implies convergence in distribution we deduce that if $X$ is Gaussian then $dZ(f)$ is also Gaussian. Reciprocally, if $dZ$ is Gaussian, then necessarily $X(u)=dZ(e^{i\omega\cdot u})$ is Gaussian. Finally, the calculation of the variance of $dZ$ follows once more using that $dZ$ is an isometry.
 \end{proof}
@@ -370,7 +370,7 @@ Having set up the theory for general Hilbert spaces, we now somewhat restrict to
 	\begin{equation*}
 		r_a:=\sum_{j,k=1}^n a_j\overline{a_k}r_{jk}.
 	\end{equation*}
-	Thus, by the $1$-dimensional Bochner's theorem (Theorem \ref{Bochner's theorem}) we can find some distribution function $dF_a$ such that
+	Thus, by the $1$-dimensional Bochner's theorem (\Cref{Bochner's theorem}) we can find some distribution function $dF_a$ such that
 	\begin{equation}\label{a}
 		r_a= \sum_{j,k=1}^{n} a_j \overline{a_k}r_{jk}=\int_{\R^d}e^{i\omega\cdot u}dF_a(\omega)
 	\end{equation}
@@ -400,13 +400,13 @@ From the above, we can quickly obtain Bochner's theorem for fields valued in Hil
 	Furthermore, $\mu_{jj}$ are bounded real measures for all $j\in\{1,..,n\}$.
 \end{theorem}
 \begin{proof}
-	Let us fix $j\neq k\in J$ and consider the $\C^2$ valued field $\{(X_j(u),X_k(u))\}_{u\in\R^d}$. Then by applying Theorem \ref{bochner 3d} (Bochner's multidimensional theorem) we obtain complex measures $\mu_{jk}$ verifying
+	Let us fix $j\neq k\in J$ and consider the $\C^2$ valued field $\{(X_j(u),X_k(u))\}_{u\in\R^d}$. Then by applying \Cref{bochner 3d} (Bochner's multidimensional theorem) we obtain complex measures $\mu_{jk}$ verifying
 	\begin{equation*}
 		r_{jk}=\int_{\R^d} e^{i\omega \cdot u} d\mu _{j k}(\omega).
 	\end{equation*}
 	To  see that $\mu_{jj}$ are real-valued, it suffices to consider the complex-valued field $\{(X_j(u)\}_{u\in\R^d}$ and once more apply Bochner's theorem. This completes the proof.
 \end{proof}
-The analog of the spectral theorem (Theorem \ref{spectral theorem}) is also immediate
+The analog of the spectral theorem (\Cref{spectral theorem}) is also immediate
 \begin{theorem}[Spectral theorem for $H$ valued fields]\label{spectral theorem hilbert}
 	Let $H$ be a Hilbert space with orthonormal basis $\{e_j\}_{j\in J}$ and let $\{X(u)\}_{u\in\R^d}$ be a stationary $H$ valued field with mean zero and spectral measure $\mu_{jk}$. Then there exists a unique $H$ valued generalized field $dZ$ over $L^2(\R^d\to \C,dF)$ such that,
 	\begin{equation}\label{spectral representation2}
@@ -423,7 +423,7 @@ The analog of the spectral theorem (Theorem \ref{spectral theorem}) is also imme
 	\end{equation}
 \end{theorem}
 \begin{proof}
-	Since $X_j:=\br{X,e_j}$ are stationary we deduce from the spectral theorem for $\C$ valued stationary fields (Theorem \ref{spectral theorem}) that there exist $dZ_j$ verifying the properties of said theorem for $X_j$. Let us set
+	Since $X_j:=\br{X,e_j}$ are stationary we deduce from the spectral theorem for $\C$ valued stationary fields (\Cref{spectral theorem}) that there exist $dZ_j$ verifying the properties of said theorem for $X_j$. Let us set
 	\begin{equation*}
 		dZ(f):=\sum_{j\in J}dZ_j(f)e_j\quad\forall f\in L^2(\R^d\to\C).
 	\end{equation*}
@@ -435,7 +435,7 @@ The analog of the spectral theorem (Theorem \ref{spectral theorem}) is also imme
 	\begin{equation*}
 		\E[\br{dZ(f),{dZ(g)}}]=\sum_{j\in J}\E[dZ_j(f)\overline{dZ_j(g)}]=\sum_{j\in J}\int_{\R^d}f\overline{g} d\mu_{jj}=\int_{\R^d}f\overline{g} d\nu.
 	\end{equation*}
-	Where $\nu$ is well-defined since, as was observed at the end of Theorem \ref{bochner 3d}, $\mu_{jj}$ are real measures (as opposed to complex).
+	Where $\nu$ is well-defined since, as was observed at the end of \Cref{bochner 3d}, $\mu_{jj}$ are real measures (as opposed to complex).
 \end{proof}
 We conclude this subsection by observing that the spectral theory may also be extended to cases where $\{X(u)\}_{u\in G}$ is a field over some group $(G,+)$. The following discussion is based on \cite{adler2007random} pages 119 and \cite{yaglom1961second}. \\
 \\
@@ -520,7 +520,7 @@ We encode this in the result below.
 	\begin{multline*}
 		\int_{\R^d} h(v)X(u-v) dv= \int_{\R^d} \qty(h(v)\int_{\R^d} e^{i\omega (u-v)}dZ(\omega)) dv\\=\int_{\R^d}\qty(\int_{\R^d} h(v)e^{-i\omega v}dv) e^{i\omega\cdot u}dZ(\omega)=(2\pi)^d\Ff_{\hat{h}}(X).
 	\end{multline*}
-	Where in the above we used the stochastic Fubini theorem (Proposition \ref{stochastic Fbini}). The second part of the proposition follows from Fourier inversion. We have that $\hat{\check{g}}=g$ so
+	Where in the above we used the stochastic Fubini theorem (\Cref{stochastic Fbini}). The second part of the proposition follows from Fourier inversion. We have that $\hat{\check{g}}=g$ so
 	\begin{equation*}
 		\mathcal{F}_g=\mathcal{F}_{\hat{\check{g}}}=\frac{1}{(2\pi)^d}\int_{\R^d} \check{g}(v)X(u-v) dv.
 	\end{equation*}
@@ -622,7 +622,7 @@ What does all this have to do with linear filters? Well, as in calculus, we have
 	\end{equation*}
 	if and only if $r_{jj}$ are $2\abs{\alpha}$ times differentiable, if and only if $\omega^\alpha$ is in\\ $L^2(\R^d\to\C, dF_{jj})$. Where the above is for $j=1,...,n$.
 \end{observation}
-The just proved Theorem \ref{diff fields theorem} shows that, if the derivative of a stationary field exists, it is indeed given as the output of a linear filter $\Ff_g$ where in this case $g(\omega)=(i\omega)^\alpha$. In particular, we have that by the previous results on linear filters, the derivative of a stationary field is itself stationary. Furthermore, as a simple consequence, we obtain the following corollary,
+The just proved \Cref{diff fields theorem} shows that, if the derivative of a stationary field exists, it is indeed given as the output of a linear filter $\Ff_g$ where in this case $g(\omega)=(i\omega)^\alpha$. In particular, we have that by the previous results on linear filters, the derivative of a stationary field is itself stationary. Furthermore, as a simple consequence, we obtain the following corollary,
 which gives the spectral density of the derivative.
 \begin{corollary}\label{density of derivative}
 	Given a stationary field $X:\R^d\to\C$ with spectral density $S(\omega)$
@@ -688,7 +688,7 @@ Thus, we obtain a convolution of the form studied previously. Where now $\mathbf
 	\end{equation*}
 	Where $h(s)=\qty(e^{sA})_{1,p}1_{[0,\infty)}(s)$.\\
 	\
-	Finally, the formula \eqref{spectrd ODE} for the spectral density of $X$ follows from Corollary \ref{density of derivative}, where we calculated the spectrum of the derivative of a field.\\
+	Finally, the formula \eqref{spectrd ODE} for the spectral density of $X$ follows from \Cref{density of derivative}, where we calculated the spectrum of the derivative of a field.\\
 \end{proof}
 \subsubsection{Stochastic differential equations}
 An analogous idea holds for SDEs, given an SDE of the form
@@ -797,7 +797,7 @@ That is $P$ is a polynomial and by applying the previous theorem we obtain that 
 \begin{equation*}
 	S=\frac{1}{|\sum_{\alpha\in B}\lambda_\alpha(i\omega)^\alpha|^2}.
 \end{equation*}
-Thus, we see that in this case, $P$ as in Theorem \ref{spde theorem} is a polynomial. We will call $P$ the polynomial associated to the operator $\mathcal{L}$.
+Thus, we see that in this case, $P$ as in \Cref{spde theorem} is a polynomial. We will call $P$ the polynomial associated to the operator $\mathcal{L}$.
 \subsection{Simulations}\label{simulations section}
 In this subsection, we look at how the previous theoretical results can be used to extract fields with some desired properties. We aim to calculate their spectral densities, covariance functions, and simulate from them.\\
 \\
@@ -834,7 +834,7 @@ Where $\lambda_1\in\R\setminus\{0\}$ is fixed. Finally, we will also consider a 
 	P_T(\omega):=\norm{\omega-v}^2\norm{\omega+v}^2+\lambda_2.
 \end{equation*}
 Where $\lambda_2\in\R\setminus\{0\}$.
-By Theorem \ref{spde theorem}, the operator associated is
+By \Cref{spde theorem}, the operator associated is
 \begin{equation}\label{two peaks}
 	\mathcal{L}_T=(-\Delta+\|v\|^2)^2+4\nabla\cdot vv^T\nabla+\lambda_2
 \end{equation}
@@ -846,13 +846,13 @@ We will also consider
 \begin{equation}\label{omk}
 	\omega_k:=\frac{2\pi k}{hn},\quad k\in \Ck_0:=\qty[\frac{n}{2},\frac{n}{2}-1]\cap \Z^d
 \end{equation}
-By Theorem \ref{spde theorem} and Bochner's theorem, we know that, for $i\in \{M,S,T\}$
+By \Cref{spde theorem} and Bochner's theorem, we know that, for $i\in \{M,S,T\}$
 \begin{equation*}
 	S_i=\frac{2\pi}{P^2},\quad r_i=\hat{S_i}.
 \end{equation*}
 Thus, we need no numerical approximation to obtain $S_i$. To obtain, $r_i$ however, we need to approximate the Fourier integral over a grid. Doing so naively using Riemann sums has a cost $O(N^2)$. Thus, we will use a fast Fourier transform algorithm. This uses the discrete Fourier transform to reduce the order of complexity to $O(Nlog(N))$.\\
 \\
-Finally, we wish to simulate from the three fields $X_M,X_S,X_T$. To do so, we will use the spectral process of Theorem \ref{spectral theorem} (\red{Make sure your field has mean zero otherwise see Observation \ref{obs 1}}). Let us write $X$ for any one of these fields we have that, by this theorem
+Finally, we wish to simulate from the three fields $X_M,X_S,X_T$. To do so, we will use the spectral process of \Cref{spectral theorem} (\red{Make sure your field has mean zero otherwise see Observation \ref{obs 1}}). Let us write $X$ for any one of these fields we have that, by this theorem
 \begin{equation}\label{xsim}
 	X(u)=\int_{\R^d}e^{i\omega\cdot u} dZ(\omega).
 \end{equation}
@@ -1062,7 +1062,7 @@ Given any topological vector space $(V,\Bb(V),\mu )$ whose measure allows for th
 \begin{equation*}
 	C_\mu (\ell ,h):=\int_{V}\ell (v) \overline{h(v)}\mu (dv)-\int_{V}\ell (v) \mu (dv)\overline{\int_{V}h(v)\mu (dv)}.
 \end{equation*}
-We call this the \emph{covariance kernel} associated with $\mu $. By setting $S=V'$ we may apply the previous Proposition \ref{existence reproducing kernel}
+We call this the \emph{covariance kernel} associated with $\mu $. By setting $S=V'$ we may apply the previous \Cref{existence reproducing kernel}
 to deduce that there exists a Hilbert space $H_\mu $ whose reproducing kernel is $C_\mu $. We call this space the \emph{reproducing kernel Hilbert space of $\mu $}. If $\mu $ is the distribution of some $V$ valued random variable $X$ then we also say that $H_\mu $ is the  \emph{reproducing kernel Hilbert space of $X$}.\\
 \\
 Alternatively, we can also view  $C_\mu $ as a function from $V'\to \tilde{V'}'$. Where given a vector space $E$ we denote the space of antilinear maps by   $\tilde{E}'$ In the case where $V$ is a Hilbert space $H$ we can identify $H$ with both $H'$ and $\tilde{H'}'$. Through these identifications we deduce for each $h\in H$ the existence of  some $h_\mu \in H$ such that
@@ -1205,9 +1205,9 @@ Let us write $\mathcal{K}(X,Y)$ for the space of relatively compact linear opera
 	Let $T:X\to Y$ with $Y$ complete. Then if $T_n$ are compact operators converging in $\mathcal{L}(X\to Y)$ to $T$ we have that $T$ is relatively compact.
 \end{proposition}
 \begin{proof}
-	This follows from the fact that in complete normed spaces compactness is equivalent to total boundedness. So if we cover $T_N(A)$ by $B(y_n,\epsilon/2)$ then for large $N$ and $x\in A$
+	This follows from the fact that in complete normed spaces compactness is equivalent to total boundedness. So if we cover $T_N(A)$ by $B(y_n,\varepsilon/2)$ then for large $N$ and $x\in A$
 	\begin{equation*}
-		\norm{T(x)-y_n}\leq \norm{T-T_N}\norm{x}-\norm{T_N(x)-y_n}<\epsilon
+		\norm{T(x)-y_n}\leq \norm{T-T_N}\norm{x}-\norm{T_N(x)-y_n}<\varepsilon
 	\end{equation*}
 \end{proof}
 \begin{proposition}
@@ -1425,7 +1425,7 @@ Though in infinite dimension this definition could depend on the basis it will n
 \end{proposition}
 \begin{proof}
 	By definition of $mathcal{L}_1^+(U)$ we have that $Q$ is self-adjoint and compact (as it is nuclear).
-	As a result we may apply the Hilbert Schmidt theorem \ref{Hilber-Schmidt} to obtain that
+	As a result we may apply the Hilbert Schmidt \Cref{Hilber-Schmidt} to obtain that
 	\begin{equation*}
 		Q x=\sum_{k\in\N}\lambda_{k} \br{x,e_{k}}.
 	\end{equation*}

@@ -95,6 +95,7 @@ format:
               qp: ["\\left(#1\\right)", 1],
               qt: ["\\left(#1\\right)", 1],
               red: ["{\\color{red}#1}", 1],
+              restr: ["\\left.#1\\right|{#2}", 2],
               rm: ["\\mathrm{#1}", 1],
               set: ["\\left\\{#1\\right\\}", 1],
               star: "*",
@@ -356,7 +357,7 @@ $$
 D \varphi(X) = \lim_{n \to \infty} D [\varphi_n(X_n)] = \lim_{n \to \infty} (\nabla \varphi_n)(X_n)\cdot DX_n = (\nabla \varphi)(X)\cdot DX \in L^q(\Omega\to L^2(I)).
 $$
 
-The final equality holds due to the identical bound established in @eq-in2 and the convergence of $X_n,\varphi_n$ to $X,\varphi$ respectively.
+The final equality holds due to the identical bound established in ([-@eq-in2]) and the convergence of $X_n,\varphi_n$ to $X,\varphi$ respectively.
 
 :::
 

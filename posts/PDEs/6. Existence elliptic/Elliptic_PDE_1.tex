@@ -98,9 +98,9 @@ For more details on why we denote the dual using negative exponents, see the \hr
     \end{align*}
     So, $\Ll u \in H^{-1}(U)$ is well defined and $\Ll $ is bounded. Extend by density to $H_0^1(U)$.
 \end{hint}
-Exercise \ref{domain L} allows us to define the weak formulation of \eqref{PDE} and study its well-posedness using Lax Milgram's theorem. We will do this in the next section.
+\Cref{domain L} allows us to define the weak formulation of \eqref{PDE} and study its well-posedness using Lax Milgram's theorem. We will do this in the next section.
 \section{Weak solutions and well-posedness}
-By Exercise \ref{domain L}, we can make sense of the equation $\Ll u =f$ for all $f \in H^{-1}(U)$.
+By \Cref{domain L}, we can make sense of the equation $\Ll u =f$ for all $f \in H^{-1}(U)$.
 \begin{definition}[Weak formulation]
     Given $f \in H^{-1}(U)$, we say that $u~\in~H_0^1(U)$ solves equation \eqref{PDE} if
     \begin{align}\label{weak def}
@@ -116,20 +116,20 @@ In \eqref{weak def} we used the ``duality notation'' $(v,f):= f(v)$ for $f \in X
     If $U$ is bounded, the above also holds for $c\geq 0$.
 \end{theorem}
 \begin{proof}
-    The continuity of $B$ is a consequence of Exercise \ref{domain L}. It remains to see that $B$ is coercive. For smooth $u \in C_c^\infty(U)$ we have that
+    The continuity of $B$ is a consequence of \Cref{domain L}. It remains to see that $B$ is coercive. For smooth $u \in C_c^\infty(U)$ we have that
     \begin{align}\label{b=0}
         B(u,u) & = \int_{U}\bm{A} \nabla u \cdot \nabla u + \int_{U} cu^2 \geq \alpha \norm{\nabla u}^2_{L^2(U \to \R^d)} + \int_{U}c u^2 \gtrsim \norm{u}^2_{H^1_0(U)}.
     \end{align}
     Where in the first inequality, we used the ellipticity assumption on $\bm{A}$, and in the last inequality, we used \href{https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=in%20future%20posts-,Theorem,-14%20(Poincar%C3%A9%20inequality}{Poincaré's inequality} if $U$ is bounded. The result now follows from \href{https://nowheredifferentiable.com/2023-05-30-PDE-2-Hilbert/#:~:text=an%20inner%20product.-,Theorem,-7%20(Lax%20Milgram}{Lax Milgram's theorem}.
 \end{proof}
-Theorem \ref{well-posed 1} is an example of the advantages of working with a weak formulation instead of solutions differentiable in a classical sense. The weak formulation allows us not only to make sense of our equation \eqref{PDE} for a wider class of coefficients but also provides a natural framework to study the well-posedness of \eqref{PDE}.
+\Cref{well-posed 1} is an example of the advantages of working with a weak formulation instead of solutions differentiable in a classical sense. The weak formulation allows us not only to make sense of our equation \eqref{PDE} for a wider class of coefficients but also provides a natural framework to study the well-posedness of \eqref{PDE}.
 \begin{exercise}
-    Show that, under the conditions of Theorem \ref{well-posed 1}, if $U$ is bounded, there is a countable basis of eigenfunctions for $\Ll$.
+    Show that, under the conditions of \Cref{well-posed 1}, if $U$ is bounded, there is a countable basis of eigenfunctions for $\Ll$.
 \end{exercise}
 \begin{hint}
     By \href{https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=Theorem%2014%20(-,Rellich,-for%20trace%200}{Rellich's theorem} $\Ll^{-1}: L^2(U) \to L^2(U) $ is compact and, since $\bm{b}$ is $0$, $\Ll $ is also is self adjoint. As a result, so there is a countable basis of eigenvectors in $L^2(U)$.
 \end{hint}
-In Theorem \ref{well-posed 1}, we somewhat unsatisfyingly had to impose the extra assumption that $ \bm{b}$ was identically zero and that $c > 0$. These extra assumptions can be done away with but at the cost of modifying our initial problem by a correction term $\gamma $ so we can obtain a coercive operator $B_\gamma $.
+In \Cref{well-posed 1}, we somewhat unsatisfyingly had to impose the extra assumption that $ \bm{b}$ was identically zero and that $c > 0$. These extra assumptions can be done away with but at the cost of modifying our initial problem by a correction term $\gamma $ so we can obtain a coercive operator $B_\gamma $.
 \begin{theorem}[Modified problem]\label{mod}
     Let $U \subset \R^d$ be any open set and let Assumption \ref{Ass1} hold. Then, there exists some constant $\nu \geq 0$ (depending on the coefficients) such that for all $\gamma \geq \nu$ the operator $\Ll_\gamma := \Ll + \gamma \bm{I}$ is positive definite and defines a homeomorphism
     \begin{align*}
@@ -165,7 +165,7 @@ That is, the problem $\Ll u +\gamma u =f$ is well-posed for all $\gamma > \nu$.
 \subsection{Fredholm alternative}
 We now analyze further what we can say about the well-posedness of \eqref{PDE}. What has to happen for the equation to be ill-posed? If there are multiple solutions, what does the space of solutions look like? As we will see, this is intimately linked to the spectrum of the operator $\Ll$ and the Fredholm alternative will provide the answers we are looking for,
 
-We begin by considering $\Ll u =\lambda u+f$, which is a small generalization of our original problem \eqref{PDE}. We take $\gamma > \abs{\lambda }$ large enough as in Theorem \ref{mod} and note that
+We begin by considering $\Ll u =\lambda u+f$, which is a small generalization of our original problem \eqref{PDE}. We take $\gamma > \abs{\lambda }$ large enough as in \Cref{mod} and note that
 \begin{align}\label{above}
     \Ll u = \lambda u + f \iff \Ll_\gamma u =(\gamma+\lambda)u +f.
 \end{align}
@@ -177,7 +177,7 @@ where $\bm{I}$ is the identity operator. Suppose now that $U$ is bounded, then, 
 \begin{align*}
     i: H^1(U) \hookrightarrow L^2(U).
 \end{align*}
-As a result, by Theorem \ref{well-posed 1}, we deduce that $\Ll_\gamma^{-1}: L^2(U) \to L^2(U)$, which we are now viewing as an operator on $L^2(U)$, is compact. More precisely,
+As a result, by \Cref{well-posed 1}, we deduce that $\Ll_\gamma^{-1}: L^2(U) \to L^2(U)$, which we are now viewing as an operator on $L^2(U)$, is compact. More precisely,
 \begin{align*}
     K:= i \circ \restr{\Ll_\gamma ^{-1}}{L^2(U)}
 \end{align*}
@@ -221,13 +221,13 @@ Equation \eqref{reasoning} is exactly the form the \href{https://nowheredifferen
     \begin{align*}
         u =Kv.
     \end{align*}
-    By Theorem \ref{well-posed 1} we know that $Kv = \Ll _\gamma ^{-1} v \in H_0^1(U)$ for all $v \in L^2(U)$ . As a result, $u$ solves problem \eqref{original}, and by the transformation $v \leftrightarrow u$ problem \eqref{fred} has a solution if and only if problem \eqref{original} has a solution. Taking $f=0$, we also obtain that $u$ solves problem \eqref{originalh} if and only $v$ solves problem \eqref{fredh}. In conclusion,
+    By \Cref{well-posed 1} we know that $Kv = \Ll _\gamma ^{-1} v \in H_0^1(U)$ for all $v \in L^2(U)$ . As a result, $u$ solves problem \eqref{original}, and by the transformation $v \leftrightarrow u$ problem \eqref{fred} has a solution if and only if problem \eqref{original} has a solution. Taking $f=0$, we also obtain that $u$ solves problem \eqref{originalh} if and only $v$ solves problem \eqref{fredh}. In conclusion,
     \begin{align*}
         \eqref{original} \text{ is } \rm{w.p} \iff \eqref{fred} \text{ is } \rm{w.p} \iff \ker(T) =0 \iff \ker(\Ll -\lambda \bm{I} )=0,
     \end{align*}
     where the second equivalence is due to the Fredholm alternative, and the third can be verified by an algebraic manipulation. This proves the first point.
 
-    To see the second point, note that, by definition of $T$, equation \eqref{fredh} has non-zero solutions if and only if $\mu ^{-1} \in \sigma (K)$. Since $K$ is compact, $\sigma(K)$ is discrete and if $\sigma (K)$ is infinite, then its eigenvalues, which we denote by $\left\{\mu _n^{-1}\right\}_{n=1}^\infty$, go to $0$. Furthermore, since by Theorem \ref{mod} $K$ is positive definite, $\mu_n >0$ and the claim follows by the correspondence $\lambda_n =\mu_n -\gamma$.
+    To see the second point, note that, by definition of $T$, equation \eqref{fredh} has non-zero solutions if and only if $\mu ^{-1} \in \sigma (K)$. Since $K$ is compact, $\sigma(K)$ is discrete and if $\sigma (K)$ is infinite, then its eigenvalues, which we denote by $\left\{\mu _n^{-1}\right\}_{n=1}^\infty$, go to $0$. Furthermore, since by \Cref{mod} $K$ is positive definite, $\mu_n >0$ and the claim follows by the correspondence $\lambda_n =\mu_n -\gamma$.
 
     For the third and fourth points, we use that, as we have already proved, $\ker(T)=N$. Additionally,
     \begin{align*}
@@ -239,7 +239,7 @@ Equation \eqref{reasoning} is exactly the form the \href{https://nowheredifferen
     \end{align*}
     Applying the Fredholm alternative concludes the proof.
 \end{proof}
-Setting $\lambda =0$ in Theorem \ref{well-posedness Fredholm}, we recover our original problem and obtain the following corollary.
+Setting $\lambda =0$ in \Cref{well-posedness Fredholm}, we recover our original problem and obtain the following corollary.
 \begin{corollary}
     Equation \eqref{PDE} is well-posed unless the homogeneous problem $\Ll u=0$ has a non-zero solution (that is, $\ker(\Ll )\neq 0$). The space of solutions then has dimension $\ker(\Ll) $, which is also equal to the dimension of $\ker(\Ll ^*)$. Finally, \eqref{PDE} will have a solution if and only if $f$ is orthogonal to the kernel of $\Ll^*$.
 \end{corollary}
@@ -247,25 +247,25 @@ In particular, to study the \emph{existence} of solutions to \eqref{PDE}, it is 
 
 
 \begin{exercise}
-    In Theorem \ref{well-posedness Fredholm} we used that, for $\gamma $ large enough, $K= \Ll_{\gamma }^{-1} $ is compact. However, $\Ll_{\gamma }^{-1}$ is invertible with inverse $\Ll _\gamma $. As a result $\bm{I}=\Ll _\gamma \circ \Ll _\gamma ^{-1}$ is compact. How is this possible?
+    In \Cref{well-posedness Fredholm} we used that, for $\gamma $ large enough, $K= \Ll_{\gamma }^{-1} $ is compact. However, $\Ll_{\gamma }^{-1}$ is invertible with inverse $\Ll _\gamma $. As a result $\bm{I}=\Ll _\gamma \circ \Ll _\gamma ^{-1}$ is compact. How is this possible?
 \end{exercise}
 \begin{hint}
     In fact, $\Ll_\gamma^{-1} $ is only invertible as an operator from $H^{-1}(U) \to H^1_0(U)$. However, it is not invertible as an operator from $K: L^2(U) \to L^2(U)$. Given $f \in L^2(U)$, it is not generally possible to find an $u \in L^2(U)$ such that $\Ll_\gamma u =f$.
 \end{hint}
 \begin{exercise}
-    Where does the proof of Theorem \ref{well-posedness Fredholm} break down if we replace $U$ with $\R^d$?
+    Where does the proof of \Cref{well-posedness Fredholm} break down if we replace $U$ with $\R^d$?
 \end{exercise}
 \begin{hint}
     Can you apply  \href{https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=Theorem%2014%20(-,Rellich,-for%20trace%200}{Rellich's theorem} to unbounded domains? What is the spectrum of the Laplacian on $\R^d$?
 \end{hint}
 \begin{exercise}
-    Show using Theorem \ref{well-posedness Fredholm} that equation \eqref{fred} (the generalization of \eqref{PDE}) is well-posed saved for at most a discrete set of $\lambda$.
+    Show using \Cref{well-posedness Fredholm} that equation \eqref{fred} (the generalization of \eqref{PDE}) is well-posed saved for at most a discrete set of $\lambda$.
 \end{exercise}
 \begin{hint}
-    Combine the first and second points of Theorem \ref{well-posedness Fredholm}.
+    Combine the first and second points of \Cref{well-posedness Fredholm}.
 \end{hint}
 \begin{exercise}
-    Show the necessity of point 4 in Theorem \ref{well-posedness Fredholm} using only linear algebra.
+    Show the necessity of point 4 in \Cref{well-posedness Fredholm} using only linear algebra.
 \end{exercise}
 \begin{hint}
     Suppose $\Ll u = \lambda u+f$ and $w \in N^*$. Then,
@@ -320,10 +320,10 @@ The result can be extended to arbitrary open subsets $U \subset \R^d$. In this c
     \end{enumerate}
 \end{lemma}
 \begin{exercise}
-    Prove Lemma \ref{difference quotients 2}.
+    Prove \Cref{difference quotients 2}.
 \end{exercise}
 \begin{hint}
-    Adapt the proof of Lemma \ref{difference quotients 1}. Take $\varphi \in C_c^\infty(V)$ for the first point. For the second point, use the \href{https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=drawings%20is%20recommended.-,Theorem%203,-(Local%20approximation%20by}{local density} of smooth functions in $W^{1,p}(U)$.
+    Adapt the proof of \Cref{difference quotients 1}. Take $\varphi \in C_c^\infty(V)$ for the first point. For the second point, use the \href{https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=drawings%20is%20recommended.-,Theorem%203,-(Local%20approximation%20by}{local density} of smooth functions in $W^{1,p}(U)$.
 \end{hint}
 
 \subsection{Regularity on $\R^d$ }
@@ -339,7 +339,7 @@ By using second-order finite difference, we now show that the solution to \eqref
     \begin{align*}
         v:= -D_j^{-h} D_j^h u = \frac{u(x+he_k)-2u(x)+u(x-he_k)}{h^2}.
     \end{align*}
-    Since $v \in H^1(U)$, we can substitute $v$ into the weak formulation \eqref{weak def}, do a discrete integration by parts and use Cauchy's inequality to show that $\norm{D_j^h \nabla u}_{L^2(\R^d)}$ is bounded. Using Lemma \ref{difference quotients 1}, we will then conclude that $u \in H^{2}(\R^d)$ and finish off the proof. We now put this plan into action. From \eqref{weak def}, we have that
+    Since $v \in H^1(U)$, we can substitute $v$ into the weak formulation \eqref{weak def}, do a discrete integration by parts and use Cauchy's inequality to show that $\norm{D_j^h \nabla u}_{L^2(\R^d)}$ is bounded. Using \Cref{difference quotients 1}, we will then conclude that $u \in H^{2}(\R^d)$ and finish off the proof. We now put this plan into action. From \eqref{weak def}, we have that
     \begin{align}\label{start}
         \int_{\R^d} \bm{A} \nabla u \cdot \nabla v =\int_{\R^d} (f- \bm{b} \cdot \nabla u -cu)v.
     \end{align}
@@ -355,7 +355,7 @@ By using second-order finite difference, we now show that the solution to \eqref
     \begin{align}\label{second}
         \int_{\R^d} \bm{A} \nabla u \cdot \nabla v \geq \frac{2\alpha}{3} \norm{D_j^h \nabla u}_{L^2(\R^d)}^2-\frac{3C}{\alpha}\norm{\nabla u}_{L^2(\R^d)}^2.
     \end{align}
-    We now estimate the right-hand side of \eqref{start}. We have that, by Cauchy's inequality and the second point of Lemma \ref{difference quotients 1},
+    We now estimate the right-hand side of \eqref{start}. We have that, by Cauchy's inequality and the second point of \Cref{difference quotients 1},
     \begin{align*}
         \int_{\R^d} (f- \bm{b} \cdot \nabla u -cu)v \leq \frac{C}{\varepsilon }\left(\norm{f}^2_{L^2(\R^d)}+ \norm{\nabla u}^2_{L^2(\R^d)}+\norm{u}^2_{L^2(\R^d)}\right)+\varepsilon \norm{D_j^h \nabla u}_{L^2(\R^d)}^2.
     \end{align*}
@@ -375,7 +375,7 @@ By using second-order finite difference, we now show that the solution to \eqref
     \begin{align*}
         \norm{D_j^h \nabla u}_{L^2(\R^d)}^2 \lesssim_{\bm{A},\bm{b},c} \norm{f}^2_{L^2(\R^d)}+ \norm{ u}^2_{L^2(\R^d)}.
     \end{align*}
-    Applying the first point of Lemma \ref{difference quotients 1} and taking square roots concludes the proof.
+    Applying the first point of \Cref{difference quotients 1} and taking square roots concludes the proof.
 \end{proof}
 
 By induction, we can obtain higher-order regularity. For notational convenience, we write
@@ -394,7 +394,7 @@ This space corresponds to functions that are $k$ times weakly differentiable wit
     \end{align*}
 \end{theorem}
 \begin{proof}
-    The theorem holds for $k=0$ by Theorem \ref{improved reg Rd}.
+    The theorem holds for $k=0$ by \Cref{improved reg Rd}.
     Suppose by hypothesis of induction that the theorem holds up to order $k$. Let
     \begin{align}\label{coefficients k1}
         A_{ij} \in C^{1}(\R^d)\cap X^{k+2}, \quad b_i,c \in X^{k+1}, \quad f \in H^{k+1}(\R^d).
@@ -415,7 +415,7 @@ This space corresponds to functions that are $k$ times weakly differentiable wit
     \begin{align}\label{Hkr}
         \|{\tl{f}}\|_{L^2(\R^d)} \lesssim_{\bm{A},\bm{b},c} \norm{f}_{H^{k+1}(\R^d)}+\norm{u}_{L^2(\R^d)}.
     \end{align}
-    By equation \eqref{weak solk}, $\tl{u}$ is a solution to $\Ll \tl{u}= \tl{f}  $  and applying the case $k=0$ (Theorem \ref{improved reg Rd}) together with \eqref{hi}  and \eqref{Hkr} shows that $\tl{u} \in H^{2}(\R^d)$ with
+    By equation \eqref{weak solk}, $\tl{u}$ is a solution to $\Ll \tl{u}= \tl{f}  $  and applying the case $k=0$ (\Cref{improved reg Rd}) together with \eqref{hi}  and \eqref{Hkr} shows that $\tl{u} \in H^{2}(\R^d)$ with
     \begin{align*}
         \norm{\tl{u}}_{H^{2}(\R^d)} \lesssim_{\bm{A},\bm{b},c} \|\tilde{f}\|_{L^2(\R^d)}+\norm{\tl{u}}_{L^2(\R^d)} \lesssim_{\bm{A},\bm{b},c} \norm{f}_{H^{k+1}(\R^d)}+\norm{u}_{L^2(\R^d)}.
     \end{align*}
@@ -430,7 +430,7 @@ Iterating the above theorem, we obtain that if the coefficients of $\Ll$ are smo
     Let $A_{ij}, b_i,c \in C^{\infty}(\R^d)$ with $\bm{A}$ elliptic. Then, if $u \in H^1(U)$ solves $\Ll u=f$, it holds that $u \in C^\infty(\R^d)$
 \end{theorem}
 \begin{proof}
-    By Theorem \ref{higher regularity 2}, we have that $u \in H^k(\R^d)$ for all $k \in \N$. By \href{https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=three%20results%20gives-,Theorem%2013,-(Rellich%2DKondrachov}{Sobolev embeddings} we deduce that $u \in C^\infty(\R^d)$.
+    By \Cref{higher regularity 2}, we have that $u \in H^k(\R^d)$ for all $k \in \N$. By \href{https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=three%20results%20gives-,Theorem%2013,-(Rellich%2DKondrachov}{Sobolev embeddings} we deduce that $u \in C^\infty(\R^d)$.
 \end{proof}
 
 
@@ -442,7 +442,7 @@ At first sight, it may seem as if the above results can be extended to solutions
     \begin{align}\label{extension}
         \tl{\Ll} \tl{u} := -\nabla \cdot (\tl{A} \nabla \tl{u})+ \tl{b} \cdot \nabla \tl{u} + \tl{c} \tl{u} =\tl{f} .
     \end{align}
-    As a result by Theorem \ref{improved reg Rd} it holds that $\tl{u} \in H^2(\R^d)$ with
+    As a result by \Cref{improved reg Rd} it holds that $\tl{u} \in H^2(\R^d)$ with
     \begin{align*}
         \norm{u}_{H^2(U)}=  \norm{\tl{u} }_{H^2(\R^d)} \lesssim_{\bm{A},\bm{b},c} \norm{f}_{L^2(\R^d)}+\norm{u}_{L^2(\R^d)}.
     \end{align*}
@@ -469,7 +469,7 @@ At first sight, it may seem as if the above results can be extended to solutions
 \end{hint}
 
 \subsection{Interior regularity}
-We have just seen that a direct generalization of Theorem \ref{improved reg Rd} to unbounded domains is not possible using an extension by zero. However, by adapting the proof of Theorem \ref{improved reg Rd}, one can prove the analogous result.
+We have just seen that a direct generalization of \Cref{improved reg Rd} to unbounded domains is not possible using an extension by zero. However, by adapting the proof of \Cref{improved reg Rd}, one can prove the analogous result.
 
 In this case, however, one has to be careful as the difference quotients may not be well defined at the boundary. As a result, it is necessary to work locally and use a \href{https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=22.%20A-,bump%20function,-(also%20called%20cutoff}{bump function}. This makes the proofs a bit messier, though the idea is the same. We sketch the proof, which can also be found in \cite{evans2022partial} page 326
 \begin{theorem}[Improved interior regularity]\label{higher regularity}
@@ -484,11 +484,11 @@ Note that we do not require $u$ to be in $H^1_0(U)$.
     \begin{align}\label{difference bounded}
         v = - D_j^h \eta^2 D_j^h u \in H^2(V),\quad  j=1,\ldots,d.
     \end{align}
-    Proceeding as in the proof of Theorem \ref{improved reg Rd}, we obtain that
+    Proceeding as in the proof of \Cref{improved reg Rd}, we obtain that
     \begin{align*}
         \int_V\left|D_j^h \nabla u\right|^2 d x \leq \int_U \eta^2\left|D_j^h \nabla u\right|^2 d x \lesssim C \int_U f^2+u^2+|\nabla u|^2.
     \end{align*}
-    Applying the first point of Lemma \ref{difference quotients 2} we obtain that $u \in H^2_{\mathrm{loc}}(U)$ with
+    Applying the first point of \Cref{difference quotients 2} we obtain that $u \in H^2_{\mathrm{loc}}(U)$ with
     \begin{align}\label{H2loc}
         \norm{u}_{H^2 _{\mathrm{loc}} (U)} \lesssim_{\bm{A},\bm{b},c} \norm{f}_{L^2(U)}+\norm{u}_{H^1(U)}.
     \end{align}
@@ -514,10 +514,10 @@ In the case that $U$ is bounded then $X^k(U)=W^{k,\infty}(U)$.
     \end{align*}
 \end{theorem}
 \begin{exercise}
-    Prove Theorem \ref{higher regularity 2}.
+    Prove \Cref{higher regularity 2}.
 \end{exercise}
 \begin{hint}
-    The theorem holds for $k=0$ by Theorem \ref{higher regularity}.
+    The theorem holds for $k=0$ by \Cref{higher regularity}.
     Suppose by hypothesis of induction that the theorem holds up to order $k$. Let
     \begin{align}\label{coefficients k12}
         A_{ij} \in C^{1}(\overline{U} )\cap X^{k+2}(U), \quad b_i,c \in X^{k+1}(U), \quad f \in H^{k+1}(U).
@@ -558,7 +558,7 @@ Using Sobolev embeddings we obtain once more infinite regularity for smooth coef
     Let $A_{ij}, b_i,c \in C^{\infty}(\overline{U} )$ with $\bm{A}$ elliptic. Then, if $u \in H^1(U)$ solves $\Ll u=f$, it holds that $u \in C _{\mathrm{loc}}^\infty(U)$.
 \end{theorem}
 \begin{proof}
-    By Theorem \ref{higher regularity 2}, we have that $u \in H^k(U)$ for all $k \in \N$. By Sobolev embeddings we have that $u \in C^\infty_{\mathrm{loc}}(U)$.
+    By \Cref{higher regularity 2}, we have that $u \in H^k(U)$ for all $k \in \N$. By Sobolev embeddings we have that $u \in C^\infty_{\mathrm{loc}}(U)$.
 \end{proof}
 \subsection{Regularity at the boundary}
 Regularity at the boundary can also be obtained; however, in this case, it is necessary to impose the boundary condition $\restr{u}{\partial \Omega }=0$.  We can then work on bounded smooth domains $\Omega $  by reasoning first on $B(0,1) \cap \R^d_+$ and then using a finite covering of $\overline{\Omega } $ and a  change of coordinates to translate these results back to $\Omega$.
@@ -593,11 +593,11 @@ We summarize and sketch the proofs of the main results, which are analogous to t
     \begin{align*}
         \tl{v} := -D_j^h \eta^2 D_j^h \tl{u} \in H^2_0(\tl{\Omega }) \quad j=1,\ldots,d-1.
     \end{align*}
-    Here, the increments are only well defined for $j \neq d$. Proceeding as in the proof of Theorem \ref{higher regularity}, we obtain that, for $i,j=1,\ldots,d-1$,
+    Here, the increments are only well defined for $j \neq d$. Proceeding as in the proof of \Cref{higher regularity}, we obtain that, for $i,j=1,\ldots,d-1$,
     \begin{align}\label{not d bound}
         \norm{\partial_i \partial _j \tl{v}}_{L^2(\tl{V} )} \lesssim_{\bm{A}, \bm{b}, c} \|\tl{f}\|_{L^2(\tl{\Omega })}+\|\tl{u}\|_{L^2(\tl{\Omega })} \lesssim_{\bm{A}, \bm{b}, c, \varphi } \norm{f}_{L^2(\Omega)}+\norm{u}_{L^2(\Omega)}.
     \end{align}
-    Since $\tl{u} \in H^2_{\mathrm{loc}}(\tl{V} )$ by Theorem \ref{higher regularity}, we have that the equality $\tl{\Ll }\tl{u}=f  $ holds almost everywhere in $\tl{V} $. As a result,
+    Since $\tl{u} \in H^2_{\mathrm{loc}}(\tl{V} )$ by \Cref{higher regularity}, we have that the equality $\tl{\Ll }\tl{u}=f  $ holds almost everywhere in $\tl{V} $. As a result,
     \begin{align*}
         A_{dd} \partial_d\partial_d \tl{u}= \tl{F},
     \end{align*}
@@ -615,7 +615,7 @@ We summarize and sketch the proofs of the main results, which are analogous to t
     \begin{align*}
         \norm{u}_{H^2(V_{x_0})} \lesssim_{\bm{A},\bm{b},c, \varphi } \norm{f}_{L^2(\Omega)}+\norm{u}_{L^2(\Omega)}.
     \end{align*}
-    Since $\partial \Omega $ is compact, we can cover $\Omega $  with a finite number of such sets $V_{x_0}$ plus some open $W \Subset \Omega $. We conclude the proof by using the interior regularity result of Theorem \ref{higher regularity} to bound $\norm{u}_{H^2(W)}$.
+    Since $\partial \Omega $ is compact, we can cover $\Omega $  with a finite number of such sets $V_{x_0}$ plus some open $W \Subset \Omega $. We conclude the proof by using the interior regularity result of \Cref{higher regularity} to bound $\norm{u}_{H^2(W)}$.
 \end{proof}
 The following can now be proved by induction, just as in Theorems \ref{higher regularity} and \ref{higher regularity 2}.
 
@@ -659,8 +659,8 @@ The transformation $u \leftrightarrow w$ maintains regularity up to order $m$  f
     Let $\Omega $ be a bounded domain with $C^{0,1}$ boundary then
     \begin{enumerate}
         \item The non-homogeneous Dirichlet problem \eqref{PDE Dirichlet} is well-posed for $g \in H^{1/2}(\partial \Omega )$ if and only if the homogeneous problem \eqref{PDE} is well posed.
-        \item The Fredholm alternative (Theorem \ref{well-posedness Fredholm}) holds where we replace $H_0^1(\Omega )$ by the subspace of $H^1(\Omega )$ whose trace is equal to $g$.
-        \item If $g \in H^{k+3/2}(\partial \Omega )$, then $u \in H^{k+2}(\Omega )$ under the same conditions of Theorem \ref{higher regularity boundary} on $\Omega $ and the coefficients of $\Ll $.
+        \item The Fredholm alternative (\Cref{well-posedness Fredholm}) holds where we replace $H_0^1(\Omega )$ by the subspace of $H^1(\Omega )$ whose trace is equal to $g$.
+        \item If $g \in H^{k+3/2}(\partial \Omega )$, then $u \in H^{k+2}(\Omega )$ under the same conditions of \Cref{higher regularity boundary} on $\Omega $ and the coefficients of $\Ll $.
     \end{enumerate}
 \end{theorem}
 
@@ -682,7 +682,7 @@ For the weak form to be well defined we need for $f$ to be in the dual space $H^
     Let $\Omega $ be a bounded domain, $f \in H^{1}(\Omega )', g \in H^{-1/2}( \partial \Omega )$ and $\sigma \in L^\infty(\partial \Omega )$.
     \begin{enumerate}
         \item Let $\bm{b}=0$ and $c, \sigma  \geq 0$. Suppose both $c, \sigma $  are not identically zero. Then the Robin boundary condition problem \eqref{weak def Neumann} has a unique solution $u \in H^1(\Omega )$.
-        \item The well posedness of the modified problem $\Ll u + \lambda u=f$ and the Fredholm alternative of Theorem \ref{mod} and Theorem \ref{well-posedness Fredholm} hold swapping everywhere $H_0^1(U)$ with $H^1(\Omega )$ and $H^{-1}(\Omega )$ with $H^{1}(\Omega )'$.
+        \item The well posedness of the modified problem $\Ll u + \lambda u=f$ and the Fredholm alternative of \Cref{mod} and \Cref{well-posedness Fredholm} hold swapping everywhere $H_0^1(U)$ with $H^1(\Omega )$ and $H^{-1}(\Omega )$ with $H^{1}(\Omega )'$.
         \item Let $\partial \Omega \in C^{k+2}$. If $u$ solves \eqref{PDE Neumann} and
               \begin{align*}
                    & A_{ij} \in C^{1}(\Omega )\cap W^{k+1, \infty}(\Omega ), \quad b_i,c \in W^{k, \infty}(\Omega ), \quad \sigma \in W^{k+1, \infty}(\partial \Omega ) \\
@@ -699,7 +699,7 @@ For the weak form to be well defined we need for $f$ to be in the dual space $H^
 
     The second point is a repetition of what was already shown for the homogeneous Dirichlet problem, for large $\lambda $, the modified bilinear form $B_\lambda $ si coercive and the Fredholm alternative holds.
 
-    The third point can be seen by first repeating the proof of Theorem \ref{improved regularity boundary} where with the notation of this theorem, now $\tl{u} $ solves
+    The third point can be seen by first repeating the proof of \Cref{improved regularity boundary} where with the notation of this theorem, now $\tl{u} $ solves
     \begin{align*}
         \begin{cases}
             \Ll \tl{u} =\tl{f}                                             & \text{in } \tl{\Omega },            \\
@@ -714,7 +714,7 @@ For the weak form to be well defined we need for $f$ to be in the dual space $H^
     \begin{align*}
         \norm{u}_{H^{2}(V_{x_0} )} \lesssim \norm{u}_{H^2(\tl{V} )} \lesssim \norm{f}_{L^2(\Omega )}+\norm{g}_{H^{-1/2}(\partial \Omega )}+\norm{u}_{L^2(\Omega )}.
     \end{align*}
-    Using a covering of $\Omega $ gives $u \in H^2(\Omega )$ and the result follows by induction as in Theorem \ref{higher regularity boundary}.
+    Using a covering of $\Omega $ gives $u \in H^2(\Omega )$ and the result follows by induction as in \Cref{higher regularity boundary}.
 \end{proof}
 \subsubsection{The Dirichlet problem with Neumann boundary conditions}
 
@@ -742,7 +742,7 @@ Note carefully that $B$ is \emph{not} coercive on $H^1(\Omega )$ as \href{https:
     Furthermore, show that the solution is unique up to a constant on each connected component $\Omega_i $.
 \end{exercise}
 \begin{hint}
-    Apply the final point  of the Fredholm alternative (Theorem \ref{well-posedness Fredholm}) together with Exercise \ref{eigensapace}.
+    Apply the final point  of the Fredholm alternative (\Cref{well-posedness Fredholm}) together with \Cref{eigensapace}.
 \end{hint}
 
 \bibliography{biblio.bib}

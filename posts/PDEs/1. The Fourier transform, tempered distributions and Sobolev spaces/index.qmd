@@ -95,6 +95,7 @@ format:
               qp: ["\\left(#1\\right)", 1],
               qt: ["\\left(#1\\right)", 1],
               red: ["{\\color{red}#1}", 1],
+              restr: ["\\left.#1\\right|{#2}", 2],
               rm: ["\\mathrm{#1}", 1],
               set: ["\\left\\{#1\\right\\}", 1],
               star: "*",
@@ -624,7 +625,7 @@ $$
 \sum_{k\in\Z^d}\hat{f}(k)e^{2\pi ik\cdot x}
 $$ {#eq-fourier-sum}
 
-converges absolutely (and uniformly). Since by Plancherel's Theorem, the above sum also converges in $L^2(\T^d\to\C^m)$ to $f$ we deduce that @eq-fourier-sum converges almost everywhere to $f$ (for example by taking a subsequence of the above sum that converges almost everywhere to $f$). Therefore
+converges absolutely (and uniformly). Since by Plancherel's Theorem, the above sum also converges in $L^2(\T^d\to\C^m)$ to $f$ we deduce that ([-@eq-fourier-sum]) converges almost everywhere to $f$ (for example by taking a subsequence of the above sum that converges almost everywhere to $f$). Therefore
 \[\norm{f}_{L^\infty(\T^d\to\C^m)}=\norm{\sum_{k\in\Z^d}\hat{f}(k)e^{2\pi ik\cdot x}}_{L^\infty(\T^d\to\C^m)}\]
 which is
 \[\leq\sum_{k\in\Z^d}\norm{\hat{f}(k)e^{2\pi ik\cdot x}}_{L^\infty(\T^d\to\C^m)}=\sum_{k\in\Z^d}\abs{\hat{f}(k)}\lesssim_{d,s}\norm{f}_{H^s(\T^d\to\C^m)}.\]
@@ -652,9 +653,9 @@ By (@thm-sobolev-derivatives-embedding-periodic),
 we may apply the previous proposition to deduce that $D^\alpha f$ is continuous for all $\abs{\alpha}\leq k$. Therefore it suffices to show that for $\abs{\alpha}\leq k$ the distributional derivatives $D^\alpha f$ are also the classical derivatives of $f$ which we denote by $f_\alpha$.\bigbreak
 By the hypothesis placed on $f$, we have that the series
 \[\sum_{k\in\Z^d} (2\pi ik)^\alpha \hat{f}(k)e^{2\pi ik\cdot x} \]
-is absolutely convergent (by Lemma @thm-sobolevacseriesperiodic), and hence, we may commute the derivatives of $f$ with the sum in its Fourier series to deduce the point-wise equality
+is absolutely convergent (by @thm-sobolevacseriesperiodic), and hence, we may commute the derivatives of $f$ with the sum in its Fourier series to deduce the point-wise equality
 \[f_\alpha(x)=\sum_{k\in\Z^d} (2\pi ik)^\alpha \hat{f}(k)e^{2\pi ik\cdot x}.\]
-Now, note that by using @eq-derivativedistr for the Fourier coefficients of distributions we also have that the equality
+Now, note that by using ([-@eq-derivativedistr]) for the Fourier coefficients of distributions we also have that the equality
 \[D^\alpha f(x)=\sum_{k\in\Z^d} (2\pi ik)^\alpha \hat{f}(k)e^{2\pi ik\cdot x}\]
 holds in $L^2(\T^d\to\C^m)$. From these last two equalities, we deduce that $f_\alpha=D^\alpha f$ almost everywhere which concludes our proof.
 

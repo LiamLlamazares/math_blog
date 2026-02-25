@@ -820,18 +820,18 @@ $$\begin{aligned}
 </div>
 
 b) <b>Mollifiers</b>. Define
-$\phi\U \epsilon(x):=\epsilon^{-d}\phi(x/\epsilon)$. Then,
+$\phi\U \varepsilon(x):=\varepsilon^{-d}\phi(x/\varepsilon)$. Then,
 
 <div>
 $$\begin{aligned}
-f\star \phi\U \epsilon \to f \quad \text{in } L^p(\mathbb{R}^d\to X).
+f\star \phi\U \varepsilon \to f \quad \text{in } L^p(\mathbb{R}^d\to X).
 
 \end{aligned}$$
 
 </div>
 
 c) <b>Smoothing</b>. If $\phi \in C^k\U c(\mathbb{R}^d)$ then
-$f\star \phi\U \epsilon \in C^k(\mathbb{R}^d\to X)$ with
+$f\star \phi\U \varepsilon \in C^k(\mathbb{R}^d\to X)$ with
 
 <div>
 $$\begin{aligned}

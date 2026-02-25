@@ -95,6 +95,7 @@ format:
               qp: ["\\left(#1\\right)", 1],
               qt: ["\\left(#1\\right)", 1],
               red: ["{\\color{red}#1}", 1],
+              restr: ["\\left.#1\\right|{#2}", 2],
               rm: ["\\mathrm{#1}", 1],
               set: ["\\left\\{#1\\right\\}", 1],
               star: "*",
@@ -394,7 +395,7 @@ $$
 
 :::
 
-	Note that the imposition that $V$ is closed in Theorem @thm-complement-theorem is necessary. Finite-dimensional subspaces are always closed, but infinite-dimensional subspaces may not be. For example, consider $H=L^2(I)$ for some bounded $I$ and take  $V$ to polynomials on $I$ . By the [Stone-Weierstrass](https://en.wikipedia.org/wiki/Stone%E2%80%93Weierstrass_theorem) theorem $V$ is dense  in $H$. That is $H=\overline{V}$, whereas
+	Note that the imposition that $V$ is closed in @thm-complement-theorem is necessary. Finite-dimensional subspaces are always closed, but infinite-dimensional subspaces may not be. For example, consider $H=L^2(I)$ for some bounded $I$ and take  $V$ to polynomials on $I$ . By the [Stone-Weierstrass](https://en.wikipedia.org/wiki/Stone%E2%80%93Weierstrass_theorem) theorem $V$ is dense  in $H$. That is $H=\overline{V}$, whereas
 	
 $$
 \begin{aligned}
@@ -438,11 +439,11 @@ x= \sum_{\alpha\in I}x_\alpha
 \end{aligned}
 $$
 
-if given $\epsilon >0$ there exists some finite subset $J_0 \in I$ such that for every $J$ containing  $J_0$ it holds that
+if given $\varepsilon >0$ there exists some finite subset $J_0 \in I$ such that for every $J$ containing  $J_0$ it holds that
 
 $$
 \begin{aligned}
-\norm{x-\sum_{\alpha\notin J} x_\alpha}<\epsilon  .
+\norm{x-\sum_{\alpha\notin J} x_\alpha}<\varepsilon  .
 \end{aligned}
 $$
 
@@ -478,7 +479,7 @@ Then $J:= \cup_n J_n$ is countable (it is a countable union of countable sets) a
 
 :::
 
-	Now that we made sense of the sum over a potentially uncountable number of basis elements in @eq-sum, it remains to address the question of the existence of orthonormal basis.
+	Now that we made sense of the sum over a potentially uncountable number of basis elements in ([-@eq-sum]), it remains to address the question of the existence of orthonormal basis.
 	
 
 ::: {#thm-existence name="Existence of orthonormal basis"}
@@ -507,7 +508,7 @@ $$
 \end{aligned}
 $$
 
-As a result by [Zorn's lemma](https://en.wikipedia.org/wiki/Zorn%27s_lemma) there exists a maximal element $\Bb$. If $\Bb$ is not complete (that is @eq-sum doesn't hold), then there exists $f \in \overline{\Bb}^\perp$. By taking $f /\norm{f}$ and forming $\Bb':=\Bb \cup \set{f \norm{f}}$ we obtain that $\Bb \subsetneq \Bb' \in \Aa$. This contradicts the maximality of $\Bb$ and concludes the proof.
+As a result by [Zorn's lemma](https://en.wikipedia.org/wiki/Zorn%27s_lemma) there exists a maximal element $\Bb$. If $\Bb$ is not complete (that is ([-@eq-sum]) doesn't hold), then there exists $f \in \overline{\Bb}^\perp$. By taking $f /\norm{f}$ and forming $\Bb':=\Bb \cup \set{f \norm{f}}$ we obtain that $\Bb \subsetneq \Bb' \in \Aa$. This contradicts the maximality of $\Bb$ and concludes the proof.
 
 :::
 
@@ -635,7 +636,7 @@ f_\ell =\sum_{\alpha \in I}\overline{\ell (\phi_\alpha)}\phi_\alpha  .
 \end{aligned}
 $$
 
-The fact that $f_\ell$ verifies @eq-riesz is a direct application of the (anti)-linearity and continuity of the inner product. Uniqueness following from the fact that if $f_\ell , g_\ell$ both verify the equality then for all $h \in h$
+The fact that $f_\ell$ verifies ([-@eq-riesz]) is a direct application of the (anti)-linearity and continuity of the inner product. Uniqueness following from the fact that if $f_\ell , g_\ell$ both verify the equality then for all $h \in h$
 
 $$
 \begin{aligned}
@@ -746,7 +747,7 @@ $$ {#eq-adjoint}
 
 Given $T \in \mathcal{L}(H)$ we denote by $T^\star$ the
 unique element  verifying
-@eq-adjoint . If
+([-@eq-adjoint]) . If
 $T=T^\star$ we say that $T$ is self adjoint.
 
 :::
@@ -838,7 +839,7 @@ $$
 
 ::: {.proof}
 
-For each fixed $u \in H$, we have that $\ell_u :=B(\cdot ,u) \in  H'$. As a result by Riesz's representation theorem (Theorem @thm-riesz-theorem) there exists a unique $f_{\ell _u} \in H$ such that
+For each fixed $u \in H$, we have that $\ell_u :=B(\cdot ,u) \in  H'$. As a result by Riesz's representation theorem (@thm-riesz-theorem) there exists a unique $f_{\ell _u} \in H$ such that
 
 $$
 \begin{aligned}
@@ -878,7 +879,7 @@ $$
 \end{aligned}
 $$ {#eq-est}
 
-As a result, we deduce from the corollary of the orthogonal complement theorem @cor-cor that $\overline{\Im(\Ll)}=0$. Thus, if we show that $\Ll$ is closed invertibility follows. The estimate in @eq-est together with Cauchy Schwartz show that for all $u \in H$
+As a result, we deduce from the corollary of the orthogonal complement @cor-cor that $\overline{\Im(\Ll)}=0$. Thus, if we show that $\Ll$ is closed invertibility follows. The estimate in ([-@eq-est]) together with Cauchy Schwartz show that for all $u \in H$
 
 $$
 \begin{aligned}
@@ -899,7 +900,7 @@ Dividing on either side by $\alpha \norm{u}$ concludes the proof.
 
 :::
 
-	If we had assumed that $B$ were anti-symmetric then the proof would have been simplified as $B$ would define an inner product  $\br{\cdot ,\cdot }_B$. Applying Riesz's theorem to this inner product (as opposed to the original one) would transform our equation @eq-lax-eq into
+	If we had assumed that $B$ were anti-symmetric then the proof would have been simplified as $B$ would define an inner product  $\br{\cdot ,\cdot }_B$. Applying Riesz's theorem to this inner product (as opposed to the original one) would transform our equation ([-@eq-lax-eq]) into
 	
 $$
 \begin{aligned}
@@ -907,12 +908,12 @@ $$
 \end{aligned}
 $$
 
-	That is, to solve @eq-lax-eq it would suffice to take $u=f$. In the case where $B$ is symmetric and real, we can also find $u$ by solving a minimization problem
+	That is, to solve ([-@eq-lax-eq]) it would suffice to take $u=f$. In the case where $B$ is symmetric and real, we can also find $u$ by solving a minimization problem
 	
 
 ::: {#prp-4 name="Minimization formulation"}
 
-Let $B: H\times H \to \R$ be a symmetric coercive bilinear operator on a real Hilbert space $H$. Then, problem  @eq-lax-eq is equivalent to minimizing
+Let $B: H\times H \to \R$ be a symmetric coercive bilinear operator on a real Hilbert space $H$. Then, problem  ([-@eq-lax-eq]) is equivalent to minimizing
 
 $$
 \begin{aligned}
@@ -926,7 +927,7 @@ $$
 
 ::: {.proof}
 
-To prove that a solution to @eq-lax-eq minimizes $J$ we can develop  $J(u+v)$ and simplify it using  $B(v,u)=L(v)$ to obtain
+To prove that a solution to ([-@eq-lax-eq]) minimizes $J$ we can develop  $J(u+v)$ and simplify it using  $B(v,u)=L(v)$ to obtain
 
 $$
 \begin{aligned}
@@ -934,7 +935,7 @@ J(u+v) \geq J(u) , \quad\forall  v \in H.
 \end{aligned}
 $$
 
-To prove that a  minimum of $J$ solves  $@eq-lax-eq$ one can show by taking limits as $\lambda  \to 0$ in the expression
+To prove that a  minimum of $J$ solves  $([-@eq-lax-eq])$ one can show by taking limits as $\lambda  \to 0$ in the expression
 
 $$
 \begin{aligned}
@@ -1011,7 +1012,7 @@ Let $K \in \Kk(X,Y), T_1\in \Ll(W,X), T_2 \in L(Y,Z)$. Where $W,X,Y,Z$ are metri
 
 ::: {.proof}
 
-This follows by the last equivalent characterization in Proposition @prp-equivalent. 
+This follows by the last equivalent characterization in @prp-equivalent. 
 
 :::
 
@@ -1028,7 +1029,7 @@ Let $X,Y$ be metric spaces then  $\Kk(X,Y)$ is a vector space. Furthermore, if $
 
 ::: {.proof}
 
-The first part again follows fromb the last equivalent characterization in Proposition @prp-equivalent.  The second part relies on the fact that in complete spaces compact and [totally bounded](https://en.wikipedia.org/wiki/Totally_bounded_space#:~:text=not%20in%20general.-,In,-metric%20spaces%5B) are equivalent.
+The first part again follows fromb the last equivalent characterization in @prp-equivalent.  The second part relies on the fact that in complete spaces compact and [totally bounded](https://en.wikipedia.org/wiki/Totally_bounded_space#:~:text=not%20in%20general.-,In,-metric%20spaces%5B) are equivalent.
 
 :::
 
@@ -1062,7 +1063,7 @@ K_n(x) \to K(x) , \quad\forall x \in  H.
 \end{aligned}
 $$
 
-Consider the unit ball $B_X$ in  $X$. Then  $K(B_X)$ is relatively compact. So $K(B_X)$  is totally bounded and given $\epsilon >0$ we can form a finite $\epsilon$ net $Kx_1,\ldots,Kx_m$ of $K(B_X)$. By pointwise convergence, we can now take $n_0$ large enough so that for all $N \geq n_0$
+Consider the unit ball $B_X$ in  $X$. Then  $K(B_X)$ is relatively compact. So $K(B_X)$  is totally bounded and given $\varepsilon >0$ we can form a finite $\varepsilon$ net $Kx_1,\ldots,Kx_m$ of $K(B_X)$. By pointwise convergence, we can now take $n_0$ large enough so that for all $N \geq n_0$
 
 $$
 \begin{aligned}
@@ -1070,11 +1071,11 @@ $$
 \end{aligned}
 $$
 
-Now for any  $x\in B_X$ we can find $x_j$ such that  $\norm{Tx_j-Tx}< \epsilon$. Using the triangle inequality
+Now for any  $x\in B_X$ we can find $x_j$ such that  $\norm{Tx_j-Tx}< \varepsilon$. Using the triangle inequality
 
 $$
 \begin{aligned}
-\norm{Kx-K_N x} \leq \norm{Kx-K x_j}+ \norm{K x_j-K_N x_{j}}+ \norm{K_N x_j-K_N x} < 3\epsilon .
+\norm{Kx-K_N x} \leq \norm{Kx-K x_j}+ \norm{K x_j-K_N x_{j}}+ \norm{K_N x_j-K_N x} < 3\varepsilon .
 \end{aligned}
 $$
 
@@ -1121,7 +1122,7 @@ is compact.
 
 ::: {.proof}
 
-We have that $T= i \circ T$ so we conclude by Rellich-Kondrachov's theorem @thm-rellich and the preservation of compact operators by continuous ones (Proposition @prp-comp).
+We have that $T= i \circ T$ so we conclude by Rellich-Kondrachov's @thm-rellich and the preservation of compact operators by continuous ones (@prp-comp).
 
 :::
 

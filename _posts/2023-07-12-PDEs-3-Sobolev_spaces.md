@@ -301,7 +301,7 @@ by the local basis
 
 <div>
 $$\begin{aligned}
-x+\left\{\rho^{-1}(B\U \epsilon): \epsilon>0\right\}
+x+\left\{\rho^{-1}(B\U \varepsilon): \varepsilon>0\right\}
 \end{aligned}$$
 </div>
 
@@ -329,7 +329,7 @@ topology that makes $X$ into a topological vector space
 The fact that $(X,\tau\U \mathcal{P})$ is a TVS follows from the
 triangle inequality and homogeneity of seminorms. The fact that it is
 the coarsest that makes $\rho$ continuous is that
-$\rho^{-1}(B\U \epsilon)$ must be an open neighbourhood of the origin and
+$\rho^{-1}(B\U \varepsilon)$ must be an open neighbourhood of the origin and
 in a TVS, by continuity of the sum, translation of an open set must be
 open.
 </div>
@@ -342,7 +342,7 @@ That is, every point has a local basis of convex sets
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
 <div class="exercise-text">
-Show that $\rho^{-1}(B\U \epsilon)$ is convex.
+Show that $\rho^{-1}(B\U \varepsilon)$ is convex.
 </div>
 </div>
 
@@ -366,7 +366,7 @@ $$\begin{aligned}
 The convergence of nets completely determines the topology of any topological space. So, it is enough to show that the property
 holds. The implication holds by the continuity of $\rho$. The reverse
 follows from being able to fit $x\U \bullet$ into any basic set
-$x+\rho(B\U \epsilon)$.
+$x+\rho(B\U \varepsilon)$.
 </div>
 </div>
 
@@ -1214,7 +1214,7 @@ $$\begin{aligned}
 _Proof._ The proof is an instructive way of using a partition of unity
 to piece together a local result (in this case, Theorem
 [3](#local)) to get a global
-one. Let $\epsilon >0$ and consider an open covering
+one. Let $\varepsilon >0$ and consider an open covering
 $\left\\{V\U i\right\\}\U {i=0}^\infty$ of $U$ with $V\U 0 =\emptyset$ and
 $V\U {i} \Subset V\U {i+1}$. By Theorem
 [17](#partition) we may
@@ -1236,7 +1236,7 @@ such that
 
 <div>
 $$\begin{aligned}
-\left\lVert \phi\U {n\U i}\star (\rho\U i u)-\rho\U i u \right\rVert\U {W^{k,p}(U)}=\left\lVert \phi\U {n\U i}\star (\rho\U i u)-\rho\U i u \right\rVert\U {V\U {i+1}}\leq \frac{\epsilon }{2^i} .
+\left\lVert \phi\U {n\U i}\star (\rho\U i u)-\rho\U i u \right\rVert\U {W^{k,p}(U)}=\left\lVert \phi\U {n\U i}\star (\rho\U i u)-\rho\U i u \right\rVert\U {V\U {i+1}}\leq \frac{\varepsilon }{2^i} .
 \end{aligned}$$
 </div>
 
@@ -1253,7 +1253,7 @@ As then
 <div>
 $$\begin{aligned}
 \left\lVert \varphi-u \right\rVert
-\U {W^{k,p}(U)}\leq\sum\U {i=1}^\infty \left\lVert \phi\U {n\U i}\star (\rho\U i u)-\rho\U i u  \right\rVert\U {W^{k,p}(U)}\leq \sum\U {i=1}^\infty \frac{\epsilon }{2^i}=\epsilon   .
+\U {W^{k,p}(U)}\leq\sum\U {i=1}^\infty \left\lVert \phi\U {n\U i}\star (\rho\U i u)-\rho\U i u  \right\rVert\U {W^{k,p}(U)}\leq \sum\U {i=1}^\infty \frac{\varepsilon }{2^i}=\varepsilon   .
 \end{aligned}$$
 </div>
 
@@ -1310,7 +1310,7 @@ $$\begin{align}
 <div class="exercise-container">
 <button class="exercise-button" onclick="toggleExercise(this)">Hint</button>
 <div class="exercise-text">
-Give yourself an $\epsilon$ of room. By induction, it
+Give yourself an $\varepsilon$ of room. By induction, it
 suffices to consider the case $k=1$.We can approximate $u$ on each
 compact $K \subset U$ by a sequence of functions
 $u\U n \in C\U c^\infty(\mathbb{R}^d)$. For $u\U n$ the equality
@@ -1387,7 +1387,7 @@ large enough
 
 <div>
 $$\begin{aligned}
-\left\lVert u -\varphi\U n \right\rVert\U {W^{k,p}(W\U 0)}\leq \left\lVert u -u\U n \right\rVert\U {W^{k,p}(W\U 0)}+\left\lVert u\U n -u\U n\star \phi\U n \right\rVert\U {W^{k,p}(W\U 0)}\leq \epsilon.
+\left\lVert u -\varphi\U n \right\rVert\U {W^{k,p}(W\U 0)}\leq \left\lVert u -u\U n \right\rVert\U {W^{k,p}(W\U 0)}+\left\lVert u\U n -u\U n\star \phi\U n \right\rVert\U {W^{k,p}(W\U 0)}\leq \varepsilon.
 \end{aligned}$$
 </div>
 
@@ -1399,7 +1399,7 @@ smooth on $W\U i$ such that
 
 <div>
 $$\begin{aligned}
-\left\lVert u -\varphi\U n \right\rVert\U {W^{k,p}(W\U i)}\leq \frac{\epsilon}{n+2}  .
+\left\lVert u -\varphi\U n \right\rVert\U {W^{k,p}(W\U i)}\leq \frac{\varepsilon}{n+2}  .
 \end{aligned}$$
 </div>
 
@@ -1410,7 +1410,7 @@ $\varphi\U {n+1} \in C\U c^\infty(\mathbb{R}^d)$
 
 <div>
 $$\begin{aligned}
-\left\lVert u-\varphi\U {n+1} \right\rVert\U {W^{k,p}(W\U {n+1})}\leq\frac{\epsilon}{n+2} .
+\left\lVert u-\varphi\U {n+1} \right\rVert\U {W^{k,p}(W\U {n+1})}\leq\frac{\varepsilon}{n+2} .
 \end{aligned}$$
 </div>
 
@@ -1432,7 +1432,7 @@ This gives the desired approximation
 
 <div>
 $$\begin{aligned}
-\left\lVert u-\varphi \right\rVert\U {W^{k,p}(\Omega)} \leq \sum\U {i=0}^{n+1} \left\lVert \rho \U i(u-\varphi\U i) \right\rVert\U {W^{k,p}(W\U i)} \leq  \epsilon  .
+\left\lVert u-\varphi \right\rVert\U {W^{k,p}(\Omega)} \leq \sum\U {i=0}^{n+1} \left\lVert \rho \U i(u-\varphi\U i) \right\rVert\U {W^{k,p}(W\U i)} \leq  \varepsilon  .
 \end{aligned}$$
 </div>
 
@@ -1469,9 +1469,9 @@ For an extension to be possible, it is crucial that $\Omega$ is regular enough. 
 
 <a name="uniformly Lipschitz domain">
 **Definition 12** </a> . We say that an open set $\Omega \subset \mathbb{R}^d$ has **uniformly
-Lipschitz boundary** if there exists $\epsilon,L>0, N \in \mathbb{N}$ and an open covering $\left\\{U\U n\right\\}\U {n \in \mathbb{N}}$ of $\partial \Omega$ such that
+Lipschitz boundary** if there exists $\varepsilon,L>0, N \in \mathbb{N}$ and an open covering $\left\\{U\U n\right\\}\U {n \in \mathbb{N}}$ of $\partial \Omega$ such that
 <ol>
-<li>For all $x \in \partial \Omega$ there exists a $U\U n$ such that $B\U \epsilon(x) \subset U\U n$.</li>
+<li>For all $x \in \partial \Omega$ there exists a $U\U n$ such that $B\U \varepsilon(x) \subset U\U n$.</li>
 <li>Every point in $\mathbb{R}^d$ is contained in at most $N$ sets $U\U n$.</li>
 <li>For each $n$ there exist local coordinates $y=\left(y^{\prime}, y \U n\right) \in \mathbb{R}^{N-1} \times \mathbb{R}$ and a Lipschitz continuous function $f: \mathbb{R}^{N-1} \rightarrow \mathbb{R}$ (both depending on $n$ ), with Lipschitz constant $\operatorname{Lip} f \leq L$, such that $\Omega \U n \cap \Omega=\Omega \U n \cap V \U n$, where $V \U n$ is given in local coordinates by
 $$
@@ -2746,7 +2746,7 @@ $$\begin{aligned}
 requires
 we evaluate $f$ on all of $\mathbb{R}^d$. One workaround is if
 $\phi\in L^1(\mathbb{R}^d)$ with
-$\mathbf{supp}(\phi)\subset  \overline{B(0,\epsilon ) }$ we can extend
+$\mathbf{supp}(\phi)\subset  \overline{B(0,\varepsilon ) }$ we can extend
 $f$ to be equal to some $g \in L^p(\mathbb{R})$ outside of $U$
 
 <div>
@@ -2762,7 +2762,7 @@ $\tilde{f}\star g$ is well defined and equal to
 
 <div>
 $$\begin{aligned}
-\tilde{f}\star \phi(x) = \int\U {B(x,\epsilon )\cap U} f(y)\phi(x-y) \,\mathrm{d}y+\int\U {B(x,\epsilon )\cap U^c} g(y)\phi(x-y) \,\mathrm{d}y .\end{aligned}$$
+\tilde{f}\star \phi(x) = \int\U {B(x,\varepsilon )\cap U} f(y)\phi(x-y) \,\mathrm{d}y+\int\U {B(x,\varepsilon )\cap U^c} g(y)\phi(x-y) \,\mathrm{d}y .\end{aligned}$$
 </div>
 
 As we can see, the convolution, in general, depends on how we extend $f$
@@ -2770,26 +2770,26 @@ outside of $U$. However, it is independent of the extension for $x$ in
 
 <div>
 $$\begin{aligned}
-U\U \epsilon :=\left\{x \in  U : d(x,\partial U)< \epsilon \right\}.\end{aligned}$$
+U\U \varepsilon :=\left\{x \in  U : d(x,\partial U)< \varepsilon \right\}.\end{aligned}$$
 </div>
 
 With
 
 <div>
 $$\begin{aligned}
-\tilde{f}\star \phi(x) = \int\U {B(x,\epsilon )} f(y)\phi(x-y) \,\mathrm{d}y , \quad\forall x \in  U\U \epsilon   .\end{aligned}$$
+\tilde{f}\star \phi(x) = \int\U {B(x,\varepsilon )} f(y)\phi(x-y) \,\mathrm{d}y , \quad\forall x \in  U\U \varepsilon   .\end{aligned}$$
 </div>
 
 For this reason, we will employ the following notation.
 
  <a name="Convolution support">
 **Definition 19** </a> . Given $f \in L^p(U)$ and $\phi\in L^1(\mathbb{R}^d)$
-with $\mathbf{supp}(\phi)\subset  \overline{B(0,\epsilon ) }$ we define
-$f\star \phi \in L^p(U\U \epsilon )$ as
+with $\mathbf{supp}(\phi)\subset  \overline{B(0,\varepsilon ) }$ we define
+$f\star \phi \in L^p(U\U \varepsilon )$ as
 
 <div>
 $$\begin{aligned}
-f\star \phi(x):= \int\U {B(x,\epsilon )}f(y)\phi(x-y) \,\mathrm{d}y .
+f\star \phi(x):= \int\U {B(x,\varepsilon )}f(y)\phi(x-y) \,\mathrm{d}y .
 \end{aligned}$$
 </div>
 
@@ -2881,9 +2881,9 @@ If $\phi\U n \in C\U c^\infty(\mathbb{R}^d)$ we say that $\phi\U n$ are
 smooth.
 
 **Observation 5**. The above definition is frequently also given
-letting the index set range over $\epsilon \in \mathbb{R}\U +$ and taking
-$\mathbf{supp}(\phi\U \epsilon ) \subset B(0,\epsilon )$. This is
-equivalent and simply leads to taking $\epsilon \to 0$ instead of
+letting the index set range over $\varepsilon \in \mathbb{R}\U +$ and taking
+$\mathbf{supp}(\phi\U \varepsilon ) \subset B(0,\varepsilon )$. This is
+equivalent and simply leads to taking $\varepsilon \to 0$ instead of
 $n \to \infty$.
 
 The first question is whether a smooth approximation to the identity
@@ -2929,7 +2929,7 @@ respectively with $U \subset A \subset K$ and
 
 <div>
 $$\begin{aligned}
-\lambda  (K)-\lambda  (A) <\epsilon .
+\lambda  (K)-\lambda  (A) <\varepsilon .
 \end{aligned}$$
 </div>
 
@@ -2941,7 +2941,7 @@ $\varphi \leq 1$ and $\varphi$ is $1$ on $K$. Then,
 
 <div>
 $$\begin{aligned}
-\left\lVert f- \varphi \right\rVert\U {L^p(\mathbb{R}^d)} \leq \epsilon .
+\left\lVert f- \varphi \right\rVert\U {L^p(\mathbb{R}^d)} \leq \varepsilon .
 \end{aligned}$$
 </div>
 
@@ -2963,7 +2963,7 @@ $$\begin{aligned}
 \end{aligned}$$
 </div>
 
-_Proof._ Consider $\epsilon >0$. Using that $\phi\U n$ has mass $1$ and is
+_Proof._ Consider $\varepsilon >0$. Using that $\phi\U n$ has mass $1$ and is
 supported on $B(0,1/n)$.
 
 <div>
@@ -2978,12 +2978,12 @@ Now, taking norms and $n$ large enough gives
 <div>
 $$\begin{align}
 \label{nm}
-\left\lVert g\star \phi\U n-g \right\rVert\U {L^\infty(\mathbb{R}^d)} \leq \int\U {B(0, \frac{1}{n})} \left\lVert g(\cdot -y) -g \right\rVert\U {L^\infty(\mathbb{R}^d)} \phi\U n(y) \,\mathrm{d}y\leq \epsilon ,
+\left\lVert g\star \phi\U n-g \right\rVert\U {L^\infty(\mathbb{R}^d)} \leq \int\U {B(0, \frac{1}{n})} \left\lVert g(\cdot -y) -g \right\rVert\U {L^\infty(\mathbb{R}^d)} \phi\U n(y) \,\mathrm{d}y\leq \varepsilon ,
 \end{align}$$
 </div>
 
 where in the last inequality, we used that $g$ is
-uniformly continuous and $\phi\U n$ has mass $1$. Since $\epsilon >0$ was
+uniformly continuous and $\phi\U n$ has mass $1$. Since $\varepsilon >0$ was
 any, this shows the first part of the proposition.
 
 We now prove the second part. By Lemma
@@ -2992,7 +2992,7 @@ $g$ such that
 
 <div>
 $$\begin{aligned}
-\left\lVert g-f \right\rVert\U {L^p(\mathbb{R}^d)}<\epsilon .
+\left\lVert g-f \right\rVert\U {L^p(\mathbb{R}^d)}<\varepsilon .
 \end{aligned}$$
 </div>
 
@@ -3002,7 +3002,7 @@ measure is bounded by some $M>0$, the inequality in
 
 <div>
 $$\begin{aligned}
-\left\lVert g\star \phi\U n-g \right\rVert\U {L^p(\mathbb{R}^d)}^p \leq \int\U {K\U n} \epsilon^p   \,\mathrm{d}y\leq M\epsilon^p  .
+\left\lVert g\star \phi\U n-g \right\rVert\U {L^p(\mathbb{R}^d)}^p \leq \int\U {K\U n} \varepsilon^p   \,\mathrm{d}y\leq M\varepsilon^p  .
 \end{aligned}$$
 </div>
 
@@ -3012,7 +3012,7 @@ convolution inequality [4](#Young) gives
 <div>
 $$\begin{aligned}
 \left\lVert f\star \phi\U n-f \right\rVert\U {L^p(\mathbb{R}^d)} & \leq\left\lVert (f-g)\star \phi\U n \right\rVert\U {L^p(\mathbb{R}^d)}+\left\lVert g\star \phi\U n-g \right\rVert\U {L^p(\mathbb{R}^d)} \\
-& +\left\lVert g-f \right\rVert\U {L^p(\mathbb{R}^d)}\leq \epsilon + M^{\frac{1}{p}}\epsilon +\epsilon .
+& +\left\lVert g-f \right\rVert\U {L^p(\mathbb{R}^d)}\leq \varepsilon + M^{\frac{1}{p}}\varepsilon +\varepsilon .
 \end{aligned}$$
 </div>
 
@@ -3055,12 +3055,12 @@ Where $K$ is the support of $\varphi$. ◻
  <a name="local smoothing">
 **Observation 6** </a>  (Local smoothing). The smoothing effect also holds
 when $f$ is only defined on some open set $U$. Then, with the notation
-of Definition [19](#Convolution support), $f\star \phi \in C^\infty(U\U \epsilon )$
+of Definition [19](#Convolution support), $f\star \phi \in C^\infty(U\U \varepsilon )$
 with an identical proof showing
 
 <div>
 $$\begin{aligned}
-D^\alpha(f \star \phi)=f\star D^\alpha \phi \text{ on } U\U \epsilon .
+D^\alpha(f \star \phi)=f\star D^\alpha \phi \text{ on } U\U \varepsilon .
 \end{aligned}$$
 </div>
 
@@ -3417,7 +3417,7 @@ Let us write $x=(x',x\U d)$, by the Taylor expansion
 
 <div>
 $$\begin{aligned}
-\Phi\U \alpha(x',\gamma \U \alpha(x')+\epsilon)=\Phi\U \alpha(x)+\frac{\partial \Phi}{\partial x\U d}(x)\epsilon +O(\left\lVert \epsilon  \right\rVert^2)  .\end{aligned}$$
+\Phi\U \alpha(x',\gamma \U \alpha(x')+\varepsilon)=\Phi\U \alpha(x)+\frac{\partial \Phi}{\partial x\U d}(x)\varepsilon +O(\left\lVert \varepsilon  \right\rVert^2)  .\end{aligned}$$
 </div>
 
 We deduce that, once more, reducing the size of $U\U \alpha$ if necessary

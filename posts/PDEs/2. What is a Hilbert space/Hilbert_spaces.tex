@@ -154,7 +154,7 @@
 			\overline{V}=H \iff \overline{V}^\perp =\set{0} .
 		\end{align*}
 	\end{corollary}
-	Note that the imposition that $V$ is closed in Theorem \ref{complement theorem} is necessary. Finite-dimensional subspaces are always closed, but infinite-dimensional subspaces may not be. For example, consider $H=L^2(I)$ for some bounded $I$ and take  $V$ to polynomials on $I$ . By the \href{https://en.wikipedia.org/wiki/Stone%E2%80%93Weierstrass_theorem}{Stone-Weierstrass} theorem $V $ is dense  in $H$. That is $H=\overline{V}$, whereas
+	Note that the imposition that $V$ is closed in \Cref{complement theorem} is necessary. Finite-dimensional subspaces are always closed, but infinite-dimensional subspaces may not be. For example, consider $H=L^2(I)$ for some bounded $I$ and take  $V$ to polynomials on $I$ . By the \href{https://en.wikipedia.org/wiki/Stone%E2%80%93Weierstrass_theorem}{Stone-Weierstrass} theorem $V $ is dense  in $H$. That is $H=\overline{V}$, whereas
 	\begin{align*}
 		H \neq V \oplus V^\perp =V \oplus \set{0} .
 	\end{align*}
@@ -175,9 +175,9 @@
 		\begin{align*}
 			x= \sum_{\alpha\in I}x_\alpha
 		\end{align*}
-		if given $\epsilon >0$ there exists some finite subset $J_0 \in I$ such that for every $J$ containing  $J_0$ it holds that
+		if given $\varepsilon >0$ there exists some finite subset $J_0 \in I$ such that for every $J$ containing  $J_0$ it holds that
 		\begin{align*}
-			\norm{x-\sum_{\alpha\notin J} x_\alpha}<\epsilon  .
+			\norm{x-\sum_{\alpha\notin J} x_\alpha}<\varepsilon  .
 		\end{align*}
 	\end{definition}
 	If $I$ is countable, the definition says that $\sum_{\alpha \in I} x_\alpha$ converges to $x$ regardless of the order in which we sum. In fact, the following shows that, even if we start with an uncountable sequence we will always end up back in this case.
@@ -369,7 +369,7 @@
 		\end{align*}
 	\end{theorem}
 	\begin{proof}
-		For each fixed $u \in H$, we have that $\ell_u :=B(\cdot ,u) \in  H'$. As a result by Riesz's representation theorem (Theorem \ref{riesz theorem}) there exists a unique $ f_{\ell _u} \in H$ such that
+		For each fixed $u \in H$, we have that $\ell_u :=B(\cdot ,u) \in  H'$. As a result by Riesz's representation theorem (\Cref{riesz theorem}) there exists a unique $ f_{\ell _u} \in H$ such that
 		\begin{align}\label{f}
 			B(v,u)= \ell _u(v)= \br{v, f_{\ell _u}} .
 		\end{align}
@@ -389,7 +389,7 @@
 		\begin{align}\label{est}
 			\br{u, \Ll u}= B(u,u)\geq \alpha \norm{u}^2.
 		\end{align}
-		As a result, we deduce from the corollary of the orthogonal complement theorem \ref{cor} that $\overline{\Im(\Ll)}=0$. Thus, if we show that $\Ll$ is closed invertibility follows. The estimate in \eqref{est} together with Cauchy Schwartz show that for all $u \in H$
+		As a result, we deduce from the corollary of the orthogonal complement \Cref{cor} that $\overline{\Im(\Ll)}=0$. Thus, if we show that $\Ll$ is closed invertibility follows. The estimate in \eqref{est} together with Cauchy Schwartz show that for all $u \in H$
 		\begin{align*}
 			\norm{ \Ll u}\geq \norm{u}.
 		\end{align*}
@@ -453,14 +453,14 @@
 	\begin{proposition}\label{comp}Let $K \in \Kk(X,Y), T_1\in \Ll(W,X), T_2 \in L(Y,Z)$. Where $W,X,Y,Z$ are metric spaces , then $K\circ T_1$ and $T_2 \circ K$ are compact
 	\end{proposition}
 	\begin{proof}
-    This follows by the last equivalent characterization in Proposition \ref{equivalent}.
+    This follows by the last equivalent characterization in \Cref{equivalent}.
 	\end{proof}
   We already saw that the space of compact operators $\Kk(X,Y)$ is a subset of the space of linear operators. The structure of $\Kk(X,Y)$ as a subspace is as follows 
   \begin{proposition}
   Let $X,Y$ be metric spaces then  $\Kk(X,Y)$ is a vector space. Furthermore, if $Y$ is completee then  $\Kk(X,Y)$ is closed in $\Ll(X,Y)$. That is, if $K_n$ are compact and  $K_n \to K \in \Ll(X,Y)$ then $K$ is compact.
   \end{proposition}
   \begin{proof}
-    The first part again follows fromb the last equivalent characterization in Proposition \ref{equivalent}. The second part relies on the fact that in complete spaces compact and \href{https://en.wikipedia.org/wiki/Totally_bounded_space#:~:text=not%20in%20general.-,In,-metric%20spaces%5B}{totally bounded} are equivalent.
+    The first part again follows fromb the last equivalent characterization in \Cref{equivalent}. The second part relies on the fact that in complete spaces compact and \href{https://en.wikipedia.org/wiki/Totally_bounded_space#:~:text=not%20in%20general.-,In,-metric%20spaces%5B}{totally bounded} are equivalent.
   \end{proof}
       
   The reason we are interested in compact operators is that they are particularly simple.
@@ -477,13 +477,13 @@
 		\begin{align*}
 			K_n(x) \to K(x) , \quad\forall x \in  H.
 		\end{align*}
-		Consider the unit ball $B_X$ in  $X$. Then  $K(B_X)$ is relatively compact. So $K(B_X)$  is totally bounded and given $\epsilon >0$ we can form a finite $\epsilon $ net $Kx_1,\ldots,Kx_m $ of $K(B_X)$. By pointwise convergence, we can now take $n_0$ large enough so that for all $N \geq n_0$
+		Consider the unit ball $B_X$ in  $X$. Then  $K(B_X)$ is relatively compact. So $K(B_X)$  is totally bounded and given $\varepsilon >0$ we can form a finite $\varepsilon $ net $Kx_1,\ldots,Kx_m $ of $K(B_X)$. By pointwise convergence, we can now take $n_0$ large enough so that for all $N \geq n_0$
 		\begin{align*}
 			\norm{K(x_j)-K_N(x_j)} , \quad\forall j=1,\ldots,m.
 		\end{align*}
-		Now for any  $x\in B_X $ we can find $x_j$ such that  $\norm{Tx_j-Tx}< \epsilon $. Using the triangle inequality
+		Now for any  $x\in B_X $ we can find $x_j$ such that  $\norm{Tx_j-Tx}< \varepsilon $. Using the triangle inequality
 		\begin{align*}
-			\norm{Kx-K_N x} \leq \norm{Kx-K x_j}+ \norm{K x_j-K_N x_{j}}+ \norm{K_N x_j-K_N x} < 3\epsilon .
+			\norm{Kx-K_N x} \leq \norm{Kx-K x_j}+ \norm{K x_j-K_N x_{j}}+ \norm{K_N x_j-K_N x} < 3\varepsilon .
 		\end{align*}
 		This concludes the proof.
 	\end{proof}
@@ -504,7 +504,7 @@
 		is compact.
 	\end{corollary}
 	\begin{proof}
-		We have that $T= i \circ T$ so we conclude by Rellich-Kondrachov's theorem \ref{Rellich} and the preservation of compact operators by continuous ones (Proposition \ref{comp}).
+		We have that $T= i \circ T$ so we conclude by Rellich-Kondrachov's \Cref{Rellich} and the preservation of compact operators by continuous ones (\Cref{comp}).
 	\end{proof}
 	Compact operators also have a nice spectral theory. Where we recall that
 	the spectrum of an operator $T$ is defined as

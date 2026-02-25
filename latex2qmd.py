@@ -222,11 +222,11 @@ def parse_preamble_macros(sty_path: Path) -> dict:
     with open(sty_path, "r", encoding="utf-8") as f:
         content = f.read()
 
-    # Match \newcommand{\name}[n]{...} or \newcommand{\name}{...}
+    # Match \newcommand{\name}[n]{...}, \newcommand{\name}{...}, \newcommand\name[n]{...}, \newcommand\name{...}
     # Also \renewcommand
     # We need to handle nested braces in the replacement body
     pattern = re.compile(
-        r'\\(?:new|renew)command\{\\([a-zA-Z]+)\}'
+        r'\\(?:new|renew)command(?:\{|\s*)\\([a-zA-Z]+)(?:\}|\s*)'
         r'(?:\[(\d)\])?'  # optional [n] for number of args
     )
 
@@ -918,7 +918,6 @@ def convert_body(body: str, label_registry: dict | None = None,
             following = m.group(3) if m.group(3) else ""
             # If followed by a word character or a dot+word character, add a space to aid Pandoc/Quarto
             # We want to keep the dot but add a space after it IF it's followed by a letter
-            # Wait, we can't see what's *after* the dot easily here unless we lookahead in the regex.
             if following == ".":
                 return f"{res}. "
             elif following and re.match(r'\w', following):
@@ -932,12 +931,16 @@ def convert_body(body: str, label_registry: dict | None = None,
 
     text = convert_cref_wrapper(text, r'(\\[Cc]ref\{([^}]*)\})')
     text = convert_cref_wrapper(text, r'(\\ref\{([^}]*)\})')
-    # Use eqref specific replacer if needed, but convert_cref logic is mostly same for IDs
+    
+    # \eqref specific replacer: output ([-@eq-X]) to suppress "Equation" prefix
     def repl_eqref(m):
-        res = convert_eqref(m)
+        res = convert_eqref(m) # returns @eq-label or @label
+        # Strip the @ to create the suppressed format [-@label]
+        bare_ref = res[1:] if res.startswith('@') else res
         following = m.group(3) if m.group(3) else ""
-        if following == ".": return f"{res}. "
-        return f"{res}{following}"
+        if following == ".": 
+            return f"([-@{bare_ref}]). "
+        return f"([-@{bare_ref}]){following}"
     text = re.sub(r'(\\eqref\{([^}]*)\})(\.?)', repl_eqref, text)
 
     # Also fix plain @rawlabel references emitted by earlier passes

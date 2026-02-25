@@ -314,10 +314,7 @@ In the above definition, $P$ typically defines a linear or non-linear differenti
 	\begin{equation*}
 		\Ff(\Delta \omega)=-4\pi \abs{\xi }^2\Ff w .
 	\end{equation*}
-	As a result we deduce that for any $f \in \Ss'(\R^d\to \C^n)$ the equation $Pw=f$ has as it's unique solution
-	\begin{equation*}
-		w=\Ff^{-1}\left(\frac{-f}{4\pi \abs{\xi }^2 }\right).
-	\end{equation*}
+Solving $Pw=f$ formally yields $w=\Ff^{-1}\left(\frac{-\Ff f}{4\pi^2 \abs{\xi }^2 }\right)$. However, division by $\abs{\xi}^2$ is ill-defined at the origin in $\Ss'(\R^d)$. A unique solution only exists if we restrict our domain (e.g., requiring $\Ff f(0) = 0$ in suitable homogeneous spaces) to bypass the singularity.
 \end{example}
 
 
@@ -336,7 +333,7 @@ Note that it is not enough to require $\abs{\alpha}=k$ as, for example, the temp
 \[D^\alpha f\in L^2(\R^d\to\C^m)\iff \Ff (D^\alpha f)=\abs{(2\pi i\xi )^{\alpha}} \hat{f}(\xi)\in L^2(\R^d\to\C^m)\]
 from which we deduce that
 \begin{equation}\label{sobolevcondition}
-	f\in H^k(\R^d\to\C^m)\iff \sum_{\abs{\alpha}\leq k} \abs{(2\pi i\xi )^{\alpha}}\hat{f}(\xi)\sim_k \br{\xi}^k\hat{f}\in L^2(\R^d\to\C^m)
+f\in H^k(\R^d\to\C^m)\iff \sum_{\abs{\alpha}\leq k} \norm{(2\pi i\xi )^{\alpha}\hat{f}(\xi)}_{L^2(\R^d)} \sim_k \norm{\br{\xi}^k\hat{f}}_{L^2(\R^d)} < \infty
 \end{equation}
 In fact, since the Fourier transform is a unitary transformation on $L^2(\R^d\to\C^m)$, the same reasoning gives
 \begin{equation}\label{sobolevnorm}
@@ -372,7 +369,7 @@ One major advantage of working with the Sobolev spaces $H^s$ is that, differentl
 	\br{f,g}_{H^s(\T^d\to\C^m)} & :=\sum_{k\in \Z^d} \br{k }^{2s}\hat{f}(k)\overline{\widehat{g}(k )}.
 \end{align*}
 This gives one access to all the power of functional analysis and is invaluable in proofs. However,  at the end of the day wishes to prove that solutions with smooth initial data are themselves smooth in a classical sense. This can be done by showing that the solution belongs to a Sobolev space of high enough order together with the following two results.
-\begin{lemma}[\textbf{Continuity of Holder functions}]
+\begin{lemma}[\textbf{Sobolev Embedding into Continuous Functions}]
 	Given $f\in H^{s}(\T^d\to\C^m)$ with $s>d/2$. Then the Fourier series of $f$ is absolutely convergent and $f\in C(\T^d\to\C^m)$ with the bound
 	\[\norm{f}_{L^\infty(\T^d\to\C^m)}\lesssim_{d,s}\norm{f}_{H^s(\T^d\to\C^m)}\]
 \end{lemma}
@@ -405,7 +402,7 @@ As a corollary of this, we have the following two results
 	we may apply the previous proposition to deduce that $D^\alpha f$ is continuous for all $\abs{\alpha}\leq k$. Therefore it suffices to show that for $\abs{\alpha}\leq k$ the distributional derivatives $D^\alpha f$ are also the classical derivatives of $f$ which we denote by $f_\alpha$.\bigbreak
 	By the hypothesis placed on $f$, we have that the series
 	\[\sum_{k\in\Z^d} (2\pi ik)^\alpha \hat{f}(k)e^{2\pi ik\cdot x} \]
-	is absolutely convergent (by Lemma \ref{Sobolevacseriesperiodic}), and hence, we may commute the derivatives of $f$ with the sum in its Fourier series to deduce the point-wise equality
+	is absolutely convergent (by \Cref{Sobolevacseriesperiodic}), and hence, we may commute the derivatives of $f$ with the sum in its Fourier series to deduce the point-wise equality
 	\[f_\alpha(x)=\sum_{k\in\Z^d} (2\pi ik)^\alpha \hat{f}(k)e^{2\pi ik\cdot x}.\]
 	Now, note that by using \eqref{derivativedistr} for the Fourier coefficients of distributions we also have that the equality
 	\[D^\alpha f(x)=\sum_{k\in\Z^d} (2\pi ik)^\alpha \hat{f}(k)e^{2\pi ik\cdot x}\]
@@ -418,18 +415,19 @@ Finally, we conclude this post with a neat little trick. Given smooth $f$ and so
 \end{equation*}
 The term $p_\Ll$ is called a Fourier multiplier and there is no need to limit ourselves to polynomials. In fact, we may make the general definition that for a function of two variables $p$
 \begin{equation*}
-	p(x,D)f:=\Ff^{-1}(p(x,\xi )\hat{f}(\xi )).
+	p(x,D)f:=\Ff^{-1}\qty(p(x,\cdot  )\hat{f}(\cdot  )).
 \end{equation*}
 This leads to the definition of \emph{pseudo-differential operators}. A particular case is that of fractional operators. We now show an example.
 \begin{example}
-	Given smooth $f$ we have that
-	\begin{equation*}
-		\Delta f=\Ff^{-1}(-4 \pi^2 \abs{x_i}^2 \hat{f}(\xi )).
-	\end{equation*}
-	As a result, we define for all $s\in \R$
-	\begin{equation*}
-		{(-\Delta)}^sf:=\Ff^{-1} ((4\pi^2 \br{\xi }^2)^s\hat{f}(\xi )).
-	\end{equation*}
+Given smooth $f$ we have that
+\begin{equation*}
+-\Delta f=\Ff^{-1}(4 \pi^2 \abs{\xi}^2 \hat{f}(\xi )).
+\end{equation*}
+As a result, we define the fractional Laplacian for all $s\in \R$ as
+\begin{equation*}
+{(-\Delta)}^sf:=\Ff^{-1} \left(\qty(4\pi^2 \abs{\xi }^2)^s\hat{f}(\xi )\right).
+\end{equation*}
+By contrast, the Bessel potential operator is defined using the Japanese bracket: $(I - \frac{\Delta}{4\pi^2})^{s/2}f := \Ff^{-1}(\br{\xi}^s \hat{f}(\xi))$.
 \end{example}
 This post is already getting a bit long (if you've stuck in till the end I salute you), so we leave it off here with a neat little exercise (our first of this blog)
 \begin{exercise}

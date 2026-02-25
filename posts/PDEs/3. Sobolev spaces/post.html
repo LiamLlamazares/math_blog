@@ -1418,7 +1418,7 @@ class="math inline"><em>n</em><sub><em>i</em></sub></span> such that
 <span class="math display">$$\begin{aligned}
         \left\lVert \phi_{n_i}*(\rho_i u)-\rho_i u
 \right\rVert_{W^{k,p}(U)}=\left\lVert \phi_{n_i}*(\rho_i u)-\rho_i u
-\right\rVert_{V_{i+1}}\leq \frac{\epsilon }{2^i} .
+\right\rVert_{V_{i+1}}\leq \frac{\varepsilon }{2^i} .
     \end{aligned}$$</span> Now we obtain the global approximation by
 taking <span class="math display">$$\begin{aligned}
         \varphi:= \sum_{i=1}^\infty \phi_{n_i}* (\rho_i u) \in
@@ -1428,7 +1428,7 @@ class="math display">$$\begin{aligned}
         \left\lVert \varphi-u \right\rVert
         _{W^{k,p}(U)}\leq\sum_{i=1}^\infty \left\lVert
 \phi_{n_i}*(\rho_i u)-\rho_i u  \right\rVert_{W^{k,p}(U)}\leq
-\sum_{i=1}^\infty \frac{\epsilon }{2^i}=\epsilon   .
+\sum_{i=1}^\infty \frac{\varepsilon }{2^i}=\varepsilon   .
     \end{aligned}$$</span> ◻</p>
 </div>
 <p>Note that Theorem <a href="#Meyers" data-reference-type="ref"
@@ -1583,7 +1583,7 @@ class="math inline"><em>n</em></span> large enough <span
 class="math display">$$\begin{aligned}
         \left\lVert u -\varphi_n \right\rVert_{W^{k,p}(W_0)}\leq
 \left\lVert u -u_n \right\rVert_{W^{k,p}(W_0)}+\left\lVert u_n
--u_n*\phi_n \right\rVert_{W^{k,p}(W_0)}\leq \epsilon.
+-u_n*\phi_n \right\rVert_{W^{k,p}(W_0)}\leq \varepsilon.
     \end{aligned}$$</span> Now, since <span
 class="math inline"><em>Ω</em></span> is bounded <span
 class="math inline">∂<em>Ω</em></span> is compact we may extract a
@@ -1595,7 +1595,7 @@ smooth on <span
 class="math inline"><em>W</em><sub><em>i</em></sub></span> such that
 <span class="math display">$$\begin{aligned}
         \left\lVert u -\varphi_n \right\rVert_{W^{k,p}(W_i)}\leq
-\frac{\epsilon}{n+2}  .
+\frac{\varepsilon}{n+2}  .
     \end{aligned}$$</span></p>
 <p>Now we take an open set <span
 class="math inline"><em>W</em><sub><em>n</em> + 1</sub> ⋐ <em>Ω</em></span>
@@ -1610,7 +1610,7 @@ class="math inline"><em>W</em><sub><em>n</em> + 1</sub></span> by some
 class="math inline"><em>φ</em><sub><em>n</em> + 1</sub> ∈ <em>C</em><sub><em>c</em></sub><sup>∞</sup>(ℝ<sup><em>d</em></sup>)</span>
 <span class="math display">$$\begin{aligned}
         \left\lVert u-\varphi_{n+1}
-\right\rVert_{W^{k,p}(W_{n+1})}\leq\frac{\epsilon}{n+2} .
+\right\rVert_{W^{k,p}(W_{n+1})}\leq\frac{\varepsilon}{n+2} .
     \end{aligned}$$</span> Finally, we take a smooth partition of unity
 <span
 class="math inline">{<em>ρ</em><sub><em>i</em></sub>}<sub><em>i</em> = 0</sub><sup><em>n</em> + 1</sup></span>
@@ -1630,7 +1630,7 @@ class="math display">$$\begin{aligned}
 class="math display">$$\begin{aligned}
         \left\lVert u-\varphi \right\rVert_{W^{k,p}(\Omega)} \leq
 \sum_{i=0}^{n+1} \left\lVert \rho _i(u-\varphi_i)
-\right\rVert_{W^{k,p}(W_i)} \leq  \epsilon  .
+\right\rVert_{W^{k,p}(W_i)} \leq  \varepsilon  .
     \end{aligned}$$</span> This concludes the proof. ◻</p>
 </div>
 <p>In contrast to Theorem <a href="#Meyers" data-reference-type="ref"
@@ -2784,7 +2784,7 @@ of <span class="math inline">ℝ<sup><em>d</em></sup></span>. One
 workaround is, if <span
 class="math inline"><em>ϕ</em> ∈ <em>L</em><sup>1</sup>(ℝ<sup><em>d</em></sup>)</span>
 with <span
-class="math inline">$\mathbf{supp}(\phi)\subset  \overline{B(0,\epsilon
+class="math inline">$\mathbf{supp}(\phi)\subset  \overline{B(0,\varepsilon
 ) }$</span> we can extend <span class="math inline"><em>f</em></span> to
 be equal to some <span
 class="math inline"><em>g</em> ∈ <em>L</em><sup><em>p</em></sup>(ℝ)</span>
@@ -2796,19 +2796,19 @@ class="math display">$$\begin{aligned}
                  \end{cases}.\end{aligned}$$</span> Then, the
 convolution <span class="math inline"><em>f̃</em> * <em>g</em></span> is
 well defined and equal to <span class="math display">$$\begin{aligned}
-    \tilde{f}*\phi(x) = \int_{B(x,\epsilon )\cap U} f(y)\phi(x-y)
-\,\mathrm{d}y+\int_{B(x,\epsilon )\cap U^c} g(y)\phi(x-y) \,\mathrm{d}y
+    \tilde{f}*\phi(x) = \int_{B(x,\varepsilon )\cap U} f(y)\phi(x-y)
+\,\mathrm{d}y+\int_{B(x,\varepsilon )\cap U^c} g(y)\phi(x-y) \,\mathrm{d}y
 .\end{aligned}$$</span> As we can see, the convolution in general
 depends on how we extend <span class="math inline"><em>f</em></span>
 outside of <span class="math inline"><em>U</em></span>. However, it is
 independent of the extension for <span
 class="math inline"><em>x</em></span> in <span
 class="math display">$$\begin{aligned}
-    U_\epsilon :=\left\{x \in  U : d(x,\partial U)&lt; \epsilon
+    U_\varepsilon :=\left\{x \in  U : d(x,\partial U)&lt; \varepsilon
 \right\}.\end{aligned}$$</span> With <span
 class="math display">$$\begin{aligned}
-    \tilde{f}*\phi(x) = \int_{B(x,\epsilon )} f(y)\phi(x-y)
-\,\mathrm{d}y , \quad\forall x \in  U_\epsilon   .\end{aligned}$$</span>
+    \tilde{f}*\phi(x) = \int_{B(x,\varepsilon )} f(y)\phi(x-y)
+\,\mathrm{d}y , \quad\forall x \in  U_\varepsilon   .\end{aligned}$$</span>
 For this reason, we will employ the following notation.</p>
 <div id="Convolution support" class="definition">
 <p><strong>Definition 19</strong>. <em>Given <span
@@ -2816,11 +2816,11 @@ class="math inline"><em>f</em> ∈ <em>L</em><sup><em>p</em></sup>(<em>U</em
 and <span
 class="math inline"><em>ϕ</em> ∈ <em>L</em><sup>1</sup>(ℝ<sup><em>d</em></sup>)</span>
 with <span
-class="math inline">$\mathbf{supp}(\phi)\subset  \overline{B(0,\epsilon
+class="math inline">$\mathbf{supp}(\phi)\subset  \overline{B(0,\varepsilon
 ) }$</span> we define <span
 class="math inline"><em>f</em> * <em>ϕ</em> ∈ <em>L</em><sup><em>p</em></sup>(<em>U</em><sub><em>ϵ</em></sub>)</span>
 as <span class="math display">$$\begin{aligned}
-        f*\phi(x):= \int_{B(x,\epsilon )}f(y)\phi(x-y) \,\mathrm{d}y .
+        f*\phi(x):= \int_{B(x,\varepsilon )}f(y)\phi(x-y) \,\mathrm{d}y .
     \end{aligned}$$</span></em></p>
 </div>
 <p>Convolution of distributions with test functions can also be
@@ -2966,7 +2966,7 @@ class="math inline"><em>U</em>, <em>K</em></span> open and compact
 respectively with <span
 class="math inline"><em>U</em> ⊂ <em>A</em> ⊂ <em>K</em></span> and
 <span class="math display">$$\begin{aligned}
-        \lambda  (K)-\lambda  (A) &lt;\epsilon .
+        \lambda  (K)-\lambda  (A) &lt;\varepsilon .
     \end{aligned}$$</span> Where we wrote <span
 class="math inline"><em>μ</em></span> for the Lebesgue measure on <span
 class="math inline">ℝ<sup><em>d</em></sup></span>. By <a
@@ -2979,7 +2979,7 @@ class="math inline">1</span> on <span
 class="math inline"><em>K</em></span>. Then, <span
 class="math display">$$\begin{aligned}
         \left\lVert f- \varphi \right\rVert_{L^p(\mathbb{R}^d)} \leq
-\epsilon .
+\varepsilon .
     \end{aligned}$$</span> Since the space of simple functions is dense
 in <span
 class="math inline"><em>L</em><sup><em>p</em></sup>(ℝ<sup><em>d</em></sup>)</span>
@@ -3018,7 +3018,7 @@ class="math display">$$\begin{aligned}
         \left\lVert g*\phi_n-g \right\rVert_{L^\infty(\mathbb{R}^d)}
 \leq \int_{B(0, \frac{1}{n})} \left\lVert g(\cdot -y) -g
 \right\rVert_{L^\infty(\mathbb{R}^d)} \phi_n(y) \,\mathrm{d}y\leq
-\epsilon   .
+\varepsilon   .
     \end{aligned}$$</span> Where in the last inequality we used that
 <span class="math inline"><em>g</em></span> is uniformly continuous and
 <span class="math inline"><em>ϕ</em><sub><em>n</em></sub></span> has
@@ -3029,7 +3029,7 @@ first part of the proposition.</p>
 data-reference-type="ref" data-reference="Uryshon">4</a> we can choose
 <span class="math inline"><em>g</em></span> such that <span
 class="math display">$$\begin{aligned}
-        \left\lVert g-f \right\rVert_{L^p(\mathbb{R}^d)}&lt;\epsilon .
+        \left\lVert g-f \right\rVert_{L^p(\mathbb{R}^d)}&lt;\varepsilon .
     \end{aligned}$$</span></p>
 <p>Now, since <span
 class="math inline"><em>K</em><sub><em>n</em></sub> := <strong>s</strong><strong>u</strong><strong>p</strong><strong>p</strong>(<em>g</em>*<em>ϕ</em><sub><em>n</em></sub>) ⊂ <em>K</em> + <em>B</em>(0,1/<em>n</em>)</span>,
@@ -3038,7 +3038,7 @@ class="math inline"><em>M</em> &gt; 0</span>, the inequality in <a
 href="#nm" data-reference-type="eqref" data-reference="nm">[nm]</a>
 shows that <span class="math display">$$\begin{aligned}
         \left\lVert g*\phi_n-g \right\rVert_{L^p(\mathbb{R}^d)}^p \leq
-\int_{K_n} \epsilon^p   \,\mathrm{d}y\leq M\epsilon^p  .
+\int_{K_n} \varepsilon^p   \,\mathrm{d}y\leq M\varepsilon^p  .
     \end{aligned}$$</span> Now using the triangle inequality and Young’s
 convolution inequality <a href="#Young" data-reference-type="ref"
 data-reference="Young">4</a> gives <span
@@ -3048,8 +3048,8 @@ class="math display">$$\begin{aligned}
 \right\rVert_{L^p(\mathbb{R}^d)}+\left\lVert g*\phi_n-g
 \right\rVert_{L^p(\mathbb{R}^d)} \\
                                                                             &amp;
-+\left\lVert g-f \right\rVert_{L^p(\mathbb{R}^d)}\leq \epsilon +
-M^{\frac{1}{p}}\epsilon +\epsilon .
++\left\lVert g-f \right\rVert_{L^p(\mathbb{R}^d)}\leq \varepsilon +
+M^{\frac{1}{p}}\varepsilon +\varepsilon .
     \end{aligned}$$</span> This shows the second part and concludes the
 proof. ◻</p>
 </div>
@@ -3095,7 +3095,7 @@ data-reference="Convolution support">19</a>, <span
 class="math inline"><em>f</em> * <em>ϕ</em> ∈ <em>C</em><sup>∞</sup>(<em>U</em><sub><em>ϵ</em></sub>)</span>
 with an identical proof showing <span
 class="math display">$$\begin{aligned}
-        D^\alpha(f *\phi)=f*D^\alpha \phi \text{ on } U_\epsilon .
+        D^\alpha(f *\phi)=f*D^\alpha \phi \text{ on } U_\varepsilon .
     \end{aligned}$$</span></em></p>
 </div>
 <div id="density thm" class="theorem">
@@ -3502,9 +3502,9 @@ us write <span
 class="math inline"><em>x</em> = (<em>x</em>′,<em>x</em><sub><em>d</em></sub>)</span>,
 by the Taylor expansion <span class="math display">$$\begin{aligned}
     \Phi_\alpha(x',\gamma
-_\alpha(x')+\epsilon)=\Phi_\alpha(x)+\frac{\partial \Phi}{\partial
-x_d}(x)\epsilon +O(\left\lVert
-\epsilon  \right\rVert^2)  .\end{aligned}$$</span> We deduce that, once
+_\alpha(x')+\varepsilon)=\Phi_\alpha(x)+\frac{\partial \Phi}{\partial
+x_d}(x)\varepsilon +O(\left\lVert
+\varepsilon  \right\rVert^2)  .\end{aligned}$$</span> We deduce that, once
 more reducing the size of <span
 class="math inline"><em>U</em><sub><em>α</em></sub></span> if necessary
 and depending on the sign of <span

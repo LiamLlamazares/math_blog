@@ -544,9 +544,9 @@ Let us write $\mathcal{K}(X,Y)$ for the space of relatively compact linear opera
 	Let $T:X\to Y$ with $Y$ complete. Then if $T_n$ are compact operators converging in $\mathcal{L}(X\to Y)$ to $T$ we have that $T$ is relatively compact.
 \end{proposition}
 \begin{proof}
-	This follows from the fact that in complete normed spaces compactness is equivalent to total boundedness. So if we cover $T_N(A)$ by $B(y_n,\epsilon/2)$ then for large $N$ and $x\in A$
+	This follows from the fact that in complete normed spaces compactness is equivalent to total boundedness. So if we cover $T_N(A)$ by $B(y_n,\varepsilon/2)$ then for large $N$ and $x\in A$
 	\begin{equation*}
-		\norm{T(x)-y_n}\leq \norm{T-T_N}\norm{x}-\norm{T_N(x)-y_n}<\epsilon
+		\norm{T(x)-y_n}\leq \norm{T-T_N}\norm{x}-\norm{T_N(x)-y_n}<\varepsilon
 	\end{equation*}
 \end{proof}
 \begin{proposition}
@@ -765,7 +765,7 @@ Though in infinite dimension this definition could depend on the basis it will n
 \end{proposition}
 \begin{proof}
 	By definition of $mathcal{L}_1^+(U)$ we have that $Q$ is self-adjoint and compact (as it is nuclear).
-	As a result we may apply the Hilbert Schmidt theorem \ref{Hilber-Schmidt} to obtain that
+	As a result we may apply the Hilbert Schmidt \Cref{Hilber-Schmidt} to obtain that
 	\begin{equation*}
 		Q x=\sum_{k\in\N}\lambda_{k} \br{x,e_{k}}.
 	\end{equation*}

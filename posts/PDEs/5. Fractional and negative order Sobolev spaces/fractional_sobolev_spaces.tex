@@ -235,10 +235,10 @@ The result can be found in \cite{triebel1992theory} page 45 for $\Omega = \R^d$.
 \section{Relationship between the definitions}
 The following result shows the inclusions between $W^{s,p}(\Omega ),H^{s,p}(\Omega ),B^{s,p}(\Omega )$ and can be found in \cite{agranovich2015sobolev} page 224 and in \cite{stein1970singular} page 155.
 \begin{theorem}\label{equivalence fractional spaces}
-    Let $s \geq 0, \epsilon >0$ and  $\Omega$ an extension domain for $H^{s+\epsilon,p},B^{s+\epsilon,p}$. Then,
+    Let $s \geq 0, \varepsilon >0$ and  $\Omega$ an extension domain for $H^{s+\varepsilon,p},B^{s+\varepsilon,p}$. Then,
     \begin{align*}
-        H^{s+\epsilon,p}(\Omega ) & \subset B^{s,p}(\Omega )  \subset H^{s,p}(\Omega )\quad \forall p \in (1,2]       \\
-        B^{s+\epsilon,p}(\Omega ) & \subset H^{s,p}(\Omega )  \subset B^{s,p}(\Omega )\quad \forall p \in [2,\infty),
+        H^{s+\varepsilon,p}(\Omega ) & \subset B^{s,p}(\Omega )  \subset H^{s,p}(\Omega )\quad \forall p \in (1,2]       \\
+        B^{s+\varepsilon,p}(\Omega ) & \subset H^{s,p}(\Omega )  \subset B^{s,p}(\Omega )\quad \forall p \in [2,\infty),
     \end{align*}
     where the above inclusions are continuous and dense. Furthermore,
     \begin{align}\label{Slobodeckij equivalence}
@@ -262,9 +262,9 @@ The equality in \eqref{Slobodeckij equivalence} shows that, as long as we unders
                           \end{cases}.
     \end{align*}
 \end{definition}
-The equality for $p=2$ in \eqref{p=2} justifies that, for sufficiently regular domains, all three spaces are written $H^s(\Omega )$.   We will prove the left-hand side of this equivalence in Exercise \ref{equivalence of fractional spaces}. For $p\neq 2$, the inclusions are, in general, strict. An example is constructed in \cite{stein1970singular} page 161 exercise 6.8.
+The equality for $p=2$ in \eqref{p=2} justifies that, for sufficiently regular domains, all three spaces are written $H^s(\Omega )$.   We will prove the left-hand side of this equivalence in \Cref{equivalence of fractional spaces}. For $p\neq 2$, the inclusions are, in general, strict. An example is constructed in \cite{stein1970singular} page 161 exercise 6.8.
 \begin{exercise}[Equivalence of fractional spaces]\label{equivalence of fractional spaces}
-    Show without using Theorem \ref{equivalence fractional spaces} that
+    Show without using \Cref{equivalence fractional spaces} that
     \begin{align*}
         H^{s,2}(\R^d)=W^{s,2}(\R^d).
     \end{align*}
@@ -291,7 +291,7 @@ The equality for $p=2$ in \eqref{p=2} justifies that, for sufficiently regular d
     The last integral is finite as, since $d+2\gamma >d$, the tails $\abs{\xi}\to\infty$ are controlled, and since $1-\cos(2\pi x_1)\sim x_1^2\leq \abs{x}^2$ the integrand has order $-d+2(1-\gamma)>-d$ for $\abs{\xi}\sim 0$ . That said, substituting this back into the previous expression gives the desired result.
 \end{hint}
 \begin{exercise}
-    Use the previous exercise \ref{equivalence of fractional spaces} to show that if $\Omega $ is an extension domain for $H^{s}$, then
+    Use the previous \Cref{equivalence of fractional spaces} to show that if $\Omega $ is an extension domain for $H^{s}$, then
     \begin{align*}
         H^{s,2}(\Omega )=W^{s,2}(\Omega ).
     \end{align*}
@@ -335,7 +335,7 @@ The above suggests that, for $p=2$, the integrals appearing in the definition of
     \begin{align*}
         \abs{\xi}^{2\gamma }\wh{u}(\xi )\sim \Ff \left(\int_{\R^d}\frac{u(x)-u(x+y)}{\abs{y}^{d+2\gamma}}\d y\right).
     \end{align*}
-    Using \eqref{second order} and proceeding as in Exercise \ref{equivalence fractional spaces} gives
+    Using \eqref{second order} and proceeding as in \Cref{equivalence fractional spaces} gives
     \begin{align*}
          & \Ff \left(\int_{\R^d}\frac{u(x)-u(x+y)}{\abs{y}^{d+2\gamma}}\d y\right)= -\frac{1}{2} \int_{\R^d}\left(\int_{\R^d}\frac{e^{2\pi i y \cdot \xi}-2+e^{-2\pi i y \cdot \xi}}{\abs{y}^{d+2\gamma}}\d y\right) \wh{u}(\xi)\d \xi       \\
          & =\int_{\R^d}\left(\int_{\R^d}\frac{1-\cos(2\pi y \cdot \xi)}{\abs{y}^{d+2\gamma}}\d y\right) \wh{u}(\xi)\d \xi =\int_{\R^d}  \frac{1-\cos(2\pi  y_1) }{\abs{y}^{d+2\gamma	}}\d y\int_{\R^d}\abs{\xi}^{2 \gamma }\wh{u}(\xi)\d \xi \\& \sim \abs{\xi}^{2 \gamma }\wh{u}(\xi)\d \xi.
@@ -353,7 +353,7 @@ Negative orders of regularity correspond to the dual of Sobolev spaces. This is 
         H^{k,p}_0(\Omega )' = H^{-k,p'}(\Omega ), \quad W^{k,p}_0(\Omega )' = W^{-k,p'}(\Omega ).
     \end{align*}
 \end{theorem}
-The first equality will be discussed in the next subsection and is most easily proved when $\Omega =\R^d$, in which case one can use the homeomorphism $\Lambda ^s: H^{r,p}(\R^d )\iso H^{r-s,p}(\R^d )$ together with the reflexivity of $L^p(\R^d )$. The second equality is a direct consequence of the integer order equality $W^{k,p}(\Omega )=H^{k,p}(\Omega )$ of Theorem \ref{equivalence fractional spaces}. For fractional order regularities, we have the following result, which can be found in \cite{agranovich2015sobolev} page 228.
+The first equality will be discussed in the next subsection and is most easily proved when $\Omega =\R^d$, in which case one can use the homeomorphism $\Lambda ^s: H^{r,p}(\R^d )\iso H^{r-s,p}(\R^d )$ together with the reflexivity of $L^p(\R^d )$. The second equality is a direct consequence of the integer order equality $W^{k,p}(\Omega )=H^{k,p}(\Omega )$ of \Cref{equivalence fractional spaces}. For fractional order regularities, we have the following result, which can be found in \cite{agranovich2015sobolev} page 228.
 \begin{theorem}
     Given $s>0, p \in [1,\infty)$ and $\Omega$ an extension domain, it holds that the spaces $W^{s,p}(\Omega ),H^{s,p}(\Omega ),B^{s,p}(\Omega )$ are reflexive Banach spaces with duals
     \begin{align*}
@@ -423,11 +423,11 @@ Now, given a Banach space $X$ and a closed subspace $Y \hookrightarrow X$, eleme
 \begin{align}\label{dual isomormphism}
     Y' \simeq X'\backslash Y^\circ.
 \end{align}
-Applying this to $Y= H^{k,p}_0(\Omega )\hookrightarrow H^{k,p}(\R^d) =X$ we obtain the result of Theorem \ref{dual of integer sobolev}.
+Applying this to $Y= H^{k,p}_0(\Omega )\hookrightarrow H^{k,p}(\R^d) =X$ we obtain the result of \Cref{dual of integer sobolev}.
 \begin{align*}
     H^{k,p}_0(\Omega )' \simeq H^{k,p}(\R^d)'\backslash H^{k,p}(\Omega)^\circ\simeq H^{-k,p'}(\R^d)\backslash H^{-k,p'}_{\Omega^c}(\R^d )
 \end{align*}
-where the second equality is by Exercise \ref{dual exercise}. This coincides well with what we observed in \eqref{ismorphism} and justifies an extension of \eqref{ismorphism} for negative $s$.
+where the second equality is by \Cref{dual exercise}. This coincides well with what we observed in \eqref{ismorphism} and justifies an extension of \eqref{ismorphism} for negative $s$.
 
 As a final note, if $\Omega \neq \R^d$, then  $H_0^k(\Omega )'$ and $H^k(\Omega )'$ are not equal. Rather,
 \begin{align*}
@@ -477,7 +477,7 @@ The above theorem shows that $W^{-k,p'}(\Omega )$ can be equivalently formed by 
     \end{align*}
 \end{exercise}
 \begin{hint}
-    Use that $\Lambda ^{\gamma }: H^{s,p}(\R^d) \to H^{k ,p}(\R^d)$ is an isomorphism and the just proved theorem \ref{riesz representation} together with the integer equivalence in Theorem \ref{equivalence fractional spaces} to show that
+    Use that $\Lambda ^{\gamma }: H^{s,p}(\R^d) \to H^{k ,p}(\R^d)$ is an isomorphism and the just proved \Cref{riesz representation} together with the integer equivalence in \Cref{equivalence fractional spaces} to show that
     \begin{align*}
         H^{s,p}(\R^d)' = \set{ \sum_{0\leq\abs{\alpha}\leq k} \Lambda^{\gamma } D^\alpha u_\alpha\in \Dd'(\R^d ),\quad \text{where }    u_\alpha \in L^{p'}(\R^d )}.
     \end{align*}
@@ -550,10 +550,10 @@ The critical case $\gamma=\frac{d}{p}$ corresponding to $p_\gamma^*=\infty$ is n
     \end{align*}
 \end{theorem}
 \begin{exercise}
-    Using Theorem \ref{subcritical embedding} prove Theorem \ref{critical embedding}
+    Using \Cref{subcritical embedding} prove \Cref{critical embedding}
 \end{exercise}
 \begin{hint}
-    We are in the subcritical case for $r<d/p=\gamma$. Extend $u$ to $\R^d$ to form $\tl{u}$. Then, by Proposition \ref{inclusion ordered by regularity}, we have
+    We are in the subcritical case for $r<d/p=\gamma$. Extend $u$ to $\R^d$ to form $\tl{u}$. Then, by \Cref{inclusion ordered by regularity}, we have
     \begin{align*}
         \|u\|_{L^{p_r^*}(\Omega )}\leq \|u\|_{L^{p_r^*}(\R^d )}  \lesssim \norm{u}_{W^{r, p}(\R^d )}\leq \norm{u}_{W^{\gamma, p}(\R^d  )}\lesssim \norm{u}_{W^{\gamma, p}(\Omega )}.
     \end{align*}
@@ -576,7 +576,7 @@ As in the non-fractional case, one can also consider higher smoothness on the ri
     \end{align*}
 \end{theorem}
 \begin{exercise}
-    Justify via a scaling argument that the condition $\gamma_2 - \frac{d}{p_2} = \gamma_1 - \frac{d}{p_1}$ is necessary for the embedding in Theorem \ref{higher smoothness embedding}.
+    Justify via a scaling argument that the condition $\gamma_2 - \frac{d}{p_2} = \gamma_1 - \frac{d}{p_1}$ is necessary for the embedding in \Cref{higher smoothness embedding}.
 \end{exercise}
 \begin{hint}
     Extend to a function on $\R^d$, then swap  $u$ with $u_\lambda (x):=u(\lambda x)$and apply the change of variables $(x,y)\to \lambda (x,y)$.
@@ -590,7 +590,7 @@ Finally, interpolation results are also possible. See \cite{leoni2023first} page
 
     for all $u \in W^{\gamma_1, p_1}(\R^d) \cap W^{\gamma_2, p_2}(\R^d)$, where $\frac{1}{p}=\frac{\theta}{p_1}+\frac{1-\theta}{p_2}$ and $s=\theta \gamma_1+$ $(1-\theta) \gamma_2.$
 \end{theorem}
-The above results can also be formulated in terms of the Sobolev seminorm. For example, Theorem \ref{interpolation embedding} can be formulated as
+The above results can also be formulated in terms of the Sobolev seminorm. For example, \Cref{interpolation embedding} can be formulated as
 \begin{align*}
     \abs{u}_{W^{s, p}(\R^d)} \lesssim \abs{u}_{W^{\gamma_1, p_1}(\R^d)}^\theta\abs{u}_{W^{\gamma_2, p_2}(\R^d)}^{1-\theta}.
 \end{align*}
@@ -610,7 +610,7 @@ Higher order embeddings and interpolations can be obtained from the previous cas
     \begin{align*}
         \frac{1}{(p_\gamma ^*)_k^*}=\frac{1}{p_\gamma }-\frac{k}{d}=\frac{1}{p}-\frac{s}{d}= \frac{1}{p_s^*}.
     \end{align*}
-    The result follows from Theorem \ref{subcritical embedding},  Theorem \ref{morrey embedding} together with the \href{https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#est32:~:text=Combining%20the%20three%20results}{integer-case} embeddings. For the first case, by Theorem \ref{subcritical embedding}, we have
+    The result follows from \Cref{subcritical embedding},  \Cref{morrey embedding} together with the \href{https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#est32:~:text=Combining%20the%20three%20results}{integer-case} embeddings. For the first case, by \Cref{subcritical embedding}, we have
     \begin{align*}
         \norm{D^\alpha u}_{L^{p_\gamma ^*}(\Omega )}\lesssim \norm{D^\alpha u}_{W^{\gamma ,p}(\Omega )} \lesssim \norm{u}_{W^{s,p}(\Omega )}, \quad \forall \abs{\alpha}\leq k.
     \end{align*}
@@ -618,11 +618,11 @@ Higher order embeddings and interpolations can be obtained from the previous cas
     \begin{align*}
         \norm{u}_{L^{p_s^*}(\Omega )}=\norm{u}_{L^{(p_\gamma ^*)_k ^*}(\Omega )}\lesssim \norm{u}_{W^{k,p_\gamma ^*}(\Omega )}\lesssim \norm{u}_{W^{s,p}(\Omega )}.
     \end{align*}
-    For the second case, by Theorem \ref{subcritical embedding} and reasoning with derivatives up to order $k$, we obtain similarly
+    For the second case, by \Cref{subcritical embedding} and reasoning with derivatives up to order $k$, we obtain similarly
     \begin{align*}
         \norm{u}_{W^{k,p_\gamma ^*}(\Omega )}\lesssim \norm{u}_{W^{s,p}(\Omega )},
     \end{align*}
-    where by a calculation $k = d / p_\gamma ^*$. So, we conclude once more by using the integer case. Likewise, for the final case, we use Theorem \ref{morrey embedding} to directly obtain
+    where by a calculation $k = d / p_\gamma ^*$. So, we conclude once more by using the integer case. Likewise, for the final case, we use \Cref{morrey embedding} to directly obtain
     \begin{align*}
         \norm{u}_{C^{k,\gamma}(\Omega )}\lesssim \norm{u}_{W^{s,p}(\Omega )}.
     \end{align*}
@@ -642,7 +642,7 @@ Below we plot the Sobolev critical exponent $p_s^*$ for $p=2$ and $d=1,2,3$. As 
     \end{align*}
 \end{exercise}
 \begin{hint}
-    Set $k_i =\left\lfloor s_i \right\rfloor$ and $\gamma_i =s_i-k_i$.  Apply Theorem \ref{higher smoothness embedding} to the derivatives of order up to $k_2$ to obtain
+    Set $k_i =\left\lfloor s_i \right\rfloor$ and $\gamma_i =s_i-k_i$.  Apply \Cref{higher smoothness embedding} to the derivatives of order up to $k_2$ to obtain
     \begin{align*}
         \norm{D^\alpha u}_{W^{\gamma_2, p_2}(\Omega )}\lesssim \norm{D^\alpha u}_{W^{\gamma _1,p_1}(\Omega )} \leq \norm{u}_{W^{s_1,p_1}(\Omega )}, \quad \forall \abs{\alpha}\leq k_2.
     \end{align*}
@@ -675,18 +675,18 @@ This and other results can be formulated for the more general spaces $B^{s,p}_q$
 % \begin{exercise}
 %     Show that, for almost every $\omega \in \Omega $, the random variable $\Ww (\omega )$
 %     \begin{align*}
-%         \Ww (\omega ) \in H^{-d/2 -\epsilon}(\R^d), \quad \text{for all } \epsilon >0.
+%         \Ww (\omega ) \in H^{-d/2 -\varepsilon}(\R^d), \quad \text{for all } \varepsilon >0.
 %     \end{align*}
 % \end{exercise}
 % Deduce that
 % \begin{align*}
-%     W(\cdot , \omega ) \in H^{d/2 -\epsilon}(\R^d), \quad \text{for all } \epsilon >0 \in H^{1 -\epsilon}(\R^d).
+%     W(\cdot , \omega ) \in H^{d/2 -\varepsilon}(\R^d), \quad \text{for all } \varepsilon >0 \in H^{1 -\varepsilon}(\R^d).
 % \end{align*}
 % In the particular case $d=1$, show that the Wiener process
 % \begin{align*}
 %     W(t, \omega ) =\sum_{k=1}^\infty X_k(\omega ) \int_{0}^t e_k(s) \d s,
 % \end{align*}
-% verifies that $W(t, \omega ) \in H^{1/2 -\epsilon}(\R)$ for all $\epsilon >0$ and almost every $\omega \in \Omega $.
+% verifies that $W(t, \omega ) \in H^{1/2 -\varepsilon}(\R)$ for all $\varepsilon >0$ and almost every $\omega \in \Omega $.
 
 
 % \begin{hint}

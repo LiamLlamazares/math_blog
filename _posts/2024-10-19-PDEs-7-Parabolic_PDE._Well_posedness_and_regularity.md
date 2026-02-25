@@ -447,7 +447,7 @@ for
 
 <div>
 $$\begin{aligned}
-\Phi: C([0,\epsilon ] \to X) \to C([0,\epsilon ] \to X), \quad u \mapsto \Phi(u)(t) := g + \int\U I F(u(s)) \,\mathrm{d}s.
+\Phi: C([0,\varepsilon ] \to X) \to C([0,\varepsilon ] \to X), \quad u \mapsto \Phi(u)(t) := g + \int\U I F(u(s)) \,\mathrm{d}s.
 \end{aligned}$$
 </div>
 
@@ -632,7 +632,7 @@ $$\begin{align}  \label{derivative}
 </div>
 
 Using Cauchy's inequality
-$ab \leq \frac{1}{2} (\epsilon a^2+\epsilon^{-1} b^2)$, the
+$ab \leq \frac{1}{2} (\varepsilon a^2+\varepsilon^{-1} b^2)$, the
 boundedness of the coefficients and the ellipticity of $\mathbf{A}$
 shows that, for some constants $\beta , \nu >0$
 
@@ -822,9 +822,9 @@ proof.
 
 Having proved the well-posedness of the Galerkin problem, we can now
 show that the parabolic problem is well-posed. A common technique in PDE
-is to modify your initial problem $P$ by some quantity $\epsilon$ to
-obtain a problem $P\U  \epsilon$ that is easier to solve. Suppose one can
-find solutions to $P\U  \epsilon$ that are bounded. In that case, a
+is to modify your initial problem $P$ by some quantity $\varepsilon$ to
+obtain a problem $P\U  \varepsilon$ that is easier to solve. Suppose one can
+find solutions to $P\U  \varepsilon$ that are bounded. In that case, a
 converging subsequence can typically be extracted and, under appropriate
 conditions, will converge to a solution to the original problem $P$.
 This is exactly what we show now.

@@ -93,6 +93,7 @@ format:
               qp: ["\\left(#1\\right)", 1],
               qt: ["\\left(#1\\right)", 1],
               red: ["{\\color{red}#1}", 1],
+              restr: ["\\left.#1\\right|{#2}", 2],
               rm: ["\\mathrm{#1}", 1],
               set: ["\\left\\{#1\\right\\}", 1],
               star: "*",
@@ -118,7 +119,7 @@ $$ {#eq-hi}
 
 	This is clear when $n=1$ as only one possible loop can be formed.\\
 	\\
-	Suppose by hypothesis of induction that @eq-hi holds for $n$ and let us prove it for $n+1$. We start from the beginning with $n+1$ noodles
+	Suppose by hypothesis of induction that ([-@eq-hi]) holds for $n$ and let us prove it for $n+1$. We start from the beginning with $n+1$ noodles
 	that have  $2(n+1)$ disconnected ends. By the symmetry of the problem we can fix one end to be the first end to be chose. Then, since an end cannot be connected to itself, there are two possibilities for our starting move
 	
 $$
@@ -139,7 +140,7 @@ $$
 E_{n+1}=\frac{1}{2(n+1)}(E_n+1)+(1-\frac{1}{2n+1})E_n=E_n+ \frac{1}{2(n+1)}=\sum_{j=0}^{n} \frac{1}{2j+1}.
 $$
 
-	Where in the last equality we used the hypothesis of induction  @eq-hi.  This concludes the proof.
+	Where in the last equality we used the hypothesis of induction  ([-@eq-hi]).  This concludes the proof.
 
 \end{CJK*}
 

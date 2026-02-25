@@ -187,7 +187,7 @@ As we have discussed in the previous section, equation \eqref{parabolic} can be 
 \end{align}
 Then, writing once more $X =H_0^1(U)$, we could try to emulate Picard's theorem for scalar-valued ODEs to obtain a fixed point for
 \begin{align*}
-  \Phi: C([0,\epsilon ] \to X) \to C([0,\epsilon ] \to X), \quad u \mapsto \Phi(u)(t) := g + \int_I F(u(s)) \d s.
+  \Phi: C([0,\varepsilon ] \to X) \to C([0,\varepsilon ] \to X), \quad u \mapsto \Phi(u)(t) := g + \int_I F(u(s)) \d s.
 \end{align*}
 The only problem with this is that $F$ does not map $X$ to $X$. As a result, the mapping $\Phi$ is not well defined. If the initial data is smooth, we could hope to set $X = C_c^\infty(U)$, and then $F$ would map $X$ to $X$. However, $C^\infty_c(U)$ is not a Banach space, so further modifications would be required.
 As a result, we need a more refined approach. In the next section, we use the Galerkin method to prove the problem's well-posedness.
@@ -252,7 +252,7 @@ Equation \eqref{galerkin} is known as the \emph{Galerkin problem}.
        \begin{align}\label{derivative}
          \br{u_n(t),u_n'(t)}_{L^2_x} = \frac{1}{2}\left(\norm{u_n(t)}_{L_x^2}^2\right)'.
        \end{align}
- Using Cauchy's inequality $ab \leq \frac{1}{2} (\epsilon a^2+\epsilon^{-1} b^2)$, the boundedness of the coefficients and the ellipticity of $\bm{A}$ shows that, for some constants $\beta , \nu >0$
+ Using Cauchy's inequality $ab \leq \frac{1}{2} (\varepsilon a^2+\varepsilon^{-1} b^2)$, the boundedness of the coefficients and the ellipticity of $\bm{A}$ shows that, for some constants $\beta , \nu >0$
        \begin{align}\label{B bound}
  B(u_n(t),u_n(t);t) \geq \gamma \norm{u_n(t)}_{H^1_x}^2 - \nu\norm{u_n(t)}_{L^2_x}^2
        \end{align}
@@ -320,7 +320,7 @@ Equation \eqref{galerkin} is known as the \emph{Galerkin problem}.
   \end{enumerate}
 \end{proof}
 Having proved the well-posedness of the Galerkin problem, we can now show that the parabolic problem is well-posed.
-A common technique in PDE is to modify your initial problem $P$ by some quantity $\epsilon $ to obtain a problem $P_ \epsilon $ that is easier to solve. Suppose one can find solutions to $P_ \epsilon $ that are bounded. In that case, a converging subsequence can typically be extracted and, under appropriate conditions, will converge to a solution to the original problem $P$. This is exactly what we show now.
+A common technique in PDE is to modify your initial problem $P$ by some quantity $\varepsilon $ to obtain a problem $P_ \varepsilon $ that is easier to solve. Suppose one can find solutions to $P_ \varepsilon $ that are bounded. In that case, a converging subsequence can typically be extracted and, under appropriate conditions, will converge to a solution to the original problem $P$. This is exactly what we show now.
 \begin{theorem}[Well posedness of the parabolic problem]
  Under Assumption \ref{ass}, the parabolic problem \eqref{parabolic} is well-posed. That is, there exists a unique weak solution $u$, which depends continuously on the initial data with
   \begin{align}\label{bound P}
@@ -356,7 +356,7 @@ A common technique in PDE is to modify your initial problem $P$ by some quantity
   \begin{align*}
     \br{v(0),g}_{L_x^2} = \br{v(0),u(0)}_{L_x^2}, \quad \forall v \in C_t^2H_{0,x}^1.
   \end{align*}
- where we used that by Lemma \ref{continuity weak} $u_{n_k} \to u \in C_t L_x^2$. In particular,
+ where we used that by \Cref{continuity weak} $u_{n_k} \to u \in C_t L_x^2$. In particular,
   \begin{align*}
     \br{w,g}_{L_x^2} = \br{w,u(0)}_{L_x^2}, \quad \forall w \in H_{0,x}^1.
   \end{align*}
