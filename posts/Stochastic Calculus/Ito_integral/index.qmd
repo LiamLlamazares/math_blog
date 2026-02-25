@@ -123,7 +123,7 @@ As we will soon see the only stochastic process that can be integrated are the s
 
 ::: {#def-1}
 
-A stochastic process $\{X_t\}_{t\in I}$  is *progressively measurable* if $$X:\Bb([0,t])\otimes\Ff_t\to \Hh$$ is measurable for all $t\in I$.
+A stochastic process $\{X_t\}_{t\in I}$ is *progressively measurable* if its restriction to $[0,t]\times\Omega$ is measurable as a map $$X|_{[0,t]\times\Omega} : \Bb([0,t])\otimes\Ff_t\to \Hh$$ for all $t\in I$.
 
 :::
 
@@ -156,9 +156,9 @@ Let $I\subset\R$, and $\{X_t\}_{t\in I}$ be progressively measurable. Then it is
 
 Given $A\in\mathcal{H}$ we have that
 \begin{multline*}
-	\left.{X^{-1}}\right|_{[0,t]\times\Omega}(A)\in\Bb([0,t])\otimes\Ff_t\quad\forall t\in I\\ \iff X^{-1}(A)\cap([0,t]\times\Omega)\in\Bb([0,t])\otimes\Ff_t\quad\forall t\in I\\\implies X^{-1}(A)=\bigcup_{n \in  \N}X^{-1}(A)\cap([0,t_n]\times\Omega) \in\Bb(I)\otimes\Ff_\infty
+	(X|_{[0,t]\times\Omega})^{-1}(A)\in\Bb([0,t])\otimes\Ff_t\quad\forall t\in I\\ \iff X^{-1}(A)\cap([0,t]\times\Omega)\in\Bb([0,t])\otimes\Ff_t\quad\forall t\in I\\\implies X^{-1}(A)=\bigcup_{n \in  \N}\left(X^{-1}(A)\cap([0,t_n]\times\Omega)\right) \in\Bb(I)\otimes\Ff_\infty
 \end{multline*}
-Where $t_n\in I$ is a sequence converging to the endpoint of $I$.
+where $\{t_n\}_{n\in\N}\subset I$ is an increasing sequence converging to $\sup I$.
 
 :::
 
@@ -168,7 +168,7 @@ $$
 X^{-1}(A)=I\times B;\quad {X^{-1}}|_{[0,t]\times\Omega}(A)= [0,t]\times B
 $$
 
-So it suffices to consider some Construction where $B\in\Ff_\infty$ but $B\not\in\Ff_t$.
+So it suffices to consider some construction where $B\in\Ff_\infty$ but $B\notin\Ff_t$.
 It is also important to note the following.
 
 ::: {#lem-2 name="SDE coefficients are progressive"}
@@ -179,11 +179,11 @@ Let $X_t$ be a  progressively measurable stochastic process and let $f:\Hh\to\Gg
 
 ::: {.proof}
 
-This follows from considering $(t,\omega)\to (t,X(t,w))$. Where the arrow is measurable as, due to the progressive measurability of $X$, each component is adapted.
+This follows from writing the map as the composition of $(t,\omega)\mapsto (t,X(t,\omega))$ and $f$. The former map evaluates to a measurable function on $[0,t]\times\Omega$ with respect to $\Bb([0,t])\otimes\Ff_t$, since $(t,\omega)\mapsto t$ is measurable and $(t,\omega)\mapsto X(t,\omega)$ is measurable by the progressive measurability of $X$.
 
 :::
 
-The difference between progressively measurable and adapted is quite subtle. In fact every adapted and jointly measurable stochastic process has a progressively measurable modification (see [@Karatzas1987BrownianMA] page $5$). The proof of this fact is very lengthy and technical. Thus, if $X\in L^2(\Bb(I)\otimes\Ff_\infty)$ (and in particular is jointly measurable), we may always choose a representative that is progressively measurable. This leads to some authors giving the defintion of the class of Itô integrable functions in terms of joint measurability instead of progressive measurability. In the end both lead to equivalent definition. That said, this technicality is usually of little importance due to the following result.
+The difference between progressively measurable and adapted is quite subtle. In fact every adapted and jointly measurable stochastic process has a progressively measurable modification (see [@Karatzas1987BrownianMA] page $5$). The proof of this fact is very lengthy and technical. Thus, if $X\in L^2(\Bb(I)\otimes\Ff_\infty)$ (and in particular is jointly measurable), we may always choose a representative that is progressively measurable. This leads to some authors giving the definition of the class of Itô integrable functions in terms of joint measurability instead of progressive measurability. In the end both lead to equivalent definition. That said, this technicality is usually of little importance due to the following result.
 
 ::: {#lem-3 name="Continuity is progressive"}
 
@@ -193,19 +193,21 @@ Let $\{X_t\}_{t\in I}$ be a left or right continuous stochastic process. Then $X
 
 ::: {.proof}
 
-Suppose for example that $X$ is right continuous, then we consider
+Fix $t \in I$. We will show that the restriction of $X$ to $[0,t]\times\Omega$ is $\Bb([0,t])\otimes\Ff_t$ measurable. Suppose for example that $X$ is right continuous, then we consider the approximations
 
 $$
-X_{s}^{(n)}(\omega)=X_{(k+1) ! / 2^{n}}(\omega) \text { for } \frac{k t}{2^{n}}<s \leq \frac{k+1}{2^{n}} t
+X_{s}^{(n)}(\omega)=X_{(k+1)t / 2^{n}}(\omega) \quad \text{ for } \frac{k t}{2^{n}}<s \leq \frac{k+1}{2^{n}} t
 $$
 
-The pre-image of any set $A\in\Hh$ is of the form
+and $X_0^{(n)}(\omega) = X_0(\omega)$. 
+
+The pre-image of any set $A\in\Hh$ under $(X^{(n)})|_{[0,t]\times \Omega}$ is of the form
 
 $$
-X^{-1}(A)=\bigcup_{i\in \N}(t_i,t_{i+1}]\times X_{t_i}^{-1}(A).
+\left(\{0\}\times X_0^{-1}(A)\right) \cup \bigcup_{k=0}^{2^n-1}\left(\left(\frac{k t}{2^n},\frac{(k+1) t}{2^n}\right]\times X_{(k+1)t/2^n}^{-1}(A)\right).
 $$
 
-So $X^{(n)}$ is progressively measurable.	We conclude as by right continuity $\lim_{n \to \infty}X^{(n)}=X$.
+Since $X$ is adapted, $X_{(k+1)t/2^n}^{-1}(A) \in \Ff_{(k+1)t/2^n} \subseteq \Ff_t$, meaning the above set is in $\Bb([0,t])\otimes\Ff_t$. We conclude as by right continuity $\lim_{n \to \infty}X_{s}^{(n)}(\omega)=X_s(\omega)$ for all $s \in [0,t]$. The pointwise limit of measurable functions is measurable.
 
 :::
 
@@ -224,7 +226,7 @@ The proof of this fact is also rather technical and long. See Chapter $2$ of [@L
 
 ::: {#thm-1}
 
-Let $(\Ee,\|\cdot\|_{L^2(I\times\Omega)},\Ff_t)$ be the set of simple stochastic processes adapted to $\{\Ff_t\}_{t\in I}$ with the $L^2$ norm. Then it's completion is
+Let $(\Ee,\|\cdot\|_{L^2(I\times\Omega)},\Ff_t)$ be the set of simple stochastic processes adapted to $\{\Ff_t\}_{t\in I}$ with the $L^2$ norm. Then its completion is
 
 $$
 \mathbb{L}^2(I\times\Omega):=\{X\in L^2([0,T]\times\Omega)\text{ progressively measurable }\}.
@@ -237,13 +239,14 @@ This finally leads us to be able to define the stochastic integral.
 
 ::: {#thm-2}
 
-Let $t\in I$ and define for a simple process $f\in\Ee$ $$\int_{0}^t X dW=\sum_{n=0}^{N-1} X(t_n)(W(t\cap t_{n+1})-W(t_n)).$$
+Let $t\in I$ and define for a simple process $X\in\Ee$ $$\int_{0}^t X dW=\sum_{n=0}^{N-1} X(t_n)(W(t\wedge t_{n+1})-W(t\wedge t_n)).$$
 Then the above defines an isometry to the space of continuous square integrable martingales $\Mm_I^2$ as
 
 $$
-int: \left(\mathcal{E},\|\cdot\|\U {L^2(I\times\Omega)}\right) & \longrightarrow  \left(\mathcal{M}\U I^2,\|\cdot\|\U {L^2(I\times\Omega)}\right) \\
-X(t)                                                           & \longmapsto \int\U {0}^t X dW
-.
+\begin{aligned}
+int: \left(\mathcal{E},\|\cdot\|_{L^2(I\times\Omega)}\right) & \longrightarrow  \left(\mathcal{M}_I^2,\|\cdot\|_{L^2(I\times\Omega)}\right) \\
+X(\cdot)                                                     & \longmapsto \int_{0}^\cdot X dW
+.\end{aligned}
 $$
 
 Thus, it extends uniquely to the closure $\overline{\Ee}=\mathbb{L}^2(I\times\Omega)$. Furthermore the extension also has image in $\Mm_I^2.$
@@ -252,13 +255,13 @@ Thus, it extends uniquely to the closure $\overline{\Ee}=\mathbb{L}^2(I\times\Om
 
 ::: {.proof}
 
-The first part of the proof is a calculation using the definition of integral of simple process, the adaptedness of $X$ and the definition of  $W$. The second part is slightly more tricky. The fact that $X$ is a martingale is due to  $L^2$ convergence ($L^1$ would suffice).\\\\ Then, one takes a sequence of elementary processes  $X_n$ converging to  $X$. By the first part one may apply Doob's martingale inequality and $L^2$ convergence to get a measure of the set where the supremum
+The first part of the proof is a calculation using the definition of the integral of a simple process, the adaptedness of $X$ and the distribution of increments of $W$. The second part is slightly more tricky. We want to show the limit is a continuous martingale. Let $X_n \in \mathcal{E}$ be a sequence converging to $X \in \overline{\Ee}$ in $L^2$. Let $Y_n(t) = \int_0^t X_n dW$. By the first part, $Y_n$ are continuous martingales, thus one may apply Doob's maximal inequality and the $L^2$ isometry to bound the probability of the set where the supremum
 
 $$
-\sup_{t\in I}  |X_n(t)-X_m(t)|>2^{-k},
+\sup_{t\in I}  |Y_n(t)-Y_m(t)|>2^{-k}.
 $$
 
-which can be made small for $n,m \to\infty$. One can then extract a subsequence and apply Borel-Cantelli to deduce that the above supremum goes to $0$ almost everywhere. This shows that  $X_n$ is almost everywhere Cauchy in  $L^\infty$ and thus converges almost everywhere to some continuous process $Y$. This process must be $X$ by  $L^2$ convergence to  $X$ which concludes the proof.
+This probability can be made arbitrarily small for $n,m \to\infty$. One can then extract a subsequence and apply the Borel-Cantelli lemma to deduce that the above supremum goes to $0$ almost surely. This shows that $Y_n$ is almost surely Cauchy in uniform norm over compacts, and thus converges almost surely to some continuous process $Y$. Since $\{Y_n\}$ converges to $I(X)$ in $L^2$, the limiting continuous process $Y$ must be indistinguishable from the integral $I(X)$.
 
 :::
 

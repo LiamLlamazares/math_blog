@@ -11,7 +11,7 @@
 \title{Construction of the stochastic integral}
 \postsubtitle{Can you really construct this thing?}
 \posttags{Stochastic Calculus, Ito Integral}
-\author{Liam Llamazares}
+\author{Liam Llamazares--Elias}
 \date{5/22/2022}
 \maketitle
 \section{Three line summary}
@@ -28,7 +28,7 @@ $f:\Ff\to\Ff'.$ Furthermore we will take $I=[0,T]$ or $I=[0,+\infty)$ to be the 
 \section{Integrable functions: progressive measurability}
 As we will soon see the only stochastic process that can be integrated are the square integrable and progressively measurable. But what does this mysterious term mean?
 \begin{definition}
-	A stochastic process $\{X_t\}_{t\in I}$  is \emph{progressively measurable} if $$X:\Bb([0,t])\otimes\Ff_t\to \Hh$$ is measurable for all $t\in I$.
+	A stochastic process $\{X_t\}_{t\in I}$ is \emph{progressively measurable} if its restriction to $[0,t]\times\Omega$ is measurable as a map $$X|_{[0,t]\times\Omega} : \Bb([0,t])\otimes\Ff_t\to \Hh$$ for all $t\in I$.
 \end{definition}
 Whenever we're given a stochastic process and a filtration the first thing to check is that it is adapted. In fact, since $\omega\to(t,\omega)$ is $\Ff_t\to \Bb([0,t])\otimes \Ff_t$ measurable for all $t$ we have that the following holds.
 \begin{lemma}
@@ -46,13 +46,13 @@ In the definition of progressive measurability we imposed some kind of measurabi
 \begin{proof}
 	Given $A\in\mathcal{H}$ we have that
 	\begin{multline*}
-		\left.{X^{-1}}\right|_{[0,t]\times\Omega}(A)\in\Bb([0,t])\otimes\Ff_t\quad\forall t\in I\\ \iff X^{-1}(A)\cap([0,t]\times\Omega)\in\Bb([0,t])\otimes\Ff_t\quad\forall t\in I\\\implies X^{-1}(A)=\bigcup_{n \in  \N}X^{-1}(A)\cap([0,t_n]\times\Omega) \in\Bb(I)\otimes\Ff_\infty
+		(X|_{[0,t]\times\Omega})^{-1}(A)\in\Bb([0,t])\otimes\Ff_t\quad\forall t\in I\\ \iff X^{-1}(A)\cap([0,t]\times\Omega)\in\Bb([0,t])\otimes\Ff_t\quad\forall t\in I\\\implies X^{-1}(A)=\bigcup_{n \in  \N}\left(X^{-1}(A)\cap([0,t_n]\times\Omega)\right), \in\Bb(I)\otimes\Ff_\infty
 	\end{multline*}
-	Where $t_n\in I$ is a sequence converging to the endpoint of $I$.
+	where $\{t_n\}_{n\in\N}\subset I$ is an increasing sequence converging to $\sup I$.
 \end{proof}
 Note however that the converse isn't true, for example if $X$ is constant in $t$ then, for some $B\subset \Omega$
 \begin{equation*}
-	X^{-1}(A)=I\times B;\quad {X^{-1}}|_{[0,t]\times\Omega}(A)= [0,t]\times B
+	X^{-1}(A)=I\times B, \quad (X|_{[0,t]\times\Omega})^{-1}(A)= [0,t]\times B.
 \end{equation*}
 So it suffices to consider some Construction where $B\in\Ff_\infty$ but $B\not\in\Ff_t$.
 It is also important to note the following.
@@ -60,35 +60,36 @@ It is also important to note the following.
 	Let $X_t$ be a  progressively measurable stochastic process and let $f:\Hh\to\Gg$ be measurable, then $f(t,X_t)$ is progressively measurable.
 \end{lemma}
 \begin{proof}
-	This follows from considering $(t,\omega)\to (t,X(t,w))$. Where the arrow is measurable as, due to the progressive measurability of $X$, each component is adapted.
+	This follows from writing the map as the composition of $(t,\omega)\mapsto (t,X(t,\omega))$ and $f$. The former map evaluates to a measurable function on $[0,t]\times\Omega$ with respect to $\Bb([0,t])\otimes\Ff_t$, since $(t,\omega)\mapsto t$ is measurable and $(t,\omega)\mapsto X(t,\omega)$ is measurable by the progressive measurability of $X$.
 \end{proof}
 The difference between progressively measurable and adapted is quite subtle. In fact every adapted and jointly measurable stochastic process has a progressively measurable modification (see \cite{Karatzas1987BrownianMA} page $5$). The proof of this fact is very lengthy and technical. Thus, if $X\in L^2(\Bb(I)\otimes\Ff_\infty)$ (and in particular is jointly measurable), we may always choose a representative that is progressively measurable. This leads to some authors giving the definition of the class of Itô integrable functions in terms of joint measurability instead of progressive measurability. In the end both lead to equivalent definition. That said, this technicality is usually of little importance due to the following result.
 \begin{lemma}[Continuity is progressive]
 	Let $\{X_t\}_{t\in I}$ be a left or right continuous stochastic process. Then $X$ is progressively measurable.
 \end{lemma}
 \begin{proof}
-	Suppose for example that $X$ is right continuous, then we consider
+	Fix $t \in I$. We will show that the restriction of $X$ to $[0,t]\times\Omega$ is $\Bb([0,t])\otimes\Ff_t$ measurable. Suppose for example that $X$ is right continuous, then we consider the approximations
 	\begin{equation*}
-		X_{s}^{(n)}(\omega)=X_{(k+1) ! / 2^{n}}(\omega) \text { for } \frac{k t}{2^{n}}<s \leq \frac{k+1}{2^{n}} t
+		X_{s}^{(n)}(\omega)=X_{(k+1)t / 2^{n}}(\omega) \quad \text{ for } \frac{k t}{2^{n}}<s \leq \frac{k+1}{2^{n}} t
 	\end{equation*}
-	The pre-image of any set $A\in\Hh$ is of the form
+	and $X_0^{(n)}(\omega) = X_0(\omega)$. 
+	The pre-image of any set $A\in\Hh$ under $(X^{(n)})|_{[0,t]\times \Omega}$ is of the form
 	\begin{equation*}
-		X^{-1}(A)=\bigcup_{i\in \N}(t_i,t_{i+1}]\times X_{t_i}^{-1}(A).
+		\left(\{0\}\times X_0^{-1}(A)\right) \cup \bigcup_{k=0}^{2^n-1}\left(\left(\frac{k t}{2^n},\frac{(k+1) t}{2^n}\right]\times X_{(k+1)t/2^n}^{-1}(A)\right).
 	\end{equation*}
-	So $X^{(n)}$ is progressively measurable.	We conclude as by right continuity $\lim_{n \to \infty}X^{(n)}=X$.
+	Since $X$ is adapted, $X_{(k+1)t/2^n}^{-1}(A) \in \Ff_{(k+1)t/2^n} \subseteq \Ff_t$, meaning the above set is in $\Bb([0,t])\otimes\Ff_t$. We conclude as by right continuity $\lim_{n \to \infty}X_{s}^{(n)}(\omega)=X_s(\omega)$ for all $s \in [0,t]$. The pointwise limit of measurable functions is measurable.
 \end{proof}
 Also we used that the pointwise limit of progressively measurable functions is progressively measurable. This is because the pointwise limit of measurable functions is measurable.
 \begin{lemma}
-	For any $p \in[1, \infty)$, the elementary processes are $L^{p}$-dense in the space $\mathbb{L}^{p}(I\times\Omega)$ of progressively measurable processes in $L^p(\Bb(I)\otimes\Ff_\infty)$. That is, for any $Y \in \mathbb{L}^{p}$ there is a sequence $V_{n}$ of elementary functions such that
+	For any $p \in[1, \infty)$, the space of elementary processes $\Ee$ is $L^{p}$-dense in the space $\mathbb{L}^{p}(I\times\Omega)$ of progressively measurable processes. That is, for any $Y \in \mathbb{L}^{p}(I\times\Omega)$ there exists a sequence of elementary processes $V_{n} \in \Ee$ such that
 	$$
-		\E[\int_{I}\left|Y(t)-V_{n}(t)\right|^{p} dt] \longrightarrow 0.
+		\E\left[\int_{I}\left|Y(t)-V_{n}(t)\right|^{p} dt\right] \longrightarrow 0.
 	$$
 \end{lemma}
-The proof of this fact is also rather technical and long. See Chapter $2$ of \cite{Lalley2013NOTESOT}. Furthermore, we have that
+A detailed proof is given in \citet[Chapter 2]{Lalley2013NOTESOT}. This density immediately yields the closure of elementary processes.
 \begin{theorem}
-	Let $(\Ee,\|\cdot\|_{L^2(I\times\Omega)},\Ff_t)$ be the set of simple stochastic processes adapted to $\{\Ff_t\}_{t\in I}$ with the $L^2$ norm. Then it's completion is
+	Let $(\Ee,\|\cdot\|_{L^2(I\times\Omega)})$ be the space of elementary stochastic processes adapted to $\{\Ff_t\}_{t\in I}$, equipped with the $L^2(I\times\Omega)$ norm. Its completion is exactly
 	\begin{equation*}
-		\mathbb{L}^2(I\times\Omega):=\{X\in L^2([0,T]\times\Omega)\text{ progressively measurable }\}.
+		\mathbb{L}^2(I\times\Omega) := \{X\in L^2(I\times\Omega) \mid X \text{ is progressively measurable}\}.
 	\end{equation*}
 \end{theorem}
 The proof of this is by the previous approximation result together with the fact that the Ito integral of simple processes is an isometry and the fact that $\mathbb{L}^2(I\times\Omega)$ is complete. This last property follows from the completeness of the $L^p$ spaces and the fact that pointwise limits of progressively measurable functions are progressively measurable (and from every convergent sequence in $L^p$ we can extract a convergent sub-sequence which must also converge to the $L^p$ limit).
