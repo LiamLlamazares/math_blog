@@ -1,7 +1,7 @@
-PWD c:\Users\liaml\Documents\GitHub\Research\Blog_latex\PDEs\3. Sobolev spaces
+PWD c:\Users\liaml\Documents\GitHub\Research\math_blog\posts\PDEs\3. Sobolev spaces
 INPUT C:\Users\liaml\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\liaml\Documents\GitHub\Research\Blog_latex\PDEs\3. Sobolev spaces\Sobolev spaces.tex
-OUTPUT c:\Users\liaml\Documents\GitHub\Research\Blog_latex\PDEs\3. Sobolev spaces\%OUTDIR%\Sobolev spaces.log
+INPUT c:\Users\liaml\Documents\GitHub\Research\math_blog\posts\PDEs\3. Sobolev spaces\Sobolev spaces.tex
+OUTPUT c:\Users\liaml\Documents\GitHub\Research\math_blog\posts\PDEs\3. Sobolev spaces\%OUTDIR%\Sobolev spaces.log
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex\latex\koma-script\scrartcl.cls
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex\latex\koma-script\scrartcl.cls
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex\latex\koma-script\scrkbase.sty
@@ -343,10 +343,10 @@ INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex\latex\oberdiek\aliascnt.s
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex\latex\oberdiek\aliascnt.sty
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex\latex\cleveref\cleveref.sty
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex\latex\cleveref\cleveref.sty
-INPUT c:\Users\liaml\Documents\GitHub\Research\Blog_latex\PDEs\3. Sobolev spaces\%OUTDIR%\Sobolev spaces.aux
-INPUT c:\Users\liaml\Documents\GitHub\Research\Blog_latex\PDEs\3. Sobolev spaces\%OUTDIR%\Sobolev spaces.aux
-INPUT c:\Users\liaml\Documents\GitHub\Research\Blog_latex\PDEs\3. Sobolev spaces\%OUTDIR%\Sobolev spaces.aux
-OUTPUT c:\Users\liaml\Documents\GitHub\Research\Blog_latex\PDEs\3. Sobolev spaces\%OUTDIR%\Sobolev spaces.aux
+INPUT c:\Users\liaml\Documents\GitHub\Research\math_blog\posts\PDEs\3. Sobolev spaces\%OUTDIR%\Sobolev spaces.aux
+INPUT c:\Users\liaml\Documents\GitHub\Research\math_blog\posts\PDEs\3. Sobolev spaces\%OUTDIR%\Sobolev spaces.aux
+INPUT c:\Users\liaml\Documents\GitHub\Research\math_blog\posts\PDEs\3. Sobolev spaces\%OUTDIR%\Sobolev spaces.aux
+OUTPUT c:\Users\liaml\Documents\GitHub\Research\math_blog\posts\PDEs\3. Sobolev spaces\%OUTDIR%\Sobolev spaces.aux
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
@@ -361,8 +361,14 @@ INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex\latex\microtype\mt-cmr.cf
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex\latex\caption\ltcaption.sty
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex\latex\caption\ltcaption.sty
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex\latex\graphics\color.sty
-OUTPUT c:\Users\liaml\Documents\GitHub\Research\Blog_latex\PDEs\3. Sobolev spaces\%OUTDIR%\Sobolev spaces.out
-OUTPUT c:\Users\liaml\Documents\GitHub\Research\Blog_latex\PDEs\3. Sobolev spaces\%OUTDIR%\Sobolev spaces.pdf
+INPUT c:\Users\liaml\Documents\GitHub\Research\math_blog\posts\PDEs\3. Sobolev spaces\%OUTDIR%\Sobolev spaces.out
+INPUT c:\Users\liaml\Documents\GitHub\Research\math_blog\posts\PDEs\3. Sobolev spaces\%OUTDIR%\Sobolev spaces.out
+INPUT c:\Users\liaml\Documents\GitHub\Research\math_blog\posts\PDEs\3. Sobolev spaces\%OUTDIR%\Sobolev spaces.out
+INPUT c:\Users\liaml\Documents\GitHub\Research\math_blog\posts\PDEs\3. Sobolev spaces\%OUTDIR%\Sobolev spaces.out
+INPUT c:\Users\liaml\Documents\GitHub\Research\math_blog\posts\PDEs\3. Sobolev spaces\%OUTDIR%\Sobolev spaces.out
+INPUT c:\Users\liaml\Documents\GitHub\Research\math_blog\posts\PDEs\3. Sobolev spaces\%OUTDIR%\Sobolev spaces.out
+OUTPUT c:\Users\liaml\Documents\GitHub\Research\math_blog\posts\PDEs\3. Sobolev spaces\%OUTDIR%\Sobolev spaces.out
+OUTPUT c:\Users\liaml\Documents\GitHub\Research\math_blog\posts\PDEs\3. Sobolev spaces\%OUTDIR%\Sobolev spaces.pdf
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex\latex\bookmark\bookmark.sty
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex\latex\bookmark\bookmark.sty
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\tex\latex\bookmark\bookmark.sty
@@ -456,12 +462,12 @@ INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cme
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbsy10.tfm
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbsy10.tfm
 INPUT C:\Users\liaml\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmbsy7.tfm
-INPUT .\Sobolev spaces.bbl
-INPUT .\Sobolev spaces.bbl
-INPUT Sobolev spaces.bbl
-INPUT c:\Users\liaml\Documents\GitHub\Research\Blog_latex\PDEs\3. Sobolev spaces\%OUTDIR%\Sobolev spaces.aux
-INPUT c:\Users\liaml\Documents\GitHub\Research\Blog_latex\PDEs\3. Sobolev spaces\%OUTDIR%\Sobolev spaces.out
-INPUT c:\Users\liaml\Documents\GitHub\Research\Blog_latex\PDEs\3. Sobolev spaces\%OUTDIR%\Sobolev spaces.out
+INPUT c:\Users\liaml\Documents\GitHub\Research\math_blog\posts\PDEs\3. Sobolev spaces\%OUTDIR%\Sobolev spaces.bbl
+INPUT c:\Users\liaml\Documents\GitHub\Research\math_blog\posts\PDEs\3. Sobolev spaces\%OUTDIR%\Sobolev spaces.bbl
+INPUT c:\Users\liaml\Documents\GitHub\Research\math_blog\posts\PDEs\3. Sobolev spaces\%OUTDIR%\Sobolev spaces.bbl
+INPUT c:\Users\liaml\Documents\GitHub\Research\math_blog\posts\PDEs\3. Sobolev spaces\%OUTDIR%\Sobolev spaces.aux
+INPUT c:\Users\liaml\Documents\GitHub\Research\math_blog\posts\PDEs\3. Sobolev spaces\%OUTDIR%\Sobolev spaces.out
+INPUT c:\Users\liaml\Documents\GitHub\Research\math_blog\posts\PDEs\3. Sobolev spaces\%OUTDIR%\Sobolev spaces.out
 INPUT C:\Users\liaml\AppData\Local\MiKTeX\fonts\pk\ljfour\public\mathabx\dpi480\mathx10.pk
 INPUT C:\Users\liaml\AppData\Local\MiKTeX\fonts\pk\ljfour\public\mathabx\dpi480\mathx10.pk
 INPUT C:\Users\liaml\AppData\Local\MiKTeX\fonts\pk\ljfour\public\mathabx\dpi600\matha6.pk

@@ -10,9 +10,8 @@
 %==============================================================================
 % 2. TYPOGRAPHY & TEXT FORMATTING
 %==============================================================================
-% Moved textpos to allow it to be patched by microtype
-\RequirePackage[relative,overlay]{textpos}  % Absolute positioning of text on the page
 
+\RequirePackage[relative,overlay]{textpos}
 \RequirePackage{microtype}                  % Subliminal refinements towards typographical perfection
                                             % check if compatible with your engine (pdflatex/luatex)
 
@@ -77,13 +76,10 @@
 \RequirePackage{fontawesome}                % Access to FontAwesome icons
 
 %==============================================================================
-% 7. BIBLIOGRAPHY (BibLaTeX)
+% 7. BIBLIOGRAPHY (Natbib + BibTeX)
 %==============================================================================
 \RequirePackage[round]{natbib}
 \bibliographystyle{apalike}
-
-% Reduce font size for bibliography to save space
-% \renewcommand*{\bibfont}{\tiny}
 
 %==============================================================================
 % 8. HYPERLINKS & REFERENCES
@@ -158,6 +154,15 @@
 \newenvironment{exerciseandhint}[2]
     {\begin{exercise} #1 \par \emph{Hint: #2}}
     {\end{exercise}}
+
+% Blog metadata
+\newcommand{\postsubtitle}[1]{}
+\newcommand{\posttags}[1]{}  % comma separated
+% Cross-post reference: \postref{folder-path}{label}{display text}
+% latex2qmd.py resolves this to a relative .qmd link with anchor.
+% In pdflatex, degrades to an \href to the live site URL.
+\newcommand{\postref}[3]{\href{https://nowheredifferentiable.com/posts/#1/}{#3}}
+
 
 % Custom Align Environments
 \DeclareDocumentEnvironment{aligneq}{ o }{%
@@ -262,8 +267,7 @@
 \newcommand{\argxs}[2][]{\argx_{#1} \set{#2}}
 
 % --- 10.6 Calculus & Analysis ---
-\renewcommand{\dd}{\mathrm{d}}   
-\renewcommand{\d}{\,\mathrm{d}}      % Differential d (with spacing)
+\renewcommand{\d}{\mathrm{d}}       % Differential d (with spacing)
 \newcommand{\dx}{\,\mathrm{d}x}
 \newcommand{\dy}{\,\mathrm{d}y}
 \newcommand\restr[2]{\left.#1\right|{#2}} % Restriction f|_A

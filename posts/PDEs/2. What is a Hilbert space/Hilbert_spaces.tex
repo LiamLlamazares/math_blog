@@ -1,54 +1,17 @@
-\documentclass[12pt]{article}
-\special{papersize=3in,5in}
-\usepackage[utf8]{inputenc}
-%PACKAGES
-\usepackage{CJKutf8}
-\usepackage[T1]{fontenc}
-\makeatletter
-\def\ps@pprintTitle{%
-	\let\@oddhead\@empty
-	\let\@evenhead\@empty
-	\let\@oddfoot\@empty
-	\let\@evenfoot\@oddfoot
-}
-\usepackage{amssymb,amsmath, physics,amsthm,xcolor,graphicx}
-\usepackage[shortlabels]{enumitem}
-\newtheorem{observation}{Observation}
-\newtheorem{theorem}{Theorem}
-\newtheorem{proposition}{Proposition}
-\newtheorem{example}{Example}
-\newtheorem{lemma}{Lemma}
-\newtheorem{definition}{Definition}
-\newtheorem{corollary}{Corollary}
-\newtheorem{assumption}{Assumption}
-\newcommand{\red}[1]{{\color{red}#1}}
-\usepackage[colorlinks=true,
-	linkcolor=blue,
-	filecolor=magenta,
-	urlcolor=cyan,
-	pdfpagemode=FullScreen,]{hyperref}
-\newlist{todolist}{itemize}{2}\setlist[todolist]{label=$\square$}
-\bibliographystyle{elsarticle-num}
-\newcommand{\fk}[1]{\mathfrak{#1}}\newcommand{\wh}[1]{\widehat{#1}}
-\newcommand{\br}[1]{\left\langle#1\right\rangle} \newcommand{\set}[1]{\left\{#1\right\}}\newcommand{\qt}[1]{\left(#1\right)} \newcommand{\qp}[1]{\left(#1\right)}\newcommand{\qb}[1]{\left[#1\right]}
-\renewcommand{\I}{\mathbf{Id}}
-\newcommand{\Id}{\mathbf{Id}}\renewcommand{\ker}{\mathbf{ker}}\newcommand{\supp}[1]{\mathbf{supp}(#1)}\renewcommand{\tr}[1]{\mathrm{tr}\left(#1\right)}
-\renewcommand{\norm}[1]{\lVert #1 \rVert}\renewcommand{\abs}[1]{\left| #1 \right|}
-\newcommand{\U}{_}\renewcommand{\star}{*}
+\documentclass[
+    a4paper,
+    DIV=14,
+    abstract=true,
+    numbers=noenddot
+]{scrartcl}
 
-\newcommand{\A}{\mathbb{A}}\newcommand{\C}{\mathbb{C}}\newcommand{\E}{\mathbb{E}}\newcommand{\F}{\mathbb{F}}\newcommand{\II}{\mathbb{I}}\newcommand{\K}{\mathbb{K}}\newcommand{\LL}{\mathbb{L}}\newcommand{\M}{\mathbb{M}}\newcommand{\N}{\mathbb{N}}\newcommand{\PP}{\mathbb{P}}\newcommand{\Q}{\mathbb{Q}}\newcommand{\R}{\mathbb{R}}\newcommand{\T}{\mathbb{T}}\newcommand{\W}{\mathbb{W}}\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\Aa}{\mathcal{A}}\newcommand{\Bb}{\mathcal{B}}\newcommand{\Cc}{\mathcal{C}}\newcommand{\Dd}{\mathcal{D}}\newcommand{\Ee}{\mathcal{E}}\newcommand{\Ff}{\mathcal{F}}\newcommand{\Gg}{\mathcal{G}}\newcommand{\Hh}{\mathcal{H}}\newcommand{\Kk}{\mathcal{K}}\newcommand{\Ll}{\mathcal{L}}\newcommand{\Mm}{\mathcal{M}}\newcommand{\Nn}{\mathcal{N}}\newcommand{\Pp}{\mathcal{P}}\newcommand{\Qq}{\mathcal{Q}}\newcommand{\Rr}{\mathcal{R}}\newcommand{\Ss}{\mathcal{S}}\newcommand{\Tt}{\mathcal{T}}\newcommand{\Uu}{\mathcal{U}}\newcommand{\Ww}{\mathcal{W}}\newcommand{\XX}{\mathcal {X}}\newcommand{\Zz}{\mathcal{Z}}
-\renewcommand{\d}{\,\mathrm{d}}
-\newcommand\restr[2]{\left.#1\right|_{#2}}
-\newcommand{\lb}{\left\{} \newcommand{\rb}{\right\}}
-
-\setlength{\parindent}{0in}
+\usepackage{preamble}
 
 \begin{document}
-\begin{CJK*}{UTF8}{gbsn}
-	\title{What is a Hilbert space?}
+	\title{PDEs 2: What is a Hilbert space?}
+	\postsubtitle{An appendix for a series on PDEs}
 	\author{Liam Llamazares--Elias}
-	\date{05/30/2023}
+	\date{2023-05-30}
 	\maketitle
 	\section{ Three line summary}
 	\begin{itemize}
@@ -546,7 +509,7 @@
 	Compact operators also have a nice spectral theory. Where we recall that
 	the spectrum of an operator $T$ is defined as
 	\begin{align*}
-		\sigma (T):=\left\{\lambda \in \mathbb{K}: \lambda \I -T \text{ is not invertible } \right\} .
+		\sigma (T):=\left\{\lambda \in \mathbb{K}: \lambda \b{I} -T \text{ is not invertible } \right\} .
 	\end{align*}
 	Firstly, the spectrum of a compact operator is equal
 	to it's eigenvalues. Secondly the following holds
@@ -575,15 +538,6 @@
 		\end{enumerate}
 	\end{theorem}
 	We delay the proof till another day, in the meantime, see \cite{evans2022partial} page 725.
-
-
-
-
-
-
-
-
-\end{CJK*}
 
 
 
