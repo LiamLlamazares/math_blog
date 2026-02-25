@@ -54,6 +54,7 @@ format:
       dark: darkly
     toc: true
     html-math-method: mathjax
+    include-after-body: giscus.html
     include-in-header:
       text: |
         <script>
