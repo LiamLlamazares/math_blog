@@ -85,3 +85,48 @@ The `fetch-comments.yml` workflow runs every hour to update the recent comments 
 | Equation Labels (names instead of numbers) | Use `\tag{label}` inside math envs | **Yes** |
 | Post tags/categories | Use `\posttags{...}` in `main.tex` | **Yes** |
 | Post subtitle | Use `\postsubtitle{...}` in `main.tex` | **Yes** |
+| Cross-post references | Use `\postref{...}{...}{...}` in `main.tex` | **Yes** — must use `--all` |
+
+---
+
+## Cross-post references (`\postref`)
+
+Use `\postref` to link from one post to another, optionally targeting a specific theorem, equation, or definition.
+
+### Syntax
+
+```latex
+\postref{folder-path}{label}{display text}
+```
+
+| Argument | Description |
+|---|---|
+| `folder-path` | Relative path from `posts/` to the target folder, e.g. `Stochastic Calculus/Martingales` |
+| `label` | LaTeX label in the target post (e.g. `thm:doobs`). Leave empty `{}` to link to the post without an anchor. |
+| `display text` | What the reader sees, e.g. `Theorem 3.2` or `the Martingales post` |
+
+### Examples
+
+**Link to a specific theorem in another post:**
+```latex
+By \postref{Stochastic Calculus/Martingales}{thm:doobs-hilbert}{Doob's maximal inequality}, we obtain...
+```
+
+**Link to another post (no specific anchor):**
+```latex
+As shown in \postref{Analysis on Banach spaces/Bochner_integral}{}{the Bochner integral post}, ...
+```
+
+### How it renders
+
+| Environment | What happens |
+|---|---|
+| **pdflatex** | Renders as an `\href` linking to the live blog URL (`nowheredifferentiable.com/posts/...`). The label argument is ignored by LaTeX — it only uses the folder path and display text. Compiles without error. |
+| **Quarto (via `latex2qmd.py --all`)** | The converter resolves the label via a global registry to compute the correct relative `.qmd` path and anchor (e.g. `../../Martingales/index.qmd#thm-doobs-hilbert`). If the label is not found, it emits a **warning** and links to the post without an anchor. |
+| **Quarto (single-folder mode)** | Without `--all`, no registry is built. The converter falls back to an absolute URL to the live site. |
+
+### Important notes
+
+- **You must use `--all` mode** (`py latex2qmd.py posts --all`) for cross-post labels to resolve. Single-folder mode has no access to labels in other posts.
+- **Folder paths must match exactly.** If you rename or move a post folder, update all `\postref` commands pointing to it. The converter will emit a warning if a referenced label is not found.
+- **The command is already defined** in all `preamble.sty` files. No setup needed — just use it in your `main.tex`.

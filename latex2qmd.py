@@ -24,6 +24,7 @@ Output:
 """
 
 import argparse
+import json
 import re
 import sys
 import os
@@ -272,6 +273,106 @@ def format_mathjax_macros(macros: dict) -> str:
 
 
 # ---------------------------------------------------------------------------
+# 3b. GLOBAL LABEL REGISTRY (two-pass cross-post references)
+# ---------------------------------------------------------------------------
+
+def build_label_registry(posts_root: Path, tex_name: str = 'main.tex') -> dict:
+    r"""
+    Phase 1: Scan all posts and extract every \label{X}, mapping each to
+    its Quarto ID and the post folder it lives in.
+
+    Returns a dict:  label -> {"folder": relative_folder_str, "qid": "thm-label-id"}
+    where relative_folder_str is relative to posts_root (e.g. "Stochastic Calculus/Martingales").
+    """
+    registry = {}  # label -> {"folder": str, "qid": str}
+
+    def sanitize(l):
+        return l.replace(':', '-').replace(' ', '-').replace('_', '-').lower()
+
+    for tex_file in posts_root.rglob(tex_name):
+        post_folder = tex_file.parent
+        rel = post_folder.relative_to(posts_root)
+        # Skip Future/ folders
+        if any(part.lower() == 'future' for part in rel.parts):
+            continue
+
+        with open(tex_file, 'r', encoding='utf-8') as f:
+            content = f.read()
+
+        # Extract body between \begin{document} and \end{document}
+        begin_m = re.search(r'\\begin\{document\}', content)
+        end_m = re.search(r'\\end\{document\}', content)
+        if not begin_m or not end_m:
+            continue
+        body = content[begin_m.end():end_m.start()]
+
+        folder_str = str(rel).replace('\\', '/')
+        env_counter = {}  # for auto-numbering
+
+        # Scan theorem-like environments for labels
+        for env_name, prefix in THEOREM_ENVS.items():
+            pattern = re.compile(
+                r'\\begin\{' + env_name + r'\}'
+                r'(?:\[([^\]]*)\])?'       # optional [Name]
+                r'(?:\\label\{([^}]*)\})?'  # optional \label{X}
+                r'[ \t]*\n?'
+                r'(.*?)'
+                r'\\end\{' + env_name + r'}',
+                re.DOTALL
+            )
+            for m in pattern.finditer(body):
+                label = m.group(2)  # from \begin{env}\label{X}
+                inner = m.group(3)
+
+                if label:
+                    label_id = sanitize(label)
+                    qid = f"{prefix}-{label_id}"
+                else:
+                    env_counter[env_name] = env_counter.get(env_name, 0) + 1
+                    qid = f"{prefix}-{env_counter[env_name]}"
+
+                if label:
+                    if label in registry:
+                        print(f"  WARNING: Duplicate label '{label}' in {folder_str} "
+                              f"(already in {registry[label]['folder']})")
+                    else:
+                        registry[label] = {"folder": folder_str, "qid": qid}
+
+                # Also scan labels inside the inner content (orphan labels)
+                for inner_label in re.findall(r'\\label\{([^}]*)\}', inner):
+                    if inner_label not in registry:
+                        registry[inner_label] = {"folder": folder_str, "qid": qid}
+
+        # Scan math environments for labels (equation, aligneq, align)
+        for env_name in ['equation', 'aligneq', 'align']:
+            pattern = re.compile(
+                r'\\begin\{' + env_name + r'\}'
+                r'\s*(?:\\label\{([^}]*)\})?',
+                re.DOTALL
+            )
+            end_pat = r'\\end\{' + env_name + r'}'
+            for m in pattern.finditer(body):
+                label = m.group(1)
+                # Also check for labels inside the block
+                end_m2 = re.search(end_pat, body[m.end():])
+                if end_m2:
+                    inner = body[m.end():m.end() + end_m2.start()]
+                else:
+                    inner = ''
+
+                if not label:
+                    inner_label_m = re.search(r'\\label\{([^}]*)\}', inner)
+                    if inner_label_m:
+                        label = inner_label_m.group(1)
+
+                if label and label not in registry:
+                    label_id = sanitize(label)
+                    registry[label] = {"folder": folder_str, "qid": f"eq-{label_id}"}
+
+    return registry
+
+
+# ---------------------------------------------------------------------------
 # 4. BODY CONVERSION: LaTeX → Quarto Markdown
 # ---------------------------------------------------------------------------
 
@@ -342,8 +443,13 @@ def _expand_qty(text: str) -> str:
     return ''.join(result)
 
 
-def convert_body(body: str) -> str:
-    """Apply all mechanical transformations to the LaTeX body."""
+def convert_body(body: str, label_registry: dict | None = None,
+                 current_folder: str | None = None) -> str:
+    r"""Apply all mechanical transformations to the LaTeX body.
+
+    If label_registry and current_folder are provided, \postref commands
+    are resolved to correct relative Quarto links with anchors.
+    """
     text = body
 
     # Map of LaTeX labels to generated Quarto IDs, populated during conversion
@@ -661,6 +767,42 @@ def convert_body(body: str) -> str:
     # \textit{X} → *X*
     text = re.sub(r'\\textit\{([^}]*)\}', r'*\1*', text)
 
+    # --- Pass 7b: Cross-post references (\postref) ---
+    def convert_postref(m):
+        folder_arg = m.group(1)   # e.g. "Stochastic Calculus/Martingales"
+        label_arg = m.group(2)    # e.g. "thm:doobs" or ""
+        display = m.group(3)      # e.g. "Theorem 3.2"
+
+        # Attempt anchor resolution via registry
+        anchor = ''
+        if label_registry and label_arg:
+            if label_arg in label_registry:
+                anchor = '#' + label_registry[label_arg]['qid']
+            else:
+                print(f"  WARNING: \\postref label '{label_arg}' not found in registry")
+
+        # Compute relative path from current post to target post
+        if current_folder:
+            from pathlib import PurePosixPath
+            src = PurePosixPath(current_folder)
+            dst = PurePosixPath(folder_arg)
+            # Both are relative to posts/, so compute relative
+            # e.g. src="Stochastic Calculus/Ito_integral", dst="Stochastic Calculus/Martingales"
+            # We go up from src, then down to dst
+            up = '/'.join(['..'] * len(src.parts))
+            rel_path = f"{up}/{dst}/index.qmd" if up else f"{dst}/index.qmd"
+        else:
+            # Fallback: absolute URL
+            folder_url = folder_arg.replace(' ', '%20')
+            return f'[{display}](https://nowheredifferentiable.com/posts/{folder_url}/)'
+
+        return f'[{display}]({rel_path}{anchor})'
+
+    text = re.sub(
+        r'\\postref\{([^}]*)\}\{([^}]*)\}\{([^}]*)\}',
+        convert_postref, text
+    )
+
     # --- Pass 8: Clean up ---
     # Remove stray \label{} that weren't consumed
     text = re.sub(r'\\label\{[^}]*\}', '', text)
@@ -793,8 +935,14 @@ def build_qmd(meta: dict, body: str, mathjax_macros: str) -> str:
 # ---------------------------------------------------------------------------
 
 def convert_folder(folder: Path, tex_name='main.tex', preamble_name='preamble.sty',
-                   output_name='index.qmd', blog_dir=None):
-    """Convert a single LaTeX folder to a Quarto post."""
+                   output_name='index.qmd', blog_dir=None,
+                   label_registry: dict | None = None,
+                   posts_root: Path | None = None):
+    r"""Convert a single LaTeX folder to a Quarto post.
+
+    If label_registry and posts_root are provided, cross-post \postref
+    commands are resolved to relative Quarto links with anchors.
+    """
     tex_path = folder / tex_name
     if not tex_path.exists():
         print(f"  SKIP: {tex_path} not found.")
@@ -824,6 +972,14 @@ def convert_folder(folder: Path, tex_name='main.tex', preamble_name='preamble.st
     else:
         print(f"  Image:    (none)")
 
+    # Compute current folder path relative to posts/ for cross-post resolution
+    current_folder = None
+    if posts_root and label_registry:
+        try:
+            current_folder = str(folder.relative_to(posts_root)).replace('\\', '/')
+        except ValueError:
+            pass  # folder is not under posts_root
+
     # Parse preamble for MathJax macros
     sty_path = folder / preamble_name
     macros = parse_preamble_macros(sty_path)
@@ -832,7 +988,8 @@ def convert_folder(folder: Path, tex_name='main.tex', preamble_name='preamble.st
 
     # Extract and convert body
     body = extract_body(tex_content)
-    converted_body = convert_body(body)
+    converted_body = convert_body(body, label_registry=label_registry,
+                                  current_folder=current_folder)
 
     # Assemble output
     qmd = build_qmd(meta, converted_body, mathjax_macros)
@@ -943,13 +1100,19 @@ def main():
             print(f"No folders with {args.tex} found under {folder}")
             sys.exit(1)
 
+        # Phase 1: Build global label registry
+        print("Phase 1: Building cross-post label registry...")
+        registry = build_label_registry(folder, args.tex)
+        print(f"  Indexed {len(registry)} labels across all posts.\n")
+
         print(f"Found {len(targets)} post(s) to convert:\n")
         ok, fail = 0, 0
         for t in sorted(targets):
             print(f"{'='*60}")
             print(f"  Converting: {t.relative_to(folder)}")
             print(f"{'='*60}")
-            if convert_folder(t, args.tex, args.preamble, args.output, args.blog_dir):
+            if convert_folder(t, args.tex, args.preamble, args.output, args.blog_dir,
+                              label_registry=registry, posts_root=folder):
                 ok += 1
             else:
                 fail += 1

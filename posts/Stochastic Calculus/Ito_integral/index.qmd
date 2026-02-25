@@ -1,5 +1,5 @@
 ---
-title: "Construction of the stochastic integral"
+title: "The Itô integral"
 author: "Liam Llamazares--Elias"
 date: "5/22/2022"
 categories: [Stochastic Calculus, Ito Integral]

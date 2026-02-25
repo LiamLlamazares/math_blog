@@ -89,6 +89,7 @@ format:
               mathds: ["\\mathbb{#1}", 1],
               norm: ["\\left\\lVert #1 \\right\\rVert", 1],
               om: "\\omega",
+              postref: ["\\href{https://nowheredifferentiable.com/posts/#1/}{#3}", 3],
               proj: "\\mathrm{proj}",
               qb: ["\\left[#1\\right]", 1],
               qp: ["\\left(#1\\right)", 1],
