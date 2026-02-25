@@ -1,0 +1,14 @@
+---
+title: Test 8
+---
+
+$$
+x = y
+$$ {#eq-test}
+
+text ref: \eqref{eq-test}
+
+Math ref:
+$$
+z = \eqref{eq-test}
+$$

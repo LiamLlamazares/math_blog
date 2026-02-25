@@ -1,0 +1,14 @@
+---
+title: Test 7
+---
+
+\begin{equation}\label{eq-orig}
+x = y 
+\end{equation}
+
+Text ref: @eq-orig or \eqref{eq-orig}.
+
+Math ref:
+$$
+\text{see } \eqref{eq-orig}
+$$
