@@ -14,12 +14,12 @@
 2. Add blog metadata to your `main.tex` (alongside `\title`, `\author`, `\date`):
    ```latex
    \subtitle{One sentence description of the post.}
-   \tags{Analysis, Measure Theory}   % optional — defaults to collection folder name
+   \posttags{Analysis, Measure Theory}   % optional — defaults to collection folder name
    ```
    Add to your shared `preamble.sty` (once only):
    ```latex
-   \newcommand{\subtitle}[1]{}
-   \newcommand{\tags}[1]{}
+   \providecommand{\subtitle}[1]{}
+   \providecommand{\posttags}[1]{}
    ```
 
 3. Run the converter. From inside the post folder:
@@ -68,7 +68,7 @@ The `fetch-comments.yml` workflow runs every hour to update the recent comments 
 ## Dashboard tags and ordering
 
 - Posts are ordered by `date` (newest first) on the homepage.
-- Tags come from `\tags{}` in `main.tex`, or default to the parent collection folder name.
+- Tags come from `\posttags{}` in `main.tex`, or default to the parent collection folder name.
 - The featured post (large card) is always the most recent post.
 - To hide a post from the site, place it inside `posts/Future/` — this folder is excluded from rendering.
 

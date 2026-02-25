@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""
-latex2qmd.py — Convert a LaTeX project folder into a Quarto blog post.
+r"""
+latex2qmd.py — Convert a folder containing LaTeX (.tex) and preamble (.sty) into a Quarto blog post.
 
 Usage:
     python latex2qmd.py /path/to/latex/folder [--blog-dir /path/to/blog]
@@ -14,6 +14,7 @@ Input folder must contain:
 Metadata is extracted from:
     - \title{}, \author{}, \date{} — standard LaTeX commands
     - \subtitle{} — becomes the post subtitle
+    - \posttags{} — becomes the post tags
     - Parent folder name — becomes the default tag
     - cover.* — auto-detected as post image
 
@@ -98,13 +99,13 @@ def parse_tex_metadata(tex: str) -> dict:
     else:
         meta['date'] = date.today().isoformat()
 
-    # Extract \subtitle{...} → subtitle
-    desc = _extract_braced(tex, 'subtitle')
+    # Extract \postsubtitle{...} → subtitle
+    desc = _extract_braced(tex, 'postsubtitle')
     if desc:
         meta['subtitle'] = desc
 
-    # Extract \tags{...} → tags override (comma-separated)
-    posttags = _extract_braced(tex, 'tags')
+    # Extract \posttags{...} → tags override (comma-separated)
+    posttags = _extract_braced(tex, 'posttags')
     if posttags:
         meta['tags'] = [t.strip() for t in posttags.split(',')]
 
@@ -350,8 +351,8 @@ def convert_body(body: str) -> str:
     text = re.sub(r'\\exampleSymbol', '', text)
     text = re.sub(r'\\exerciseSymbol', '', text)
     # Strip blog metadata commands that should only appear in front matter
-    text = re.sub(r'\\subtitle\{[^}]*\}', '', text)
-    text = re.sub(r'\\tags\{[^}]*\}', '', text)
+    text = re.sub(r'\\postsubtitle\{[^}]*\}', '', text)
+    text = re.sub(r'\\posttags\{[^}]*\}', '', text)
     text = _expand_qty(text)
 
     # --- Pass 1: Sections ---
