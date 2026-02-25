@@ -30,7 +30,7 @@ We fix $U \subset \R^d$ to be an open subset of $\R^n$ with \textbf{no condition
     \nabla \cdot (\bm{A}\nabla)=\sum_{i,j=1}^d \partial_i A_{ij} \partial _j.
 \end{align*}
 \section{Introduction}
-Welcome back to the second post on our series of PDE. In post \href{https://nowheredifferentiable.com/2023-12-23-PDEs-4-Physical_derivation_of_parabolic_and_elliptic_PDE/}{4}, we gave a physical derivation of PDE (both parabolic and elliptic) that justify why we are interested in such equations. In posts \href{https://nowheredifferentiable.com/2023-01-29-PDE-1/}{1}, \href{https://nowheredifferentiable.com/2023-05-30-PDE-2-Hilbert/}{2}, \href{https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/}{3}, \href{https://nowheredifferentiable.com/2024-02-27-PDEs-5-Fractional_Sobolev_spaces/}{5} of the series we built up the theoretical framework necessary to define Sobolev spaces, spaces of weakly differentiable functions to which we could extend the concept of differentiation (I know, the order is a bit messed up).  We are now going to use the previous theory to study these equations.
+Welcome back to the second post on our series of PDE. In post \postref{PDEs/4. Physical derivation}{}{4}, we gave a physical derivation of PDE (both parabolic and elliptic) that justify why we are interested in such equations. In posts \postref{PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces}{}{1}, \postref{PDEs/2. What is a Hilbert space}{}{2}, \postref{PDEs/3. Sobolev spaces}{}{3}, \postref{PDEs/5. Fractional and negative order Sobolev spaces}{}{5} of the series we built up the theoretical framework necessary to define Sobolev spaces, spaces of weakly differentiable functions to which we could extend the concept of differentiation (I know, the order is a bit messed up).  We are now going to use the previous theory to study these equations.
 \section{The problem: Mathematical framework}
 We consider the following problem: given a bounded open set $U \subset \R^n$ and some coefficients $\bm{A},\bm{b},c$, we want to solve the following elliptic PDE
 \begin{align}\label{PDE}
@@ -41,7 +41,7 @@ We consider the following problem: given a bounded open set $U \subset \R^n$ and
 \end{align}
 where $f: U \to \R$ is some known function, $u$ is the solution we want to find. In the case where $U = \R^d$ the boundary condition is vacuous as $\partial \R^d = \emptyset$.
 
-We recall from post \href{https://nowheredifferentiable.com/2023-12-23-PDEs-4-Physical_derivation_of_parabolic_and_elliptic_PDE/}{4} that physically; we can interpret $u$ as the density of some substance, $\bm{A}$ as a diffusion matrix, $\bm{b}$ as a transport vector, $c$ as a reaction coefficient and $f$ as the source term. For the mathematical theory, we will need some conditions on the coefficients. Primarily, we require that $\bm{A}$ is \emph{elliptic}.
+We recall from post \postref{PDEs/4. Physical derivation}{}{4} that physically; we can interpret $u$ as the density of some substance, $\bm{A}$ as a diffusion matrix, $\bm{b}$ as a transport vector, $c$ as a reaction coefficient and $f$ as the source term. For the mathematical theory, we will need some conditions on the coefficients. Primarily, we require that $\bm{A}$ is \emph{elliptic}.
 \begin{definition}[Ellipticity]
     Given $\bm{A}: U \to \R^{d \times d}, \bm{b}: U \to \R^d$ and $c:U \to \R$ we say that the operator
     \begin{align}\label{operator}
@@ -52,7 +52,7 @@ We recall from post \href{https://nowheredifferentiable.com/2023-12-23-PDEs-4-Ph
     \end{align}
     We also say that $\bm{A}$ is elliptic.
 \end{definition}
-There are some points to clear up. Firstly, if this is the first time you've encountered the ellipticity condition in \eqref{elliptic}, then it may seem a bit strange. With the previous physical interpretation, the ellipticity condition \eqref{elliptic} says that diffusion occurs from the region of \href{https://nowheredifferentiable.com/2023-12-23-PDEs-4-Physical_derivation_of_parabolic_and_elliptic_PDE/#:~:text=This%20is%20the-,process,-that%20causes%20the}{higher to lower density}. Mathematically speaking, \eqref{elliptic} will prove necessary to apply \href{https://nowheredifferentiable.com/2023-05-30-PDE-2-Hilbert/#:~:text=degenerate.%20As%20a-,particular,-example%2C%20a%20symmetric}{Lax Milgram's theorem} and obtain regularity estimates on $u$. 
+There are some points to clear up. Firstly, if this is the first time you've encountered the ellipticity condition in \eqref{elliptic}, then it may seem a bit strange. With the previous physical interpretation, the ellipticity condition \eqref{elliptic} says that diffusion occurs from the region of \postref{PDEs/4. Physical derivation}{}{higher to lower density}. Mathematically speaking, \eqref{elliptic} will prove necessary to apply \postref{PDEs/2. What is a Hilbert space}{}{Lax Milgram's theorem} and obtain regularity estimates on $u$. 
 
 
 Next, when developing the mathematical theory of any equation, the first step is to establish whether the equation is \emph{well-posed}.
@@ -80,7 +80,7 @@ The first part of Assumption \ref{Ass1} will make it easy to get bounds on $\Ll$
         H^{-k}(U ):= H_0^k(U )'
     \end{align*}
 \end{definition}
-For more details on why we denote the dual using negative exponents, see the \href{https://nowheredifferentiable.com/2024-02-27-PDEs-5-Fractional_Sobolev_spaces/#fractional%20laplacian:~:text=%E2%97%BB-,Dual%20of%20Sobolev%20spaces,-and%20correspondence%20with}{relevant section} in the previous post on fractional Sobolev spaces. We \href{https://nowheredifferentiable.com/2024-02-27-PDEs-5-Fractional_Sobolev_spaces/#:~:text=some%20particular%20cases.-,Theorem%2018,-(Representation%20of}{recall} also that every element in $H^{-k}(U)$ can be written as the sum of derivatives up to order $k$ of a function in $L^2(U)$.
+For more details on why we denote the dual using negative exponents, see the \postref{PDEs/5. Fractional and negative order Sobolev spaces}{}{relevant section} in the previous post on fractional Sobolev spaces. We \postref{PDEs/5. Fractional and negative order Sobolev spaces}{}{recall} also that every element in $H^{-k}(U)$ can be written as the sum of derivatives up to order $k$ of a function in $L^2(U)$.
 \begin{exercise}\label{domain L}
     Suppose $A_{ij}, b_i, c \in L^\infty(U)$. Then, $\Ll $ defines a bounded linear operator
     \begin{align*}
@@ -120,14 +120,14 @@ In \eqref{weak def} we used the ``duality notation'' $(v,f):= f(v)$ for $f \in X
     \begin{align}\label{b=0}
         B(u,u) & = \int_{U}\bm{A} \nabla u \cdot \nabla u + \int_{U} cu^2 \geq \alpha \norm{\nabla u}^2_{L^2(U \to \R^d)} + \int_{U}c u^2 \gtrsim \norm{u}^2_{H^1_0(U)}.
     \end{align}
-    Where in the first inequality, we used the ellipticity assumption on $\bm{A}$, and in the last inequality, we used \href{https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=in%20future%20posts-,Theorem,-14%20(Poincar%C3%A9%20inequality}{Poincaré's inequality} if $U$ is bounded. The result now follows from \href{https://nowheredifferentiable.com/2023-05-30-PDE-2-Hilbert/#:~:text=an%20inner%20product.-,Theorem,-7%20(Lax%20Milgram}{Lax Milgram's theorem}.
+    Where in the first inequality, we used the ellipticity assumption on $\bm{A}$, and in the last inequality, we used \postref{PDEs/3. Sobolev spaces}{}{Poincaré's inequality} if $U$ is bounded. The result now follows from \postref{PDEs/2. What is a Hilbert space}{}{Lax Milgram's theorem}.
 \end{proof}
 \Cref{well-posed 1} is an example of the advantages of working with a weak formulation instead of solutions differentiable in a classical sense. The weak formulation allows us not only to make sense of our equation \eqref{PDE} for a wider class of coefficients but also provides a natural framework to study the well-posedness of \eqref{PDE}.
 \begin{exercise}
     Show that, under the conditions of \Cref{well-posed 1}, if $U$ is bounded, there is a countable basis of eigenfunctions for $\Ll$.
 \end{exercise}
 \begin{hint}
-    By \href{https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=Theorem%2014%20(-,Rellich,-for%20trace%200}{Rellich's theorem} $\Ll^{-1}: L^2(U) \to L^2(U) $ is compact and, since $\bm{b}$ is $0$, $\Ll $ is also is self adjoint. As a result, so there is a countable basis of eigenvectors in $L^2(U)$.
+    By \postref{PDEs/3. Sobolev spaces}{}{Rellich's theorem} $\Ll^{-1}: L^2(U) \to L^2(U) $ is compact and, since $\bm{b}$ is $0$, $\Ll $ is also is self adjoint. As a result, so there is a countable basis of eigenvectors in $L^2(U)$.
 \end{hint}
 In \Cref{well-posed 1}, we somewhat unsatisfyingly had to impose the extra assumption that $ \bm{b}$ was identically zero and that $c > 0$. These extra assumptions can be done away with but at the cost of modifying our initial problem by a correction term $\gamma $ so we can obtain a coercive operator $B_\gamma $.
 \begin{theorem}[Modified problem]\label{mod}
@@ -173,7 +173,7 @@ Now write $\mu:=(\gamma+\lambda)$ and rename $v:=\mu u +f$. An algebraic manipul
 \begin{align}\label{below}
     (\bm{I}- \mu \Ll_\gamma ^{-1} )v =f,
 \end{align}
-where $\bm{I}$ is the identity operator. Suppose now that $U$ is bounded, then, by \href{https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=Theorem%2014%20(-,Rellich,-for%20trace%200}{Rellich's theorem}, we know that the following inclusion is compact
+where $\bm{I}$ is the identity operator. Suppose now that $U$ is bounded, then, by \postref{PDEs/3. Sobolev spaces}{}{Rellich's theorem}, we know that the following inclusion is compact
 \begin{align*}
     i: H^1(U) \hookrightarrow L^2(U).
 \end{align*}
@@ -185,7 +185,7 @@ is compact and the reasoning in \eqref{above}, \eqref{below} shows that, given $
 \begin{align}\label{reasoning}
     \Ll u = \lambda u+f\iff Tv:=(\bm{I}-\mu K)v =f.
 \end{align}
-Equation \eqref{reasoning} is exactly the form the \href{https://nowheredifferentiable.com/2023-05-30-PDE-2-Hilbert/#:~:text=Theorem%2010%20(-,Fredholm,-alternative}{Fredholm alternative} takes ($\mu $ can be incorporated into  the compact operator $K$) and justifies the following.
+Equation \eqref{reasoning} is exactly the form the \postref{PDEs/2. What is a Hilbert space}{}{Fredholm alternative} takes ($\mu $ can be incorporated into  the compact operator $K$) and justifies the following.
 \begin{theorem}\label{well-posedness Fredholm}
     Let $U\subset \R^d$ be bounded, let $\Ll$ verify Assumption \ref{Ass1}, and $\lambda \in \R, f \in L^2(U)$ be any. Consider the problems
     \begin{align}\label{original}
@@ -256,7 +256,7 @@ In particular, to study the \emph{existence} of solutions to \eqref{PDE}, it is 
     Where does the proof of \Cref{well-posedness Fredholm} break down if we replace $U$ with $\R^d$?
 \end{exercise}
 \begin{hint}
-    Can you apply  \href{https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=Theorem%2014%20(-,Rellich,-for%20trace%200}{Rellich's theorem} to unbounded domains? What is the spectrum of the Laplacian on $\R^d$?
+    Can you apply  \postref{PDEs/3. Sobolev spaces}{}{Rellich's theorem} to unbounded domains? What is the spectrum of the Laplacian on $\R^d$?
 \end{hint}
 \begin{exercise}
     Show using \Cref{well-posedness Fredholm} that equation \eqref{fred} (the generalization of \eqref{PDE}) is well-posed saved for at most a discrete set of $\lambda$.
@@ -323,7 +323,7 @@ The result can be extended to arbitrary open subsets $U \subset \R^d$. In this c
     Prove \Cref{difference quotients 2}.
 \end{exercise}
 \begin{hint}
-    Adapt the proof of \Cref{difference quotients 1}. Take $\varphi \in C_c^\infty(V)$ for the first point. For the second point, use the \href{https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=drawings%20is%20recommended.-,Theorem%203,-(Local%20approximation%20by}{local density} of smooth functions in $W^{1,p}(U)$.
+    Adapt the proof of \Cref{difference quotients 1}. Take $\varphi \in C_c^\infty(V)$ for the first point. For the second point, use the \postref{PDEs/3. Sobolev spaces}{}{local density} of smooth functions in $W^{1,p}(U)$.
 \end{hint}
 
 \subsection{Regularity on $\R^d$ }
@@ -430,7 +430,7 @@ Iterating the above theorem, we obtain that if the coefficients of $\Ll$ are smo
     Let $A_{ij}, b_i,c \in C^{\infty}(\R^d)$ with $\bm{A}$ elliptic. Then, if $u \in H^1(U)$ solves $\Ll u=f$, it holds that $u \in C^\infty(\R^d)$
 \end{theorem}
 \begin{proof}
-    By \Cref{higher regularity 2}, we have that $u \in H^k(\R^d)$ for all $k \in \N$. By \href{https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=three%20results%20gives-,Theorem%2013,-(Rellich%2DKondrachov}{Sobolev embeddings} we deduce that $u \in C^\infty(\R^d)$.
+    By \Cref{higher regularity 2}, we have that $u \in H^k(\R^d)$ for all $k \in \N$. By \postref{PDEs/3. Sobolev spaces}{}{Sobolev embeddings} we deduce that $u \in C^\infty(\R^d)$.
 \end{proof}
 
 
@@ -438,7 +438,7 @@ At first sight, it may seem as if the above results can be extended to solutions
 \begin{exercise}
     The following argument is \textbf{false}. Show the flaw in the reasoning.
 
-    Let $U \subset \R^d$ be any open subset. Suppose that $A_{ij}\in C^1(\overline{U} )$ is elliptic and that $b_i, c \in L^\infty(U)$ . Let $u \in H_0^1(U)$ solve $\Ll u=f$. The \href{https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=smooth%20unbounded%20domains.-,Exercise%2021,-(Extension%20trace%200}{extension} $\tl{u}$ to $\R^d$ by zero of $u$ is in $H^1(\R^d)$. The coefficients $b,c$ can likewise be extended by $0$ to functions $\tl{\bm{b}}, \tl{c} \in  L^\infty(\R^d)$. Likewise for $f$ to $\tl{f} \in L^2(\R^d) $ and by Assumption, $\bm{A}$ is the restriction to $U$ of some function $\tl{A} \in C^1(\R^d)$. We have that 
+    Let $U \subset \R^d$ be any open subset. Suppose that $A_{ij}\in C^1(\overline{U} )$ is elliptic and that $b_i, c \in L^\infty(U)$ . Let $u \in H_0^1(U)$ solve $\Ll u=f$. The \postref{PDEs/3. Sobolev spaces}{}{extension} $\tl{u}$ to $\R^d$ by zero of $u$ is in $H^1(\R^d)$. The coefficients $b,c$ can likewise be extended by $0$ to functions $\tl{\bm{b}}, \tl{c} \in  L^\infty(\R^d)$. Likewise for $f$ to $\tl{f} \in L^2(\R^d) $ and by Assumption, $\bm{A}$ is the restriction to $U$ of some function $\tl{A} \in C^1(\R^d)$. We have that 
     \begin{align}\label{extension}
         \tl{\Ll} \tl{u} := -\nabla \cdot (\tl{A} \nabla \tl{u})+ \tl{b} \cdot \nabla \tl{u} + \tl{c} \tl{u} =\tl{f} .
     \end{align}
@@ -471,7 +471,7 @@ At first sight, it may seem as if the above results can be extended to solutions
 \subsection{Interior regularity}
 We have just seen that a direct generalization of \Cref{improved reg Rd} to unbounded domains is not possible using an extension by zero. However, by adapting the proof of \Cref{improved reg Rd}, one can prove the analogous result.
 
-In this case, however, one has to be careful as the difference quotients may not be well defined at the boundary. As a result, it is necessary to work locally and use a \href{https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=22.%20A-,bump%20function,-(also%20called%20cutoff}{bump function}. This makes the proofs a bit messier, though the idea is the same. We sketch the proof, which can also be found in \cite{evans2022partial} page 326
+In this case, however, one has to be careful as the difference quotients may not be well defined at the boundary. As a result, it is necessary to work locally and use a \postref{PDEs/3. Sobolev spaces}{}{bump function}. This makes the proofs a bit messier, though the idea is the same. We sketch the proof, which can also be found in \cite{evans2022partial} page 326
 \begin{theorem}[Improved interior regularity]\label{higher regularity}
     Let $u \in H^1(U)$ be a solution to $\Ll u =f$ where $f \in L^2(U)$, $\bm{A} \in C^1(\overline{U} )$ is elliptic and $v_i,c \in L^\infty(U)$. Then, $u \in H^2 _{\mathrm{loc}} (U)$ and
     \begin{align*}
@@ -631,7 +631,7 @@ Once more, by Sobolev embeddings we obtain infinite regularity at the boundary.
 \end{theorem}
 
 \section{Other boundary conditions}
-So far, we have only worked with homogeneous Dirichlet boundary conditions. However, it often makes more sense to work with the non-homogeneous case. We also show how to extend the results to Neumann or Robin \href{https://nowheredifferentiable.com/2023-12-23-PDEs-4-Physical_derivation_of_parabolic_and_elliptic_PDE/#:~:text=reaction%20and%20source.-,Boundary%20conditions,-In%20an%20application}{boundary conditions}. In this section, we will see how to adapt the results of the previous section to these cases.
+So far, we have only worked with homogeneous Dirichlet boundary conditions. However, it often makes more sense to work with the non-homogeneous case. We also show how to extend the results to Neumann or Robin \postref{PDEs/4. Physical derivation}{}{boundary conditions}. In this section, we will see how to adapt the results of the previous section to these cases.
 
 
 
@@ -643,7 +643,7 @@ Consider the problem with non-homogeneous Dirichlet boundary conditions on a dom
         u=g      & \text{on } \partial \Omega .
     \end{cases}
 \end{align}
-For \eqref{PDE Dirichlet} to hold, it is necessary that $g$ is the restriction to $\partial \Omega $ of some function $\tl{g}$ called a \emph{lifting} of $\tl{g} $ onto $\Omega $   (in particular it is the restriction of  $u$ to $\partial \Omega  $ ). That is, $\tl{g}  \in \rm{Tr}(H^m(\Omega ))$ where $\rm{Tr}$ is the trace operator and $m$ is the desired regularity of $u$. By \href{https://nowheredifferentiable.com/2024-02-27-PDEs-5-Fractional_Sobolev_spaces/#:~:text=2020%20page%20390.-,Theorem%2020,-(Fractional%20trace%20theorem}{theory of the trace operator}, we know that this is equivalent to $g \in H^{m-1/2}(\partial \Omega )$. Then, by forming $w:= u-\tl{g} $ we obtain that $w$ solves the homogeneous Dirichlet problem 
+For \eqref{PDE Dirichlet} to hold, it is necessary that $g$ is the restriction to $\partial \Omega $ of some function $\tl{g}$ called a \emph{lifting} of $\tl{g} $ onto $\Omega $   (in particular it is the restriction of  $u$ to $\partial \Omega  $ ). That is, $\tl{g}  \in \rm{Tr}(H^m(\Omega ))$ where $\rm{Tr}$ is the trace operator and $m$ is the desired regularity of $u$. By \postref{PDEs/5. Fractional and negative order Sobolev spaces}{}{theory of the trace operator}, we know that this is equivalent to $g \in H^{m-1/2}(\partial \Omega )$. Then, by forming $w:= u-\tl{g} $ we obtain that $w$ solves the homogeneous Dirichlet problem 
 \begin{align*}
     \begin{cases}
         \Ll w =\tl{f} & \text{in } \Omega ,          \\
@@ -677,7 +677,7 @@ An integration by parts shows that the weak formulation of \eqref{PDE Neumann} i
 \begin{align}\label{weak def Neumann}
     B(u,v):= \int_{\Omega } \bm{A} \nabla u \cdot \nabla v +\int_{\Omega } \bm{b} \nabla u \cdot \nabla v +\int_{\Omega } c u v+ \int_{\partial \Omega } \sigma u v  =\int_{\Omega } f v +\int_{\partial \Omega } g v=: \ell (v).
 \end{align}
-For the weak form to be well defined we need for $f$ to be in the dual space $H^1(\Omega )'$ (this is \href{https://nowheredifferentiable.com/2024-02-27-PDEs-5-Fractional_Sobolev_spaces/#:~:text=Theorem%2016.-,As,-a%20final%20note}{different} from $H^{-1}(\Omega ):= H^1(\Omega )'$)and $g \in H^{-1/2}(\partial \Omega )$ . A similar reasoning to previously shows the following. 
+For the weak form to be well defined we need for $f$ to be in the dual space $H^1(\Omega )'$ (this is \postref{PDEs/5. Fractional and negative order Sobolev spaces}{}{different} from $H^{-1}(\Omega ):= H^1(\Omega )'$)and $g \in H^{-1/2}(\partial \Omega )$ . A similar reasoning to previously shows the following. 
 \begin{theorem}
     Let $\Omega $ be a bounded domain, $f \in H^{1}(\Omega )', g \in H^{-1/2}( \partial \Omega )$ and $\sigma \in L^\infty(\partial \Omega )$.
     \begin{enumerate}
@@ -722,7 +722,7 @@ As an example of some interest, in the simple case where $\bm{A}$ is the identit
 \begin{align*}
     \int_{\Omega } \nabla u \cdot \nabla v =\int_{\Omega } f v , \quad\forall v \in H^1(\Omega )
 \end{align*}
-Note carefully that $B$ is \emph{not} coercive on $H^1(\Omega )$ as \href{https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=in%20future%20posts-,Theorem,-14%20(Poincar%C3%A9%20inequality}{Poincaré's inequality} does not hold for Neumann boundary conditions.
+Note carefully that $B$ is \emph{not} coercive on $H^1(\Omega )$ as \postref{PDEs/3. Sobolev spaces}{}{Poincaré's inequality} does not hold for Neumann boundary conditions.
 \begin{exercise}\label{eigensapace}
     Show that $\Ll = \Delta $ has the eigenvalue $\lambda =0$. Show that, if $\Omega$ decomposes into $n$ connected components $\Omega _1,...,\Omega _n$, then the eigenspace of $\lambda =0$ is $n$-dimensional and spanned by the indicator functions $1_{\Omega_1},..., 1_{\Omega _n}$ . In particular, the eigenspace of $\lambda =0$ is one-dimensional if $\Omega $ is connected.
 \end{exercise}

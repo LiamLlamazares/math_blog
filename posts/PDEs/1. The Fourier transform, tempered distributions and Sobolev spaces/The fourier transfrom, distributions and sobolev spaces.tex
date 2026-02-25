@@ -71,10 +71,10 @@ In PDEs, it is essential to be able to commute limits and differentials with bot
 		\frac{f(t)-f(t_0)}{t-t_0}\leq \sup_{s \in U}\norm{\partial _t f(s)}\leq g \in L^1(X).
 	\end{equation*}
 	Thus, we may apply the previous proposition to commute the limit with the integral
-	\begin{multline*}
-		\lim_{t \to t_0}\frac{\int_{X} f(t)\mu (dx)-\int_{X}f(t_0) \mu (dx)}{t-t_0}  =\lim_{t \to t_0}\int_{X}    \frac{f(t)-f(t_0)}{t-t_0} \mu (dx) 
-=\int_{X}\lim_{t \to t_0} \frac{f(t)-f(t_0)}{t-t_0} \mu (dx) =\int_{X}\partial _t f(t) \mu(dx).
-	\end{multline*}
+	\begin{align*}
+		\lim_{t \to t_0}\frac{\int_{X} f(t)\mu (dx)-\int_{X}f(t_0) \mu (dx)}{t-t_0}  &=\lim_{t \to t_0}\int_{X}    \frac{f(t)-f(t_0)}{t-t_0} \mu (dx) 
+\\&=\int_{X}\lim_{t \to t_0} \frac{f(t)-f(t_0)}{t-t_0} \mu (dx) =\int_{X}\partial _t f(t) \mu(dx).
+	\end{align*}
 	Where in the first equality we also used the linearity of the Bochner integral (link) and in the last equality we used that by hypothesis $f(x)$ is everywhere differentiable. This concludes the proof.
 \end{proof}
 In the literature the usual hypothesis is that $\partial _t f$ is integrable everywhere (see for example \cite{FF} page 108), however as we have seen it is sufficient to require the integrability at a point.
@@ -291,10 +291,10 @@ we derive formulas analogous to the ones seen in the section on the Fourier tran
 \end{equation}
 
 To prove it all we have to do is apply Plancherel on $u$ and move terms around via duality,
-\begin{multline*}
-	(u,w)=(\sum_{k\in \Z^d}\hat{u}(k)e^{2\pi ik\cdot x},w )=\sum_{k\in \Z^d}  \hat{u}(k)\hat{w}(k)
+\begin{align*}
+	(u,w)&=(\sum_{k\in \Z^d}\hat{u}(k)e^{2\pi ik\cdot x},w )=\sum_{k\in \Z^d}  \hat{u}(k)\hat{w}(k)\\&
 =\sum_{k\in \Z^d}  \left(\int_{\T^d} u(x)e^{-2\pi i\omega\cdot  x}dx\right)\hat{w}(k)=\int_{\T^d} u(x)\left(\sum_{k\in \Z^d} \hat{w}(k) e^{-2\pi i\omega\cdot  x}\right)dx.
-\end{multline*}
+\end{align*}
 This proves the first part and the second can be proved directly by considering the relevant definitions.
 
 
@@ -323,10 +323,10 @@ Solving $Pw=f$ formally yields $w=\Ff^{-1}\left(\frac{-\Ff f}{4\pi^2 \abs{\xi }^
 Sobolev spaces form a particular case of tempered distributions that we interpret as being smooth and integrable up to sufficient orders (linkme3).
 \begin{definition}\label{sobolevdef}
 	Given $k\in\N^+$ we define the \emph{Sobolev space} $H^k(\R^d\to\C^m)$ as:
-	\begin{multline*}
+	\begin{align*}
 		H^k(\R^d\to\C^m):=
- \lbrace f\in L^2(\R^d\to\C^m): D^\alpha f\in L^2(\R^d\to\C^m)\hookrightarrow\Ss '(\R^d\to\C^m)\quad\forall\hspace{2pt}\abs{\alpha}\leq k\rbrace.
-	\end{multline*}
+ \lbrace f\in &L^2(\R^d\to\C^m)\\&: D^\alpha f\in L^2(\R^d\to\C^m)\hookrightarrow\Ss '(\R^d\to\C^m)\quad\forall\hspace{2pt}\abs{\alpha}\leq k\rbrace.
+	\end{align*}
 	Where,  we consider $L^2(\R^d\to\C^m)$ as a subspace of $\Ss '(\R^d\to\C^m)$ (see linkto2).\end{definition} We may interpret the Sobolev space $H^k(\R^d\to\C^m)$ as the space of $k$ times differentiable functions in $L^2(\R^d\to\C^m)$ and we give it the norm:
 \[\norm{f}_{H^k(\R^d\to\C^m)}:=\sum_{\abs{\alpha}\leq k}\norm{D^\alpha f}_{L^2(\R^d\to\C^m)}\qquad f\in H^k(\R^d\to\C^m).\]
 Note that it is not enough to require $\abs{\alpha}=k$ as, for example, the tempered distribution $1 \in \Ss'(\R^d\to\C)$ has a derivative equal to zero however is not itself in $L^2(\R^d\to\C)$. Now, since, as we saw in (link), the Fourier transform is an automorphism of $\Ss'(\R^d\to\C^m)$, by using property (link)  we deduce that
@@ -345,10 +345,10 @@ and give it the norm
 \[\norm{f}_{H^k(\R^d\to\C^m)}:= \norm{\br{\xi}^s\hat{f}(\xi)}_{L^2(\R^d\to\C^m)}\]
 then our new definition is equivalent to the previous one (linkto3)  when $s$ is a positive integer. We have thus found how to generalize the concept of Sobolev space to all real orders and obtained a useful way of characterizing them and giving a neat expression for their norm. Nonetheless, it will always be useful to retain the first definition based on derivatives, as it carries with it the motivation behind the definition of Sobolev spaces.\bigbreak
 As was the case with tempered distributions we can extend the concept of Sobolev space to periodic domains by defining given an integer $k$ the Sobolev space $H^k(\T^d\to\C^m)$ as the space of square-integrable $\Z^d$ periodic functions with distributional derivatives themselves square integrable. Explicitly we define:
-\begin{multline}\label{sobolevdef2}
+\begin{align}\label{sobolevdef2}
 	H^k(\T^d\to\C^m):=
-\lbrace f\in L^2(\T^d\to\C^m): D^\alpha f\in L^2(\T^d\to\C^m)\hookrightarrow\Ss '(\T^d\to\C^m)\quad\forall\hspace{2pt}\abs{\alpha}\leq k\rbrace
-\end{multline}
+\lbrace f\in &L^2(\T^d\to\C^m)\\&: D^\alpha f\in L^2(\T^d\to\C^m)\hookrightarrow\Ss '(\T^d\to\C^m)\quad\forall\hspace{2pt}\abs{\alpha}\leq k\rbrace
+\end{align}
 Using the same method as before, this time by Proposition 4 (link) and equation of the correspondence between regularity and decay for the Fourier transform of periodic functions (link), we deduce that
 \[D^\alpha f\in H^k(\T^d\to\C^m)\iff\widehat{D^\alpha f}(k)=\abs{k^\alpha}\hat{f}(k)\in l^2(\Z^d\to\C^m)\]
 which leads us as in the previous case to define for $s\in\R$ the more general Sobolev space
@@ -369,16 +369,16 @@ One major advantage of working with the Sobolev spaces $H^s$ is that, differentl
 	\br{f,g}_{H^s(\T^d\to\C^m)} & :=\sum_{k\in \Z^d} \br{k }^{2s}\hat{f}(k)\overline{\widehat{g}(k )}.
 \end{align*}
 This gives one access to all the power of functional analysis and is invaluable in proofs. However,  at the end of the day wishes to prove that solutions with smooth initial data are themselves smooth in a classical sense. This can be done by showing that the solution belongs to a Sobolev space of high enough order together with the following two results.
-\begin{lemma}[\textbf{Sobolev Embedding into Continuous Functions}]
+\begin{lemma}[\textbf{Sobolev Embedding into Continuous Functions}]\label{Sobolev derivatives embedding periodic}
 	Given $f\in H^{s}(\T^d\to\C^m)$ with $s>d/2$. Then the Fourier series of $f$ is absolutely convergent and $f\in C(\T^d\to\C^m)$ with the bound
 	\[\norm{f}_{L^\infty(\T^d\to\C^m)}\lesssim_{d,s}\norm{f}_{H^s(\T^d\to\C^m)}\]
 \end{lemma}
 \begin{proof}
-	The proof is an application of the Cauchy-Schwartz inequality and (\ref{HsisL1periodic}). We have that
-	\begin{multline*}
-		\sum_{k\in\Z^d}\abs{\hat{f}(k)}=\sum_{k\in\Z^d} \br{k}^{-s}\br{k}^{s}\abs{\hat{f}(k)}\leq\left(\sum_{k\in\Z^d} \frac{\br{k}^{-2s}}{2}\right)^{\frac{1}{2}}\left(\sum_{k\in\Z^d}\frac{\br{k}^{2s}}{2}\abs{\hat{f}(k)}^2\right)^{\frac{1}{2}}\\
-				\lesssim_{d,s}\norm{f}_{H^s(\mathbb{T}^d\to\C^m)}<\infty.
-	\end{multline*}
+	The proof is an application of the Cauchy-Schwartz inequality. We have that
+	\begin{align*}
+		\sum_{k\in\Z^d}\abs{\hat{f}(k)}&=\sum_{k\in\Z^d} \br{k}^{-s}\br{k}^{s}\abs{\hat{f}(k)}\leq\left(\sum_{k\in\Z^d} \frac{\br{k}^{-2s}}{2}\right)^{\frac{1}{2}}\left(\sum_{k\in\Z^d}\frac{\br{k}^{2s}}{2}\abs{\hat{f}(k)}^2\right)^{\frac{1}{2}}\\
+				&\lesssim_{d,s}\norm{f}_{H^s(\mathbb{T}^d\to\C^m)}<\infty.
+	\end{align*}
 	In consequence, the sum
 	\begin{equation}\label{Fourier sum}
 		\sum_{k\in\Z^d}\hat{f}(k)e^{2\pi ik\cdot x}
@@ -402,7 +402,7 @@ As a corollary of this, we have the following two results
 	we may apply the previous proposition to deduce that $D^\alpha f$ is continuous for all $\abs{\alpha}\leq k$. Therefore it suffices to show that for $\abs{\alpha}\leq k$ the distributional derivatives $D^\alpha f$ are also the classical derivatives of $f$ which we denote by $f_\alpha$.\bigbreak
 	By the hypothesis placed on $f$, we have that the series
 	\[\sum_{k\in\Z^d} (2\pi ik)^\alpha \hat{f}(k)e^{2\pi ik\cdot x} \]
-	is absolutely convergent (by \Cref{Sobolevacseriesperiodic}), and hence, we may commute the derivatives of $f$ with the sum in its Fourier series to deduce the point-wise equality
+	is absolutely convergent (by \Cref{Sobolev derivatives embedding periodic}), and hence, we may commute the derivatives of $f$ with the sum in its Fourier series to deduce the point-wise equality
 	\[f_\alpha(x)=\sum_{k\in\Z^d} (2\pi ik)^\alpha \hat{f}(k)e^{2\pi ik\cdot x}.\]
 	Now, note that by using \eqref{derivativedistr} for the Fourier coefficients of distributions we also have that the equality
 	\[D^\alpha f(x)=\sum_{k\in\Z^d} (2\pi ik)^\alpha \hat{f}(k)e^{2\pi ik\cdot x}\]

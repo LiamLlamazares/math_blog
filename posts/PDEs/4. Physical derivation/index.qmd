@@ -6,7 +6,7 @@ categories: [Pdes]
 description: "Just have to balance the mass"
 format:
   html:
-    css: /custom_theorems.css
+    css: custom_theorems.css
     toc: true
     number-sections: true
     html-math-method: mathjax
@@ -110,6 +110,10 @@ format:
         };
         </script>
 ---
+
+::: {.callout-note appearance="minimal"}
+[Download PDF version](A%20physical%20derivation%20of%20parabolic%20and%20elliptic%20PDE.pdf)
+:::
 
 ##  Summary
 
@@ -323,7 +327,7 @@ a. *Dirichlet boundary condition*: This is the additional imposition that
     \end{aligned}
     $$
 
-    where $g$ is some function defined on  $\partial \Omega$ and $u$ is restricted to $\partial\Omega$ through the trace theorem developed in [the previous post](<https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/>). In the context of the diffusion of heat, $\Omega$ could be a rod which is kept at a constant temperature at its endpoints.
+    where $g$ is some function defined on  $\partial \Omega$ and $u$ is restricted to $\partial\Omega$ through the trace theorem developed in [the previous post](<../../PDEs/3. Sobolev spaces/index.qmd>). In the context of the diffusion of heat, $\Omega$ could be a rod which is kept at a constant temperature at its endpoints.
 
 b. *Robin boundary condition*: Here, it is imposed that
 

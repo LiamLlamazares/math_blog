@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Liam Llamazares–Elias">
-<meta name="dcterms.date" content="2022-05-22">
-<meta name="description" content="Can you really construct this thing?">
+<meta name="dcterms.date" content="2022-06-30">
+<meta name="description" content="Part 3 of the series on Malliavin calculus">
 
-<title>The Itô integral – NoWhere Differentiable Math</title>
+<title>MC 3: The Malliavin Derivative 1 – NoWhere Differentiable Math</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -171,6 +171,7 @@ window.MathJax = {
       mathds: ["\\mathbb{#1}", 1],
       norm: ["\\left\\lVert #1 \\right\\rVert", 1],
       om: "\\omega",
+      postref: ["\\href{https://nowheredifferentiable.com/posts/#1/}{#3}", 3],
       proj: "\\mathrm{proj}",
       qb: ["\\left[#1\\right]", 1],
       qp: ["\\left(#1\\right)", 1],
@@ -462,8 +463,12 @@ window.Quarto = {
   <li><a href="#three-line-summary" id="toc-three-line-summary" class="nav-link active" data-scroll-target="#three-line-summary"><span class="header-section-number">1</span> Three line summary</a></li>
   <li><a href="#why-should-i-care" id="toc-why-should-i-care" class="nav-link" data-scroll-target="#why-should-i-care"><span class="header-section-number">2</span> Why should I care?</a></li>
   <li><a href="#notation" id="toc-notation" class="nav-link" data-scroll-target="#notation"><span class="header-section-number">3</span> Notation</a></li>
-  <li><a href="#progressive-measurability" id="toc-progressive-measurability" class="nav-link" data-scroll-target="#progressive-measurability"><span class="header-section-number">4</span> Progressive measurability</a></li>
-  <li><a href="#construction-of-the-integral" id="toc-construction-of-the-integral" class="nav-link" data-scroll-target="#construction-of-the-integral"><span class="header-section-number">5</span> Construction of the integral</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">4</span> Introduction</a></li>
+  <li><a href="#extending-past-p2" id="toc-extending-past-p2" class="nav-link" data-scroll-target="#extending-past-p2"><span class="header-section-number">5</span> Extending past p=2</a>
+  <ul class="collapse">
+  <li><a href="#example-application" id="toc-example-application" class="nav-link" data-scroll-target="#example-application"><span class="header-section-number">5.1</span> Example application</a></li>
+  <li><a href="#multiple-derivatives" id="toc-multiple-derivatives" class="nav-link" data-scroll-target="#multiple-derivatives"><span class="header-section-number">5.2</span> Multiple derivatives</a></li>
+  </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">6</span> References</a></li>
   </ul>
 </nav>
@@ -474,16 +479,15 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">The Itô integral</h1>
+<h1 class="title">MC 3: The Malliavin Derivative 1</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Stochastic Calculus</div>
-    <div class="quarto-category">Ito Integral</div>
+    <div class="quarto-category">Malliavin Calculus</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Can you really construct this thing?
+    Part 3 of the series on Malliavin calculus
   </div>
 </div>
 
@@ -500,7 +504,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 22, 2022</p>
+      <p class="date">June 30, 2022</p>
     </div>
   </div>
   
@@ -512,124 +516,218 @@ window.Quarto = {
 </header>
 
 
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><a href="main.pdf">Download PDF version</a></p>
+</div>
+</div>
+</div>
 <section id="three-line-summary" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="three-line-summary"><span class="header-section-number">1</span> Three line summary</h2>
 <ul>
-<li><p>The Itô integral is a way of integrating random variables against Brownian motion.</p></li>
-<li><p>The Itô integral is well defined for piecewise constant adapted processes <span class="math inline">\(\mathcal{E}\)</span> and turns them isometrically into square integrable continuous martingales (<span class="math inline">\(\Mm_I^2\)</span>).</p></li>
-<li><p>As a result the Itô integral can be extended isometrically to a function <span class="math inline">\(\overline{\Ee}\to \Mm_I^2\)</span>. Furthermore <span class="math inline">\(\overline{\Ee}\)</span> can be characterised explicitly as the square integrable adapted processes that are measurable in time and space.</p></li>
+<li><p>The Malliavin derivative is an operator defined by manipulating the chaos expansion of a square-integrable random variable.</p></li>
+<li><p>The Malliavin derivative transforms square-integrable variables into square integrable processes.</p></li>
+<li><p>The Malliavin derivative shares some properties with the classic derivative such as the product rule and chain rule, but the fundamental theorem of calculus only holds in some special cases.</p></li>
 </ul>
 </section>
 <section id="why-should-i-care" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="why-should-i-care"><span class="header-section-number">2</span> Why should I care?</h2>
-<p>The Itô integral forms the basis of the whole of stochastic calculus. This comprises SDEs, SPDEs. Knowledge of what functions can be integrated and what properties the integrated function has is instrumental. In this post we construct the integral and address both of the preceding issues.</p>
+<p>The Malliavin derivative is (somewhat unsurprisingly) a fundamental object of Malliavin calculus and has many applications in finance, numerical methods, and optimal control.</p>
 </section>
 <section id="notation" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="notation"><span class="header-section-number">3</span> Notation</h2>
-<p>Given two measure spaces <span class="math inline">\((\Omega,\Ff),(\Omega',\Ff')\)</span> we abbreviate that <span class="math inline">\(f:\Omega\to\Omega'\)</span> is measurable between <span class="math inline">\(\Ff\)</span> and <span class="math inline">\(\Ff'\)</span> as <span class="math inline">\(f:\Ff\to\Ff'.\)</span> Furthermore we will take <span class="math inline">\(I=[0,T]\)</span> or <span class="math inline">\(I=[0,+\infty)\)</span> to be the index set of our stochastic processes and by abuse of notation write <span class="math inline">\(\Ff_\infty\)</span> to mean <span class="math inline">\(\Ff_T\)</span> in the former case and <span class="math inline">\(\Ff_\infty\)</span> in the latter.</p>
+<p>The same as in previous posts. Furthermore we will shorten the notation <span class="math inline">\(L^2(\Omega,\mathcal{F}_T)\)</span> and <span class="math inline">\(L^2(I\times\Omega,\Bb(I)\otimes \Ff_T)\)</span> to <span class="math inline">\(L^2(\Omega)\)</span> and <span class="math inline">\(L^2(I\times\Omega)\)</span> respectively.</p>
 </section>
-<section id="progressive-measurability" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="progressive-measurability"><span class="header-section-number">4</span> Progressive measurability</h2>
-<p>Perhaps the best way to understand a <span class="math inline">\(\sigma\)</span>-algebra is as a set of available information. With this interpretation we understand <span class="math inline">\(\Ff_t\)</span> as the information available to us by time <span class="math inline">\(t\)</span>. A basic property of a stochastic process is that at time <span class="math inline">\(t\)</span> they are determined by this information.</p>
+<section id="introduction" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="introduction"><span class="header-section-number">4</span> Introduction</h2>
+<p>The Malliavin derivative was originally introduced as an operator associated with the Fréchet differential of random variables <span class="math inline">\(X: C(I)\to \R\)</span>. The aforementioned construction provides some motivation behind the Malliavin derivative and will be developed in the next post. However, a more general construction can be obtained via the chaos expansion.</p>
 <div id="def-1" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1</strong></span> A stochastic process <span class="math inline">\(\{X_t\}_{t\in I}\)</span> valued in a measurable space <span class="math inline">\((H,\Hh)\)</span> is <em>adapted</em> if <span class="math inline">\(X_t : \Ff_t \to \Hh\)</span> for all <span class="math inline">\(t \in I\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 1</strong></span> Given <span class="math inline">\(X=\sum_{n=0}^{\infty} I_n(f_n)\in L^2(\Omega)\)</span> we say that <span class="math inline">\(X\)</span> is <em>Malliavin differentiable</em> if</p>
+<p><span class="math display">\[
+\|X\|_{\mathbb{D}_{1,2}}^2 := \norm{X}_{L^2(\Omega)}^2  + \sum_{n=1}^{\infty} n n!\|f_n\|_{L^2([0,T]^n)}^2
+\]</span></p>
+<p>and denote the space of Malliavin differentiable functions by</p>
+<p><span class="math display">\[
+\mathbb{D}_{1,2}:=\{X\in L^2(\Omega):\|X\|_{\mathbb{D}_{1,2}}&lt;\infty\}.
+\]</span></p>
+<p>Furthermore, we define the <em>Malliavin derivative</em> of <span class="math inline">\(X\)</span> as</p>
+<p><span class="math display">\[
+D_tX:=\sum_{n=1}^{\infty} n I_{n-1}(f_{n}(\cdot ,t)),
+\]</span></p>
 </div>
-<p>As we will soon see the only stochastic process that can be integrated are the square integrable and progressively measurable. But what does this mysterious term mean?</p>
-<div id="def-2" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2</strong></span> A stochastic process <span class="math inline">\(\{X_t\}_{t\in I}\)</span> valued in a measurable space <span class="math inline">\((H,\Hh)\)</span> is <em>progressively measurable</em> if its restriction to <span class="math inline">\([0,t]\times\Omega\)</span> is measurable as a map <span class="math display">\[X|_{[0,t]\times\Omega} : \Bb([0,t])\otimes\Ff_t\to \Hh\]</span> for all <span class="math inline">\(t\in I\)</span>.</p>
-</div>
-<p>Whenever we’re given a stochastic process and a filtration the first thing to check is that it is adapted. In fact, since <span class="math inline">\(\omega\to(t,\omega)\)</span> is <span class="math inline">\(\Ff_t\to \Bb([0,t])\otimes \Ff_t\)</span> measurable for all <span class="math inline">\(t\)</span> we have that the following holds.</p>
-<div id="lem-1" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lemma 1</strong></span> Progressively measurable processes are adapted.</p>
-</div>
-<p>Additionally, stochastic processes can be viewed path-wise but also be seen as functions of a product space, this leads to the following definition.</p>
-<div id="def-3" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3</strong></span> We say that a stochastic process <span class="math inline">\(\{X_t\}_{t\in I}\)</span> valued in a measurable space <span class="math inline">\((H,\Hh)\)</span> is jointly measurable if <span class="math display">\[X:\Bb(I)\otimes\Ff_\infty\to \Hh\]</span> where <span class="math inline">\(\Ff_\infty:=\vee_{t\in I}\Ff_t\)</span>.</p>
-</div>
-<p>In the definition of progressive measurability we imposed some kind of measurability, in fact the condition leads to the following</p>
+<p>The first questions to be asked is: ``what kind of object is the Malliavin derivative of a random variable? What is the link between <span class="math inline">\(\mathbb{D}_{1,2}\)</span> and <span class="math inline">\(D_t\)</span>? Is <span class="math inline">\(\|\cdot \|_{\mathbb{D}_{1,2}}\)</span> even a norm?’’. We answer this in the next proposition and corollary.</p>
 <div id="prp-1" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 1 (Progressive implies jointly measurable)</strong></span> Let <span class="math inline">\(I\subset\R\)</span>, and <span class="math inline">\(\{X_t\}_{t\in I}\)</span> be progressively measurable. Then it is also jointly measurable.</p>
+<p><span class="theorem-title"><strong>Proposition 1</strong></span> The Malliavin derivative <span class="math inline">\(D\)</span> is a bounded linear operator <span class="math inline">\(D:\mathbb{D}_{1,2} \to L^2(I \times \Omega)\)</span> with</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{X}_{\mathbb{D}_{1,2}}^2= \norm{X}_{L^2(\Omega)}^2+\|D  X\|^2_{L^2(I\times\Omega)}
+\end{aligned}
+\]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(\{t_n\}_{n\in\N}\subset I\)</span> be a sequence converging to <span class="math inline">\(\sup I\)</span> and with <span class="math inline">\(t_0=T\)</span> if <span class="math inline">\(T&lt;\infty\)</span>. Given <span class="math inline">\(A\in\mathcal{H}\)</span> we have that <span class="math display">\[\begin{multline*}
-    (X|_{[0,t]\times\Omega})^{-1}(A)\in\Bb([0,t])\otimes\Ff_t\quad\forall t\in I\\ \iff X^{-1}(A)\cap([0,t]\times\Omega)\in\Bb([0,t])\otimes\Ff_t\quad\forall t\in I\\\implies X^{-1}(A)=\bigcup_{n \in  \N}\left(X^{-1}(A)\cap([0,t_n]\times\Omega)\right), \in\Bb(I)\otimes\Ff_\infty.
-\end{multline*}\]</span></p>
-</div>
-<p>Note however that the converse isn’t true, for example if <span class="math inline">\(X\)</span> is constant in <span class="math inline">\(t\)</span> then, for some <span class="math inline">\(B\subset \Omega\)</span></p>
+<p><span class="proof-title"><em>Proof</em>. </span>The proof of the first part of the proposition is a straightforward application of Itô’s <span class="math inline">\(n\)</span>-th isometry and the monotone convergence theorem as we have that</p>
 <p><span class="math display">\[
-X^{-1}(A)=I\times B, \quad (X|_{[0,t]\times\Omega})^{-1}(A)= [0,t]\times B.
+\begin{aligned}
+\|D  X\|^2_{L^2(I\times\Omega)}&amp;=\int_{I}\left\|\sum_{n=1}^{\infty} n I_{n-1}(f_{n}(\cdot ,t))\right\|_{L^2(\Omega)}^2 d t\\
+    &amp;=\sum_{n=1}^{\infty} n^2(n-1)!\int_{I}\|f_n(\cdot ,t)\|^2 dt=\sum_{n=1}^{\infty} n n!\|f_{n}\|^2_{L^2([0,T]^n)}\\
+    &amp;=\norm{X}_{\mathbb{D}_{1,2}}^2- \norm{X}_{L^2(\Omega)}^2.
+\end{aligned}
 \]</span></p>
-<p>So it suffices to consider some Construction where <span class="math inline">\(B\in\Ff_\infty\)</span> but <span class="math inline">\(B\not\in\Ff_t\)</span>. It is also important to note the following.</p>
-<div id="lem-2" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lemma 2 (SDE coefficients are progressive)</strong></span> Let <span class="math inline">\(X_t\)</span> be a progressively measurable stochastic process and let <span class="math inline">\(f:\Bb(I)\times\Hh\to\Gg\)</span> be measurable, then <span class="math inline">\(f(t,X_t)\)</span> is progressively measurable.</p>
+<p>This establishes boundedness and the equality of the proposition. Finally, the linearity of <span class="math inline">\(D\)</span> follows from the linearity of the iterated Itô integrals (which itself is a consequence of the linearity of the Itô integral).</p>
+</div>
+<p>In summary, the Malliavin derivative turns a square-integrable random variable into a possibly non-adapted, stochastic process. You may recall from our previous posts that we had an operator that went in the opposite direction. The Skorokhod integral <span class="math inline">\(\delta\)</span>. In fact, the Malliavin derivative and the Skorokhod integral are adjoint operators in a sense that will be made precise in the next post. For now, we show that, as occurs with the ordinary derivative, a random variable has Malliavin derivative <span class="math inline">\(0\)</span> if and only if it is constant.</p>
+<div id="cor-normedspace" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 1</strong></span> <span class="math inline">\((\mathbb{D}_{1,2},\|\cdot \|_{\mathbb{D}_{1,2}})\)</span> is an inner product space. Furthermore</p>
+<p><span class="math display">\[
+D X=0 \in L^2(I \times \Omega)\iff X\in \R.
+\]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>This follows from writing the map as the composition of <span class="math inline">\((t,\omega)\mapsto (t,X(t,\omega))\)</span> and <span class="math inline">\(f\)</span>. The former map evaluates to a measurable function on <span class="math inline">\([0,t]\times\Omega\)</span> with respect to <span class="math inline">\(\Bb([0,t])\otimes\Ff_t\)</span>, since <span class="math inline">\((t,\omega)\mapsto t\)</span> is measurable and <span class="math inline">\((t,\omega)\mapsto X(t,\omega)\)</span> is measurable by the progressive measurability of <span class="math inline">\(X\)</span>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>The inner product properties hold as <span class="math inline">\(\|\cdot\|_{\mathbb{D}_{1,2}}\)</span> is induced by the inner product of the graph space <span class="math inline">\(L^2(\Omega) \times L^2(I \times \Omega)\)</span>. This shows that <span class="math inline">\(\|\cdot \|_{\mathbb{D}_{1,2}}\)</span> is am inner product. The second part follows from the fact that</p>
+<p><span class="math display">\[
+\|DX\|_{L^2(I \times \Omega)}=\sum_{n=1}^{\infty} n n!\|f_{n}\|_{L^2([0,T]^n)}.
+\]</span></p>
+<p>So <span class="math inline">\(DX=0\)</span> if and only if <span class="math inline">\(f_n=0\)</span> for all <span class="math inline">\(n\geq 1\)</span>, which in turn is equivalent to <span class="math inline">\(X=I_0(f_0):=f_0\)</span>. Where we recall that by convention <span class="math inline">\(L^2_{S}(I^0):=\R\)</span> and <span class="math inline">\(I_0\)</span> was defined as the identity on <span class="math inline">\(\R\)</span>. This concludes the proof.</p>
 </div>
-<p>The difference between progressively measurable and adapted is quite subtle. In fact every adapted and jointly measurable stochastic process has a progressively measurable modification (see <span class="citation" data-cites="Karatzas1987BrownianMA">(<a href="#ref-Karatzas1987BrownianMA" role="doc-biblioref">Karatzas 1987</a>)</span> page <span class="math inline">\(5\)</span>). The proof of this fact is very lengthy and technical. Thus, if <span class="math inline">\(X\in L^2(\Bb(I)\otimes\Ff_\infty)\)</span> (and in particular is jointly measurable) is adapted, we may always choose a representative that is progressively measurable. This leads to some authors giving the definition of the class of Itô integrable functions in terms of joint measurability instead of progressive measurability. In the end both lead to equivalent definition. That said, this technicality is usually of little importance due to the following result.</p>
-<div id="lem-3" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lemma 3 (Continuity is progressive)</strong></span> Let <span class="math inline">\(\{X_t\}_{t\in I}\)</span> be a left or right continuous stochastic process. Then <span class="math inline">\(X\)</span> is progressively measurable.</p>
+<p>Before moving on we show a motivating example. Let us consider some deterministic function <span class="math inline">\(f\in L^2(I)\)</span> and set <span class="math display">\[X:=\delta(f)= \int_{0}^T f(s)dW(s).\]</span> Then, by construction, we have <span class="math inline">\(X=I_1(f)\)</span> so</p>
+<p><span class="math display">\[
+D_t X= I_0(f(t))=f(t).
+\]</span></p>
+<p>This is a nice result and it might suggest something akin to the fundamental theorem of calculus such as <span class="math inline">\(D_t(\delta Y)=Y\)</span> for any Skorokhod integrable process <span class="math inline">\(Y\)</span>. However, this will not hold in general and as, will be seen in the next post, occurs if and only if <span class="math inline">\(Y\)</span> is a deterministic function in <span class="math inline">\(L^2(\Omega)\)</span>.\\ This said, we now show that <span class="math inline">\(\mathbb{D}_{1,2}\)</span> is closed in the sense that: given a convergent sequence <span class="math inline">\(X_m\to X\)</span>. If the derivatives <span class="math inline">\(D_tX_m\)</span> converge then also <span class="math inline">\(D_t X_m\to D_t X\)</span>.</p>
+<div id="prp-2" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 2</strong></span> The space <span class="math inline">\(\mathbb{D}_{1,2}\)</span> is a Hilbert space.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Fix <span class="math inline">\(t \in I\)</span>. We will show that the restriction of <span class="math inline">\(X\)</span> to <span class="math inline">\([0,t]\times\Omega\)</span> is <span class="math inline">\(\Bb([0,t])\otimes\Ff_t\)</span> measurable. Suppose for example that <span class="math inline">\(X\)</span> is right continuous, then we consider the approximations</p>
+<p><span class="proof-title"><em>Proof</em>. </span>It only remains to show that <span class="math inline">\(\norm{\cdot }_{\mathbb{D}_{1,2}}\)</span> is complete. Let <span class="math inline">\(\set{X_m}_{m \in \N} \subset  \mathbb{D}_{1,2}\)</span> be Cauchy. Or equivalently, by <a href="#cor-normedspace" class="quarto-xref">Corollary&nbsp;1</a>, <span class="math inline">\(X_m\)</span> is Cauchy in <span class="math inline">\(L^2(\Omega)\)</span> and <span class="math inline">\(DX_m\)</span> in <span class="math inline">\(L^2(I \times \Omega)\)</span>.</p>
+<p>Since <span class="math inline">\(L^2(\Omega)\)</span> is complete <span class="math inline">\(X_m\)</span> must converge to some <span class="math inline">\(X\in L^2(\Omega)\)</span>. Let us write the respective chaos expansions as</p>
 <p><span class="math display">\[
-X_{s}^{(n)}(\omega)=X_{(k+1)t / 2^{n}}(\omega) \quad \text{ for } \frac{k t}{2^{n}}&lt;s \leq \frac{k+1}{2^{n}} t
+X=\sum_{n=0}^{\infty} I_n(f_n);\quad X_m=\sum_{n=0}^{\infty} I_n(f_n^{(m)}).
 \]</span></p>
-<p>and <span class="math inline">\(X_0^{(n)}(\omega) = X_0(\omega)\)</span>. The pre-image of any set <span class="math inline">\(A\in\Hh\)</span> under <span class="math inline">\((X^{(n)})|_{[0,t]\times \Omega}\)</span> is of the form</p>
+<pre><code>By Itô's $n$-th isometry and the convergence $X_m\to X\in L^2(\Omega)$ we deduce that also $f^{(m)}_n\to f_n\in L^2(I^n)$ for each $n$.    By now applying Fatou's lemma and the fact that $X_m$ is by hypothesis Cauchy in  $\mathbb{D}_{1,2}$ we obtain that</code></pre>
 <p><span class="math display">\[
-\left(\{0\}\times X_0^{-1}(A)\right) \cup \bigcup_{k=0}^{2^n-1}\left(\left(\frac{k t}{2^n},\frac{(k+1) t}{2^n}\right]\times X_{(k+1)t/2^n}^{-1}(A)\right).
+\begin{aligned}
+\lim_{m \to \infty}\|DX-DX_m\|_{L^2(I \times \Omega)}&amp;=\lim_{m \to \infty}\sum_{n=1}^{\infty} n!n \|f_n(x)-f_n^{(m)}\|_{L^2(I^n)}\\
+        &amp;\leq \lim_{m \to \infty}\liminf_{k \to \infty}\sum_{n=1}^{\infty} n!n \|f_n^{(k)}(x)-f_n^{(m)}\|_{L^2(I^n)}\\
+        &amp;=\lim_{m \to \infty}\liminf_{k \to \infty}\norm{DX_m-DX_k}_{L^2(I \times \Omega)}=0.
+\end{aligned}
 \]</span></p>
-<p>Since <span class="math inline">\(X\)</span> is adapted, <span class="math inline">\(X_{(k+1)t/2^n}^{-1}(A) \in \Ff_{(k+1)t/2^n} \subseteq \Ff_t\)</span>, meaning the above set is in <span class="math inline">\(\Bb([0,t])\otimes\Ff_t\)</span>. We conclude as by right continuity <span class="math inline">\(\lim_{n \to \infty}X_{s}^{(n)}(\omega)=X_s(\omega)\)</span> for all <span class="math inline">\(s \in [0,t]\)</span>. The pointwise limit of measurable functions is measurable. Also we used that, for the same reason, the pointwise limit of progressively measurable functions is progressively measurable.</p>
+<pre><code>As desired.</code></pre>
+</div>
+<p>We now conclude this post by stating two properties of the Malliavin derivative that are analogous to those verified by the derivative of ordinary functions. Firstly, an analog to the chain rule for the ordinary derivative. The proof can be found on page <span class="math inline">\(29\)</span> of Nunno and Øksendal’s book <span class="citation" data-cites="nunno2008malliavin">(<a href="#ref-nunno2008malliavin" role="doc-biblioref">Nunno, Øksendal, and Proske 2008</a>)</span> but is rather technical and relies on Hermite polynomials which were not discussed previously, so we omit it.</p>
+<div id="def-2" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2</strong></span> We write <span class="math inline">\(\mathbb{D}_{1,2}^0\subset L^2(\Omega)\)</span> for the space of square integrable random variables <span class="math inline">\(X=\sum_{n=0}^{\infty} I_n(f_n)\)</span> such that <span class="math inline">\(f_n=0\)</span> for all but finitely many <span class="math inline">\(n\)</span>.</p>
+</div>
+<div id="prp-3" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 3 (Product rule)</strong></span> Given <span class="math inline">\(X_1,X_2\in \mathbb{D}^0_{1,2}\)</span> it holds that</p>
+<p><span class="math display">\[
+D_t(X_1X_2)=X_1D_tX_2+X_2D_tX_1.
+\]</span></p>
+</div>
+<p>Finally, though we shall not use it, we mention that if <span class="math inline">\(\Omega=\mathcal{S}^*(\R)\)</span> is the dual of the Schwartz space and we construct a probability measure <span class="math inline">\(\mathbb{P}\)</span> called the <em>white noise probability measure</em> then the following version of the chain rule also holds (see <span class="citation" data-cites="nunno2008malliavin">(<a href="#ref-nunno2008malliavin" role="doc-biblioref">Nunno, Øksendal, and Proske 2008</a>)</span> page <span class="math inline">\(89\)</span>).</p>
+<div id="prp-4" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 4 (Chain rule)</strong></span> Consider <span class="math inline">\(\varphi\in C_1(\R^d)\)</span> with <span class="math inline">\(\nabla \varphi\in {L^\infty(\R^d\to\R^d)}\)</span> and <span class="math inline">\(X=(X_1,\ldots,X_d)\)</span> such that <span class="math inline">\(X_i\in \mathbb{D}_{1,2}\)</span> for each <span class="math inline">\(i=1,\ldots,d\)</span>. Then it holds that <span class="math inline">\(\varphi(X)\in \mathbb{D}_{1,2}\)</span> with</p>
+<p><span class="math display">\[
+D_t\varphi(X)=\sum_{i=0}^{d} \frac{\partial \varphi}{\partial x_i}(X)D_t(X_i) .
+\]</span></p>
 </div>
 </section>
-<section id="construction-of-the-integral" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="construction-of-the-integral"><span class="header-section-number">5</span> Construction of the integral</h2>
-<p>As for Riemann integration our construction relies on step functions, here called elementary processes.</p>
-<div id="def-4" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 4</strong></span> We say that <span class="math inline">\(f: I \times \Omega \to \R\)</span> is an elementary process if there exist increasing <span class="math inline">\(\set{t_j}_{j=1}^n  \subset I\)</span> and <span class="math inline">\(\xi_j : \Ff_{t_j} \to I\)</span> such that</p>
+<section id="extending-past-p2" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="extending-past-p2"><span class="header-section-number">5</span> Extending past p=2</h2>
+<p>The Malliavin derivative lets us define a derivative on a subset of <span class="math inline">\(L^2(\Omega)\)</span>. However, it may also be useful to have a concept of derivative on random variables in <span class="math inline">\(L^p(\Omega)\)</span>. We now explain how to do this via an alternative construction of the Malliavin derivative. First of all, consider the set of <em>cylindrical variables</em></p>
 <p><span class="math display">\[
-\begin{aligned}
-X_t = \sum_{j=1}^n \xi_{j} \mathbbm{1}_{(t_j,t_{j+1}]}(t),\quad \forall t \in I.
-\end{aligned}
+\W:=\left\{\varphi\left(\int_{I}h(t) dW(t)\right):\varphi\in C_b^\infty(\R^n), h\in L^2(I\to\R^n), n \in \N \right\}
 \]</span></p>
-</div>
-<div id="lem-4" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lemma 4</strong></span> For any <span class="math inline">\(p \in[1, \infty)\)</span>, the space of elementary processes <span class="math inline">\(\Ee\)</span> is <span class="math inline">\(L^{p}\)</span>-dense in the space <span class="math inline">\(\mathbb{L}^{p}(I\times\Omega)\)</span> of progressively measurable processes. That is, for any <span class="math inline">\(Y \in \mathbb{L}^{p}(I\times\Omega)\)</span> there exists a sequence of elementary processes <span class="math inline">\(V_{n} \in \Ee\)</span> such that <span class="math display">\[
-\E\left[\int_{I}\left|Y(t)-V_{n}(t)\right|^{p} dt\right] \longrightarrow 0.
-\]</span></p>
-</div>
-<p>A detailed proof is given in . This density immediately yields the closure of elementary processes.</p>
-<div id="thm-1" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 1</strong></span> Let <span class="math inline">\((\Ee,\|\cdot\|_{L^2(I\times\Omega)})\)</span> be the space of elementary stochastic processes adapted to <span class="math inline">\(\{\Ff_t\}_{t\in I}\)</span>, equipped with the <span class="math inline">\(L^2(I\times\Omega)\)</span> norm. Its completion is exactly</p>
+<p>That is, <span class="math inline">\(\W\)</span> is the set of all smooth functions with bounded derivatives of Wiener integrals of deterministic functions. Let us use the abbreviation <span class="math inline">\(W(h):=\int_{I}h(t) dW(t)\)</span>. Then, the results in the previous section show that the Malliavin differential of a cylindrical variable is</p>
 <p><span class="math display">\[
-\mathbb{L}^2(I\times\Omega) := \{X\in L^2(I\times\Omega) \mid X \text{ is progressively measurable}\}.
+D_t\varphi(W(h))=\nabla\varphi(W(h))\cdot h(t)=\sum_{i=1}^{n} \frac{\partial \varphi}{\partial x_i}(W(h))h_i(t).
 \]</span></p>
-</div>
-<p>The proof of this is by the previous approximation result together with the fact that the Ito integral of elementary processes is an isometry and the fact that <span class="math inline">\(\mathbb{L}^2(I\times\Omega)\)</span> is complete. This last property follows from the completeness of the <span class="math inline">\(L^p\)</span> spaces and the fact that pointwise limits of progressively measurable functions are progressively measurable (and from every convergent sequence in <span class="math inline">\(L^p\)</span> we can extract a convergent sub-sequence which must also converge to the <span class="math inline">\(L^p\)</span> limit). This finally leads us to be able to define the stochastic integral.</p>
-<div id="thm-2" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 2</strong></span> Let <span class="math inline">\(t\in I\)</span> and define for a elementary process <span class="math inline">\(f\in\Ee\)</span> <span class="math display">\[\int_{0}^t X dW=\sum_{n=0}^{N-1} X(t_n)(W(t\land t_{n+1})-W(t_n)).\]</span> Then the above defines an isometry to the space of continuous square integrable martingales <span class="math inline">\(\Mm_I^2\)</span> as</p>
+<p>One can also start directly with the above equation as the defintion of Malliavin differential. In this case it is not clear that <span class="math inline">\(D_t\)</span> is well defined (that is, independent of the representation of <span class="math inline">\(X=\varphi(W(h))\)</span>). However it is, see <span class="citation" data-cites="hairer2021introduction">(<a href="#ref-hairer2021introduction" role="doc-biblioref">Hairer 2021</a>)</span> page 10. Analogously to how one defines the norm on Sobolev spaces, we now take any <span class="math inline">\(1\leq p&lt; \infty\)</span> and define a norm on <span class="math inline">\(\W\)</span> by</p>
 <p><span class="math display">\[
-\begin{aligned}
-\rm{int }: \left(\mathcal{E},\norm{\cdot }_ {L^2(I\times\Omega)}\right) &amp; \longrightarrow  \left(\mathcal{M}_ I^2,\norm{\cdot }_{L^2(I\times\Omega)}\right) \\
-X(t)                                                           &amp; \longmapsto \int_ {0}^t X dW
-.
-\end{aligned}
+\norm{X}_{\mathbb{D}^{1,p}}:=\norm{X}_{L^p(\Omega)}+\norm{DX}_{L^p(\Omega\to L^2(I))},\quad X\in \W.
 \]</span></p>
-<p>Thus, it extends uniquely to the closure <span class="math inline">\(\overline{\Ee}=\mathbb{L}^2(I\times\Omega)\)</span>. Furthermore the extension also has image in <span class="math inline">\(\Mm_I^2.\)</span></p>
+<p>Then, <span class="math inline">\(D\)</span> is a continuous linear operator on <span class="math inline">\((\W,\norm{\cdot }_{\mathbb{D}^{1,p}})\)</span> to <span class="math inline">\(L^2(\Omega\to L^2(I))\)</span>. As a result, <span class="math inline">\(D\)</span> may be extended to the closure of <span class="math inline">\((\W,\norm{\cdot }_{\mathbb{D}^{1,p}})\)</span> (this relies on Meyer inequalities show that the Malliavin derivative is closable in <span class="math inline">\(L^p\)</span> for <span class="math inline">\(p \neq  2\)</span>). We denote this closure by <span class="math inline">\(\mathbb{D}^{1,p}\)</span> and by abuse of notation also write <span class="math inline">\(D\)</span> for the continuous extension of <span class="math inline">\(D\)</span> to <span class="math inline">\(\mathbb{D}^{1,p}\)</span>. Note that by definition of the norm <span class="math inline">\(\norm{\cdot }_{\mathbb{D}^{1,p}}\)</span>, necessarily <span class="math inline">\(\mathbb{D}^{1,p}\)</span> is a subset of <span class="math inline">\(L^p(\Omega)\)</span>. In this way, we have been able to extend the Malliavin differential to <span class="math inline">\(\mathbb{D}^{1,p}\subset L^p(\Omega)\)</span>. Explicitly, we have that</p>
+<p><span class="math display">\[
+D X:=\lim_{n \to \infty}D X_n \in L^p(\Omega\to L^2(I)).
+\]</span></p>
+<p>Where <span class="math inline">\(X_n \in \W\)</span> is a sequence converging to <span class="math inline">\(X\)</span> in <span class="math inline">\(\mathbb{D}^{1,p}\)</span>. Furthermore, we note that by the previous discussion <span class="math inline">\(D\)</span> coincides with our previous definition of the Malliavin differential when <span class="math inline">\(p=2\)</span>. For the case <span class="math inline">\(p=\infty\)</span> we define</p>
+<p><span class="math display">\[
+D^{1,\infty}:=\bigcap_{p=1} ^\infty \mathbb{D}^{1,p}.
+\]</span></p>
+<p>We now conclude with an extension of the chain rule which can be used even when <span class="math inline">\(\varphi\)</span> does not have bounded derivative.</p>
+<div id="prp-5" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 5 (Chain rule for <span class="math inline">\(\mathbb{D}^{1,p}\)</span>)</strong></span> Let <span class="math inline">\(X\in \mathbb{D}^{1,p}\)</span> and consider <span class="math inline">\(\varphi\in C^1(\R^n)\)</span> such that <span class="math inline">\(\norm{\nabla\varphi(x)}\leq C(1+\norm{x}^\alpha)\)</span> for some <span class="math inline">\(0\leq \alpha\leq p-1\)</span>. Then <span class="math inline">\(\varphi(X)\in \mathbb{D}^{1,q}\)</span>, where <span class="math inline">\(q=p/(\alpha+1)\)</span>. Furthermore,</p>
+<p><span class="math display">\[
+D\varphi(X)=\nabla \varphi(X) \cdot D X.
+\]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>The first part of the proof is a calculation using the definition of integral of elementary process, the adaptedness of <span class="math inline">\(X\)</span> and the definition of <span class="math inline">\(W\)</span>. The second part is slightly more tricky. The fact that <span class="math inline">\(X\)</span> is a martingale is due to <span class="math inline">\(L^2\)</span> convergence (<span class="math inline">\(L^1\)</span> would suffice). Then, one takes a sequence of elementary processes <span class="math inline">\(X_n\)</span> converging to <span class="math inline">\(X\)</span>. By the first part one may apply Doob’s martingale inequality and <span class="math inline">\(L^2\)</span> convergence to get a measure of the set where the supremum</p>
+<p><span class="proof-title"><em>Proof</em>. </span>By the mean value inequality we have that</p>
 <p><span class="math display">\[
-\sup_{t\in I}  |X_n(t)-X_m(t)|&gt;2^{-k},
+\abs{\varphi(x)}\leq C'(1+\norm{x}^{\alpha+1})=C'(1+\norm{x}^{\frac{p}{q}}).
 \]</span></p>
-<p>which can be made small for <span class="math inline">\(n,m \to\infty\)</span>. One can then extract a subsequence and apply Borel-Cantelli to deduce that the above supremum goes to <span class="math inline">\(0\)</span> almost everywhere. This shows that <span class="math inline">\(X_n\)</span> is almost everywhere Cauchy in <span class="math inline">\(L^\infty\)</span> and thus converges almost everywhere to some continuous process <span class="math inline">\(Y\)</span>. This process must be <span class="math inline">\(X\)</span> by <span class="math inline">\(L^2\)</span> convergence to <span class="math inline">\(X\)</span> which concludes the proof.</p>
+<p>As a result, since <span class="math inline">\(X \in L^p(\Omega)\)</span>, we have that</p>
+<p><span id="eq-in1"><span class="math display">\[
+\varphi(X) \in L^q(\Omega).
+\tag{1}\]</span></span></p>
+<p>Furthermore, the growth condition <span class="math inline">\(\norm{\nabla\varphi(x)}\leq C(1+\norm{x}^\alpha)\)</span> implies <span class="math inline">\(\nabla \varphi(X) \in L^{p/\alpha}(\Omega)\)</span>. Since <span class="math inline">\(D X \in L^p(\Omega\to L^2(I))\)</span> by definition, we apply the generalized Hölder inequality with exponents <span class="math inline">\(p/\alpha\)</span> and <span class="math inline">\(p\)</span>. Observing that <span class="math inline">\(\frac{\alpha}{p} + \frac{1}{p} = \frac{\alpha+1}{p} = \frac{1}{q}\)</span>, we obtain</p>
+<p><span id="eq-in2"><span class="math display">\[
+\norm{\nabla \varphi(X) \cdot D X}_{L^q} \leq \norm{\nabla \varphi(X)}_{L^{p/\alpha}} \norm{D X}_{L^p} &lt; \infty.
+\tag{2}\]</span></span></p>
+<p>This establishes that <span class="math inline">\(\nabla \varphi(X) \cdot D X \in L^q(\Omega\to L^2(I))\)</span>.</p>
+<p>We now take a sequence of cylindrical random variables <span class="math inline">\(X_n\)</span> converging to <span class="math inline">\(X\)</span> in <span class="math inline">\(\mathbb{D}^{1,p}\)</span> and an approximation to the identity <span class="math inline">\(\delta_n\)</span>. Let us set <span class="math inline">\(\varphi_n:=\varphi \ast \delta_n\)</span>.</p>
+<p><span class="math display">\[
+D \varphi(X) = \lim_{n \to \infty} D [\varphi_n(X_n)] = \lim_{n \to \infty} (\nabla \varphi_n)(X_n)\cdot DX_n = (\nabla \varphi)(X)\cdot DX \in L^q(\Omega\to L^2(I)).
+\]</span></p>
+<p>The final equality holds due to the identical bound established in (<a href="#eq-in2" class="quarto-xref">2</a>) and the convergence of <span class="math inline">\(X_n,\varphi_n\)</span> to <span class="math inline">\(X,\varphi\)</span> respectively.</p>
 </div>
+<p>Essentially the previous proposition says that, if <span class="math inline">\(X\)</span> is differentiable and the derivative of <span class="math inline">\(\varphi\)</span> doesn’t grow to fast (depending on the integrability of <span class="math inline">\(DX\)</span>), then <span class="math inline">\(\varphi(X)\)</span> is also differentiable and we can apply the chain rule. The integrability of <span class="math inline">\(D\varphi(X)\)</span> depending on the integrability of <span class="math inline">\(DX\)</span> and the growth of <span class="math inline">\(\nabla \varphi\)</span>.</p>
+<section id="example-application" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="example-application"><span class="header-section-number">5.1</span> Example application</h3>
+<p>For example, in the case <span class="math inline">\(p=2\)</span> we could take <span class="math inline">\(\varphi(x)=x^2\)</span> to deduce that</p>
+<p><span class="math display">\[
+D(X^2)=2XDX,\quad\forall X\in \mathbb{D}^{1,2}.
+\]</span></p>
+<p>If <span class="math inline">\(X=1_A\)</span> is an indicator function for some <span class="math inline">\(A\in \Ff\)</span> we obtain that</p>
+<p><span class="math display">\[
+D(1_A)=D(1_A^2)=21_AD(1_A).
+\]</span></p>
+<p>From here we deduce that <span class="math inline">\(D1_A=0\)</span>. As we have seen, this occurs if and only if <span class="math inline">\(1_A\)</span> is constant, so necessarily <span class="math inline">\(1_A=0\)</span> or <span class="math inline">\(1_A=1\)</span>. Identifying sets with functions, we have just proved the following</p>
+<div id="cor-1" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 2</strong></span> Given <span class="math inline">\(A\in \Ff\)</span> we have that <span class="math inline">\(1_A\in \mathbb{D}^{1,2}\)</span> if and only if (almost everywhere) <span class="math inline">\(A=\emptyset\)</span> or <span class="math inline">\(A=\Omega\)</span>.</p>
+</div>
+</section>
+<section id="multiple-derivatives" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="multiple-derivatives"><span class="header-section-number">5.2</span> Multiple derivatives</h3>
+<p>Finally we comment on how it is possible to iterate the Malliavin derivative. Given a cylindrical process <span class="math inline">\(X=\varphi(W(h))\in \W\)</span> we should have that, with Einstein notation</p>
+<p><span class="math display">\[
+D_{t_1}D_{t_2}X=D_{t_1}(\partial_i \varphi(X)h_i(t_2))=D_{t_1}(\partial_i \varphi(X))h_i(t_2)=(\partial_i\partial _j \varphi)(X)h_i(t_1)h_j(t_2).
+\]</span></p>
+<p>As a result, we define given <span class="math inline">\(X\in \W\)</span></p>
+<p><span class="math display">\[
+D^k_{t_1,\ldots,t_k} X:= \sum_{i_1,\ldots,i_k=1}^{n}  \frac{\partial \varphi}{\partial x_{i_1}\ldots\partial x_{i_k}}(X)h_{i_1}(t_1)\ldots h_{i_k}(t_k) .
+\]</span></p>
+<p>In the same fashion as before, we can now define the <span class="math inline">\(k\)</span>-th differential norm as</p>
+<p><span class="math display">\[
+\norm{X}_{\mathbb{D}^{k,p}}:=\sum_{j=0}^{k}  \norm{D^j X}_{L^p(\Omega\to L^2(I^j))}.
+\]</span></p>
+<p>Where we use the convention <span class="math inline">\(D^0 X:=X, L^2(I^0):= \R\)</span>. Then we simply define <span class="math inline">\(\mathbb{D}^{k,p}\)</span> to be the completion of <span class="math inline">\(\W\)</span> with this norm. Finally, we define</p>
+<p><span class="math display">\[
+\mathbb{D}^{\infty,p}:= \bigcap_{k=1}^\infty \mathbb{D}^{k,p};\quad \mathbb{D}^\infty := \bigcap_{p \geq 1} \bigcap_{k \geq 1} \mathbb{D}^{k,p}.
+\]</span></p>
+</section>
 </section>
 <section id="references" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="references"><span class="header-section-number">6</span> References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-Karatzas1987BrownianMA" class="csl-entry" role="listitem">
-Karatzas, Ioannis. 1987. <span>“Brownian Motion and Stochastic Calculus.”</span> <em>Elearn</em>. <a href="https://link.springer.com/book/10.1007/978-1-4612-0949-2">https://link.springer.com/book/10.1007/978-1-4612-0949-2</a>.
+<div id="ref-hairer2021introduction" class="csl-entry" role="listitem">
+Hairer, M. 2021. <span>“Introduction to Malliavin Calculus.”</span> <a href="https://www.hairer.org/notes/Malliavin.pdf">https://www.hairer.org/notes/Malliavin.pdf</a>.
+</div>
+<div id="ref-nunno2008malliavin" class="csl-entry" role="listitem">
+Nunno, Giulia Di, Bernt Øksendal, and Frank Proske. 2008. <em>Malliavin Calculus for l<span>é</span>vy Processes with Applications to Finance</em>. Springer. <a href="https://link.springer.com/book/10.1007/978-3-540-78572-9">https://link.springer.com/book/10.1007/978-3-540-78572-9</a>.
 </div>
 </div>
 

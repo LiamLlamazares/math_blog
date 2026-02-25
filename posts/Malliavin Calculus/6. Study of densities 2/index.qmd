@@ -7,7 +7,7 @@ description: "Part 6 of the series on Malliavin calculus"
 bibliography: biblio.bib
 format:
   html:
-    css: /custom_theorems.css
+    css: custom_theorems.css
     toc: true
     number-sections: true
     html-math-method: mathjax
@@ -111,6 +111,10 @@ format:
         };
         </script>
 ---
+
+::: {.callout-note appearance="minimal"}
+[Download PDF version](main.pdf)
+:::
 
 ##  Three line summary
 

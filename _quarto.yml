@@ -3,6 +3,7 @@ project:
   output-dir: _site
   resources:
     - _data/recent_comments.json
+    - assets/
   render:
     - "!posts/Future/**"
     - "*.qmd"
@@ -54,7 +55,6 @@ format:
       dark: darkly
     toc: true
     html-math-method: mathjax
-    include-after-body: giscus.html
     include-in-header:
       text: |
         <script>

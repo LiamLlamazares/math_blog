@@ -6,7 +6,7 @@ categories: [Malliavin calculus]
 description: "How does one generalize the Itô integral?"
 format:
   html:
-    css: /custom_theorems.css
+    css: custom_theorems.css
     toc: true
     number-sections: true
     html-math-method: mathjax
@@ -111,6 +111,10 @@ format:
         </script>
 ---
 
+::: {.callout-note appearance="minimal"}
+[Download PDF version](main.pdf)
+:::
+
 ##  Three line summary
 
 - By fixing $t$, one can obtain a chaos expansion for (possibly non-adapted) square integrable stochastic processes $X(t)$.
@@ -125,7 +129,7 @@ If you want to define the Malliavin derivative you need the Skorokhod integral.
 
 ## Notation
 
-The same as in [the previous post](../../Malliavin Calculus/1.Chaos_expansion/index.qmd) on the chaos expansion. We will also write $\mathbb{L}^2(I\times \Omega)$ for the space of  [Itô integrable](../../Stochastic Calculus/Ito_integral/index.qmd) functions.
+The same as in [the previous post](<../../Malliavin Calculus/1.Chaos_expansion/index.qmd>) on the chaos expansion. We will also write $\mathbb{L}^2(I\times \Omega)$ for the space of  [Itô integrable](<../../Stochastic Calculus/Ito_integral/index.qmd>) functions.
 
 ## The chaos expansion of an Itô integral
 

@@ -468,7 +468,16 @@ def build_label_registry(posts_root: Path, tex_name: str = 'main.tex') -> dict:
                     registry[folder_str][label] = qid
                     registry[folder_str][qid] = qid
 
-    return registry
+        # Scan sections for labels
+        sec_pattern = re.compile(r'\\(?:section|subsection|subsubsection)\{([^}]*)\}(?:\s*\\label\{([^}]*)\})?')
+        for m in sec_pattern.finditer(body):
+            label = m.group(2)
+            if label:
+                label_id = sanitize(label)
+                if not label_id.startswith('sec-'):
+                    label_id = f"sec-{label_id}"
+                registry[folder_str][label] = label_id
+                registry[folder_str][label_id] = label_id
 
     return registry
 
@@ -548,13 +557,22 @@ def _expand_qty(text: str) -> str:
 
 
 def convert_body(body: str, label_registry: dict | None = None,
-                 current_folder: str | None = None) -> str:
+                 current_folder: str | None = None,
+                 pdf_filename: str | None = None) -> str:
     r"""Apply all mechanical transformations to the LaTeX body.
-
-    If label_registry and current_folder are provided, \postref commands
-    are resolved to correct relative Quarto links with anchors.
     """
     text = body
+
+    # Insert PDF Link at the top if available
+    if pdf_filename:
+        import urllib.parse
+        pdf_url = urllib.parse.quote(pdf_filename)
+        pdf_banner = f"::: {{.callout-note appearance=\"minimal\"}}\n[Download PDF version]({pdf_url})\n:::\n\n"
+        text = pdf_banner + text
+
+    # Strip legacy "outdated PDF" disclaimers
+    text = re.sub(r'(?i)link to a (?:possibly )?outdated PDF content.*?\.', '', text)
+    text = re.sub(r'(?i)a possibly outdated version of the PDF.*?\.', '', text)
 
     # Map of LaTeX labels to generated Quarto IDs, populated during conversion
     label_map = {}  # e.g. {'density': 'eq-density', 'independence': 'prp-1', ...}
@@ -579,9 +597,20 @@ def convert_body(body: str, label_registry: dict | None = None,
     text = _expand_qty(text)
 
     # --- Pass 1: Sections ---
-    text = re.sub(r'\\section\{([^}]*)\}', r'\n\n## \1\n\n', text)
-    text = re.sub(r'\\subsection\{([^}]*)\}', r'\n\n### \1\n\n', text)
-    text = re.sub(r'\\subsubsection\{([^}]*)\}', r'\n\n#### \1\n\n', text)
+    def replace_sections(m):
+        level = m.group(1)
+        title = m.group(2)
+        label = m.group(3)
+        hashes = '##' if level == 'section' else '###' if level == 'subsection' else '####'
+        if label:
+            label_id = sanitize_label(label)
+            if not label_id.startswith('sec-'):
+                label_id = f"sec-{label_id}"
+            label_map[label] = label_id
+            return f'\n\n{hashes} {title} {{#{label_id}}}\n\n'
+        return f'\n\n{hashes} {title}\n\n'
+
+    text = re.sub(r'\\(section|subsection|subsubsection)\{([^}]*)\}(?:\s*\\label\{([^}]*)\})?', replace_sections, text)
 
     # --- Pass 2: Theorem-like environments ---
     # Process from innermost out: we iterate until no more matches
@@ -708,6 +737,53 @@ def convert_body(body: str, label_registry: dict | None = None,
         return f'\n\n<div style="text-align: center;">\n\n{dedented}\n\n</div>\n\n'
 
     text = re.sub(r'\\begin\{center\}[ \t]*\n?(.*?)\\end\{center\}', dedent_center, text, flags=re.DOTALL)
+
+    # --- Pass 2e: Figures and standalone images ---
+    def convert_figure_env(m):
+        inner = m.group(1)
+        # Extract \includegraphics[opts]{path}
+        img_m = re.search(r'\\includegraphics(?:\[[^\]]*\])?\{([^}]*)\}', inner)
+        
+        # Robust caption extraction: handle balanced braces for one level (e.g. \eqref{...})
+        # This matches \caption{ followed by:
+        #   - any char that isn't { or }
+        #   - OR a { ... } group
+        # repeated, until }
+        cap_m = re.search(r'\\caption\{((?:[^{}]|\{[^{}]*\})*)\}', inner)
+        
+        # Extract \label{...}
+        lab_m = re.search(r'\\label\{([^}]*)\}', inner)
+
+        if not img_m:
+            return inner
+
+        path = img_m.group(1).strip()
+        # Swap .pdf to .png for web rendering
+        if path.lower().endswith('.pdf'):
+            path = path[:-4] + '.png'
+        
+        caption = cap_m.group(1).strip() if cap_m else ""
+        
+        attr = ""
+        if lab_m:
+            raw_lab = lab_m.group(1)
+            qid = sanitize_label(raw_lab)
+            # Quarto figure labels must start with fig-
+            fig_id = qid if qid.startswith('fig-') else f"fig-{qid}"
+            attr = f" {{#{fig_id}}}"
+            label_map[raw_lab] = fig_id
+        
+        return f'\n\n![{caption}]({path}){attr}\n\n'
+
+    text = re.sub(r'\\begin\{figure\}(?:\[[^\]]*\])?(.*?)\\end\{figure\}', convert_figure_env, text, flags=re.DOTALL)
+
+    def convert_standalone_graphics(m):
+        path = m.group(1).strip()
+        if path.lower().endswith('.pdf'):
+            path = path[:-4] + '.png'
+        return f'\n\n![]({path})\n\n'
+    
+    text = re.sub(r'\\includegraphics(?:\[[^\]]*\])?\{([^}]*)\}', convert_standalone_graphics, text)
 
     # --- Pass 3: Display math environments ---
     # aligneq = equation + aligned, aligneq* = equation* + aligned
@@ -1031,22 +1107,37 @@ def convert_body(body: str, label_registry: dict | None = None,
         elif label_registry and folder_arg not in label_registry:
             print(f"  WARNING: \\postref folder '{folder_arg}' not found in registry")
 
-        # Compute relative path from current post to target post
+        # Use Quarto-native relative paths to .qmd files
         if current_folder:
             from pathlib import PurePosixPath
             src = PurePosixPath(current_folder)
-            dst = PurePosixPath(folder_arg)
+            dst_clean = folder_arg.replace('\\', '/')
+            
             # Both are relative to posts/, so compute relative
-            # e.g. src="Stochastic Calculus/Ito_integral", dst="Stochastic Calculus/Martingales"
             # We go up from src, then down to dst
             up = '/'.join(['..'] * len(src.parts))
-            rel_path = f"{up}/{dst}/index.qmd" if up else f"{dst}/index.qmd"
+            # Quarto will automatically convert index.qmd to the correct HTML route
+            # Use <> brackets to handle potential spaces in the folder names
+            rel_path = f"{up}/{dst_clean}/index.qmd" if up else f"{dst_clean}/index.qmd"
+            return f'[{display}](<{rel_path}{anchor}>)'
         else:
             # Fallback: absolute URL
-            folder_url = folder_arg.replace(' ', '%20')
+            import urllib.parse
+            folder_url = urllib.parse.quote(folder_arg, safe='/')
             return f'[{display}](https://nowheredifferentiable.com/posts/{folder_url}/)'
 
         return f'[{display}]({rel_path}{anchor})'
+
+    # --- Pass 7c: Internal References (\ref, \eqref, \Cref) ---
+    def convert_refs(m):
+        label = m.group(1)
+        qid = label_map.get(label, sanitize_label(label))
+        # Ensure we point to the right prefix if it's a known environment
+        if qid.startswith('eq-'):
+            return f'(@{qid})'
+        return f'@{qid}'
+
+    text = re.sub(r'\\(?:eqref|ref|Cref)\{([^}]*)\}', convert_refs, text)
 
     text = re.sub(
         r'\\postref\{([^}]*)\}\{([^}]*)\}\{([^}]*)\}',
@@ -1148,7 +1239,7 @@ def build_qmd(meta: dict, body: str, mathjax_macros: str) -> str:
     # Format block with MathJax
     lines.append('format:')
     lines.append('  html:')
-    lines.append('    css: /custom_theorems.css')
+    lines.append('    css: custom_theorems.css')
     lines.append('    toc: true')
     lines.append('    number-sections: true')
     lines.append('    html-math-method: mathjax')
@@ -1236,10 +1327,15 @@ def convert_folder(folder: Path, tex_name='main.tex', preamble_name='preamble.st
     print(f"  Extracted {len(macros)} macros from {preamble_name}")
     mathjax_macros = format_mathjax_macros(macros)
 
+    # Determine if a PDF version exists to provide a link
+    pdf_file = tex_path.with_suffix('.pdf')
+    pdf_filename = pdf_file.name if pdf_file.exists() else None
+
     # Extract and convert body
     body = extract_body(tex_content)
     converted_body = convert_body(body, label_registry=label_registry,
-                                  current_folder=current_folder)
+                                  current_folder=current_folder,
+                                  pdf_filename=pdf_filename)
 
     # Assemble output
     qmd = build_qmd(meta, converted_body, mathjax_macros)

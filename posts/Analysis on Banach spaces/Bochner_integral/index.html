@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Liam Llamazares–Elias">
+<meta name="dcterms.date" content="2022-05-27">
+<meta name="description" content="Wait a second, how many integrals are there?">
+
+<title>The Bochner Integral – NoWhere Differentiable Math</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-98d0cb1e008fbffa0ee4b173966b8197.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-936f13ee374d09b8292d41d562e5d832.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-98d0cb1e008fbffa0ee4b173966b8197.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>
+window.MathJax = {
+  tex: {
+    tags: "ams",
+    macros: {
+      A: "\\mathbb{A}",
+      Aa: "\\mathcal{A}",
+      Bb: "\\mathcal{B}",
+      C: "\\mathbb{C}",
+      Cc: "\\mathcal{C}",
+      Dd: "\\mathcal{D}",
+      E: "\\mathbb{E}",
+      Ee: "\\mathcal{E}",
+      F: "\\mathbb{F}",
+      Ff: "\\mathcal{F}",
+      Gg: "\\mathcal{G}",
+      Hh: "\\mathcal{H}",
+      II: "\\mathbb{I}",
+      Id: "\\bm{I}",
+      Ii: "\\mathcal{I}",
+      Im: "\\bm{Im}",
+      Jj: "\\mathcal{J}",
+      K: "\\mathbb{K}",
+      KL: ["\\rm{KL}\\left(#1 \\| #2\\right)", 2],
+      Kk: "\\mathcal{K}",
+      LL: "\\mathbb{L}",
+      Ll: "\\mathcal{L}",
+      M: "\\mathbb{M}",
+      Mm: "\\mathcal{M}",
+      N: "\\mathbb{N}",
+      Nn: "\\mathcal{N}",
+      Oo: "\\mathcal{O}",
+      PP: "\\mathbb{P}",
+      Pp: "\\mathcal{P}",
+      Q: "\\mathbb{Q}",
+      Qq: "\\mathcal{Q}",
+      R: "\\mathbb{R}",
+      Rr: "\\mathcal{R}",
+      Ss: "\\mathcal{S}",
+      T: "\\mathbb{T}",
+      Th: "{\\bm{\\theta}}",
+      Thh: "{\\bm{\\Theta}}",
+      Tt: "\\mathcal{T}",
+      Uu: "\\mathcal{U}",
+      Vv: "\\mathcal{V}",
+      W: "\\mathbb{W}",
+      Ww: "\\mathcal{W}",
+      X: "\\mathbb{X}",
+      Xx: "\\mathcal{X}",
+      Yy: "\\mathcal{Y}",
+      Z: "\\mathbb{Z}",
+      Zz: "\\mathcal{Z}",
+      abs: ["{\\left| #1 \\right|}", 1],
+      alf: "{\\alpha}",
+      b: ["{\\bm{#1}}", 1],
+      bm: ["\\boldsymbol{#1}", 1],
+      br: ["\\left\\langle#1\\right\\rangle", 1],
+      bt: "\\beta",
+      co: ["\\overset{\\circ}{#1}", 1],
+      d: "\\mathrm{d}",
+      diag: ["\\operatorname{diag}\\left(#1\\right)", 1],
+      dx: "\\,\\mathrm{d}x",
+      dy: "\\,\\mathrm{d}y",
+      eps: "\\varepsilon",
+      et: "{\\bm{\\eta}}",
+      ex: ["\\mathrm{exp}\\left(#1\\right)", 1],
+      fk: ["\\mathfrak{#1}", 1],
+      fracc: ["{#1}/{#2}", 2],
+      frc: ["\\left(#2)^{-1}(#1\\right)", 2],
+      iso: "\\xrightarrow{\\sim}",
+      ker: "\\rm{ker}",
+      mat: ["\\begin{bmatrix}{#1}\\end{bmatrix}", 1],
+      mathbbm: ["\\mathbb{#1}", 1],
+      mathds: ["\\mathbb{#1}", 1],
+      norm: ["\\left\\lVert #1 \\right\\rVert", 1],
+      om: "\\omega",
+      postref: ["\\href{https://nowheredifferentiable.com/posts/#1/}{#3}", 3],
+      proj: "\\mathrm{proj}",
+      qb: ["\\left[#1\\right]", 1],
+      qp: ["\\left(#1\\right)", 1],
+      qt: ["\\left(#1\\right)", 1],
+      red: ["{\\color{red}#1}", 1],
+      restr: ["\\left.#1\\right|{#2}", 2],
+      rm: ["\\mathrm{#1}", 1],
+      set: ["\\left\\{#1\\right\\}", 1],
+      star: "*",
+      tl: ["\\widetilde{#1}", 1],
+      tll: ["\\widetilde{#1}", 1],
+      vol: "\\mathrm{vol}",
+      wh: ["\\widehat{#1}", 1],
+      x: "\\bm{x}",
+      xxi: "{\\bm{\\xi}}",
+      y: "\\bm{y}"
+    }
+  }
+};
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../custom_theorems.css">
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">NoWhere Differentiable Math</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html"> 
+<span class="menu-text">HOME PAGE</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../aboutme.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://nowheredifferentiable.com/tags/"> 
+<span class="menu-text">Posts by Tag</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-resources">    
+        <li>
+    <a class="dropdown-item" href="https://terrytao.wordpress.com/">
+ <span class="dropdown-text">Terence Tao’s blog</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://lukasz.ls314.com/">
+ <span class="dropdown-text">Lukasz Sliwinski’s blog</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="http://eepurl.com/itcRso"> 
+<span class="menu-text">Subscribe</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/LiamLlamazares"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#three-line-summary" id="toc-three-line-summary" class="nav-link active" data-scroll-target="#three-line-summary"><span class="header-section-number">1</span> Three line summary</a></li>
+  <li><a href="#notation" id="toc-notation" class="nav-link" data-scroll-target="#notation"><span class="header-section-number">2</span> Notation</a></li>
+  <li><a href="#strong-measurability" id="toc-strong-measurability" class="nav-link" data-scroll-target="#strong-measurability"><span class="header-section-number">3</span> Strong measurability</a></li>
+  <li><a href="#construction-of-the-bochner-integral" id="toc-construction-of-the-bochner-integral" class="nav-link" data-scroll-target="#construction-of-the-bochner-integral"><span class="header-section-number">4</span> Construction of the Bochner integral</a></li>
+  <li><a href="#familiar-properties" id="toc-familiar-properties" class="nav-link" data-scroll-target="#familiar-properties"><span class="header-section-number">5</span> Familiar properties</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">6</span> References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">The Bochner Integral</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Analysis On Banach Spaces</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Wait a second, how many integrals are there?
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Liam Llamazares–Elias </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 27, 2022</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><a href="The-Bochner-Integral.pdf">Download PDF version</a></p>
+</div>
+</div>
+</div>
+<p>This is the first post in a series on extending analysis from real-valued functions to functions valued in Banach spaces. Our first topic is the Bochner integral. That is, the extension of the Lebesgue integral to functions valued in Banach spaces.</p>
+<section id="three-line-summary" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="three-line-summary"><span class="header-section-number">1</span> Three line summary</h2>
+<ul>
+<li><p>The Bochner integral is a way of integrating functions <span class="math inline">\(f\)</span> from a measure space to a Banach space.</p></li>
+<li><p>Like the Lebesgue integral, it is first constructed for piecewise constant functions <span class="math inline">\(\Aa\)</span> and extended continuously to the completion <span class="math inline">\(\overline{\Aa}\)</span>.</p></li>
+<li><p>The completion <span class="math inline">\(\Aa\)</span> can be explicitly described as the space of functions with separable image and with finite <span class="math inline">\(L^1\)</span> norm. This naturally leads to the definition of <span class="math inline">\(L^p\)</span> spaces.</p></li>
+</ul>
+</section>
+<section id="notation" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="notation"><span class="header-section-number">2</span> Notation</h2>
+<ol type="1">
+<li><p>We consider a measure space <span class="math inline">\((\Omega,\Ff,\mu )\)</span> which may <em>not</em> be <span class="math inline">\(\sigma\)</span>-finite, and a Banach space <span class="math inline">\((X,\Bb(X))\)</span> where <span class="math inline">\(\Bb\)</span> is the Borel sigma-algebra (that is, the smallest <span class="math inline">\(\sigma\)</span>-algebra on <span class="math inline">\(X\)</span> containing all of the open sets) of <span class="math inline">\(X\)</span>.</p></li>
+<li><p>We denote the dual space of <span class="math inline">\(X\)</span> as <span class="math inline">\(X^*\)</span> and given <span class="math inline">\(x^* \in X^*\)</span> we denote the pairing of <span class="math inline">\(x\in X\)</span> and <span class="math inline">\(x^*\)</span> as <span class="math inline">\((x,x^*):= x^*(x)\)</span>.</p></li>
+<li><p>Given a subset <span class="math inline">\(A\subset \Omega\)</span> we denote the indicator function of <span class="math inline">\(A\)</span> as <span class="math inline">\(1_A\)</span>.</p></li>
+<li><p>Given <span class="math inline">\(f: \Omega \to \R\)</span> and <span class="math inline">\(x \in X\)</span> we define the function <span class="math inline">\(f\otimes x: \Omega \to X\)</span> by</p>
+<p><span class="math display">\[
+\begin{aligned}
+f \otimes x(\omega):= f(\omega)x.
+\end{aligned}
+\]</span></p></li>
+</ol>
+</section>
+<section id="strong-measurability" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="strong-measurability"><span class="header-section-number">3</span> Strong measurability</h2>
+<p>Our goal is to define integration for functions valued in a Banach space</p>
+<p><span class="math display">\[
+\begin{aligned}
+f:(\Omega,\mathcal{F},\mu)\to ((X,\norm{\cdot}),\mathcal{B}(X)).
+\end{aligned}
+\]</span></p>
+<p>When working with measure spaces, we are, in general, not interested in what happens on sets of measure <span class="math inline">\(0\)</span>. As a result, we are contented with properties of interest holding perhaps not everywhere but <em>almost everywhere</em>.</p>
+<div id="def-1" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1</strong></span> A property is said to hold <em><span class="math inline">\(\mu\)</span>-almost everywhere</em> if there exists a set <span class="math inline">\(N\in \Ff\)</span> with <span class="math inline">\(\mu(N)=0\)</span> such that the property holds on <span class="math inline">\(\Omega\setminus N\)</span>.</p>
+</div>
+<p>As anticipated, we first consider the class of simple functions <span class="math display">\[
+\begin{aligned}
+\Aa=\left\{\sum_{k=1}^{n} 1_{A_k} \otimes x_k: \quad x_k\in X \text{ and } A_k \in \Ff \text{ with } \mu(A_K)&lt; \infty\right\}.
+\end{aligned}
+\]</span></p>
+<p>We can define their integral quite naturally as</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_\Omega f \d\mu=\int_\Omega \sum_{k=1}^{n} 1_{A_k} \otimes x_k\d\mu=\sum_{k=1}^n x_k\mu({A_k}).
+\end{aligned}
+\]</span></p>
+<p>If we take equivalence classes and identify functions that are equal <span class="math inline">\(\mu\)</span> almost everywhere, we can define the norm</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{f}_\Aa:=\int_\Omega \norm{f} \d\mu , \quad\forall f\in \Aa.
+\end{aligned}
+\]</span></p>
+<p>A verification shows that integration is linear and for all <span class="math inline">\(f\in\Aa\)</span>.</p>
+<p><span id="eq-triangle"><span class="math display">\[
+\begin{aligned}
+\norm{\int_\Omega f \d \mu}\leq\int_\Omega \norm{f} \d\mu=\norm{f}_\Aa.
+\end{aligned}
+\tag{1}\]</span></span></p>
+<p>That is, integration is a linear and continuous map</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_\Omega \cdot \d\mu : \left(\Aa,\norm{\cdot}_\Aa \right)\to (X,\norm{\cdot}).
+\end{aligned}
+\]</span></p>
+<p>Since <span class="math inline">\(X\)</span> is a complete, we can <a href="https://en.wikipedia.org/wiki/Continuous_linear_extension">linearly extend</a> integration in a unique way to the completion <span class="math inline">\(\overline{\Aa}\)</span> of <span class="math inline">\((\Aa,\norm{\cdot}_A)\)</span>. The space <span class="math inline">\(\overline{\Aa}\)</span>, which can be built through taking limits of simple functions, is thus the space of functions that we can integrate. Our next step is to figure out what this is.</p>
+<div id="def-2" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2</strong></span> We say a function <span class="math inline">\(f:(\Omega,\mathcal{F})\to (X,\mathcal{B}(X))\)</span> is <span class="math inline">\(\mu\)</span>-strongly measurable if there exists a sequence of simple functions <span class="math inline">\(f_n\)</span> such that</p>
+<p><span class="math display">\[
+\begin{aligned}
+f=\lim_{n \to \infty} f_n \quad \mu\text{-almost everywhere}.
+\end{aligned}
+\]</span></p>
+</div>
+<p>Since the simple <span class="math inline">\(f_n\)</span> are <em>separately valued</em> (that is, <span class="math inline">\(f_N(\Omega )\subset X\)</span> is separable), <span class="math inline">\(f\)</span> will also be (almost everywhere) separably valued. As a result we will always end up working with separable Banach spaces. The following properties are of use</p>
+<div id="exr-ex:separable" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1</strong></span> Let <span class="math inline">\(X\)</span> be a <strong>separable</strong> Banach space with dual <span class="math inline">\(X^*\)</span> , show that</p>
+<ol type="a">
+<li><p>There exists <span class="math inline">\(\left\{x_n^*\right\}_{n=1}^\infty\subset X^*\)</span> such that</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{x}= \sup_{n \geq1} \abs{(x,x_n^*)}.
+\end{aligned}
+\]</span></p>
+<p>Such a sequence is called a <em>norming sequence</em>.</p></li>
+<li><p>The Borel <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\Bb(X)\)</span> is equal to the <span class="math inline">\(\sigma\)</span>-algebra generated by <span class="math inline">\(\left\{x_n^*\right\}_{n=1}^\infty\)</span>, and by <span class="math inline">\(X^*\)</span>. That is,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\Bb(X)=\sigma\left(\left\{x_n^*\right\}_{n=1}^ \infty\right)=\sigma(X^*)
+\end{aligned}
+\]</span></p>
+<p>If <span class="math inline">\(X\)</span> is not separable, the inclusion <span class="math inline">\(\Bb(X)\subset \sigma(X^*)\)</span> may fail. See <span class="citation" data-cites="vakhania2012probability">(<a href="#ref-vakhania2012probability" role="doc-biblioref">Vakhania, Tarieladze, and Chobanyan 2012</a>)</span> page 23 for a counterexample.</p></li>
+<li><p>A function <span class="math inline">\(f: \Omega \to X\)</span> is measurable if and only if it is <em>weakly measurable</em>. That is, if and only if for all <span class="math inline">\(x^*\in X^*\)</span> the function <span class="math inline">\((f,x^*): \Omega \to \R\)</span> is measurable.</p></li>
+<li><p>The dual <span class="math inline">\(X^*\)</span> with the weak-<span class="math inline">\(^*\)</span> topology (the topology generated by <span class="math inline">\(X\)</span> viewed as a subset of <span class="math inline">\(X^{**}\)</span>) is separable .</p></li>
+</ol>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Consider a countable dense subset <span class="math inline">\(\left\{x_n\right\}_{n=1}^\infty\)</span> of <span class="math inline">\(X\)</span>. By the Hahn-Banach theorem, there exists <span class="math inline">\(x_n^*\in X^*\)</span> such that</p>
+<p><span class="math display">\[
+\begin{aligned}
+(x_n,x_n^*)= \norm{x_n}, \quad \norm{x_n^*}=1.
+\end{aligned}
+\]</span></p>
+<p>Show that <span class="math inline">\(x_n^*\)</span> satisfies the desired property.</p></li>
+<li><p>The inclusion <span class="math inline">\(\sigma (X^*) \subset \sigma\left(\left\{x_n^*\right\}_{n=1}^ \infty\right)\)</span> always holds as the preimage by a continuous function of an open set is open. To show the reverse inclusion, prove that every open ball in <span class="math inline">\(X\)</span> can be written as a countable union of balls <span class="math inline">\(\overline{B}_r(x):= \set{y \in X: \norm{x-y}\leq r}\)</span>. Now show that</p>
+<p><span class="math display">\[
+\begin{aligned}
+\overline{B}_r(x)=\left\{x\in X: \sup_{n \geq1}(x,x_n^*) \leq r\right\} \subset \sigma\left(\left\{x_n^*\right\}_{n=1}^ \infty\right).
+\end{aligned}
+\]</span></p>
+<p>To show that the inclusion <span class="math inline">\(\Bb(X)\subset \sigma(X^*)\)</span> may fail for</p></li>
+<li><p>The implication always holds. Use the previous point to prove that weakly measurable functions in separable Banach spaces are measurable.</p></li>
+<li><p>By the Hahn Banach theorem, a linear subspace <span class="math inline">\(Y \subset X^*\)</span> is dense if and only if it separates points. That is, for all <span class="math inline">\(x\in X\)</span> there exists <span class="math inline">\(x^*\in Y\)</span> such that <span class="math inline">\(x^*(x)\neq 0\)</span>. Use this to show that the space spanned by <span class="math inline">\(\left\{x_n^*\right\}_{n=1}^\infty\)</span> is dense in <span class="math inline">\(X^*\)</span>.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<p>The following characterizes the space of strongly measurable functions</p>
+<div id="thm-thm:pettis" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1 (Pettis measurability theorem)</strong></span> A function <span class="math inline">\(f:\Omega\to X\)</span> is <span class="math inline">\(\mu\)</span>-strongly measurable if and only if <span class="math inline">\(f\)</span> is <span class="math inline">\(\mu\)</span>-almost everywhere separately valued and <span class="math inline">\((f, x^*)\)</span> is <span class="math inline">\(\mu\)</span> strongly measurable for all <span class="math inline">\(x^*\in X^*\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>We first prove the implication. For some <span class="math inline">\(x_k^{(n)} \in X , A_k^{(n)} \in \Ff\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+f= \lim_{n \to \infty} f_n=\lim_{n \to \infty} \sum_{k=1}^n 1_{A_k^{(n)}}\otimes x^{(n)}_{k} \quad \mu\text{-almost everywhere}.
+\end{aligned}
+\]</span></p>
+<p>As a result, <span class="math inline">\(f\)</span> takes almost everywhere values in the separable space spanned by the countably many <span class="math inline">\(x_k^{(n)}\)</span>. To see that <span class="math inline">\((f,x^*)\)</span> is <span class="math inline">\(\mu\)</span>-strongly measurable we note that <span class="math inline">\(g_n :=(f_n,x^*)\)</span> are simple functions and</p>
+<p><span class="math display">\[
+\begin{aligned}
+(f,x^*)= \lim_{n \to \infty} g_n \quad \mu\text{-almost everywhere}.
+\end{aligned}
+\]</span></p>
+<p>We now prove the reverse implication. By assumption, there exists <span class="math inline">\(\Omega _1 \subset \Omega\)</span> such that <span class="math inline">\(\mu (\Omega _1^c)=0\)</span> and <span class="math inline">\(X_1=\overline{f(\Omega_1 )}\)</span> is separable. As a result, and by point <span class="math inline">\(1\)</span> of <a href="#exr-ex:separable" class="quarto-xref">Exercise&nbsp;1</a> there exists a norming sequence <span class="math inline">\(\left\{x_n^*\right\}_{n=1}^\infty \subset X_1\)</span>.</p>
+<p>Since we only need to prove limits almost everywhere, we can suppose that <span class="math inline">\(f\)</span> is separably valued by restricting to <span class="math inline">\(\Omega _1\)</span>. Now, by assumption the functions <span class="math inline">\(g_n:=(f,x_n^*)\)</span> are <span class="math inline">\(\mu\)</span>-strongly measurable. Let <span class="math inline">\(K_n\)</span> be the support of <span class="math inline">\(g_n\)</span> and <span class="math inline">\(K=\cup_{n \geq 1}K_n\)</span>. By definition of strongly <span class="math inline">\(\mu\)</span>-measurable function and since the union of countable sets is countable, <span class="math inline">\(K\)</span> is <span class="math inline">\(\sigma\)</span>-finite. Since <span class="math inline">\(x_n^*\)</span> separate points, <span class="math inline">\(f\)</span> is <span class="math inline">\(0\)</span> outside of <span class="math inline">\(K\)</span>, and by restricting to <span class="math inline">\(K\)</span> we can suppose that <span class="math inline">\(\mu\)</span> is <span class="math inline">\(\sigma\)</span>-finite.</p>
+<p>Let <span class="math inline">\(\set{x_n}_{n=1}^\infty\)</span> be a countable dense subset of <span class="math inline">\(X_1\)</span>. Given <span class="math inline">\(n \in \N\)</span>, we define <span class="math inline">\(\varphi_n (x)\)</span> to be the <span class="math inline">\(x_k \in \set{x_j}_{j=1}^ n\)</span> which is the closest to <span class="math inline">\(x\)</span>, and where in the case of a tie we take the one with the smallest index <span class="math inline">\(j\)</span>. We can now define the simple functions</p>
+<p><span class="math display">\[
+\begin{aligned}
+F_n := \varphi _n(f(x)).
+\end{aligned}
+\]</span></p>
+<p>The function <span class="math inline">\(F_n\)</span> takes at most <span class="math inline">\(n\)</span>-different values <span class="math inline">\(x_1,\dots, x_n\)</span> with</p>
+<p><span id="eq-sv"><span class="math display">\[
+\begin{aligned}
+\set{F_n=x_k}=\set{\norm{f- x_k} = \min_{1\leq j \leq n} \norm{f- x_j} &lt; \min_{1 \leq j &lt;k} \norm{f-x_j}}.
+\end{aligned}
+\tag{2}\]</span></span></p>
+<p>Since <span class="math inline">\((f-x_k,x_n^*)\)</span> is <span class="math inline">\(\mu\)</span>-strongly measurable, we deduce that the following function is measurable almost everywhere. <span class="math display">\[
+\begin{aligned}
+\norm{f- x_k}= \sup_{n \geq1} (f- x_k,x_n^*).
+\end{aligned}
+\]</span></p>
+<p>So, without loss of generality, we may suppose they are measurable by restricting once more. Then, by (<a href="#eq-sv" class="quarto-xref">2</a>) <span class="math inline">\(F_n\)</span> is measurable. Since we had restricted <span class="math inline">\(u\)</span> to be <span class="math inline">\(\sigma\)</span>-finite, we may take a partition <span class="math inline">\(\set{\Omega _n}_{n=1}^\infty\)</span> of <span class="math inline">\(\Omega\)</span> with finite measure. Consider <span class="math inline">\(f_n:=F_n 1_{\Omega _n}\)</span>, we have that <span class="math inline">\(f_n\)</span> is <span class="math inline">\(\mu\)</span> simple (we need to multiply by <span class="math inline">\(1_{\Omega _n}\)</span> so that the support of the indicators have finite measure) and converges to <span class="math inline">\(f\)</span> almost everywhere.</p>
+</div>
+<p>If we include <span class="math inline">\(x_0=0\)</span> in the norming sequence of <a href="#thm-thm:pettis" class="quarto-xref">Theorem&nbsp;1</a>, we have that <span class="math inline">\(\norm{f_n-f}\)</span> as in the proof above is bounded by <span class="math inline">\(\norm{f}\)</span> almost everywhere and obtain the following corollary which will be used later to show the density of simple functions in the integrable ones.</p>
+<div id="cor-density-corollary" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 1</strong></span> Let <span class="math inline">\(f : \Omega \to X\)</span> be <span class="math inline">\(\mu\)</span>-strongly measurable. Then, there exists a sequence of simple functions <span class="math inline">\(f_n\)</span> converging to <span class="math inline">\(f\)</span> almost everywhere and such that</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{f_n-f} \leq \norm{f}, \quad \mu \text{-almost everywhere}.
+\end{aligned}
+\]</span></p>
+</div>
+<p>Most typically, one works in the case where <span class="math inline">\(\mu\)</span> is <span class="math inline">\(\sigma\)</span>-finite (for example, if <span class="math inline">\(\mu\)</span> is the Lebesgue measure or any probability measure) and identifies functions that are equal almost everywhere. In this case, the following more simple statement holds.</p>
+<div id="thm-thm:pettis2" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2 (Pettis theorem for <span class="math inline">\(\sigma\)</span>-finite measures)</strong></span> Let <span class="math inline">\((\Omega, \mu, \mathcal{F})\)</span> be a <span class="math inline">\(\sigma\)</span>-finite measure space and identify functions that are equal almost everywhere. Then <span class="math inline">\(f\)</span> is <span class="math inline">\(\mu\)</span>-strongly measurable if and only if <span class="math inline">\(f\)</span> is separately valued and measurable.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(f\)</span> be <span class="math inline">\(\mu\)</span>-strongly measurable. Then, <span class="math inline">\(f\)</span> is the limit of separately valued and measurable functions. As a result, <span class="math inline">\(f\)</span> is separately valued and measurable.</p>
+<p>Suppose now that <span class="math inline">\(f\)</span> is separately valued and measurable. Then, the same is true for <span class="math inline">\(f 1_{\Omega_n}\)</span> where <span class="math inline">\(\set{\Omega_n}_{n=1}^\infty\)</span> is a partition of <span class="math inline">\(\Omega\)</span> with finite measure. Moreover, these functions are strongly measurable as the measure of <span class="math inline">\(\Omega _n\)</span> is finite (one can start from <span class="math inline">\(f 1_{\Omega_n}\)</span> and form <span class="math inline">\(F_n\)</span> as in the previous proof converging to <span class="math inline">\(f 1_{\Omega _n}\)</span>) and since they form a partition of <span class="math inline">\(\Omega\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+f=\lim_{n \to \infty} f 1_{\Omega_n}.
+\end{aligned}
+\]</span></p>
+<p>By a basic argument, the limit of <span class="math inline">\(\mu\)</span>-strongly measurable functions is <span class="math inline">\(\mu\)</span>-strongly measurable and we conclude that <span class="math inline">\(f\)</span> is <span class="math inline">\(\mu\)</span>-strongly measurable, as desired.</p>
+</div>
+</section>
+<section id="construction-of-the-bochner-integral" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="construction-of-the-bochner-integral"><span class="header-section-number">4</span> Construction of the Bochner integral</h2>
+<p>Since the norm <span class="math inline">\(\norm{\cdot }\)</span> is a continuous function, given a measurable function <span class="math inline">\(f: \Omega \to X\)</span>, the <em>real-valued</em> function <span class="math inline">\(\norm{f}: \Omega \to \R\)</span> is also measurable. As a result, we can define the Lebesgue integrals</p>
+<p><span id="eq-lp"><span class="math display">\[
+\begin{aligned}
+\norm{f}_{L^p(\Omega\to X)} &amp; :=\left(\int_\Omega \norm{f}^p \d\mu\right)^{1/p},\quad \quad p \in [1,\infty).
+\end{aligned}
+\tag{3}\]</span></span></p>
+<p>Likewise, the sets <span class="math inline">\(\norm{f}&gt;r\)</span> are in the <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\Ff\)</span> and we can define</p>
+<p><span id="eq-linfty"><span class="math display">\[
+\begin{aligned}
+\norm{f}_{L^\infty(\Omega\to X)} &amp; :=\inf\{r&gt;0: \mu ( \norm{f}&gt; r)=0\},
+\end{aligned}
+\tag{4}\]</span></span></p>
+<p>where the infimum is defined to be <span class="math inline">\(\infty\)</span> if the set is empty.</p>
+<p>Knowledge of the real-valued case shows that (<a href="#eq-lp" class="quarto-xref">3</a>) and (<a href="#eq-linfty" class="quarto-xref">4</a>) define a seminorm on the spaces of measurable function where they are finite, and they define a norm if we define the equivalence relation</p>
+<p><span class="math display">\[
+\begin{aligned}
+f \sim g\quad \text{ if } f=g\quad \mu\text{-almost everywhere}.
+\end{aligned}
+\]</span></p>
+<p>Following common practice, we will identify functions that are equal almost everywhere from now on and make no distinction between functions and their equivalence classes. Finally, we arrive at the following definition.</p>
+<div id="def-def:lp" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3</strong></span> Given a measure space <span class="math inline">\((\Omega,\mathcal{F},\mu)\)</span>, a Banach space <span class="math inline">\((X,\mathcal{B}(X))\)</span> we define the space of <span class="math inline">\(p\)</span>-integrable functions as (the equivalence classes)</p>
+<p><span class="math display">\[
+\begin{aligned}
+L^p(\Omega \to X) &amp; :=\left\{f:\Omega\to X: f \text{ is strongly measurable and } \norm{f}_{L^p(\Omega \to X)}&lt;\infty\right\}.
+\end{aligned}
+\]</span></p>
+</div>
+<p>If one wishes to be explicit about the underlying measure space one can also write <span class="math inline">\(L^p(\Omega,\mathcal{F},\mu, X)\)</span>. As in the real case, the <span class="math inline">\(L^p\)</span> spaces are complete.</p>
+<div id="thm-thm:completeness" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3 (Fischer-Riesz)</strong></span> The space <span class="math inline">\(L^p(\Omega\to X)\)</span> is a Banach space for all <span class="math inline">\(p\in [1,\infty].\)</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The proof follows along the lines of the real case, substituting the absolute value in <span class="math inline">\(\R\)</span> by the norm in <span class="math inline">\(X\)</span> as necessary. We first prove the case <span class="math inline">\(p \in [1,\infty)\)</span> Recall that a normed space is complete if and only if every absolutely convergent series converges.That is, we need to show that if <span class="math inline">\(f_n \in L^p(\Omega \to X)\)</span> is such that</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{n=1}^\infty \norm{f_n}_{L^p(\Omega\to X)}&lt;\infty.
+\end{aligned}
+\]</span></p>
+<p>Then there exists <span class="math inline">\(f\in L^p(\Omega\to X)\)</span> such that</p>
+<p><span class="math display">\[
+\begin{aligned}
+f=\sum_{n=1}^\infty f_n\in L^p(\Omega\to X).
+\end{aligned}
+\]</span></p>
+<p>To do so, one first applies <a href="https://en.wikipedia.org/wiki/Minkowski_inequality#:~:text=.-,Minkowski%27s,-integral%20inequality%5B">Minkowski’s</a> inequality for real-valued functions to show that</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{n=1}^\infty \norm{f_n}_X\in L^p(\Omega\to\R).
+\end{aligned}
+\]</span></p>
+<p>Thus, the sum is finite almost everywhere. Since <span class="math inline">\(X\)</span> is complete, we have that the above sum converges pointwise almost everywhere to some function</p>
+<p><span class="math display">\[
+\begin{aligned}
+f(\omega):=\sum_{n=1}^\infty f_n(\omega)\in X.
+\end{aligned}
+\]</span></p>
+<p>Furthermore we have that <span class="math inline">\(f\)</span> is strongly measurable as it is the limit of strongly measurable functions. Finally, using Fatou’s lemma for real-valued functions and the triangle inequality for norms shows that</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{f-\sum_{n=1}^N f_n}_{L^p(\Omega\to X)} &amp; =\norm{\sum_{n=N}^\infty f_n}_{L^p(\Omega\to X)}\leq \liminf_{M\to \infty}\norm{\sum_{n=N}^M f_n}_{L^p(\Omega\to X)} \\&amp;\leq \liminf_{M\to \infty}\sum_{n=N}^M \norm{f_n}_{L^p(\Omega\to X)}=\sum_{n=N}^\infty \norm{f_n}_{L^p(\Omega\to X)}\xrightarrow{N\to\infty} 0.
+\end{aligned}
+\]</span></p>
+<p>Which shows convergence in <span class="math inline">\(L^p(\Omega\to X)\)</span> for <span class="math inline">\(p\in [1,\infty)\)</span>.</p>
+<p>For the case <span class="math inline">\(p=\infty\)</span> consider a Cauchy sequence <span class="math inline">\(f_n \in L^p(\Omega \to X)\)</span> and write</p>
+<p><span class="math display">\[
+\begin{aligned}
+A_{nm}:=\left\{\omega\in \Omega: \norm{f_n(\omega)-f_m(\omega)} \leq\norm{f_n-f_m}_{L^\infty(\Omega \to X)}\right\}, \quad A := \bigcup_{m,n=1}^\infty A_{nm}.
+\end{aligned}
+\]</span></p>
+<p>By construction, <span class="math inline">\(A_{nm}\)</span> and thus <span class="math inline">\(\A^c\)</span> have measure zero and <span class="math inline">\(f_n\)</span> converges uniformly on <span class="math inline">\(A\)</span>. As a result, <span class="math inline">\(f_n\)</span> converges almost everywhere to some <span class="math inline">\(f\in L^\infty(\Omega\to X)\)</span>. This completes the proof.</p>
+</div>
+<p>Just as in the case of Lebesgue integrals, the proof of the completeness of <span class="math inline">\(L^p(\Omega\to X)\)</span> serves to show that every convergent sequence must have a subsequence converging almost everywhere. This proposition is not necessary for the rest of the constructions, it’s just a nice property to have in reserve.</p>
+<div id="prp-1" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 1</strong></span> Let <span class="math inline">\(f_n\to f\in L^p(\Omega\to X)\)</span>, then there exists a subsequence <span class="math inline">\(f_{n_k}\)</span> converging to <span class="math inline">\(f\)</span> almost everywhere.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>In the proof of the above proposition, we saw that for any absolutely convergent sum converges almost everywhere to its limit. Further, since <span class="math inline">\(f_n\)</span> is Cauchy, we can extract a subsequence <span class="math inline">\(f_{n_k}\)</span> with <span class="math inline">\(\|f_{n_k}-f_{n_{k-1}}\|\leq 2^{-k}\)</span>. By construction, the sequence</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{k=0}^{\infty} f_{n_k}-f_{n_{k-1}},
+\end{aligned}
+\]</span></p>
+<p>is normally convergent and converges in <span class="math inline">\(f\)</span>. By the above discussion we conclude the proof.</p>
+</div>
+<p>Ok, so we’ve constructed some spaces of <span class="math inline">\(p\)</span>-integrable functions and shown that they are complete. You know where this is going. Next stop is density town. In the standard construction of the Lebesgue integral, it is used that every measurable function to <span class="math inline">\(\mathbb{R}\)</span> can be pointwise approximated by simple functions. One can achieve the same result for arbitrary metric spaces if the image of <span class="math inline">\(f\)</span> is separable.</p>
+<div id="prp-2" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 2</strong></span> Every function in <span class="math inline">\(L^p(\Omega\to X)\)</span> is the limit almost everywhere and in the norm of a sequence of simple functions.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>By <a href="#cor-density-corollary" class="quarto-xref">Corollary&nbsp;1</a>, there exists a sequence of simple functions <span class="math inline">\(f_n\)</span> converging to <span class="math inline">\(f\)</span> almost everywhere and such that <span class="math inline">\(\norm{f_n-f}&lt;\norm{f}\)</span> almost everywhere. By the dominated convergence theorem for <em>real valued</em> functions, we have that</p>
+<p><span class="math display">\[
+\begin{aligned}
+\lim_{n\to\infty}\norm{f_n-f}^p_{L^p(\Omega\to X)}=\lim_{n\to\infty}\int_\Omega\norm{f_n-f}^p\d\mu=\int_{\Omega}\lim_{n \to \infty}\|f_n-f\|^p \d\mu =0.
+\end{aligned}
+\]</span></p>
+</div>
+<p>As a corollary, we obtain the following</p>
+<div id="cor-1" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 2</strong></span> The simple functions <span class="math inline">\(\mathcal{A}\)</span> are a dense subset of <span class="math inline">\(L^p(\Omega\to X)\)</span>.</p>
+</div>
+<p>Since <span class="math inline">\(L^1(\Omega\to X)\)</span> is complete, we have that the closure of <span class="math inline">\(\overline{\Aa}\)</span> with the norm <span class="math inline">\(\norm{\cdot }_{L^1(\Omega \to X)}\)</span> is <span class="math inline">\(L^1(\Omega\to X)\)</span>. Furthermore, by the triangle inequality (<a href="#eq-triangle" class="quarto-xref">1</a>), integration is continuous with this norm. This continuity allows us to extend integration to <span class="math inline">\(L^1(\Omega \to X)\)</span> and shows that the space of integrable functions is <span class="math inline">\(L^1(\Omega\to X)\)</span>.</p>
+<div id="def-def-int" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 4</strong></span> We define the integral on <span class="math inline">\(L^1(\Omega\to X)\)</span> as the unique continuous extension with the norm <span class="math inline">\(\norm{\cdot}_{L^1(\Omega\to X)}\)</span> of the integral on <span class="math inline">\(\mathcal{A}\)</span>. That is, given <span class="math inline">\(f\in L^1(\Omega\to X)\)</span> we define</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_\Omega f \d\mu:=\lim_{n\to\infty} \int_\Omega f_n \d\mu.
+\end{aligned}
+\]</span></p>
+<p>Where <span class="math inline">\(f_n\in \mathcal{A}\)</span> is any sequence such that <span class="math inline">\(\norm{f-f_n}_{L^1(\Omega\to X)}\to 0\)</span>.</p>
+</div>
+<div id="rem-1" class="proof remark">
+<p><span class="proof-title"><em>Remark 1</em>. </span>We could also work with the spaces</p>
+<p><span class="math display">\[
+\begin{aligned}
+\hat{L}^p(\Omega,\mathcal{F},\mu,X) &amp; =\left\{f:\Omega\to X: \int_\Omega \norm{f}^p \d\mu&lt;\infty\right\}.
+\end{aligned}
+\]</span></p>
+<p>These spaces are once more complete, however, they do not contain simple functions as a dense subset. As a result, given <span class="math inline">\(f \in \hat{L}^1(\Omega \to X)\)</span> it is not possible to make sense of the expression <span class="math inline">\(\int_\Omega f \d\mu\)</span>.</p>
+</div>
+</section>
+<section id="familiar-properties" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="familiar-properties"><span class="header-section-number">5</span> Familiar properties</h2>
+<p>Many properties of integration hold for the Bochner integral as well. For example, the following is a result of the definition of the Bochner integral and a passage to the limit, as it holds for simple functions.</p>
+<div id="cor-corollary-easy" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 3</strong></span> Let <span class="math inline">\(f\in L^1(\Omega,X)\)</span> with <span class="math inline">\(X\)</span> a Banach space, then</p>
+<ol type="1">
+<li><p><span class="math inline">\(\norm{\int_\Omega f \d\mu}\leq\int_\Omega{\norm{f}\d\mu}\)</span></p></li>
+<li><p>Let <span class="math inline">\(Y\)</span> be another Banach space and <span class="math inline">\(L\in L(X,Y)\)</span>. Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_\Omega (L\circ f) \d\mu=L\left(\int_\Omega f \d\mu\right).
+\end{aligned}
+\]</span></p></li>
+</ol>
+</div>
+<p>Knowledge of scalar-valued results also goes a long way; for example, we can prove the following</p>
+<div id="exr-ex:fubini" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2 (Fubini-Tonelli)</strong></span> Let <span class="math inline">\((\Omega_1, \Ff _1 , \mu _1 )\)</span> and <span class="math inline">\((\Omega_2, \Ff _2 , \mu _2 )\)</span> be <span class="math inline">\(\sigma\)</span>-finite measure spaces and consider the space <span class="math inline">\(\Omega_1\times \Omega_2\)</span> with the <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\Ff _1 \otimes \Ff _2\)</span> generated by sets of the form <span class="math inline">\(A_1 \times A_2\)</span> with <span class="math inline">\(A_i \in \Omega _i\)</span> and the unique measure <span class="math inline">\(\mu _1 \otimes \mu _2\)</span> such that <span class="math inline">\((\mu _1 \otimes \mu _2)(A_1 \times A_2)=\mu _1(A_1)\mu _2(A_2)\)</span>. Let <span class="math inline">\(X\)</span> be a Banach space and <span class="math inline">\(f:\Omega_1\times \Omega_2 \to X\)</span> be strongly measurable. Then</p>
+<ol type="1">
+<li><p>The functions <span class="math inline">\(f(\omega_1,\cdot )\)</span> and <span class="math inline">\(f(\cdot,\omega_2)\)</span> are strongly measurable.</p></li>
+<li><p>If any of the following integrals is finite</p>
+<p><span id="eq-norm-ints"><span class="math display">\[
+\begin{aligned}
+\int_{\Omega_1 \times \Omega _2} \norm{f} \d (\mu_1 \otimes \mu _2), \quad  \int_{\Omega_1}\left(\int_{\Omega_2} \norm{f}\d\mu_2\right)\d\mu_1, \quad \int_{\Omega_2}\left(\int_{\Omega_1} \norm{f}\d\mu_1\right)\d\mu_2.
+\end{aligned}
+  \tag{5}\]</span></span></p>
+<p>Then all of the integrals in (<a href="#eq-norm-ints" class="quarto-xref">5</a>) are equal, and</p>
+<p><span id="eq-ints"><span class="math display">\[
+\begin{aligned}
+\int_{\Omega_1 \times \Omega _2} f \d (\mu_1 \times \mu _2)= \int_{\Omega_1}\left(\int_{\Omega_2} f\d\mu_2\right)\d\mu_1=\int_{\Omega_2}\left(\int_{\Omega_1} f\d\mu_1\right)\d\mu_2.
+\end{aligned}
+  \tag{6}\]</span></span></p></li>
+</ol>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>From Fubini’s theorem, we know that the <a href="https://proofwiki.org/wiki/Horizontal_Section_of_Measurable_Function_is_Measurable">sections</a> <span class="math inline">\(f(\omega_1,\cdot )\)</span> and <span class="math inline">\(f(\cdot,\omega_2)\)</span> are measurable. Since <span class="math inline">\(f\)</span> is separately valued so are <span class="math inline">\(f(\omega_1,\cdot )\)</span> and <span class="math inline">\(f(\cdot,\omega_2)\)</span>. As a result, by <a href="#thm-thm:pettis2" class="quarto-xref">Theorem&nbsp;2</a>, they are strongly measurable.</p></li>
+<li><p>By <a href="https://en.wikipedia.org/wiki/Fubini%27s_theorem#Fubini%E2%80%93Tonelli_theorem:~:text=the%20uncompleted%20product.-,For,-integrable%20functions%5B">Fubini-Tonelli’s</a> theorem we know that if any of the integrals in (<a href="#eq-norm-ints" class="quarto-xref">5</a>) is finite, then all of them are equal. By the first point, we conclude from the characterization of the integrable functions (Definitions <a href="#def-def:lp" class="quarto-xref">Definition&nbsp;3</a>, <a href="#def-def-int" class="quarto-xref">Definition&nbsp;4</a>) that all the integrals in (<a href="#eq-ints" class="quarto-xref">6</a>) are well defined, and it remains to see they are equal. To do so, let <span class="math inline">\(x^* \in X^*\)</span> be and then, by Fubini-Tonelli for real-valued functions</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_{\Omega_1 \times \Omega _2} (f,x^*) \d (\mu_1 \otimes \mu _2) &amp; = \int_{\Omega_1}\left(\int_{\Omega_2} (f,x^*)\d\mu_2\right)\d\mu_1=\int_{\Omega_2}\left(\int_{\Omega_1} (f,x^*)\d\mu_1\right)\d\mu_2.
+\end{aligned}
+\]</span></p>
+<p>By Point <span class="math inline">\(2\)</span> of <a href="#cor-corollary-easy" class="quarto-xref">Corollary&nbsp;3</a> and, since we just proved that all the integrals in (<a href="#eq-ints" class="quarto-xref">6</a>) are well defined, we may pull <span class="math inline">\(x^*\)</span> out of the integrals. By the Hahn-Banach theorem, <span class="math inline">\(X^*\)</span> separates points of <span class="math inline">\(X\)</span>, and the proof follows.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<p>Sometimes the following theorem is more useful when instead of using the product measure <span class="math inline">\(\mu_1 \otimes \mu_2\)</span> on <span class="math inline">\(X \times Y\)</span>, we use its completion <span class="math inline">\(\overline{\mu_1 \times \mu_2}\)</span>. In this case, Fubini-Tonelli’s <a href="#exr-ex:fubini" class="quarto-xref">Exercise&nbsp;2</a> still holds. It is only necessary to note that the sections of <span class="math inline">\(f\)</span> are now almost always measurable (see <span class="citation" data-cites="tao2011introduction">(<a href="#ref-tao2011introduction" role="doc-biblioref">Tao 2011</a>)</span> page 203 for more details).</p>
+<div id="exr-1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 3 (Minkowski’s integral inequality)</strong></span> Show that given <span class="math inline">\(p \in [1,\infty)\)</span> and <span class="math inline">\(f \in L^1(\Omega_1 \to L^p(\Omega_2 \to Y))\)</span> it holds that</p>
+<p><span class="math display">\[
+\begin{aligned}
+\left(\int_{\Omega _1}\norm{\int_{\Omega_2 } f \d \mu _2 }^p \d \mu _1\right)^{1/p}\leq \int_{\Omega_2}\left(\int_{\Omega _1} \norm{f}^p \d \mu_1\right)^{1/p}\d \mu_2 .
+\end{aligned}
+\]</span></p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Apply the triangle inequality (<a href="#eq-triangle" class="quarto-xref">1</a>) with <span class="math inline">\(X= L^p(\Omega_2 \to Y)\)</span>.</p>
+</div>
+</div>
+</div>
+<div id="exr-2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 4 (Dominated convergence theorem)</strong></span> Let <span class="math inline">\(f_n,f\in L^1(\Omega\to X)\)</span> be such that <span class="math inline">\(f_n\to f\)</span> almost everywhere and there exists <span class="math inline">\(g\in L^1(\Omega\to X)\)</span> such that <span class="math inline">\(\norm{f_n}\leq g\)</span> almost everywhere. Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_\Omega f_n \d\mu\to \int_\Omega f \d\mu.
+\end{aligned}
+\]</span></p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We have that <span class="math inline">\(\norm{f_n-f}\leq 2g\)</span> almost everywhere. As a result, by the dominated convergence theorem for real-valued functions, we have that</p>
+<p><span class="math display">\[
+\begin{aligned}
+\lim_{n\to\infty}\int_\Omega\norm{f_n-f}\d\mu=0.
+\end{aligned}
+\]</span></p>
+<p>The triangle inequality concludes the proof.</p>
+</div>
+</div>
+</div>
+<p>The dominated convergence theorem is a powerful tool that allows us to pass to the limit under the integral sign. For example, it can be used to show that, under necessary conditions, if <span class="math inline">\(f(t,\omega )\)</span> is continuous (differentiable) in <span class="math inline">\(t\)</span> then so is <span class="math inline">\(\int f(t,\omega )\d\mu(\omega)\)</span> (see <a href="../../PDEs/1. The Fourier transform%2C tempered distributions and Sobolev spaces/index.qmd">here</a> for a proof). These results, together with the density of simple functions, can be used to prove the <a href="../../../posts/PDEs/3. Sobolev spaces/index.html">standard approximation theorems</a>.</p>
+<div id="thm-thm:approx" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 4 (Convolution, regularization and smooth approximation)</strong></span> Let <span class="math inline">\(p \in [1,\infty)\)</span> and consider <span class="math inline">\(f\in L^p(\R^d\to X)\)</span> and <span class="math inline">\(\phi \in L^1(\R^d)\)</span>.</p>
+<ol type="a">
+<li><p><strong>Young’s inequality</strong>. The convolution</p>
+<p><span class="math display">\[
+\begin{aligned}
+f*\phi(x):=\int_{\R^d} f(x-y)\phi(y)\d y,
+\end{aligned}
+\]</span></p>
+<p>is well-defined almost everywhere and satisfies</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{f*\phi}_{L^p(\R^d\to X)}\leq \norm{f}_{L^p(\R^d\to X)}\norm{\phi}_{L^1(\R^d)}.
+\end{aligned}
+\]</span></p></li>
+<li><p><strong>Mollifiers</strong>. Define <span class="math inline">\(\phi_\varepsilon(x):=\varepsilon^{-d}\phi(x/\varepsilon)\)</span>. Then,</p>
+<p><span class="math display">\[
+\begin{aligned}
+f*\phi_\varepsilon \to f \quad \text{in } L^p(\R^d\to X).
+\end{aligned}
+\]</span></p></li>
+<li><p><strong>Smoothing</strong>. If <span class="math inline">\(\phi \in C^k_c(\R^d)\)</span> then <span class="math inline">\(f*\phi_\varepsilon \in C^k(\R^d\to X)\)</span> with</p>
+<p><span class="math display">\[
+\begin{aligned}
+D^\alpha f*\phi=f*(D^\alpha \phi), \quad\forall \abs{\alpha}\leq k.
+\end{aligned}
+\]</span></p></li>
+<li><p><strong>Smooth approximation</strong>. The space <span class="math inline">\(C_c^\infty(\R^d)\)</span> is dense in <span class="math inline">\(L^p(\R^d\to X)\)</span>.</p></li>
+</ol>
+</div>
+<p>Ok, that’s it. This post was a bit more technical than some of the others, but you get the picture. Define an integral for simple functions, and figure out what can be approximated by simple functions. As we saw, the extra requirement that appears over the Lebesgue case is that the function <span class="math inline">\(f\)</span> is separately valued and justifies why, as we will see in future posts on SPDEs, the image of <span class="math inline">\(f\)</span> is often taken to be some separable Hilbert space. Until the next time!</p>
+</section>
+<section id="references" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="references"><span class="header-section-number">6</span> References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-tao2011introduction" class="csl-entry" role="listitem">
+Tao, Terence. 2011. <em>An Introduction to Measure Theory</em>. Vol. 126. American Mathematical Soc. <a href="https://www.stat.rice.edu/~dobelman/courses/texts/qualify/Measure.Theory.Tao.pdf">https://www.stat.rice.edu/~dobelman/courses/texts/qualify/Measure.Theory.Tao.pdf</a>.
+</div>
+<div id="ref-vakhania2012probability" class="csl-entry" role="listitem">
+Vakhania, Nicholas, Vazha Tarieladze, and S Chobanyan. 2012. <em>Probability Distributions on Banach Spaces</em>. Vol. 14. Springer Science &amp; Business Media. <a href="https://link.springer.com/book/10.1007/978-94-009-3873-1">https://link.springer.com/book/10.1007/978-94-009-3873-1</a>.
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<hr style="margin-top: 1em; margin-bottom: 2em;">
+
+<h2 id="comments">Comments</h2>
+
+
+
+<div class="giscus-comments">
+
+  <div style="
+
+      background: #f9f9f9;
+
+      border-left: 4px solid #008aff;
+
+      padding: 10px;
+
+      margin-bottom: 20px;
+
+      font-size: 0.9em;
+
+      color: #555;
+
+      border-radius: 0 4px 4px 0;
+
+    ">
+
+    <strong>Tip:</strong> Supports LaTeX using $$.
+
+    <a href="https://nowheredifferentiable.com/math-formatting" target="_blank" style="text-decoration: underline; color: #008aff">See formatting examples</a>.
+
+    <br>
+
+    To edit or delete, click the <strong>timestamp</strong> (e.g., "5 minutes
+
+    ago").
+
+  </div>
+
+
+
+  <div class="giscus" id="giscus-container"></div>
+
+
+
+  <script src="https://giscus.app/client.js" data-repo="LiamLlamazares/math_blog" data-repo-id="R_kgDOHZYcTQ" data-category="Comments" data-category-id="DIC_kwDOHZYcTc4Cx-sY" data-mapping="pathname" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="bottom" data-theme="light" data-lang="en" crossorigin="anonymous" async=""></script>
+
+
+
+  <script>
+
+    (function () {
+
+      function handleDeepLink() {
+
+        const hash = window.location.hash;
+
+        if (!hash || !hash.includes("discussioncomment")) return;
+
+
+
+        const container = document.getElementById("giscus-container");
+
+        if (container) {
+
+          container.scrollIntoView({ behavior: "smooth", block: "start" });
+
+        }
+
+
+
+        const iframe = document.querySelector("iframe.giscus-frame");
+
+        if (iframe) {
+
+          try {
+
+            const url = new URL(iframe.src);
+
+            if (url.hash !== hash) {
+
+              url.hash = hash;
+
+              iframe.src = url.toString();
+
+            }
+
+          } catch (e) {
+
+            console.error(e);
+
+          }
+
+        }
+
+      }
+
+
+
+      window.addEventListener("load", handleDeepLink);
+
+      window.addEventListener("hashchange", handleDeepLink);
+
+      window.addEventListener("message", function (event) {
+
+        if (
+
+          event.origin === "https://giscus.app" &&
+
+          event.data &&
+
+          event.data.giscus &&
+
+          event.data.giscus.resizeHeight
+
+        ) {
+
+          setTimeout(handleDeepLink, 500);
+
+        }
+
+      });
+
+    })();
+
+  </script>
+
+</div>
+
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/nowheredifferentiable\.com");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>L. Llamazares-Elias</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/LiamLlamazares">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=nW7-c62TwJ0C">
+<p>Google Scholar</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

@@ -4,10 +4,11 @@ author: "Liam Llamazares-Elias"
 date: "2024-10-19"
 categories: [Pdes]
 description: "A journey through time and space"
+image: "cover.png"
 bibliography: biblio.bib
 format:
   html:
-    css: /custom_theorems.css
+    css: custom_theorems.css
     toc: true
     number-sections: true
     html-math-method: mathjax
@@ -112,9 +113,13 @@ format:
         </script>
 ---
 
+::: {.callout-note appearance="minimal"}
+[Download PDF version](Parabolic.pdf)
+:::
+
 ## Three point summary
 
-- A parabolic PDE describes how a function evolves over time under the influence of an elliptic operator. Unlike their elliptic counterparts, parabolic PDEs are typically [well-posed](<https://nowheredifferentiable.com/2024-02-28-PDEs-6-Elliptic_PDE._Well_posedness_and_regularity/#:~:text=is%20well%2Dposed.-,Definition%202,-(Well%2Dposedness)>). For well-behaved coefficients, a unique solution always exists and depends continuously on the initial data.
+- A parabolic PDE describes how a function evolves over time under the influence of an elliptic operator. Unlike their elliptic counterparts, parabolic PDEs are typically [well-posed](<../../PDEs/6. Existence elliptic/index.qmd>). For well-behaved coefficients, a unique solution always exists and depends continuously on the initial data.
 
 - Solutions to parabolic PDEs can be viewed as functions mapping an instant in time to a function in a Banach space. From this viewpoint, the PDE becomes an infinite dimensional ODE. The Galerkin method is a powerful tool to prove the well-posedness of the problem and approximate its solutions using a finite-dimensional ODE that approximates the original infinite-dimensional problem.
 
@@ -136,7 +141,7 @@ format:
 
 ## Introduction
 
-In the [previous post of this series](<https://nowheredifferentiable.com/2024-02-28-PDEs-6-Elliptic_PDE._Well_posedness_and_regularity/>), we studied the well-posedness and regularity of solutions to an elliptic PDE of the form
+In the [elliptic case](<../../PDEs/6. Existence elliptic/index.qmd>), we studied the well-posedness and regularity of solutions to an elliptic PDE of the form
 
 $$
 \begin{aligned}
@@ -194,7 +199,7 @@ $$
 
 where $X$ is some Banach space of function on $U$ (such as $L^2(U), H_0^1(U),...$) and we use the notation $u(t)(x):= u(t,x)$. This way of viewing $u$ is an essential tool in the theory of evolution PDEs, which transform the PDE ([-@eq-parabolic]) into an *infinite dimensional linear ODE*.
 
-To be able to proceed, we need to define an integral on functions valued in Banach spaces. This integral is called the [Bochner integral](<https://nowheredifferentiable.com/2022-05-27-The-Bochner-integral/>). To briefly summarize,
+To be able to proceed, we need to define an integral on functions valued in Banach spaces. This integral is called the [Bochner integral](<../../Analysis on Banach spaces/Bochner_integral/index.qmd>). To briefly summarize,
 given a separable Banach space $X$ and $p \in [1, \infty]$ we define
 
 $$
@@ -230,7 +235,7 @@ $$
 \end{aligned}
 $$
 
-With this identification, the dual of $L^p(I \to X)$ is equal to $L^{p'}(I \to X')$ . We will also use that if $\phi_n \in C^\infty(I)$ is a [smooth approximation of unity](<https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#smooth%20section:~:text=is%20an-,approximation,-to%20unity%20if>) then, for $p \in [1, \infty)$ 
+With this identification, the dual of $L^p(I \to X)$ is equal to $L^{p'}(I \to X')$ . We will also use that if $\phi_n \in C^\infty(I)$ is a [smooth approximation of unity](<../../PDEs/3. Sobolev spaces/index.qmd>) then, for $p \in [1, \infty)$ 
 
 $$
 \begin{aligned}
@@ -423,7 +428,7 @@ $$
 
 Since $L^2(U)$ is separable, it has a countable dense subset $\set{f_i}_{i=1}^\infty \subset L^2(U)$. Since $C_c^\infty(U)$ is dense in $L^2(U)$, for each $f_i$ there exists a sequence $\set{\phi_{i,n}}_{n=1}^\infty \subset C_c^\infty(U)$ that converges to $f_i$ in $L^2(U)$. Then, the set $\set{\phi_{i,n}}_{i,n}$ is a countable dense subset of $L^2(U)$, and we can apply the Gram-Schmidt process to obtain an orthonormal basis. 
 
-Alternatively, if $U$ is bounded and smooth, $\Delta ^{-1}$ is compact and self-adjoint. Hence, it has a countable orthonormal basis of eigenfunctions which are smooth by the [previous post](<https://nowheredifferentiable.com/2024-02-28-PDEs-6-Elliptic_PDE._Well_posedness_and_regularity/#:~:text=for%20smooth%20coefficients.-,Theorem%2016>) and induction.  
+Alternatively, if $U$ is bounded and smooth, $\Delta ^{-1}$ is compact and self-adjoint. Hence, it has a countable orthonormal basis of eigenfunctions which are smooth by the [previous post](<../../PDEs/6. Existence elliptic/index.qmd>) and induction.  
 
 :::
 
@@ -523,7 +528,7 @@ b. Continuity in the data: The plan will be to apply Gronwall's inequality. By (
     \end{aligned}
     $$ {#eq-b-bound}
 
-    (this is the same as [what was proved](<https://nowheredifferentiable.com/2024-02-28-PDEs-6-Elliptic_PDE._Well_posedness_and_regularity/#:~:text=%20.%20We-,recall,-the%20Cauchy%20inequality>) as in the elliptic case).
+    (this is the same as [what was proved](<../../PDEs/6. Existence elliptic/index.qmd>) as in the elliptic case).
     Whereas, by definition of the dual and by Cauchy's inequality, the bound of the right-hand side of ([-@eq-sol-un]) is,
 
     $$
@@ -757,22 +762,15 @@ $$
 $$
  
 We show solutions for $n=3$ and $n=20$; as we can see, as the number of basis functions increases, the solution converges to $1$ when $t=0$ and becomes quite oscillatory at the boundary to try to adapt to the admittedly somewhat incompatible boundary conditions.
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.9\textwidth]{Galerkin_n_3.pdf}
-  \caption{Galerkin solution to the parabolic problem ([-@eq-parabolic-2]) with $n=3$ basis functions.}
-\end{figure}
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.9\textwidth]{Galerkin_n_20.pdf}
-  \caption{Galerkin solution to the parabolic problem ([-@eq-parabolic-2]) with $n=20$ basis functions.}
-\end{figure}
+
+![Galerkin solution to the parabolic problem ([-@eq-parabolic-2]) with $n=3$ basis functions.](Galerkin_n_3.png)
+
+![Galerkin solution to the parabolic problem ([-@eq-parabolic-2]) with $n=20$ basis functions.](Galerkin_n_20.png)
+
 We also include a figure to show how the boundary condition $g=1$ may be approximated in $H_0^1(U)$ using the basis functions $\phi_j$. We note that the approximating sequence does not converge $H_0^1$ as the derivative explodes at the boundary.  
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.9\textwidth]{approx_boundary_l2.pdf}
-  \caption{Approximation of $g=1$ in $L^2(U)$ using the basis functions $\phi_j \in H_0^1(U)$.}
-\end{figure}
+
+![Approximation of $g=1$ in $L^2(U)$ using the basis functions $\phi_j \in H_0^1(U)$.](approx_boundary_l2.png)
+
 Next, we show a case where the exact solution can be calculated. We take $U=(0,1)$ and $I=(0,1)$ and consider the problem
 
 $$
@@ -794,20 +792,14 @@ $$
 $$
  
 as before for $n=20$ basis functions. As we can see, the Galerkin solution and the exact solution are quite close.
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.9\textwidth]{Galerkin_exact.pdf}
-  \caption{Exact solution to the parabolic problem ([-@eq-exact]). }
-\end{figure}
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.9\textwidth]{Galerkin_n_20_2.pdf}
-  \caption{Galerkin solution to the parabolic problem ([-@eq-exact]) with $n=20$ basis functions.}
-\end{figure}
+
+![Exact solution to the parabolic problem ([-@eq-exact]). ](Galerkin_exact.png)
+
+![Galerkin solution to the parabolic problem ([-@eq-exact]) with $n=20$ basis functions.](Galerkin_n_20_2.png)
 
 ## Regularity of the solutions
 
-Having proved the well-posedness of the parabolic problem ([-@eq-parabolic]) and its finite-dimensional Galerkin approximation, we can now move on to study the regularity of the solutions. The proof is similar to the one given in the [elliptic case](<https://nowheredifferentiable.com/2024-02-28-PDEs-6-Elliptic_PDE._Well_posedness_and_regularity/>) but more technical, and we will mainly cite some main results without proof. 
+Having proved the well-posedness of the parabolic problem ([-@eq-parabolic]) and its finite-dimensional Galerkin approximation, we can now move on to study the regularity of the solutions. The proof is similar to the one given in the [elliptic case](<../../PDEs/6. Existence elliptic/index.qmd>) but more technical, and we will mainly cite some main results without proof. 
 
 As one expects from the elliptic case, the spatial regularity of the solutions is increased by $2$. Our study of the previous section shows that the regularity of the time derivatives of the solution is $2$ orders lower. In fact, it is two orders lower for each time derivative taken. To be able to obtain higher regularity however, we will need to impose some compatibility between the boundary condition $f$ and the initial data $g$. The following can be found in Section 7.13 of [@evans2022partial]
 
@@ -849,7 +841,7 @@ In consequence, if $f \in C^\infty_{t,x}, g \in C^\infty_x$ then $u \in C^\infty
 
 :::
 
-We also show a result where the coefficients are allowed to depend on time. The following can be found in Chapter $3$ of [@Friedman1983PartialDE] and assumes that the coefficients are [Hölder continuous](<https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=%2C%20we-,define,-the%20Holder%20space>)
+We also show a result where the coefficients are allowed to depend on time. The following can be found in Chapter $3$ of [@Friedman1983PartialDE] and assumes that the coefficients are [Hölder continuous](<../../PDEs/3. Sobolev spaces/index.qmd>)
 
 ::: {#thm-4}
 

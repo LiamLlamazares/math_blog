@@ -7,7 +7,7 @@ description: "Filling in the gaps"
 bibliography: biblio.bib
 format:
   html:
-    css: /custom_theorems.css
+    css: custom_theorems.css
     toc: true
     number-sections: true
     html-math-method: mathjax
@@ -112,6 +112,10 @@ format:
         </script>
 ---
 
+::: {.callout-note appearance="minimal"}
+[Download PDF version](fractional_sobolev_spaces.pdf)
+:::
+
 ## Summary
 
 1. There are three ways to define Sobolev spaces with fractional regularity $s$ and integrability $p$:
@@ -129,7 +133,7 @@ format:
 
 ## Introduction
 
-In previous posts, we covered the theory of [Sobolev spaces](<https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/>) $W^{k,p}(\Omega )$ where $k$ is an integer. In the case $k=2$ and when $\Omega =\R^d$ we saw that this space coincided with $H^k(\R^d)$. Furthermore, [we also saw](<https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/>) how to define $H^s(\R^d)$ when $s$ was any real number. This motivates the following two questions.
+In previous posts, we covered the theory of [Sobolev spaces](<../../PDEs/3. Sobolev spaces/index.qmd>) $W^{k,p}(\Omega )$ where $k$ is an integer. In the case $k=2$ and when $\Omega =\R^d$ we saw that this space coincided with $H^k(\R^d)$. Furthermore, [we also saw](<../../PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>) how to define $H^s(\R^d)$ when $s$ was any real number. This motivates the following two questions.
 
 1. How can we define $H^s(\Omega )$  when $\Omega$ is not $\R^d$ and $s$ is not an integer ?
 
@@ -149,7 +153,7 @@ We will cover the basic properties of these spaces as well as their relationship
 
 In terms of notation, we will always denote $U$ by an arbitrary open subset of $\R^d$  whereas $\Omega \subset \R^d$ will be open with a smooth enough boundary (in a sense to be made precise later).
 
-We make frequent use of the fact that, as [shown](<https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=we%20would%20like%20to%20see%20what%20some%20of%20them%20look%20like.>) in a previous post, functions in $L^p(U)$ can be identified as elements of the larger space of *distributions* $\Dd '(U ):= C_c^\infty(U)'$. This is done by identifying a function $f \in L^p(U)$ with the linear functional 
+We make frequent use of the fact that, as [shown](<../../PDEs/3. Sobolev spaces/index.qmd>) in a previous post, functions in $L^p(U)$ can be identified as elements of the larger space of *distributions* $\Dd '(U ):= C_c^\infty(U)'$. This is done by identifying a function $f \in L^p(U)$ with the linear functional 
 
 $$
 \begin{aligned}
@@ -157,7 +161,7 @@ T_f:\phi \mapsto \int_U f\phi \d x.
 \end{aligned}
 $$
 
-This identification between $f$ and $T_f$  allows us to extend by [duality](<https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=is%20called%20the-,duality,-method%20and%20appears>) operators that are defined on $C_c^\infty(U)$ to $L^p(U)$. For example, given $u \in L^p(U) \in \Dd'(\Omega )$ we can define its Fourier transform $\Ff u$  and  $\alpha$-th derivative $D^\alpha u$  to be the distributions defined by
+This identification between $f$ and $T_f$  allows us to extend by [duality](<../../PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>) operators that are defined on $C_c^\infty(U)$ to $L^p(U)$. For example, given $u \in L^p(U) \in \Dd'(\Omega )$ we can define its Fourier transform $\Ff u$  and  $\alpha$-th derivative $D^\alpha u$  to be the distributions defined by
 
 $$
 \begin{aligned}
@@ -240,7 +244,7 @@ Though the Sobolev-Slobodeckij spaces can be defined for any open set $U$, they 
 
 ::: {#prp-inclusion-ordered-by-regularity name="Inclusion ordered by regularity"}
 
-Let  $\Omega$ be an [extension domain](<https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=extend%20Sobolev%20functions>) for $W^{1,p}$.  Then, for $p \in [1,\infty)$ and $0<s<s'$ it holds that
+Let  $\Omega$ be an [extension domain](<../../PDEs/3. Sobolev spaces/index.qmd>) for $W^{1,p}$.  Then, for $p \in [1,\infty)$ and $0<s<s'$ it holds that
 
 $$
 \begin{aligned}
@@ -268,7 +272,7 @@ $$
 
 :::
 
-In the definition above, we used the notation $\br{\xi}:=\sqrt{1+|\xi|^2}$. As we saw when we studied Sobolev spaces through the [Fourier transform](<https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=Sobolev%20spaces-,Sobolev%20spaces,-form%20a%20particular>), using the fact that $\Ff$ is an isometry which transforms differentiation into polynomial multiplication
+In the definition above, we used the notation $\br{\xi}:=\sqrt{1+|\xi|^2}$. As we saw when we studied Sobolev spaces through the [Fourier transform](<../../PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>), using the fact that $\Ff$ is an isometry which transforms differentiation into polynomial multiplication
 
 $$
 \begin{aligned}
@@ -472,7 +476,7 @@ For higher orders of regularity, the following is sufficient: see [@leoni2023fir
 
 ::: {#thm-1}
 
-Let $\Omega \subset \R^d$ be open with [uniformly Lipschitz boundary](<https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=has-,uniformly%20Lipschitz%20boundary,-if%20there%20exists>) and consider   $p\in [1,\infty), s\in[1,\infty)$. Then, $\Omega$ is an extension domain for $W^{s,p},H^{s,p},B^{s,p}$.
+Let $\Omega \subset \R^d$ be open with [uniformly Lipschitz boundary](<../../PDEs/3. Sobolev spaces/index.qmd>) and consider   $p\in [1,\infty), s\in[1,\infty)$. Then, $\Omega$ is an extension domain for $W^{s,p},H^{s,p},B^{s,p}$.
 
 :::
 
@@ -864,7 +868,7 @@ H^{s,p}_K(\R^d):= \set{u \in H^{s,p}(\R^d): \rm{supp}(u) \subset K},
 \end{aligned}
 $$
 
-the support being understood [in the sense of distributions](<https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=Support%20of%20a%20distribution>)
+the support being understood [in the sense of distributions](<../../PDEs/3. Sobolev spaces/index.qmd>)
 Now, given a Banach space $X$ and a closed subspace $Y \hookrightarrow X$, elements of $X'$ can be restricted to $Y$, obtaining functionals in $Y'$. The kernel of this restriction is $Y^\circ:=\set{\ell \in X': Y \subset \rm{ker}(\ell)}$. Since, by the Hahn Banach theorem, the restriction is surjective, we obtain the [factorization](<https://math.la.asu.edu/~quigg/teach/courses/578/2008/notes/adjoints.pdf>)
 
 $$
@@ -1045,7 +1049,7 @@ $$
 ### Fractional Sobolev embeddings
 
 In this section, we state the fractional analogue of the Sobolev embedding theorems for regularity $\gamma \in (0,1)$.
-Here, the [analogous](<https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#global:~:text=concludes%20the%20proof.%C2%A0%E2%97%BB-,Exercise,-24%20.%20Given>) of the exponent $p_k^{*}$ is
+Here, the [analogous](<../../PDEs/3. Sobolev spaces/index.qmd>) of the exponent $p_k^{*}$ is
 
 ::: {#def-3}
 
@@ -1215,7 +1219,7 @@ $$
 \end{aligned}
 $$
 
-The result follows from @thm-subcritical-embedding,  @thm-morrey-embedding together with the [integer-case](<https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#est32:~:text=Combining%20the%20three%20results>) embeddings. For the first case, by @thm-subcritical-embedding, we have
+The result follows from @thm-subcritical-embedding,  @thm-morrey-embedding together with the [integer-case](<../../PDEs/3. Sobolev spaces/index.qmd>) embeddings. For the first case, by @thm-subcritical-embedding, we have
 
 $$
 \begin{aligned}
@@ -1250,12 +1254,8 @@ $$
 :::
 
 Below we plot the Sobolev critical exponent $p_s^*$ for $p=2$ and $d=1,2,3$. As we can see, it decreases with $d$ and increases with $s$. This means that the larger the dimension the more regularity we need to obtain a bound on the same $L^q(\R^d)$ norm. The integrability increasing to infinity around the critical threshold $s=d/p$.
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.8\textwidth]{regularity_coefficient.pdf}
-    \caption{Sobolev critical exponent for $p=2$ and $d=1,2,3$  }
-    
-\end{figure}
+
+![Sobolev critical exponent for $p=2$ and $d=1,2,3$](regularity_coefficient.png) {#fig-fig:regularity-coefficient}
 
 ::: {#exr-9}
 

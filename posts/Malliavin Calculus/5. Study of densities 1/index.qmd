@@ -7,7 +7,7 @@ description: "Part 5 of the series on Malliavin calculus"
 bibliography: biblio.bib
 format:
   html:
-    css: /custom_theorems.css
+    css: custom_theorems.css
     toc: true
     number-sections: true
     html-math-method: mathjax
@@ -112,6 +112,17 @@ format:
         </script>
 ---
 
+::: {.callout-note appearance="minimal"}
+[Download PDF version](main.pdf)
+:::
+
+	
+	
+	
+	
+	
+	
+
 ## Three line summary
 
 	
@@ -167,7 +178,7 @@ $$
 $$ {#eq-sup}
 
 Where we also take $\varepsilon$ small enough so that $a<x-\varepsilon<x+\varepsilon<b$.
-Now take a smooth and bounded function $\varphi$ with $\varphi(y)=0$ for $y<x-\varepsilon$ and with $\varphi(y)=1$ for $y>x+\varepsilon$. By ([-@eq-sup]) it holds that (almost everywhere) $\varphi(X)=1_{X>x+\varepsilon}$. Combining [proposition 5](../../Malliavin Calculus/3.Malliavin_derivative_1/index.qmd#prp-5) and [corollary 1](../../Malliavin Calculus/3.Malliavin_derivative_1/index.qmd#cor-1) of the previous post, we obtain that $1_{X>x+\varepsilon}$ is either $0$ or $1$ almost everywhere. That is,
+Now take a smooth and bounded function $\varphi$ with $\varphi(y)=0$ for $y<x-\varepsilon$ and with $\varphi(y)=1$ for $y>x+\varepsilon$. By ([-@eq-sup]) it holds that (almost everywhere) $\varphi(X)=1_{X>x+\varepsilon}$. Combining [proposition 5](<../../Malliavin Calculus/3.Malliavin_derivative_1/index.qmd#prp-5>) and [corollary 1](<../../Malliavin Calculus/3.Malliavin_derivative_1/index.qmd#cor-1>) of the previous post, we obtain that $1_{X>x+\varepsilon}$ is either $0$ or $1$ almost everywhere. That is,
 
 $$
 \mathbb{P}(X>x+\varepsilon)=0\quad \text{or}\quad \mathbb{P}(X\leq x+\varepsilon)<0 .
@@ -197,7 +208,7 @@ $$
 \varphi(x):=\int_{-\infty}^x g(y)dy.
 $$
 
-Then, by construction $\varphi=0$, so also $\varphi(X)=0$. Suppose now that $g$ were continuous. Then we would have that, by the fundamental theorem of calculus $\varphi'(x)=g(x)$. So by the [chain rule](../../Malliavin Calculus/3.Malliavin_derivative_1/index.qmd#prp-5)
+Then, by construction $\varphi=0$, so also $\varphi(X)=0$. Suppose now that $g$ were continuous. Then we would have that, by the fundamental theorem of calculus $\varphi'(x)=g(x)$. So by the [chain rule](<../../Malliavin Calculus/3.Malliavin_derivative_1/index.qmd#prp-5>)
 
 $$
 0=D \varphi(X)=\varphi'(X)DX=g(X)DX.
@@ -230,13 +241,13 @@ $$
 \varphi(X):=\int_{-\infty}^X g(x)dx.
 $$
 
-Then by the [chain rule](../../Malliavin Calculus/3.Malliavin_derivative_1/index.qmd#prp-5) and the fundamental theorem of calculus, we have that
+Then by the [chain rule](<../../Malliavin Calculus/3.Malliavin_derivative_1/index.qmd#prp-5>) and the fundamental theorem of calculus, we have that
 
 $$
 \br{D\varphi(X),\frac{DX}{\norm{DX}^2_{H}}}_{H}=g(X).
 $$
 
-By taking expectations on both sides, and using that the Skorokhod integral is the [adjoint](../../Malliavin Calculus/4.Malliavin_derivative_2/index.qmd#thm-1) of the Malliavin derivative, and Fubini we obtain
+By taking expectations on both sides, and using that the Skorokhod integral is the [adjoint](<../../Malliavin Calculus/4.Malliavin_derivative_2/index.qmd#thm-1>) of the Malliavin derivative, and Fubini we obtain
 
 $$
 \begin{aligned}
@@ -299,7 +310,7 @@ Let $X\in \mathbb{D}^\infty$ such that  $\norm{DX}_{H}>0$ almost everywhere, the
 
 ::: {.proof}
 
-By @thm-dens-exists we know that $X$ has a density $p(x)$. To show that $p$ is smooth, by [Sobolev embeddings](../../PDEs/3. Sobolev spaces/index.qmd#thm-rellich) it is sufficient to show that $p$ is weakly differentiable with order $n$ for all $n \in \N$. That is, for all $\varphi\in C_c^\infty(\R)$, there exists a function $p^{(n)}$ such that
+By @thm-dens-exists we know that $X$ has a density $p(x)$. To show that $p$ is smooth, by [Sobolev embeddings](<../../PDEs/3. Sobolev spaces/index.qmd#thm-rellich>) it is sufficient to show that $p$ is weakly differentiable with order $n$ for all $n \in \N$. That is, for all $\varphi\in C_c^\infty(\R)$, there exists a function $p^{(n)}$ such that
 
 $$
 \E[\varphi^{(n)}(X)]=\int_{\R}\varphi^{(n)}(x)p(x) dx=(-1)^n\int_{\R}\varphi(x) p^{(n)}(x) dx.

@@ -26,7 +26,7 @@
     \item Fractional sobolev spaces appear naturally in the study of PDEs. For example, the trace of Sobolev functions $W^{s,p}(\Omega)$ is equal to the fractional space $B^{s-1/p,p}(\partial \Omega)$. And finer embeddings and regularity results can be obtained by using these spaces.
 \end{enumerate}
 \section{Introduction}
-In previous posts, we covered the theory of \href{https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/}{Sobolev spaces} $W^{k,p}(\Omega )$ where $k$ is an integer. In the case $k=2$ and when $\Omega =\R^d$ we saw that this space coincided with $H^k(\R^d)$. Furthermore, \href{https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/}{we also saw} how to define $H^s(\R^d)$ when $s$ was any real number. This motivates the following two questions.
+In previous posts, we covered the theory of \postref{PDEs/3. Sobolev spaces}{}{Sobolev spaces} $W^{k,p}(\Omega )$ where $k$ is an integer. In the case $k=2$ and when $\Omega =\R^d$ we saw that this space coincided with $H^k(\R^d)$. Furthermore, \postref{PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces}{}{we also saw} how to define $H^s(\R^d)$ when $s$ was any real number. This motivates the following two questions.
 \begin{enumerate}
     \item How can we define $H^s(\Omega )$  when $\Omega $ is not $\R^d$ and $s$ is not an integer ?
     \item Is it possible to extend such a definition to other orders of integrability $p$?
@@ -39,11 +39,11 @@ We will cover the basic properties of these spaces as well as their relationship
 \subsection{Preliminaries}
 In terms of notation, we will always denote $U$ by an arbitrary open subset of $\R^d$  whereas $\Omega \subset \R^d $ will be open with a smooth enough boundary (in a sense to be made precise later).
 
-We make frequent use of the fact that, as \href{https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=we%20would%20like%20to%20see%20what%20some%20of%20them%20look%20like.}{shown} in a previous post, functions in $L^p(U)$ can be identified as elements of the larger space of \emph{distributions} $\Dd '(U ):= C_c^\infty(U)'$. This is done by identifying a function $f \in L^p(U)$ with the linear functional 
+We make frequent use of the fact that, as \postref{PDEs/3. Sobolev spaces}{}{shown} in a previous post, functions in $L^p(U)$ can be identified as elements of the larger space of \emph{distributions} $\Dd '(U ):= C_c^\infty(U)'$. This is done by identifying a function $f \in L^p(U)$ with the linear functional 
 \begin{align*}
     T_f:\phi \mapsto \int_U f\phi \d x.
 \end{align*}
-This identification between $f$ and $T_f$  allows us to extend by \href{https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=is%20called%20the-,duality,-method%20and%20appears}{duality} operators that are defined on $C_c^\infty(U)$ to $L^p(U)$. For example, given $u \in L^p(U) \in \Dd'(\Omega )$ we can define its Fourier transform $\Ff u$  and  $\alpha$-th derivative $D^\alpha u$  to be the distributions defined by
+This identification between $f$ and $T_f$  allows us to extend by \postref{PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces}{}{duality} operators that are defined on $C_c^\infty(U)$ to $L^p(U)$. For example, given $u \in L^p(U) \in \Dd'(\Omega )$ we can define its Fourier transform $\Ff u$  and  $\alpha$-th derivative $D^\alpha u$  to be the distributions defined by
 \begin{align*}
     (\varphi ,\Ff u):=(\Ff^{-1}\varphi ,u),\quad (\varphi ,D^\alpha u):=(-1)^{\abs{\alpha}}(D^\alpha \varphi ,u), \quad \forall \varphi \in C_c^\infty(U).
 \end{align*}
@@ -89,7 +89,7 @@ We will later define $W^{s,p}(U)$ also for negative $s$ (see Definition \ref{neg
 \end{hint}
 Though the Sobolev-Slobodeckij spaces can be defined for any open set $U$, they are most useful when $U=\R^d$ or $U$  is regular enough. Otherwise, basic properties such as the following break down
 \begin{proposition}[Inclusion ordered by regularity]\label{inclusion ordered by regularity}
-    Let  $\Omega$ be an \href{https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=extend%20Sobolev%20functions}{extension domain} for $W^{1,p}$.  Then, for $p \in [1,\infty)$ and $0<s<s'$ it holds that
+    Let  $\Omega$ be an \postref{PDEs/3. Sobolev spaces}{}{extension domain} for $W^{1,p}$.  Then, for $p \in [1,\infty)$ and $0<s<s'$ it holds that
     \begin{align*}
         W^{s',p}(\Omega )\hookrightarrow W^{s,p}(\Omega ).
     \end{align*}
@@ -103,7 +103,7 @@ We now give a second definition of fractional Sobolev spaces through the Fourier
         \Lambda^s u := \Ff^{-1}\left(\br{\xi}^s \wh{u}(\xi)\right).
     \end{align*}
 \end{definition}
-In the definition above, we used the notation $\br{\xi}:=\sqrt{1+|\xi|^2}$. As we saw when we studied Sobolev spaces through the \href{https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=Sobolev%20spaces-,Sobolev%20spaces,-form%20a%20particular}{Fourier transform}, using the fact that $\Ff $ is an isometry which transforms differentiation into polynomial multiplication
+In the definition above, we used the notation $\br{\xi}:=\sqrt{1+|\xi|^2}$. As we saw when we studied Sobolev spaces through the \postref{PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces}{}{Fourier transform}, using the fact that $\Ff $ is an isometry which transforms differentiation into polynomial multiplication
 \begin{align}\label{motivation Bessel}
     u \in H^k(\R^d) \iff \Lambda^k u \in L^2(\R^d).
 \end{align}
@@ -215,7 +215,7 @@ Though it is possible to define fractional spaces for any open set, these are mo
 \end{theorem}
 For higher orders of regularity, the following is sufficient: see \cite{leoni2023first} and \cite{sawano2018theory} section 5.1.
 \begin{theorem}
-    Let $\Omega \subset \R^d$ be open with \href{https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=has-,uniformly%20Lipschitz%20boundary,-if%20there%20exists}{uniformly Lipschitz boundary} and consider   $p\in [1,\infty), s\in[1,\infty)$. Then, $\Omega $ is an extension domain for $W^{s,p},H^{s,p},B^{s,p}$.
+    Let $\Omega \subset \R^d$ be open with \postref{PDEs/3. Sobolev spaces}{}{uniformly Lipschitz boundary} and consider   $p\in [1,\infty), s\in[1,\infty)$. Then, $\Omega $ is an extension domain for $W^{s,p},H^{s,p},B^{s,p}$.
 \end{theorem}
 
 \subsection{Interpolation}
@@ -425,7 +425,7 @@ where given a closed set $K \subset \R^d$ we define
 \begin{align*}
     H^{s,p}_K(\R^d):= \set{u \in H^{s,p}(\R^d): \rm{supp}(u) \subset K},
 \end{align*}
-the support being understood \href{https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=Support%20of%20a%20distribution}{in the sense of distributions}
+the support being understood \postref{PDEs/3. Sobolev spaces}{}{in the sense of distributions}
 Now, given a Banach space $X$ and a closed subspace $Y \hookrightarrow X$, elements of $X'$ can be restricted to $Y$, obtaining functionals in $Y'$. The kernel of this restriction is $Y^\circ:=\set{\ell \in X': Y \subset \rm{ker}(\ell)}$. Since, by the Hahn Banach theorem, the restriction is surjective, we obtain the \href{https://math.la.asu.edu/~quigg/teach/courses/578/2008/notes/adjoints.pdf}{factorization}
 \begin{align}\label{dual isomormphism}
     Y' \simeq X'\backslash Y^\circ.
@@ -526,7 +526,7 @@ Note that, since we have equality of $W^{s,p}(\Omega )$ with $H^{s,p}(\Omega )$ 
 \end{align*}
 \subsection{Fractional Sobolev embeddings}
 In this section, we state the fractional analogue of the Sobolev embedding theorems for regularity $\gamma \in (0,1)$.
-Here, the \href{https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#global:~:text=concludes%20the%20proof.%C2%A0%E2%97%BB-,Exercise,-24%20.%20Given}{analogous} of the exponent $p_k^{*}$ is
+Here, the \postref{PDEs/3. Sobolev spaces}{}{analogous} of the exponent $p_k^{*}$ is
 \begin{definition}
     Given $p \in [1,\infty)$ and $s>0$, with $s\in (d/p, \infty)$, we define the \emph{Sobolev critical exponent} $p_s^*$ by
     \begin{align*}
@@ -617,7 +617,7 @@ Higher order embeddings and interpolations can be obtained from the previous cas
     \begin{align*}
         \frac{1}{(p_\gamma ^*)_k^*}=\frac{1}{p_\gamma }-\frac{k}{d}=\frac{1}{p}-\frac{s}{d}= \frac{1}{p_s^*}.
     \end{align*}
-    The result follows from \Cref{subcritical embedding},  \Cref{morrey embedding} together with the \href{https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#est32:~:text=Combining%20the%20three%20results}{integer-case} embeddings. For the first case, by \Cref{subcritical embedding}, we have
+    The result follows from \Cref{subcritical embedding},  \Cref{morrey embedding} together with the \postref{PDEs/3. Sobolev spaces}{}{integer-case} embeddings. For the first case, by \Cref{subcritical embedding}, we have
     \begin{align*}
         \norm{D^\alpha u}_{L^{p_\gamma ^*}(\Omega )}\lesssim \norm{D^\alpha u}_{W^{\gamma ,p}(\Omega )} \lesssim \norm{u}_{W^{s,p}(\Omega )}, \quad \forall \abs{\alpha}\leq k.
     \end{align*}

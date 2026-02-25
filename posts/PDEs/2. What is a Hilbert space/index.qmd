@@ -7,7 +7,7 @@ description: "An appendix for a series on PDEs"
 bibliography: biblio.bib
 format:
   html:
-    css: /custom_theorems.css
+    css: custom_theorems.css
     toc: true
     number-sections: true
     html-math-method: mathjax
@@ -111,6 +111,17 @@ format:
         };
         </script>
 ---
+
+::: {.callout-note appearance="minimal"}
+[Download PDF version](Hilbert_spaces.pdf)
+:::
+
+	
+	
+	
+	
+	
+	
 
 ##  Three line summary
 
@@ -278,7 +289,7 @@ $$
 
 :::
 
-	Cool! Now we know what is a Hilbert space. Some examples that have come up in previous posts are the space of [square-integrable functions](<https://nowheredifferentiable.com/2022-05-27-The-Bochner-integral/#:~:text=we%20can%20integrate.-,Our,-next%20definitions%20are>) valued in  another Hilbert space $H$ with the inner product
+	Cool! Now we know what is a Hilbert space. Some examples that have come up in previous posts are the space of [square-integrable functions](<../../Analysis on Banach spaces/Bochner_integral/index.qmd>) valued in  another Hilbert space $H$ with the inner product
 	
 $$
 \begin{aligned}
@@ -286,7 +297,7 @@ $$
 \end{aligned}
 $$
 
-	Another are the [Sobolev spaces](<https://nowheredifferentiable.com/2022-05-27-The-Bochner-integral/#:~:text=we%20can%20integrate.-,Our,-next%20definitions%20are>) $H^s(\R^d)$ with the inner product
+	Another are the [Sobolev spaces](<../../Analysis on Banach spaces/Bochner_integral/index.qmd>) $H^s(\R^d)$ with the inner product
 	
 $$
 \begin{aligned}
@@ -554,7 +565,7 @@ H\to \ell ^2(I); \quad f \to \set{\br{f,\phi_{\alpha}}}_{\alpha \in I}.
 \end{aligned}
 $$
 
-	In particular, every Hilbert space with a countable basis is isometric to $\ell ^2(\N)$. However, the identification is not ``canonical'' as it depends on the bases chosen. The next example is all pervasive (in fact it has [even invaded our blog](<https://nowheredifferentiable.com/2023-01-29-PDE-1/>))
+	In particular, every Hilbert space with a countable basis is isometric to $\ell ^2(\N)$. However, the identification is not ``canonical'' as it depends on the bases chosen. The next example is all pervasive (in fact it has [even invaded our blog](<../../PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>))
 	
 
 ::: {#exm-3 name="Plancherel"}

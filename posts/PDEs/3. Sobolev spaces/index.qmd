@@ -7,7 +7,7 @@ description: "Density, trace and embeddings"
 bibliography: biblio.bib
 format:
   html:
-    css: /custom_theorems.css
+    css: custom_theorems.css
     toc: true
     number-sections: true
     html-math-method: mathjax
@@ -112,6 +112,10 @@ format:
         </script>
 ---
 
+::: {.callout-note appearance="minimal"}
+[Download PDF version](Sobolev%20spaces.pdf)
+:::
+
 ##  Three line summary
 
 - Given open $U \subset \R^d$ the Sobolev spaces $W^{k,p}(U)$ are **complete** spaces of ** weakly differentiable** functions.
@@ -206,7 +210,7 @@ $$
 \end{aligned}
 $$ {#eq-pde1}
 
-Where $D$ is some domain in $\R^d$. In a previous post on the [Fourier transform](<https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=Sobolev%20spaces-,Sobolev,-spaces%20form%20a>) we saw how to define the Sobolev spaces $H^s(D)$ when $D$ is the whole Euclidean space $\R^d$ or the torus $\T^d$. These spaces correspond to $s$-times weakly differentiable functions and we saw how these spaces could help us solve ([-@eq-pde1]).  However, in practice $D$ may be an open set in $\R^d$ or even some $d$-dimensional manifold with a boundary condition
+Where $D$ is some domain in $\R^d$. In a previous post on the [Fourier transform](<../../PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>) we saw how to define the Sobolev spaces $H^s(D)$ when $D$ is the whole Euclidean space $\R^d$ or the torus $\T^d$. These spaces correspond to $s$-times weakly differentiable functions and we saw how these spaces could help us solve ([-@eq-pde1]).  However, in practice $D$ may be an open set in $\R^d$ or even some $d$-dimensional manifold with a boundary condition
 
 $$
 \begin{aligned}
@@ -231,7 +235,7 @@ Suppose for example $D=U$ is an open set and $u: U \to \R$. Then, we can try to 
     \end{aligned}
     $$
 
-2. Studying if $\tilde{u} \in  H^s(\R^d)$. That is, as we saw in the [previous post](<https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=fact%2C%20since%20the-,Fourier,-transform%20is%20a>), checking if
+2. Studying if $\tilde{u} \in  H^s(\R^d)$. That is, as we saw in the [previous post](<../../PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>), checking if
 
     $$
     \begin{aligned}
@@ -275,7 +279,7 @@ As we will see later (@exr-restriction) this is a better approach. However, it i
 
 ### Seminorms and their topologies
 
-We need a new approach. Motivated as in the previous post by [duality](<https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=is%20called%20the-,duality,-method%20and%20appears>) we should begin by defining what is meant by a weak derivative of a function $u$ in $L^p(U)$. If $u,\varphi$ are smooth functions then we have by integration by parts
+We need a new approach. Motivated as in the previous post by [duality](<../../PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>) we should begin by defining what is meant by a weak derivative of a function $u$ in $L^p(U)$. If $u,\varphi$ are smooth functions then we have by integration by parts
 
 $$
 \begin{aligned}
@@ -309,7 +313,7 @@ C_c^\infty(K):= \set{\varphi \in C_c^\infty(U): \supp{\varphi} \subset K } .
 \end{aligned}
 $$
 
-We endow  $C_c^\infty(K)$ with the [topology generated  by the countable family of seminorms](<https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=together-,with,-a%20countable%20family>)
+We endow  $C_c^\infty(K)$ with the [topology generated  by the countable family of seminorms](<../../PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>)
 
 $$
 \begin{aligned}
@@ -397,7 +401,7 @@ Show that $C_c^\infty(K)$ is complete and thus a [Fréchet](<https://en.wikipedi
 
 ::: {.callout-tip collapse="true" title="Hint"}
 
-The topology is [metrizable](<https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=together-,with,-a%20countable%20family>) as the family of seminorms is countable
+The topology is [metrizable](<../../PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>) as the family of seminorms is countable
 Use @exr-convergence-tvs  to show that if $\varphi_n \in C_c^\infty(K)$ is Cauchy then the sequence of derivatives $D^\alpha \varphi_n$ converge uniformly to $\varphi^{(\alpha)} \in C_c^0(K)$ for all $\alpha$. It remains to show that
 
 $$
@@ -574,7 +578,7 @@ is continuous on $C^\infty(U)$.
 ### Locally integrable functions as distributions
 
 %
-In our post on the Fourier transform [we saw](<https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=One-,may,-verify%20that%20we>) that integrable functions could naturally be considered as tempered distributions. The analogous is true for distributions. In this case, since our test functions are compactly supported, the functions we pair them up with only need to be locally integrable. We recall the definition
+In our post on the Fourier transform [we saw](<../../PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>) that integrable functions could naturally be considered as tempered distributions. The analogous is true for distributions. In this case, since our test functions are compactly supported, the functions we pair them up with only need to be locally integrable. We recall the definition
 
 ::: {#def-6}
 
@@ -586,7 +590,7 @@ L^p_{\mathrm{loc}}(U):= \set{f: \norm{f}_{L^p(K)}< \infty, \,\text{   for all co
 \end{aligned}
 $$
 
-And endow it with the [topology generated by the family of seminorms](<https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=together-,with,-a%20countable%20family>)
+And endow it with the [topology generated by the family of seminorms](<../../PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd#eq-seminormsgivemetric>)
 
 $$
 \begin{aligned}
@@ -609,7 +613,7 @@ Show that $L^p_{\mathrm{loc} }(U)$ is a Fréchet space.
 
 ::: {.callout-tip collapse="true" title="Hint"}
 
-The topology is [metrizable](<https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=together-,with,-a%20countable%20family>) as the family of seminorms is countable. By @exr-convergence-tvs  if $f_n \in L^p_{\mathrm{loc}}(U)$ is Cauchy then $f_n$ is Cauchy for all  $L^p(K)$ $D^\alpha \varphi_n$ so converges to some $f_K \in L^p(K)$. Show that $f_K= \restr{f}{K}$ where $f \in L^p_{\mathrm{loc}}(U)$    to conclude the proof.
+The topology is [metrizable](<../../PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>) as the family of seminorms is countable. By @exr-convergence-tvs  if $f_n \in L^p_{\mathrm{loc}}(U)$ is Cauchy then $f_n$ is Cauchy for all  $L^p(K)$ $D^\alpha \varphi_n$ so converges to some $f_K \in L^p(K)$. Show that $f_K= \restr{f}{K}$ where $f \in L^p_{\mathrm{loc}}(U)$    to conclude the proof.
 
 :::
 
@@ -655,7 +659,7 @@ $$
 \end{aligned}
 $$
 
-Then $u=0$. Consider a compact set $K \subset U$ and write  $g$ for the extension of $\mathrm{sign}(u)$ by zero outside of  $K$. Clearly $g \subset L^1(\R^d)$. Consider an approximation to the identity $\phi_n$ (see Appendix @thm-smooth-section ) and set
+Then $u=0$. Consider a compact set $K \subset U$ and write  $g$ for the extension of $\mathrm{sign}(u)$ by zero outside of  $K$. Clearly $g \subset L^1(\R^d)$. Consider an approximation to the identity $\phi_n$ (see Appendix @sec-smooth-section ) and set
 
 $$
 \begin{aligned}
@@ -748,7 +752,7 @@ Then $w$ vanished on  $U:=\bigcup_{\alpha \in  I}U_\alpha$.
 
 ::: {.proof}
 
-Let $\varphi$ have support in $U$. Then,     by compactness, we can extract a finite covering $\set{U_i}_{i=1}^n$ of $\supp{\varphi}$. Let $\set{\rho _i}_{i=1}^n$ be a partition of unity  subordinate to $U_i$ (see Appendix @thm-local-to-global). Then
+Let $\varphi$ have support in $U$. Then,     by compactness, we can extract a finite covering $\set{U_i}_{i=1}^n$ of $\supp{\varphi}$. Let $\set{\rho _i}_{i=1}^n$ be a partition of unity  subordinate to $U_i$ (see Appendix @sec-local-to-global). Then
 
 $$
 \begin{aligned}
@@ -1000,7 +1004,7 @@ The definition of weak derivative requires one to integrate against smooth funct
 
 This process can be rigorously justified by the density of various spaces of smooth functions in Sobolev spaces. Or to use Tao's terminology, by giving ourselves [an epsilon of room](<https://terrytao.wordpress.com/2009/02/28/tricks-wiki-give-yourself-an-epsilon-of-room/>).
 
-In this section, we prove the relevant results. These rely heavily on the analogous density results for functions in $L^p(U)$ (see Appendix @thm-smooth-section). As a result, they will not when $p=\infty$. We start without making any assumptions on $U$ and obtain two local-type results. Throughout this section we will often be switching between different open sets and, if following the proofs, making some drawings is recommended.
+In this section, we prove the relevant results. These rely heavily on the analogous density results for functions in $L^p(U)$ (see Appendix @sec-smooth-section). As a result, they will not when $p=\infty$. We start without making any assumptions on $U$ and obtain two local-type results. Throughout this section we will often be switching between different open sets and, if following the proofs, making some drawings is recommended.
 
 ::: {#thm-local name="Local approximation by smooth functions"}
 
@@ -1216,7 +1220,7 @@ Divide by zero.
 
 :::
 
-Now we provide a final global approximation result in the case where the domain is smooth (see Appendix @thm-boundary for a review on manifolds with boundary) and bounded.
+Now we provide a final global approximation result in the case where the domain is smooth (see Appendix @sec-boundary for a review on manifolds with boundary) and bounded.
 
 ::: {#thm-global name="Global, smooth on boundary approximation"}
 
@@ -1294,7 +1298,7 @@ This concludes the proof.
 
 In contrast to @thm-meyers, @thm-global shows that Sobolev functions on smooth bounded domains can be approximated by functions that are also **smooth on the boundary** of the domain $\Omega$. This will prove fundamental in the next section. Both to extend them to the whole of $\R^d$ and to restrict them to $\partial \Omega$.
 
-## Extensions and restrictions
+## Extensions and restrictions {#sec-extension-section}
 
 Using the approximation of Sobolev functions by functions smooth on the boundary we can extend  functions in $W^{k,p}(\Omega)$ to the whole of  $\R^d$. However, the extension is not unique.
 
@@ -1986,7 +1990,7 @@ W^{1,d}(\R^d) \hookrightarrow L^\infty(\R^d).
 \end{aligned}
 $$
 
-This holds if and only if $d=1$. Otherwise, we require more integrability. However, this extra integrability can be converted into regularity in the style of [Sobolev spaces](<https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=.%C2%A0%E2%97%BB-,As%20a%20corollary,-of%20this%2C%20we>). First, we recall the following definition
+This holds if and only if $d=1$. Otherwise, we require more integrability. However, this extra integrability can be converted into regularity in the style of [Sobolev spaces](<../../PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>). First, we recall the following definition
 
 ::: {#def-13}
 
@@ -2515,7 +2519,7 @@ Convolution of distribution and test function is smooth:
 
 :::
 
-The previous definitions all go through word by word in the case where we substitute the domain from Euclidean space  $\R^d$ to a [LCA group with Haar measure](<https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=Since-,every,-locally%20compact%20Hausdorff>) $\mu$. For example
+The previous definitions all go through word by word in the case where we substitute the domain from Euclidean space  $\R^d$ to a [LCA group with Haar measure](<../../PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>) $\mu$. For example
 
 $$
 \begin{aligned}
@@ -2533,7 +2537,7 @@ $$
 
 The same results are also obtained. In fact, save the commutation $f*g=g*f$, the above results hold even if $G$ is not Abelian. In this case, one considers the [left or right Haar measure](<https://en.wikipedia.org/wiki/Haar_measure#:~:text=%5Bedit%5D-,There,-is%2C%20up>). See for example [@fremlin2006measure] 444R.
 
-## Smoothing in $L^p$
+## Smoothing in $L^p$ {#sec-smooth-section}
 
 In this section, we examine how convolution can be used to approximate functions by smoother ones. This is of great practical use as it allows us to
 
@@ -2706,7 +2710,7 @@ Furthermore, if $f$ is compactly supported then  $f*\phi \in  C_c^\infty(\R^d)$.
 
 ::: {.proof}
 
-By induction, it suffices to consider the case $D^\alpha = \partial _i$ for some $1 \leq i \leq d$. This case can be proved by a [differentiation under the integral sign](<https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=Proposition%202%20>) as, given $\abs{x}\leq M$
+By induction, it suffices to consider the case $D^\alpha = \partial _i$ for some $1 \leq i \leq d$. This case can be proved by a [differentiation under the integral sign](<../../PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>) as, given $\abs{x}\leq M$
 
 $$
 \begin{aligned}
@@ -2837,7 +2841,7 @@ As a result, $\overline{C_c^\infty(\R^d)}=\Dd'(\R^d)$.
 
 The proof can be found in [@leoni2017first] page 308.
 
-## Global to local and back again
+## Global to local and back again {#sec-local-to-global}
 
 Often it is advantageous to work locally and then reason in the general case by some kind of approximation. A useful tool in this respect are **bump functions**.
 
@@ -2920,7 +2924,7 @@ Partitions of unity are often used in differential geometry as follows
     \end{aligned}
     $$
 
-In addition to the approximation and extension theorems in Section @thm-extension-section, partitions of unity can be used to show that: every manifold has a [Riemannian metric](<https://en.wikipedia.org/wiki/Riemannian_manifold>), show that a function is smooth on some none-open set $S \subset M$ iff it is the restriction of a smooth function defined on a neighborhood of $S$, prove the existence of an outward pointing vector on manifolds with boundary, define integration over an orientable manifold $M$, prove [Stoke's theorem](<https://en.wikipedia.org/wiki/Generalized_Stokes_theorem>).
+In addition to the approximation and extension theorems in Section @sec-extension-section, partitions of unity can be used to show that: every manifold has a [Riemannian metric](<https://en.wikipedia.org/wiki/Riemannian_manifold>), show that a function is smooth on some none-open set $S \subset M$ iff it is the restriction of a smooth function defined on a neighborhood of $S$, prove the existence of an outward pointing vector on manifolds with boundary, define integration over an orientable manifold $M$, prove [Stoke's theorem](<https://en.wikipedia.org/wiki/Generalized_Stokes_theorem>).
 
 ::: {#thm-partition}
 
@@ -2937,7 +2941,7 @@ $$
 
 And then working with the compact $\overline{V_{i+1}} \setminus V_{i}$.    See [@tu2011manifolds] Appendix C for the details.
 
-## Manifolds with boundary
+## Manifolds with boundary {#sec-boundary}
 
 We will be defining differential equations on open domains $\Omega \subset \R^n$. In this case $\overline{\Omega}$ will be a ``manifold with boundary'' whose regularity will determine what results we have access to. The prototypical example of a manifold with a boundary is the upper half space
 

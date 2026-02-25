@@ -3,18 +3,40 @@ if (items.length > 0) {
   const featured = items[0];
   const recent = items.slice(1, 5);
 
+  // Standardize the covers mapping
+  const covers = {
+    'stochastic calculus': 'assets/img/Collection_covers/cover_SC.jpg',
+    'pdes': 'assets/img/Collection_covers/cover_PDE.jpg',
+    'pde': 'assets/img/Collection_covers/cover_PDE.jpg',
+    'malliavin calculus': 'assets/img/Collection_covers/cover_MC.jpg',
+    'analysis on banach spaces': 'assets/img/Collection_covers/cover_MC.jpg'
+  };
+
+  // Build normalized tags map to avoid duplicates (e.g., "Pdes" vs "PDEs")
   const tags = {};
   for (const item of items) {
     if (item.categories) {
-      for (const cat of item.categories) {
-        if (!tags[cat]) tags[cat] = [];
-        tags[cat].push(item);
+      for (let rawCat of item.categories) {
+        const cat = rawCat.trim();
+        const normKey = cat.toLowerCase();
+        
+        // Find existing tag or use the first one encountered (to preserve display name)
+        let groupName = cat;
+        // Search if we already have this normalized key
+        const existingKey = Object.keys(tags).find(k => k.toLowerCase() === normKey);
+        if (existingKey) {
+          groupName = existingKey;
+        }
+
+        if (!tags[groupName]) tags[groupName] = [];
+        tags[groupName].push(item);
       }
     }
   }
 
-  const getBannerStyle = (cat) => {
-    return "linear-gradient(135deg, rgba(44,62,80,0.8), rgba(76,161,175,0.8))";
+  const getBannerImage = (catName) => {
+    const key = String(catName).toLowerCase().trim();
+    return covers[key] || null;
   };
 %>
 
@@ -52,11 +74,11 @@ if (items.length > 0) {
   for (let t = 0; t < sortedTags.length; t++) {
     const tag = sortedTags[t];
     const tagPosts = tags[tag];
-    const styleAttr = `style="background: ${getBannerStyle(tag)};"`;
+    const bannerImg = getBannerImage(tag);
     if (tagPosts.length > 1) { 
 %>
 <div class="pane tag-pane">
-<div class="tag-header" <%- styleAttr %>>
+<div class="tag-header" style="<%- bannerImg ? `background-image: url('/${bannerImg}') !important;` : '' %>">
 <h3 class="math-font"><%- tag %></h3>
 <span class="count"><%- tagPosts.length %> <img src="/assets/img/svgs/leaf.svg" alt="leaf" class="leaf-icon"></span>
 </div>
