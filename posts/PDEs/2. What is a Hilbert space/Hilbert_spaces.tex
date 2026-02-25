@@ -68,10 +68,6 @@
 			\item Positivity $\br{x,x} =0$ if and only if $x=0$.
 		\end{enumerate}
 	\end{definition}
-	\begin{definition}
-
-	\end{definition}
-
 	In what follows we will take always take the base field to be $\K$, that is, we will consider real and complex vector spaces as the theory is the same. In the real case, the conjugate
 	function just being the identity. Note that the first two properties also imply  ``antilinearity'' of the second component as
 	\begin{align*}
@@ -113,7 +109,7 @@
 	\begin{theorem}[Projection theorem]\label{projection}
 		Let $F$ be a closed convex subset of a Hilbert space $H$. Then, given  $h \in H$ there exists a unique $ f \in F$ such that
 		\begin{align*}
-			\min_{g \in F}\norm{h-g}= \norm{h-f}.
+			\inf_{g \in F}\norm{h-g}= \norm{h-f}.
 		\end{align*}
 		Furthermore, if $F$ is a (vector) subspace, then it holds that $f$ is the unique element in  $F$ such that $h-f$ is orthogonal to  $F$. That is $f\in F$ is the only one verifying
 		\begin{align*}
@@ -205,7 +201,7 @@
 		\begin{align*}
 			\Ss_0\subset \Ss_1\subset \Ss_2\subset \cdots \subset \bigcup_{n=0}^\infty \Ss_n  .
 		\end{align*}
-		As a result by \href{https://en.wikipedia.org/wiki/Zorn%27s_lemma}{Zorn's lemma} there exists a maximal element $\Bb$. If $\Bb$ is not complete (that is \eqref{sum} doesn't hold), then there exists $f \in \overline{\Bb}^\perp$. By taking $f /\norm{f}$ and forming $\Bb':=\Bb \cup \set{f \norm{f}} $ we obtain that $\Bb \subsetneq \Bb' \in \Aa$. This contradicts the maximality of $\Bb$ and concludes the proof.
+		As a result by \href{https://en.wikipedia.org/wiki/Zorn%27s_lemma}{Zorn's lemma} there exists a maximal element $\Bb$. If $\Bb$ is not complete (that is \eqref{sum} doesn't hold), then there exists $f \in \overline{\Bb}^\perp$. By taking $f /\norm{f}$ and forming $\Bb':=\Bb \cup \set{f / \norm{f}} $ we obtain that $\Bb \subsetneq \Bb' \in \Aa$. This contradicts the maximality of $\Bb$ and concludes the proof.
 	\end{proof}
 	The next result is the natural  generalization of Pythagoras's theorem to Hilbert spaces.
 	\begin{theorem}[Parseval]\label{Parseval}
@@ -257,7 +253,7 @@
 	\begin{theorem}[Riesz representation ]\label{riesz theorem}
 		Let $H$ be a Hilbert space, then given $\ell \in H'$ there exists a unique $f_\ell \in H$ such that
 		\begin{align}\label{riesz}
-			\br{h,f_\ell }, \quad\forall h \in H.
+			\ell(h) = \br{h,f_\ell }, \quad\forall h \in H.
 		\end{align}
 		Furthermore, $\norm{f_\ell }=\norm{\ell }$.
 	\end{theorem}
@@ -306,7 +302,7 @@
 	Then, for each $g \in H$ we can define the linear form
 
 	\begin{align}
-		\ell\U g := \left\langle T\cdot ,g\right\rangle.
+		\ell_ g := \left\langle T\cdot ,g\right\rangle.
 	\end{align}
 	As a result, there exists a unique representative of
 	$\ell \U g$ in $H$ which, to track the dependence on $g$, we denote by
@@ -385,16 +381,16 @@
 		\begin{align*}
 			0=\br{u, \Ll u}= B(u,u) \geq \alpha \norm{u}^2 .
 		\end{align*}
-		We now prove surjectivity of $\Ll$. Consider  $ u \in  \Im(\Ll)^\perp$, then it holds that
+		We now prove surjectivity of $\Ll$. Consider  $ u \in  \rm{Im}(\Ll)^\perp$, then it holds that
 		\begin{align}\label{est}
 			\br{u, \Ll u}= B(u,u)\geq \alpha \norm{u}^2.
 		\end{align}
-		As a result, we deduce from the corollary of the orthogonal complement \Cref{cor} that $\overline{\Im(\Ll)}=0$. Thus, if we show that $\Ll$ is closed invertibility follows. The estimate in \eqref{est} together with Cauchy Schwartz show that for all $u \in H$
+		As a result, $\rm{Im}(\Ll)^\perp = \{0\}$. We deduce from the corollary of the orthogonal complement (\Cref{cor}) that $\overline{\rm{Im}(\Ll)}=H$. Thus, if we show that $\Ll$ is closed invertibility follows. The estimate in \eqref{est} together with Cauchy Schwartz show that for all $u \in H$
 		\begin{align*}
 			\norm{ \Ll u}\geq \norm{u}.
 		\end{align*}
-		As if $ \Ll u_n \in  \Im (\Ll)$ is a Cauchy sequence then so must be $u_n$. By completeness of  $\Ll$, the sequence  $u_n$ converges to some  $u \in  H$ and we deduce, by continuity of $\Ll$,
-		that $ \Ll u_n \to \Ll u \in \Im (\Ll)$. In consequence, $\Ll$ is invertible, finally to show the bound on $\Ll^{-1}$ let us write $u =\Ll^{-1} f$ then
+		As if $ \Ll u_n \in  \rm{Im} (\Ll)$ is a Cauchy sequence then so must be $u_n$. By completeness of  $\Ll$, the sequence  $u_n$ converges to some  $u \in  H$ and we deduce, by continuity of $\Ll$,
+		that $ \Ll u_n \to \Ll u \in \rm{Im} (\Ll)$. In consequence, $\Ll$ is invertible, finally to show the bound on $\Ll^{-1}$ let us write $u =\Ll^{-1} f$ then
 		\begin{align*}
 			\alpha \norm{u}^2 \leq B(u,u) = \br{u,f}\leq \norm{u}\norm{f} .
 		\end{align*}
@@ -478,9 +474,9 @@
 			K_n(x) \to K(x) , \quad\forall x \in  H.
 		\end{align*}
 		Consider the unit ball $B_X$ in  $X$. Then  $K(B_X)$ is relatively compact. So $K(B_X)$  is totally bounded and given $\varepsilon >0$ we can form a finite $\varepsilon $ net $Kx_1,\ldots,Kx_m $ of $K(B_X)$. By pointwise convergence, we can now take $n_0$ large enough so that for all $N \geq n_0$
-		\begin{align*}
-			\norm{K(x_j)-K_N(x_j)} , \quad\forall j=1,\ldots,m.
-		\end{align*}
+\begin{align*}
+\norm{K(x_j)-K_N(x_j)} < \varepsilon, \quad\forall j=1,\ldots,m.
+\end{align*}
 		Now for any  $x\in B_X $ we can find $x_j$ such that  $\norm{Tx_j-Tx}< \varepsilon $. Using the triangle inequality
 		\begin{align*}
 			\norm{Kx-K_N x} \leq \norm{Kx-K x_j}+ \norm{K x_j-K_N x_{j}}+ \norm{K_N x_j-K_N x} < 3\varepsilon .
@@ -533,7 +529,7 @@
 		\begin{enumerate}[a)]
 			\item $\ker(T)$ is finite dimensional.
 			\item  $T$ is closed.
-			\item  $\Im (T)=\ker(T^*)^\perp$.
+			\item  $\rm{Im} (T)=\ker(T^*)^\perp$.
 			\item $\mathrm{dim}(\ker(T))=\mathrm{dim}(\ker(T^*))$
 		\end{enumerate}
 	\end{theorem}

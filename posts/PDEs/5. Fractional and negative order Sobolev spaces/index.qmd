@@ -129,7 +129,7 @@ format:
 
 ## Introduction
 
-In previous posts, we covered the theory of [Sobolev spaces](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/) $W^{k,p}(\Omega )$ where $k$ is an integer. In the case $k=2$ and when $\Omega =\R^d$ we saw that this space coincided with $H^k(\R^d)$. Furthermore, [we also saw](https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/) how to define $H^s(\R^d)$ when $s$ was any real number. This motivates the following two questions.
+In previous posts, we covered the theory of [Sobolev spaces](<https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/>) $W^{k,p}(\Omega )$ where $k$ is an integer. In the case $k=2$ and when $\Omega =\R^d$ we saw that this space coincided with $H^k(\R^d)$. Furthermore, [we also saw](<https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/>) how to define $H^s(\R^d)$ when $s$ was any real number. This motivates the following two questions.
 
 1. How can we define $H^s(\Omega )$  when $\Omega$ is not $\R^d$ and $s$ is not an integer ?
 
@@ -149,7 +149,7 @@ We will cover the basic properties of these spaces as well as their relationship
 
 In terms of notation, we will always denote $U$ by an arbitrary open subset of $\R^d$  whereas $\Omega \subset \R^d$ will be open with a smooth enough boundary (in a sense to be made precise later).
 
-We make frequent use of the fact that, as [shown](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=we%20would%20like%20to%20see%20what%20some%20of%20them%20look%20like.) in a previous post, functions in $L^p(U)$ can be identified as elements of the larger space of *distributions* $\Dd '(U ):= C_c^\infty(U)'$. This is done by identifying a function $f \in L^p(U)$ with the linear functional 
+We make frequent use of the fact that, as [shown](<https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=we%20would%20like%20to%20see%20what%20some%20of%20them%20look%20like.>) in a previous post, functions in $L^p(U)$ can be identified as elements of the larger space of *distributions* $\Dd '(U ):= C_c^\infty(U)'$. This is done by identifying a function $f \in L^p(U)$ with the linear functional 
 
 $$
 \begin{aligned}
@@ -157,7 +157,7 @@ T_f:\phi \mapsto \int_U f\phi \d x.
 \end{aligned}
 $$
 
-This identification between $f$ and $T_f$  allows us to extend by [duality](https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=is%20called%20the-,duality,-method%20and%20appears) operators that are defined on $C_c^\infty(U)$ to $L^p(U)$. For example, given $u \in L^p(U) \in \Dd'(\Omega )$ we can define its Fourier transform $\Ff u$  and  $\alpha$-th derivative $D^\alpha u$  to be the distributions defined by
+This identification between $f$ and $T_f$  allows us to extend by [duality](<https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=is%20called%20the-,duality,-method%20and%20appears>) operators that are defined on $C_c^\infty(U)$ to $L^p(U)$. For example, given $u \in L^p(U) \in \Dd'(\Omega )$ we can define its Fourier transform $\Ff u$  and  $\alpha$-th derivative $D^\alpha u$  to be the distributions defined by
 
 $$
 \begin{aligned}
@@ -227,7 +227,7 @@ Though the Sobolev-Slobodeckij spaces can be defined for any open set $U$, they 
 
 ::: {#prp-inclusion-ordered-by-regularity name="Inclusion ordered by regularity"}
 
-Let  $\Omega$ be an [extension domain](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=extend%20Sobolev%20functions) for $W^{1,p}$.  Then, for $p \in [1,\infty)$ and $0<s<s'$ it holds that
+Let  $\Omega$ be an [extension domain](<https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=extend%20Sobolev%20functions>) for $W^{1,p}$.  Then, for $p \in [1,\infty)$ and $0<s<s'$ it holds that
 
 $$
 \begin{aligned}
@@ -255,7 +255,7 @@ $$
 
 :::
 
-In the definition above, we used the notation $\br{\xi}:=\sqrt{1+|\xi|^2}$. As we saw when we studied Sobolev spaces through the [Fourier transform](https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=Sobolev%20spaces-,Sobolev%20spaces,-form%20a%20particular), using the fact that $\Ff$ is an isometry which transforms differentiation into polynomial multiplication
+In the definition above, we used the notation $\br{\xi}:=\sqrt{1+|\xi|^2}$. As we saw when we studied Sobolev spaces through the [Fourier transform](<https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=Sobolev%20spaces-,Sobolev%20spaces,-form%20a%20particular>), using the fact that $\Ff$ is an isometry which transforms differentiation into polynomial multiplication
 
 $$
 \begin{aligned}
@@ -459,13 +459,13 @@ For higher orders of regularity, the following is sufficient: see [@leoni2023fir
 
 ::: {#thm-1}
 
-Let $\Omega \subset \R^d$ be open with [uniformly Lipschitz boundary](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=has-,uniformly%20Lipschitz%20boundary,-if%20there%20exists) and consider   $p\in [1,\infty), s\in[1,\infty)$. Then, $\Omega$ is an extension domain for $W^{s,p},H^{s,p},B^{s,p}$.
+Let $\Omega \subset \R^d$ be open with [uniformly Lipschitz boundary](<https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=has-,uniformly%20Lipschitz%20boundary,-if%20there%20exists>) and consider   $p\in [1,\infty), s\in[1,\infty)$. Then, $\Omega$ is an extension domain for $W^{s,p},H^{s,p},B^{s,p}$.
 
 :::
 
 ### Interpolation
 
-Both the Sobolev-Slobodeckij and Bessel potential spaces can be viewed as a way to fill the gaps between integer-valued Sobolev spaces. The following uses the concept of [complex interpolation](https://en.wikipedia.org/wiki/Interpolation_space). We will not go into detail as the results will not be essential to us, but merely serve as a nice way to understand the relationship between the spaces.
+Both the Sobolev-Slobodeckij and Bessel potential spaces can be viewed as a way to fill the gaps between integer-valued Sobolev spaces. The following uses the concept of [complex interpolation](<https://en.wikipedia.org/wiki/Interpolation_space>). We will not go into detail as the results will not be essential to us, but merely serve as a nice way to understand the relationship between the spaces.
 
 ::: {#prp-interpolation name="Interpolation "}
 
@@ -851,8 +851,8 @@ H^{s,p}_K(\R^d):= \set{u \in H^{s,p}(\R^d): \rm{supp}(u) \subset K},
 \end{aligned}
 $$
 
-the support being understood [in the sense of distributions](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=Support%20of%20a%20distribution)
-Now, given a Banach space $X$ and a closed subspace $Y \hookrightarrow X$, elements of $X'$ can be restricted to $Y$, obtaining functionals in $Y'$. The kernel of this restriction is $Y^\circ:=\set{\ell \in X': Y \subset \rm{ker}(\ell)}$. Since, by the Hahn Banach theorem, the restriction is surjective, we obtain the [factorization](https://math.la.asu.edu/~quigg/teach/courses/578/2008/notes/adjoints.pdf)
+the support being understood [in the sense of distributions](<https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=Support%20of%20a%20distribution>)
+Now, given a Banach space $X$ and a closed subspace $Y \hookrightarrow X$, elements of $X'$ can be restricted to $Y$, obtaining functionals in $Y'$. The kernel of this restriction is $Y^\circ:=\set{\ell \in X': Y \subset \rm{ker}(\ell)}$. Since, by the Hahn Banach theorem, the restriction is surjective, we obtain the [factorization](<https://math.la.asu.edu/~quigg/teach/courses/578/2008/notes/adjoints.pdf>)
 
 $$
 \begin{aligned}
@@ -1032,7 +1032,7 @@ $$
 ### Fractional Sobolev embeddings
 
 In this section, we state the fractional analogue of the Sobolev embedding theorems for regularity $\gamma \in (0,1)$.
-Here, the [analogous](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#global:~:text=concludes%20the%20proof.%C2%A0%E2%97%BB-,Exercise,-24%20.%20Given) of the exponent $p_k^{*}$ is
+Here, the [analogous](<https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#global:~:text=concludes%20the%20proof.%C2%A0%E2%97%BB-,Exercise,-24%20.%20Given>) of the exponent $p_k^{*}$ is
 
 ::: {#def-3}
 
@@ -1202,7 +1202,7 @@ $$
 \end{aligned}
 $$
 
-The result follows from @thm-subcritical-embedding,  @thm-morrey-embedding together with the [integer-case](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#est32:~:text=Combining%20the%20three%20results) embeddings. For the first case, by @thm-subcritical-embedding, we have
+The result follows from @thm-subcritical-embedding,  @thm-morrey-embedding together with the [integer-case](<https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#est32:~:text=Combining%20the%20three%20results>) embeddings. For the first case, by @thm-subcritical-embedding, we have
 
 $$
 \begin{aligned}

@@ -139,7 +139,7 @@ $$
 
 ## Introduction
 
-Welcome back to the second post on our series of PDE. In post [4](https://nowheredifferentiable.com/2023-12-23-PDEs-4-Physical_derivation_of_parabolic_and_elliptic_PDE/), we gave a physical derivation of PDE (both parabolic and elliptic) that justify why we are interested in such equations. In posts [1](https://nowheredifferentiable.com/2023-01-29-PDE-1/), [2](https://nowheredifferentiable.com/2023-05-30-PDE-2-Hilbert/), [3](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/), [5](https://nowheredifferentiable.com/2024-02-27-PDEs-5-Fractional_Sobolev_spaces/) of the series we built up the theoretical framework necessary to define Sobolev spaces, spaces of weakly differentiable functions to which we could extend the concept of differentiation (I know, the order is a bit messed up).  We are now going to use the previous theory to study these equations.
+Welcome back to the second post on our series of PDE. In post [4](<https://nowheredifferentiable.com/2023-12-23-PDEs-4-Physical_derivation_of_parabolic_and_elliptic_PDE/>), we gave a physical derivation of PDE (both parabolic and elliptic) that justify why we are interested in such equations. In posts [1](<https://nowheredifferentiable.com/2023-01-29-PDE-1/>), [2](<https://nowheredifferentiable.com/2023-05-30-PDE-2-Hilbert/>), [3](<https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/>), [5](<https://nowheredifferentiable.com/2024-02-27-PDEs-5-Fractional_Sobolev_spaces/>) of the series we built up the theoretical framework necessary to define Sobolev spaces, spaces of weakly differentiable functions to which we could extend the concept of differentiation (I know, the order is a bit messed up).  We are now going to use the previous theory to study these equations.
 
 ## The problem: Mathematical framework
 
@@ -156,7 +156,7 @@ $$ {#eq-pde}
 
 where $f: U \to \R$ is some known function, $u$ is the solution we want to find. In the case where $U = \R^d$ the boundary condition is vacuous as $\partial \R^d = \emptyset$.
 
-We recall from post [4](https://nowheredifferentiable.com/2023-12-23-PDEs-4-Physical_derivation_of_parabolic_and_elliptic_PDE/) that physically; we can interpret $u$ as the density of some substance, $\bm{A}$ as a diffusion matrix, $\bm{b}$ as a transport vector, $c$ as a reaction coefficient and $f$ as the source term. For the mathematical theory, we will need some conditions on the coefficients. Primarily, we require that $\bm{A}$ is *elliptic*.
+We recall from post [4](<https://nowheredifferentiable.com/2023-12-23-PDEs-4-Physical_derivation_of_parabolic_and_elliptic_PDE/>) that physically; we can interpret $u$ as the density of some substance, $\bm{A}$ as a diffusion matrix, $\bm{b}$ as a transport vector, $c$ as a reaction coefficient and $f$ as the source term. For the mathematical theory, we will need some conditions on the coefficients. Primarily, we require that $\bm{A}$ is *elliptic*.
 
 ::: {#def-1 name="Ellipticity"}
 
@@ -180,7 +180,7 @@ We also say that $\bm{A}$ is elliptic.
 
 :::
 
-There are some points to clear up. Firstly, if this is the first time you've encountered the ellipticity condition in ([-@eq-elliptic]), then it may seem a bit strange. With the previous physical interpretation, the ellipticity condition ([-@eq-elliptic]) says that diffusion occurs from the region of [higher to lower density](https://nowheredifferentiable.com/2023-12-23-PDEs-4-Physical_derivation_of_parabolic_and_elliptic_PDE/#:~:text=This%20is%20the-,process,-that%20causes%20the). Mathematically speaking, ([-@eq-elliptic]) will prove necessary to apply [Lax Milgram's theorem](https://nowheredifferentiable.com/2023-05-30-PDE-2-Hilbert/#:~:text=degenerate.%20As%20a-,particular,-example%2C%20a%20symmetric) and obtain regularity estimates on $u$. 
+There are some points to clear up. Firstly, if this is the first time you've encountered the ellipticity condition in ([-@eq-elliptic]), then it may seem a bit strange. With the previous physical interpretation, the ellipticity condition ([-@eq-elliptic]) says that diffusion occurs from the region of [higher to lower density](<https://nowheredifferentiable.com/2023-12-23-PDEs-4-Physical_derivation_of_parabolic_and_elliptic_PDE/#:~:text=This%20is%20the-,process,-that%20causes%20the>). Mathematically speaking, ([-@eq-elliptic]) will prove necessary to apply [Lax Milgram's theorem](<https://nowheredifferentiable.com/2023-05-30-PDE-2-Hilbert/#:~:text=degenerate.%20As%20a-,particular,-example%2C%20a%20symmetric>) and obtain regularity estimates on $u$. 
 
 Next, when developing the mathematical theory of any equation, the first step is to establish whether the equation is *well-posed*.
 
@@ -228,7 +228,7 @@ $$
 
 :::
 
-For more details on why we denote the dual using negative exponents, see the [relevant section](https://nowheredifferentiable.com/2024-02-27-PDEs-5-Fractional_Sobolev_spaces/#fractional%20laplacian:~:text=%E2%97%BB-,Dual%20of%20Sobolev%20spaces,-and%20correspondence%20with) in the previous post on fractional Sobolev spaces. We [recall](https://nowheredifferentiable.com/2024-02-27-PDEs-5-Fractional_Sobolev_spaces/#:~:text=some%20particular%20cases.-,Theorem%2018,-(Representation%20of) also that every element in $H^{-k}(U)$ can be written as the sum of derivatives up to order $k$ of a function in $L^2(U)$.
+For more details on why we denote the dual using negative exponents, see the [relevant section](<https://nowheredifferentiable.com/2024-02-27-PDEs-5-Fractional_Sobolev_spaces/#fractional%20laplacian:~:text=%E2%97%BB-,Dual%20of%20Sobolev%20spaces,-and%20correspondence%20with>) in the previous post on fractional Sobolev spaces. We [recall](<https://nowheredifferentiable.com/2024-02-27-PDEs-5-Fractional_Sobolev_spaces/#:~:text=some%20particular%20cases.-,Theorem%2018,-(Representation%20of>) also that every element in $H^{-k}(U)$ can be written as the sum of derivatives up to order $k$ of a function in $L^2(U)$.
 
 ::: {#exr-domain-l}
 
@@ -308,7 +308,7 @@ B(u,u) & = \int_{U}\bm{A} \nabla u \cdot \nabla u + \int_{U} cu^2 \geq \alpha \n
 \end{aligned}
 $$ {#eq-b-0}
 
-Where in the first inequality, we used the ellipticity assumption on $\bm{A}$, and in the last inequality, we used [Poincaré's inequality](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=in%20future%20posts-,Theorem,-14%20(Poincar%C3%A9%20inequality) if $U$ is bounded. The result now follows from [Lax Milgram's theorem](https://nowheredifferentiable.com/2023-05-30-PDE-2-Hilbert/#:~:text=an%20inner%20product.-,Theorem,-7%20(Lax%20Milgram).
+Where in the first inequality, we used the ellipticity assumption on $\bm{A}$, and in the last inequality, we used [Poincaré's inequality](<https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=in%20future%20posts-,Theorem,-14%20(Poincar%C3%A9%20inequality>) if $U$ is bounded. The result now follows from [Lax Milgram's theorem](<https://nowheredifferentiable.com/2023-05-30-PDE-2-Hilbert/#:~:text=an%20inner%20product.-,Theorem,-7%20(Lax%20Milgram>).
 
 :::
 
@@ -322,7 +322,7 @@ Show that, under the conditions of @thm-well-posed-1, if $U$ is bounded, there i
 
 ::: {.callout-tip collapse="true" title="Hint"}
 
-By [Rellich's theorem](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=Theorem%2014%20(-,Rellich,-for%20trace%200) $\Ll^{-1}: L^2(U) \to L^2(U)$ is compact and, since $\bm{b}$ is $0$, $\Ll$ is also is self adjoint. As a result, so there is a countable basis of eigenvectors in $L^2(U)$.
+By [Rellich's theorem](<https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=Theorem%2014%20(-,Rellich,-for%20trace%200>) $\Ll^{-1}: L^2(U) \to L^2(U)$ is compact and, since $\bm{b}$ is $0$, $\Ll$ is also is self adjoint. As a result, so there is a countable basis of eigenvectors in $L^2(U)$.
 
 :::
 
@@ -410,7 +410,7 @@ $$
 \end{aligned}
 $$ {#eq-below}
 
-where $\bm{I}$ is the identity operator. Suppose now that $U$ is bounded, then, by [Rellich's theorem](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=Theorem%2014%20(-,Rellich,-for%20trace%200), we know that the following inclusion is compact
+where $\bm{I}$ is the identity operator. Suppose now that $U$ is bounded, then, by [Rellich's theorem](<https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=Theorem%2014%20(-,Rellich,-for%20trace%200>), we know that the following inclusion is compact
 
 $$
 \begin{aligned}
@@ -434,7 +434,7 @@ $$
 \end{aligned}
 $$ {#eq-reasoning}
 
-Equation ([-@eq-reasoning]) is exactly the form the [Fredholm alternative](https://nowheredifferentiable.com/2023-05-30-PDE-2-Hilbert/#:~:text=Theorem%2010%20(-,Fredholm,-alternative) takes ($\mu$ can be incorporated into  the compact operator $K$) and justifies the following.
+Equation ([-@eq-reasoning]) is exactly the form the [Fredholm alternative](<https://nowheredifferentiable.com/2023-05-30-PDE-2-Hilbert/#:~:text=Theorem%2010%20(-,Fredholm,-alternative>) takes ($\mu$ can be incorporated into  the compact operator $K$) and justifies the following.
 
 ::: {#thm-well-posedness-fredholm}
 
@@ -562,7 +562,7 @@ Where does the proof of @thm-well-posedness-fredholm break down if we replace $U
 
 ::: {.callout-tip collapse="true" title="Hint"}
 
-Can you apply  [Rellich's theorem](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=Theorem%2014%20(-,Rellich,-for%20trace%200) to unbounded domains? What is the spectrum of the Laplacian on $\R^d$?
+Can you apply  [Rellich's theorem](<https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=Theorem%2014%20(-,Rellich,-for%20trace%200>) to unbounded domains? What is the spectrum of the Laplacian on $\R^d$?
 
 :::
 
@@ -645,7 +645,7 @@ D_j^h u(x) = \int_0^1 \partial_j u(x+the_j) \d t.
 \end{aligned}
 $$
 
-Taking norms and using [Minkowski's integral inequality](https://en.wikipedia.org/wiki/Minkowski_inequality#:~:text=.-,Minkowski%27s,-integral%20inequality%5B) we obtain
+Taking norms and using [Minkowski's integral inequality](<https://en.wikipedia.org/wiki/Minkowski_inequality#:~:text=.-,Minkowski%27s,-integral%20inequality%5B>) we obtain
 
 $$
 \begin{aligned}
@@ -677,7 +677,7 @@ Prove @lem-difference-quotients-2.
 
 ::: {.callout-tip collapse="true" title="Hint"}
 
-Adapt the proof of @lem-difference-quotients-1.  Take $\varphi \in C_c^\infty(V)$ for the first point. For the second point, use the [local density](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=drawings%20is%20recommended.-,Theorem%203,-(Local%20approximation%20by) of smooth functions in $W^{1,p}(U)$.
+Adapt the proof of @lem-difference-quotients-1.  Take $\varphi \in C_c^\infty(V)$ for the first point. For the second point, use the [local density](<https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=drawings%20is%20recommended.-,Theorem%203,-(Local%20approximation%20by>) of smooth functions in $W^{1,p}(U)$.
 
 :::
 
@@ -886,7 +886,7 @@ Let $A_{ij}, b_i,c \in C^{\infty}(\R^d)$ with $\bm{A}$ elliptic. Then, if $u \in
 
 ::: {.proof}
 
-By @thm-higher-regularity-2, we have that $u \in H^k(\R^d)$ for all $k \in \N$. By [Sobolev embeddings](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=three%20results%20gives-,Theorem%2013,-(Rellich%2DKondrachov) we deduce that $u \in C^\infty(\R^d)$.
+By @thm-higher-regularity-2, we have that $u \in H^k(\R^d)$ for all $k \in \N$. By [Sobolev embeddings](<https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=three%20results%20gives-,Theorem%2013,-(Rellich%2DKondrachov>) we deduce that $u \in C^\infty(\R^d)$.
 
 :::
 
@@ -896,7 +896,7 @@ At first sight, it may seem as if the above results can be extended to solutions
 
 The following argument is **false**. Show the flaw in the reasoning.
 
-Let $U \subset \R^d$ be any open subset. Suppose that $A_{ij}\in C^1(\overline{U} )$ is elliptic and that $b_i, c \in L^\infty(U)$ . Let $u \in H_0^1(U)$ solve $\Ll u=f$. The [extension](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=smooth%20unbounded%20domains.-,Exercise%2021,-(Extension%20trace%200) $\tl{u}$ to $\R^d$ by zero of $u$ is in $H^1(\R^d)$. The coefficients $b,c$ can likewise be extended by $0$ to functions $\tl{\bm{b}}, \tl{c} \in  L^\infty(\R^d)$. Likewise for $f$ to $\tl{f} \in L^2(\R^d)$ and by Assumption, $\bm{A}$ is the restriction to $U$ of some function $\tl{A} \in C^1(\R^d)$. We have that 
+Let $U \subset \R^d$ be any open subset. Suppose that $A_{ij}\in C^1(\overline{U} )$ is elliptic and that $b_i, c \in L^\infty(U)$ . Let $u \in H_0^1(U)$ solve $\Ll u=f$. The [extension](<https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=smooth%20unbounded%20domains.-,Exercise%2021,-(Extension%20trace%200>) $\tl{u}$ to $\R^d$ by zero of $u$ is in $H^1(\R^d)$. The coefficients $b,c$ can likewise be extended by $0$ to functions $\tl{\bm{b}}, \tl{c} \in  L^\infty(\R^d)$. Likewise for $f$ to $\tl{f} \in L^2(\R^d)$ and by Assumption, $\bm{A}$ is the restriction to $U$ of some function $\tl{A} \in C^1(\R^d)$. We have that 
 
 $$
 \begin{aligned}
@@ -957,7 +957,7 @@ However, $\tl{u}$ is not in $H^2(\R)$ as $\tl{u}''= \delta _{-1}+ \delta _1 -2 \
 
 We have just seen that a direct generalization of @thm-improved-reg-rd to unbounded domains is not possible using an extension by zero. However, by adapting the proof of @thm-improved-reg-rd, one can prove the analogous result.
 
-In this case, however, one has to be careful as the difference quotients may not be well defined at the boundary. As a result, it is necessary to work locally and use a [bump function](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=22.%20A-,bump%20function,-(also%20called%20cutoff). This makes the proofs a bit messier, though the idea is the same. We sketch the proof, which can also be found in [@evans2022partial] page 326
+In this case, however, one has to be careful as the difference quotients may not be well defined at the boundary. As a result, it is necessary to work locally and use a [bump function](<https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=22.%20A-,bump%20function,-(also%20called%20cutoff>). This makes the proofs a bit messier, though the idea is the same. We sketch the proof, which can also be found in [@evans2022partial] page 326
 
 ::: {#thm-higher-regularity name="Improved interior regularity"}
 
@@ -1258,7 +1258,7 @@ Let $\Omega \subset \R^d$ be bounded of class $C^{\infty}$. Let $A_{ij}, b_i,c \
 
 ## Other boundary conditions
 
-So far, we have only worked with homogeneous Dirichlet boundary conditions. However, it often makes more sense to work with the non-homogeneous case. We also show how to extend the results to Neumann or Robin [boundary conditions](https://nowheredifferentiable.com/2023-12-23-PDEs-4-Physical_derivation_of_parabolic_and_elliptic_PDE/#:~:text=reaction%20and%20source.-,Boundary%20conditions,-In%20an%20application). In this section, we will see how to adapt the results of the previous section to these cases.
+So far, we have only worked with homogeneous Dirichlet boundary conditions. However, it often makes more sense to work with the non-homogeneous case. We also show how to extend the results to Neumann or Robin [boundary conditions](<https://nowheredifferentiable.com/2023-12-23-PDEs-4-Physical_derivation_of_parabolic_and_elliptic_PDE/#:~:text=reaction%20and%20source.-,Boundary%20conditions,-In%20an%20application>). In this section, we will see how to adapt the results of the previous section to these cases.
 
 ### Non-homogeneous Dirichlet boundary conditions
 
@@ -1273,7 +1273,7 @@ $$
 \end{aligned}
 $$ {#eq-pde-dirichlet}
 
-For ([-@eq-pde-dirichlet]) to hold, it is necessary that $g$ is the restriction to $\partial \Omega$ of some function $\tl{g}$ called a *lifting* of $\tl{g}$ onto $\Omega$   (in particular it is the restriction of  $u$ to $\partial \Omega$ ). That is, $\tl{g}  \in \rm{Tr}(H^m(\Omega ))$ where $\rm{Tr}$ is the trace operator and $m$ is the desired regularity of $u$. By [theory of the trace operator](https://nowheredifferentiable.com/2024-02-27-PDEs-5-Fractional_Sobolev_spaces/#:~:text=2020%20page%20390.-,Theorem%2020,-(Fractional%20trace%20theorem), we know that this is equivalent to $g \in H^{m-1/2}(\partial \Omega )$. Then, by forming $w:= u-\tl{g}$ we obtain that $w$ solves the homogeneous Dirichlet problem 
+For ([-@eq-pde-dirichlet]) to hold, it is necessary that $g$ is the restriction to $\partial \Omega$ of some function $\tl{g}$ called a *lifting* of $\tl{g}$ onto $\Omega$   (in particular it is the restriction of  $u$ to $\partial \Omega$ ). That is, $\tl{g}  \in \rm{Tr}(H^m(\Omega ))$ where $\rm{Tr}$ is the trace operator and $m$ is the desired regularity of $u$. By [theory of the trace operator](<https://nowheredifferentiable.com/2024-02-27-PDEs-5-Fractional_Sobolev_spaces/#:~:text=2020%20page%20390.-,Theorem%2020,-(Fractional%20trace%20theorem>), we know that this is equivalent to $g \in H^{m-1/2}(\partial \Omega )$. Then, by forming $w:= u-\tl{g}$ we obtain that $w$ solves the homogeneous Dirichlet problem 
 
 $$
 \begin{aligned}
@@ -1328,7 +1328,7 @@ B(u,v):= \int_{\Omega } \bm{A} \nabla u \cdot \nabla v +\int_{\Omega } \bm{b} \n
 \end{aligned}
 $$ {#eq-weak-def-neumann}
 
-For the weak form to be well defined we need for $f$ to be in the dual space $H^1(\Omega )'$ (this is [different](https://nowheredifferentiable.com/2024-02-27-PDEs-5-Fractional_Sobolev_spaces/#:~:text=Theorem%2016.-,As,-a%20final%20note) from $H^{-1}(\Omega ):= H^1(\Omega )'$)and $g \in H^{-1/2}(\partial \Omega )$ . A similar reasoning to previously shows the following. 
+For the weak form to be well defined we need for $f$ to be in the dual space $H^1(\Omega )'$ (this is [different](<https://nowheredifferentiable.com/2024-02-27-PDEs-5-Fractional_Sobolev_spaces/#:~:text=Theorem%2016.-,As,-a%20final%20note>) from $H^{-1}(\Omega ):= H^1(\Omega )'$)and $g \in H^{-1/2}(\partial \Omega )$ . A similar reasoning to previously shows the following. 
 
 ::: {#thm-3}
 
@@ -1404,7 +1404,7 @@ $$
 \end{aligned}
 $$
 
-Note carefully that $B$ is *not* coercive on $H^1(\Omega )$ as [Poincaré's inequality](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=in%20future%20posts-,Theorem,-14%20(Poincar%C3%A9%20inequality) does not hold for Neumann boundary conditions.
+Note carefully that $B$ is *not* coercive on $H^1(\Omega )$ as [Poincaré's inequality](<https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=in%20future%20posts-,Theorem,-14%20(Poincar%C3%A9%20inequality>) does not hold for Neumann boundary conditions.
 
 ::: {#exr-eigensapace}
 

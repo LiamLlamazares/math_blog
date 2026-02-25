@@ -284,7 +284,7 @@ $$
 
 :::
 
-	Cool! Now we know what is a Hilbert space. Some examples that have come up in previous posts are the space of [square-integrable functions](https://nowheredifferentiable.com/2022-05-27-The-Bochner-integral/#:~:text=we%20can%20integrate.-,Our,-next%20definitions%20are) valued in  another Hilbert space $H$ with the inner product
+	Cool! Now we know what is a Hilbert space. Some examples that have come up in previous posts are the space of [square-integrable functions](<https://nowheredifferentiable.com/2022-05-27-The-Bochner-integral/#:~:text=we%20can%20integrate.-,Our,-next%20definitions%20are>) valued in  another Hilbert space $H$ with the inner product
 	
 $$
 \begin{aligned}
@@ -292,7 +292,7 @@ $$
 \end{aligned}
 $$
 
-	Another are the [Sobolev spaces](https://nowheredifferentiable.com/2022-05-27-The-Bochner-integral/#:~:text=we%20can%20integrate.-,Our,-next%20definitions%20are) $H^s(\R^d)$ with the inner product
+	Another are the [Sobolev spaces](<https://nowheredifferentiable.com/2022-05-27-The-Bochner-integral/#:~:text=we%20can%20integrate.-,Our,-next%20definitions%20are>) $H^s(\R^d)$ with the inner product
 	
 $$
 \begin{aligned}
@@ -395,7 +395,7 @@ $$
 
 :::
 
-	Note that the imposition that $V$ is closed in @thm-complement-theorem is necessary. Finite-dimensional subspaces are always closed, but infinite-dimensional subspaces may not be. For example, consider $H=L^2(I)$ for some bounded $I$ and take  $V$ to polynomials on $I$ . By the [Stone-Weierstrass](https://en.wikipedia.org/wiki/Stone%E2%80%93Weierstrass_theorem) theorem $V$ is dense  in $H$. That is $H=\overline{V}$, whereas
+	Note that the imposition that $V$ is closed in @thm-complement-theorem is necessary. Finite-dimensional subspaces are always closed, but infinite-dimensional subspaces may not be. For example, consider $H=L^2(I)$ for some bounded $I$ and take  $V$ to polynomials on $I$ . By the [Stone-Weierstrass](<https://en.wikipedia.org/wiki/Stone%E2%80%93Weierstrass_theorem>) theorem $V$ is dense  in $H$. That is $H=\overline{V}$, whereas
 	
 $$
 \begin{aligned}
@@ -508,7 +508,7 @@ $$
 \end{aligned}
 $$
 
-As a result by [Zorn's lemma](https://en.wikipedia.org/wiki/Zorn%27s_lemma) there exists a maximal element $\Bb$. If $\Bb$ is not complete (that is ([-@eq-sum]) doesn't hold), then there exists $f \in \overline{\Bb}^\perp$. By taking $f /\norm{f}$ and forming $\Bb':=\Bb \cup \set{f \norm{f}}$ we obtain that $\Bb \subsetneq \Bb' \in \Aa$. This contradicts the maximality of $\Bb$ and concludes the proof.
+As a result by [Zorn's lemma](<https://en.wikipedia.org/wiki/Zorn%27s_lemma>) there exists a maximal element $\Bb$. If $\Bb$ is not complete (that is ([-@eq-sum]) doesn't hold), then there exists $f \in \overline{\Bb}^\perp$. By taking $f /\norm{f}$ and forming $\Bb':=\Bb \cup \set{f \norm{f}}$ we obtain that $\Bb \subsetneq \Bb' \in \Aa$. This contradicts the maximality of $\Bb$ and concludes the proof.
 
 :::
 
@@ -560,7 +560,7 @@ H\to \ell ^2(I); \quad f \to \set{\br{f,\phi_{\alpha}}}_{\alpha \in I}.
 \end{aligned}
 $$
 
-	In particular, every Hilbert space with a countable basis is isometric to $\ell ^2(\N)$. However, the identification is not ``canonical'' as it depends on the bases chosen. The next example is all pervasive (in fact it has [even invaded our blog](https://nowheredifferentiable.com/2023-01-29-PDE-1/))
+	In particular, every Hilbert space with a countable basis is isometric to $\ell ^2(\N)$. However, the identification is not ``canonical'' as it depends on the bases chosen. The next example is all pervasive (in fact it has [even invaded our blog](<https://nowheredifferentiable.com/2023-01-29-PDE-1/>))
 	
 
 ::: {#exm-3 name="Plancherel"}
@@ -1029,7 +1029,7 @@ Let $X,Y$ be metric spaces then  $\Kk(X,Y)$ is a vector space. Furthermore, if $
 
 ::: {.proof}
 
-The first part again follows fromb the last equivalent characterization in @prp-equivalent.  The second part relies on the fact that in complete spaces compact and [totally bounded](https://en.wikipedia.org/wiki/Totally_bounded_space#:~:text=not%20in%20general.-,In,-metric%20spaces%5B) are equivalent.
+The first part again follows fromb the last equivalent characterization in @prp-equivalent.  The second part relies on the fact that in complete spaces compact and [totally bounded](<https://en.wikipedia.org/wiki/Totally_bounded_space#:~:text=not%20in%20general.-,In,-metric%20spaces%5B>) are equivalent.
 
 :::
 

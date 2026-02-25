@@ -191,7 +191,7 @@ Let $X\in \mathbb{D}^{1,2}$. If $\norm{DX}_{H}>0$ almost everywhere, then $X$ ha
 
 ::: {.proof}
 
-By the [Radon Nikodyn theorem](https://en.wikipedia.org/wiki/Radon%E2%80%93Nikodym_theorem)  all we need to do is show that $\mathbb{P}_X$ is absolutely continuous with respect to the Lebesgue measure $\lambda$. That is, we must show that if, $\lambda (A)=0$ then also $\mathbb{P}_X(A)=0$. Let us set $g(y):=1_A(y)$ and
+By the [Radon Nikodyn theorem](<https://en.wikipedia.org/wiki/Radon%E2%80%93Nikodym_theorem>)  all we need to do is show that $\mathbb{P}_X$ is absolutely continuous with respect to the Lebesgue measure $\lambda$. That is, we must show that if, $\lambda (A)=0$ then also $\mathbb{P}_X(A)=0$. Let us set $g(y):=1_A(y)$ and
 
 $$
 \varphi(x):=\int_{-\infty}^x g(y)dy.

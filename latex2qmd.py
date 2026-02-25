@@ -963,7 +963,7 @@ def convert_body(body: str, label_registry: dict | None = None,
             inner, end_pos = extract_balanced(text, m.end() - 1)
             text = text[:m.start()] + f'{md_wrap}{inner}{md_wrap}' + text[end_pos:]
 
-    # \href{url}{text} → [text](url)
+    # \href{url}{text} → [text](<url>)
     href_pat = re.compile(r'\\href\{')
     while True:
         m = href_pat.search(text)
@@ -972,7 +972,7 @@ def convert_body(body: str, label_registry: dict | None = None,
         url, mid_pos = extract_balanced(text, m.end() - 1)
         if mid_pos < len(text) and text[mid_pos] == '{':
             display, end_pos = extract_balanced(text, mid_pos)
-            text = text[:m.start()] + f'[{display}]({url})' + text[end_pos:]
+            text = text[:m.start()] + f'[{display}](<{url}>)' + text[end_pos:]
         else:
             text = text[:m.start()] + f'<{url}>' + text[mid_pos:]
 

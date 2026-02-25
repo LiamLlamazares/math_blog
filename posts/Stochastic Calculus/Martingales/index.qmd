@@ -164,7 +164,7 @@ $$
 
 ::: {.proof}
 
-We have already proved the above inequality for simple processes. By our previous post on the [Bochner integral](https://nowheredifferentiable.com/2022-05-27-The-Bochner-integral/), we can take $X_n$ converging to $X$ in $L^1(\Omega\to E)$ to obtain that
+We have already proved the above inequality for simple processes. By our previous post on the [Bochner integral](<https://nowheredifferentiable.com/2022-05-27-The-Bochner-integral/>), we can take $X_n$ converging to $X$ in $L^1(\Omega\to E)$ to obtain that
 
 $$
 \begin{aligned}

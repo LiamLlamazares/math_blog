@@ -523,11 +523,7 @@ $$
 \Ff(\Delta \omega)=-4\pi \abs{\xi }^2\Ff w .
 $$
 
-As a result we deduce that for any $f \in \Ss'(\R^d\to \C^n)$ the equation $Pw=f$ has as it's unique solution
-
-$$
-w=\Ff^{-1}\left(\frac{-f}{4\pi \abs{\xi }^2 }\right).
-$$
+Solving $Pw=f$ formally yields $w=\Ff^{-1}\left(\frac{-\Ff f}{4\pi^2 \abs{\xi }^2 }\right)$. However, division by $\abs{\xi}^2$ is ill-defined at the origin in $\Ss'(\R^d)$. A unique solution only exists if we restrict our domain (e.g., requiring $\Ff f(0) = 0$ in suitable homogeneous spaces) to bypass the singularity.
 
 :::
 
@@ -555,7 +551,7 @@ Note that it is not enough to require $\abs{\alpha}=k$ as, for example, the temp
 from which we deduce that
 
 $$
-f\in H^k(\R^d\to\C^m)\iff \sum_{\abs{\alpha}\leq k} \abs{(2\pi i\xi )^{\alpha}}\hat{f}(\xi)\sim_k \br{\xi}^k\hat{f}\in L^2(\R^d\to\C^m)
+f\in H^k(\R^d\to\C^m)\iff \sum_{\abs{\alpha}\leq k} \norm{(2\pi i\xi )^{\alpha}\hat{f}(\xi)}_{L^2(\R^d)} \sim_k \norm{\br{\xi}^k\hat{f}}_{L^2(\R^d)} < \infty
 $$ {#eq-sobolevcondition}
 
 In fact, since the Fourier transform is a unitary transformation on $L^2(\R^d\to\C^m)$, the same reasoning gives
@@ -605,7 +601,7 @@ $$
 
 This gives one access to all the power of functional analysis and is invaluable in proofs. However,  at the end of the day wishes to prove that solutions with smooth initial data are themselves smooth in a classical sense. This can be done by showing that the solution belongs to a Sobolev space of high enough order together with the following two results.
 
-::: {#lem-1 name="**Continuity of Holder functions**"}
+::: {#lem-1 name="**Sobolev Embedding into Continuous Functions**"}
 
 Given $f\in H^{s}(\T^d\to\C^m)$ with $s>d/2$. Then the Fourier series of $f$ is absolutely convergent and $f\in C(\T^d\to\C^m)$ with the bound
 \[\norm{f}_{L^\infty(\T^d\to\C^m)}\lesssim_{d,s}\norm{f}_{H^s(\T^d\to\C^m)}\]
@@ -671,7 +667,7 @@ $$
 The term $p_\Ll$ is called a Fourier multiplier and there is no need to limit ourselves to polynomials. In fact, we may make the general definition that for a function of two variables $p$
 
 $$
-p(x,D)f:=\Ff^{-1}(p(x,\xi )\hat{f}(\xi )).
+p(x,D)f:=\Ff^{-1}\left(p(x,\cdot  )\hat{f}(\cdot  )\right).
 $$
 
 This leads to the definition of *pseudo-differential operators*. A particular case is that of fractional operators. We now show an example.
@@ -681,14 +677,16 @@ This leads to the definition of *pseudo-differential operators*. A particular ca
 Given smooth $f$ we have that
 
 $$
-\Delta f=\Ff^{-1}(-4 \pi^2 \abs{x_i}^2 \hat{f}(\xi )).
+-\Delta f=\Ff^{-1}(4 \pi^2 \abs{\xi}^2 \hat{f}(\xi )).
 $$
 
-As a result, we define for all $s\in \R$
+As a result, we define the fractional Laplacian for all $s\in \R$ as
 
 $$
-{(-\Delta)}^sf:=\Ff^{-1} ((4\pi^2 \br{\xi }^2)^s\hat{f}(\xi )).
+{(-\Delta)}^sf:=\Ff^{-1} \left(\left(4\pi^2 \abs{\xi }^2\right)^s\hat{f}(\xi )\right).
 $$
+
+By contrast, the Bessel potential operator is defined using the Japanese bracket: $(I - \frac{\Delta}{4\pi^2})^{s/2}f := \Ff^{-1}(\br{\xi}^s \hat{f}(\xi))$.
 
 :::
 
