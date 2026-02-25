@@ -87,7 +87,7 @@ The first questions to be asked is: ``what kind of object is the Malliavin deriv
 	Finally, the linearity of $D$ follows from the linearity of the iterated Itô integrals (which itself is a consequence of the linearity of the Itô integral).
 \end{proof}
 In summary, the Malliavin derivative turns a square-integrable random variable into
-a possibly non-adapted, stochastic process. You may recall from our previous posts that we had an operator that went in the opposite direction. The Skorohod integral $\delta $. In fact, the Malliavin derivative and the Skorohod integral are adjoint operators in a sense that will be made precise in the next post. For now, we show that, as occurs with the ordinary derivative, a random variable has Malliavin derivative $0$ if and only if it is constant.
+a possibly non-adapted, stochastic process. You may recall from our previous posts that we had an operator that went in the opposite direction. The Skorokhod integral $\delta $. In fact, the Malliavin derivative and the Skorokhod integral are adjoint operators in a sense that will be made precise in the next post. For now, we show that, as occurs with the ordinary derivative, a random variable has Malliavin derivative $0$ if and only if it is constant.
 \begin{corollary}
 	$(\mathbb{D}_{1,2},\|\cdot \|_{\mathbb{D}_{1,2}})$ is a seminormed space. Furthermore
 	\begin{equation*}
@@ -104,7 +104,7 @@ Before moving on we show a motivating example. Let us consider some deterministi
 \begin{equation*}
 	D_t X= I_0(f(t))=f(t).
 \end{equation*}
-This is a nice result and it might suggest something akin to the fundamental theorem of calculus such as $D_t(\delta Y)=Y$ for any Skorohod integrable process $Y$. However, this will not hold in general and as, will be seen in the next post, occurs if and only if $Y$ is a deterministic function in $L^2(\Omega)$.\\\\
+This is a nice result and it might suggest something akin to the fundamental theorem of calculus such as $D_t(\delta Y)=Y$ for any Skorokhod integrable process $Y$. However, this will not hold in general and as, will be seen in the next post, occurs if and only if $Y$ is a deterministic function in $L^2(\Omega)$.\\\\
 This said, we now show that $\mathbb{D}_{1,2}$ is closed in the sense that: given a convergent sequence $X_m\to X$. If the derivatives  $D_tX_m$ converge then also $D_t X_m\to D_t X$.
 \begin{proposition}
 	Let $X_m \in \mathbb{D}_{1,2}$ such that $X_m$ is a Cauchy sequence in both  $L^2(\Omega)$ and in $\mathbb{D}_{1,2}$. Then, there exists  $X \in \mathbb{D}_{1,2}$ such that

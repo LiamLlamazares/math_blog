@@ -39,7 +39,7 @@
 \setlength{\parindent}{0in}
 
 \begin{document}
-\title{The Skorohod Integral}
+\title{The Skorokhod Integral}
 \author{Liam Llamazares--Elias}
 \date{05-28-2022}
 \maketitle
@@ -50,11 +50,11 @@
 	\item This chaos expansion can converge even when $X(t)$ is not adapted to the filtration $\Ff_t$ (and thus not Itô integrable). This allows us to extend the Itô integral to non-adapted processes.
 \end{itemize}
 \section{Why should I care?}
-If you want to define the Malliavin derivative you need the Skorohod integral.
+If you want to define the Malliavin derivative you need the Skorokhod integral.
 \section{Notation}
 The same as in the previous post \cite{Chaosblog} on the chaos expansion. We will also write $\mathbb{L}^2(I\times \Omega)$ for the space of Itô integrable functions (this was defined in \cite{Itointblog}).
 \section{The chaos expansion of an Itô integral}
-Our goal in this post is to construct the Skorohod integral. This serves as a generalization of the Itô integral and the starting point for the definition of the Malliavin derivative. How is this done? Let us first consider a (not-necessarily adapted) stochastic process $X$ such that $X_t\in L^2(\Omega,\Ff_\infty)$ for each $t \in I$. Then we know that by the chaos expansion proved in the previous post, for each $t$ there exists  $f_{n,t}\in L^2(S_n)$ such that
+Our goal in this post is to construct the Skorokhod integral. This serves as a generalization of the Itô integral and the starting point for the definition of the Malliavin derivative. How is this done? Let us first consider a (not-necessarily adapted) stochastic process $X$ such that $X_t\in L^2(\Omega,\Ff_\infty)$ for each $t \in I$. Then we know that by the chaos expansion proved in the previous post, for each $t$ there exists  $f_{n,t}\in L^2(S_n)$ such that
 \begin{equation*}
 	X=\sum_{n=0}^{\infty} I_n(f_{n,t}).
 \end{equation*}
@@ -93,19 +93,19 @@ Using this relationship we can directly calculate the Itô integral of a stochas
 	\end{multline*}
 
 \end{proof}
-\section{The Skorohod integral}%
+\section{The Skorokhod integral}%
 
-The last term appearing in the equality is what we will call the Skorohod integral.
+The last term appearing in the equality is what we will call the Skorokhod integral.
 \begin{definition}
 	Let $X(t)\in L^2(\Omega,\Ff_\infty)$ be a  stochastic process such that
 	\begin{equation*}
 		\delta(X):=\int_{I} X(t)\delta W(t):=\sum_{n=0}^{\infty} I_{n+1}(f_{n,S})\in L^2(\Omega).
 	\end{equation*}
-	Then we will say that $X$ has Skorohod integral $\delta(X)$ and write $X\in dom(\delta)$.
+	Then we will say that $X$ has Skorokhod integral $\delta(X)$ and write $X\in dom(\delta)$.
 \end{definition}
-As we saw in the previous theorem the Skorohod integral is equal to the Itô integral for all stochastic processes in $\mathbb{L}^2(I\times\Omega)$. However, it may also be defined for non-adapted stochastic processes. In fact, by using the orthogonality of the iterated integrals (what we called \emph{Itô's} $n$-\emph{th isometry} in the last post \cite{Chaosblog}, we deduce the following).
+As we saw in the previous theorem the Skorokhod integral is equal to the Itô integral for all stochastic processes in $\mathbb{L}^2(I\times\Omega)$. However, it may also be defined for non-adapted stochastic processes. In fact, by using the orthogonality of the iterated integrals (what we called \emph{Itô's} $n$-\emph{th isometry} in the last post \cite{Chaosblog}, we deduce the following).
 \begin{proposition}
-	A stochastic process $X(t)\in L^2(\Omega,\Ff_\infty)$ has a Skorohod integral iff
+	A stochastic process $X(t)\in L^2(\Omega,\Ff_\infty)$ has a Skorokhod integral iff
 	\begin{equation*}
 		\sum_{n=0}^{\infty} (n+1)!\|f_{n,S}\|^2_{L^2([0,T]^n)}<\infty.
 	\end{equation*}
@@ -129,7 +129,7 @@ So $X\in dom(\delta)$ with
 \begin{equation*}
 	\delta(X)= I_2(1)=\int_{0}^T\int_{0}^t dW(t_1)dW(t)=\int_{0}^T W(t) dW(t)= W^2(T)-T.
 \end{equation*}
-Note however that the Itô integral of $W(T)$ is undefined as it is not  $\Ff_t$ adapted. Since the Skorohod integral of $1$ is equal to  $W(T)$, the above example shows how one cannot simply ``pull out constants in $t$'' in the sense that, if $G$ is a random variable independent of  $t$ and  $X(t)=G\cdot u(t)$, then
+Note however that the Itô integral of $W(T)$ is undefined as it is not  $\Ff_t$ adapted. Since the Skorokhod integral of $1$ is equal to  $W(T)$, the above example shows how one cannot simply ``pull out constants in $t$'' in the sense that, if $G$ is a random variable independent of  $t$ and  $X(t)=G\cdot u(t)$, then
 \begin{equation*}
 	\int_{I} X(t) \delta W(t)=\int_{I}G\cdot u(t)\delta W(t) \neq G\int_{I}u(t) dW(t).
 \end{equation*}
@@ -137,7 +137,7 @@ Though this may seem unintuitive, it is a consequence of the fact that, even tho
 \begin{equation*}
 	g(t):=\int_{0}^t\int_{0}^{t_{n}}\cdots \int_{0}^{t_2} f_i dW(t_1)\cdots dW(t_{n-1})dW(t_n).
 \end{equation*}
-Can depend on $t$. Despite this, the Skorohod integral still maintains some of the natural properties we associate with integration.
+Can depend on $t$. Despite this, the Skorokhod integral still maintains some of the natural properties we associate with integration.
 \begin{proposition}
 	Let $X(t), Y(t)\in dom(\delta)$, $\lambda \in \R$. Then it holds that
 	\begin{itemize}
@@ -156,9 +156,9 @@ Can depend on $t$. Despite this, the Skorohod integral still maintains some of t
 	\begin{equation*}
 		X\cdot 1_A=\sum_{n=0}^{\infty} I_{n}([f_n 1_A]_S).
 	\end{equation*}
-	Which shown by the equivalent characterization of Skorohod functions that $X\cdot 1_A\in dom(\delta)$. The final property is a consequence of the previously proved linearity.
+	Which shown by the equivalent characterization of Skorokhod functions that $X\cdot 1_A\in dom(\delta)$. The final property is a consequence of the previously proved linearity.
 \end{proof}
-We now know what the Skorohod expansion is, how to characterize it, and its main properties, in the next post we will construct the Malliavin derivative as its adjoint.
+We now know what the Skorokhod expansion is, how to characterize it, and its main properties, in the next post we will construct the Malliavin derivative as its adjoint.
 
 
 
