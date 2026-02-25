@@ -568,12 +568,12 @@ def convert_body(body: str, label_registry: dict | None = None,
     lines = [l.lstrip() for l in body.split('\n')]
     text = '\n'.join(lines)
 
-    # Insert PDF Link at the top if available
-    if pdf_filename:
-        import urllib.parse
-        pdf_url = urllib.parse.quote(pdf_filename)
-        pdf_banner = f"::: {{.callout-note appearance=\"minimal\"}}\n[Download PDF version]({pdf_url})\n:::\n\n"
-        text = pdf_banner + text
+    # Insert PDF Link at the top if available （done elsewhere so redundant)
+    # if pdf_filename:
+    #     import urllib.parse
+    #     pdf_url = urllib.parse.quote(pdf_filename)
+    #     pdf_banner = f"::: {{.callout-note appearance=\"minimal\"}}\n[Download PDF version]({pdf_url})\n:::\n\n"
+    #     text = pdf_banner + text
 
     # Strip legacy "outdated PDF" disclaimers and spacing commands
     text = re.sub(r'(?i)link to a (?:possibly )?outdated PDF content.*?\.', '', text)
