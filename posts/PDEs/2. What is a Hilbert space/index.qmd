@@ -1,0 +1,1137 @@
+---
+title: "What is a Hilbert space?"
+author: "Liam Llamazares--Elias"
+date: "2023-05-30"
+categories: [Pdes]
+bibliography: biblio.bib
+format:
+  html:
+    css: custom_theorems.css
+    toc: true
+    number-sections: true
+    html-math-method: mathjax
+    include-in-header:
+      text: |
+        <script>
+        window.MathJax = {
+          tex: {
+            tags: "ams",
+            macros: {
+              A: "\\mathbb{A}",
+              Aa: "\\mathcal{A}",
+              Bb: "\\mathcal{B}",
+              C: "\\mathbb{C}",
+              Cc: "\\mathcal{C}",
+              Dd: "\\mathcal{D}",
+              E: "\\mathbb{E}",
+              Ee: "\\mathcal{E}",
+              F: "\\mathbb{F}",
+              Ff: "\\mathcal{F}",
+              Gg: "\\mathcal{G}",
+              Hh: "\\mathcal{H}",
+              II: "\\mathbb{I}",
+              Id: "\\bm{I}",
+              Ii: "\\mathcal{I}",
+              Im: "\\bm{Im}",
+              Jj: "\\mathcal{J}",
+              K: "\\mathbb{K}",
+              KL: ["\\rm{KL}\\left(#1 \\| #2\\right)", 2],
+              Kk: "\\mathcal{K}",
+              LL: "\\mathbb{L}",
+              Ll: "\\mathcal{L}",
+              M: "\\mathbb{M}",
+              Mm: "\\mathcal{M}",
+              N: "\\mathbb{N}",
+              Nn: "\\mathcal{N}",
+              Oo: "\\mathcal{O}",
+              PP: "\\mathbb{P}",
+              Pp: "\\mathcal{P}",
+              Q: "\\mathbb{Q}",
+              Qq: "\\mathcal{Q}",
+              R: "\\mathbb{R}",
+              Rr: "\\mathcal{R}",
+              Ss: "\\mathcal{S}",
+              T: "\\mathbb{T}",
+              Th: "{\\bm{\\theta}}",
+              Thh: "{\\bm{\\Theta}}",
+              Tt: "\\mathcal{T}",
+              Uu: "\\mathcal{U}",
+              Vv: "\\mathcal{V}",
+              W: "\\mathbb{W}",
+              Ww: "\\mathcal{W}",
+              X: "\\mathbb{X}",
+              Xx: "\\mathcal{X}",
+              Yy: "\\mathcal{Y}",
+              Z: "\\mathbb{Z}",
+              Zz: "\\mathcal{Z}",
+              abs: ["\\left| #1 \\right|", 1],
+              alf: "{\\alpha}",
+              b: ["{\\bm{#1}}", 1],
+              bm: ["\\boldsymbol{#1}", 1],
+              br: ["\\left\\langle#1\\right\\rangle", 1],
+              bt: "\\beta",
+              co: ["\\overset{\\circ}{#1}", 1],
+              d: "\\mathrm{d}",
+              diag: ["\\operatorname{diag}\\left(#1\\right)", 1],
+              dx: "\\,\\mathrm{d}x",
+              dy: "\\,\\mathrm{d}y",
+              eps: "\\varepsilon",
+              et: "{\\bm{\\eta}}",
+              ex: ["\\mathrm{exp}\\left(#1\\right)", 1],
+              fk: ["\\mathfrak{#1}", 1],
+              fracc: ["{#1}/{#2}", 2],
+              frc: ["\\left(#2)^{-1}(#1\\right)", 2],
+              iso: "\\xrightarrow{\\sim}",
+              ker: "\\bm{ker}",
+              mat: ["\\begin{bmatrix}{#1}\\end{bmatrix}", 1],
+              mathbbm: ["\\mathbb{#1}", 1],
+              mathds: ["\\mathbb{#1}", 1],
+              norm: ["\\left\\lVert #1 \\right\\rVert", 1],
+              om: "\\omega",
+              postref: ["\\href{https://nowheredifferentiable.com/posts/#1/}{#3}", 3],
+              proj: "\\mathrm{proj}",
+              qb: ["\\left[#1\\right]", 1],
+              qp: ["\\left(#1\\right)", 1],
+              qt: ["\\left(#1\\right)", 1],
+              red: ["{\\color{red}#1}", 1],
+              rm: ["\\mathrm{#1}", 1],
+              set: ["\\left\\{#1\\right\\}", 1],
+              star: "*",
+              tl: ["\\widetilde{#1}", 1],
+              tll: ["\\widetilde{#1}", 1],
+              vol: "\\mathrm{vol}",
+              wh: ["\\widehat{#1}", 1],
+              x: "\\bm{x}",
+              xxi: "{\\bm{\\xi}}",
+              y: "\\bm{y}"
+            }
+          }
+        };
+        </script>
+---
+
+\begin{CJK*}{UTF8}{gbsn}
+	
+	
+	
+	
+	
+
+##  Three line summary
+
+	- Hilbert spaces are Banach spaces with an inner product. They correspond to an infinite dimensional version of $\R^n$ or $\C^n$.
+- Much of Euclidean geometry carries over to Hilbert spaces including orthogonality, projections, orthonormal basis, and Pythagoras' theorem.
+- Compact operators are a simple kind of operator that can be approximated by infinite dimensional ones.
+	
+
+## Why should I care?
+
+	Hilbert spaces come with beautiful geometry and give us tools that are not available in ordinary Banach spaces. These allow us to prove the existence of infinite dimensional equations and even pose them as minimization problems. When you can use a Hilbert space to analyze your problem your life is always a lot easier.
+	
+
+## Notation
+
+	Given $\lambda \in \C$ we will write $\overline{\lambda }$ for the conjugate of $\lambda$.
+
+	Given a subset $A$ of some topological space, it is also common to write  $\overline{A}$ for the closure of $A$. Though this is a slight abuse of notation we will do the same as the meaning will always be clear from context.
+
+	Given two topological vector spaces $X, Y$ we write  $\Ll(X, Y)$ for the space of continuous linear operators from $X$ to  $Y$ and $X'$ for the space of continuous linear functions to the base field of $X$.
+
+	
+
+## Introduction
+
+	In writing the next post in the series of PDEs I realized that there were many results from functional analysis which had not been discussed and would be necessary. As such, this post is meant as a short, yet rather longer than I intended, introduction to the basic theory that will be required.
+
+	I'm going to assume you know nothing (please don't feel insulted) and go over the main ideas and results.	Much of the material may be familiar so please feel free to skim briefly through the results or skip entirely. There is a lot of theory to cover so the proofs will only be sketched.
+	For more details see for example [@Bachman2000functional].     
+
+## A brief recap of Hilbert spaces
+
+	Firstly what is a Hilbert space? To answer that question let's start with what kind of spaces we want to model.
+	
+::: {#exm-1}
+
+The Euclidean space $\R^n$ together with the inner product
+
+$$
+\begin{aligned}
+x \cdot y:= x_1 y_1+\ldots x_n y_n.
+\end{aligned}
+$$
+
+:::
+
+	
+::: {#exm-2}
+
+The complex Euclidean space $\C^n$ together with the inner product
+
+$$
+\begin{aligned}
+\br{x,y}:= x_1 \overline{y_1}+\ldots x_n \overline{y_n}.
+\end{aligned}
+$$
+
+:::
+
+	You might be wondering why we took the conjugate in the definition of the inner product above. That is simply because we want the inner product to define a norm by
+	
+$$
+\begin{aligned}
+\norm{x}^2:= \br{x,x}.
+\end{aligned}
+$$
+
+	In the cases above note that this is the standard Euclidean norm
+	
+$$
+\begin{aligned}
+\norm{x}^2= \br{x,x}= \abs{x_1} ^2+\ldots +\abs{x_n}^2 .
+\end{aligned}
+$$
+
+	A Hilbert space is just this construction generalized to infinite dimensions. Firstly, the inner product is generalized as follows.
+	
+::: {#def-1}
+
+Given a vector space $V$ over  $\K$ where $\K =\R$ or $\K=\C$, an inner product is a mapping
+
+$$
+\begin{aligned}
+\br{\cdot ,\cdot }: V \times V \to \K; \quad (x,y)\to \br{x,y}.
+\end{aligned}
+$$
+
+Such that the following hold for all $x,y,z \in V$ and all $\lambda \in \K$
+1. Linearity: $\br{\lambda x+y,z}= \lambda \br{x,z}+ \br{y,z}$.
+2. Conjugate symmetry $\br{x,y}= \overline{\br{y,x}}$.
+3. Positivity $\br{x,x} =0$ if and only if $x=0$.
+
+:::
+
+	
+::: {#def-2}
+
+:::
+
+	In what follows we will take always take the base field to be $\K$, that is, we will consider real and complex vector spaces as the theory is the same. In the real case, the conjugate
+	function just being the identity. Note that the first two properties also imply  ``antilinearity'' of the second component as
+	
+$$
+\begin{aligned}
+\br{z,\lambda x+  y}=\overline{\br{\lambda  x+ y,z}}= \overline{\lambda }\br{z,x}+ \lambda _2\br{z,y}.
+\end{aligned}
+$$
+
+	A vector space with an inner product is called an inner product space. This inner product gives us a concept of geometry.
+	
+::: {#def-3}
+
+Given an inner product space $V$ we define
+
+$$
+\begin{aligned}
+\norm{x}:= \sqrt{\br{x,x}}.
+\end{aligned}
+$$
+
+Furthermore, we say that $x,y$ are orthogonal if $\br{x,y}=0$.
+
+:::
+
+	With this definition, Pythagoras's theorem follows directly, as if $x,y$ are orthogonal then by the linearity of the inner product.
+	
+$$
+\begin{aligned}
+\norm{x+y}^2 = \br{x+y,x+y}= \norm{x}^2 +\norm{y}^2.
+\end{aligned}
+$$
+
+	An important property of the inner product is the following
+::: {#prp-cs name="Cauchy Schwartz"}
+
+Let $V$ be an inner product space, then it holds that
+
+$$
+\begin{aligned}
+\br{x,y}\leq \norm{x}\norm{y}.
+\end{aligned}
+$$
+
+:::
+
+	In particular, this implies that the inner product is continuous jointly, and in each component. An inner product space keeps the key properties of Euclidean space, namely the vector space structure and inner product. The third key property is that of completeness.
+::: {#def-4}
+
+A Hilbert space is a complete inner product space $(H, \br{\cdot ,\cdot })$. Where completeness is respect to the inner product norm
+
+$$
+\begin{aligned}
+\norm{x}^2:= \br{x,x}.
+\end{aligned}
+$$
+
+:::
+
+	Cool! Now we know what is a Hilbert space. Some examples that have come up in previous posts are the space of [square-integrable functions](https://nowheredifferentiable.com/2022-05-27-The-Bochner-integral/#:~:text=we%20can%20integrate.-,Our,-next%20definitions%20are) valued in  another Hilbert space $H$ with the inner product
+	
+$$
+\begin{aligned}
+\br{f,g}_{L^2(\Omega \to H)}:= \int_{\Omega} \br{f,g} d\mu .
+\end{aligned}
+$$
+
+	Another are the [Sobolev spaces](https://nowheredifferentiable.com/2022-05-27-The-Bochner-integral/#:~:text=we%20can%20integrate.-,Our,-next%20definitions%20are) $H^s(\R^d)$ with the inner product
+	
+$$
+\begin{aligned}
+\br{f,g}_{H^s(\R^d)}:= \int_{\R^d} \br{\omega}^{2s} \wh{f}(\xi ) \overline{\wh{g}(\xi )}d\xi  .
+\end{aligned}
+$$
+
+	(I apologize for using the same notation for the Japanese bracket and the inner product). One result that carries over from Euclidean spaces to Hilbert spaces is the existence of projections.
+	
+::: {#thm-projection name="Projection theorem"}
+
+Let $F$ be a closed convex subset of a Hilbert space $H$. Then, given  $h \in H$ there exists a unique $f \in F$ such that
+
+$$
+\begin{aligned}
+\min_{g \in F}\norm{h-g}= \norm{h-f}.
+\end{aligned}
+$$
+
+Furthermore, if $F$ is a (vector) subspace, then it holds that $f$ is the unique element in  $F$ such that $h-f$ is orthogonal to  $F$. That is $f\in F$ is the only one verifying
+
+$$
+\begin{aligned}
+h-f \in F^\perp:= \set{g \in H : \br{g,F}=\{0\}}.
+\end{aligned}
+$$
+
+:::
+
+	
+::: {.proof}
+
+The idea of the proof is to consider a sequence $f_n$ that approaches the minimum distance
+
+$$
+\begin{aligned}
+d(f_n,h)\to d(h,F).
+\end{aligned}
+$$
+
+The inner product comes in to show that  $f_n$ is a Cauchy sequence. Since $H$ is complete it converges to some  $f$. Then our assumptions on $F$ come in. Firstly, since $F$ is closed shows $f \in F$. Secondly, since $F$ is convex one can get uniqueness. The uniqueness is once more a consequence of the properties of the inner product.
+
+:::
+
+	A consequence of the above theorem is that orthogonal complements in Hilbert spaces exist.
+	
+::: {#thm-complement-theorem name="Orthogonal complement"}
+
+Let $V$ be a closed subspace of a vector space  $H$. Then we have that
+
+$$
+\begin{aligned}
+V \oplus V^\perp & \longrightarrow H   \\
+(v_1,v_2)        & \longmapsto v_1+v_2
+.
+\end{aligned}
+$$
+
+Is a bijective isomorphism where we consider on $V \oplus V^\perp$ the inner product
+
+$$
+\begin{aligned}
+\br{(v_1,v_2),(v_1',v_2')}= \br{v_1,v_1'}+ \br{v_2,v_2'}.
+\end{aligned}
+$$
+
+:::
+
+	
+::: {.proof}
+
+Given $h \in  H$ we know that there exists a unique closest point  $v_1 \in V$ to $V$ (the projection of $h$ onto  $v$). Furthermore, $v_2:=h-v \in V^\perp$ so we get the decomposition
+
+$$
+\begin{aligned}
+h=v_1 +v_2.
+\end{aligned}
+$$
+
+This proves bijectivity, whereas the isomorphism property follows quickly from the orthogonality of $v_1,v_2$.
+
+:::
+
+	An important corollary of this is the following
+	
+::: {#cor-cor}
+
+Let $V$ be a vector space, then
+
+$$
+\begin{aligned}
+\overline{V}=H \iff \overline{V}^\perp =\set{0} .
+\end{aligned}
+$$
+
+:::
+
+	Note that the imposition that $V$ is closed in Theorem @thm-complement-theorem is necessary. Finite-dimensional subspaces are always closed, but infinite-dimensional subspaces may not be. For example, consider $H=L^2(I)$ for some bounded $I$ and take  $V$ to polynomials on $I$ . By the [Stone-Weierstrass](https://en.wikipedia.org/wiki/Stone%E2%80%93Weierstrass_theorem) theorem $V$ is dense  in $H$. That is $H=\overline{V}$, whereas
+	
+$$
+\begin{aligned}
+H \neq V \oplus V^\perp =V \oplus \set{0} .
+\end{aligned}
+$$
+
+	Another property of Euclidean space that Hilbert spaces reproduce is that of the existence of an orthonormal basis
+	
+::: {#def-5}
+
+Let $H$ be a Hilbert space and  $I$ some index set. We say that $\Bb=\set{\phi_\alpha}_{\alpha \in  I}$ is an orthonormal basis of $H$ if
+
+$$
+\begin{aligned}
+\br{\phi_\alpha,\phi_\beta }= \delta _{\alpha, \beta }, \quad\forall \alpha,\beta \in I.
+\end{aligned}
+$$
+
+And for every element $f \in H$ there exist $\lambda _\alpha \in  \C$ such that
+
+$$
+\begin{aligned}
+f= \sum_{\alpha \in I} \lambda _\alpha \phi_\alpha .
+\end{aligned}
+$$
+
+:::
+
+	Note that we impose no conditions on the Index set $I$ which may be countable or uncountable.
+	
+::: {#def-6}
+
+Given an index set $I$ and a normed vector space $X$ we say that $x_\alpha$ is absolutely summable to $x$ and write
+
+$$
+\begin{aligned}
+x= \sum_{\alpha\in I}x_\alpha
+\end{aligned}
+$$
+
+if given $\epsilon >0$ there exists some finite subset $J_0 \in I$ such that for every $J$ containing  $J_0$ it holds that
+
+$$
+\begin{aligned}
+\norm{x-\sum_{\alpha\notin J} x_\alpha}<\epsilon  .
+\end{aligned}
+$$
+
+:::
+
+	If $I$ is countable, the definition says that $\sum_{\alpha \in I} x_\alpha$ converges to $x$ regardless of the order in which we sum. In fact, the following shows that, even if we start with an uncountable sequence we will always end up back in this case.
+	
+::: {#prp-1}
+
+Let $X$  be a normed space and $\set{x_\alpha}_{\alpha \in I} \subset  X$ be absolutely summable to $x$, then only a countable number of the terms $x_\alpha$ are non-zero. Let us take the nonzero terms and relabel them $\set{x_n}_{n \in \N}$, then
+$$
+\begin{aligned}
+x= \sum_{n=0}^{\infty} x_n.
+\end{aligned}
+$$
+
+:::
+
+	
+::: {.proof}
+
+Take $J_n$ such that
+
+$$
+\begin{aligned}
+\norm{x-\sum_{ \alpha \notin J_n} x_\alpha}< \frac{1}{n}   .
+\end{aligned}
+$$
+
+Then $J:= \cup_n J_n$ is countable (it is a countable union of countable sets) and a small reasoning shows that $J$ are the non-zero terms of $I$. The fact that the nonzero $x_n$ sum to  $x$ is just a consequence of the definition of absolute summability.
+
+:::
+
+	Now that we made sense of the sum over a potentially uncountable number of basis elements in @eq-sum, it remains to address the question of the existence of orthonormal basis.
+	
+::: {#thm-existence name="Existence of orthonormal basis"}
+
+Every Hilbert space has an orthonormal basis $\Bb$.
+
+:::
+
+	
+::: {.proof}
+
+The proof is formally identical to the proof that every vector space has a basis space . Let $\Aa$ be the collection of all orthonormal subsets of $H$. That is,  $\Aa$ is comprised of sets of the form
+
+$$
+\begin{aligned}
+\Ss=\set{\set{\phi_\alpha}_{\alpha \in  J}:  \br{\phi_\alpha,\phi_\beta }= \delta _{\alpha, \beta }, \quad\forall \alpha,\beta \in J} .
+\end{aligned}
+$$
+
+Such that $\phi_\alpha$ are orthonormal. Given an ordered chain $\Ss_0\subset \Ss_1\subset \Ss_2\subset \cdots$ we have the bound
+
+$$
+\begin{aligned}
+\Ss_0\subset \Ss_1\subset \Ss_2\subset \cdots \subset \bigcup_{n=0}^\infty \Ss_n  .
+\end{aligned}
+$$
+
+As a result by [Zorn's lemma](https://en.wikipedia.org/wiki/Zorn%27s_lemma) there exists a maximal element $\Bb$. If $\Bb$ is not complete (that is @eq-sum doesn't hold), then there exists $f \in \overline{\Bb}^\perp$. By taking $f /\norm{f}$ and forming $\Bb':=\Bb \cup \set{f \norm{f}}$ we obtain that $\Bb \subsetneq \Bb' \in \Aa$. This contradicts the maximality of $\Bb$ and concludes the proof.
+
+:::
+
+	The next result is the natural  generalization of Pythagoras's theorem to Hilbert spaces.
+	
+::: {#thm-parseval name="Parseval"}
+
+Let $H$ be a Hilbert space with orthonormal basis  $\Bb=\set{\phi_\alpha}_{\alpha\in I}$. Then for every $f \in  H$ it holds that
+
+$$
+\begin{aligned}
+f= \sum_{\alpha \in  I} \br{f,\phi_\alpha}\phi_\alpha;\quad \norm{f}^2=\sum_{\alpha\in I} \norm{\phi_\alpha}^2.
+\end{aligned}
+$$
+
+:::
+
+	
+::: {.proof}
+
+We have that by the orthonormality of $\phi_\alpha$ and the continuity of the inner product
+
+$$
+\begin{aligned}
+\br{f-\sum_{\alpha \in  I} \br{f,\phi_\alpha}\phi_\alpha, \phi_\alpha}=\br{f,\phi_\alpha}-\br{f,\phi_\alpha}=0.
+\end{aligned}
+$$
+
+As a result, $f-\sum_{\alpha \in  I} \br{f,\phi_\alpha}\phi_\alpha$ is orthogonal to the closure of the span of $\Bb$, which by assumption is $H$. By Corollary
+@cor-cor we conclude that
+
+$$
+\begin{aligned}
+f-\sum_{\alpha \in  I} \br{f,\phi_\alpha}\phi_\alpha=0.
+\end{aligned}
+$$
+
+This proves the first part of the theorem. The second follows by the first together with the orthonormality of $\phi_\alpha$.
+
+:::
+
+	The above shows that, on fixing a basis, every Hilbert space can be identified with a space of square-integrable sequences by the bijective isometry
+	
+$$
+\begin{aligned}
+H\to \ell ^2(I); \quad f \to \set{\br{f,\phi_{\alpha}}}_{\alpha \in I}.
+\end{aligned}
+$$
+
+	In particular, every Hilbert space with a countable basis is isometric to $\ell ^2(\N)$. However, the identification is not ``canonical'' as it depends on the bases chosen. The next example is all pervasive (in fact it has [even invaded our blog](https://nowheredifferentiable.com/2023-01-29-PDE-1/))
+	
+::: {#exm-3 name="Plancherel"}
+
+The Hilbert space of square integrable complex valued periodic functions $L^2(\R^d /\Z^d \to \C)$ has orthonormal basis
+
+$$
+\begin{aligned}
+\set{\phi_k(x)}_{k \in \Z^d}:=\set{e^{2\pi i  k \cdot x }}_{k \in \Z^d}.
+\end{aligned}
+$$
+
+Thus, every function $f \in L^2(\R^d /\Z^d)$ can be written as
+
+$$
+\begin{aligned}
+f(x)= \sum_{k \in  \Z^d}\wh{f}(k)e^{2\pi i  k \cdot x } .
+\end{aligned}
+$$
+
+Where  $\wh{f} \in \ell ^2(\Z^d)$ is known as the Fourier transform of $f$ and defined by
+
+$$
+\begin{aligned}
+\wh{f}(k):= \br{f, \phi_k}= \int_{\R^d/ \Z^d} f(x)e^{-2 \pi i k \cdot x} \d x .
+\end{aligned}
+$$
+
+:::
+
+	Another interesting property of Euclidean space is that every element of the dual $\ell :\C^n \to \C$ is represented by a vector in the space, that is
+	
+$$
+\begin{aligned}
+\ell (x)= \br{x,y_\ell }, \quad\forall  x \in \C^n.
+\end{aligned}
+$$
+
+	Here one can calculate directly that $y_\ell$ is the conjugate of the ``matrix'' defined by $\ell$ as a linear function
+	
+$$
+\begin{aligned}
+y_\ell =(\overline{\ell (e_1)},\ldots,\overline{\ell (e_n)}) .
+\end{aligned}
+$$
+
+	Where $e_i$ is the standard orthonormal basis of  $\C^n$. In Hilbert spaces, the same result holds for Hilbert spaces
+	
+::: {#thm-riesz-theorem name="Riesz representation "}
+
+Let $H$ be a Hilbert space, then given $\ell \in H'$ there exists a unique $f_\ell \in H$ such that
+
+$$
+\begin{aligned}
+\br{h,f_\ell }, \quad\forall h \in H.
+\end{aligned}
+$$
+
+Furthermore, $\norm{f_\ell }=\norm{\ell }$.
+
+:::
+
+	
+::: {.proof}
+
+Consider an orthonormal basis $\set{\phi_\alpha}_{\alpha \in  I}$ for $H$. Then, just as in  Euclidean space we have that
+
+$$
+\begin{aligned}
+f_\ell =\sum_{\alpha \in I}\overline{\ell (\phi_\alpha)}\phi_\alpha  .
+\end{aligned}
+$$
+
+The fact that $f_\ell$ verifies @eq-riesz is a direct application of the (anti)-linearity and continuity of the inner product. Uniqueness following from the fact that if $f_\ell , g_\ell$ both verify the equality then for all $h \in h$
+
+$$
+\begin{aligned}
+\br{h, f_\ell -g_\ell }= \ell (h)-\ell (h)=0.
+\end{aligned}
+$$
+
+This can only occur if $f_\ell -g_\ell =0$ (hint take $h= f_\ell -g_\ell$). To verify the norm we can use that, for all $h \in  H$ with norm $1$
+
+$$
+\begin{aligned}
+\ell   \qp{\frac{f_\ell }{\norm{f_\ell }} }= \br{\frac{f_\ell }{\norm{f_\ell }} ,f_\ell }=\norm{f_\ell }; \quad \ell(h)= \br{h, f_\ell }\leq \norm{h}\norm{f_\ell }= \norm{f_\ell }.
+\end{aligned}
+$$
+
+The equality shows that $\norm{\ell }\geq \norm{f_\ell }$ whereas the inequality shows the converse $\norm{\ell }\leq \norm{f_\ell }$, proving the theorem.
+
+:::
+
+	The previous theorem says that we have an antilinear isometry
+	
+$$
+\begin{aligned}
+\Phi_1:    H\to H';\quad f_\ell  \to \ell .
+\end{aligned}
+$$
+
+	This allows us to identify $H$ with  $H'$. The identification is canonical as it does not depend on the bases chosen. Yes, we fixed a basis to prove it but the vector $f_\ell$ is unique independently of the basis. This allows us to make $H'$ into a Hilbert space in a canonical way
+	
+::: {#prp-2}
+
+Let $H$ be a Hilbert space, then  $H'$ is also a Hilbert space, with inner product given by
+
+$$
+\begin{aligned}
+\br{\ell_1 , \ell_2 }_{H'}=\br{f_{\ell _2},f_{\ell_1 }}_H.
+\end{aligned}
+$$
+
+:::
+
+	Where we had to ``swap the order'' of the representatives of $\ell_1, \ell_2$ due to the anti-linearity of the mapping $\ell \to f_\ell$. Since $H'$ is also a Hilbert space we can apply Riesz's theorem to $H'$ to show that $H''$ is also a Hilbert space and there exists a canonical antilinear isometry
+	
+$$
+\begin{aligned}
+\Phi_2:  H'\to H''; \ell_\varphi \to \varphi .
+\end{aligned}
+$$
+
+	By construction, of $\Phi_1,\Phi_2$ it holds that
+	
+$$
+\begin{aligned}
+\Phi_2 \circ \Phi_1 (f) (\ell )= \ell(f).
+\end{aligned}
+$$
+
+	That is, $H$ is identified canonically with  $H''$ and, the identification is such that 
+$$
+\begin{aligned}
+f(\ell )=\ell (f).
+\end{aligned}
+$$
+
+	In other words.
+	
+::: {#thm-1}
+
+Every Hilbert space is reflexive.
+
+:::
+
+	Consider now a Hilbert space $H$ and a linear operator $T: H \to H$.
+	Then, for each $g \in H$ we can define the linear form
+
+	
+$$
+\begin{aligned}
+\ell\U g := \left\langle T\cdot ,g\right\rangle.
+\end{aligned}
+$$
+
+	As a result, there exists a unique representative of
+	$\ell \U g$ in $H$ which, to track the dependence on $g$, we denote by
+	$h\U g$. That is, $h\U g$ verifies
+	
+$$
+\begin{aligned}
+\left\langle T f,g\right\rangle= \left\langle f,h\U g\right\rangle, \quad\forall f \in H.
+\end{aligned}
+$$
+
+	A small reasoning shows that $h\U g$ is a linear
+	function of $g$, that is, there exists $T^\star :H \to H$ with $T^\star  g=h\U g$,
+	or in other words
+	
+$$
+\begin{aligned}
+\left\langle Tf,g\right\rangle=\left\langle f, T^\star g\right\rangle , \quad\forall f,g \in  H.
+\end{aligned}
+$$ {#eq-adjoint}
+
+	
+::: {#def-7}
+
+Given $T \in \mathcal{L}(H)$ we denote by $T^\star$ the
+unique element  verifying
+@eq-adjoint . If
+$T=T^\star$ we say that $T$ is self adjoint.
+
+:::
+
+	If we think in terms of complex numbers, the adjoint of an element
+	$\lambda  \in \mathbb{C}$ is $\overline{\lambda }$ and $T$ is self
+	adjoint if and only if it is real. If now we consider the case where $H$
+	is $\mathbb{C}^n$ and $T$ is given by some matrix $A$ then
+	$A^\star =A^\dagger:= \overline{A^T}$. As in these finite dimensional cases,
+	the following proof is not difficult.
+	
+::: {#prp-3}
+
+Let $T \in \mathcal{L}(H)$ with $H$ a Hilbert space.
+Then $T^\star  \in \mathcal{L}(H)$ with
+$\left\lVert T \right\rVert=\left\lVert T^\star  \right\rVert$.
+
+:::
+
+	Hilbert spaces provide us a way to guarantee existence and uniqueness to a wide class of problems, an important tool is Lax-Milgram's theorem. We first need two definitions
+	
+::: {#def-8}
+
+We say that a mapping
+
+$$
+\begin{aligned}
+B:V \times V \to \K
+\end{aligned}
+$$
+
+on a vector space $V$, is sesquilinear if $B$ is linear in the first component and antilinear in the second. That is, for all $x,y,z \in V$ and $\lambda \in \K$:
+
+$$
+\begin{aligned}
+{B(\lambda x+y,z)}= \lambda B({x,z})+ B({y,z}); \quad B(x,\lambda y+z)= \overline{\lambda} B({x,z})+ B({y,z}) .
+\end{aligned}
+$$
+
+:::
+
+	
+::: {#def-9}
+
+Let $V$ be a normed vector space then we say that a sesquilinear form  $B$ is $\alpha$ coercive if it is continuous and there exists a constant $\alpha>0$ such that
+
+$$
+\begin{aligned}
+B(f,f)\geq \alpha\norm{f}^2 \quad\forall f \in  H.
+\end{aligned}
+$$
+
+:::
+
+	The coercivity condition essentially imposes that the bilinear form is not degenerate. As a particular example, a symmetric sesquilinear form is an inner product.
+	
+::: {#thm-lax-theorem name="Lax Milgram"}
+
+Let $B, L$ be respectively an $\alpha$ coercive sesquilinear form and a linear form on a Hilbert space $H$. Then there exists an invertible linear operator $\Ll:H \to H$ and $f \in H$ such that
+
+$$
+\begin{aligned}
+B(v,u)=\br{v,\Ll u}; \quad L(v)=\br{v,f}.
+\end{aligned}
+$$
+
+As a result, equation
+
+$$
+\begin{aligned}
+B(v,u)=L(v) \quad\forall v \in H
+\end{aligned}
+$$
+
+has a unique solution $u= \Ll^{-1} f$. Furthermore, the solution operator $\Ll^{-1}$ is continuous with 
+$$
+\begin{aligned}
+\norm{\Ll^{-1}}\leq \alpha^{-1} .
+\end{aligned}
+$$
+
+:::
+
+	
+::: {.proof}
+
+For each fixed $u \in H$, we have that $\ell_u :=B(\cdot ,u) \in  H'$. As a result by Riesz's representation theorem (Theorem @thm-riesz-theorem) there exists a unique $f_{\ell _u} \in H$ such that
+
+$$
+\begin{aligned}
+B(v,u)= \ell _u(v)= \br{v, f_{\ell _u}} .
+\end{aligned}
+$$ {#eq-f}
+
+Furthermore, it can be simply verified that the mapping $u \to f_{\ell _u}$ is linear in $u$. That is, there exists $\Ll: H\to H$ such that
+
+$$
+\begin{aligned}
+\Ll u =f_{\ell _u} \quad\forall  u \in H.
+\end{aligned}
+$$ {#eq-g}
+
+The existence of the representative  $f \in  H$ of $L$ is once more by Riesz's representation theorem. We now show that $\Ll$ verifies the desired properties. Firstly $\Ll$ is continuous as, given $u\in  H$ 
+$$
+\begin{aligned}
+\norm{\Ll u}^2=\br{\Ll u,  \Ll u}=B(\Ll u, u)\leq \norm{B} \norm{u}\norm{ \Ll u}.
+\end{aligned}
+$$
+
+So dividing by $\norm{\Ll u}$ on either side shows that $\norm{\Ll} \leq \norm{B}$. Now, $\Ll$ is
+injective as if $\Ll u=0$ then
+
+$$
+\begin{aligned}
+0=\br{u, \Ll u}= B(u,u) \geq \alpha \norm{u}^2 .
+\end{aligned}
+$$
+
+We now prove surjectivity of $\Ll$. Consider  $u \in  \Im(\Ll)^\perp$, then it holds that
+
+$$
+\begin{aligned}
+\br{u, \Ll u}= B(u,u)\geq \alpha \norm{u}^2.
+\end{aligned}
+$$ {#eq-est}
+
+As a result, we deduce from the corollary of the orthogonal complement theorem @cor-cor that $\overline{\Im(\Ll)}=0$. Thus, if we show that $\Ll$ is closed invertibility follows. The estimate in @eq-est together with Cauchy Schwartz show that for all $u \in H$
+
+$$
+\begin{aligned}
+\norm{ \Ll u}\geq \norm{u}.
+\end{aligned}
+$$
+
+As if $\Ll u_n \in  \Im (\Ll)$ is a Cauchy sequence then so must be $u_n$. By completeness of  $\Ll$, the sequence  $u_n$ converges to some  $u \in  H$ and we deduce, by continuity of $\Ll$,
+that $\Ll u_n \to \Ll u \in \Im (\Ll)$. In consequence, $\Ll$ is invertible, finally to show the bound on $\Ll^{-1}$ let us write $u =\Ll^{-1} f$ then
+
+$$
+\begin{aligned}
+\alpha \norm{u}^2 \leq B(u,u) = \br{u,f}\leq \norm{u}\norm{f} .
+\end{aligned}
+$$
+
+Dividing on either side by $\alpha \norm{u}$ concludes the proof.
+
+:::
+
+	If we had assumed that $B$ were anti-symmetric then the proof would have been simplified as $B$ would define an inner product  $\br{\cdot ,\cdot }_B$. Applying Riesz's theorem to this inner product (as opposed to the original one) would transform our equation @eq-lax-eq into
+	
+$$
+\begin{aligned}
+\br{v,u}_B= \br{v,f} , \quad\forall v\in H.
+\end{aligned}
+$$
+
+	That is, to solve @eq-lax-eq it would suffice to take $u=f$. In the case where $B$ is symmetric and real, we can also find $u$ by solving a minimization problem
+	
+::: {#prp-4 name="Minimization formulation"}
+
+Let $B: H\times H \to \R$ be a symmetric coercive bilinear operator on a real Hilbert space $H$. Then, problem  @eq-lax-eq is equivalent to minimizing
+
+$$
+\begin{aligned}
+J(u):= \frac{1}{2}B(u,u)-L(u) .
+\end{aligned}
+$$
+
+:::
+
+	
+::: {.proof}
+
+To prove that a solution to @eq-lax-eq minimizes $J$ we can develop  $J(u+v)$ and simplify it using  $B(v,u)=L(v)$ to obtain
+
+$$
+\begin{aligned}
+J(u+v) \geq J(u) , \quad\forall  v \in H.
+\end{aligned}
+$$
+
+To prove that a  minimum of $J$ solves  $@eq-lax-eq$ one can show by taking limits as $\lambda  \to 0$ in the expression
+
+$$
+\begin{aligned}
+J(u) \leq J(u+ \lambda (h-u)).
+\end{aligned}
+$$
+
+That  for all $h$
+
+$$
+\begin{aligned}
+L(h-u) \leq B(u,h-u).
+\end{aligned}
+$$
+
+Taking $h=u+v$ and $h=u-v$ where $v$ is any shows  $-L(v) \leq -B(u,v)$ and $L(v) \leq B(u,v)$, which concludes the proof.
+
+:::
+
+	
+
+## A little bit of operator theory
+
+	Finally, we wrap up with some operator theory. This will be revisited in a more detailed blog post on spectral theory. For now, we give the essentials.
+	
+::: {#def-10}
+
+We say that a linear operator $K: X \to Y$ where $X,Y$ are two metric spaces is compact  if  $T(B)$ is relatively compact for all bounded  $B \subset  X$.
+
+:::
+
+	The above will be abbreviated $K \in  \Kk(X,Y)$. Note that, since every compact set is bounded $K$ must be bounded and thus continuous. That is 
+
+$$
+\Kk(X,Y)\subset \Ll(X,Y).
+$$
+
+  In practice, the following equivalent characterizations are useful. 
+  
+::: {#prp-equivalent}
+
+Let $X,Y$ be two metric spaces, then the following are equivalent
+1. [a)]
+2. $K \in \Kk(X,Y)$.
+3. $K(B_X)$ is relatively compact where  $B_X=\{ x \in X : \norm{x}<1\}$ is the unit ball in $X$.
+4. From every sequence  $Kx_n$ where  $x_n \in B_X$ one can extract a subsequence $K {x_{n_j}}$ converging in $Y$.
+
+:::
+
+ 
+::: {.proof}
+
+The prove the first two points are equivalent we observe that every bounded set $B \subset  X$ is contained in $\lambda B_X$ for $\lambda$ big enough. A general fact from topology is that closed subsets of compact sets are compact. This is enough to conclude the equivalence. 
+
+To prove that the last two points are equivalent we recall that in metric spaces compact is equvalent to sequentially compact.
+
+:::
+
+  An important property of compact operators is that they are preserved by continuous ones.
+	
+::: {#prp-comp}
+
+Let $K \in \Kk(X,Y), T_1\in \Ll(W,X), T_2 \in L(Y,Z)$. Where $W,X,Y,Z$ are metric spaces , then $K\circ T_1$ and $T_2 \circ K$ are compact
+
+:::
+
+	
+::: {.proof}
+
+This follows by the last equivalent characterization in Proposition @prp-equivalent.
+
+:::
+
+  We already saw that the space of compact operators $\Kk(X,Y)$ is a subset of the space of linear operators. The structure of $\Kk(X,Y)$ as a subspace is as follows 
+  
+::: {#prp-5}
+
+Let $X,Y$ be metric spaces then  $\Kk(X,Y)$ is a vector space. Furthermore, if $Y$ is completee then  $\Kk(X,Y)$ is closed in $\Ll(X,Y)$. That is, if $K_n$ are compact and  $K_n \to K \in \Ll(X,Y)$ then $K$ is compact.
+
+:::
+
+  
+::: {.proof}
+
+The first part again follows fromb the last equivalent characterization in Proposition @prp-equivalent. The second part relies on the fact that in complete spaces compact and [totally bounded](https://en.wikipedia.org/wiki/Totally_bounded_space#:~:text=not%20in%20general.-,In,-metric%20spaces%5B) are equivalent.
+
+:::
+
+      
+  The reason we are interested in compact operators is that they are particularly simple.
+  Note that every finite-dimensional operator (that is operators whose image is finite-dimensional) is compact by the Heine-Borel theorem. In fact, a good way of thinking of compact operators is to see them as finite-dimensional operators . Or more precisely,
+	as the limit of them
+	
+::: {#prp-6}
+
+Let $K \in  \Kk(X,H)$ where $H$ is a separable Hilbert space . Then there exists a sequence of finite-dimensional operators $K_n$ such that
+
+$$
+\begin{aligned}
+\lim_{n \to \infty}K_n=K.
+\end{aligned}
+$$
+
+:::
+
+	
+::: {.proof}
+
+Since $H$ is separable there exists a countable orthonormal basis $\set{\phi_n}_{n \in \N}$. If we denote $T_n$ for the projection of $K$ onto the space generated by  $\set{\phi_1,\ldots,\phi_n}$ then, by Parseval's Theorem pointwise convergence holds
+
+$$
+\begin{aligned}
+K_n(x) \to K(x) , \quad\forall x \in  H.
+\end{aligned}
+$$
+
+Consider the unit ball $B_X$ in  $X$. Then  $K(B_X)$ is relatively compact. So $K(B_X)$  is totally bounded and given $\epsilon >0$ we can form a finite $\epsilon$ net $Kx_1,\ldots,Kx_m$ of $K(B_X)$. By pointwise convergence, we can now take $n_0$ large enough so that for all $N \geq n_0$
+
+$$
+\begin{aligned}
+\norm{K(x_j)-K_N(x_j)} , \quad\forall j=1,\ldots,m.
+\end{aligned}
+$$
+
+Now for any  $x\in B_X$ we can find $x_j$ such that  $\norm{Tx_j-Tx}< \epsilon$. Using the triangle inequality
+
+$$
+\begin{aligned}
+\norm{Kx-K_N x} \leq \norm{Kx-K x_j}+ \norm{K x_j-K_N x_{j}}+ \norm{K_N x_j-K_N x} < 3\epsilon .
+\end{aligned}
+$$
+
+This concludes the proof.
+
+:::
+
+	
+	For us, an important example of compact operators will be the solution operator $\Ll^{-1}$ of a PDE. This is because of the following theorem
+	
+::: {#thm-rellich name="Rellich-Kondrachov"}
+
+Let $U \subset \R^n$ be a bounded open domain in $\R^n$ with smooth boundary. Then, given $s >0$ it holds that the natural inclusion
+
+$$
+\begin{aligned}
+i: H^{s+ \sigma }(U) \hookrightarrow H^s(U)
+\end{aligned}
+$$
+
+is compact for all $\sigma >0$.
+
+:::
+
+	For the proof of a more general version see [@taylor2013partial] page 334. It is important to observe the restriction that $U$ is bounded is necessary and the theorem no longer holds if  $U$ is replaced by  $\R^n$.
+	
+::: {#cor-addd name="Adding differentiability is compact"}
+
+Let $U \subset \R^n$ be a bounded open domain in $\R^n$ with smooth boundary and $s, \sigma >0$, then every continuous operator
+
+$$
+\begin{aligned}
+T:H^{s+ \sigma }(U) \hookrightarrow H^s(U)
+\end{aligned}
+$$
+
+is compact.
+
+:::
+
+	
+::: {.proof}
+
+We have that $T= i \circ T$ so we conclude by Rellich-Kondrachov's theorem @thm-rellich and the preservation of compact operators by continuous ones (Proposition @prp-comp).
+
+:::
+
+	Compact operators also have a nice spectral theory. Where we recall that
+	the spectrum of an operator $T$ is defined as
+	
+$$
+\begin{aligned}
+\sigma (T):=\left\{\lambda \in \mathbb{K}: \lambda \I -T \text{ is not invertible } \right\} .
+\end{aligned}
+$$
+
+	Firstly, the spectrum of a compact operator is equal
+	to it's eigenvalues. Secondly the following holds
+	
+::: {#thm-2 name="Spectral theorem"}
+
+Let $K \in \Kk(H)$ be compact and self adjoint on a Hilbert space $H$. Then  $T$ diagonalizes in an orthonormal basis. That is, there exists an orthonormal basis $\set{\phi_\alpha} _{\alpha \in  I}$  and $\lambda _\alpha \in \K$ such that
+
+$$
+\begin{aligned}
+Kx=\qp{\sum_{\alpha \in I}^{\infty} \lambda _\alpha \phi_\alpha\otimes \phi_\alpha} x  =\sum_{\alpha \in  I} \lambda _\alpha \br{x,\phi_\alpha}\phi_\alpha .
+\end{aligned}
+$$
+
+:::
+
+	A more general result is possible but requires more theory so we reserve
+	it for another day. That said, this type of discrete representation of
+	$T$ is very useful and links up with the theory of trace class and
+	Hilbert-Schmidt operators which we will discuss more in the future.
+
+	To end it all off we state without proof a theorem that will be useful
+	in proving properties about the solution space to the solution of PDEs
+	
+::: {#thm-3 name="Fredholm alternative"}
+
+Let $H$ be a Hilbert space and  $K \in \Kk(H)$. Consider $T:= Id-K$ then it holds that
+
+$$
+\begin{aligned}
+T \text{ is injective } \iff  T \text{ is surjective}.
+\end{aligned}
+$$
+
+Furthermore, it holds that
+1. [a)]
+2. $\ker(T)$ is finite dimensional.
+3. $T$ is closed.
+4. $\Im (T)=\ker(T^*)^\perp$.
+5. $\mathrm{dim}(\ker(T))=\mathrm{dim}(\ker(T^*))$
+
+:::
+
+	We delay the proof till another day, in the meantime, see [@evans2022partial] page 725.
+
+\end{CJK*}
+
+## References
+
+::: {#refs}
+:::

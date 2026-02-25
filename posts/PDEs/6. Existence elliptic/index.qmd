@@ -1,0 +1,1424 @@
+---
+title: "Elliptic PDE I"
+author: "Liam Llamazares--Elias"
+date: "2026-02-25"
+categories: [Pdes]
+bibliography: biblio.bib
+format:
+  html:
+    css: custom_theorems.css
+    toc: true
+    number-sections: true
+    html-math-method: mathjax
+    include-in-header:
+      text: |
+        <script>
+        window.MathJax = {
+          tex: {
+            tags: "ams",
+            macros: {
+              A: "\\mathbb{A}",
+              Aa: "\\mathcal{A}",
+              Bb: "\\mathcal{B}",
+              C: "\\mathbb{C}",
+              Cc: "\\mathcal{C}",
+              Dd: "\\mathcal{D}",
+              E: "\\mathbb{E}",
+              Ee: "\\mathcal{E}",
+              F: "\\mathbb{F}",
+              Ff: "\\mathcal{F}",
+              Gg: "\\mathcal{G}",
+              Hh: "\\mathcal{H}",
+              II: "\\mathbb{I}",
+              Id: "\\bm{I}",
+              Ii: "\\mathcal{I}",
+              Im: "\\bm{Im}",
+              Jj: "\\mathcal{J}",
+              K: "\\mathbb{K}",
+              KL: ["\\rm{KL}\\left(#1 \\| #2\\right)", 2],
+              Kk: "\\mathcal{K}",
+              LL: "\\mathbb{L}",
+              Ll: "\\mathcal{L}",
+              M: "\\mathbb{M}",
+              Mm: "\\mathcal{M}",
+              N: "\\mathbb{N}",
+              Nn: "\\mathcal{N}",
+              Oo: "\\mathcal{O}",
+              PP: "\\mathbb{P}",
+              Pp: "\\mathcal{P}",
+              Q: "\\mathbb{Q}",
+              Qq: "\\mathcal{Q}",
+              R: "\\mathbb{R}",
+              Rr: "\\mathcal{R}",
+              Ss: "\\mathcal{S}",
+              T: "\\mathbb{T}",
+              Th: "{\\bm{\\theta}}",
+              Thh: "{\\bm{\\Theta}}",
+              Tt: "\\mathcal{T}",
+              Uu: "\\mathcal{U}",
+              Vv: "\\mathcal{V}",
+              W: "\\mathbb{W}",
+              Ww: "\\mathcal{W}",
+              X: "\\mathbb{X}",
+              Xx: "\\mathcal{X}",
+              Yy: "\\mathcal{Y}",
+              Z: "\\mathbb{Z}",
+              Zz: "\\mathcal{Z}",
+              abs: ["\\left| #1 \\right|", 1],
+              alf: "{\\alpha}",
+              b: ["{\\bm{#1}}", 1],
+              bm: ["\\boldsymbol{#1}", 1],
+              br: ["\\left\\langle#1\\right\\rangle", 1],
+              bt: "\\beta",
+              co: ["\\overset{\\circ}{#1}", 1],
+              d: "\\mathrm{d}",
+              diag: ["\\operatorname{diag}\\left(#1\\right)", 1],
+              dx: "\\,\\mathrm{d}x",
+              dy: "\\,\\mathrm{d}y",
+              eps: "\\varepsilon",
+              et: "{\\bm{\\eta}}",
+              ex: ["\\mathrm{exp}\\left(#1\\right)", 1],
+              fk: ["\\mathfrak{#1}", 1],
+              fracc: ["{#1}/{#2}", 2],
+              frc: ["\\left(#2)^{-1}(#1\\right)", 2],
+              iso: "\\xrightarrow{\\sim}",
+              ker: "\\bm{ker}",
+              mat: ["\\begin{bmatrix}{#1}\\end{bmatrix}", 1],
+              mathbbm: ["\\mathbb{#1}", 1],
+              mathds: ["\\mathbb{#1}", 1],
+              norm: ["\\left\\lVert #1 \\right\\rVert", 1],
+              om: "\\omega",
+              postref: ["\\href{https://nowheredifferentiable.com/posts/#1/}{#3}", 3],
+              proj: "\\mathrm{proj}",
+              qb: ["\\left[#1\\right]", 1],
+              qp: ["\\left(#1\\right)", 1],
+              qt: ["\\left(#1\\right)", 1],
+              red: ["{\\color{red}#1}", 1],
+              rm: ["\\mathrm{#1}", 1],
+              set: ["\\left\\{#1\\right\\}", 1],
+              star: "*",
+              tl: ["\\widetilde{#1}", 1],
+              tll: ["\\widetilde{#1}", 1],
+              vol: "\\mathrm{vol}",
+              wh: ["\\widehat{#1}", 1],
+              x: "\\bm{x}",
+              xxi: "{\\bm{\\xi}}",
+              y: "\\bm{y}"
+            }
+          }
+        };
+        </script>
+---
+
+##  Three point summary
+
+- Elliptic partial differential equations (PDE) are PDE with no time variable and whose leading order derivatives satisfy a positivity condition.
+- Using Lax Milgram's theorem, we can prove the existence and uniqueness of weak (distributional) solutions if the reaction term dominates the transport term. Using the Fredholm alternative, we can characterize the spectrum of the elliptic operator and the existence of solutions.
+- Under suitable smoothness assumptions on the coefficients and domain, the solution map of the PDE adds two derivatives to the input function. This improved regularity allows us to recover classical solutions if the coefficients are smooth enough.
+
+## Why should I care?
+
+Many problems arising in physics, such as the Laplace and Poisson equation, are elliptic PDE. Furthermore, the tools used to analyze them can be extrapolated to other settings, such as
+parabolic PDE (depending on your viewpoint this may be a bit circular). The analysis also helps contextualize and provide motivation for theoretical tools such as Hilbert spaces, compact operators and Fredholm operators.
+
+## Notation
+
+We will use Vinogradov notation $f \lesssim g$ to mean that there exists a constant $C>0$ such that $f \leq Cg$. If we want to emphasize that the constant depends on a parameter $\alpha$, we will write $f \lesssim_\alpha g$.
+
+We fix $U \subset \R^d$ to be an open subset of $\R^n$ with **no conditions** on the regularity of $\partial U$. If we need to impose regularity on the boundary, we will write $\Omega$ instead of $U$. Finally, we will write
+
+$$
+\begin{aligned}
+\nabla \cdot (\bm{A}\nabla)=\sum_{i,j=1}^d \partial_i A_{ij} \partial _j.
+\end{aligned}
+$$
+
+## Introduction
+
+Welcome back to the second post on our series of PDE. In post [4](https://nowheredifferentiable.com/2023-12-23-PDEs-4-Physical_derivation_of_parabolic_and_elliptic_PDE/), we gave a physical derivation of PDE (both parabolic and elliptic) that justify why we are interested in such equations. In posts [1](https://nowheredifferentiable.com/2023-01-29-PDE-1/), [2](https://nowheredifferentiable.com/2023-05-30-PDE-2-Hilbert/), [3](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/), [5](https://nowheredifferentiable.com/2024-02-27-PDEs-5-Fractional_Sobolev_spaces/) of the series we built up the theoretical framework necessary to define Sobolev spaces, spaces of weakly differentiable functions to which we could extend the concept of differentiation (I know, the order is a bit messed up).  We are now going to use the previous theory to study these equations.
+
+## The problem: Mathematical framework
+
+We consider the following problem: given a bounded open set $U \subset \R^n$ and some coefficients $\bm{A},\bm{b},c$, we want to solve the following elliptic PDE
+
+$$
+\begin{aligned}
+\begin{cases}
+        \Ll u:=  -\nabla \cdot (\bm{A} \nabla u)+ \nabla \cdot (\bm{b} u)+cu=f, & \text{in } U,          \\
+        u=0,                                                                    & \text{on } \partial U,
+    \end{cases}
+\end{aligned}
+$$ {#eq-pde}
+
+where $f: U \to \R$ is some known function, $u$ is the solution we want to find. In the case where $U = \R^d$ the boundary condition is vacuous as $\partial \R^d = \emptyset$.
+
+We recall from post [4](https://nowheredifferentiable.com/2023-12-23-PDEs-4-Physical_derivation_of_parabolic_and_elliptic_PDE/) that physically; we can interpret $u$ as the density of some substance, $\bm{A}$ as a diffusion matrix, $\bm{b}$ as a transport vector, $c$ as a reaction coefficient and $f$ as the source term. For the mathematical theory, we will need some conditions on the coefficients. Primarily, we require that $\bm{A}$ is *elliptic*.
+
+::: {#def-1 name="Ellipticity"}
+
+Given $\bm{A}: U \to \R^{d \times d}, \bm{b}: U \to \R^d$ and $c:U \to \R$ we say that the operator
+
+$$
+\begin{aligned}
+\Ll u:= -\nabla \cdot (\bm{A} \nabla u)+ \nabla \cdot (\bm{b} u)+c
+\end{aligned}
+$$
+
+is *elliptic* if there exists $\alpha>0$ such that
+
+$$
+\begin{aligned}
+\xi ^T\bm{A}(x) \xi \geq \alpha \abs{\xi }^2 , \quad\forall \xi \in \R^d , \quad\forall x \in U .
+\end{aligned}
+$$
+
+We also say that $\bm{A}$ is elliptic.
+
+:::
+
+There are some points to clear up. Firstly, if this is the first time you've encountered the ellipticity condition in @eq-elliptic, then it may seem a bit strange. With the previous physical interpretation, the ellipticity condition @eq-elliptic says that diffusion occurs from the region of [higher to lower density](https://nowheredifferentiable.com/2023-12-23-PDEs-4-Physical_derivation_of_parabolic_and_elliptic_PDE/#:~:text=This%20is%20the-,process,-that%20causes%20the). Mathematically speaking, @eq-elliptic will prove necessary to apply [Lax Milgram's theorem](https://nowheredifferentiable.com/2023-05-30-PDE-2-Hilbert/#:~:text=degenerate.%20As%20a-,particular,-example%2C%20a%20symmetric) and obtain regularity estimates on $u$. 
+
+Next, when developing the mathematical theory of any equation, the first step is to establish whether the equation is *well-posed*.
+
+::: {#def-2 name="Well-posedness"}
+
+We say that an equation is *well-posed* if
+1. It has a solution.
+2. The solution is unique.
+3. The solution depends continuously on the data.
+
+:::
+
+The above definition originates from the work of Hadamard and is standard in the context of PDE. The three properties above make the problem nice to work with and may be familiar from the basic theory of ODE. However, not all problems are well-posed. Ill-posedness often arises when one works with inverse problems, such as the backward heat equation, where one tries to recover the initial heat distribution from the final one.
+
+The well-posedness of any given PDE is highly contingent on the space considered. In our case, we still need to define which function space our coefficients $\bm{A,b},c$ live in and what space $\Ll$ acts on. It would be natural to assume that we need $\bm{A}$ and $\bm{b}$ to be differentiable. However, the following will suffice.
+\begin{assumption}
+    We assume that $A_{ij}, b_i, c \in L^\infty (U)$ for all $i,j=1,\ldots,d$. Furthermore, $\bm{A}$ is symmetric ($A_{ij}=A_{ji}$) and elliptic.
+\end{assumption}
+In the future, $i,j$ will always run from $1$ to $d$, where $d$ is the dimension of the space.
+\begin{observation}
+    We lose no generality by assuming that $\bm{A}$ is symmetric as $\partial _{ij} u =\partial _{ji} u$. If $\bm{A}$ is not symmetric, we can replace $\bm{A}$ by $(\bm{A}+\bm{A}^T)/2$ and equation @eq-pde will remain unchanged.
+\end{observation}
+The first part of Assumption @ass1 will make it easy to get bounds on $\Ll$, and the second part will prove useful when we look at the spectral theory of $\Ll$. Now, to make sense of our problem @eq-pde, we need to define what we mean by a solution. Here, the theory of Sobolev Spaces and the Fourier transform prove crucial. We will work with the following space.
+
+::: {#def-dual-definition-2 name="Negative Sobolev space"}
+
+Given $k \in \N$ we define
+
+$$
+\begin{aligned}
+H^{-k}(U ):= H_0^k(U )'
+\end{aligned}
+$$
+
+:::
+
+For more details on why we denote the dual using negative exponents, see the [relevant section](https://nowheredifferentiable.com/2024-02-27-PDEs-5-Fractional_Sobolev_spaces/#fractional%20laplacian:~:text=%E2%97%BB-,Dual%20of%20Sobolev%20spaces,-and%20correspondence%20with) in the previous post on fractional Sobolev spaces. We [recall](https://nowheredifferentiable.com/2024-02-27-PDEs-5-Fractional_Sobolev_spaces/#:~:text=some%20particular%20cases.-,Theorem%2018,-(Representation%20of) also that every element in $H^{-k}(U)$ can be written as the sum of derivatives up to order $k$ of a function in $L^2(U)$.
+
+::: {#exr-domain-l}
+
+Suppose $A_{ij}, b_i, c \in L^\infty(U)$. Then, $\Ll$ defines a bounded linear operator
+
+$$
+\begin{aligned}
+\Ll : H_0^{1}(U)\to H^{-1} (U).
+\end{aligned}
+$$
+
+:::
+
+::: {.callout-tip collapse="true" title="Hint"}
+
+By definition of the weak derivative, show that given $v \in C_c^\infty(U)$,
+
+$$
+\begin{aligned}
+(v, \Ll u) = \int_{U} \bm{A} \nabla v \cdot \nabla u + \int_{U} \bm{b} \cdot \nabla v u + \int_{U} cvu.
+\end{aligned}
+$$
+
+Use this to conclude that,
+
+$$
+\begin{aligned}
+\abs{(v, \Ll u)} \lesssim \norm{v}_{H^1(U)}\norm{u}_{H^1(U)}.
+\end{aligned}
+$$
+
+So, $\Ll u \in H^{-1}(U)$ is well defined and $\Ll$ is bounded. Extend by density to $H_0^1(U)$.
+
+:::
+
+Exercise @exr-domain-l allows us to define the weak formulation of @eq-pde and study its well-posedness using Lax Milgram's theorem. We will do this in the next section.
+
+## Weak solutions and well-posedness
+
+By Exercise @exr-domain-l, we can make sense of the equation $\Ll u =f$ for all $f \in H^{-1}(U)$.
+
+::: {#def-3 name="Weak formulation"}
+
+Given $f \in H^{-1}(U)$, we say that $u~\in~H_0^1(U)$ solves equation @eq-pde if
+
+$$
+\begin{aligned}
+B(u,v):= (v, \Ll u)=\int_{U}\bm{A} \nabla u \cdot \nabla v + \int_{U} \bm{b} \cdot ( \nabla u) v + \int_{U} cuv= (v,f), \quad \forall v \in H_0^1(U).
+\end{aligned}
+$$
+
+:::
+
+In @eq-weak-def we used the ``duality notation'' $(v,f):= f(v)$ for $f \in X, v \in X'$ (here $X= H_0^1(U)$). We have now reformulated our problem to something that looks very similar to the setup of Lax Milgram's theorem and can use this to prove the well-posedness of @eq-pde under certain conditions.
+
+::: {#thm-well-posed-1}
+
+Let $U \subset \R^d$ be an arbitrary open set. Suppose Assumption @ass1 holds and let $\bm{b}=0$. Then, if $c >0$  equation @eq-pde is well-posed, and we have the homeomorphism
+
+$$
+\begin{aligned}
+\Ll : H_0^1(U) \iso H^{-1}(U).
+\end{aligned}
+$$
+
+If $U$ is bounded, the above also holds for $c\geq 0$.
+
+:::
+
+::: {.proof}
+
+The continuity of $B$ is a consequence of Exercise @exr-domain-l. It remains to see that $B$ is coercive. For smooth $u \in C_c^\infty(U)$ we have that
+
+$$
+\begin{aligned}
+B(u,u) & = \int_{U}\bm{A} \nabla u \cdot \nabla u + \int_{U} cu^2 \geq \alpha \norm{\nabla u}^2_{L^2(U \to \R^d)} + \int_{U}c u^2 \gtrsim \norm{u}^2_{H^1_0(U)}.
+\end{aligned}
+$$ {#eq-b=0}
+
+Where in the first inequality, we used the ellipticity assumption on $\bm{A}$, and in the last inequality, we used [Poincaré's inequality](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=in%20future%20posts-,Theorem,-14%20(Poincar%C3%A9%20inequality) if $U$ is bounded. The result now follows from [Lax Milgram's theorem](https://nowheredifferentiable.com/2023-05-30-PDE-2-Hilbert/#:~:text=an%20inner%20product.-,Theorem,-7%20(Lax%20Milgram).
+
+:::
+
+Theorem @thm-well-posed-1 is an example of the advantages of working with a weak formulation instead of solutions differentiable in a classical sense. The weak formulation allows us not only to make sense of our equation @eq-pde for a wider class of coefficients but also provides a natural framework to study the well-posedness of @eq-pde.
+
+::: {#exr-1}
+
+Show that, under the conditions of Theorem @thm-well-posed-1, if $U$ is bounded, there is a countable basis of eigenfunctions for $\Ll$.
+
+:::
+
+::: {.callout-tip collapse="true" title="Hint"}
+
+By [Rellich's theorem](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=Theorem%2014%20(-,Rellich,-for%20trace%200) $\Ll^{-1}: L^2(U) \to L^2(U)$ is compact and, since $\bm{b}$ is $0$, $\Ll$ is also is self adjoint. As a result, so there is a countable basis of eigenvectors in $L^2(U)$.
+
+:::
+
+In Theorem @thm-well-posed-1, we somewhat unsatisfyingly had to impose the extra assumption that $\bm{b}$ was identically zero and that $c > 0$. These extra assumptions can be done away with but at the cost of modifying our initial problem by a correction term $\gamma$ so we can obtain a coercive operator $B_\gamma$.
+
+::: {#thm-mod name="Modified problem"}
+
+Let $U \subset \R^d$ be any open set and let Assumption @ass1 hold. Then, there exists some constant $\nu \geq 0$ (depending on the coefficients) such that for all $\gamma \geq \nu$ the operator $\Ll_\gamma := \Ll + \gamma \bm{I}$ is positive definite and defines a homeomorphism
+
+$$
+\begin{aligned}
+\Ll_\gamma : H_0^1(U) \iso H^{-1}(U).
+\end{aligned}
+$$
+
+:::
+
+That is, the problem $\Ll u +\gamma u =f$ is well-posed for all $\gamma > \nu$.
+
+::: {.proof}
+
+Once more, the proof will go through the Lax-Milgram theorem, where now we work with the bilinear operator $B_\gamma$ associated with $\Ll_\gamma$
+
+$$
+\begin{aligned}
+B_\gamma (u,v):= (v, \Ll_\gamma u)=B(u,v) + \gamma (u,v).
+\end{aligned}
+$$
+
+The calculation proceeds similarly to @eq-b=0. We recall the Cauchy inequality
+
+$$
+\begin{aligned}
+ab\leq\frac{\varepsilon }{2} a^2+ \frac{1}{2 \varepsilon } b^2 , \quad\forall a,b \in \R, \quad \varepsilon >0,
+\end{aligned}
+$$ {#eq-cauchy}
+
+which can be checked directly by using that $(c-d)^2 \geq 0$. Applying @eq-cauchy
+to $a=\nabla u$ and $b= v$, shows that
+
+$$
+\begin{aligned}
+B(u,u) & = \int_{U}(\bm{A} \nabla u) \cdot \nabla u + \int_{U} \bm{b}\cdot (\nabla u) u + \int_{U} cu^2 \geq \alpha \norm{\nabla u}^2_{L^2(U \to \R^d)}                          \\
+           & - \frac{1}{2}\norm{\bm{b}}_{L^\infty(U)} \qt{\varepsilon \norm{\nabla u}_{L^2(U)}^2+ \varepsilon ^{-1}\norm{u}^2_{L^2(U)}}- \norm{c}_{L^\infty(U)}\norm{u}^2_{L^2(U)} .
+\end{aligned}
+$$
+
+Taking $\varepsilon$ small enough (smaller than $\alpha \norm{\bm{b}}_{L^\infty(U)}^{-1}$ to be precise) and gathering up terms gives
+
+$$
+\begin{aligned}
+B(u,u) \geq \frac{\alpha}{2} \norm{\nabla u}^2_{L^2(U \to \R^d)} -\nu \norm{u}^2_{L^2(U)}.
+\end{aligned}
+$$ {#eq-b-not-0}
+
+Where we defined $\nu = \norm{\bm{b}}_{L^\infty(U)} \varepsilon ^{-1}+\norm{c}_{L^\infty(U)}$. The theorem follows from  @eq-b-not-0 as for all $\gamma > \nu$
+
+$$
+\begin{aligned}
+B_\gamma (u,u)=B(u,u)+ \gamma \norm{u}^2_{L^2(U)} \geq\frac{\alpha}{2} \norm{\nabla u}^2_{L^2(U \to \R^d)}+(\gamma - \nu) \norm{u}^2_{L^2(U)}\gtrsim \norm{u}^2_{H_0^1(U)} .
+\end{aligned}
+$$ {#eq-pd}
+
+Equation @eq-pd also shows that $\Ll_\gamma$ is positive definite and the proof is complete.
+
+:::
+
+### Fredholm alternative
+
+We now analyze further what we can say about the well-posedness of @eq-pde. What has to happen for the equation to be ill-posed? If there are multiple solutions, what does the space of solutions look like? As we will see, this is intimately linked to the spectrum of the operator $\Ll$ and the Fredholm alternative will provide the answers we are looking for,
+
+We begin by considering $\Ll u =\lambda u+f$, which is a small generalization of our original problem @eq-pde. We take $\gamma > \abs{\lambda }$ large enough as in Theorem @thm-mod and note that
+
+$$
+\begin{aligned}
+\Ll u = \lambda u + f \iff \Ll_\gamma u =(\gamma+\lambda)u +f.
+\end{aligned}
+$$ {#eq-above}
+
+Now write $\mu:=(\gamma+\lambda)$ and rename $v:=\mu u +f$. An algebraic manipulation shows that @eq-above is equivalent to
+
+$$
+\begin{aligned}
+(\bm{I}- \mu \Ll_\gamma ^{-1} )v =f,
+\end{aligned}
+$$ {#eq-below}
+
+where $\bm{I}$ is the identity operator. Suppose now that $U$ is bounded, then, by [Rellich's theorem](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=Theorem%2014%20(-,Rellich,-for%20trace%200), we know that the following inclusion is compact
+
+$$
+\begin{aligned}
+i: H^1(U) \hookrightarrow L^2(U).
+\end{aligned}
+$$
+
+As a result, by Theorem @thm-well-posed-1, we deduce that $\Ll_\gamma^{-1}: L^2(U) \to L^2(U)$, which we are now viewing as an operator on $L^2(U)$, is compact. More precisely,
+
+$$
+\begin{aligned}
+K:= i \circ \restr{\Ll_\gamma ^{-1}}{L^2(U)}
+\end{aligned}
+$$
+
+is compact and the reasoning in @eq-above, @eq-below shows that, given $f \in L^2(U)$, and $u \in H_0^1(U)$
+
+$$
+\begin{aligned}
+\Ll u = \lambda u+f\iff Tv:=(\bm{I}-\mu K)v =f.
+\end{aligned}
+$$ {#eq-reasoning}
+
+Equation @eq-reasoning is exactly the form the [Fredholm alternative](https://nowheredifferentiable.com/2023-05-30-PDE-2-Hilbert/#:~:text=Theorem%2010%20(-,Fredholm,-alternative) takes ($\mu$ can be incorporated into  the compact operator $K$) and justifies the following.
+
+::: {#thm-well-posedness-fredholm}
+
+Let $U\subset \R^d$ be bounded, let $\Ll$ verify Assumption @ass1, and $\lambda \in \R, f \in L^2(U)$ be any. Consider the problems
+
+$$
+\begin{aligned}
+\mathcal{L}u & = \lambda u + f \quad \text{and} \quad u \in H_0^1(U)                            \\
+\mathcal{L}u & = \lambda u \quad \hspace{17pt}\text{and} \quad u \in H_0^1(U)
+\end{aligned}
+$$
+
+Then, the following hold:
+1. Equation @eq-original is well-posed if and only if @eq-originalh has no non-zero solutions. That is, if and only if $\lambda \notin \sigma(\Ll)$.
+2. The spectrum $\sigma (\Ll )$ is discrete. If $\sigma(\Ll )= \{\lambda_n \}_{n=1}^\infty$ is infinite, then $\lambda _n \to +\infty$.
+3. The dimensions of the following spaces are equal
+
+$$
+\begin{aligned}
+N:= \set{u \in H_0^1(U): \Ll u = \lambda u}, \quad N^*:= \set{w \in L^2(U): \Ll^* w = \lambda w},
+\end{aligned}
+$$
+4. Equation, @eq-original has a solution if and only if $f \in (N^*)^\perp$ $($equivalently $\br{w,f}=0$ for all $w \in N^* )$.
+
+:::
+
+::: {.proof}
+
+Given $f \in L^2(U)$ and $\lambda \in \R$ as before, we consider $\gamma > \abs{\lambda }$ large and define
+
+$$
+\begin{aligned}
+\Ll _\gamma := \Ll + \gamma \bm{I}, \quad  K:= i \circ \restr{\Ll_\gamma ^{-1}}{L^2(U)}, \quad  \mu := \gamma + \lambda, \quad T := (\bm{I}- \mu K)
+\end{aligned}
+$$
+
+, where $i : H^1(U) \hookrightarrow L^2(U)$ is the inclusion. Consider the following two problems,
+
+$$
+\begin{aligned}
+Tv & = f  \quad \text{and} \quad  v \in L^2(U),              \\
+    Tv & = 0 \quad \text{and} \quad  v \in L^2(U). 
+\end{aligned}
+$$ {#eq-fred}
+
+The reasoning in @eq-reasoning showed that a solution $u$ to @eq-original gives a solution to @eq-fred via the transformation $v=\mu u +f$. The converse needs to be clarified, as given $v \in L^2(U)$, the inverse transformation $u = \mu ^{-1}(v-f)$ may not return a function in $H_0^1(U)$. However, if $v$ solves @eq-fred, then $u$ verifies
+
+$$
+\begin{aligned}
+Tv=v-\mu K v=\mu u +f - \mu K v=f.
+\end{aligned}
+$$
+
+Cancelling out the $f$ and dividing by $\mu$ we obtain that
+
+$$
+\begin{aligned}
+u =Kv.
+\end{aligned}
+$$
+
+By Theorem @thm-well-posed-1 we know that $Kv = \Ll _\gamma ^{-1} v \in H_0^1(U)$ for all $v \in L^2(U)$ . As a result, $u$ solves problem @eq-original, and by the transformation $v \leftrightarrow u$ problem @eq-fred has a solution if and only if problem @eq-original has a solution. Taking $f=0$, we also obtain that $u$ solves problem @eq-originalh if and only $v$ solves problem @eq-fredh. In conclusion,
+
+$$
+\begin{aligned}
+@eq-original \text{ is } \rmm{w.p} \iff @eq-fred \text{ is } \rmm{w.p} \iff \ker(T) =0 \iff \ker(\Ll -\lambda \bm{I} )=0,
+\end{aligned}
+$$
+
+where the second equivalence is due to the Fredholm alternative, and the third can be verified by an algebraic manipulation. This proves the first point.
+
+To see the second point, note that, by definition of $T$, equation @eq-fredh has non-zero solutions if and only if $\mu ^{-1} \in \sigma (K)$. Since $K$ is compact, $\sigma(K)$ is discrete and if $\sigma (K)$ is infinite, then its eigenvalues, which we denote by $\left\{\mu _n^{-1}\right\}_{n=1}^\infty$, go to $0$. Furthermore, since by Theorem @thm-mod $K$ is positive definite, $\mu_n >0$ and the claim follows by the correspondence $\lambda_n =\mu_n -\gamma$.
+
+For the third and fourth points, we use that, as we have already proved, $\ker(T)=N$. Additionally,
+
+$$
+\begin{aligned}
+T^* =(\bm{I}-\mu K^*) =\bm{I}-\mu (\Ll^*+ \gamma )^{-1},
+\end{aligned}
+$$
+
+from where
+
+$$
+\begin{aligned}
+\quad \ker(T^*)=\ker(\Ll^* -\lambda \bm{I})= N^*.
+\end{aligned}
+$$
+
+Applying the Fredholm alternative concludes the proof.
+
+:::
+
+Setting $\lambda =0$ in Theorem @thm-well-posedness-fredholm, we recover our original problem and obtain the following corollary.
+
+::: {#cor-1}
+
+Equation @eq-pde is well-posed unless the homogeneous problem $\Ll u=0$ has a non-zero solution (that is, $\ker(\Ll )\neq 0$). The space of solutions then has dimension $\ker(\Ll)$, which is also equal to the dimension of $\ker(\Ll ^*)$. Finally, @eq-pde will have a solution if and only if $f$ is orthogonal to the kernel of $\Ll^*$.
+
+:::
+
+In particular, to study the *existence* of solutions to @eq-pde, it is enough to study the *uniqueness* of solutions to @eq-pde!
+
+::: {#exr-2}
+
+In Theorem @thm-well-posedness-fredholm we used that, for $\gamma$ large enough, $K= \Ll_{\gamma }^{-1}$ is compact. However, $\Ll_{\gamma }^{-1}$ is invertible with inverse $\Ll _\gamma$. As a result $\bm{I}=\Ll _\gamma \circ \Ll _\gamma ^{-1}$ is compact. How is this possible?
+
+:::
+
+::: {.callout-tip collapse="true" title="Hint"}
+
+In fact, $\Ll_\gamma^{-1}$ is only invertible as an operator from $H^{-1}(U) \to H^1_0(U)$. However, it is not invertible as an operator from $K: L^2(U) \to L^2(U)$. Given $f \in L^2(U)$, it is not generally possible to find an $u \in L^2(U)$ such that $\Ll_\gamma u =f$.
+
+:::
+
+::: {#exr-3}
+
+Where does the proof of Theorem @thm-well-posedness-fredholm break down if we replace $U$ with $\R^d$?
+
+:::
+
+::: {.callout-tip collapse="true" title="Hint"}
+
+Can you apply  [Rellich's theorem](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=Theorem%2014%20(-,Rellich,-for%20trace%200) to unbounded domains? What is the spectrum of the Laplacian on $\R^d$?
+
+:::
+
+::: {#exr-4}
+
+Show using Theorem @thm-well-posedness-fredholm that equation @eq-fred (the generalization of @eq-pde) is well-posed saved for at most a discrete set of $\lambda$.
+
+:::
+
+::: {.callout-tip collapse="true" title="Hint"}
+
+Combine the first and second points of Theorem @thm-well-posedness-fredholm.
+
+:::
+
+::: {#exr-5}
+
+Show the necessity of point 4 in Theorem @thm-well-posedness-fredholm using only linear algebra.
+
+:::
+
+::: {.callout-tip collapse="true" title="Hint"}
+
+Suppose $\Ll u = \lambda u+f$ and $w \in N^*$. Then,
+
+$$
+\begin{aligned}
+\br{w,f} = \br{w,\Ll u -\lambda u} = \br{w,\Ll u} -\lambda \br{w,u} =\br{\Ll^* w,u} -\lambda \br{w,u}= 0.
+\end{aligned}
+$$
+
+:::
+
+## Higher regularity
+
+We have so far seen that, under the previous assumptions, solutions to @eq-pde are in $H_0^1(U)$. However, analogously to the classical setting, we may expect that $u$ is two degrees of regularity smoother than $f$. That is that $u \in H^2(U)$. This improved regularity is true, but only with the caveat that the domain $U$ is sufficiently regular. Counterexamples with non-smooth domains exist. See [@savare1998regularity].
+
+We will also see how, for smoother coefficients, we can iterate to obtain a higher regularity of $u$. As a result, when the coefficients of @eq-pde are smooth, $u$ will be as well, and we will obtain a classical solution to problem @eq-pde.
+
+### Finite differences
+
+In our study of regularity, we will make use of the difference quotients. Given a function $u \in L^p(\R^d)$, we define the difference quotients in the $j$-th direction as
+
+$$
+\begin{aligned}
+D_j^h u := \frac{u(x+ he_j)-u(x)}{h},\quad  e_j=(0,\ldots,\overset{(j)}{1},\ldots,0).
+\end{aligned}
+$$
+
+If $u$ is differentiable, then $D_j^h u \to \partial_j u$ as $h \to 0$. The following lemma shows that, on $\R^d$, the difference quotients of $u$ are bounded if and only if $u$ is weakly differentiable.
+
+::: {#lem-difference-quotients-1 name="Difference quotients and regularity"}
+
+Let $p \in (1, +\infty)$, and $C >0$ be some constant.  Then, the following hold.
+1. If $u \in L^p(\R^d)$ and for all $h$ sufficiently small $\norm{D_j^h u}_{L^p(\R^d)} \leq C$. Then $u \in W^{1,p}(\R^d)$.
+2. If $u \in W^{1,p}(\R^d)$. Then, $\norm{D_j^h u}_{L^p(\R^d)} \leq \norm{\partial_j u}_{L^p(\R^d)}$.
+
+:::
+
+::: {.proof}
+
+We begin by proving the first point. Since $L^p(\R^d)$ is reflexive, every bounded sequence in $L^p(\R^d)$ has a weakly convergent subsequence. Thus, we can find $h_n$ and $v \in L^p(\R^d)$ such that $D_j^{h_n} u \rightharpoonup v$ weakly in $L^p(\R^d)$. We want to show that $v = \partial_j u$. To this aim, let $\varphi \in C_c^\infty(\R^d)$. Then,
+
+$$
+\begin{aligned}
+\int_{\R^d} v \varphi & = \lim_{n \to \infty} \int_{\R^d} D_j^{h_n} u \varphi = \lim_{n \to \infty} \int_{\R^d} u(x)\frac{\varphi(x-h_n e_j)- \varphi (x)}{h_n}\d x
+    \\&= \int_{\R^d} u(x)\lim_{n \to \infty} -D_j^{-h_n} \varphi \d x =-\int_{\R^d} u \partial_j \varphi,\notag
+\end{aligned}
+$$ {#eq-weak-int-parts}
+
+where in the first equality, we used the weak convergence of $D_j^{h_n}u$ to $v$; in the second, we separated the integral in two and used the change of variable $x \to x-h_n e_j$ on the first of the integrals (from now on we will call this ``discrete integration by parts''). The final equality follows from the smoothness of $\varphi$. Since $\varphi \in C_c^\infty(\R^d)$ was arbitrary, we have that $v=\partial_j u$ almost everywhere. Since $u \in L^p(\R^d)$, this shows that $u \in W^{1,p}(\R^d)$.
+
+For the second point, suppose that $u$ is smooth; then, by the fundamental theorem of calculus,
+
+$$
+\begin{aligned}
+D_j^h u(x) = \int_0^1 \partial_j u(x+the_j) \d t.
+\end{aligned}
+$$
+
+Taking norms and using [Minkowski's integral inequality](https://en.wikipedia.org/wiki/Minkowski_inequality#:~:text=.-,Minkowski%27s,-integral%20inequality%5B) we obtain
+
+$$
+\begin{aligned}
+\norm{D_j^h u}_{L^p(\R^d)} \leq \int_0^1 \norm{\partial_j u(\cdot+the_j)}_{L^p(\R^d)} \d t= \int_{0}^1 \norm{\partial_j u}_{L^p(\R^d)} \d t=\norm{\partial_j u}_{L^p(\R^d)},
+\end{aligned}
+$$
+
+where in the second equality, we used the change of variables $x \to x-the_j$. We conclude by using the density of smooth functions in $W^{1,p}(\R^d)$ to take limits in the above inequality.
+
+:::
+
+The result can be extended to arbitrary open subsets $U \subset \R^d$. In this case, one can only obtain local regularity as the translation $u(x+h e_j)$ is not well defined on the whole of $U$. We recall the notation $V \Subset U$ to mean that $V$ is a subset of $U$ with   $\bar{V} \subset U$.
+
+::: {#lem-difference-quotients-2 name="Difference quotients and local regularity"}
+
+Let $p \in (1, +\infty)$, $C>0$ be a constant and $V \Subset U$ open. Then, the following hold.
+1. If $u \in L^p(U)$ and for all $h$ sufficiently small $\norm{D_j^h u}_{L^p(V)} \leq C$. Then, $u \in W^{1,p}(V)$.
+2. If $u \in W^{1,p}(U)$. Then, $\norm{D_j^h u}_{L^p(V)} \leq \norm{\partial_j u}_{L^p(U)}$ for all $h<\d(V,\partial U)$.
+
+:::
+
+::: {#exr-6}
+
+Prove Lemma @lem-difference-quotients-2.
+
+:::
+
+::: {.callout-tip collapse="true" title="Hint"}
+
+Adapt the proof of Lemma @lem-difference-quotients-1. Take $\varphi \in C_c^\infty(V)$ for the first point. For the second point, use the [local density](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=drawings%20is%20recommended.-,Theorem%203,-(Local%20approximation%20by) of smooth functions in $W^{1,p}(U)$.
+
+:::
+
+### Regularity on $\R^d$ 
+
+By using second-order finite difference, we now show that the solution to @eq-pde is in $H^2(\R^d)$ if we impose additionally that $\bm{A}$ is continuously differentiable.
+
+::: {#thm-improved-reg-rd name="Improved regularity on $\R^d$ "}
+
+Suppose that $A_{ij}\in C^1(\R^d)$ is elliptic and that $b_i \in L^\infty(\R^d ), c \in L^\infty(\R^d)$ . Then, if $u \in H^1(\R^d)$ solves $\Ll u=f$, it holds that $u \in H^2(\R^d)$ with
+
+$$
+\begin{aligned}
+\norm{u}_{H^2(\R^d)} \lesssim_{\bm{A},\bm{b},c} \norm{f}_{L^2(\R^d)}+\norm{u}_{L^2(\R^d)}.
+\end{aligned}
+$$
+
+:::
+
+::: {.proof}
+
+The idea is to use difference quotients to approximate the second derivative of $u$
+
+$$
+\begin{aligned}
+v:= -D_j^{-h} D_j^h u = \frac{u(x+he_k)-2u(x)+u(x-he_k)}{h^2}.
+\end{aligned}
+$$
+
+Since $v \in H^1(U)$, we can substitute $v$ into the weak formulation @eq-weak-def, do a discrete integration by parts and use Cauchy's inequality to show that $\norm{D_j^h \nabla u}_{L^2(\R^d)}$ is bounded. Using Lemma @lem-difference-quotients-1, we will then conclude that $u \in H^{2}(\R^d)$ and finish off the proof. We now put this plan into action. From @eq-weak-def, we have that
+
+$$
+\begin{aligned}
+\int_{\R^d} \bm{A} \nabla u \cdot \nabla v =\int_{\R^d} (f- \bm{b} \cdot \nabla u -cu)v.
+\end{aligned}
+$$ {#eq-start}
+
+Applying a discrete integration by parts to the left-hand side of @eq-start as in @eq-weak-int-parts, we obtain
+
+$$
+\begin{aligned}
+\int_{\R^d} \bm{A} \nabla u \cdot \nabla v = \int_{\R^d} D_j^h( \bm{A} \nabla u) \cdot (D_j^h \nabla u)= \int_{\R^d} \bm{A}^h D_j^h \nabla u \cdot D_j^h \nabla u+ \int_{\R^d} (D_j^h\bm{A}) \nabla u \cdot D_j^h \nabla u,
+\end{aligned}
+$$
+
+where in the last equality, we used the notation $\bm{A}^h(x):=\bm{A}(x+h)$ and the product rule for difference quotients (this can be checked by basic algebra). Using the ellipticity of $\bm{A}$ and Cauchy's inequality @eq-cauchy to put $\varepsilon$ on the higher order negative term $D_j^h \nabla  u$ we obtain that for some constant $C$
+
+$$
+\begin{aligned}
+\int_{\R^d} \bm{A} \nabla u \cdot \nabla v \geq \alpha \norm{D_j^h \nabla u}_{L^2(\R^d)}^2 -\frac{C}{\varepsilon }\norm{ \nabla u}_{L^2(\R^d)}^2-\varepsilon \norm{D_j^h \nabla u}_{L^2(\R^d)}^2,
+\end{aligned}
+$$ {#eq-first}
+
+where we used that, since $\bm{A} \in C^1(\R^d)$, the term $D_j^h \bm{A}$ is bounded. Setting $\varepsilon =\alpha /3$ in @eq-first we obtain that
+
+$$
+\begin{aligned}
+\int_{\R^d} \bm{A} \nabla u \cdot \nabla v \geq \frac{2\alpha}{3} \norm{D_j^h \nabla u}_{L^2(\R^d)}^2-\frac{3C}{\alpha}\norm{\nabla u}_{L^2(\R^d)}^2.
+\end{aligned}
+$$ {#eq-second}
+
+We now estimate the right-hand side of @eq-start. We have that, by Cauchy's inequality and the second point of Lemma @lem-difference-quotients-1,
+
+$$
+\begin{aligned}
+\int_{\R^d} (f- \bm{b} \cdot \nabla u -cu)v \leq \frac{C}{\varepsilon }\left(\norm{f}^2_{L^2(\R^d)}+ \norm{\nabla u}^2_{L^2(\R^d)}+\norm{u}^2_{L^2(\R^d)}\right)+\varepsilon \norm{D_j^h \nabla u}_{L^2(\R^d)}^2.
+\end{aligned}
+$$
+
+Once more, setting $\varepsilon =\alpha /3$ gives
+
+$$
+\begin{aligned}
+\int_{\R^d} (f- \bm{b} \cdot \nabla u -cu)v \leq \frac{3C}{\alpha }\left(\norm{f}^2_{L^2(\R^d)}+ \norm{\nabla u}^2_{L^2(\R^d)}+\norm{u}^2_{L^2(\R^d)}\right)+\frac{\alpha }{3}\norm{D_j^h \nabla u}_{L^2(\R^d)}^2.
+\end{aligned}
+$$ {#eq-third}
+
+Using @eq-second and @eq-third in @eq-start shows that, for some constant $\tl{C}$,
+
+$$
+\begin{aligned}
+\norm{D_j^h \nabla u}_{L^2(\R^d)}^2 \leq \frac{\tl{C} }{\alpha^2 }\left(\norm{f}^2_{L^2(\R^d)}+ \norm{\nabla u}^2_{L^2(\R^d)}+\norm{u}^2_{L^2(\R^d)}\right).
+\end{aligned}
+$$ {#eq-fourth}
+
+Equation @eq-fourth is almost the desired result save the presence of $\norm{\nabla u}_{L^2(\R^d)}$ on the right-hand side. However, by setting $v= u$ in @eq-start and once more using Cauchy's inequality, we obtain that
+
+$$
+\begin{aligned}
+\norm{\nabla u}_{L^2(\R^d)}^2 \lesssim_{\bm{A},\bm{b},c} \norm{f}^2_{L^2(\R^d)}+ \norm{ u}^2_{L^2(\R^d)}.
+\end{aligned}
+$$ {#eq-fifth}
+
+Combining @eq-fourth and @eq-fifth gives the bound
+
+$$
+\begin{aligned}
+\norm{D_j^h \nabla u}_{L^2(\R^d)}^2 \lesssim_{\bm{A},\bm{b},c} \norm{f}^2_{L^2(\R^d)}+ \norm{ u}^2_{L^2(\R^d)}.
+\end{aligned}
+$$
+
+Applying the first point of Lemma @lem-difference-quotients-1 and taking square roots concludes the proof.
+
+:::
+
+By induction, we can obtain higher-order regularity. For notational convenience, we write
+
+$$
+\begin{aligned}
+X^k:= H^k(\R^d) \cap W^{k,\infty}(\R^d).
+\end{aligned}
+$$
+
+This space corresponds to functions that are $k$ times weakly differentiable with bounded and square-integrable derivatives up to order $k$.
+
+::: {#thm-higher-regularity-rd name="Regularity on $\R^d$ "}
+
+Suppose that $\Ll$ is elliptic and that its coefficients verify
+
+$$
+\begin{aligned}
+A_{ij} \in C^{1}(\R^d)\cap X^{k+1}, \quad b_i,c \in X^k, \quad f \in H^k(\R^d).
+\end{aligned}
+$$
+
+Then, if $u \in H^1(\R^d)$ solves $\Ll u=f$, it holds that $u \in H^{k+2}(\R^d)$ with
+
+$$
+\begin{aligned}
+\norm{u}_{H  ^{k+2}(\R^d)} \lesssim_{\bm{A},\bm{b},c} \norm{f}_{H^k(\R^d)}+\norm{u}_{L^2(\R^d)}.
+\end{aligned}
+$$
+
+:::
+
+::: {.proof}
+
+The theorem holds for $k=0$ by Theorem @thm-improved-reg-rd.
+Suppose by hypothesis of induction that the theorem holds up to order $k$. Let
+
+$$
+\begin{aligned}
+A_{ij} \in C^{1}(\R^d)\cap X^{k+2}, \quad b_i,c \in X^{k+1}, \quad f \in H^{k+1}(\R^d).
+\end{aligned}
+$$ {#eq-coefficients-k1}
+
+Then, by the induction hypothesis $u \in H^{k+2}(\R^d)$ with
+
+$$
+\begin{aligned}
+\norm{u}_{H^{k+2}(U)} \lesssim_{\bm{A},\bm{b},c} \norm{f}_{H^k(\R^d)}+\norm{u}_{L^2(\R^d)}.
+\end{aligned}
+$$ {#eq-hi}
+
+Consider a multi-index $\alpha$ with $|\alpha|=k+1$ and $\tl{v } \in C_c^\infty(\R^d)$. Then, substituting  $v := (-1)^{\abs{\alpha} } D^\alpha \tl{v}$ in the weak formulation @eq-weak-def we obtain by integrating by parts that
+
+$$
+\begin{aligned}
+\int_{\R^d} D^\alpha(\bm{A} \nabla u) \cdot \nabla \tl{v} +\int_{\R^d} D^\alpha(\bm{b} \nabla u) \cdot \nabla \tl{v} +\int_{\R^d} D^\alpha (c u) \tl{v} =\int_{\R^d} D^\alpha f \tl{v}.
+\end{aligned}
+$$
+
+Let us write $\tl{u}:= D^\alpha u$. Applying the chain rule repeatedly and keeping only the derivatives of order $k+3$ of $u$ on the left-hand side to obtain
+
+$$
+\begin{aligned}
+B(\tl{u},\tl{v} ) = \int_{\R^d} \bm{A} \nabla D^\alpha u \cdot \nabla \tl{v} +\int_{\R^d} \bm{b} \nabla D^\alpha u \cdot \nabla \tl{v} +\int_{\R^d} c D^\alpha u \tl{v} =\int_{\R^d} \tl{f} \tl{v}= (\tl{f} ,\tl{v}),
+\end{aligned}
+$$ {#eq-weak-solk}
+
+where $\tl{f}$ involves only $D^\alpha f$ as well as sums and products of derivatives up to order $k+2$ of $u,\bm{A}$ and up to order $k+1$ of $\bm{b}$ and $c$. As a result, by the conditions on the coefficients in @eq-coefficients-k1 and the induction hypothesis @eq-hi, we have that $\tl{f} \in L^2(\R^d)$ with
+
+$$
+\begin{aligned}
+\|{\tl{f}}\|_{L^2(\R^d)} \lesssim_{\bm{A},\bm{b},c} \norm{f}_{H^{k+1}(\R^d)}+\norm{u}_{L^2(\R^d)}.
+\end{aligned}
+$$ {#eq-hkr}
+
+By equation @eq-weak-solk, $\tl{u}$ is a solution to $\Ll \tl{u}= \tl{f}$  and applying the case $k=0$ (Theorem @thm-improved-reg-rd) together with @eq-hi  and @eq-hkr shows that $\tl{u} \in H^{2}(\R^d)$ with
+
+$$
+\begin{aligned}
+\norm{\tl{u}}_{H^{2}(\R^d)} \lesssim_{\bm{A},\bm{b},c} \|\tilde{f}\|_{L^2(\R^d)}+\norm{\tl{u}}_{L^2(\R^d)} \lesssim_{\bm{A},\bm{b},c} \norm{f}_{H^{k+1}(\R^d)}+\norm{u}_{L^2(\R^d)}.
+\end{aligned}
+$$
+
+Since $\alpha$ was any coefficient of order $k+1$, we deduce that $u \in H^{k+3}(\R^d)$ with
+
+$$
+\begin{aligned}
+\norm{u}_{H^{k+3}(\R^d)} \lesssim_{\bm{A},\bm{b},c} \norm{f}_{H^{k+1}(\R^d)}+\norm{u}_{L^2(\R^d)}.
+\end{aligned}
+$$
+
+The equation above is the hypothesis of induction for $k+1$, and the proof is complete.
+
+:::
+
+Iterating the above theorem, we obtain that if the coefficients of $\Ll$ are smooth, then the solution to @eq-pde is smooth as well. And $u$ is a classical solution to @eq-pde.
+
+::: {#thm-infinite-interior-regularity name="Infinite regularity on $\R^d$"}
+
+Let $A_{ij}, b_i,c \in C^{\infty}(\R^d)$ with $\bm{A}$ elliptic. Then, if $u \in H^1(U)$ solves $\Ll u=f$, it holds that $u \in C^\infty(\R^d)$
+
+:::
+
+::: {.proof}
+
+By Theorem @thm-higher-regularity-2, we have that $u \in H^k(\R^d)$ for all $k \in \N$. By [Sobolev embeddings](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=three%20results%20gives-,Theorem%2013,-(Rellich%2DKondrachov) we deduce that $u \in C^\infty(\R^d)$.
+
+:::
+
+At first sight, it may seem as if the above results can be extended to solutions of @eq-pde on $U \subsetneq \R^d$ with the following reasoning. However, there is a mistake in the reasoning. Can you spot it?
+
+::: {#exr-7}
+
+The following argument is **false**. Show the flaw in the reasoning.
+
+Let $U \subset \R^d$ be any open subset. Suppose that $A_{ij}\in C^1(\overline{U} )$ is elliptic and that $b_i, c \in L^\infty(U)$ . Let $u \in H_0^1(U)$ solve $\Ll u=f$. The [extension](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=smooth%20unbounded%20domains.-,Exercise%2021,-(Extension%20trace%200) $\tl{u}$ to $\R^d$ by zero of $u$ is in $H^1(\R^d)$. The coefficients $b,c$ can likewise be extended by $0$ to functions $\tl{\bm{b}}, \tl{c} \in  L^\infty(\R^d)$. Likewise for $f$ to $\tl{f} \in L^2(\R^d)$ and by Assumption, $\bm{A}$ is the restriction to $U$ of some function $\tl{A} \in C^1(\R^d)$. We have that 
+
+$$
+\begin{aligned}
+\tl{\Ll} \tl{u} := -\nabla \cdot (\tl{A} \nabla \tl{u})+ \tl{b} \cdot \nabla \tl{u} + \tl{c} \tl{u} =\tl{f} .
+\end{aligned}
+$$
+
+As a result by Theorem @thm-improved-reg-rd it holds that $\tl{u} \in H^2(\R^d)$ with
+
+$$
+\begin{aligned}
+\norm{u}_{H^2(U)}=  \norm{\tl{u} }_{H^2(\R^d)} \lesssim_{\bm{A},\bm{b},c} \norm{f}_{L^2(\R^d)}+\norm{u}_{L^2(\R^d)}.
+\end{aligned}
+$$
+
+:::
+
+::: {.callout-tip collapse="true" title="Hint"}
+
+Are you sure that $\tl{u}$ solves @eq-extension? Consider for example the case $\bm{A}= \bm{I}, \bm{b}=c=0$.
+For $\tl{u}$ to solve @eq-extension it is necessary that for all $\varphi \in C_c^\infty(\R^d)$
+
+$$
+\begin{aligned}
+\int_{\R^d} \nabla \tl{u} \cdot \nabla \varphi = \int_{\R^d} \tl{f} \varphi.
+\end{aligned}
+$$
+
+That is, that
+
+$$
+\begin{aligned}
+\int_{U} \nabla u \cdot \nabla \varphi = \int_{U} f \varphi, \quad \forall \varphi \in C^\infty(\R^d).
+\end{aligned}
+$$
+
+Whereas we only know that $u$ solves @eq-weak-def. That is,
+
+$$
+\begin{aligned}
+\int_{U} \nabla u \cdot \nabla \varphi = \int_{U} f \varphi, \quad \forall \varphi \in C_c^\infty(U).
+\end{aligned}
+$$
+
+This equality does not imply the previous one. The problem is that extension by zero does not respect the second derivative of functions in $H_0^1(\R^d)$. For example, if $u \in H^2(U) \cap H_0^1(U)$ we do not necessarily have that $\tl{u}$ is in $H^2(\R^d)$. Consider for example $U=(-1,1)$ and $u(x)=1-\frac{1}{2} x^2$. Then, $u$ solves our equation @eq-pde with $f=1$ and, given $\varphi \in C_c^\infty(\R)$,
+
+$$
+\begin{aligned}
+\int_{\R}\tl{u} ' \varphi ' = -\int_{-1}^1 x \varphi' =-(\varphi (1)-\varphi(-1) )+ \int_{-1}^1 \varphi \neq \int_{-1}^1 \varphi = \int_\R \tl{f} \varphi.
+\end{aligned}
+$$
+
+However, $\tl{u}$ is not in $H^2(\R)$ as $\tl{u}''= \delta _{-1}+ \delta _1 -2 \cdot  1_U \in \Dd '(\R)$.
+
+:::
+
+### Interior regularity
+
+We have just seen that a direct generalization of Theorem @thm-improved-reg-rd to unbounded domains is not possible using an extension by zero. However, by adapting the proof of Theorem @thm-improved-reg-rd, one can prove the analogous result.
+
+In this case, however, one has to be careful as the difference quotients may not be well defined at the boundary. As a result, it is necessary to work locally and use a [bump function](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=22.%20A-,bump%20function,-(also%20called%20cutoff). This makes the proofs a bit messier, though the idea is the same. We sketch the proof, which can also be found in [@evans2022partial] page 326
+
+::: {#thm-higher-regularity name="Improved interior regularity"}
+
+Let $u \in H^1(U)$ be a solution to $\Ll u =f$ where $f \in L^2(U)$, $\bm{A} \in C^1(\overline{U} )$ is elliptic and $v_i,c \in L^\infty(U)$. Then, $u \in H^2 _{\mathrm{loc}} (U)$ and
+
+$$
+\begin{aligned}
+\norm{u}_{H^2 _{\mathrm{loc}}(U)} \lesssim_{\bm{A},\bm{b},c} \norm{f}_{L^2(U)}+\norm{u}_{L^2(U)}.
+\end{aligned}
+$$
+
+:::
+
+Note that we do not require $u$ to be in $H^1_0(U)$.
+
+::: {.proof}
+
+Let $V \Subset U$ be open and let $\eta$ be a bump function supported on $W$ and identically equal to $1$ on $V$. For $h$ small we have that
+
+$$
+\begin{aligned}
+v = - D_j^h \eta^2 D_j^h u \in H^2(V),\quad  j=1,\ldots,d.
+\end{aligned}
+$$ {#eq-difference-bounded}
+
+Proceeding as in the proof of Theorem @thm-improved-reg-rd, we obtain that
+
+$$
+\begin{aligned}
+\int_V\left|D_j^h \nabla u\right|^2 d x \leq \int_U \eta^2\left|D_j^h \nabla u\right|^2 d x \lesssim C \int_U f^2+u^2+|\nabla u|^2.
+\end{aligned}
+$$
+
+Applying the first point of Lemma @lem-difference-quotients-2 we obtain that $u \in H^2_{\mathrm{loc}}(U)$ with
+
+$$
+\begin{aligned}
+\norm{u}_{H^2 _{\mathrm{loc}} (U)} \lesssim_{\bm{A},\bm{b},c} \norm{f}_{L^2(U)}+\norm{u}_{H^1(U)}.
+\end{aligned}
+$$ {#eq-h2loc}
+
+Analogously, we also obtain by setting $v= \eta ^2 u$ that
+
+$$
+\begin{aligned}
+\int_V |\nabla u|^2 \leq\int_U \eta ^2 |\nabla u|^2 \lesssim \norm{f}_{L^2(U)}+\norm{u}_{H^1(U)}.
+\end{aligned}
+$$ {#eq-h1loc}
+
+Combining @eq-h2loc and @eq-h1loc, we obtain the desired result.
+
+:::
+
+As we did in the case $U=\R^d$, we can obtain higher-order regularity by induction. As before, we now write
+
+$$
+\begin{aligned}
+X^k(U):= H^k(U) \cap W^{k,\infty}(U).
+\end{aligned}
+$$
+
+In the case that $U$ is bounded then $X^k(U)=W^{k,\infty}(U)$.
+
+::: {#thm-higher-regularity-2 name="Interior regularity"}
+
+Suppose that $\Ll$ is elliptic and that its coefficients verify
+
+$$
+\begin{aligned}
+A_{ij} \in C^{1}(\overline{U} )\cap X^{k+1}(U), \quad b_i,c \in X^k(U), \quad f \in H^k(U).
+\end{aligned}
+$$
+
+Then, if $u \in H^1(U)$ solves $\Ll u=f$, it holds that $u \in H^{k+2}_{\mathrm{loc}} (U)$ with
+
+$$
+\begin{aligned}
+\norm{u}_{H ^{k+2}_{\mathrm{loc}} (U)} \lesssim_{\bm{A},\bm{b},c} \norm{f}_{H^k(U)}+\norm{u}_{L^2(U)}.
+\end{aligned}
+$$
+
+:::
+
+::: {#exr-8}
+
+Prove Theorem @thm-higher-regularity-2.
+
+:::
+
+::: {.callout-tip collapse="true" title="Hint"}
+
+The theorem holds for $k=0$ by Theorem @thm-higher-regularity.
+Suppose by hypothesis of induction that the theorem holds up to order $k$. Let
+
+$$
+\begin{aligned}
+A_{ij} \in C^{1}(\overline{U} )\cap X^{k+2}(U), \quad b_i,c \in X^{k+1}(U), \quad f \in H^{k+1}(U).
+\end{aligned}
+$$ {#eq-coefficients-k12}
+
+Then, by the induction hypothesis $u \in H^{k+2}_{\mathrm{loc}} (U)$ with
+
+$$
+\begin{aligned}
+\norm{u}_{H^{k+2}_{\mathrm{loc}}(U)} \lesssim_{\bm{A},\bm{b},c} \norm{f}_{H^k(U)}+\norm{u}_{L^2(U)}.
+\end{aligned}
+$$ {#eq-hi2}
+
+Let $V\Subset U$ be open, consider a multi-index $\alpha$ with $|\alpha|=k+1$ and $\tl{v } \in C_c^\infty(V)$. Then, substituting  $v := (-1)^{\abs{\alpha} } D^\alpha \tl{v}$ in the weak formulation @eq-weak-def we obtain by integrating by parts that
+
+$$
+\begin{aligned}
+\int_{V} D^\alpha(\bm{A} \nabla u) \cdot \nabla \tl{v} +\int_{V} D^\alpha(\bm{b} \nabla u) \cdot \nabla \tl{v} +\int_{V} (D^\alpha c u) \tl{v} =\int_{V} D^\alpha f \tl{v}.
+\end{aligned}
+$$
+
+Let us write $\tl{u}:= D^\alpha u$. Applying the chain rule repeatedly and keeping only the derivatives of order $k+2$ of $u$ on the left-hand side to obtain
+
+$$
+\begin{aligned}
+B(\tl{u},\tl{v} ) = \int_{V} \bm{A} \nabla D^\alpha u \cdot \nabla \tl{v} +\int_{V} \bm{b} \nabla D^\alpha u \cdot \nabla \tl{v} +\int_{V} c D^\alpha u \tl{v} =\int_{V} \tl{f} \tl{v}= (\tl{f} ,\tl{v}),
+\end{aligned}
+$$ {#eq-weak-solk2}
+
+where $\tl{f}$ involves only $D^\alpha f$ as well as sums and products of derivatives up to order $k+2$ of $u,\bm{A}$ and up to order $k+1$ of $\bm{b}$ and $c$. As a result, by the conditions on the coefficients in @eq-coefficients-k12 and the induction hypothesis @eq-hi2, we have that $\tl{f} \in L^2(V)$ with
+
+$$
+\begin{aligned}
+\|{\tl{f}}\|_{L^2(V)} \lesssim_{\bm{A},\bm{b},c} \norm{f}_{H^{k+1}(U)}+\norm{u}_{L^2(U)}.
+\end{aligned}
+$$ {#eq-hk}
+
+By equation @eq-weak-solk2, $\tl{u}$ is a solution to $\Ll \tl{u}=\tl{f}$  on $V$ and applying @eq-hi2  and @eq-hk shows that $\tl{u} \in H^{2} _{\mathrm{loc}}(V)$ with
+
+$$
+\begin{aligned}
+\norm{\tl{u}}_{H^{2}_{\mathrm{loc}} (V)} \lesssim_{\bm{A},\bm{b},c} \|\tilde{f}\|_{L^2(V)}+\norm{\tl{u}}_{L^2(V)} \lesssim_{\bm{A},\bm{b},c} \norm{f}_{H^{k+1}(U)}+\norm{u}_{L^2(U)}.
+\end{aligned}
+$$
+
+Since $\alpha$ was any coefficient of order $k+1$, we deduce that $u \in H^{k+3}(V)$ with
+
+$$
+\begin{aligned}
+\norm{u}_{H^{k+3}_{\mathrm{loc}} (V)} \lesssim_{\bm{A},\bm{b},c} \norm{f}_{H^{k+1}(U)}+\norm{u}_{L^2(U)}.
+\end{aligned}
+$$
+
+Since $V\Subset U$ is any, we deduce that
+
+$$
+\begin{aligned}
+\norm{u}_{H^{k+3}_{\mathrm{loc}} (U)} \lesssim_{\bm{A},\bm{b},c} \norm{f}_{H^{k+1}(U)}+\norm{u}_{L^2(U)}.
+\end{aligned}
+$$
+
+The above is the hypothesis of induction for $k+1$ and completes the proof.
+
+:::
+
+Using Sobolev embeddings we obtain once more infinite regularity for smooth coefficients.
+
+::: {#thm-infinite-interior-regularity2 name="Infinite interior regularity"}
+
+Let $A_{ij}, b_i,c \in C^{\infty}(\overline{U} )$ with $\bm{A}$ elliptic. Then, if $u \in H^1(U)$ solves $\Ll u=f$, it holds that $u \in C _{\mathrm{loc}}^\infty(U)$.
+
+:::
+
+::: {.proof}
+
+By Theorem @thm-higher-regularity-2, we have that $u \in H^k(U)$ for all $k \in \N$. By Sobolev embeddings we have that $u \in C^\infty_{\mathrm{loc}}(U)$.
+
+:::
+
+### Regularity at the boundary
+
+Regularity at the boundary can also be obtained; however, in this case, it is necessary to impose the boundary condition $\restr{u}{\partial \Omega }=0$.  We can then work on bounded smooth domains $\Omega$  by reasoning first on $B(0,1) \cap \R^d_+$ and then using a finite covering of $\overline{\Omega }$ and a  change of coordinates to translate these results back to $\Omega$.
+
+We summarize and sketch the proofs of the main results, which are analogous to the interior regularity results of Theorems @thm-higher-regularity, @thm-higher-regularity-2 and @thm-infinite-interior-regularity2.The details For the partition to be finite, it is further necessary for $\Omega$ to be bounded.  We sketch the proof which can be found in [@evans2022partial] pages $334-343$ and [@gilbarg1977elliptic] pages 183-188.
+
+::: {#thm-improved-regularity-boundary name="Improved regularity at the boundary"}
+
+Let $\Omega \subset \R^d$ be bounded with $\partial \Omega  \in   C^2$. Let $A_{ij} \in C^{1}(\overline{\Omega})$ be elliptic and $b_i,c \in L^\infty(\Omega)$. Let $u \in H^1_0(\Omega)$ be a weak solution to @eq-pde. Then, $u \in H^2(\Omega)$ with
+
+$$
+\begin{aligned}
+\norm{u}_{H^2(\Omega)} \lesssim_{\bm{A},\bm{b},c, \Omega } \norm{f}_{L^2(\Omega)}+\norm{u}_{L^2(\Omega)}.
+\end{aligned}
+$$
+
+:::
+
+::: {.proof}
+
+Since $\partial \Omega$ is of class $C^2$, given $x_0 \in \partial \Omega$ there exists $R>0$  and a twice differentiable
+diffeomorphism
+
+$$
+\begin{aligned}
+\varphi : B_R(x_0) \iso  \varphi (B_R(x_0)) \subset \R^d,
+\end{aligned}
+$$
+
+that maps the interior of $B_R(x_0)$ to the interior of $\R^d_+$   and the boundary to the boundary. That is,
+
+$$
+\begin{aligned}
+\tl{\Omega}:= \varphi (B_R(x_0) \cap \Omega ) & =\varphi (B_R(x_0)) \cap \set{x_d>0} \\ \partial \tl{\Omega }_0:= \varphi (B_R(x_0) \cap \partial  \Omega ) &=\varphi (B_R(x_0)) \cap \set{x_d=0}.
+\end{aligned}
+$$
+
+Let us define $\tl{u}:= u \circ \varphi ^{-1}$ on $\tl{\Omega }$. Then, $\tl{u}$ verifies a PDE of the same form as our original PDE @eq-pde. Where now the boundary condition holds only on the straight part *straight part* $\partial \tl{\Omega }_0$.
+
+$$
+\begin{aligned}
+\begin{cases}
+        \tl{\Ll }\tl{u} =\tl{f} & \text{in } \tl{\Omega }             \\
+        \tl{u}=0                & \text{on } \partial \tl{\Omega }_0.
+    \end{cases}
+\end{aligned}
+$$
+
+Since our boundary condition does not hold on the *curved part* of the boundary $\partial \tl{\Omega }_1:=  \partial \tl{\Omega }\setminus \partial \tl{\Omega }_0$, to integrate by parts we need to introduce a bump function $\eta$ which is zero on $\partial \tl{\Omega }_1$.
+
+Let $0<r<R$ and define  $\tl{V}:= \varphi(B_r(x_0) \cap \Omega )$. Now choose a bump function $\eta \in C_c^\infty(\R^d)$ with compact support in $\varphi (B_R(x_0))$ (in particular, $\eta =0$ on $\partial \tl{\Omega }_1$) and identically equal to $1$ on $\tl{V}$. Then, for small $h$,  we define as in @eq-difference-bounded the function
+
+$$
+\begin{aligned}
+\tl{v} := -D_j^h \eta^2 D_j^h \tl{u} \in H^2_0(\tl{\Omega }) \quad j=1,\ldots,d-1.
+\end{aligned}
+$$
+
+Here, the increments are only well defined for $j \neq d$. Proceeding as in the proof of Theorem @thm-higher-regularity, we obtain that, for $i,j=1,\ldots,d-1$,
+
+$$
+\begin{aligned}
+\norm{\partial_i \partial _j \tl{v}}_{L^2(\tl{V} )} \lesssim_{\bm{A}, \bm{b}, c} \|\tl{f}\|_{L^2(\tl{\Omega })}+\|\tl{u}\|_{L^2(\tl{\Omega })} \lesssim_{\bm{A}, \bm{b}, c, \varphi } \norm{f}_{L^2(\Omega)}+\norm{u}_{L^2(\Omega)}.
+\end{aligned}
+$$ {#eq-not-d-bound}
+
+Since $\tl{u} \in H^2_{\mathrm{loc}}(\tl{V} )$ by Theorem @thm-higher-regularity, we have that the equality $\tl{\Ll }\tl{u}=f$ holds almost everywhere in $\tl{V}$. As a result,
+
+$$
+\begin{aligned}
+A_{dd} \partial_d\partial_d \tl{u}= \tl{F},
+\end{aligned}
+$$
+
+where $\tl{F}$ only involves derivatives up to order $1$ in $x_d$ of $u$ and up to order $2$ in $x_1,\dots, x_{d-1}$ of $u$. Using  the ellipticity of $\bm{A}$ with $\xi=(0,\dots,0,1)$ in @eq-elliptic we obtain that, almost everywhere in $\tl{V}$,
+
+$$
+\begin{aligned}
+\partial_d\partial_d \tl{u} \lesssim \tl{F}.
+\end{aligned}
+$$
+
+Taking norms and using @eq-not-d-bound gives
+
+$$
+\begin{aligned}
+\norm{\tl{u} }_{H^2(\tl{V} )} \lesssim_{\bm{A},\bm{b},c, \varphi } \norm{f}_{L^2(\Omega)}+\norm{u }_{L^2(\Omega)}.
+\end{aligned}
+$$
+
+If we write $V_{x_0}:= \varphi ^{-1} (\tl{V} )$, we have that $u \in H^2(V_{x_0})$ with
+
+$$
+\begin{aligned}
+\norm{u}_{H^2(V_{x_0})} \lesssim_{\bm{A},\bm{b},c, \varphi } \norm{f}_{L^2(\Omega)}+\norm{u}_{L^2(\Omega)}.
+\end{aligned}
+$$
+
+Since $\partial \Omega$ is compact, we can cover $\Omega$  with a finite number of such sets $V_{x_0}$ plus some open $W \Subset \Omega$. We conclude the proof by using the interior regularity result of Theorem @thm-higher-regularity to bound $\norm{u}_{H^2(W)}$.
+
+:::
+
+The following can now be proved by induction, just as in Theorems @thm-higher-regularity and @thm-higher-regularity-2.
+
+::: {#thm-higher-regularity-boundary name="Higher regularity at the boundary"}
+
+Let $\Omega \subset \R^d$ be bounded with $\partial \Omega  \in   C^{k+2}$. Let $A_{ij} \in C^1(\overline{\Omega})\cap W^{k, \infty}(\Omega)$ be elliptic and $b_i,c \in H^k(\Omega)\cap W^{k,\infty}(\Omega)$ and $f \in H^k(\Omega )$ . Let $u \in H^1_0(\Omega)$ be a weak solution to @eq-pde. Then, $u \in H^{k+2}(\Omega)$ with
+
+$$
+\begin{aligned}
+\norm{u}_{H^{k+2}(\Omega)} \lesssim_{\bm{A},\bm{b},c, \Omega } \norm{f}_{H^k(\Omega)}+\norm{u}_{L^2(\Omega)}.
+\end{aligned}
+$$
+
+:::
+
+Once more, by Sobolev embeddings we obtain infinite regularity at the boundary.
+
+::: {#thm-1 name="Infinite regularity at the boundary"}
+
+Let $\Omega \subset \R^d$ be bounded of class $C^{\infty}$. Let $A_{ij}, b_i,c \in C^{\infty}(\overline{\Omega})$ with $\bm{A}$ elliptic. Let $u \in H^1_0(\Omega)$ be a weak solution to @eq-pde. Then, $u \in C^\infty(\overline{\Omega})$.
+
+:::
+
+## Other boundary conditions
+
+So far, we have only worked with homogeneous Dirichlet boundary conditions. However, it often makes more sense to work with the non-homogeneous case. We also show how to extend the results to Neumann or Robin [boundary conditions](https://nowheredifferentiable.com/2023-12-23-PDEs-4-Physical_derivation_of_parabolic_and_elliptic_PDE/#:~:text=reaction%20and%20source.-,Boundary%20conditions,-In%20an%20application). In this section, we will see how to adapt the results of the previous section to these cases.
+
+### Non-homogeneous Dirichlet boundary conditions
+
+Consider the problem with non-homogeneous Dirichlet boundary conditions on a domain $\Omega$ with  with Lipschitz boundary, written $\partial \Omega \in  C^{0,1}$
+
+$$
+\begin{aligned}
+\begin{cases}
+        \Ll u =f & \text{in } \Omega ,          \\
+        u=g      & \text{on } \partial \Omega .
+    \end{cases}
+\end{aligned}
+$$ {#eq-pde-dirichlet}
+
+For @eq-pde-dirichlet to hold, it is necessary that $g$ is the restriction to $\partial \Omega$ of some function $\tl{g}$ called a *lifting* of $\tl{g}$ onto $\Omega$   (in particular it is the restriction of  $u$ to $\partial \Omega$ ). That is, $\tl{g}  \in \rmm{Tr}(H^m(\Omega ))$ where $\rmm{Tr}$ is the trace operator and $m$ is the desired regularity of $u$. By [theory of the trace operator](https://nowheredifferentiable.com/2024-02-27-PDEs-5-Fractional_Sobolev_spaces/#:~:text=2020%20page%20390.-,Theorem%2020,-(Fractional%20trace%20theorem), we know that this is equivalent to $g \in H^{m-1/2}(\partial \Omega )$. Then, by forming $w:= u-\tl{g}$ we obtain that $w$ solves the homogeneous Dirichlet problem 
+
+$$
+\begin{aligned}
+\begin{cases}
+        \Ll w =\tl{f} & \text{in } \Omega ,          \\
+        w=0           & \text{on } \partial \Omega ,
+    \end{cases}
+\end{aligned}
+$$
+
+where
+
+$$
+\begin{aligned}
+\tl{f}:= f-\Ll \tl{g}= f -\nabla \cdot (\bm{A} \nabla \tl{g}) -\bm{b} \cdot \nabla \tl{g} -c \tl{g} \in H ^{-1} (\Omega ).
+\end{aligned}
+$$
+
+The transformation $u \leftrightarrow w$ maintains regularity up to order $m$  for $g \in H^{m-1/2}(\Omega )$ and as a result, we can apply all the previous results on well-posedness, the spectrum of $\Ll$ and regularity to the problem @eq-pde-dirichlet. For example, the following holds.
+
+::: {#thm-2}
+
+Let $\Omega$ be a bounded domain with $C^{0,1}$ boundary then
+1. The non-homogeneous Dirichlet problem @eq-pde-dirichlet is well-posed for $g \in H^{1/2}(\partial \Omega )$ if and only if the homogeneous problem @eq-pde is well posed.
+2. The Fredholm alternative (Theorem @thm-well-posedness-fredholm) holds where we replace $H_0^1(\Omega )$ by the subspace of $H^1(\Omega )$ whose trace is equal to $g$.
+3. If $g \in H^{k+3/2}(\partial \Omega )$, then $u \in H^{k+2}(\Omega )$ under the same conditions of Theorem @thm-higher-regularity-boundary on $\Omega$ and the coefficients of $\Ll$.
+
+:::
+
+### Neumann and Robin boundary conditions
+
+Consider a bounded domain $\Omega$ with boundary of type $C^{0,1}$ (Lipschitz boundary).   The elliptic Robin boundary condition problem is
+
+$$
+\begin{aligned}
+\begin{cases}
+        \Ll u =f                                   & \text{in } \Omega ,          \\
+        \bm{A} \nabla u \cdot \bm{n} =g + \sigma u & \text{on } \partial \Omega ,
+    \end{cases}.
+\end{aligned}
+$$ {#eq-pde-neumann}
+
+The Neumann boundary condition problem is the case where $\sigma =0$.
+An integration by parts shows that the weak formulation of @eq-pde-neumann is
+
+$$
+\begin{aligned}
+B(u,v):= \int_{\Omega } \bm{A} \nabla u \cdot \nabla v +\int_{\Omega } \bm{b} \nabla u \cdot \nabla v +\int_{\Omega } c u v+ \int_{\partial \Omega } \sigma u v  =\int_{\Omega } f v +\int_{\partial \Omega } g v=: \ell (v).
+\end{aligned}
+$$ {#eq-weak-def-neumann}
+
+For the weak form to be well defined we need for $f$ to be in the dual space $H^1(\Omega )'$ (this is [different](https://nowheredifferentiable.com/2024-02-27-PDEs-5-Fractional_Sobolev_spaces/#:~:text=Theorem%2016.-,As,-a%20final%20note) from $H^{-1}(\Omega ):= H^1(\Omega )'$)and $g \in H^{-1/2}(\partial \Omega )$ . A similar reasoning to previously shows the following. 
+
+::: {#thm-3}
+
+Let $\Omega$ be a bounded domain, $f \in H^{1}(\Omega )', g \in H^{-1/2}( \partial \Omega )$ and $\sigma \in L^\infty(\partial \Omega )$.
+1. Let $\bm{b}=0$ and $c, \sigma  \geq 0$. Suppose both $c, \sigma$  are not identically zero. Then the Robin boundary condition problem @eq-weak-def-neumann has a unique solution $u \in H^1(\Omega )$.
+2. The well posedness of the modified problem $\Ll u + \lambda u=f$ and the Fredholm alternative of Theorem @thm-mod and Theorem @thm-well-posedness-fredholm hold swapping everywhere $H_0^1(U)$ with $H^1(\Omega )$ and $H^{-1}(\Omega )$ with $H^{1}(\Omega )'$.
+3. Let $\partial \Omega \in C^{k+2}$. If $u$ solves @eq-pde-neumann and
+
+$$
+\begin{aligned}
+& A_{ij} \in C^{1}(\Omega )\cap W^{k+1, \infty}(\Omega ), \quad b_i,c \in W^{k, \infty}(\Omega ), \quad \sigma \in W^{k+1, \infty}(\partial \Omega ) \\
+& f \in H^{k}(\Omega ), \quad g \in H^{k+1/2}(\partial \Omega ).
+\end{aligned}
+$$
+
+Then, $u \in H^{k+2}(\Omega )$ with
+
+$$
+\begin{aligned}
+\norm{u}_{H^{k+2}(\Omega )} \lesssim_{\bm{A},\bm{b},c, \sigma,  \Omega } \norm{f}_{H^k(\Omega )}+\norm{g}_{H^{k+1/2}(\partial \Omega )}+\norm{u}_{L^2(\Omega )}.
+\end{aligned}
+$$
+
+:::
+
+::: {.proof}
+
+Under the conditions of Point $1$, the bilinear form  $B$ is coercive (this can be show by a proof by contradiction see for example [@Mikhailov1978] page 146). As a result, the Lax-Milgram theorem implies the existence of a unique solution $u \in H^1(\Omega )$.
+
+The second point is a repetition of what was already shown for the homogeneous Dirichlet problem, for large $\lambda$, the modified bilinear form $B_\lambda$ si coercive and the Fredholm alternative holds.
+
+The third point can be seen by first repeating the proof of Theorem @thm-improved-regularity-boundary where with the notation of this theorem, now $\tl{u}$ solves
+
+$$
+\begin{aligned}
+\begin{cases}
+        \Ll \tl{u} =\tl{f}                                             & \text{in } \tl{\Omega },            \\
+        \bm{A} \nabla \tl{u} \cdot \bm{n} =\tl{g} + \tl{\sigma} \tl{u} & \text{on } \partial \tl{\Omega_0 }.
+    \end{cases}
+\end{aligned}
+$$
+
+As a result, integrating by parts against $\tl{v}:=D_j^{-h}\eta^2 D_j^h \tl{u}$ is valid for small $h$ and $j \neq d$    and gives
+
+$$
+\begin{aligned}
+\int_{\tl{V}} \tl{\bm{A}} \nabla \tl{u} \cdot \nabla \tl{v} +\int_{\tl{V}} \tl{\bm{b}} \nabla \tl{u} \cdot \nabla \tl{v} +\int_{\tl{V}} \tl{c} \tl{u} \tl{v} +\int_{\partial \tl{\Omega_0 }} \tl{\sigma} \tl{u} \tl{v} =\int_{\tl{V}} \tl{f} \tl{v}+ \int_{\partial \tl{\Omega_0 }} \tl{g} \tl{v}.
+\end{aligned}
+$$
+
+Using a discrete integration by parts, Cauchy's inequality and the regularity of the coefficients, we obtain the bound
+
+$$
+\begin{aligned}
+\norm{u}_{H^{2}(V_{x_0} )} \lesssim \norm{u}_{H^2(\tl{V} )} \lesssim \norm{f}_{L^2(\Omega )}+\norm{g}_{H^{-1/2}(\partial \Omega )}+\norm{u}_{L^2(\Omega )}.
+\end{aligned}
+$$
+
+Using a covering of $\Omega$ gives $u \in H^2(\Omega )$ and the result follows by induction as in Theorem @thm-higher-regularity-boundary.
+
+:::
+
+#### The Dirichlet problem with Neumann boundary conditions
+
+As an example of some interest, in the simple case where $\bm{A}$ is the identity and $\bm{b},c, g$, are zero (the Poisson equation with Neumann boundary conditions), the weak formulation is
+
+$$
+\begin{aligned}
+\int_{\Omega } \nabla u \cdot \nabla v =\int_{\Omega } f v , \quad\forall v \in H^1(\Omega )
+\end{aligned}
+$$
+
+Note carefully that $B$ is *not* coercive on $H^1(\Omega )$ as [Poincaré's inequality](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=in%20future%20posts-,Theorem,-14%20(Poincar%C3%A9%20inequality) does not hold for Neumann boundary conditions.
+
+::: {#exr-eigensapace}
+
+Show that $\Ll = \Delta$ has the eigenvalue $\lambda =0$. Show that, if $\Omega$ decomposes into $n$ connected components $\Omega _1,...,\Omega _n$, then the eigenspace of $\lambda =0$ is $n$-dimensional and spanned by the indicator functions $1_{\Omega_1},..., 1_{\Omega _n}$ . In particular, the eigenspace of $\lambda =0$ is one-dimensional if $\Omega$ is connected.
+
+:::
+
+::: {.callout-tip collapse="true" title="Hint"}
+
+Since $\Omega$ is bounded  $1_{\Omega _i} \in H^1(\Omega )$ and $\Delta 1_{\Omega_i} =0$. Let $u \in H^1(\Omega )$ be an eigenfunction of $\Delta$ with eigenvalue $0$. Then, by the weak formulation of the Laplacian, we have that
+
+$$
+\begin{aligned}
+\int_{\Omega } |\nabla u|^2 = 0.
+\end{aligned}
+$$
+
+That is, $\nabla u=0$ almost everywhere. By one dimensional calculus we know that $u$ is constant on each connected component and the result follows.
+
+:::
+
+::: {#exr-9}
+
+Let $\Omega$ decompose into $n$ connected components $\Omega _1,...,\Omega _n$.
+Show that, for $f \in L^2(\Omega )$,  the Laplace equation $\Delta u =f$ has a weak solution $u \in H^1(\Omega )$ if and only if
+
+$$
+\begin{aligned}
+\int_{\Omega_i } f =0, \quad \forall i=1,...,n.
+\end{aligned}
+$$
+
+Furthermore, show that the solution is unique up to a constant on each connected component $\Omega_i$.
+
+:::
+
+::: {.callout-tip collapse="true" title="Hint"}
+
+Apply the final point  of the Fredholm alternative (Theorem @thm-well-posedness-fredholm) together with Exercise @exr-eigensapace.
+
+:::
+
+## References
+
+::: {#refs}
+:::

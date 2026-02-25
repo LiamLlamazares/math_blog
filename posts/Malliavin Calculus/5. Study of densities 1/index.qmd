@@ -1,0 +1,327 @@
+---
+title: "Study of densities part 1"
+author: "Liam Llamazares--Elias"
+date: "2022-10-24"
+categories: [Malliavin Calculus]
+description: "Part 5 of the series on Malliavin calculus"
+bibliography: biblio.bib
+format:
+  html:
+    css: custom_theorems.css
+    toc: true
+    number-sections: true
+    html-math-method: mathjax
+    include-in-header:
+      text: |
+        <script>
+        window.MathJax = {
+          tex: {
+            tags: "ams",
+            macros: {
+              A: "\\mathbb{A}",
+              Aa: "\\mathcal{A}",
+              Bb: "\\mathcal{B}",
+              C: "\\mathbb{C}",
+              Cc: "\\mathcal{C}",
+              Dd: "\\mathcal{D}",
+              E: "\\mathbb{E}",
+              Ee: "\\mathcal{E}",
+              F: "\\mathbb{F}",
+              Ff: "\\mathcal{F}",
+              Gg: "\\mathcal{G}",
+              Hh: "\\mathcal{H}",
+              II: "\\mathbb{I}",
+              Id: "\\bm{I}",
+              Ii: "\\mathcal{I}",
+              Im: "\\bm{Im}",
+              Jj: "\\mathcal{J}",
+              K: "\\mathbb{K}",
+              KL: ["\\rm{KL}\\left(#1 \\| #2\\right)", 2],
+              Kk: "\\mathcal{K}",
+              LL: "\\mathbb{L}",
+              Ll: "\\mathcal{L}",
+              M: "\\mathbb{M}",
+              Mm: "\\mathcal{M}",
+              N: "\\mathbb{N}",
+              Nn: "\\mathcal{N}",
+              Oo: "\\mathcal{O}",
+              PP: "\\mathbb{P}",
+              Pp: "\\mathcal{P}",
+              Q: "\\mathbb{Q}",
+              Qq: "\\mathcal{Q}",
+              R: "\\mathbb{R}",
+              Rr: "\\mathcal{R}",
+              Ss: "\\mathcal{S}",
+              T: "\\mathbb{T}",
+              Th: "{\\bm{\\theta}}",
+              Thh: "{\\bm{\\Theta}}",
+              Tt: "\\mathcal{T}",
+              Uu: "\\mathcal{U}",
+              Vv: "\\mathcal{V}",
+              W: "\\mathbb{W}",
+              Ww: "\\mathcal{W}",
+              X: "\\mathbb{X}",
+              Xx: "\\mathcal{X}",
+              Yy: "\\mathcal{Y}",
+              Z: "\\mathbb{Z}",
+              Zz: "\\mathcal{Z}",
+              abs: ["\\left| #1 \\right|", 1],
+              alf: "{\\alpha}",
+              b: ["{\\bm{#1}}", 1],
+              bm: ["\\boldsymbol{#1}", 1],
+              br: ["\\left\\langle#1\\right\\rangle", 1],
+              bt: "\\beta",
+              co: ["\\overset{\\circ}{#1}", 1],
+              d: "\\mathrm{d}",
+              diag: ["\\operatorname{diag}\\left(#1\\right)", 1],
+              dx: "\\,\\mathrm{d}x",
+              dy: "\\,\\mathrm{d}y",
+              eps: "\\varepsilon",
+              et: "{\\bm{\\eta}}",
+              ex: ["\\mathrm{exp}\\left(#1\\right)", 1],
+              fk: ["\\mathfrak{#1}", 1],
+              fracc: ["{#1}/{#2}", 2],
+              frc: ["\\left(#2)^{-1}(#1\\right)", 2],
+              iso: "\\xrightarrow{\\sim}",
+              ker: "\\bm{ker}",
+              mat: ["\\begin{bmatrix}{#1}\\end{bmatrix}", 1],
+              mathbbm: ["\\mathbb{#1}", 1],
+              mathds: ["\\mathbb{#1}", 1],
+              norm: ["\\left\\lVert #1 \\right\\rVert", 1],
+              om: "\\omega",
+              postref: ["\\href{https://nowheredifferentiable.com/posts/#1/}{#3}", 3],
+              proj: "\\mathrm{proj}",
+              qb: ["\\left[#1\\right]", 1],
+              qp: ["\\left(#1\\right)", 1],
+              qt: ["\\left(#1\\right)", 1],
+              red: ["{\\color{red}#1}", 1],
+              rm: ["\\mathrm{#1}", 1],
+              set: ["\\left\\{#1\\right\\}", 1],
+              star: "*",
+              tl: ["\\widetilde{#1}", 1],
+              tll: ["\\widetilde{#1}", 1],
+              vol: "\\mathrm{vol}",
+              wh: ["\\widehat{#1}", 1],
+              x: "\\bm{x}",
+              xxi: "{\\bm{\\xi}}",
+              y: "\\bm{y}"
+            }
+          }
+        };
+        </script>
+---
+
+## Three line summary
+
+	- A Malliavin differentiable random variable $X\in \mathbb{D}^{1,2}$ is supported in intervals.
+- If $\|DX\|_{L^2(I)}$ is almost nowhere zero, then  $X$ has a density  $p$.
+- If  $X$ is smooth then  $p$ is smooth.
+	
+
+## Why should I care?
+
+	The density of a random variable (if it exists) gives us complete information about it and is the fundamental goal of statistical inference.
+	
+
+## Notation
+
+	Same as other posts, we recall in particular that $\mathbb{D}^\infty$ is the space of Malliavin smooth random variables. Additionally, to simplify many expressions, we  introduce the notation
+	
+$$
+H:=L^2(I).
+$$
+
+	
+
+## Introduction
+
+	Our goal is to establish some fundamental properties on the existence of densities using Malliavin calculus. This is one of the first reasons why Malliavin calculus was conceived. Firstly, we recall that given a random variable $X:\Omega\to M$ valued in some metric space $M$, the support of  $X$ is defined to be the set of points $x\in M$ such that
+	
+$$
+\mathbb{P}_X(B_\epsilon(x))>0,\quad\forall \epsilon>0.
+$$
+
+	That is, $X$ has a positive probability of falling in any ball that contains  $x$. Our first result characterizes the support of real-valued Malliavin differentiable random variables.
+	
+::: {#prp-1}
+
+Let $X\in \mathbb{D}^{1,2}$, then the support of $X$ is an interval.
+
+:::
+
+	
+::: {.proof}
+
+Suppose not, then there must exist $a<x<b$ where  $a,b$ are in the support of  $X$ and  $x$ isn't. In particular, there exists  $\epsilon >0$ such that
+
+$$
+\PP_X([x-\epsilon ,x+\epsilon ])=0.
+$$ {#eq-sup}
+
+Where we also take $\epsilon$ small enough so that $a<x-\epsilon<x+\epsilon<b$.
+Now take a smooth and bounded function $\varphi$ with $\varphi(y)=0$ for $y<x-\epsilon$ and with $\varphi(y)=1$ for $y>x+\epsilon$. By @eq-sup it holds that (almost everywhere) $\varphi(X)=1_{X>x+\epsilon}$. Combining [proposition 5](../../Malliavin Calculus/3.Malliavin_derivative_1/index.qmd#prp-5) and [corollary 1](../../Malliavin Calculus/3.Malliavin_derivative_1/index.qmd#cor-1) of the previous post, we obtain that $1_{X>x+\epsilon}$ is either $0$ or $1$ almost everywhere. That is,
+
+$$
+\mathbb{P}(X>x+\epsilon)=0\quad \text{or}\quad \mathbb{P}(X\leq x+\epsilon)<0 .
+$$
+
+But this contradicts that both $a,b$ are in the support of $X$. This concludes the proof.
+
+:::
+
+	Ok, now we know the support of Malliavin differentiable functions are nicely shaped intervals. But what about densities, when can we guarantee their existence? Consider for example the simplest of all cases, $X=x\in \R$. That is $X$ always takes the value  $x$. Then  $X$ is Malliavin differentiable, however, it admits no density (no, the $\delta$ function does not count as a density).
+	Let's consider a case that is a bit less trivial, set  $$X=I_1(f)= \int_{I}f(t) dW(t),\quad f \in H.$$  Then, we have that $X$ is a Gaussian random variable with  $$X\sim \Nn(0,\norm{f}^2_{H}).$$ As a result, we obtain that $X$  will fail to have a density if (and only if) $\norm{f}_{H}=\norm{DX}_{H}=0$. Notice that, in the previously considered case where $X$ failed to have a density, we also had that $\norm{DX}_{H}$ became $0$.  The next proposition shows that this is not a fluke.
+	
+::: {#thm-1 name="Existence of densities"}
+
+Let $X\in \mathbb{D}^{1,2}$. If $\norm{DX}_{H}>0$ almost everywhere, then $X$ has a density.
+
+:::
+
+	
+::: {.proof}
+
+By the [Radon Nikodyn theorem](https://en.wikipedia.org/wiki/Radon%E2%80%93Nikodym_theorem)  all we need to do is show that $\mathbb{P}_X$ is absolutely continuous with respect to the Lebesgue measure $\lambda$. That is, we must show that if, $\lambda (A)=0$ then also $\mathbb{P}_X(A)=0$. Let us set $g(y):=1_A(y)$ and
+
+$$
+\varphi(x):=\int_{-\infty}^x g(y)dy.
+$$
+
+Then, by construction $\varphi=0$, so also $\varphi(X)=0$. Suppose now that $g$ were continuous. Then we would have that, by the fundamental theorem of calculus $\varphi'(x)=g(x)$. So by the [chain rule](../../Malliavin Calculus/3.Malliavin_derivative_1/index.qmd#prp-5)
+
+$$
+0=D \varphi(X)=\varphi'(X)DX=g(X)DX.
+$$
+
+By taking $H$ norms on each side, we would deduce that, since $DX$ is non-zero, $g(X)=1_A(X)$ must be zero. That is, $\mathbb{P}_X(A)=0$, as desired. Of course, in general, $g$ will not be differentiable (unless $A$ is actually  $0$ everywhere). So to complete the proof, all that remains is to approximate $g$ by continuous functions $g_n$ and take limits. See [@nualart2018introduction] page 120 for the details.
+
+:::
+
+	The question is, can we give an explicit formula for the density of $X$. The answer is (under some stricter conditions) yes, and the proof uses a similar trick as our last one.
+	
+::: {#thm-dens-exists name="Density expression"}
+
+Let $X\in \mathbb{D}^{1,2}$ such that $\norm{DX}_{H}$ is non-zero almost everywhere. Suppose further that $DX/\norm{DX}^2_{H}\in \text{dom} (\delta )$. Then $X$ has a density given by
+
+$$
+p(x):=\E\left[1_{X> x}\delta \left(\frac{DX}{\norm{DX}_{H}^2}\right) \right].
+$$
+
+:::
+
+	
+::: {.proof}
+
+Let us consider $g\in C_c^\infty(\R)$ and set as before
+
+$$
+\varphi(X):=\int_{-\infty}^X g(x)dx.
+$$
+
+Then by the [chain rule](../../Malliavin Calculus/3.Malliavin_derivative_1/index.qmd#prp-5) and the fundamental theorem of calculus, we have that
+
+$$
+\br{D\varphi(X),\frac{DX}{\norm{DX}^2_{H}}}_{H}=g(X).
+$$
+
+By taking expectations on both sides, and using that the Skorokhod integral is the [adjoint](../../Malliavin Calculus/4.Malliavin_derivative_2/index.qmd#thm-1) of the Malliavin derivative, and Fubini we obtain
+
+$$
+\begin{aligned}
+& \E[g(X)]=\E\left[\br{D\varphi(X),\frac{DX}{\norm{DX}^2_{H}}}_{H}\right]=\E\left[\varphi(X)\delta\left(\frac{DX}{\norm{DX}_{H}^2}\right)\right]                                 \\
+	 & =\E\left[\left(\int_{\R}1_{x<X} g(x)dx\right)\delta\left(\frac{DX}{\norm{DX}^2_{H}}\right)\right]=\int_{\R}g(x)\E\left[1_{x<X}\delta \left(\frac{DX}{\norm{DX}_{H}^2}\right) \right] \\&=\int_{\R}g(x)p(x).
+\end{aligned}
+$$
+
+Since $g$ was any smooth function this concludes the proof (as we can always approximate indicator functions $1_A\in L^2(\R)$ by smooth functions).
+
+:::
+
+	To show the differentiability of $p(x)$ we need the following lemma which will let us transfer- derivatives onto the density $p$.
+	
+::: {#lem-1 name="Integration by parts"}
+
+Let $X\in \mathbb{D}^{\infty}$ be such that $\norm{DX}_{H}>0$ almost everywhere. Then, given any $Y\in \mathbb{D}^\infty$ and $\varphi \in C_b^\infty(\R)$, there exists $H_{k}(X,Y)\in \mathbb{D}^\infty$ such that
+
+$$
+\E[\varphi^{(k)}(X)Y]=\E[\varphi(X)H_k(X,Y)].
+$$
+
+::: {.proof}
+
+We proceed by induction and consider first the case $k=1$. We want to integrate parts in a probabilistic integral, as opposed to a classical deterministic one, against the Lebesgue measure. The idea is therefore to find a way to introduce the Malliavin differential and then use the Skorokhod integral to move derivates. To do so, we use one of our previous tricks to write
+
+$$
+\varphi'(X)=\br{D\varphi(X),\frac{DX}{\norm{DX}}_{H}^2}_{H}.
+$$
+
+By now taking expectations, moving $Y$ into the inner product on  $H$, and using that Skorokhod integral is the adjoint of the Malliavin derivative, we get that
+
+$$
+\E[\varphi'(X)Y]=\E\left[\varphi(X)\delta \left(\frac{DX}{\norm{DX}}_{H}^2Y\right)\right]=:\E[\varphi(X)H_1(X,Y)].
+$$
+
+Where  $H_1(X,Y)\in \mathbb{D}^\infty$ because the Skorokhod integral maps $\mathbb{D}^\infty$ into $\mathbb{D}^\infty$. This resembles the fact that the derivative maps the Schwartz space to itself. A proof of this can be found in Hairer's online notes [@hairer2021introduction] page 15. Now suppose that the lemma  holds for $k=n$, then by the same procedure,
+
+$$
+\begin{aligned}
+\E[\varphi^{(n+1)}X] & =E[\varphi'(X)H_n(X,Y)]=\E[\varphi(X)H_1(X,H_n(X,Y))] \\&=:\E[\varphi(X)H_{n+1}(X,Y)].
+\end{aligned}
+$$
+
+By the previous comment, since $H_n(X,Y)\in \mathbb{D}^\infty$ also $H_{n+1}(X,Y)\in \mathbb{D}^\infty$, which concludes the proof.
+
+:::
+
+:::
+
+	We now finally show that, if $X$ can be differentiated multiple times, then so can its density.
+	
+::: {#thm-2 name="Smooth variables have smooth densities"}
+
+Let $X\in \mathbb{D}^\infty$ such that  $\norm{DX}_{H}>0$ almost everywhere, then $X$ has a smooth density with respect to the Lebesgue measure.
+
+:::
+
+::: {.proof}
+
+By Theorem @thm-dens-exists we know that $X$ has a density $p(x)$. To show that $p$ is smooth, by [Sobolev embeddings](../../PDEs/3. Sobolev spaces/index.qmd#thm-rellich) it is sufficient to show that $p$ is weakly differentiable with order $n$ for all $n \in \N$. That is, for all $\varphi\in C_c^\infty(\R)$, there exists a function $p^{(n)}$ such that
+
+$$
+\E[\varphi^{(n)}(X)]=\int_{\R}\varphi^{(n)}(x)p(x) dx=(-1)^n\int_{\R}\varphi(x) p^{(n)}(x) dx.
+$$
+
+We apply the integration by parts lemma to shift $n-1$ derivatives from $\varphi$ to the weight $1$:
+
+$$
+\E[\varphi^{(n)}(X)] = \E[\varphi'(X)H_{n-1}(X,1)].
+$$
+
+Using the fundamental theorem of calculus, we write $\varphi'(X) = \int_{\R} 1_{\{x < X\}} \varphi''(x) dx$. Substituting this into the expectation and applying Fubini's theorem yields:
+
+$$
+\begin{aligned}
+\E[\varphi^{(n)}(X)] &= \E\left[\left(\int_{\R} 1_{{x < X}} \varphi''(x) dx\right) H_{n-1}(X,1)\right] \\
+&= \int_{\R} \varphi''(x) \E\left[1_{{X > x}} H_{n-1}(X,1)\right] dx \\
+&= -\int_{\R} \varphi'(x) \frac{d}{dx} \E\left[1_{{X > x}} H_{n-1}(X,1)\right] dx.
+\end{aligned}
+$$
+
+Repeating this process inductively demonstrates that the $n$-th weak derivative of the density is explicitly given by:
+
+$$
+p^{(n)}(x) = (-1)^n \E\left[1_{{X > x}} H_{n+1}(X,1)\right].
+$$
+
+Since this bounded expectation exists for all $n$, $p$ is smooth.
+
+:::
+
+	Finally, we comment that all these theorems carry over to the case where $X$ is a vector-valued random variable (as opposed to real-valued). In this case, the condition
+	for the existence of densities becomes that the matrix of derivatives $(\br{DX_i,DX_j}_{H})_{i,j}$ has non-zero determinant almost everywhere. We refer the reader to [@nualart2018introduction] 
+	Chapter  $7$ or [@hairer2021introduction]  chapter $4$ for the multidimensional theory.
+
+## References
+
+::: {#refs}
+:::

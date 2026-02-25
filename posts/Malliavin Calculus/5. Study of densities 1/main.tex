@@ -42,7 +42,7 @@
 			\PP_X([x-\epsilon ,x+\epsilon ])=0.
 		\end{equation}
 		Where we also take $\epsilon$ small enough so that $a<x-\epsilon<x+\epsilon<b$.
-		Now take a smooth and bounded function $\varphi$ with $\varphi(y)=0$ for $y<x-\epsilon $ and with $\varphi(y)=1$ for $y>x+\epsilon$. By \eqref{sup} it holds that (almost everywhere) $\varphi(X)=1_{X>x+\epsilon}$. Combining proposition... (link) and corollary (link) of the previous post, we obtain that $1_{X>x+\epsilon}$ is either $0$ or $1$ almost everywhere. That is,
+		Now take a smooth and bounded function $\varphi$ with $\varphi(y)=0$ for $y<x-\epsilon $ and with $\varphi(y)=1$ for $y>x+\epsilon$. By \eqref{sup} it holds that (almost everywhere) $\varphi(X)=1_{X>x+\epsilon}$. Combining \postref{Malliavin Calculus/3.Malliavin_derivative_1}{prp-5}{proposition 5} and \postref{Malliavin Calculus/3.Malliavin_derivative_1}{cor-1}{corollary 1} of the previous post, we obtain that $1_{X>x+\epsilon}$ is either $0$ or $1$ almost everywhere. That is,
 
 		\begin{equation*}
 			\mathbb{P}(X>x+\epsilon)=0\quad \text{or}\quad \mathbb{P}(X\leq x+\epsilon)<0 .
@@ -59,7 +59,7 @@
 		\begin{equation*}
 			\varphi(x):=\int_{-\infty}^x g(y)dy.
 		\end{equation*}
-		Then, by construction $\varphi=0$, so also $\varphi(X)=0$. Suppose now that $g$ were continuous. Then we would have that, by the fundamental theorem of calculus $\varphi'(x)=g(x)$. So by the chain rule (link)
+		Then, by construction $\varphi=0$, so also $\varphi(X)=0$. Suppose now that $g$ were continuous. Then we would have that, by the fundamental theorem of calculus $\varphi'(x)=g(x)$. So by the \postref{Malliavin Calculus/3.Malliavin_derivative_1}{prp-5}{chain rule}
 		\begin{equation*}
 			0=D \varphi(X)=\varphi'(X)DX=g(X)DX.
 		\end{equation*}
@@ -77,11 +77,11 @@
 		\begin{equation*}
 			\varphi(X):=\int_{-\infty}^X g(x)dx.
 		\end{equation*}
-		Then by the chain rule (link) and the fundamental theorem of calculus, we have that
+		Then by the \postref{Malliavin Calculus/3.Malliavin_derivative_1}{prp-5}{chain rule} and the fundamental theorem of calculus, we have that
 		\begin{equation*}
 			\br{D\varphi(X),\frac{DX}{\norm{DX}^2_{H}}}_{H}=g(X).
 		\end{equation*}
-		By taking expectations on both sides, and using that the Skorokhod integral is the adjoint (link) of the Malliavin derivative, and Fubini we obtain
+		By taking expectations on both sides, and using that the Skorokhod integral is the \postref{Malliavin Calculus/4.Malliavin_derivative_2}{thm-1}{adjoint} of the Malliavin derivative, and Fubini we obtain
 		\begin{align*}
 			 & \E[g(X)]=\E\qty[\br{D\varphi(X),\frac{DX}{\norm{DX}^2_{H}}}_{H}]=\E\qty[\varphi(X)\delta\qty(\frac{DX}{\norm{DX}_{H}^2})]                                 \\
 			 & =\E\qty[\qty(\int_{\R}1_{x<X} g(x)dx)\delta\qty(\frac{DX}{\norm{DX}^2_{H}})]=\int_{\R}g(x)\E\qty[1_{x<X}\delta \qty(\frac{DX}{\norm{DX}_{H}^2}) ] \\&=\int_{\R}g(x)p(x).
@@ -103,7 +103,7 @@
 			\end{equation*}
 			Where  $H_1(X,Y)\in \mathbb{D}^\infty$ because the Skorokhod integral maps $\mathbb{D}^\infty$ into $\mathbb{D}^\infty$. This resembles the fact that the derivative maps the Schwartz space to itself. A proof of this can be found in Hairer's online notes \cite{hairer2021introduction} page 15. Now suppose that the lemma  holds for $k=n$, then by the same procedure,
 			\begin{align*}
-				\E[\varphi^{(n+1)}X] & =E[\varphi'(X) H_n(X,Y)]=\E[\varphi(X)H_1(X,H_n(X,Y))] \\&=:\E[\varphi(X)H_{n+1}(X,Y)].
+				\E[\varphi^{(n+1)}X] & =E[\varphi'(X)H_n(X,Y)]=\E[\varphi(X)H_1(X,H_n(X,Y))] \\&=:\E[\varphi(X)H_{n+1}(X,Y)].
 			\end{align*}
 			By the previous comment, since $H_n(X,Y)\in \mathbb{D}^\infty$ also $H_{n+1}(X,Y)\in \mathbb{D}^\infty$, which concludes the proof.
 		\end{proof}
@@ -114,7 +114,7 @@
 		Let $X\in \mathbb{D}^\infty$ such that  $\norm{DX}_{H}>0$ almost everywhere, then $X$ has a smooth density with respect to the Lebesgue measure.
 	\end{theorem}
 \begin{proof}
-By Theorem \ref{dens exists} we know that $X$ has a density $p(x)$. To show that $p$ is smooth, by Sobolev embeddings it is sufficient to show that $p$ is weakly differentiable with order $n$ for all $n \in \N$. That is, for all $\varphi\in C_c^\infty(\R)$, there exists a function $p^{(n)}$ such that
+By Theorem \ref{dens exists} we know that $X$ has a density $p(x)$. To show that $p$ is smooth, by \postref{PDEs/3. Sobolev spaces}{thm-rellich}{Sobolev embeddings} it is sufficient to show that $p$ is weakly differentiable with order $n$ for all $n \in \N$. That is, for all $\varphi\in C_c^\infty(\R)$, there exists a function $p^{(n)}$ such that
 \begin{equation*}
 \E[\varphi^{(n)}(X)]=\int_{\R}\varphi^{(n)}(x)p(x) dx=(-1)^n\int_{\R}\varphi(x) p^{(n)}(x) dx.
 \end{equation*}

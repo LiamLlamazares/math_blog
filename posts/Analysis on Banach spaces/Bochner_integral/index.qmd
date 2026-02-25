@@ -1,0 +1,149 @@
+---
+title: "Untitled"
+date: "2026-02-25"
+categories: [Analysis On Banach Spaces]
+bibliography: biblio.bib
+format:
+  html:
+    css: custom_theorems.css
+    toc: true
+    number-sections: true
+    html-math-method: mathjax
+    include-in-header:
+      text: |
+        <script>
+        window.MathJax = {
+          tex: {
+            tags: "ams",
+            macros: {
+              A: "\\mathbb{A}",
+              Aa: "\\mathcal{A}",
+              Bb: "\\mathcal{B}",
+              C: "\\mathbb{C}",
+              Cc: "\\mathcal{C}",
+              Dd: "\\mathcal{D}",
+              E: "\\mathbb{E}",
+              Ee: "\\mathcal{E}",
+              F: "\\mathbb{F}",
+              Ff: "\\mathcal{F}",
+              Gg: "\\mathcal{G}",
+              Hh: "\\mathcal{H}",
+              II: "\\mathbb{I}",
+              Id: "\\bm{I}",
+              Ii: "\\mathcal{I}",
+              Im: "\\bm{Im}",
+              Jj: "\\mathcal{J}",
+              K: "\\mathbb{K}",
+              KL: ["\\rm{KL}\\left(#1 \\| #2\\right)", 2],
+              Kk: "\\mathcal{K}",
+              LL: "\\mathbb{L}",
+              Ll: "\\mathcal{L}",
+              M: "\\mathbb{M}",
+              Mm: "\\mathcal{M}",
+              N: "\\mathbb{N}",
+              Nn: "\\mathcal{N}",
+              Oo: "\\mathcal{O}",
+              PP: "\\mathbb{P}",
+              Pp: "\\mathcal{P}",
+              Q: "\\mathbb{Q}",
+              Qq: "\\mathcal{Q}",
+              R: "\\mathbb{R}",
+              Rr: "\\mathcal{R}",
+              Ss: "\\mathcal{S}",
+              T: "\\mathbb{T}",
+              Th: "{\\bm{\\theta}}",
+              Thh: "{\\bm{\\Theta}}",
+              Tt: "\\mathcal{T}",
+              Uu: "\\mathcal{U}",
+              Vv: "\\mathcal{V}",
+              W: "\\mathbb{W}",
+              Ww: "\\mathcal{W}",
+              X: "\\mathbb{X}",
+              Xx: "\\mathcal{X}",
+              Yy: "\\mathcal{Y}",
+              Z: "\\mathbb{Z}",
+              Zz: "\\mathcal{Z}",
+              abs: ["\\left| #1 \\right|", 1],
+              alf: "{\\alpha}",
+              b: ["{\\bm{#1}}", 1],
+              bm: ["\\boldsymbol{#1}", 1],
+              br: ["\\left\\langle#1\\right\\rangle", 1],
+              bt: "\\beta",
+              co: ["\\overset{\\circ}{#1}", 1],
+              d: "\\mathrm{d}",
+              diag: ["\\operatorname{diag}\\left(#1\\right)", 1],
+              dx: "\\,\\mathrm{d}x",
+              dy: "\\,\\mathrm{d}y",
+              eps: "\\varepsilon",
+              et: "{\\bm{\\eta}}",
+              ex: ["\\mathrm{exp}\\left(#1\\right)", 1],
+              fk: ["\\mathfrak{#1}", 1],
+              fracc: ["{#1}/{#2}", 2],
+              frc: ["\\left(#2)^{-1}(#1\\right)", 2],
+              iso: "\\xrightarrow{\\sim}",
+              ker: "\\bm{ker}",
+              mat: ["\\begin{bmatrix}{#1}\\end{bmatrix}", 1],
+              mathbbm: ["\\mathbb{#1}", 1],
+              mathds: ["\\mathbb{#1}", 1],
+              norm: ["\\left\\lVert #1 \\right\\rVert", 1],
+              om: "\\omega",
+              postref: ["\\href{https://nowheredifferentiable.com/posts/#1/}{#3}", 3],
+              proj: "\\mathrm{proj}",
+              qb: ["\\left[#1\\right]", 1],
+              qp: ["\\left(#1\\right)", 1],
+              qt: ["\\left(#1\\right)", 1],
+              red: ["{\\color{red}#1}", 1],
+              rm: ["\\mathrm{#1}", 1],
+              set: ["\\left\\{#1\\right\\}", 1],
+              star: "*",
+              tl: ["\\widetilde{#1}", 1],
+              tll: ["\\widetilde{#1}", 1],
+              vol: "\\mathrm{vol}",
+              wh: ["\\widehat{#1}", 1],
+              x: "\\bm{x}",
+              xxi: "{\\bm{\\xi}}",
+              y: "\\bm{y}"
+            }
+          }
+        };
+        </script>
+---
+
+\begin{CJK*}{UTF8}{gbsn}
+	We prove by induction that the expected number of loops formed form $n$ noodles is
+	
+$$
+E_n:=\sum_{j=0}^{n-1} \frac{1}{2j+1}.
+$$ {#eq-hi}
+
+	This is clear when $n=1$ as only one possible loop can be formed.\\
+	\\
+	Suppose by hypothesis of induction that @eq-hi holds for $n$ and let us prove it for $n+1$. We start from the beginning with $n+1$ noodles
+	that have  $2(n+1)$ disconnected ends. By the symmetry of the problem we can fix one end to be the first end to be chose. Then, since an end cannot be connected to itself, there are two possibilities for our starting move
+	
+$$
+\begin{aligned}
+A_{n+1} & =\{\text{We choose the remaining edge on same noodle} \}; \\A^c_{n+1} & =\{\text{We choose an edge on another noodle} \} .
+\end{aligned}
+$$
+
+	Once we choose our starting end, there are $2(n+1)-1$ ends remaining. As a result, these two cases occur with probability
+	
+$$
+\mathbb{P}(A_{n+1})=\frac{1}{2(n+1)};\quad \mathbb{P}(A_{n+1}^c)=1-\frac{1}{2(n+1)}.
+$$
+
+	If $A_{n+1}$ occurs we form loop if $A_{n+1}^c$ occurs we do not. Once either of these two cases occur, the expected number of new loops that can be formed is $E_n$ as the middle ends are no longer available for connection (essentially we identify two connected noodles). As a result, we have that the expected number of noodles is
+	
+$$
+E_{n+1}=\frac{1}{2(n+1)}(E_n+1)+(1-\frac{1}{2n+1})E_n=E_n+ \frac{1}{2(n+1)}=\sum_{j=0}^{n} \frac{1}{2j+1}.
+$$
+
+	Where in the last equality we used the hypothesis of induction  @eq-hi. This concludes the proof.
+
+\end{CJK*}
+
+## References
+
+::: {#refs}
+:::

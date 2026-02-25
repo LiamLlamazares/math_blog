@@ -311,22 +311,49 @@ def format_mathjax_macros(macros: dict) -> str:
 # 3b. GLOBAL LABEL REGISTRY (two-pass cross-post references)
 # ---------------------------------------------------------------------------
 
+def find_main_tex(folder: Path, preferred_name: str = 'main.tex') -> Path | None:
+    """Find the likely main LaTeX file in a folder."""
+    # 1. Try preferred_name
+    if (folder / preferred_name).exists():
+        return folder / preferred_name
+    # 2. Try [foldername].tex
+    if (folder / (folder.name + '.tex')).exists():
+        return folder / (folder.name + '.tex')
+    # 3. Try any .tex that isn't preamble.sty or common aux names
+    tex_files = list(folder.glob('*.tex'))
+    if tex_files:
+        for f in tex_files:
+            if f.name.lower() not in ['preamble.tex', 'style.tex']:
+                return f
+        return tex_files[0]
+    return None
+
+
 def build_label_registry(posts_root: Path, tex_name: str = 'main.tex') -> dict:
     r"""
     Phase 1: Scan all posts and extract every \label{X}, mapping each to
-    its Quarto ID and the post folder it lives in.
+    its Quarto ID, organized by folder.
 
-    Returns a dict:  label -> {"folder": relative_folder_str, "qid": "thm-label-id"}
-    where relative_folder_str is relative to posts_root (e.g. "Stochastic Calculus/Martingales").
+    Returns a dict: folder_path -> {label: qid}
+    where folder_path is relative to posts_root (e.g. "Stochastic Calculus/Martingales").
     """
-    registry = {}  # label -> {"folder": str, "qid": str}
+    registry = {}  # folder -> {label -> qid}
 
     def sanitize(l):
         return l.replace(':', '-').replace(' ', '-').replace('_', '-').lower()
 
-    for tex_file in posts_root.rglob(tex_name):
-        post_folder = tex_file.parent
-        rel = post_folder.relative_to(posts_root)
+    # Find all direct subfolders of posts_root as potential "post collections"
+    # Actually, we want to find leaf folders that contain a .tex file.
+    for root, dirs, files in os.walk(posts_root):
+        # Skip hidden dirs or __pycache__
+        dirs[:] = [d for d in dirs if not d.startswith('.') and d != '__pycache__']
+        
+        folder = Path(root)
+        tex_file = find_main_tex(folder, preferred_name=tex_name)
+        if not tex_file:
+            continue
+            
+        rel = folder.relative_to(posts_root)
         # Skip Future/ folders
         if any(part.lower() == 'future' for part in rel.parts):
             continue
@@ -342,6 +369,7 @@ def build_label_registry(posts_root: Path, tex_name: str = 'main.tex') -> dict:
         body = content[begin_m.end():end_m.start()]
 
         folder_str = str(rel).replace('\\', '/')
+        registry[folder_str] = {}
         env_counter = {}  # for auto-numbering
 
         # Scan theorem-like environments for labels
@@ -362,21 +390,17 @@ def build_label_registry(posts_root: Path, tex_name: str = 'main.tex') -> dict:
                 if label:
                     label_id = sanitize(label)
                     qid = f"{prefix}-{label_id}"
+                    registry[folder_str][label] = qid
+                    registry[folder_str][qid] = qid # Map QID to itself for direct access
                 else:
                     env_counter[env_name] = env_counter.get(env_name, 0) + 1
                     qid = f"{prefix}-{env_counter[env_name]}"
-
-                if label:
-                    if label in registry:
-                        print(f"  WARNING: Duplicate label '{label}' in {folder_str} "
-                              f"(already in {registry[label]['folder']})")
-                    else:
-                        registry[label] = {"folder": folder_str, "qid": qid}
+                    registry[folder_str][qid] = qid # Auto-numbered ID maps to itself
 
                 # Also scan labels inside the inner content (orphan labels)
                 for inner_label in re.findall(r'\\label\{([^}]*)\}', inner):
-                    if inner_label not in registry:
-                        registry[inner_label] = {"folder": folder_str, "qid": qid}
+                    if inner_label not in registry[folder_str]:
+                        registry[folder_str][inner_label] = qid
 
         # Scan math environments for labels (equation, aligneq, align)
         for env_name in ['equation', 'aligneq', 'align']:
@@ -400,9 +424,13 @@ def build_label_registry(posts_root: Path, tex_name: str = 'main.tex') -> dict:
                     if inner_label_m:
                         label = inner_label_m.group(1)
 
-                if label and label not in registry:
+                if label:
                     label_id = sanitize(label)
-                    registry[label] = {"folder": folder_str, "qid": f"eq-{label_id}"}
+                    qid = f"eq-{label_id}"
+                    registry[folder_str][label] = qid
+                    registry[folder_str][qid] = qid
+
+    return registry
 
     return registry
 
@@ -778,6 +806,7 @@ def convert_body(body: str, label_registry: dict | None = None,
             return f'@{label}'
 
     text = re.sub(r'\\[Cc]ref\{([^}]*)\}', convert_cref, text)
+    text = re.sub(r'\\ref\{([^}]*)\}', convert_cref, text)
 
     # Also fix plain @rawlabel references emitted by earlier passes
     # If a label in label_map appears as @label (without prefix), replace it.
@@ -810,11 +839,13 @@ def convert_body(body: str, label_registry: dict | None = None,
 
         # Attempt anchor resolution via registry
         anchor = ''
-        if label_registry and label_arg:
-            if label_arg in label_registry:
-                anchor = '#' + label_registry[label_arg]['qid']
+        if label_registry and folder_arg in label_registry and label_arg:
+            if label_arg in label_registry[folder_arg]:
+                anchor = '#' + label_registry[folder_arg][label_arg]
             else:
-                print(f"  WARNING: \\postref label '{label_arg}' not found in registry")
+                print(f"  WARNING: \\postref label '{label_arg}' not found in folder '{folder_arg}'")
+        elif label_registry and folder_arg not in label_registry:
+            print(f"  WARNING: \\postref folder '{folder_arg}' not found in registry")
 
         # Compute relative path from current post to target post
         if current_folder:
@@ -1121,39 +1152,29 @@ def main():
         sys.exit(1)
 
     if args.all:
-        # Batch mode: find all folders with main.tex, excluding Future/
-        targets = []
-        for tex_file in folder.rglob(args.tex):
-            post_folder = tex_file.parent
-            # Skip Future/ folders
-            rel = post_folder.relative_to(folder)
-            if any(part.lower() == 'future' for part in rel.parts):
-                continue
-            targets.append(post_folder)
-
-        if not targets:
-            print(f"No folders with {args.tex} found under {folder}")
-            sys.exit(1)
-
         # Phase 1: Build global label registry
         print("Phase 1: Building cross-post label registry...")
         registry = build_label_registry(folder, args.tex)
-        print(f"  Indexed {len(registry)} labels across all posts.\n")
+        print(f"  Indexed {sum(len(v) for v in registry.values())} labels across {len(registry)} posts.\n")
 
-        print(f"Found {len(targets)} post(s) to convert:\n")
-        ok, fail = 0, 0
-        for t in sorted(targets):
-            print(f"{'='*60}")
-            print(f"  Converting: {t.relative_to(folder)}")
-            print(f"{'='*60}")
-            if convert_folder(t, args.tex, args.preamble, args.output, args.blog_dir,
-                              label_registry=registry, posts_root=folder):
-                ok += 1
-            else:
-                fail += 1
-            print()
+        # Phase 2: Convert each post found in registry
+        print(f"Found {len(registry)} post(s) to convert:\n")
+        for folder_rel_path in sorted(registry.keys()):
+            post_folder = folder / folder_rel_path
+            print("=" * 60)
+            print(f"  Converting: {folder_rel_path}")
+            print("=" * 60)
+            
+            # Find the best tex file for this folder as well
+            current_tex = find_main_tex(post_folder, preferred_name=args.tex)
+            if not current_tex:
+                print(f"  SKIP: No .tex file found in {folder_rel_path}")
+                continue
 
-        print(f"\nDone. {ok} converted, {fail} skipped.")
+            convert_folder(
+                post_folder, current_tex.name, args.preamble, args.output, args.blog_dir,
+                label_registry=registry, posts_root=folder
+            )
     else:
         # Single folder mode
         convert_folder(folder, args.tex, args.preamble, args.output, args.blog_dir)

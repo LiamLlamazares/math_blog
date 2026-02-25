@@ -1,0 +1,373 @@
+---
+title: "Elliptic PDE: Well posedness"
+author: "Liam Llamazares--Elias"
+date: "2026-02-25"
+categories: [Pdes]
+bibliography: biblio.bib
+format:
+  html:
+    css: custom_theorems.css
+    toc: true
+    number-sections: true
+    html-math-method: mathjax
+    include-in-header:
+      text: |
+        <script>
+        window.MathJax = {
+          tex: {
+            tags: "ams",
+            macros: {
+              A: "\\mathbb{A}",
+              Aa: "\\mathcal{A}",
+              Bb: "\\mathcal{B}",
+              C: "\\mathbb{C}",
+              Cc: "\\mathcal{C}",
+              Dd: "\\mathcal{D}",
+              E: "\\mathbb{E}",
+              Ee: "\\mathcal{E}",
+              F: "\\mathbb{F}",
+              Ff: "\\mathcal{F}",
+              Gg: "\\mathcal{G}",
+              Hh: "\\mathcal{H}",
+              II: "\\mathbb{I}",
+              Id: "\\bm{I}",
+              Ii: "\\mathcal{I}",
+              Im: "\\bm{Im}",
+              Jj: "\\mathcal{J}",
+              K: "\\mathbb{K}",
+              KL: ["\\rm{KL}\\left(#1 \\| #2\\right)", 2],
+              Kk: "\\mathcal{K}",
+              LL: "\\mathbb{L}",
+              Ll: "\\mathcal{L}",
+              M: "\\mathbb{M}",
+              Mm: "\\mathcal{M}",
+              N: "\\mathbb{N}",
+              Nn: "\\mathcal{N}",
+              Oo: "\\mathcal{O}",
+              PP: "\\mathbb{P}",
+              Pp: "\\mathcal{P}",
+              Q: "\\mathbb{Q}",
+              Qq: "\\mathcal{Q}",
+              R: "\\mathbb{R}",
+              Rr: "\\mathcal{R}",
+              Ss: "\\mathcal{S}",
+              T: "\\mathbb{T}",
+              Th: "{\\bm{\\theta}}",
+              Thh: "{\\bm{\\Theta}}",
+              Tt: "\\mathcal{T}",
+              Uu: "\\mathcal{U}",
+              Vv: "\\mathcal{V}",
+              W: "\\mathbb{W}",
+              Ww: "\\mathcal{W}",
+              X: "\\mathbb{X}",
+              Xx: "\\mathcal{X}",
+              Yy: "\\mathcal{Y}",
+              Z: "\\mathbb{Z}",
+              Zz: "\\mathcal{Z}",
+              abs: ["\\left| #1 \\right|", 1],
+              alf: "{\\alpha}",
+              b: ["{\\bm{#1}}", 1],
+              bm: ["\\boldsymbol{#1}", 1],
+              br: ["\\left\\langle#1\\right\\rangle", 1],
+              bt: "\\beta",
+              co: ["\\overset{\\circ}{#1}", 1],
+              d: "\\mathrm{d}",
+              diag: ["\\operatorname{diag}\\left(#1\\right)", 1],
+              dx: "\\,\\mathrm{d}x",
+              dy: "\\,\\mathrm{d}y",
+              eps: "\\varepsilon",
+              et: "{\\bm{\\eta}}",
+              ex: ["\\mathrm{exp}\\left(#1\\right)", 1],
+              fk: ["\\mathfrak{#1}", 1],
+              fracc: ["{#1}/{#2}", 2],
+              frc: ["\\left(#2)^{-1}(#1\\right)", 2],
+              iso: "\\xrightarrow{\\sim}",
+              ker: "\\bm{ker}",
+              mat: ["\\begin{bmatrix}{#1}\\end{bmatrix}", 1],
+              mathbbm: ["\\mathbb{#1}", 1],
+              mathds: ["\\mathbb{#1}", 1],
+              norm: ["\\left\\lVert #1 \\right\\rVert", 1],
+              om: "\\omega",
+              postref: ["\\href{https://nowheredifferentiable.com/posts/#1/}{#3}", 3],
+              proj: "\\mathrm{proj}",
+              qb: ["\\left[#1\\right]", 1],
+              qp: ["\\left(#1\\right)", 1],
+              qt: ["\\left(#1\\right)", 1],
+              red: ["{\\color{red}#1}", 1],
+              rm: ["\\mathrm{#1}", 1],
+              set: ["\\left\\{#1\\right\\}", 1],
+              star: "*",
+              tl: ["\\widetilde{#1}", 1],
+              tll: ["\\widetilde{#1}", 1],
+              vol: "\\mathrm{vol}",
+              wh: ["\\widehat{#1}", 1],
+              x: "\\bm{x}",
+              xxi: "{\\bm{\\xi}}",
+              y: "\\bm{y}"
+            }
+          }
+        };
+        </script>
+---
+
+##  Summary
+
+Partial differential equations (PDEs) are a fundamental tool that can be used to describe the evolution and stationary state of a physical system. These PDEs can be derived by understanding the processes that cause the ``mass'' of the system to vary via a balance equation. Namely diffusion, advection, reaction and sources.
+
+## Notation
+
+Following the convention in fluid mechanics,  vectors in $\R^d$ are written in bold to differentiate them from scalars in $\R$. Given $u \in C^1(\R^d)$ and $\bm{v} \in C^1(\R^d \to \R^d)$ we write the gradient and divergence as
+
+$$
+\begin{aligned}
+\nabla u :=(\partial _1 u,\ldots, \partial _d u), \quad \nabla \cdot \bm{v}:= \sum_{i=1}^{d} \partial _i v_i.
+\end{aligned}
+$$
+
+For example, the Laplacian $\Delta$ is equal to $\nabla \cdot \nabla$.
+
+## Introduction
+
+Welcome to the fourth post on our series on PDEs. In previous posts, we built up the theory of function spaces necessary to address the fundamental problems of these equations. However, before we dive into more mathematical waters, it is convenient to get a sense of where these equations come from and what each term within the PDEs means. This can help us understand more deeply the equations and motivates the theory to follow.
+
+We begin by giving a physical derivation of the parabolic equation
+
+$$
+\begin{aligned}
+\partial_t u-\nabla \cdot (\bm{A}\nabla u) +\bm{b} \cdot \nabla u + cu = f,
+\end{aligned}
+$$ {#eq-pde}
+
+and its stationary version
+
+$$
+\begin{aligned}
+-\nabla \cdot (\bm{A}\nabla u) +\bm{b} \cdot \nabla u + cu =f,
+\end{aligned}
+$$
+
+by calculating the rate of change of the ``mass'' of the system in terms of its flow. Then, we introduce boundary effects and wrap up with some examples.
+
+## A physical derivation
+
+**Warning, proceed with caution**: the following section contains a physical derivation of  @eq-pde. As a result, some physical intuition and approximate reasoning is used. All functions are supposed smooth and integrable as needed.
+This disclaimer out of the way, let's consider a spatial domain $\Omega \subset \R^d$ filled with fluid in which some solute is dissolved. Our goal is to describe the concentration (density) of the solute $u(t,\bm{x})$ as the system evolves in time and space. We know that the amount of fluid within any subregion $V \subset  \Omega$ is
+
+$$
+\begin{aligned}
+m(t)=\int_{V} u(t,\bm{x}) \d \bm{x}  .
+\end{aligned}
+$$
+
+This mass changes as the solute moves around $\Omega$.	By conservation of mass, the mass of solute $m(t+h)$ at a small instant of time later is equal to the mass $m(t)$ present at time $t$ plus the mass of any other solute that entered the domain in that small time
+
+$$
+\begin{aligned}
+m(t+h)=m(t)+ \text{mass that entered at time } t .
+\end{aligned}
+$$
+
+The solute can only enter $V$ if there is some external source, such as a pipe adding a mass $f(t,\bm{x})$ of solute at point $\bm{x}$, or by flowing its boundary  $\partial V$. We now consider this second case. Let $\bm{F}(t,\bm{x} )$ describe the magnitude and velocity of the flow (*flux*) of the solute and consider a point $\bm{x}$ on the boundary. If the flux $\bm{F}(t,\bm{x} )$ is orthogonal to the outward pointing unit normal $\bm{n}(\bm{x})$ at $\bm{x}$ (that is, tangent to $\partial  V$ at $\bm{x}$), no fluid enters $V$ through $\bm{x}$. Whereas if the flux is parallel to $\bm{n}(\bm{x})$, all of the flow at $\bm{x}$ enters $V$ if $\bm{F}(t,\bm{x})$ is pointed in the opposite or leaves if $\bm{F}(t,\bm{x})$ and $\bm{n}(\bm{x})$ have the same direction. Otherwise, we get something in between, depending on the angle that $\bm{F}(t,\bm{x})$ and $\bm{n}(\bm{x})$ form. This situation can be described as follows
+
+$$
+\begin{aligned}
+m(t+h)=m(t) +h \qt{ \int_{V} f(t,\bm{x} ) \dx- \int_{\partial V} \bm{F}(t, \bm{x})\cdot \bm{n}(\bm{x} )    \d  \bm{x}  },
+\end{aligned}
+$$
+
+where the minus sign means that if the solute is flowing in the same direction as $\bm{n}$, mass decreases, and if it flows in the opposite direction, mass increases, as $\bm{n}(\bm{x})$ points outwards. Rearranging terms and taking limits when $h$ goes to zero gives
+
+$$
+\begin{aligned}
+\partial _t m(t)=\int_{V}f(t,\bm{x} ) \d \bm{x}   -\int_{\partial V}  \bm{F}(t, \bm{x})\cdot \bm{n}(\bm{x} )    \d  \bm{x}  .
+\end{aligned}
+$$
+
+Now, the mass of the solute in $V$ is just the integral of the density over $V$. Using this and the [divergence theorem](https://en.wikipedia.org/wiki/Divergence_theorem#:~:text=%5Bedit%5D-,For,-bounded%20open%20subsets) gives
+
+$$
+\begin{aligned}
+\int_{V}\partial _t u(t,\bm{x} )  \d \bm{x} = \int_{V}f(t,\bm{x} ) \d x -\int_{V}  \nabla \cdot  \bm{F}(t, \bm{x})\   \d  \bm{x}
+\end{aligned}
+$$ {#eq-balance-integral}
+
+This is the integral form of the *balance equation*. To obtain the non-integral form, note that, since @eq-balance-integral holds for all $V \subset  U$, the integrands must be equal (almost) everywhere, that is
+
+$$
+\begin{aligned}
+\partial _t u(t,\bm{x} )   = f(t,\bm{x})-\nabla \cdot  \bm{F}(t, \bm{x})
+\end{aligned}
+$$ {#eq-balance}
+
+We would now like to express the flux in terms of the properties of the fluid and domain. We recall that $\bm{F}$ determines the magnitude and direction of the flow of the solute. We distinguish two possible reasons for the movement of the solute.
+1. [a)]
+2. *Diffusion*: This is the process that causes the solute to move from areas of lower to higher concentration. A possible physical approximation is to consider the diffusion to be proportional to the gradient of the density, that is
+	      
+$$
+\begin{aligned}
+\bm{F}_{\text{diffusion}} = -\bm{A}\nabla u  .
+\end{aligned}
+$$
+
+	      Here, $\bm{A}(\bm{x} ) \in \R^{d\times d}_+$ is called the *diffusivity*, diffusion coefficient or viscosity depending on the context and is a positive definite matrix. The diffusivity encodes the preference of the solute to flow in one direction or another depending on the properties of the domain itself. If $\bm{A}$ has orthonormal eigensystem
+	      
+$$
+\begin{aligned}
+\{(\bm{e_1},\lambda _1 ),(\bm{e}_2, \lambda _2 ),\ldots, (\bm{e}_3 ,\lambda _d)\} .
+\end{aligned}
+$$
+
+	      Then
+	      
+$$
+\begin{aligned}
+\bm{F}_{\text{diffusion}} = -\bm{A}\nabla u=-  \lambda _j(\nabla u\cdot \bm{e}_j )\bm{e}_j .
+\end{aligned}
+$$ {#eq-diffusion}
+
+	      That is, the solute diffuses in the direction of $\bm{e}_j$ with speed proportional to $\lambda_j$. For example, if $\bm{A}$ is a constant multiple of the identity, there is no preferred direction of flow. In this case, one says that the flow is *homogeneous*. The minus sign in @eq-diffusion together with the imposition that $\bm{A}$ is positive definite means that diffusion occurs from areas of lower to higher concentration.
+
+	      If diffusion is the only cause of movement in the fluid, $\bm{F}= - \bm{A}\nabla u$ and substituting  into the balance equation @eq-balance gives the (non-homogeneous) heat equation
+	      
+$$
+\begin{aligned}
+\partial_tu= \nabla \cdot (\bm{A}\nabla u)+f .
+\end{aligned}
+$$
+3. *Advection*: Another possible cause for the flow of the solute within $\Omega$ is that the fluid itself is moving with some velocity  $\bm{v}$, transporting along the particles of the solute. The flux due to advection is
+	      
+$$
+\begin{aligned}
+\bm{F}_{\text{advection} }= u \bm{v} .
+\end{aligned}
+$$
+The flux is thus made up of the sum of a diffusion and advection component:
+
+$$
+\begin{aligned}
+\bm{F}=\bm{F}_{\text{diffusion} }+ \bm{F}_{\text{advection} } =- \bm{A}\nabla u+ u \bm{v}   .
+\end{aligned}
+$$
+
+Substituting  this into the balance equation @eq-balance gives
+
+$$
+\begin{aligned}
+\partial_t u=\nabla \cdot (\bm{A}\nabla u) -\nabla \cdot  (u \bm{v})+ f.
+\end{aligned}
+$$ {#eq-balance2}
+
+Finally, we may have a change in the concentration of the solute due to the solute reacting with another substance. For example, $u$ could be the density of a contaminant which we are eliminating from the fluid via a chemical process. Alternatively, $u$ could be a radioactive substance which is decaying. The *reaction* term is typically denoted by  $R(u)$. In the simplest case, $R(u)$ is linear in  $u$, equal to  $-ru$ where the sign of $r$ determines whether the concentration of solute decreases (if $r>0$, as in the previous scenarios) or increases (if $r<0$, for example, $u$ could represent the concentration of a population of algae). Adding this reaction term to our balance equation @eq-balance2 gives
+
+$$
+\begin{aligned}
+\underbrace{\partial_t u}_{\text{Rate of change} }= \underbrace{\nabla \cdot (\bm{A}\nabla u)}_{\text{Diffusion}} - \underbrace{\nabla \cdot ( \bm{v}u)}_{\text{Advection}} -\underbrace{ru}_{\text{Reaction}}  +\underbrace{f}_{\text{Source}},
+\end{aligned}
+$$
+
+where all terms are functions of $t,\bm{x}$. Applying the chain rule we may decompose
+
+$$
+\begin{aligned}
+\nabla \cdot ( \bm{v}u)= \bm{v}\cdot \nabla u+ (\nabla \cdot \bm{v})u .
+\end{aligned}
+$$
+
+The first summand represents the transport of the solute due to the movement of the fluid, and the second the transport due to the contraction of the fluid, if $\nabla \cdot \bm{v}<0$, or its expansion, if $\nabla \cdot \bm{v}=0$. If $\nabla \cdot \bm{v} =0$, the fluid neither expands nor compresses and is called *incompressible*. In any case, writing (for notational consistency) $\bm{b} :=\bm{v}, c=r+\nabla \cdot \bm{v}$ gives
+
+$$
+\begin{aligned}
+\partial_t u-\nabla \cdot (\bm{A}\nabla u) +\bm{b} \cdot \nabla u + c u= f  .
+\end{aligned}
+$$ {#eq-parabolic}
+
+Equation @eq-parabolic is a prototypical parabolic equation. Suppose now that our system has and reaches an equilibrium state (a state in which the concentration of solute stays constant in time once reached). Then $\partial _t u=0$ and we obtain
+
+$$
+\begin{aligned}
+-\nabla \cdot (\bm{A}\nabla u) + \bm{b} \cdot \nabla u+cu = f,
+\end{aligned}
+$$ {#eq-elliptic}
+
+Equations @eq-parabolic, and @eq-elliptic are, respectively, the parabolic and elliptic PDE we were aiming for and, as we have just seen, each of their parts has a precise physical meaning in terms of diffusion, advection, reaction and source.
+
+## Boundary conditions
+
+%
+In an application, the system we are studying will evolve within some smooth bounded domain $\Omega$. In order for a unique solution to be defined it is necessary to impose a boundary condition for what $u$ is allowed to do on  $\Omega$ (as well as an initial condition $u(0,\bm{x})=u_0(\bm{x})$ in the parabolic case @eq-parabolic).
+
+::: {#exm-1}
+
+Consider the Poisson equation
+
+$$
+\begin{aligned}
+\Delta u=f.
+\end{aligned}
+$$
+
+If $u$ solves @eq-poisson, then $u+p$ also solves @eq-poisson where $p$ is any polynomial of degree  $0$ or  $1$.
+
+:::
+
+There are multiple types of boundary conditions which can be specified, each one corresponding to a particular behaviour of the system.
+1. [a)]
+2. *Dirichlet boundary condition*: This is the additional imposition that
+	      
+$$
+\begin{aligned}
+u=g \text{ on } \partial\Omega,
+\end{aligned}
+$$
+
+	      where $g$ is some function defined on  $\partial \Omega$ and $u$ is restricted to $\partial\Omega$ through the trace theorem developed in [the previous post](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/). In the context of the diffusion of heat, $\Omega$ could be a rod which is kept at a constant temperature at its endpoints.
+3. *Robin boundary condition*: Here, it is imposed that
+	      
+$$
+\begin{aligned}
+-\bm{F}\cdot  \bm{n} =g \text{  on } \partial \Omega,
+\end{aligned}
+$$ {#eq-robin}
+
+	      where $\bm{F}$ is the flux and in our case is $\bm{F}=-\bm{A} \nabla u+ \bm{v}u$. This condition imposes that a ``mass'' $g$ of substance (solute, heat, etc.) enters the domain at each point of the boundary (or leaves if the minus in @eq-robin is omitted).
+4. *Neumann boundary condition:*	This is a particular case of the Robin boundary condition where there is no diffusion. In this case, @eq-robin  becomes
+	      
+$$
+\begin{aligned}
+(\bm{A} \nabla u) \cdot n=g \text{  on } \partial \Omega.
+\end{aligned}
+$$
+
+	      The above is known as a Neumann boundary condition. If the material is homogeneous, that is, $\bm{A}=\bm{I}$, the special notation
+	      
+$$
+\begin{aligned}
+\frac{\partial u}{\partial \bm{n}}:= \nabla u \cdot  \bm{n} =g \text{  on } \partial \Omega,
+\end{aligned}
+$$
+
+	      is used. Here $\frac{\partial u}{\partial \bm{n}}$ is known as the *normal derivative*.
+5. *Mixed boundary condition*: This corresponds a mix of the preceding. That is, $\partial \Omega$ is partitioned into $\Gamma _1, \Gamma _2$, and the following boundary conditions are imposed.
+	      
+$$
+\begin{aligned}
+u=g_1 \text{  on }  \Gamma _1,  \text{ and }  -\bm{F} \cdot n=g_2 \text{  on }  \Gamma _2.
+\end{aligned}
+$$
+6. *Periodic boundary conditions*: Here the domain is an interval  $\Omega=(\bm{a}, \bm{b})$ and we require that for all $k \in \{1,\ldots,d\}$
+	      
+$$
+\begin{aligned}
+u(x_1,\ldots,a_k,\ldots, x_d)=u({x}_1,\ldots,{b}_k,\ldots, {x}_d).
+\end{aligned}
+$$
+
+	      Equivalently, $u$ is a function of the torus  $\R^d/ (\Z^d \cdot (\bm{b}-\bm{a}))$. These boundary conditions are typically used to approximate a system evolving on a very large domain by working only with a representative cell $[\bm{a},\bm{b}]$.
+Finally, mathematically, it also makes sense to work with infinite domains such as the whole Euclidean space $\R^d$. In this case, rather than a boundary condition, one imposes suitable decay on the function such as $u \in L^p(\R^d)$ or its derivatives such as $u \in W^{k,p}(\R^d)$.
+
+We end the post by commenting that non-linear terms may be considered in the PDE @eq-parabolic-@eq-elliptic. Many examples can be found [here](https://en.wikipedia.org/wiki/List_of_nonlinear_partial_differential_equations). However, the mathematical theory of nonlinear PDE is much more complicated (think Navier Stokes). The linear case, which we begin to develop in the next post, will keep us busy for a while.
+
+## References
+
+::: {#refs}
+:::
