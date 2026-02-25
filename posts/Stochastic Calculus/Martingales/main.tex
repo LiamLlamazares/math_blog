@@ -50,23 +50,22 @@ This allows us to show the following:
 	\begin{align*}
 		\left\|\E_{\Gg}[X_n-X_m]\right\|&\leq\E_{\Gg}\left[\|X_n-X_m\|\right]\\&\implies \E[\left\|\E_{\Gg}[X_n]-\E_{\Gg}[X_m]\right\|]\leq \E\left[\|X_n-X_m\|\right]\to 0
 	\end{align*}
-	As a result, $\E_{\Gg}[X_n]$ is a Cauchy sequence in $L^1(\Omega\to E)$ and converges to some function $Y$, passing to the limit in the defining equation for the conditional expectation shows that $Z=\mathbb{E}_\mathcal{G}[X]$. Finally, to prove uniqueness we have that if both $Z_1,Z_2$ satisfy
+	As a result, $\E_{\Gg}[X_n]$ is a Cauchy sequence in $L^1(\Omega\to E)$ and converges to some function $Y$, passing to the limit in the defining equation for the conditional expectation shows that $Z=\E_\Gg[X]$. Finally, to prove uniqueness we have that if both $Z_1,Z_2$ satisfy
 	\begin{equation*}
 		\int_A Z_1=\int_A X=\int_A Z_2,\quad \forall A\in\Gg.
 	\end{equation*}
-	Then using the linearity of the integral we obtain that $w(Z_1)=w(Z_2)$ for all linear function $w \in E'$, so $Z_1=Z_2$.
+	Then using the linearity of the integral we obtain that $w(Z_1)=w(Z_2)$ for all linear functions $w \in E^*$, so $Z_1=Z_2$.
 \end{proof}
 \section{Martingales}
 Okay, so we leveraged some inequalities to prove the existence of a conditional expectation. This done, the following definition mimicking the real case is quite natural. Given measurable spaces $(F,\Ff),(G,\Gg)$ we use the notation $f: \Ff \to \Gg$ to mean $f:(F,\Ff)\to (G,\Gg)$ is measurable 
 \begin{definition}
-	Let $\{M(t)\}_{t\in I}$, be a stochastic process on $(\Omega, \mathcal{F}, \mathbb{P})$ with a filtration $\{\mathcal{F}_{t}\}_{t \in I}$. The process $M$ is called an $\mathcal{F}_{t}$-martingale, if:
+	Let $\{M(t)\}_{t\in I}$ be a stochastic process on $(\Omega, \Ff, \PP)$ with a filtration $\{\Ff_{t}\}_{t \in I}$. The process $M$ is called an $\Ff_{t}$-martingale, if:
 	\begin{enumerate}
 		\item $M(t)\in L^1(\Omega\to E)$ for all $t\in I$
-		\item $M(t):\mathcal{F}_{t} \to \mathcal{B}(E)$ for all $t\in I$,
-		\item $\E_{\mathcal{F}_{s}}\left[M(t)\right]=M(s)$ for all $s \leq t$.
+		\item $\E_{\Ff_{s}}\left[M(t)\right]=M(s)$ for all $s \leq t$.
 	\end{enumerate}
 \end{definition}
-The concept of submartingale is  defined by replacing the equality in 3. with a $\geq$. Let us abbreviate $\E_{\mathcal{F}_t}$ by $\E_t$. Then, as in the real case, we have the following.
+The concept of submartingale is  defined by replacing the equality in 3. with a $\geq$. Let us abbreviate $\E_{\Ff_t}$ by $\E_t$. Then, as in the real case, we have the following.
 \begin{lemma}[Norm: martingale $\to $ submartingale]\label{lem:norm_is_submart}
 	Let $M(t)$ be a martingale, then $\norm{M(t)}$ is a submartingale.
 \end{lemma}
@@ -145,19 +144,15 @@ and that any of the norms of these spaces is equivalent to the one set on $\math
 \end{proof}
 In future instalments, we will prove that a Wiener process valued in a Hilbert space $H$ belongs to this space and use it to define the stochastic integral that leads to the construction of SPDEs.
 \begin{proposition}
-    Let $H$ be a separable Hilbert space and $Q$ be a symmetric, non-negative, trace-class operator on $H$. Let $W(t)$ be an $H$-valued $Q$-Wiener process with respect to a filtration $\mathcal{F}_t$. Then $W(t) \in \mathcal{M}_T^2(H)$.
+    Let $H$ be a separable Hilbert space and $Q$ be a symmetric, non-negative, trace-class operator on $H$. Let $W(t)$ be an $H$-valued $Q$-Wiener process with respect to a filtration $\Ff_t$. Then $W(t) \in \mathcal{M}_T^2(H)$.
 \end{proposition}
 \begin{proof}
-    The process $W(t)$ is adapted by definition. Let $0 \leq s < t \leq T$. Given $A \in \mathcal{F}_s$ and $u \in H$, the mapping $x \mapsto \langle x, u \rangle$ is a bounded linear functional. Since $W(t) - W(s)$ is independent of $\mathcal{F}_s$, we apply the properties of the Bochner integral to obtain:
+    The process $W(t)$ is adapted by definition. Let $0 \leq s < t \leq T$. Given $A \in \Ff_s$ and $u \in H$, the mapping $x \mapsto \langle x, u \rangle$ is a bounded linear functional. Since $W(t) - W(s)$ is independent of $\Ff_s$, we apply the properties of the Bochner integral to obtain:
     \begin{align*}
         \br{ \int_A (W(t)-W(s)) d\mathbb{P}, u  }   &= \int_A \langle W(t)-W(s), u \rangle d\mathbb{P} \\
         &= \mathbb{E}[1_A] \mathbb{E}[\langle W(t)-W(s), u \rangle] = 0.
     \end{align*}
-    Since this holds for all $u \in H$, the integral is the zero vector in $H$. By linearity,
-    \begin{equation*}
-        \int_A W(t) d\mathbb{P} = \int_A W(s) d\mathbb{P} \quad \forall A \in \mathcal{F}_s.
-    \end{equation*}
-    This satisfies the definition of conditional expectation, proving $\mathbb{E}[W(t) \mid \mathcal{F}_s] = W(s)$, so $W(t)$ is a martingale. Finally, by construction $\mathbb{E}[\|W(t)\|^2] = t \operatorname{Tr}(Q)<\infty$ as $Q$ is trace-class. Continuity is given by the definition of the Wiener process. This concludes the proof.
+    This satisfies the definition of conditional expectation, proving $\mathbb{E}[W(t) \mid \Ff_s] = W(s)$, so $W(t)$ is a martingale. Finally, by construction $\mathbb{E}[\|W(t)\|^2] = t \operatorname{Tr}(Q)<\infty$ as $Q$ is trace-class. Continuity is given by the definition of the Wiener process. This concludes the proof.
 \end{proof}
 \bibliography{biblio.bib}
 \end{document}
