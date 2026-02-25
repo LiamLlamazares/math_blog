@@ -83,7 +83,7 @@ format:
               fracc: ["{#1}/{#2}", 2],
               frc: ["\\left(#2)^{-1}(#1\\right)", 2],
               iso: "\\xrightarrow{\\sim}",
-              ker: "\\bm{ker}",
+              ker: "\\rm{ker}",
               mat: ["\\begin{bmatrix}{#1}\\end{bmatrix}", 1],
               mathbbm: ["\\mathbb{#1}", 1],
               mathds: ["\\mathbb{#1}", 1],
@@ -216,12 +216,6 @@ Such that the following hold for all $x,y,z \in V$ and all $\lambda \in \K$
 
 :::
 
-	
-
-::: {#def-2}
-
-:::
-
 	In what follows we will take always take the base field to be $\K$, that is, we will consider real and complex vector spaces as the theory is the same. In the real case, the conjugate
 	function just being the identity. Note that the first two properties also imply  ``antilinearity'' of the second component as
 	
@@ -234,7 +228,7 @@ $$
 	A vector space with an inner product is called an inner product space. This inner product gives us a concept of geometry.
 	
 
-::: {#def-3}
+::: {#def-2}
 
 Given an inner product space $V$ we define
 
@@ -272,7 +266,7 @@ $$
 
 	In particular, this implies that the inner product is continuous jointly, and in each component. An inner product space keeps the key properties of Euclidean space, namely the vector space structure and inner product. The third key property is that of completeness.
 
-::: {#def-4}
+::: {#def-3}
 
 A Hilbert space is a complete inner product space $(H, \br{\cdot ,\cdot })$. Where completeness is respect to the inner product norm
 
@@ -309,7 +303,7 @@ Let $F$ be a closed convex subset of a Hilbert space $H$. Then, given  $h \in H$
 
 $$
 \begin{aligned}
-\min_{g \in F}\norm{h-g}= \norm{h-f}.
+\inf_{g \in F}\norm{h-g}= \norm{h-f}.
 \end{aligned}
 $$
 
@@ -406,7 +400,7 @@ $$
 	Another property of Euclidean space that Hilbert spaces reproduce is that of the existence of an orthonormal basis
 	
 
-::: {#def-5}
+::: {#def-4}
 
 Let $H$ be a Hilbert space and  $I$ some index set. We say that $\Bb=\set{\phi_\alpha}_{\alpha \in  I}$ is an orthonormal basis of $H$ if
 
@@ -429,7 +423,7 @@ $$ {#eq-sum}
 	Note that we impose no conditions on the Index set $I$ which may be countable or uncountable.
 	
 
-::: {#def-6}
+::: {#def-5}
 
 Given an index set $I$ and a normed vector space $X$ we say that $x_\alpha$ is absolutely summable to $x$ and write
 
@@ -508,7 +502,7 @@ $$
 \end{aligned}
 $$
 
-As a result by [Zorn's lemma](<https://en.wikipedia.org/wiki/Zorn%27s_lemma>) there exists a maximal element $\Bb$. If $\Bb$ is not complete (that is ([-@eq-sum]) doesn't hold), then there exists $f \in \overline{\Bb}^\perp$. By taking $f /\norm{f}$ and forming $\Bb':=\Bb \cup \set{f \norm{f}}$ we obtain that $\Bb \subsetneq \Bb' \in \Aa$. This contradicts the maximality of $\Bb$ and concludes the proof.
+As a result by [Zorn's lemma](<https://en.wikipedia.org/wiki/Zorn%27s_lemma>) there exists a maximal element $\Bb$. If $\Bb$ is not complete (that is ([-@eq-sum]) doesn't hold), then there exists $f \in \overline{\Bb}^\perp$. By taking $f /\norm{f}$ and forming $\Bb':=\Bb \cup \set{f / \norm{f}}$ we obtain that $\Bb \subsetneq \Bb' \in \Aa$. This contradicts the maximality of $\Bb$ and concludes the proof.
 
 :::
 
@@ -616,7 +610,7 @@ Let $H$ be a Hilbert space, then given $\ell \in H'$ there exists a unique $f_\e
 
 $$
 \begin{aligned}
-\br{h,f_\ell }, \quad\forall h \in H.
+\ell(h) = \br{h,f_\ell }, \quad\forall h \in H.
 \end{aligned}
 $$ {#eq-riesz}
 
@@ -717,7 +711,7 @@ Every Hilbert space is reflexive.
 	
 $$
 \begin{aligned}
-\ell\U g := \left\langle T\cdot ,g\right\rangle.
+\ell_ g := \left\langle T\cdot ,g\right\rangle.
 \end{aligned}
 $$
 
@@ -743,7 +737,7 @@ $$ {#eq-adjoint}
 
 	
 
-::: {#def-7}
+::: {#def-6}
 
 Given $T \in \mathcal{L}(H)$ we denote by $T^\star$ the
 unique element  verifying
@@ -771,7 +765,7 @@ $\left\lVert T \right\rVert=\left\lVert T^\star  \right\rVert$.
 	Hilbert spaces provide us a way to guarantee existence and uniqueness to a wide class of problems, an important tool is Lax-Milgram's theorem. We first need two definitions
 	
 
-::: {#def-8}
+::: {#def-7}
 
 We say that a mapping
 
@@ -793,7 +787,7 @@ $$
 
 	
 
-::: {#def-9}
+::: {#def-8}
 
 Let $V$ be a normed vector space then we say that a sesquilinear form  $B$ is $\alpha$ coercive if it is continuous and there exists a constant $\alpha>0$ such that
 
@@ -871,7 +865,7 @@ $$
 \end{aligned}
 $$
 
-We now prove surjectivity of $\Ll$. Consider  $u \in  \Im(\Ll)^\perp$, then it holds that
+We now prove surjectivity of $\Ll$. Consider  $u \in  \rm{Im}(\Ll)^\perp$, then it holds that
 
 $$
 \begin{aligned}
@@ -879,7 +873,7 @@ $$
 \end{aligned}
 $$ {#eq-est}
 
-As a result, we deduce from the corollary of the orthogonal complement @cor-cor that $\overline{\Im(\Ll)}=0$. Thus, if we show that $\Ll$ is closed invertibility follows. The estimate in ([-@eq-est]) together with Cauchy Schwartz show that for all $u \in H$
+As a result, $\rm{Im}(\Ll)^\perp = \{0\}$. We deduce from the corollary of the orthogonal complement (@cor-cor) that $\overline{\rm{Im}(\Ll)}=H$. Thus, if we show that $\Ll$ is closed invertibility follows. The estimate in ([-@eq-est]) together with Cauchy Schwartz show that for all $u \in H$
 
 $$
 \begin{aligned}
@@ -887,8 +881,8 @@ $$
 \end{aligned}
 $$
 
-As if $\Ll u_n \in  \Im (\Ll)$ is a Cauchy sequence then so must be $u_n$. By completeness of  $\Ll$, the sequence  $u_n$ converges to some  $u \in  H$ and we deduce, by continuity of $\Ll$,
-that $\Ll u_n \to \Ll u \in \Im (\Ll)$. In consequence, $\Ll$ is invertible, finally to show the bound on $\Ll^{-1}$ let us write $u =\Ll^{-1} f$ then
+As if $\Ll u_n \in  \rm{Im} (\Ll)$ is a Cauchy sequence then so must be $u_n$. By completeness of  $\Ll$, the sequence  $u_n$ converges to some  $u \in  H$ and we deduce, by continuity of $\Ll$,
+that $\Ll u_n \to \Ll u \in \rm{Im} (\Ll)$. In consequence, $\Ll$ is invertible, finally to show the bound on $\Ll^{-1}$ let us write $u =\Ll^{-1} f$ then
 
 $$
 \begin{aligned}
@@ -962,7 +956,7 @@ Taking $h=u+v$ and $h=u-v$ where $v$ is any shows  $-L(v) \leq -B(u,v)$ and $L(v
 	Finally, we wrap up with some operator theory. This will be revisited in a more detailed blog post on spectral theory. For now, we give the essentials.
 	
 
-::: {#def-10}
+::: {#def-9}
 
 We say that a linear operator $K: X \to Y$ where $X,Y$ are two metric spaces is compact  if  $T(B)$ is relatively compact for all bounded  $B \subset  X$.
 
@@ -1055,31 +1049,31 @@ $$
 
 ::: {.proof}
 
-Since $H$ is separable there exists a countable orthonormal basis $\set{\phi_n}_{n \in \N}$. If we denote $T_n$ for the projection of $K$ onto the space generated by  $\set{\phi_1,\ldots,\phi_n}$ then, by Parseval's Theorem pointwise convergence holds
-
+		Since $H$ is separable there exists a countable orthonormal basis $\set{\phi_n}_{n \in \N}$. If we denote $T_n$ for the projection of $K$ onto the space generated by  $\set{\phi_1,\ldots,\phi_n}$ then, by Parseval's Theorem pointwise convergence holds
+		
 $$
 \begin{aligned}
 K_n(x) \to K(x) , \quad\forall x \in  H.
 \end{aligned}
 $$
 
-Consider the unit ball $B_X$ in  $X$. Then  $K(B_X)$ is relatively compact. So $K(B_X)$  is totally bounded and given $\varepsilon >0$ we can form a finite $\varepsilon$ net $Kx_1,\ldots,Kx_m$ of $K(B_X)$. By pointwise convergence, we can now take $n_0$ large enough so that for all $N \geq n_0$
+		Consider the unit ball $B_X$ in  $X$. Then  $K(B_X)$ is relatively compact. So $K(B_X)$  is totally bounded and given $\varepsilon >0$ we can form a finite $\varepsilon$ net $Kx_1,\ldots,Kx_m$ of $K(B_X)$. By pointwise convergence, we can now take $n_0$ large enough so that for all $N \geq n_0$
 
 $$
 \begin{aligned}
-\norm{K(x_j)-K_N(x_j)} , \quad\forall j=1,\ldots,m.
+\norm{K(x_j)-K_N(x_j)} < \varepsilon, \quad\forall j=1,\ldots,m.
 \end{aligned}
 $$
 
-Now for any  $x\in B_X$ we can find $x_j$ such that  $\norm{Tx_j-Tx}< \varepsilon$. Using the triangle inequality
-
+		Now for any  $x\in B_X$ we can find $x_j$ such that  $\norm{Tx_j-Tx}< \varepsilon$. Using the triangle inequality
+		
 $$
 \begin{aligned}
 \norm{Kx-K_N x} \leq \norm{Kx-K x_j}+ \norm{K x_j-K_N x_{j}}+ \norm{K_N x_j-K_N x} < 3\varepsilon .
 \end{aligned}
 $$
 
-This concludes the proof.
+		This concludes the proof.
 
 :::
 
@@ -1176,7 +1170,7 @@ a. $\ker(T)$ is finite dimensional.
 
 b. $T$ is closed.
 
-c. $\Im (T)=\ker(T^*)^\perp$.
+c. $\rm{Im} (T)=\ker(T^*)^\perp$.
 
 d. $\mathrm{dim}(\ker(T))=\mathrm{dim}(\ker(T^*))$
 

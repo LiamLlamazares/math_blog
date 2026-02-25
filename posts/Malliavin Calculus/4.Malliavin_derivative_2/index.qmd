@@ -82,7 +82,7 @@ format:
               fracc: ["{#1}/{#2}", 2],
               frc: ["\\left(#2)^{-1}(#1\\right)", 2],
               iso: "\\xrightarrow{\\sim}",
-              ker: "\\bm{ker}",
+              ker: "\\rm{ker}",
               mat: ["\\begin{bmatrix}{#1}\\end{bmatrix}", 1],
               mathbbm: ["\\mathbb{#1}", 1],
               mathds: ["\\mathbb{#1}", 1],

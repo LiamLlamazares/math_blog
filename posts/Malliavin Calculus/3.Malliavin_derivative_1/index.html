@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Liam Llamazares–Elias">
+<meta name="dcterms.date" content="2022-06-30">
+<meta name="description" content="Part 3 of the series on Malliavin calculus">
+
+<title>MC 3: The Malliavin Derivative 1 – NoWhere Differentiable Math</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-98d0cb1e008fbffa0ee4b173966b8197.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-936f13ee374d09b8292d41d562e5d832.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-98d0cb1e008fbffa0ee4b173966b8197.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>
+window.MathJax = {
+  tex: {
+    tags: "ams",
+    macros: {
+      A: "\\mathbb{A}",
+      Aa: "\\mathcal{A}",
+      Bb: "\\mathcal{B}",
+      C: "\\mathbb{C}",
+      Cc: "\\mathcal{C}",
+      Dd: "\\mathcal{D}",
+      E: "\\mathbb{E}",
+      Ee: "\\mathcal{E}",
+      F: "\\mathbb{F}",
+      Ff: "\\mathcal{F}",
+      Gg: "\\mathcal{G}",
+      Hh: "\\mathcal{H}",
+      II: "\\mathbb{I}",
+      Id: "\\bm{I}",
+      Ii: "\\mathcal{I}",
+      Im: "\\bm{Im}",
+      Jj: "\\mathcal{J}",
+      K: "\\mathbb{K}",
+      KL: ["\\rm{KL}\\left(#1 \\| #2\\right)", 2],
+      Kk: "\\mathcal{K}",
+      LL: "\\mathbb{L}",
+      Ll: "\\mathcal{L}",
+      M: "\\mathbb{M}",
+      Mm: "\\mathcal{M}",
+      N: "\\mathbb{N}",
+      Nn: "\\mathcal{N}",
+      Oo: "\\mathcal{O}",
+      PP: "\\mathbb{P}",
+      Pp: "\\mathcal{P}",
+      Q: "\\mathbb{Q}",
+      Qq: "\\mathcal{Q}",
+      R: "\\mathbb{R}",
+      Rr: "\\mathcal{R}",
+      Ss: "\\mathcal{S}",
+      T: "\\mathbb{T}",
+      Th: "{\\bm{\\theta}}",
+      Thh: "{\\bm{\\Theta}}",
+      Tt: "\\mathcal{T}",
+      Uu: "\\mathcal{U}",
+      Vv: "\\mathcal{V}",
+      W: "\\mathbb{W}",
+      Ww: "\\mathcal{W}",
+      X: "\\mathbb{X}",
+      Xx: "\\mathcal{X}",
+      Yy: "\\mathcal{Y}",
+      Z: "\\mathbb{Z}",
+      Zz: "\\mathcal{Z}",
+      abs: ["{\\left| #1 \\right|}", 1],
+      alf: "{\\alpha}",
+      b: ["{\\bm{#1}}", 1],
+      bm: ["\\boldsymbol{#1}", 1],
+      br: ["\\left\\langle#1\\right\\rangle", 1],
+      bt: "\\beta",
+      co: ["\\overset{\\circ}{#1}", 1],
+      d: "\\mathrm{d}",
+      diag: ["\\operatorname{diag}\\left(#1\\right)", 1],
+      dx: "\\,\\mathrm{d}x",
+      dy: "\\,\\mathrm{d}y",
+      eps: "\\varepsilon",
+      et: "{\\bm{\\eta}}",
+      ex: ["\\mathrm{exp}\\left(#1\\right)", 1],
+      fk: ["\\mathfrak{#1}", 1],
+      fracc: ["{#1}/{#2}", 2],
+      frc: ["\\left(#2)^{-1}(#1\\right)", 2],
+      iso: "\\xrightarrow{\\sim}",
+      ker: "\\rm{ker}",
+      mat: ["\\begin{bmatrix}{#1}\\end{bmatrix}", 1],
+      mathbbm: ["\\mathbb{#1}", 1],
+      mathds: ["\\mathbb{#1}", 1],
+      norm: ["\\left\\lVert #1 \\right\\rVert", 1],
+      om: "\\omega",
+      postref: ["\\href{https://nowheredifferentiable.com/posts/#1/}{#3}", 3],
+      proj: "\\mathrm{proj}",
+      qb: ["\\left[#1\\right]", 1],
+      qp: ["\\left(#1\\right)", 1],
+      qt: ["\\left(#1\\right)", 1],
+      red: ["{\\color{red}#1}", 1],
+      restr: ["\\left.#1\\right|{#2}", 2],
+      rm: ["\\mathrm{#1}", 1],
+      set: ["\\left\\{#1\\right\\}", 1],
+      star: "*",
+      tl: ["\\widetilde{#1}", 1],
+      tll: ["\\widetilde{#1}", 1],
+      vol: "\\mathrm{vol}",
+      wh: ["\\widehat{#1}", 1],
+      x: "\\bm{x}",
+      xxi: "{\\bm{\\xi}}",
+      y: "\\bm{y}"
+    }
+  }
+};
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../custom_theorems.css">
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">NoWhere Differentiable Math</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html"> 
+<span class="menu-text">HOME PAGE</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../aboutme.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://nowheredifferentiable.com/tags/"> 
+<span class="menu-text">Posts by Tag</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-resources">    
+        <li>
+    <a class="dropdown-item" href="https://terrytao.wordpress.com/">
+ <span class="dropdown-text">Terence Tao’s blog</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://lukasz.ls314.com/">
+ <span class="dropdown-text">Lukasz Sliwinski’s blog</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="http://eepurl.com/itcRso"> 
+<span class="menu-text">Subscribe</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/LiamLlamazares"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#three-line-summary" id="toc-three-line-summary" class="nav-link active" data-scroll-target="#three-line-summary"><span class="header-section-number">1</span> Three line summary</a></li>
+  <li><a href="#why-should-i-care" id="toc-why-should-i-care" class="nav-link" data-scroll-target="#why-should-i-care"><span class="header-section-number">2</span> Why should I care?</a></li>
+  <li><a href="#notation" id="toc-notation" class="nav-link" data-scroll-target="#notation"><span class="header-section-number">3</span> Notation</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">4</span> Introduction</a></li>
+  <li><a href="#extending-past-p2" id="toc-extending-past-p2" class="nav-link" data-scroll-target="#extending-past-p2"><span class="header-section-number">5</span> Extending past p=2</a>
+  <ul class="collapse">
+  <li><a href="#example-application" id="toc-example-application" class="nav-link" data-scroll-target="#example-application"><span class="header-section-number">5.1</span> Example application</a></li>
+  <li><a href="#multiple-derivatives" id="toc-multiple-derivatives" class="nav-link" data-scroll-target="#multiple-derivatives"><span class="header-section-number">5.2</span> Multiple derivatives</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">6</span> References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">MC 3: The Malliavin Derivative 1</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Malliavin Calculus</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Part 3 of the series on Malliavin calculus
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Liam Llamazares–Elias </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 30, 2022</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="three-line-summary" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="three-line-summary"><span class="header-section-number">1</span> Three line summary</h2>
+<ul>
+<li><p>The Malliavin derivative is an operator defined by manipulating the chaos expansion of a square-integrable random variable.</p></li>
+<li><p>The Malliavin derivative transforms square-integrable variables into square integrable processes.</p></li>
+<li><p>The Malliavin derivative shares some properties with the classic derivative such as the product rule and chain rule, but the fundamental theorem of calculus only holds in some special cases.</p></li>
+</ul>
+</section>
+<section id="why-should-i-care" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="why-should-i-care"><span class="header-section-number">2</span> Why should I care?</h2>
+<p>The Malliavin derivative is (somewhat unsurprisingly) a fundamental object of Malliavin calculus and has many applications in finance, numerical methods, and optimal control.</p>
+</section>
+<section id="notation" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="notation"><span class="header-section-number">3</span> Notation</h2>
+<p>The same as in previous posts. Furthermore we will shorten the notation <span class="math inline">\(L^2(\Omega,\mathcal{F}_T)\)</span> and <span class="math inline">\(L^2(I\times\Omega,\Bb(I)\otimes \Ff_T)\)</span> to <span class="math inline">\(L^2(\Omega)\)</span> and <span class="math inline">\(L^2(I\times\Omega)\)</span> respectively.</p>
+</section>
+<section id="introduction" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="introduction"><span class="header-section-number">4</span> Introduction</h2>
+<p>The Malliavin derivative was originally introduced as an operator associated with the Fréchet differential of random variables <span class="math inline">\(X: C(I)\to \R\)</span>. The aforementioned construction provides some motivation behind the Malliavin derivative and will be developed in the next post. However, a more general construction can be obtained via the chaos expansion.</p>
+<div id="def-1" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1</strong></span> Given <span class="math inline">\(X=\sum_{n=0}^{\infty} I_n(f_n)\in L^2(\Omega)\)</span> we say that <span class="math inline">\(X\)</span> is <em>Malliavin differentiable</em> if</p>
+<p><span class="math display">\[
+\|X\|_{\mathbb{D}_{1,2}}^2 := \norm{X}_{L^2(\Omega)}^2  + \sum_{n=1}^{\infty} n n!\|f_n\|_{L^2([0,T]^n)}^2
+\]</span></p>
+<p>and denote the space of Malliavin differentiable functions by</p>
+<p><span class="math display">\[
+\mathbb{D}_{1,2}:=\{X\in L^2(\Omega):\|X\|_{\mathbb{D}_{1,2}}&lt;\infty\}.
+\]</span></p>
+<p>Furthermore, we define the <em>Malliavin derivative</em> of <span class="math inline">\(X\)</span> as</p>
+<p><span class="math display">\[
+D_tX:=\sum_{n=1}^{\infty} n I_{n-1}(f_{n}(\cdot ,t)),
+\]</span></p>
+</div>
+<p>The first questions to be asked is: ``what kind of object is the Malliavin derivative of a random variable? What is the link between <span class="math inline">\(\mathbb{D}_{1,2}\)</span> and <span class="math inline">\(D_t\)</span>? Is <span class="math inline">\(\|\cdot \|_{\mathbb{D}_{1,2}}\)</span> even a norm?’’. We answer this in the next proposition and corollary.</p>
+<div id="prp-1" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 1</strong></span> The Malliavin derivative <span class="math inline">\(D\)</span> is a bounded linear operator <span class="math inline">\(D:\mathbb{D}_{1,2} \to L^2(I \times \Omega)\)</span> with</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{X}_{\mathbb{D}_{1,2}}^2= \norm{X}_{L^2(\Omega)}^2+\|D  X\|^2_{L^2(I\times\Omega)}
+\end{aligned}
+\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The proof of the first part of the proposition is a straightforward application of Itô’s <span class="math inline">\(n\)</span>-th isometry and the monotone convergence theorem as we have that</p>
+<p><span class="math display">\[
+\begin{aligned}
+\|D  X\|^2_{L^2(I\times\Omega)}&amp;=\int_{I}\left\|\sum_{n=1}^{\infty} n I_{n-1}(f_{n}(\cdot ,t))\right\|_{L^2(\Omega)}^2 d t\\
+    &amp;=\sum_{n=1}^{\infty} n^2(n-1)!\int_{I}\|f_n(\cdot ,t)\|^2 dt=\sum_{n=1}^{\infty} n n!\|f_{n}\|^2_{L^2([0,T]^n)}\\
+    &amp;=\norm{X}_{\mathbb{D}_{1,2}}^2- \norm{X}_{L^2(\Omega)}^2.
+\end{aligned}
+\]</span></p>
+<p>This establishes boundedness and the equality of the proposition. Finally, the linearity of <span class="math inline">\(D\)</span> follows from the linearity of the iterated Itô integrals (which itself is a consequence of the linearity of the Itô integral).</p>
+</div>
+<p>In summary, the Malliavin derivative turns a square-integrable random variable into a possibly non-adapted, stochastic process. You may recall from our previous posts that we had an operator that went in the opposite direction. The Skorokhod integral <span class="math inline">\(\delta\)</span>. In fact, the Malliavin derivative and the Skorokhod integral are adjoint operators in a sense that will be made precise in the next post. For now, we show that, as occurs with the ordinary derivative, a random variable has Malliavin derivative <span class="math inline">\(0\)</span> if and only if it is constant.</p>
+<div id="cor-normedspace" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 1</strong></span> <span class="math inline">\((\mathbb{D}_{1,2},\|\cdot \|_{\mathbb{D}_{1,2}})\)</span> is an inner product space. Furthermore</p>
+<p><span class="math display">\[
+D X=0 \in L^2(I \times \Omega)\iff X\in \R.
+\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The inner product properties hold as <span class="math inline">\(\|\cdot\|_{\mathbb{D}_{1,2}}\)</span> is induced by the inner product of the graph space <span class="math inline">\(L^2(\Omega) \times L^2(I \times \Omega)\)</span>. This shows that <span class="math inline">\(\|\cdot \|_{\mathbb{D}_{1,2}}\)</span> is am inner product. The second part follows from the fact that</p>
+<p><span class="math display">\[
+\|DX\|_{L^2(I \times \Omega)}=\sum_{n=1}^{\infty} n n!\|f_{n}\|_{L^2([0,T]^n)}.
+\]</span></p>
+<p>So <span class="math inline">\(DX=0\)</span> if and only if <span class="math inline">\(f_n=0\)</span> for all <span class="math inline">\(n\geq 1\)</span>, which in turn is equivalent to <span class="math inline">\(X=I_0(f_0):=f_0\)</span>. Where we recall that by convention <span class="math inline">\(L^2_{S}(I^0):=\R\)</span> and <span class="math inline">\(I_0\)</span> was defined as the identity on <span class="math inline">\(\R\)</span>. This concludes the proof.</p>
+</div>
+<p>Before moving on we show a motivating example. Let us consider some deterministic function <span class="math inline">\(f\in L^2(I)\)</span> and set <span class="math display">\[X:=\delta(f)= \int_{0}^T f(s)dW(s).\]</span> Then, by construction, we have <span class="math inline">\(X=I_1(f)\)</span> so</p>
+<p><span class="math display">\[
+D_t X= I_0(f(t))=f(t).
+\]</span></p>
+<p>This is a nice result and it might suggest something akin to the fundamental theorem of calculus such as <span class="math inline">\(D_t(\delta Y)=Y\)</span> for any Skorokhod integrable process <span class="math inline">\(Y\)</span>. However, this will not hold in general and as, will be seen in the next post, occurs if and only if <span class="math inline">\(Y\)</span> is a deterministic function in <span class="math inline">\(L^2(\Omega)\)</span>.\\ This said, we now show that <span class="math inline">\(\mathbb{D}_{1,2}\)</span> is closed in the sense that: given a convergent sequence <span class="math inline">\(X_m\to X\)</span>. If the derivatives <span class="math inline">\(D_tX_m\)</span> converge then also <span class="math inline">\(D_t X_m\to D_t X\)</span>.</p>
+<div id="prp-2" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 2</strong></span> The space <span class="math inline">\(\mathbb{D}_{1,2}\)</span> is a Hilbert space.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>It only remains to show that <span class="math inline">\(\norm{\cdot }_{\mathbb{D}_{1,2}}\)</span> is complete. Let <span class="math inline">\(\set{X_m}_{m \in \N} \subset  \mathbb{D}_{1,2}\)</span> be Cauchy. Or equivalently, by <a href="#cor-normedspace" class="quarto-xref">Corollary&nbsp;1</a>, <span class="math inline">\(X_m\)</span> is Cauchy in <span class="math inline">\(L^2(\Omega)\)</span> and <span class="math inline">\(DX_m\)</span> in <span class="math inline">\(L^2(I \times \Omega)\)</span>.</p>
+<p>Since <span class="math inline">\(L^2(\Omega)\)</span> is complete <span class="math inline">\(X_m\)</span> must converge to some <span class="math inline">\(X\in L^2(\Omega)\)</span>. Let us write the respective chaos expansions as</p>
+<p><span class="math display">\[
+X=\sum_{n=0}^{\infty} I_n(f_n);\quad X_m=\sum_{n=0}^{\infty} I_n(f_n^{(m)}).
+\]</span></p>
+<pre><code>By Itô's $n$-th isometry and the convergence $X_m\to X\in L^2(\Omega)$ we deduce that also $f^{(m)}_n\to f_n\in L^2(I^n)$ for each $n$.    By now applying Fatou's lemma and the fact that $X_m$ is by hypothesis Cauchy in  $\mathbb{D}_{1,2}$ we obtain that</code></pre>
+<p><span class="math display">\[
+\begin{aligned}
+\lim_{m \to \infty}\|DX-DX_m\|_{L^2(I \times \Omega)}&amp;=\lim_{m \to \infty}\sum_{n=1}^{\infty} n!n \|f_n(x)-f_n^{(m)}\|_{L^2(I^n)}\\
+        &amp;\leq \lim_{m \to \infty}\liminf_{k \to \infty}\sum_{n=1}^{\infty} n!n \|f_n^{(k)}(x)-f_n^{(m)}\|_{L^2(I^n)}\\
+        &amp;=\lim_{m \to \infty}\liminf_{k \to \infty}\norm{DX_m-DX_k}_{L^2(I \times \Omega)}=0.
+\end{aligned}
+\]</span></p>
+<pre><code>As desired.</code></pre>
+</div>
+<p>We now conclude this post by stating two properties of the Malliavin derivative that are analogous to those verified by the derivative of ordinary functions. Firstly, an analog to the chain rule for the ordinary derivative. The proof can be found on page <span class="math inline">\(29\)</span> of Nunno and Øksendal’s book <span class="citation" data-cites="nunno2008malliavin">(<a href="#ref-nunno2008malliavin" role="doc-biblioref">Nunno, Øksendal, and Proske 2008</a>)</span> but is rather technical and relies on Hermite polynomials which were not discussed previously, so we omit it.</p>
+<div id="def-2" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2</strong></span> We write <span class="math inline">\(\mathbb{D}_{1,2}^0\subset L^2(\Omega)\)</span> for the space of square integrable random variables <span class="math inline">\(X=\sum_{n=0}^{\infty} I_n(f_n)\)</span> such that <span class="math inline">\(f_n=0\)</span> for all but finitely many <span class="math inline">\(n\)</span>.</p>
+</div>
+<div id="prp-3" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 3 (Product rule)</strong></span> Given <span class="math inline">\(X_1,X_2\in \mathbb{D}^0_{1,2}\)</span> it holds that</p>
+<p><span class="math display">\[
+D_t(X_1X_2)=X_1D_tX_2+X_2D_tX_1.
+\]</span></p>
+</div>
+<p>Finally, though we shall not use it, we mention that if <span class="math inline">\(\Omega=\mathcal{S}^*(\R)\)</span> is the dual of the Schwartz space and we construct a probability measure <span class="math inline">\(\mathbb{P}\)</span> called the <em>white noise probability measure</em> then the following version of the chain rule also holds (see <span class="citation" data-cites="nunno2008malliavin">(<a href="#ref-nunno2008malliavin" role="doc-biblioref">Nunno, Øksendal, and Proske 2008</a>)</span> page <span class="math inline">\(89\)</span>).</p>
+<div id="prp-4" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 4 (Chain rule)</strong></span> Consider <span class="math inline">\(\varphi\in C_1(\R^d)\)</span> with <span class="math inline">\(\nabla \varphi\in {L^\infty(\R^d\to\R^d)}\)</span> and <span class="math inline">\(X=(X_1,\ldots,X_d)\)</span> such that <span class="math inline">\(X_i\in \mathbb{D}_{1,2}\)</span> for each <span class="math inline">\(i=1,\ldots,d\)</span>. Then it holds that <span class="math inline">\(\varphi(X)\in \mathbb{D}_{1,2}\)</span> with</p>
+<p><span class="math display">\[
+D_t\varphi(X)=\sum_{i=0}^{d} \frac{\partial \varphi}{\partial x_i}(X)D_t(X_i) .
+\]</span></p>
+</div>
+</section>
+<section id="extending-past-p2" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="extending-past-p2"><span class="header-section-number">5</span> Extending past p=2</h2>
+<p>The Malliavin derivative lets us define a derivative on a subset of <span class="math inline">\(L^2(\Omega)\)</span>. However, it may also be useful to have a concept of derivative on random variables in <span class="math inline">\(L^p(\Omega)\)</span>. We now explain how to do this via an alternative construction of the Malliavin derivative. First of all, consider the set of <em>cylindrical variables</em></p>
+<p><span class="math display">\[
+\W:=\left\{\varphi\left(\int_{I}h(t) dW(t)\right):\varphi\in C_b^\infty(\R^n), h\in L^2(I\to\R^n), n \in \N \right\}
+\]</span></p>
+<p>That is, <span class="math inline">\(\W\)</span> is the set of all smooth functions with bounded derivatives of Wiener integrals of deterministic functions. Let us use the abbreviation <span class="math inline">\(W(h):=\int_{I}h(t) dW(t)\)</span>. Then, the results in the previous section show that the Malliavin differential of a cylindrical variable is</p>
+<p><span class="math display">\[
+D_t\varphi(W(h))=\nabla\varphi(W(h))\cdot h(t)=\sum_{i=1}^{n} \frac{\partial \varphi}{\partial x_i}(W(h))h_i(t).
+\]</span></p>
+<p>One can also start directly with the above equation as the defintion of Malliavin differential. In this case it is not clear that <span class="math inline">\(D_t\)</span> is well defined (that is, independent of the representation of <span class="math inline">\(X=\varphi(W(h))\)</span>). However it is, see <span class="citation" data-cites="hairer2021introduction">(<a href="#ref-hairer2021introduction" role="doc-biblioref">Hairer 2021</a>)</span> page 10. Analogously to how one defines the norm on Sobolev spaces, we now take any <span class="math inline">\(1\leq p&lt; \infty\)</span> and define a norm on <span class="math inline">\(\W\)</span> by</p>
+<p><span class="math display">\[
+\norm{X}_{\mathbb{D}^{1,p}}:=\norm{X}_{L^p(\Omega)}+\norm{DX}_{L^p(\Omega\to L^2(I))},\quad X\in \W.
+\]</span></p>
+<p>Then, <span class="math inline">\(D\)</span> is a continuous linear operator on <span class="math inline">\((\W,\norm{\cdot }_{\mathbb{D}^{1,p}})\)</span> to <span class="math inline">\(L^2(\Omega\to L^2(I))\)</span>. As a result, <span class="math inline">\(D\)</span> may be extended to the closure of <span class="math inline">\((\W,\norm{\cdot }_{\mathbb{D}^{1,p}})\)</span> (this relies on Meyer inequalities show that the Malliavin derivative is closable in <span class="math inline">\(L^p\)</span> for <span class="math inline">\(p \neq  2\)</span>). We denote this closure by <span class="math inline">\(\mathbb{D}^{1,p}\)</span> and by abuse of notation also write <span class="math inline">\(D\)</span> for the continuous extension of <span class="math inline">\(D\)</span> to <span class="math inline">\(\mathbb{D}^{1,p}\)</span>. Note that by definition of the norm <span class="math inline">\(\norm{\cdot }_{\mathbb{D}^{1,p}}\)</span>, necessarily <span class="math inline">\(\mathbb{D}^{1,p}\)</span> is a subset of <span class="math inline">\(L^p(\Omega)\)</span>. In this way, we have been able to extend the Malliavin differential to <span class="math inline">\(\mathbb{D}^{1,p}\subset L^p(\Omega)\)</span>. Explicitly, we have that</p>
+<p><span class="math display">\[
+D X:=\lim_{n \to \infty}D X_n \in L^p(\Omega\to L^2(I)).
+\]</span></p>
+<p>Where <span class="math inline">\(X_n \in \W\)</span> is a sequence converging to <span class="math inline">\(X\)</span> in <span class="math inline">\(\mathbb{D}^{1,p}\)</span>. Furthermore, we note that by the previous discussion <span class="math inline">\(D\)</span> coincides with our previous definition of the Malliavin differential when <span class="math inline">\(p=2\)</span>. For the case <span class="math inline">\(p=\infty\)</span> we define</p>
+<p><span class="math display">\[
+D^{1,\infty}:=\bigcap_{p=1} ^\infty \mathbb{D}^{1,p}.
+\]</span></p>
+<p>We now conclude with an extension of the chain rule which can be used even when <span class="math inline">\(\varphi\)</span> does not have bounded derivative.</p>
+<div id="prp-5" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 5 (Chain rule for <span class="math inline">\(\mathbb{D}^{1,p}\)</span>)</strong></span> Let <span class="math inline">\(X\in \mathbb{D}^{1,p}\)</span> and consider <span class="math inline">\(\varphi\in C^1(\R^n)\)</span> such that <span class="math inline">\(\norm{\nabla\varphi(x)}\leq C(1+\norm{x}^\alpha)\)</span> for some <span class="math inline">\(0\leq \alpha\leq p-1\)</span>. Then <span class="math inline">\(\varphi(X)\in \mathbb{D}^{1,q}\)</span>, where <span class="math inline">\(q=p/(\alpha+1)\)</span>. Furthermore,</p>
+<p><span class="math display">\[
+D\varphi(X)=\nabla \varphi(X) \cdot D X.
+\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>By the mean value inequality we have that</p>
+<p><span class="math display">\[
+\abs{\varphi(x)}\leq C'(1+\norm{x}^{\alpha+1})=C'(1+\norm{x}^{\frac{p}{q}}).
+\]</span></p>
+<p>As a result, since <span class="math inline">\(X \in L^p(\Omega)\)</span>, we have that</p>
+<p><span id="eq-in1"><span class="math display">\[
+\varphi(X) \in L^q(\Omega).
+\tag{1}\]</span></span></p>
+<p>Furthermore, the growth condition <span class="math inline">\(\norm{\nabla\varphi(x)}\leq C(1+\norm{x}^\alpha)\)</span> implies <span class="math inline">\(\nabla \varphi(X) \in L^{p/\alpha}(\Omega)\)</span>. Since <span class="math inline">\(D X \in L^p(\Omega\to L^2(I))\)</span> by definition, we apply the generalized Hölder inequality with exponents <span class="math inline">\(p/\alpha\)</span> and <span class="math inline">\(p\)</span>. Observing that <span class="math inline">\(\frac{\alpha}{p} + \frac{1}{p} = \frac{\alpha+1}{p} = \frac{1}{q}\)</span>, we obtain</p>
+<p><span id="eq-in2"><span class="math display">\[
+\norm{\nabla \varphi(X) \cdot D X}_{L^q} \leq \norm{\nabla \varphi(X)}_{L^{p/\alpha}} \norm{D X}_{L^p} &lt; \infty.
+\tag{2}\]</span></span></p>
+<p>This establishes that <span class="math inline">\(\nabla \varphi(X) \cdot D X \in L^q(\Omega\to L^2(I))\)</span>.</p>
+<p>We now take a sequence of cylindrical random variables <span class="math inline">\(X_n\)</span> converging to <span class="math inline">\(X\)</span> in <span class="math inline">\(\mathbb{D}^{1,p}\)</span> and an approximation to the identity <span class="math inline">\(\delta_n\)</span>. Let us set <span class="math inline">\(\varphi_n:=\varphi \ast \delta_n\)</span>.</p>
+<p><span class="math display">\[
+D \varphi(X) = \lim_{n \to \infty} D [\varphi_n(X_n)] = \lim_{n \to \infty} (\nabla \varphi_n)(X_n)\cdot DX_n = (\nabla \varphi)(X)\cdot DX \in L^q(\Omega\to L^2(I)).
+\]</span></p>
+<p>The final equality holds due to the identical bound established in (<a href="#eq-in2" class="quarto-xref">2</a>) and the convergence of <span class="math inline">\(X_n,\varphi_n\)</span> to <span class="math inline">\(X,\varphi\)</span> respectively.</p>
+</div>
+<p>Essentially the previous proposition says that, if <span class="math inline">\(X\)</span> is differentiable and the derivative of <span class="math inline">\(\varphi\)</span> doesn’t grow to fast (depending on the integrability of <span class="math inline">\(DX\)</span>), then <span class="math inline">\(\varphi(X)\)</span> is also differentiable and we can apply the chain rule. The integrability of <span class="math inline">\(D\varphi(X)\)</span> depending on the integrability of <span class="math inline">\(DX\)</span> and the growth of <span class="math inline">\(\nabla \varphi\)</span>.</p>
+<section id="example-application" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="example-application"><span class="header-section-number">5.1</span> Example application</h3>
+<p>For example, in the case <span class="math inline">\(p=2\)</span> we could take <span class="math inline">\(\varphi(x)=x^2\)</span> to deduce that</p>
+<p><span class="math display">\[
+D(X^2)=2XDX,\quad\forall X\in \mathbb{D}^{1,2}.
+\]</span></p>
+<p>If <span class="math inline">\(X=1_A\)</span> is an indicator function for some <span class="math inline">\(A\in \Ff\)</span> we obtain that</p>
+<p><span class="math display">\[
+D(1_A)=D(1_A^2)=21_AD(1_A).
+\]</span></p>
+<p>From here we deduce that <span class="math inline">\(D1_A=0\)</span>. As we have seen, this occurs if and only if <span class="math inline">\(1_A\)</span> is constant, so necessarily <span class="math inline">\(1_A=0\)</span> or <span class="math inline">\(1_A=1\)</span>. Identifying sets with functions, we have just proved the following</p>
+<div id="cor-1" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 2</strong></span> Given <span class="math inline">\(A\in \Ff\)</span> we have that <span class="math inline">\(1_A\in \mathbb{D}^{1,2}\)</span> if and only if (almost everywhere) <span class="math inline">\(A=\emptyset\)</span> or <span class="math inline">\(A=\Omega\)</span>.</p>
+</div>
+</section>
+<section id="multiple-derivatives" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="multiple-derivatives"><span class="header-section-number">5.2</span> Multiple derivatives</h3>
+<p>Finally we comment on how it is possible to iterate the Malliavin derivative. Given a cylindrical process <span class="math inline">\(X=\varphi(W(h))\in \W\)</span> we should have that, with Einstein notation</p>
+<p><span class="math display">\[
+D_{t_1}D_{t_2}X=D_{t_1}(\partial_i \varphi(X)h_i(t_2))=D_{t_1}(\partial_i \varphi(X))h_i(t_2)=(\partial_i\partial _j \varphi)(X)h_i(t_1)h_j(t_2).
+\]</span></p>
+<p>As a result, we define given <span class="math inline">\(X\in \W\)</span></p>
+<p><span class="math display">\[
+D^k_{t_1,\ldots,t_k} X:= \sum_{i_1,\ldots,i_k=1}^{n}  \frac{\partial \varphi}{\partial x_{i_1}\ldots\partial x_{i_k}}(X)h_{i_1}(t_1)\ldots h_{i_k}(t_k) .
+\]</span></p>
+<p>In the same fashion as before, we can now define the <span class="math inline">\(k\)</span>-th differential norm as</p>
+<p><span class="math display">\[
+\norm{X}_{\mathbb{D}^{k,p}}:=\sum_{j=0}^{k}  \norm{D^j X}_{L^p(\Omega\to L^2(I^j))}.
+\]</span></p>
+<p>Where we use the convention <span class="math inline">\(D^0 X:=X, L^2(I^0):= \R\)</span>. Then we simply define <span class="math inline">\(\mathbb{D}^{k,p}\)</span> to be the completion of <span class="math inline">\(\W\)</span> with this norm. Finally, we define</p>
+<p><span class="math display">\[
+\mathbb{D}^{\infty,p}:= \bigcap_{k=1}^\infty \mathbb{D}^{k,p};\quad \mathbb{D}^\infty := \bigcap_{p \geq 1} \bigcap_{k \geq 1} \mathbb{D}^{k,p}.
+\]</span></p>
+</section>
+</section>
+<section id="references" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="references"><span class="header-section-number">6</span> References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-hairer2021introduction" class="csl-entry" role="listitem">
+Hairer, M. 2021. <span>“Introduction to Malliavin Calculus.”</span> <a href="https://www.hairer.org/notes/Malliavin.pdf">https://www.hairer.org/notes/Malliavin.pdf</a>.
+</div>
+<div id="ref-nunno2008malliavin" class="csl-entry" role="listitem">
+Nunno, Giulia Di, Bernt Øksendal, and Frank Proske. 2008. <em>Malliavin Calculus for l<span>é</span>vy Processes with Applications to Finance</em>. Springer. <a href="https://link.springer.com/book/10.1007/978-3-540-78572-9">https://link.springer.com/book/10.1007/978-3-540-78572-9</a>.
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<hr style="margin-top: 1em; margin-bottom: 2em;">
+
+<h2 id="comments">Comments</h2>
+
+
+
+<div class="giscus-comments">
+
+  <div style="
+
+      background: #f9f9f9;
+
+      border-left: 4px solid #008aff;
+
+      padding: 10px;
+
+      margin-bottom: 20px;
+
+      font-size: 0.9em;
+
+      color: #555;
+
+      border-radius: 0 4px 4px 0;
+
+    ">
+
+    <strong>Tip:</strong> Supports LaTeX using $$.
+
+    <a href="https://nowheredifferentiable.com/math-formatting" target="_blank" style="text-decoration: underline; color: #008aff">See formatting examples</a>.
+
+    <br>
+
+    To edit or delete, click the <strong>timestamp</strong> (e.g., "5 minutes
+
+    ago").
+
+  </div>
+
+
+
+  <div class="giscus" id="giscus-container"></div>
+
+
+
+  <script src="https://giscus.app/client.js" data-repo="LiamLlamazares/math_blog" data-repo-id="R_kgDOHZYcTQ" data-category="Comments" data-category-id="DIC_kwDOHZYcTc4Cx-sY" data-mapping="pathname" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="bottom" data-theme="light" data-lang="en" crossorigin="anonymous" async=""></script>
+
+
+
+  <script>
+
+    (function () {
+
+      function handleDeepLink() {
+
+        const hash = window.location.hash;
+
+        if (!hash || !hash.includes("discussioncomment")) return;
+
+
+
+        const container = document.getElementById("giscus-container");
+
+        if (container) {
+
+          container.scrollIntoView({ behavior: "smooth", block: "start" });
+
+        }
+
+
+
+        const iframe = document.querySelector("iframe.giscus-frame");
+
+        if (iframe) {
+
+          try {
+
+            const url = new URL(iframe.src);
+
+            if (url.hash !== hash) {
+
+              url.hash = hash;
+
+              iframe.src = url.toString();
+
+            }
+
+          } catch (e) {
+
+            console.error(e);
+
+          }
+
+        }
+
+      }
+
+
+
+      window.addEventListener("load", handleDeepLink);
+
+      window.addEventListener("hashchange", handleDeepLink);
+
+      window.addEventListener("message", function (event) {
+
+        if (
+
+          event.origin === "https://giscus.app" &&
+
+          event.data &&
+
+          event.data.giscus &&
+
+          event.data.giscus.resizeHeight
+
+        ) {
+
+          setTimeout(handleDeepLink, 500);
+
+        }
+
+      });
+
+    })();
+
+  </script>
+
+</div>
+
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/nowheredifferentiable\.com");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>L. Llamazares-Elias</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/LiamLlamazares">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=nW7-c62TwJ0C">
+<p>Google Scholar</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

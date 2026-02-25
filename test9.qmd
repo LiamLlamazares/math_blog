@@ -1,0 +1,14 @@
+---
+title: Test 9
+---
+
+$$
+x = y \label{eq-test}
+$$ {#eq-test}
+
+text ref: \eqref{eq-test} @eq-test
+
+Math ref:
+$$
+z = \eqref{eq-test}
+$$

@@ -222,9 +222,9 @@ Equation \eqref{reasoning} is exactly the form the \href{https://nowheredifferen
         u =Kv.
     \end{align*}
     By \Cref{well-posed 1} we know that $Kv = \Ll _\gamma ^{-1} v \in H_0^1(U)$ for all $v \in L^2(U)$ . As a result, $u$ solves problem \eqref{original}, and by the transformation $v \leftrightarrow u$ problem \eqref{fred} has a solution if and only if problem \eqref{original} has a solution. Taking $f=0$, we also obtain that $u$ solves problem \eqref{originalh} if and only $v$ solves problem \eqref{fredh}. In conclusion,
-    \begin{align*}
-        \eqref{original} \text{ is } \rm{w.p} \iff \eqref{fred} \text{ is } \rm{w.p} \iff \ker(T) =0 \iff \ker(\Ll -\lambda \bm{I} )=0,
-    \end{align*}
+    \begin{center}
+        Problem \eqref{original} is w.p $\iff$ Problem \eqref{fred} is w.p $\iff$ $\ker(T) =0 \iff \ker(\Ll -\lambda \bm{I} )=0$,
+    \end{center}
     where the second equivalence is due to the Fredholm alternative, and the third can be verified by an algebraic manipulation. This proves the first point.
 
     To see the second point, note that, by definition of $T$, equation \eqref{fredh} has non-zero solutions if and only if $\mu ^{-1} \in \sigma (K)$. Since $K$ is compact, $\sigma(K)$ is discrete and if $\sigma (K)$ is infinite, then its eigenvalues, which we denote by $\left\{\mu _n^{-1}\right\}_{n=1}^\infty$, go to $0$. Furthermore, since by \Cref{mod} $K$ is positive definite, $\mu_n >0$ and the claim follows by the correspondence $\lambda_n =\mu_n -\gamma$.

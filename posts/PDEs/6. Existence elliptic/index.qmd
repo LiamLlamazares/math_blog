@@ -83,7 +83,7 @@ format:
               fracc: ["{#1}/{#2}", 2],
               frc: ["\\left(#2)^{-1}(#1\\right)", 2],
               iso: "\\xrightarrow{\\sim}",
-              ker: "\\bm{ker}",
+              ker: "\\rm{ker}",
               mat: ["\\begin{bmatrix}{#1}\\end{bmatrix}", 1],
               mathbbm: ["\\mathbb{#1}", 1],
               mathds: ["\\mathbb{#1}", 1],
@@ -454,7 +454,7 @@ Then, the following hold:
 2. The spectrum $\sigma (\Ll )$ is discrete. If $\sigma(\Ll )= \{\lambda_n \}_{n=1}^\infty$ is infinite, then $\lambda _n \to +\infty$.
 
 3. The dimensions of the following spaces are equal
-    
+
     $$
     \begin{aligned}
     N:= \set{u \in H_0^1(U): \Ll u = \lambda u}, \quad N^*:= \set{w \in L^2(U): \Ll^* w = \lambda w},
@@ -501,13 +501,9 @@ u =Kv.
 $$
 
 By @thm-well-posed-1 we know that $Kv = \Ll _\gamma ^{-1} v \in H_0^1(U)$ for all $v \in L^2(U)$ . As a result, $u$ solves problem ([-@eq-original]), and by the transformation $v \leftrightarrow u$ problem ([-@eq-fred]) has a solution if and only if problem ([-@eq-original]) has a solution. Taking $f=0$, we also obtain that $u$ solves problem ([-@eq-original]) if and only $v$ solves problem ([-@eq-fred]).  In conclusion,
-
-$$
-\begin{aligned}
-([-@eq-original]) \text{ is } \rm{w.p} \iff ([-@eq-fred]) \text{ is } \rm{w.p} \iff \ker(T) =0 \iff \ker(\Ll -\lambda \bm{I} )=0,
-\end{aligned}
-$$
-
+\begin{center}
+    Problem ([-@eq-original]) is w.p $\iff$ Problem ([-@eq-fred]) is w.p $\iff$ $\ker(T) =0 \iff \ker(\Ll -\lambda \bm{I} )=0$,
+\end{center}
 where the second equivalence is due to the Fredholm alternative, and the third can be verified by an algebraic manipulation. This proves the first point.
 
 To see the second point, note that, by definition of $T$, equation ([-@eq-fred]) has non-zero solutions if and only if $\mu ^{-1} \in \sigma (K)$. Since $K$ is compact, $\sigma(K)$ is discrete and if $\sigma (K)$ is infinite, then its eigenvalues, which we denote by $\left\{\mu _n^{-1}\right\}_{n=1}^\infty$, go to $0$. Furthermore, since by @thm-mod $K$ is positive definite, $\mu_n >0$ and the claim follows by the correspondence $\lambda_n =\mu_n -\gamma$.
@@ -1339,16 +1335,16 @@ Let $\Omega$ be a bounded domain, $f \in H^{1}(\Omega )', g \in H^{-1/2}( \parti
 2. The well posedness of the modified problem $\Ll u + \lambda u=f$ and the Fredholm alternative of @thm-mod and @thm-well-posedness-fredholm hold swapping everywhere $H_0^1(U)$ with $H^1(\Omega )$ and $H^{-1}(\Omega )$ with $H^{1}(\Omega )'$.
 
 3. Let $\partial \Omega \in C^{k+2}$. If $u$ solves ([-@eq-pde-neumann]) and
-    
+
     $$
     \begin{aligned}
     & A_{ij} \in C^{1}(\Omega )\cap W^{k+1, \infty}(\Omega ), \quad b_i,c \in W^{k, \infty}(\Omega ), \quad \sigma \in W^{k+1, \infty}(\partial \Omega ) \\
     & f \in H^{k}(\Omega ), \quad g \in H^{k+1/2}(\partial \Omega ).
     \end{aligned}
     $$
-    
+
     Then, $u \in H^{k+2}(\Omega )$ with
-    
+
     $$
     \begin{aligned}
     \norm{u}_{H^{k+2}(\Omega )} \lesssim_{\bm{A},\bm{b},c, \sigma,  \Omega } \norm{f}_{H^k(\Omega )}+\norm{g}_{H^{k+1/2}(\partial \Omega )}+\norm{u}_{L^2(\Omega )}.

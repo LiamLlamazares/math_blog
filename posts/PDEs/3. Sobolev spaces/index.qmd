@@ -83,7 +83,7 @@ format:
               fracc: ["{#1}/{#2}", 2],
               frc: ["\\left(#2)^{-1}(#1\\right)", 2],
               iso: "\\xrightarrow{\\sim}",
-              ker: "\\bm{ker}",
+              ker: "\\rm{ker}",
               mat: ["\\begin{bmatrix}{#1}\\end{bmatrix}", 1],
               mathbbm: ["\\mathbb{#1}", 1],
               mathds: ["\\mathbb{#1}", 1],
@@ -119,14 +119,14 @@ format:
 - **Smooth functions are dense** in  $W^{k,p}(\Omega)$ if $\Omega$  is bounded and has $C^1$ boundary. This lets us manipulate Sobolev functions as if they were smooth and then take limits. In particular, we can **extend and restrict** functions to $\partial \Omega$.
 
 - Functions in $W^{k,p}(\Omega)$ enjoy various inequalities. Cashing in differentiability for integrability we can **compactly embed**
-    	      
+
     $$
     \begin{aligned}
     W^{k,p}(\Omega) \hookrightarrow L^q(\Omega).
     \end{aligned}
     $$
-    
-    	      Where $q\equiv q(d,k,p)$ decreases with the dimension $d$, increases with differentiability $k$ and integrability $p$, and is larger than $p$.
+
+    Where $q\equiv q(d,k,p)$ decreases with the dimension $d$, increases with differentiability $k$ and integrability $p$, and is larger than $p$.
 
 ## Why should I care?
 
@@ -137,29 +137,29 @@ Sobolev spaces allow us to extend the notion of differentiability to a wider cla
 - In this post we will be dealing with functions over a variety of domains. To facilitate interpretation of the notation we will stick to the convention that $K$ is a compact set, $U, V$ are open sets, and $\Omega$ is an open bounded set with $C^1$ boundary.
 
 - Given a topological space $X$ and a subset  $A \subset X$ we abbreviate $A$ is dense in  $X$ with the topology of  $X$ by
-    	      
+
     $$
     \begin{aligned}
     \overline{A}=X.
     \end{aligned}
     $$
-    
-    	      We stress that in practice $X$ may be itself a subset of some larger space  $Y$ (for example $X= H^s(\R^d)$ and $Y= L^p(\R^d)$) . However, the above notation will always mean the closure with the topology of  $X$ and not  $Y$.
+
+    We stress that in practice $X$ may be itself a subset of some larger space  $Y$ (for example $X= H^s(\R^d)$ and $Y= L^p(\R^d)$) . However, the above notation will always mean the closure with the topology of  $X$ and not  $Y$.
 
 - A related notation is we will write given $a_n \in  A$
-    	      
+
     $$
     \begin{aligned}
     \lim_{n \to \infty}a_n =x \in X.
     \end{aligned}
     $$
-    
-    	      To mean the limit in the topology of $X$.
+
+    To mean the limit in the topology of $X$.
 
 - Given two sets $A,B$ we write  $A \Subset B$ and say that **$A$ is compactly included in  $B$** if $\overline{A}$ is compact and **strictly** included in $B$.
 
 - We also write
-    	      
+
     $$
     \begin{aligned}
     A+B=\set{x+y:x \in A, y \in  B} .
@@ -167,7 +167,7 @@ Sobolev spaces allow us to extend the notion of differentiability to a wider cla
     $$
 
 - Given a topological vector space $X$ we write $X'$ for the dual of  $X$ and denote given  $w \in X', \varphi \in X$ the duality pairing as
-    	      
+
     $$
     \begin{aligned}
     (\varphi,w):= w(\varphi) .
@@ -175,17 +175,17 @@ Sobolev spaces allow us to extend the notion of differentiability to a wider cla
     $$
 
 - We will always write $\alpha$ for a multi-index $\alpha \in \N^d$ and use the notation
-    	      
+
     $$
     \begin{aligned}
     D^\alpha f := \partial _1^{\alpha_1}\cdots \partial _d^{\alpha_d}.
     \end{aligned}
     $$
-    
-    	      In the case $\alpha =0$ we use the convention $D^0 =f$.
+
+    In the case $\alpha =0$ we use the convention $D^0 =f$.
 
 - Given  a space of functions $X$ with domain $A$ and $B \subset A$ we write
-    	      
+
     $$
     \begin{aligned}
     \restr{X}{B}:=\set{\restr{f}{B}: f\in X} .
@@ -221,18 +221,18 @@ Note that equation ([-@eq-bc]) is a priori ill-defined as the Lebesgue measure o
 Suppose for example $D=U$ is an open set and $u: U \to \R$. Then, we can try to define $H^s(U)$ using our knowledge of $H^s(\R^d)$ by:
 
 1. Extending $u$ by zero outside of $U$ to form
-    	      
+
     $$
     \begin{aligned}
     \tilde{u}(x):=\begin{cases}
-    			                    u(x) & \quad x \in U     \\
-    			                    0    & \quad x \not\in U
-    		                    \end{cases}.
+    u(x) & \quad x \in U     \\
+    0    & \quad x \not\in U
+    \end{cases}.
     \end{aligned}
     $$
 
 2. Studying if $\tilde{u} \in  H^s(\R^d)$. That is, as we saw in the [previous post](<https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=fact%2C%20since%20the-,Fourier,-transform%20is%20a>), checking if
-    	      
+
     $$
     \begin{aligned}
     \norm{\tilde{u}}_{H^s(\R^d)}^2= \int_{\R^d}\br{\xi }^{2s}\wh{\tilde{u}}(\xi )^2 \d \xi < \infty
@@ -374,7 +374,7 @@ Show that $\rho^{-1}(B_\eps)$ is convex.
 Show that the topology $(X,\tau_\mathcal{P})$ is determined by the following property.
 
 - Given a [net](<https://en.wikipedia.org/wiki/Net_(mathematics)#:~:text=%5Bedit%5D-,Any,-function%20whose%20domain>) $x_\bullet\in (X,\tau_\Pp)$  it holds that
-    
+
     $$
     \begin{aligned}
     \lim x_\bullet =x \in  X  \iff      \rho(x_\bullet-x)\to 0 \quad\forall \rho \in \Pp.
@@ -503,7 +503,7 @@ The construction of the topology on $C_c^\infty(U)$ is a bit technical a more in
 
 $$
 \begin{aligned}
-\norm{\varphi}_j := \sup_{\abs{\alpha} \leq j}  \norm{D^\alpha \varphi}_{L^\infty(U)}.
+\norm{\varphi}_j := \sup_{\abs{\alpha} \leq j}  \norm{D^\alpha \varphi}_{L^\infty(U)} ,\quad \forall j \in \N.
 \end{aligned}
 $$
 
@@ -932,7 +932,7 @@ We now show some relevant properties of the weak derivative all of which are to 
 Let $u \in W^{k,p}(U)$. Then it holds that
 
 1. Leibniz rule: given $\varphi \in C_c^1(U)$ it holds that
-    
+
     $$
     \begin{aligned}
     \partial _{i} (u \varphi)= \partial_i u \varphi+ u \partial _i \varphi .
@@ -942,7 +942,7 @@ Let $u \in W^{k,p}(U)$. Then it holds that
 2. The translation $\tau_y u(x):=u(x-y) \in W^{k,p}(U)$ with $D^\alpha \tau_y u = \tau_y D^\alpha u$.
 
 3. Let $u \in W^{k,p}(\R^d)$ and $v \in L^1(\R^d)$. Then
-    
+
     $$
     \begin{aligned}
     D^\alpha (v*u)= v* D^\alpha u
@@ -1807,7 +1807,7 @@ Substituting into ([-@eq-induc]) concludes the proof.
 
 :::
 
-Using the Loomis-Whitney inequality and the fundamental theory of calculus gives us our first Sobolev inequality
+Using the Loomis-Whitney inequality and the fundamental theorem of calculus gives us our first Sobolev inequality
 
 ::: {#thm-est1 name="Sobolev-Gagliardo-Niremberg"}
 
@@ -2090,51 +2090,51 @@ The fact that the above inclusions are continuous follows by our three Sobolev i
 The compactness of the embeddings requires reduce to showing that the unit ball in each of the embedded spaces is [equicontinuous](<https://en.wikipedia.org/wiki/Equicontinuity>).
 
 1. For the first inclusion we will use [Fréchet–Kolmogorov's](<https://en.wikipedia.org/wiki/Fr%C3%A9chet%E2%80%93Kolmogorov_theorem>) theorem. First we note that we can suppose $q>p$ as  $L^q(\Omega) \hookrightarrow L^p(\Omega)$ (since $\Omega$ is bounded). Let $B_1$ be the unit ball in $W^{k,p}(\Omega)$. By continuity of the inclusion $B_1$ is bounded in $L^q(\Omega)$ and it only remains to show that  $B_1$ is equicontinuous. We have that
-    	      
+
     $$
     \begin{aligned}
     \norm{\tau_h u-u}_{L^p(\Omega)}\leq \norm{\nabla u}_{L^p(\Omega)}\abs{h} , \quad\forall u \in W^{1,p}(\Omega) .
     \end{aligned}
     $$
-    
-    	      Where the above is known to be true for smooth functions by the fundamental theorem of calculus and extends by density to $W^{k,p}(\Omega)$ (we recall translation is continuous on $L^p$ for  $p<\infty$). The above also holds for $p^{k*}$ and since $p<q<p^{k*}$ we can write
-    	      
+
+    Where the above is known to be true for smooth functions by the fundamental theorem of calculus and extends by density to $W^{k,p}(\Omega)$ (we recall translation is continuous on $L^p$ for  $p<\infty$). The above also holds for $p^{k*}$ and since $p<q<p^{k*}$ we can write
+
     $$
     \begin{aligned}
     \frac{1}{q}=\frac{\alpha}{p}+\frac{1-\alpha}{p^{k*}}   .
     \end{aligned}
     $$
-    
-    	      By [interpolation](<https://en.wikipedia.org/wiki/Riesz%E2%80%93Thorin_theorem#:~:text=the%20sumset%20formulation.-,Riesz%E2%80%93Thorin,-interpolation%20theorem%C2%A0%E2%80%94%C2%A0>) we obtain that
-    	      
+
+    By [interpolation](<https://en.wikipedia.org/wiki/Riesz%E2%80%93Thorin_theorem#:~:text=the%20sumset%20formulation.-,Riesz%E2%80%93Thorin,-interpolation%20theorem%C2%A0%E2%80%94%C2%A0>) we obtain that
+
     $$
     \begin{aligned}
     \norm{\tau_h u-u}_{L^q(\Omega)}\leq \norm{\nabla u}_{L^p(\Omega)}^\alpha\norm{\nabla u}_{L^{p^{k*}}(\Omega)}^{1-\alpha}\abs{h} , \quad\forall u \in W^{1,p}(\Omega) .
     \end{aligned}
     $$
-    
-    	      This shows equicontinuity and concludes the first case.
+
+    This shows equicontinuity and concludes the first case.
 
 2. The compactness of the second inclusion is proved identically.
 
 3. For the compactness of the last inclusion we use [Arzelà–Ascoli theorem](<https://en.wikipedia.org/wiki/Arzel%C3%A0%E2%80%93Ascoli_theorem#:~:text=%2C%20%C2%A7IV.6.7>) on a ``derivative by derivative basis''. By definition of Hölder norm,
-    	      
+
     $$
     \begin{aligned}
     \abs{D^\alpha u(x)- D^\alpha u(y)} & \lesssim  \norm{u}_{C^{k}(\R^d)}\abs{x-y} ,                 &  & \quad\forall \abs{\alpha}<k  \\
-    		      \abs{D^\alpha u(x)- D^\alpha u(y)} & \lesssim  \norm{u}_{C^{k,\gamma }(\R^d)}\abs{x-y}^\gamma  , &  & \quad\forall \abs{\alpha}=k.
+    \abs{D^\alpha u(x)- D^\alpha u(y)} & \lesssim  \norm{u}_{C^{k,\gamma }(\R^d)}\abs{x-y}^\gamma  , &  & \quad\forall \abs{\alpha}=k.
     \end{aligned}
     $$
-    
-    	      As a result, for each $\abs{\alpha}\leq k$ the family
-    	      
+
+    As a result, for each $\abs{\alpha}\leq k$ the family
+
     $$
     \begin{aligned}
     A_\alpha:=\set{D^\alpha u: u \in B_1 \subset C^{k,\gamma }(\overline{\Omega})},
     \end{aligned}
     $$
-    
-    	      is equicontinuous. So by Arzelà–Ascoli we may extract a sequence $u_{n}$ such that $D^\alpha u_n$ converges uniformly to some $u^{(\alpha)}$. By the fundamental theorem of calculus we conclude that $u^{(\alpha)}=D^\alpha u^{(0)}$ and as a result $u_n \to u \in C^k(\overline{\Omega})$. That is, the unit ball $B_1 \subset C^{k,\gamma }$ is sequentially compact and thus compact when embedded in  $C^k(\overline{\Omega})$. This proves this point.
+
+    is equicontinuous. So by Arzelà–Ascoli we may extract a sequence $u_{n}$ such that $D^\alpha u_n$ converges uniformly to some $u^{(\alpha)}$. By the fundamental theorem of calculus we conclude that $u^{(\alpha)}=D^\alpha u^{(0)}$ and as a result $u_n \to u \in C^k(\overline{\Omega})$. That is, the unit ball $B_1 \subset C^{k,\gamma }$ is sequentially compact and thus compact when embedded in  $C^k(\overline{\Omega})$. This proves this point.
 
 4. The composition of the inclusions on the last line is compact as the composition of a compact and a continuous operator is compact.    This concludes the proof.
 
@@ -2285,7 +2285,7 @@ the function $f *g$
 
 $$
 \begin{aligned}
-f *g := \int f(y)g(x-y) \d y
+f *g := \int_{\R^d} f(y)g(x-y) \d y
 \end{aligned}
 $$ {#eq-convo}
 
@@ -2298,7 +2298,7 @@ The definition given by ([-@eq-convo]) is purposefully vague. We still need to s
 Consider the definition in ([-@eq-convo]) and let $p,q,r \in  [1, \infty]$. Then it holds that
 
 1. If $f \in L^1(\R^d)$ and $g \in L^p(\R^d)$ then $f*g \in L^p(\R^d)$ with
-    
+
     $$
     \begin{aligned}
     \norm{f*g}_{L^p(\R^d)}\leq \norm{f}_{L^1(\R^d)}\norm{g}_{L^p(\R^d)}.
@@ -2306,22 +2306,22 @@ Consider the definition in ([-@eq-convo]) and let $p,q,r \in  [1, \infty]$. Then
     $$
 
 2. Suppose that
-    
+
     $$
     \begin{aligned}
     \frac{1}{p}+\frac{1}{q}=1+\frac{1}{r}; \quad f \in L^p(\R^d); \quad g \in L^q(\R^d)    .
     \end{aligned}
     $$
-    
+
     Then $f*g \in L^r(\R^d)$ with
-    
+
     $$
     \begin{aligned}
     \norm{f*g}_{L^r(\R^d)}\leq \norm{f}_{L^p(\R^d)}\norm{g}_{L^q(\R^d)}.
     \end{aligned}
     $$
 
-\item In any of the above cases $f*g=g*f$.
+3. In any of the above cases $f*g=g*f$.
 
 :::
 
@@ -2420,7 +2420,7 @@ Let $f,g,\mu,\nu$ be such that the convolution is well-defined. Then
 
 $$
 \begin{aligned}
-\supp{f*g}=\supp{f}+\supp{g}; \quad \supp{\mu*\nu }=\supp{\mu }+\supp{\nu}.
+\supp{f*g}\subset \overline{\supp{f}+\supp{g}}; \quad \supp{\mu*\nu }=\overline{\supp{\mu }+\supp{\nu}}.
 \end{aligned}
 $$
 
@@ -2913,7 +2913,7 @@ Partitions of unity are often used in differential geometry as follows
 2. Cover the manifold $M$ with coordinate charts $U_\alpha$ and translate the euclidean result via the identification with $U_\alpha$ to obtain locally defined $g_\alpha$.
 
 3. Obtain a globally defined object $g$ by using the partition of unity to piece together the local objects
-    	      
+
     $$
     \begin{aligned}
     g=\sum_{\alpha \in I}\rho_\alpha g_\alpha .

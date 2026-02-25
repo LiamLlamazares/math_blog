@@ -83,7 +83,7 @@ format:
               fracc: ["{#1}/{#2}", 2],
               frc: ["\\left(#2)^{-1}(#1\\right)", 2],
               iso: "\\xrightarrow{\\sim}",
-              ker: "\\bm{ker}",
+              ker: "\\rm{ker}",
               mat: ["\\begin{bmatrix}{#1}\\end{bmatrix}", 1],
               mathbbm: ["\\mathbb{#1}", 1],
               mathds: ["\\mathbb{#1}", 1],
@@ -115,7 +115,7 @@ format:
 ## Summary
 
 1. There are three ways to define Sobolev spaces with fractional regularity $s$ and integrability $p$:
-              \begin{enumerate}
+    \begin{enumerate}
 
 2. The spaces $W^{s,p}(\Omega ), B^{s,p}(\Omega )$  are defined by using the analogous to the definition of H\"older spaces. Both spaces are equal when  $s$ is not an integer.
 

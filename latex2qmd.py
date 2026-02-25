@@ -815,9 +815,15 @@ def convert_body(body: str, label_registry: dict | None = None,
             # Strip trailing \label{...} from items
             item = re.sub(r'\\label\{[^}]*\}', '', item).strip()
             item_lines = item.split('\n')
-            indented = item_lines[0]
+            indented = item_lines[0].lstrip()
             if len(item_lines) > 1:
-                indented += '\n' + '\n'.join('    ' + l for l in item_lines[1:])
+                subsequent = []
+                for l in item_lines[1:]:
+                    if l.strip():
+                        subsequent.append('    ' + l.lstrip())
+                    else:
+                        subsequent.append('')
+                indented += '\n' + '\n'.join(subsequent)
             lines.append(f'{marker} {indented}')
         return '\n\n' + '\n\n'.join(lines) + '\n\n'
 
@@ -832,9 +838,15 @@ def convert_body(body: str, label_registry: dict | None = None,
         lines = []
         for item in items:
             item_lines = item.split('\n')
-            indented = item_lines[0]
+            indented = item_lines[0].lstrip()
             if len(item_lines) > 1:
-                indented += '\n' + '\n'.join('    ' + l for l in item_lines[1:])
+                subsequent = []
+                for l in item_lines[1:]:
+                    if l.strip():
+                        subsequent.append('    ' + l.lstrip())
+                    else:
+                        subsequent.append('')
+                indented += '\n' + '\n'.join(subsequent)
             lines.append(f'- {indented}')
         return '\n\n' + '\n\n'.join(lines) + '\n\n'
 
