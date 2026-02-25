@@ -338,13 +338,32 @@ def find_main_tex(folder: Path, preferred_name: str = 'main.tex') -> Path | None
     # 2. Try [foldername].tex
     if (folder / (folder.name + '.tex')).exists():
         return folder / (folder.name + '.tex')
-    # 3. Try any .tex that isn't preamble.sty or common aux names
+    
+    # 3. Look for files with \title
     tex_files = list(folder.glob('*.tex'))
-    if tex_files:
-        for f in tex_files:
-            if f.name.lower() not in ['preamble.tex', 'style.tex']:
-                return f
-        return tex_files[0]
+    valid_files = [f for f in tex_files if f.name.lower() not in ['preamble.tex', 'style.tex']]
+    
+    candidates_with_title = []
+    candidates_with_doc = []
+    
+    for f in valid_files:
+        try:
+            content = f.read_text(encoding='utf-8')
+            if r'\title{' in content:
+                candidates_with_title.append(f)
+            elif r'\begin{document}' in content or r'\documentclass' in content:
+                candidates_with_doc.append(f)
+        except Exception:
+            pass
+            
+    # Priority: 1. Has \title, 2. Has \begin{document}, 3. Any valid tex file
+    if candidates_with_title:
+        return candidates_with_title[0]
+    if candidates_with_doc:
+        return candidates_with_doc[0]
+    if valid_files:
+        return valid_files[0]
+        
     return None
 
 

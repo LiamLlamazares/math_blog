@@ -1,7 +1,9 @@
 ---
-title: "Untitled"
-date: "2026-02-25"
+title: "The Bochner Integral"
+author: "Liam Llamazares--Elias"
+date: "2022-05-27"
 categories: [Analysis On Banach Spaces]
+description: "Wait a second, how many integrals are there?"
 bibliography: biblio.bib
 format:
   html:
@@ -110,39 +112,597 @@ format:
         </script>
 ---
 
-\begin{CJK*}{UTF8}{gbsn}
-	We prove by induction that the expected number of loops formed form $n$ noodles is
-	
-$$
-E_n:=\sum_{j=0}^{n-1} \frac{1}{2j+1}.
-$$ {#eq-hi}
+This is the first post in a series on extending analysis from real-valued functions to functions valued in Banach spaces. Our first topic is the Bochner integral. That is, the extension of the Lebesgue integral to functions valued in Banach spaces.
 
-	This is clear when $n=1$ as only one possible loop can be formed.\\
-	\\
-	Suppose by hypothesis of induction that ([-@eq-hi]) holds for $n$ and let us prove it for $n+1$. We start from the beginning with $n+1$ noodles
-	that have  $2(n+1)$ disconnected ends. By the symmetry of the problem we can fix one end to be the first end to be chose. Then, since an end cannot be connected to itself, there are two possibilities for our starting move
-	
+## Three line summary
+
+- The Bochner integral is a way of integrating functions $f$ from a measure space to a Banach space.
+
+- Like the Lebesgue integral, it is first constructed for piecewise constant functions $\Aa$ and extended continuously to the completion $\overline{\Aa}$.
+
+- The completion $\Aa$ can be explicitly described as the space of functions with separable image and with finite $L^1$ norm. This naturally leads to the definition of $L^p$ spaces.
+
+## Notation
+
+1. We consider a measure space $(\Omega,\Ff,\mu )$ which may *not* be $\sigma$-finite, and a Banach space $(X,\Bb(X))$ where $\Bb$ is the Borel sigma-algebra (that is, the smallest $\sigma$-algebra on $X$ containing all of the open sets) of $X$.
+
+2. We denote the dual space of $X$ as $X^*$ and given $x^* \in X^*$ we denote the pairing of $x\in X$ and $x^*$ as $(x,x^*):= x^*(x)$.
+
+3. Given a subset $A\subset \Omega$ we denote the indicator function of $A$ as $1_A$.
+
+4. Given $f: \Omega \to \R$ and $x \in X$ we define the function $f\otimes x: \Omega \to X$ by
+
+    $$
+    \begin{aligned}
+    f \otimes x(\omega):= f(\omega)x.
+    \end{aligned}
+    $$
+
+## Strong measurability
+
+Our goal is to define integration for functions valued in a Banach space
+
 $$
 \begin{aligned}
-A_{n+1} & =\{\text{We choose the remaining edge on same noodle} \}; \\A^c_{n+1} & =\{\text{We choose an edge on another noodle} \} .
+f:(\Omega,\mathcal{F},\mu)\to ((X,\norm{\cdot}),\mathcal{B}(X)).
 \end{aligned}
 $$
 
-	Once we choose our starting end, there are $2(n+1)-1$ ends remaining. As a result, these two cases occur with probability
-	
+When working with measure spaces, we are, in general, not interested in what happens on sets of measure $0$. As a result, we are contented with properties of interest holding perhaps not everywhere but *almost everywhere*.
+
+::: {#def-1}
+
+A property is said to hold *$\mu$-almost everywhere* if there exists a set $N\in \Ff$ with $\mu(N)=0$ such that the property holds on $\Omega\setminus N$.
+
+:::
+
+As anticipated, we first consider the class of simple functions 
 $$
-\mathbb{P}(A_{n+1})=\frac{1}{2(n+1)};\quad \mathbb{P}(A_{n+1}^c)=1-\frac{1}{2(n+1)}.
+\begin{aligned}
+\Aa=\left\{\sum_{k=1}^{n} 1_{A_k} \otimes x_k: \quad x_k\in X \text{ and } A_k \in \Ff \text{ with } \mu(A_K)< \infty\right\}.
+\end{aligned}
 $$
 
-	If $A_{n+1}$ occurs we form loop if $A_{n+1}^c$ occurs we do not. Once either of these two cases occur, the expected number of new loops that can be formed is $E_n$ as the middle ends are no longer available for connection (essentially we identify two connected noodles). As a result, we have that the expected number of noodles is
-	
+We can define their integral quite naturally as
+
 $$
-E_{n+1}=\frac{1}{2(n+1)}(E_n+1)+(1-\frac{1}{2n+1})E_n=E_n+ \frac{1}{2(n+1)}=\sum_{j=0}^{n} \frac{1}{2j+1}.
+\begin{aligned}
+\int_\Omega f \d\mu=\int_\Omega \sum_{k=1}^{n} 1_{A_k} \otimes x_k\d\mu=\sum_{k=1}^n x_k\mu({A_k}).
+\end{aligned}
 $$
 
-	Where in the last equality we used the hypothesis of induction  ([-@eq-hi]).  This concludes the proof.
+If we take equivalence classes and identify functions that are equal $\mu$ almost everywhere, we can define the norm
 
-\end{CJK*}
+$$
+\begin{aligned}
+\norm{f}_\Aa:=\int_\Omega \norm{f} \d\mu , \quad\forall f\in \Aa.
+\end{aligned}
+$$
+
+A verification shows that integration is linear and for all $f\in\Aa$.
+
+$$
+\begin{aligned}
+\norm{\int_\Omega f \d \mu}\leq\int_\Omega \norm{f} \d\mu=\norm{f}_\Aa.
+\end{aligned}
+$$ {#eq-triangle}
+
+That is, integration is a linear and continuous map
+
+$$
+\begin{aligned}
+\int_\Omega \cdot \d\mu : \left(\Aa,\norm{\cdot}_\Aa \right)\to (X,\norm{\cdot}).
+\end{aligned}
+$$
+
+Since $X$ is a complete, we can [linearly extend](<https://en.wikipedia.org/wiki/Continuous_linear_extension>) integration in a unique way to the completion $\overline{\Aa}$ of $(\Aa,\norm{\cdot}_A)$. The space $\overline{\Aa}$, which can be built through taking limits of simple functions, is thus the space of functions that we can integrate. Our next step is to figure out what this is.
+
+::: {#def-2}
+
+We say a function $f:(\Omega,\mathcal{F})\to (X,\mathcal{B}(X))$ is $\mu$-strongly measurable if there exists a sequence of simple functions $f_n$ such that
+
+$$
+\begin{aligned}
+f=\lim_{n \to \infty} f_n \quad \mu\text{-almost everywhere}.
+\end{aligned}
+$$
+
+:::
+
+Since the simple $f_n$ are *separately valued* (that is, $f_N(\Omega )\subset X$ is separable), $f$ will also be (almost everywhere) separably valued. As a result we will always end up working with separable Banach spaces. The following properties are of use
+
+::: {#exr-ex:separable}
+
+Let $X$ be a **separable** Banach space with dual $X^*$ , show that
+
+a. There exists $\left\{x_n^*\right\}_{n=1}^\infty\subset X^*$ such that
+
+    $$
+    \begin{aligned}
+    \norm{x}= \sup_{n \geq1} \abs{(x,x_n^*)}.
+    \end{aligned}
+    $$
+
+    Such a sequence is called a *norming sequence*.
+
+b. The Borel $\sigma$-algebra $\Bb(X)$ is equal to the $\sigma$-algebra generated by $\left\{x_n^*\right\}_{n=1}^\infty$, and by $X^*$. That is,
+
+    $$
+    \begin{aligned}
+    \Bb(X)=\sigma\left(\left\{x_n^*\right\}_{n=1}^ \infty\right)=\sigma(X^*)
+    \end{aligned}
+    $$
+
+    If $X$ is not separable, the inclusion $\Bb(X)\subset \sigma(X^*)$ may fail. See [@vakhania2012probability] page 23 for a counterexample.
+
+c. A function $f: \Omega \to X$ is measurable if and only if it is *weakly measurable*. That is, if and only if for all $x^*\in X^*$ the function $(f,x^*): \Omega \to \R$ is measurable.
+
+d. The dual $X^*$ with the weak-$^*$ topology (the topology generated by $X$ viewed as a subset of $X^{**}$) is separable .
+
+:::
+
+::: {.callout-tip collapse="true" title="Hint"}
+
+1. Consider a countable dense subset $\left\{x_n\right\}_{n=1}^\infty$ of $X$. By the Hahn-Banach theorem, there exists $x_n^*\in X^*$ such that
+
+    $$
+    \begin{aligned}
+    (x_n,x_n^*)= \norm{x_n}, \quad \norm{x_n^*}=1.
+    \end{aligned}
+    $$
+
+    Show that $x_n^*$ satisfies the desired property.
+
+2. The inclusion $\sigma (X^*) \subset \sigma\left(\left\{x_n^*\right\}_{n=1}^ \infty\right)$ always holds as the preimage by a continuous function of an open set is open. To show the reverse inclusion, prove that every open ball in $X$ can be written as a countable union of balls $\overline{B}_r(x):= \set{y \in X: \norm{x-y}\leq r}$. Now show that
+
+    $$
+    \begin{aligned}
+    \overline{B}_r(x)=\left\{x\in X: \sup_{n \geq1}(x,x_n^*) \leq r\right\} \subset \sigma\left(\left\{x_n^*\right\}_{n=1}^ \infty\right).
+    \end{aligned}
+    $$
+
+    To show that the inclusion $\Bb(X)\subset \sigma(X^*)$ may fail for
+
+3. The implication always holds. Use the previous point to prove that weakly measurable functions in separable Banach spaces are measurable.
+
+4. By the Hahn Banach theorem, a linear subspace $Y \subset X^*$ is dense if and only if it separates points. That is, for all $x\in X$ there exists $x^*\in Y$ such that $x^*(x)\neq 0$. Use this to show that the space spanned by $\left\{x_n^*\right\}_{n=1}^\infty$ is dense in $X^*$.
+
+:::
+
+The following characterizes the space of strongly measurable functions
+
+::: {#thm-thm:pettis name="Pettis measurability theorem"}
+
+A function $f:\Omega\to X$ is $\mu$-strongly measurable if and only if $f$ is $\mu$-almost everywhere separately valued and $(f, x^*)$ is $\mu$ strongly measurable for all $x^*\in X^*$.
+
+:::
+
+::: {.proof}
+
+We first prove the implication. For some $x_k^{(n)} \in X , A_k^{(n)} \in \Ff$,
+
+$$
+\begin{aligned}
+f= \lim_{n \to \infty} f_n=\lim_{n \to \infty} \sum_{k=1}^n 1_{A_k^{(n)}}\otimes x^{(n)}_{k} \quad \mu\text{-almost everywhere}.
+\end{aligned}
+$$
+
+As a result, $f$ takes almost everywhere values in the separable space spanned by the countably many $x_k^{(n)}$. To see that $(f,x^*)$ is $\mu$-strongly measurable we note that $g_n :=(f_n,x^*)$ are simple functions and
+
+$$
+\begin{aligned}
+(f,x^*)= \lim_{n \to \infty} g_n \quad \mu\text{-almost everywhere}.
+\end{aligned}
+$$
+
+We now prove the reverse implication. By assumption, there exists $\Omega _1 \subset \Omega$ such that $\mu (\Omega _1^c)=0$ and $X_1=\overline{f(\Omega_1 )}$ is separable. As a result, and by point $1$ of @exr-ex:separable there exists a norming sequence $\left\{x_n^*\right\}_{n=1}^\infty \subset X_1$.
+
+Since we only need to prove limits almost everywhere, we can suppose that $f$ is separably valued by restricting to $\Omega _1$. Now, by assumption the functions $g_n:=(f,x_n^*)$ are $\mu$-strongly measurable. Let $K_n$ be the support of $g_n$ and $K=\cup_{n \geq 1}K_n$. By definition of strongly $\mu$-measurable function and since the union of countable sets is countable, $K$ is $\sigma$-finite. Since $x_n^*$ separate points, $f$ is $0$ outside of $K$, and by restricting to $K$ we can suppose that $\mu$ is $\sigma$-finite.
+
+Let $\set{x_n}_{n=1}^\infty$ be a countable dense subset of $X_1$. Given $n \in \N$, we define $\varphi_n (x)$ to be the $x_k \in \set{x_j}_{j=1}^ n$ which is the closest to $x$, and where in the case of a tie we take the one with the smallest index $j$. We can now define the simple functions
+
+$$
+\begin{aligned}
+F_n := \varphi _n(f(x)).
+\end{aligned}
+$$
+
+The function $F_n$ takes at most $n$-different values $x_1,\dots, x_n$ with
+
+$$
+\begin{aligned}
+\set{F_n=x_k}=\set{\norm{f- x_k} = \min_{1\leq j \leq n} \norm{f- x_j} < \min_{1 \leq j <k} \norm{f-x_j}}.
+\end{aligned}
+$$ {#eq-sv}
+
+Since $(f-x_k,x_n^*)$ is $\mu$-strongly measurable, we deduce that the following function is measurable almost everywhere. 
+$$
+\begin{aligned}
+\norm{f- x_k}= \sup_{n \geq1} (f- x_k,x_n^*).
+\end{aligned}
+$$
+
+So, without loss of generality, we may suppose they are measurable by restricting once more. Then, by ([-@eq-sv]) $F_n$ is measurable. Since we had restricted $u$ to be $\sigma$-finite, we may take a partition $\set{\Omega _n}_{n=1}^\infty$ of $\Omega$ with finite measure. Consider $f_n:=F_n 1_{\Omega _n}$, we have that $f_n$ is $\mu$ simple (we need to multiply by $1_{\Omega _n}$ so that the support of the indicators have finite measure) and converges to $f$ almost everywhere.
+
+:::
+
+If we include $x_0=0$ in the norming sequence of @thm-thm:pettis, we have that $\norm{f_n-f}$ as in the proof above is bounded by $\norm{f}$ almost everywhere and obtain the following corollary which will be used later to show the density of simple functions in the integrable ones.
+
+::: {#cor-density-corollary}
+
+Let $f : \Omega \to X$ be $\mu$-strongly measurable. Then, there exists a sequence of simple functions $f_n$ converging to $f$ almost everywhere and such that
+
+$$
+\begin{aligned}
+\norm{f_n-f} \leq \norm{f}, \quad \mu \text{-almost everywhere}.
+\end{aligned}
+$$
+
+:::
+
+Most typically, one works in the case where $\mu$ is $\sigma$-finite (for example, if $\mu$ is the Lebesgue measure or any probability measure) and identifies functions that are equal almost everywhere. In this case, the following more simple statement holds.
+
+::: {#thm-thm:pettis2 name="Pettis theorem for $\sigma$-finite measures"}
+
+Let $(\Omega, \mu, \mathcal{F})$ be a $\sigma$-finite measure space and identify functions that are equal almost everywhere. Then $f$ is $\mu$-strongly measurable if and only if $f$ is separately valued and measurable.
+
+:::
+
+::: {.proof}
+
+Let $f$ be $\mu$-strongly measurable. Then, $f$ is the limit of separately valued and measurable functions. As a result, $f$ is separately valued and measurable.
+
+Suppose now that $f$ is separately valued and measurable. Then, the same is true for $f 1_{\Omega_n}$ where $\set{\Omega_n}_{n=1}^\infty$ is a partition of $\Omega$ with finite measure. Moreover, these functions are strongly measurable as the measure of $\Omega _n$ is finite (one can start from $f 1_{\Omega_n}$ and form $F_n$ as in the previous proof converging to $f 1_{\Omega _n}$) and since they form a partition of $\Omega$,
+
+$$
+\begin{aligned}
+f=\lim_{n \to \infty} f 1_{\Omega_n}.
+\end{aligned}
+$$
+
+By a basic argument, the limit of $\mu$-strongly measurable functions is $\mu$-strongly measurable and
+we conclude that $f$ is $\mu$-strongly measurable, as desired.
+
+:::
+
+## Construction of the Bochner integral
+
+Since the norm $\norm{\cdot }$ is a continuous function, given a measurable function $f: \Omega \to X$, the *real-valued* function $\norm{f}: \Omega \to \R$ is also measurable. As a result, we can define the Lebesgue integrals
+
+$$
+\begin{aligned}
+\norm{f}_{L^p(\Omega\to X)} & :=\left(\int_\Omega \norm{f}^p \d\mu\right)^{1/p},\quad \quad p \in [1,\infty).
+\end{aligned}
+$$ {#eq-lp}
+
+Likewise, the sets $\norm{f}>r$ are in the $\sigma$-algebra $\Ff$ and we can define
+
+$$
+\begin{aligned}
+\norm{f}_{L^\infty(\Omega\to X)} & :=\inf\{r>0: \mu ( \norm{f}> r)=0\},
+\end{aligned}
+$$ {#eq-linfty}
+
+where the infimum is defined to be $\infty$ if the set is empty.
+
+Knowledge of the real-valued case shows that ([-@eq-lp]) and ([-@eq-linfty]) define a seminorm on the spaces of measurable function where they are finite, and they define a norm if we define the equivalence relation
+
+$$
+\begin{aligned}
+f \sim g\quad \text{ if } f=g\quad \mu\text{-almost everywhere}.
+\end{aligned}
+$$
+
+Following common practice, we will identify functions that are equal almost everywhere from now on and make no distinction between functions and their equivalence classes. Finally, we arrive at the following definition.
+
+::: {#def-def:lp}
+
+Given a measure space $(\Omega,\mathcal{F},\mu)$, a Banach space $(X,\mathcal{B}(X))$ we define the space of $p$-integrable functions as (the equivalence classes)
+
+$$
+\begin{aligned}
+L^p(\Omega \to X) & :=\left\{f:\Omega\to X: f \text{ is strongly measurable and } \norm{f}_{L^p(\Omega \to X)}<\infty\right\}.
+\end{aligned}
+$$
+
+:::
+
+If one wishes to be explicit about the underlying measure space one can also write $L^p(\Omega,\mathcal{F},\mu, X)$. As in the real case, the $L^p$ spaces are complete.
+
+::: {#thm-thm:completeness name="Fischer-Riesz"}
+
+The space $L^p(\Omega\to X)$ is a Banach space for all $p\in [1,\infty].$
+
+:::
+
+::: {.proof}
+
+The proof follows along the lines of the real case, substituting the absolute value in $\R$ by the norm in $X$ as necessary. We first prove the case $p \in [1,\infty)$ Recall that a normed space is complete if and only if every absolutely convergent series converges.That is, we need to show that if $f_n \in L^p(\Omega \to X)$ is such that
+
+$$
+\begin{aligned}
+\sum_{n=1}^\infty \norm{f_n}_{L^p(\Omega\to X)}<\infty.
+\end{aligned}
+$$
+
+Then there exists $f\in L^p(\Omega\to X)$ such that
+
+$$
+\begin{aligned}
+f=\sum_{n=1}^\infty f_n\in L^p(\Omega\to X).
+\end{aligned}
+$$
+
+To do so, one first applies [Minkowski's](<https://en.wikipedia.org/wiki/Minkowski_inequality#:~:text=.-,Minkowski%27s,-integral%20inequality%5B>) inequality for real-valued functions to show that
+
+$$
+\begin{aligned}
+\sum_{n=1}^\infty \norm{f_n}_X\in L^p(\Omega\to\R).
+\end{aligned}
+$$
+
+Thus, the sum is finite almost everywhere. Since $X$ is complete, we have that the above sum converges pointwise almost everywhere to some function
+
+$$
+\begin{aligned}
+f(\omega):=\sum_{n=1}^\infty f_n(\omega)\in X.
+\end{aligned}
+$$
+
+Furthermore we have that $f$ is strongly measurable as it is the limit of strongly measurable functions. Finally, using Fatou's lemma for real-valued functions and the triangle inequality for norms shows that
+
+$$
+\begin{aligned}
+\norm{f-\sum_{n=1}^N f_n}_{L^p(\Omega\to X)} & =\norm{\sum_{n=N}^\infty f_n}_{L^p(\Omega\to X)}\leq \liminf_{M\to \infty}\norm{\sum_{n=N}^M f_n}_{L^p(\Omega\to X)} \\&\leq \liminf_{M\to \infty}\sum_{n=N}^M \norm{f_n}_{L^p(\Omega\to X)}=\sum_{n=N}^\infty \norm{f_n}_{L^p(\Omega\to X)}\xrightarrow{N\to\infty} 0.
+\end{aligned}
+$$
+
+Which shows convergence in $L^p(\Omega\to X)$ for $p\in [1,\infty)$.
+
+For the case $p=\infty$ consider a Cauchy sequence $f_n \in L^p(\Omega \to X)$ and write
+
+$$
+\begin{aligned}
+A_{nm}:=\left\{\omega\in \Omega: \norm{f_n(\omega)-f_m(\omega)} \leq\norm{f_n-f_m}_{L^\infty(\Omega \to X)}\right\}, \quad A := \bigcup_{m,n=1}^\infty A_{nm}.
+\end{aligned}
+$$
+
+By construction, $A_{nm}$ and thus $\A^c$ have measure zero and $f_n$ converges uniformly on $A$. As a result, $f_n$ converges almost everywhere to some $f\in L^\infty(\Omega\to X)$. This completes the proof.
+
+:::
+
+Just as in the case of Lebesgue integrals, the proof of the completeness of $L^p(\Omega\to X)$ serves to show that every convergent sequence must have a subsequence converging almost everywhere. This proposition is not necessary for the rest of the constructions, it's just a nice property to have in reserve.
+
+::: {#prp-1}
+
+Let $f_n\to f\in L^p(\Omega\to X)$, then there exists a subsequence $f_{n_k}$ converging to $f$ almost everywhere.
+
+:::
+
+::: {.proof}
+
+In the proof of the above proposition, we saw that for any absolutely convergent sum converges almost everywhere to its limit. Further, since $f_n$ is Cauchy, we can extract a subsequence $f_{n_k}$ with $\|f_{n_k}-f_{n_{k-1}}\|\leq 2^{-k}$. By construction, the sequence
+
+$$
+\begin{aligned}
+\sum_{k=0}^{\infty} f_{n_k}-f_{n_{k-1}},
+\end{aligned}
+$$
+
+is normally convergent and converges in $f$. By the above discussion we conclude the proof.
+
+:::
+
+Ok, so we've constructed some spaces of $p$-integrable functions and shown that they are complete. You know where this is going. Next stop is density town. In the standard construction of the Lebesgue integral, it is used that every measurable function to $\mathbb{R}$ can be pointwise approximated by simple functions. One can achieve the same result for arbitrary metric spaces if the image of $f$ is separable.
+
+::: {#prp-2}
+
+Every function in $L^p(\Omega\to X)$ is the limit almost everywhere and in the norm of a sequence of simple functions.
+
+:::
+
+::: {.proof}
+
+By @cor-density-corollary, there exists a sequence of simple functions $f_n$ converging to $f$ almost everywhere and such that $\norm{f_n-f}<\norm{f}$ almost everywhere. By the dominated convergence theorem for *real valued* functions, we have that
+
+$$
+\begin{aligned}
+\lim_{n\to\infty}\norm{f_n-f}^p_{L^p(\Omega\to X)}=\lim_{n\to\infty}\int_\Omega\norm{f_n-f}^p\d\mu=\int_{\Omega}\lim_{n \to \infty}\|f_n-f\|^p \d\mu =0.
+\end{aligned}
+$$
+
+:::
+
+As a corollary, we obtain the following
+
+::: {#cor-1}
+
+The simple functions $\mathcal{A}$ are a dense subset of $L^p(\Omega\to X)$.
+
+:::
+
+Since $L^1(\Omega\to X)$ is complete, we have that the closure of $\overline{\Aa}$ with the norm $\norm{\cdot }_{L^1(\Omega \to X)}$ is $L^1(\Omega\to X)$. Furthermore, by the triangle inequality ([-@eq-triangle]), integration is continuous with this norm. This continuity allows us to extend integration to $L^1(\Omega \to X)$ and shows that the space of integrable functions is $L^1(\Omega\to X)$.
+
+::: {#def-def-int}
+
+We define the integral on $L^1(\Omega\to X)$ as the unique continuous extension with the norm $\norm{\cdot}_{L^1(\Omega\to X)}$ of the integral on $\mathcal{A}$. That is, given $f\in L^1(\Omega\to X)$ we define
+
+$$
+\begin{aligned}
+\int_\Omega f \d\mu:=\lim_{n\to\infty} \int_\Omega f_n \d\mu.
+\end{aligned}
+$$
+
+Where $f_n\in \mathcal{A}$ is any sequence such that $\norm{f-f_n}_{L^1(\Omega\to X)}\to 0$.
+
+:::
+
+::: {#rem-1}
+
+We could also work with the spaces
+
+$$
+\begin{aligned}
+\hat{L}^p(\Omega,\mathcal{F},\mu,X) & =\left\{f:\Omega\to X: \int_\Omega \norm{f}^p \d\mu<\infty\right\}.
+\end{aligned}
+$$
+
+These spaces are once more complete, however, they do not contain simple functions as a dense subset. As a result, given $f \in \hat{L}^1(\Omega \to X)$ it is not possible to make sense of the expression $\int_\Omega f \d\mu$.
+
+:::
+
+## Familiar properties
+
+Many properties of integration hold for the Bochner integral as well.
+For example, the following is a result of the definition of the Bochner integral and a passage to the limit, as it holds for simple functions.
+
+::: {#cor-corollary-easy}
+
+Let $f\in L^1(\Omega,X)$ with $X$ a Banach space, then
+
+1. $\norm{\int_\Omega f \d\mu}\leq\int_\Omega{\norm{f}\d\mu}$
+
+2. Let $Y$ be another Banach space and $L\in L(X,Y)$. Then
+
+    $$
+    \begin{aligned}
+    \int_\Omega (L\circ f) \d\mu=L\left(\int_\Omega f \d\mu\right).
+    \end{aligned}
+    $$
+
+:::
+
+Knowledge of scalar-valued results also goes a long way; for example, we can prove the following
+
+::: {#exr-ex:fubini name="Fubini-Tonelli"}
+
+Let $(\Omega_1, \Ff _1 , \mu _1 )$ and $(\Omega_2, \Ff _2 , \mu _2 )$ be $\sigma$-finite measure spaces and consider the space $\Omega_1\times \Omega_2$ with the $\sigma$-algebra $\Ff _1 \otimes \Ff _2$ generated by sets of the form $A_1 \times A_2$ with $A_i \in \Omega _i$ and the unique measure $\mu _1 \otimes \mu _2$ such that $(\mu _1 \otimes \mu _2)(A_1 \times A_2)=\mu _1(A_1)\mu _2(A_2)$. Let $X$ be a Banach space and $f:\Omega_1\times \Omega_2 \to X$ be strongly measurable. Then
+
+1. The functions $f(\omega_1,\cdot )$ and $f(\cdot,\omega_2)$ are strongly measurable.
+
+2. If any of the following integrals is finite
+
+    $$
+    \begin{aligned}
+    \int_{\Omega_1 \times \Omega _2} \norm{f} \d (\mu_1 \otimes \mu _2), \quad  \int_{\Omega_1}\left(\int_{\Omega_2} \norm{f}\d\mu_2\right)\d\mu_1, \quad \int_{\Omega_2}\left(\int_{\Omega_1} \norm{f}\d\mu_1\right)\d\mu_2.
+    \end{aligned}
+    $$ {#eq-norm-ints}
+
+    Then all of the integrals in ([-@eq-norm-ints]) are equal, and
+
+    $$
+    \begin{aligned}
+    \int_{\Omega_1 \times \Omega _2} f \d (\mu_1 \times \mu _2)= \int_{\Omega_1}\left(\int_{\Omega_2} f\d\mu_2\right)\d\mu_1=\int_{\Omega_2}\left(\int_{\Omega_1} f\d\mu_1\right)\d\mu_2.
+    \end{aligned}
+    $$ {#eq-ints}
+
+:::
+
+::: {.callout-tip collapse="true" title="Hint"}
+
+1. From Fubini's theorem, we know that the [sections](<https://proofwiki.org/wiki/Horizontal_Section_of_Measurable_Function_is_Measurable>) $f(\omega_1,\cdot )$ and $f(\cdot,\omega_2)$ are measurable. Since $f$ is separately valued so are $f(\omega_1,\cdot )$ and $f(\cdot,\omega_2)$. As a result, by @thm-thm:pettis2, they are strongly measurable.
+
+2. By [Fubini-Tonelli's](<https://en.wikipedia.org/wiki/Fubini%27s_theorem#Fubini%E2%80%93Tonelli_theorem:~:text=the%20uncompleted%20product.-,For,-integrable%20functions%5B>) theorem we know that if any of the integrals in ([-@eq-norm-ints]) is finite, then all of them are equal. By the first point, we conclude from the characterization of the integrable functions (Definitions @def-def:lp, @def-def-int) that all the integrals in ([-@eq-ints]) are well defined, and it remains to see they are equal. To do so, let $x^* \in X^*$ be and then, by Fubini-Tonelli for real-valued functions
+
+    $$
+    \begin{aligned}
+    \int_{\Omega_1 \times \Omega _2} (f,x^*) \d (\mu_1 \otimes \mu _2) & = \int_{\Omega_1}\left(\int_{\Omega_2} (f,x^*)\d\mu_2\right)\d\mu_1=\int_{\Omega_2}\left(\int_{\Omega_1} (f,x^*)\d\mu_1\right)\d\mu_2.
+    \end{aligned}
+    $$
+
+    By Point $2$ of @cor-corollary-easy and, since we just proved that all the integrals in ([-@eq-ints]) are well defined, we may pull $x^*$ out of the integrals. By the Hahn-Banach theorem, $X^*$ separates points of $X$, and the proof follows.
+
+:::
+
+Sometimes the following theorem is more useful when instead of using the product measure $\mu_1 \otimes \mu_2$ on $X \times Y$, we use its completion $\overline{\mu_1 \times \mu_2}$. In this case, Fubini-Tonelli's @exr-ex:fubini still holds. It is only necessary to note that the sections of $f$ are now almost always measurable (see [@tao2011introduction] page 203 for more details).
+
+::: {#exr-1 name="Minkowski's integral inequality"}
+
+Show that given $p \in [1,\infty)$ and $f \in L^1(\Omega_1 \to L^p(\Omega_2 \to Y))$ it holds that
+
+$$
+\begin{aligned}
+\left(\int_{\Omega _1}\norm{\int_{\Omega_2 } f \d \mu _2 }^p \d \mu _1\right)^{1/p}\leq \int_{\Omega_2}\left(\int_{\Omega _1} \norm{f}^p \d \mu_1\right)^{1/p}\d \mu_2 .
+\end{aligned}
+$$
+
+:::
+
+::: {.callout-tip collapse="true" title="Hint"}
+
+Apply the triangle inequality ([-@eq-triangle]) with $X= L^p(\Omega_2 \to Y)$.
+
+:::
+
+::: {#exr-2 name="Dominated convergence theorem"}
+
+Let $f_n,f\in L^1(\Omega\to X)$ be such that $f_n\to f$ almost everywhere and there exists $g\in L^1(\Omega\to X)$ such that $\norm{f_n}\leq g$ almost everywhere. Then
+
+$$
+\begin{aligned}
+\int_\Omega f_n \d\mu\to \int_\Omega f \d\mu.
+\end{aligned}
+$$
+
+:::
+
+::: {.callout-tip collapse="true" title="Hint"}
+
+We have that $\norm{f_n-f}\leq 2g$ almost everywhere. As a result, by the dominated convergence theorem for real-valued functions, we have that
+
+$$
+\begin{aligned}
+\lim_{n\to\infty}\int_\Omega\norm{f_n-f}\d\mu=0.
+\end{aligned}
+$$
+
+The triangle inequality concludes the proof.
+
+:::
+
+The dominated convergence theorem is a powerful tool that allows us to pass to the limit under the integral sign. For example, it can be used to show that, under necessary conditions, if $f(t,\omega )$ is continuous (differentiable) in $t$ then so is $\int f(t,\omega )\d\mu(\omega)$ (see [here](<https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/#:~:text=assumed%20for%20commodity.-,Proposition%201,-(Continuity%20of%20the>) for a proof). These results, together with the density of simple functions, can be used to prove the [standard approximation theorems](<https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=example%2C%208%20444R.-,Smoothing,-in>).
+
+::: {#thm-thm:approx name="Convolution, regularization and smooth approximation"}
+
+Let $p \in [1,\infty)$ and consider $f\in L^p(\R^d\to X)$ and $\phi \in L^1(\R^d)$.
+
+a. **Young's inequality**. The convolution
+
+    $$
+    \begin{aligned}
+    f*\phi(x):=\int_{\R^d} f(x-y)\phi(y)\d y,
+    \end{aligned}
+    $$
+
+    is well-defined almost everywhere and satisfies
+
+    $$
+    \begin{aligned}
+    \norm{f*\phi}_{L^p(\R^d\to X)}\leq \norm{f}_{L^p(\R^d\to X)}\norm{\phi}_{L^1(\R^d)}.
+    \end{aligned}
+    $$
+
+b. **Mollifiers**. Define $\phi_\varepsilon(x):=\varepsilon^{-d}\phi(x/\varepsilon)$. Then,
+
+    $$
+    \begin{aligned}
+    f*\phi_\varepsilon \to f \quad \text{in } L^p(\R^d\to X).
+    \end{aligned}
+    $$
+
+c. **Smoothing**. If $\phi \in C^k_c(\R^d)$ then $f*\phi_\varepsilon \in C^k(\R^d\to X)$ with
+
+    $$
+    \begin{aligned}
+    D^\alpha f*\phi=f*(D^\alpha \phi), \quad\forall \abs{\alpha}\leq k.
+    \end{aligned}
+    $$
+
+d. **Smooth approximation**. The space $C_c^\infty(\R^d)$ is dense in $L^p(\R^d\to X)$.
+
+:::
+
+Ok, that's it. This post was a bit more technical than some of the others, but you get the picture. Define an integral for simple functions, and figure out what can be approximated by simple functions. As we saw, the extra requirement that appears over the Lebesgue case is that the function $f$ is separately valued and justifies why, as we will see in future posts on SPDEs, the image of $f$ is often taken to be some separable Hilbert space. Until the next time!
 
 ## References
 
