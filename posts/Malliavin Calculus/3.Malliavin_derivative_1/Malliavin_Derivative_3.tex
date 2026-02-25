@@ -28,7 +28,7 @@ The Malliavin derivative was originally introduced as an operator associated wit
 \begin{definition}
 	Given $X=\sum_{n=0}^{\infty} I_n(f_n)\in L^2(\Omega)$ we say that $X$ is \emph{Malliavin differentiable} if
 	\begin{equation*}
-		\|X\|_{\mathbb{D}_{1,2}}^2 := \norm{X}_{L^2(\Omega)}  + \sum_{n=1}^{\infty} n n!\|f_n\|_{L^2([0,T]^n)}^2
+		\|X\|_{\mathbb{D}_{1,2}}^2 := \norm{X}_{L^2(\Omega)}^2  + \sum_{n=1}^{\infty} n n!\|f_n\|_{L^2([0,T]^n)}^2
 	\end{equation*}
 	and denote the space of Malliavin differentiable functions by
 	\begin{equation*}
@@ -58,13 +58,13 @@ The first questions to be asked is: ``what kind of object is the Malliavin deriv
 In summary, the Malliavin derivative turns a square-integrable random variable into
 a possibly non-adapted, stochastic process. You may recall from our previous posts that we had an operator that went in the opposite direction. The Skorokhod integral $\delta $. In fact, the Malliavin derivative and the Skorokhod integral are adjoint operators in a sense that will be made precise in the next post. For now, we show that, as occurs with the ordinary derivative, a random variable has Malliavin derivative $0$ if and only if it is constant.
 \begin{corollary}\label{normedspace}
-	$(\mathbb{D}_{1,2},\|\cdot \|_{\mathbb{D}_{1,2}})$ is a normed space. Furthermore
+	$(\mathbb{D}_{1,2},\|\cdot \|_{\mathbb{D}_{1,2}})$ is a inner product space. Furthermore
 	\begin{equation*}
 		D X=0 \in L^2(I \times \Omega)\iff X\in \R.
 	\end{equation*}
 \end{corollary}
 \begin{proof}
-	The triangle inequality and the absolute homogeneity are direct consequences of the isometry of the previous proposition. This shows that $\|\cdot \|_{\mathbb{D}_{1,2}}$ is a norm. The second part follows from the fact that
+	The inner product properties hold as $ \|\cdot\|_{\mathbb{D}_{1,2}}$ is induced by the inner product of the graph space $L^2(\Omega) \times L^2(I \times \Omega)$. This shows that $\|\cdot \|_{\mathbb{D}_{1,2}}$ is am inner product. The second part follows from the fact that
 	\begin{equation*}
 		\|DX\|_{L^2(I \times \Omega)}=\sum_{n=1}^{\infty} n n!\|f_{n}\|_{L^2([0,T]^n)}.	\end{equation*}
 	So $DX=0$ if and only if  $f_n=0$ for all $n\geq 1$, which in turn is equivalent to  $X=I_0(f_0):=f_0$. Where we recall that by convention $L^2_{S}(I^0):=\R$ and $I_0$ was defined as the identity on  $\R$.  This concludes the proof.
@@ -76,10 +76,7 @@ Before moving on we show a motivating example. Let us consider some deterministi
 This is a nice result and it might suggest something akin to the fundamental theorem of calculus such as $D_t(\delta Y)=Y$ for any Skorokhod integrable process $Y$. However, this will not hold in general and as, will be seen in the next post, occurs if and only if $Y$ is a deterministic function in $L^2(\Omega)$.\\\\
 This said, we now show that $\mathbb{D}_{1,2}$ is closed in the sense that: given a convergent sequence $X_m\to X$. If the derivatives  $D_tX_m$ converge then also $D_t X_m\to D_t X$.
 \begin{proposition}
-	The space $\mathbb{D}_{1,2}$ is a Banach space
-	\begin{equation*}
-		\lim_{m \to \infty}\|X_m-X\|_{L^2(\Omega)}=\lim_{n \to \infty}\|D_tX_m-D_tX\|_{L^2(I\times\Omega)}.
-	\end{equation*}
+	The space $\mathbb{D}_{1,2}$ is a Hilbert space.
 \end{proposition}
 \begin{proof}
 It only remains to show that $\norm{\cdot }_{\mathbb{D}_{1,2}}$ is complete. Let $\set{X_m}_{m \in \N} \subset  \mathbb{D}_{1,2}$ be Cauchy. Or equivalently, by \Cref{normedspace}, $X_m$ is Cauchy in $L^2(\Omega)$ and $DX$ in $L^2(I \times \Omega)$.
@@ -154,24 +151,25 @@ We now conclude with an extension of the chain rule which can be used even when 
 	\end{equation*}
 \end{proposition}
 \begin{proof}
-	By the mean value inequality we have that
-	\begin{equation*}
-		\abs{\varphi(x)}\leq C'(1+\norm{x}^{\alpha+1})=C'(1+\norm{x}^{\frac{p}{q}}).
-	\end{equation*}
-	As a result we have that
-	\begin{equation}\label{in1}
-		\varphi(X) \in L^q(\Omega).
-	\end{equation}
-	Furthermore, by Hölder's inequality applied to  $r=(\alpha+1) / \alpha, s=\alpha+1$ we have that
-	\begin{equation}\label{in2}
-		\nabla \varphi(X) \cdot D X \in L^q(\Omega\to L^2(I)).
-	\end{equation}
-	We now take a sequence of cylindrical random variables $X_n$ converging to  $X$ in $\mathbb{D}^{1,p}$ and an approximation to the identity  $\delta_n$. Let us set $\varphi_n:=\varphi \cdot \delta_n$
-	\begin{align*}
-		D \varphi(X)&=\lim_{n \to \infty} D [\varphi_n(X_n)]=\lim_{n \to \infty} (\nabla \varphi_n)(X_n)\cdot DX_n\\
-		&=	(\nabla \varphi)(X)\cdot DX \in L^q(\Omega\to L^2(I)).
-	\end{align*}
-	Where the final equality is due to the same method that gave inclusions \eqref{in1}-\eqref{in2} and the way $X_n,\varphi_n$ converge to $X,\varphi$ respectively.
+    By the mean value inequality we have that
+    \begin{equation*}
+        \abs{\varphi(x)}\leq C'(1+\norm{x}^{\alpha+1})=C'(1+\norm{x}^{\frac{p}{q}}).
+    \end{equation*}
+    As a result, since $X \in L^p(\Omega)$, we have that
+    \begin{equation}\label{in1}
+        \varphi(X) \in L^q(\Omega).
+    \end{equation}
+    Furthermore, the growth condition $\norm{\nabla\varphi(x)}\leq C(1+\norm{x}^\alpha)$ implies $\nabla \varphi(X) \in L^{p/\alpha}(\Omega)$. Since $D X \in L^p(\Omega\to L^2(I))$ by definition, we apply the generalized Hölder inequality with exponents $p/\alpha$ and $p$. Observing that $\frac{\alpha}{p} + \frac{1}{p} = \frac{\alpha+1}{p} = \frac{1}{q}$, we obtain
+    \begin{equation}\label{in2}
+        \norm{\nabla \varphi(X) \cdot D X}_{L^q} \leq \norm{\nabla \varphi(X)}_{L^{p/\alpha}} \norm{D X}_{L^p} < \infty.
+    \end{equation}
+    This establishes that $\nabla \varphi(X) \cdot D X \in L^q(\Omega\to L^2(I))$.
+    
+    We now take a sequence of cylindrical random variables $X_n$ converging to $X$ in $\mathbb{D}^{1,p}$ and an approximation to the identity $\delta_n$. Let us set $\varphi_n:=\varphi \ast \delta_n$.
+    \begin{equation*}
+        D \varphi(X) = \lim_{n \to \infty} D [\varphi_n(X_n)] = \lim_{n \to \infty} (\nabla \varphi_n)(X_n)\cdot DX_n = (\nabla \varphi)(X)\cdot DX \in L^q(\Omega\to L^2(I)).
+    \end{equation*}
+    The final equality holds due to the identical bound established in \eqref{in2} and the convergence of $X_n,\varphi_n$ to $X,\varphi$ respectively.
 \end{proof}
 Essentially the previous proposition says that, if $X$ is differentiable and the derivative of $\varphi$ doesn't grow to fast (depending on the integrability of $DX$), then $\varphi(X)$ is also differentiable and we can apply the chain rule. The integrability of $D\varphi(X)$ depending on the integrability of $DX$ and the growth of $\nabla \varphi$.
 \subsection{Example application}
@@ -202,18 +200,11 @@ In the same fashion as before, we can now define the $k$-th differential norm as
 \begin{equation*}
 	\norm{X}_{\mathbb{D}^{k,p}}:=\sum_{j=0}^{k}  \norm{D^j X}_{L^p(\Omega\to L^2(I^j))}.
 \end{equation*}
-Where we use the convention $D^0 X:=X, L^2(I^0):= \R$. Then we simply define $\mathbb{D}^{p,k}$ to be the completion of $\W$ with this norm. Finally, we define
+Where we use the convention $D^0 X:=X, L^2(I^0):= \R$. Then we simply define $\mathbb{D}^{k,p}$ to be the completion of $\W$ with this norm. Finally, we define
 \begin{equation*}
 	\mathbb{D}^{\infty,p}:= \bigcap_{k=1}^\infty \mathbb{D}^{k,p};\quad \mathbb{D}^\infty := \bigcap_{p \geq 1} \bigcap_{k \geq 1} \mathbb{D}^{k,p}.
 \end{equation*}
-
 \bibliography{biblio.bib}
 
 \end{document}
-
-
-
-
-
-
 
