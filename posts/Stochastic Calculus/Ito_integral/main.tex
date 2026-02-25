@@ -26,9 +26,13 @@ Given two measure spaces $(\Omega,\Ff),(\Omega',\Ff')$ we abbreviate that $f:\Om
 $f:\Ff\to\Ff'.$ Furthermore we will take $I=[0,T]$ or $I=[0,+\infty)$ to be the index set of our stochastic processes and by abuse of notation write $\Ff_\infty$ to mean $\Ff_T$ in the former case and $\Ff_\infty$ in the latter.
 
 \section{Integrable functions: progressive measurability}
+Perhaps the best way to understand a $\sigma$-algebra is as a set of available information. With this interpretation we understand $\Ff_t$ as the information available to us by time $t$. A basic property of a stochastic process is that at time $t$ they are determined by this information.
+\begin{definition}
+A stochastic process $\{X_t\}_{t\in I}$ valued in a measurable space $(H,\Hh)$ is \emph{adapted} if $X_t : \Ff_t \to \Hh$ for all $t \in I$.
+\end{definition}
 As we will soon see the only stochastic process that can be integrated are the square integrable and progressively measurable. But what does this mysterious term mean?
 \begin{definition}
-	A stochastic process $\{X_t\}_{t\in I}$ is \emph{progressively measurable} if its restriction to $[0,t]\times\Omega$ is measurable as a map $$X|_{[0,t]\times\Omega} : \Bb([0,t])\otimes\Ff_t\to \Hh$$ for all $t\in I$.
+	A stochastic process $\{X_t\}_{t\in I}$ valued in a measurable space $(H,\Hh)$ is \emph{progressively measurable} if its restriction to $[0,t]\times\Omega$ is measurable as a map $$X|_{[0,t]\times\Omega} : \Bb([0,t])\otimes\Ff_t\to \Hh$$ for all $t\in I$.
 \end{definition}
 Whenever we're given a stochastic process and a filtration the first thing to check is that it is adapted. In fact, since $\omega\to(t,\omega)$ is $\Ff_t\to \Bb([0,t])\otimes \Ff_t$ measurable for all $t$ we have that the following holds.
 \begin{lemma}
@@ -36,7 +40,7 @@ Whenever we're given a stochastic process and a filtration the first thing to ch
 \end{lemma}
 Additionally, stochastic processes can be viewed path-wise but also be seen as functions of a product space, this leads to the following definition.
 \begin{definition}
-	We say that a stochastic process $\{X_t\}_{t\in I}$ is jointly measurable if $$X:\Bb(I)\otimes\Ff_\infty\to \Hh$$
+	We say that a stochastic process $\{X_t\}_{t\in I}$ valued in a measurable space $(H,\Hh)$ is jointly measurable if $$X:\Bb(I)\otimes\Ff_\infty\to \Hh$$
 	where $\Ff_\infty:=\vee_{t\in I}\Ff_t$.
 \end{definition}
 In the definition of progressive measurability we imposed some kind of measurability, in fact the condition leads to the following
@@ -62,7 +66,7 @@ It is also important to note the following.
 \begin{proof}
 	This follows from writing the map as the composition of $(t,\omega)\mapsto (t,X(t,\omega))$ and $f$. The former map evaluates to a measurable function on $[0,t]\times\Omega$ with respect to $\Bb([0,t])\otimes\Ff_t$, since $(t,\omega)\mapsto t$ is measurable and $(t,\omega)\mapsto X(t,\omega)$ is measurable by the progressive measurability of $X$.
 \end{proof}
-The difference between progressively measurable and adapted is quite subtle. In fact every adapted and jointly measurable stochastic process has a progressively measurable modification (see \cite{Karatzas1987BrownianMA} page $5$). The proof of this fact is very lengthy and technical. Thus, if $X\in L^2(\Bb(I)\otimes\Ff_\infty)$ (and in particular is jointly measurable), we may always choose a representative that is progressively measurable. This leads to some authors giving the definition of the class of Itô integrable functions in terms of joint measurability instead of progressive measurability. In the end both lead to equivalent definition. That said, this technicality is usually of little importance due to the following result.
+The difference between progressively measurable and adapted is quite subtle. In fact every adapted and jointly measurable stochastic process has a progressively measurable modification (see \cite{Karatzas1987BrownianMA} page $5$). The proof of this fact is very lengthy and technical. Thus, if $X\in L^2(\Bb(I)\otimes\Ff_\infty)$ (and in particular is jointly measurable) is adapted, we may always choose a representative that is progressively measurable. This leads to some authors giving the definition of the class of Itô integrable functions in terms of joint measurability instead of progressive measurability. In the end both lead to equivalent definition. That said, this technicality is usually of little importance due to the following result.
 \begin{lemma}[Continuity is progressive]
 	Let $\{X_t\}_{t\in I}$ be a left or right continuous stochastic process. Then $X$ is progressively measurable.
 \end{lemma}
@@ -95,11 +99,11 @@ A detailed proof is given in \citet[Chapter 2]{Lalley2013NOTESOT}. This density 
 The proof of this is by the previous approximation result together with the fact that the Ito integral of simple processes is an isometry and the fact that $\mathbb{L}^2(I\times\Omega)$ is complete. This last property follows from the completeness of the $L^p$ spaces and the fact that pointwise limits of progressively measurable functions are progressively measurable (and from every convergent sequence in $L^p$ we can extract a convergent sub-sequence which must also converge to the $L^p$ limit).
 This finally leads us to be able to define the stochastic integral.
 \begin{theorem}
-	Let $t\in I$ and define for a simple process $f\in\Ee$ $$\int_{0}^t X dW=\sum_{n=0}^{N-1} X(t_n)(W(t\cap t_{n+1})-W(t_n)).$$
+	Let $t\in I$ and define for a simple process $f\in\Ee$ $$\int_{0}^t X dW=\sum_{n=0}^{N-1} X(t_n)(W(t\land t_{n+1})-W(t_n)).$$
 	Then the above defines an isometry to the space of continuous square integrable martingales $\Mm_I^2$ as
 	\begin{align*}
-		int: \left(\mathcal{E},\|\cdot\|\U {L^2(I\times\Omega)}\right) & \longrightarrow  \left(\mathcal{M}\U I^2,\|\cdot\|\U {L^2(I\times\Omega)}\right) \\
-		X(t)                                                           & \longmapsto \int\U {0}^t X dW
+		\rm{int }: \left(\mathcal{E},\norm{\cdot }_ {L^2(I\times\Omega)}\right) & \longrightarrow  \left(\mathcal{M}_ I^2,\norm{\cdot }_{L^2(I\times\Omega)}\right) \\
+		X(t)                                                           & \longmapsto \int_ {0}^t X dW
 		.\end{align*}
 	Thus, it extends uniquely to the closure $\overline{\Ee}=\mathbb{L}^2(I\times\Omega)$. Furthermore the extension also has image in $\Mm_I^2.$
 \end{theorem}
