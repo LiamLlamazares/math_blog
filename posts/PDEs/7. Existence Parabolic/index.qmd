@@ -208,7 +208,7 @@ where functions equal almost everywhere are identified, and the norm is defined 
 $$
 \begin{aligned}
 \norm{f}_{L^p(I,X)}  &:= \left( \int_I \norm{f(t)}_X^p \d t \right)^{1/p}, \quad p \in [1, \infty),\\
-  \|f\|_{L^{\infty}(I\rightarrow X)}&:=\inf \{r>0: \mu(\|f\|>r)=0\}.
+  \|f\|_{L^{\infty}(I\rightarrow X)}:=\inf \left\{r>0: \mu\left(\{t \in I : \|f(t)\|_X > r\}\right)=0\right\}.
 \end{aligned}
 $$
 
@@ -271,7 +271,7 @@ where for brevity in the notation we omitted the customary $\dx \d t$ in the int
 
 $$
 \begin{aligned}
-(v, u')+ (\nabla v, \bm{A} \nabla u) + ( v, \bm{b}\nabla u) + (v, cu) = (v, f), \quad u(0) = g.
+(v, u')+ (\nabla v, \bm{A} \nabla u) + ( v, \bm{b}\cdot \nabla u) + (v, cu) = (v, f), \quad u(0) = g.
 \end{aligned}
 $$ {#eq-weak}
 
@@ -660,71 +660,71 @@ $$ {#eq-bound-p}
 
 ::: {.proof}
 
-Let $\set{u_n}_{n=1}^\infty$ be the sequence of solutions to the Galerkin problem ([-@eq-galerkin]) guaranteed by Theorem ([-@eq-galerkin]).  By said theorem, $u_n$ and $u'_n$ are bounded sequences in $L_t^2H_{0,x}^1$ and $L_t^2 H_x^{-1}$ respectively. Since these spaces are Hilbert spaces, they are reflexive, and we deduce by the [Banach-Alaoglu theorem](<https://en.wikipedia.org/wiki/Banach%E2%80%93Alaoglu_theorem>) that respective subsequences converge in their respective spaces to some $u \in L_tH_{0,x}^1$ and $\tl{u} \in L_t H_x^{-1}$. That is, 
- 
+ Let $\set{u_n}_{n=1}^\infty$ be the sequence of solutions to the Galerkin problem ([-@eq-galerkin]) guaranteed by Theorem ([-@eq-galerkin]).  By said theorem, $u_n$ and $u'_n$ are bounded sequences in $L_t^2H_{0,x}^1$ and $L_t^2 H_x^{-1}$ respectively. Since these spaces are Hilbert spaces, they are reflexive, and we deduce by the [Banach-Alaoglu theorem](<https://en.wikipedia.org/wiki/Banach%E2%80%93Alaoglu_theorem>) that respective subsequences converge weakly in their respective spaces to some $u \in L_tH_{0,x}^1$ and $\tl{u} \in L_t H_x^{-1}$. That is, 
+  
 $$
 \begin{aligned}
-u= \lim_{k \to \infty}u_{n_k} \in L_t^2H_{0,x}^1, \quad \tl{u}= \lim_{k \to \infty}u_{n_k} \in L_t^2 H_x^{-1}.
+u_{n_k} \rightharpoonup u \text{ weakly in } L_t^2H_{0,x}^1, \quad u_{n_k}' \rightharpoonup \tl{u} \text{ weakly in } L_t^2 H_x^{-1}.
 \end{aligned}
 $$
 
-We first show that $\tl{u} = u'$. We have that, given $\phi \in C_c^\infty(I \times U)$
- 
+ We first show that $\tl{u} = u'$. We have that, given $\phi \in C_c^\infty(I \times U)$
+  
 $$
 \begin{aligned}
 (\phi,\tl{u}')\lim_{k \to \infty} \left(\phi, u_{n_k}'\right) & = \lim_{k \to \infty} \left(-\phi', u_{n_k}\right) = \left(-\phi', u\right) ,
 \end{aligned}
 $$
 
-where in the first equality we used the weak convergence of $u'_{n_k}$ to $\tl{u}$ in $L_t H_x^{-1}$, in the second equality we used the definition of weak derivative, and in the last we used the convergence of $u_{n_k}$ to $u$ in $L_t^2H_{0,x}^1$. This shows that $u' = \tl{u}$ almost everywhere. We now show that $u$ solves the weak problem ([-@eq-weak]).  By construction of the Galerkin solutions in ([-@eq-galerkin]) and integrating over $I$, we deduce for any $v \in \Ss_{n_k}$ 
- 
+ where in the first equality we used the weak convergence of $u'_{n_k}$ to $\tl{u}$ in $L_t H_x^{-1}$, in the second equality we used the definition of weak derivative, and in the last we used the convergence of $u_{n_k}$ to $u$ in $L_t^2H_{0,x}^1$. This shows that $u' = \tl{u}$ almost everywhere. We now show that $u$ solves the weak problem ([-@eq-weak]).  By construction of the Galerkin solutions in ([-@eq-galerkin]) and integrating over $I$, we deduce for any $v \in \Ss_{n_k}$ 
+  
 $$
 \begin{aligned}
 (v, u'_{n_k})+ (\nabla v, \bm{A} \nabla u_{n_k}) + (\nabla v, \bm{b} u_{n_k}) + (v, cu_{n_k}) = (v, f).
 \end{aligned}
 $$ {#eq-weak-k}
 
-As a result, taking limits in $k$ shows that, for all $v \in \Ss _n$
- 
+ As a result, taking limits in $k$ shows that, for all $v \in \Ss _n$
+  
 $$
 \begin{aligned}
 (v, u')+ (\nabla v, \bm{A} \nabla u) + (\nabla v, \bm{b} u) + (v, cu) = (v, f).
 \end{aligned}
 $$
 
-Since the space $\Ss _n$ is dense in $L_t^2H_{0,x}^1$ we deduce that
- 
+ Since the space $\Ss _n$ is dense in $L_t^2H_{0,x}^1$ we deduce that
+  
 $$
 \begin{aligned}
 (v, u')+ (\nabla v, \bm{A} \nabla u) + (\nabla v, \bm{b} u) + (v, cu) = (v, f), \quad \forall v \in L_t^2H_{0,x}^1.
 \end{aligned}
 $$
 
-We now check that $u(0)=g$. To do so, we now consider $v \in C^1_tH_{0,x}^1 \cap \Ss _{n_k}$ such that $v(T)=0$. Then, integrating by parts over $I$ and using ([-@eq-weak-k]) gives
- 
+ We now check that $u(0)=g$. To do so, we now consider $v \in C^1_tH_{0,x}^1 \cap \Ss _{n_k}$ such that $v(T)=0$. Then, integrating by parts over $I$ and using ([-@eq-weak-k]) gives
+  
 $$
 \begin{aligned}
 & -(v', u_{n_k}) + (\nabla v, \bm{A} \nabla u_{n_k}) + (\nabla v, \bm{b} u_{n_k}) + (v, cu_{n_k}) \\&= (v, f)+  \br{v(0),g}_{L_x^2}=(v, f)+  \br{v(0),u_{n_k}(0)}_{L_x^2}.
 \end{aligned}
 $$
 
-Taking limits above and by density of $\Ss_n$ in $C_t^2H_{0,x}^1$ we obtain that
- 
+ Taking limits above and by density of $\Ss_n$ in $C_t^1H_{0,x}^1$ we obtain that
+  
 $$
 \begin{aligned}
-\br{v(0),g}_{L_x^2} = \br{v(0),u(0)}_{L_x^2}, \quad \forall v \in C_t^2H_{0,x}^1.
+\br{v(0),g}_{L_x^2} = \br{v(0),u(0)}_{L_x^2}, \quad \forall v \in C_t^1H_{0,x}^1.
 \end{aligned}
 $$
 
-where we used that by @lem-continuity-weak $u_{n_k} \to u \in C_t L_x^2$. In particular,
- 
+ where we used that by @lem-continuity-weak $u_{n_k} \to u \in C_t L_x^2$. In particular,
+  
 $$
 \begin{aligned}
 \br{w,g}_{L_x^2} = \br{w,u(0)}_{L_x^2}, \quad \forall w \in H_{0,x}^1.
 \end{aligned}
 $$
 
-Since $H_{0,x}^1$ is dense in $L_x^2$ this shows that $u(0)=g$ and concludes the proof.
+ Since $H_{0,x}^1$ is dense in $L_x^2$ this shows that $u(0)=g$ and concludes the proof.
 
 :::
 

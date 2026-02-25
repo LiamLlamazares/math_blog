@@ -686,7 +686,7 @@ def convert_body(body: str, label_registry: dict | None = None,
     def dedent_center(m):
         inner = m.group(1)
         dedented = textwrap.dedent(inner.strip('\n'))
-        return f'\n\n::: {{style="text-align: center;"}}\n\n{dedented}\n\n:::\n\n'
+        return f'\n\n<div style="text-align: center;">\n\n{dedented}\n\n</div>\n\n'
 
     text = re.sub(r'\\begin\{center\}[ \t]*\n?(.*?)\\end\{center\}', dedent_center, text, flags=re.DOTALL)
 

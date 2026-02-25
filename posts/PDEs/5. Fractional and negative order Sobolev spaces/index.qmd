@@ -187,7 +187,7 @@ where
 
 $$
 \begin{aligned}
-\norm{u}_{W^{s,p}(U)}:= \left(\norm{u}_{W^{k,p}(U)}^p+ \sum_{\abs{\alpha}=k }\int_{U}\int_{U}\frac{\abs{D^\alpha u(x+y)-D^\alpha u(x)}^p}{\abs{y}^{d+\gamma p}}\d x \d y\right)^\frac{1}{p}.
+\norm{u}_{W^{s,p}(U)}:= \left(\norm{u}_{W^{k,p}(U)}^p+ \sum_{\abs{\alpha}=k }\int_{U}\int_{U}\frac{\abs{D^\alpha u(x)-D^\alpha u(y)}^p}{\abs{x-y}^{d+\gamma p}}\d x \d y\right)^\frac{1}{p}.
 \end{aligned}
 $$ {#eq-norm-def}
 
@@ -198,6 +198,19 @@ $$
 \norm{u}_{W^{s,\infty}(U)}= \norm{u}_{C^{k}(U)}+ \sum_{\abs{\alpha} =k}  \sup _{x, y \in U, x \neq y} \frac{|D^\alpha u(x)- D^\alpha u(y)|}{|x-y|^\gamma }.
 \end{aligned}
 $$
+
+:::
+
+::: {#rem-1}
+
+In the case where $U= \R^d$, by a change of variables, we can equivalently define    
+$$
+\begin{aligned}
+\norm{u}_{W^{s,p}(\R^d)}:= \left(\norm{\R^d}_{W^{k,p}(\R^d)}^p+ \sum_{\abs{\alpha}=k }\int_{\R^d}\int_{\R^d}\frac{\abs{D^\alpha u(x+y)-D^\alpha u(y)}^p}{\abs{x-y}^{d+\gamma p}}\d x \d y\right)^\frac{1}{p}.
+\end{aligned}
+$$ {#eq-norm-def}
+
+If $U \neq \R^d$ this is not possible as $x+y$ may leave the domain where $u$ is defined.
 
 :::
 
@@ -215,7 +228,7 @@ To show that $|| \cdot ||_{W^{s,p}(U)}$ is a norm apply Minkowski's inequality t
 
 $$
 \begin{aligned}
-f_u(x,y):=\frac{D^\alpha u(x+y)-D^\alpha u(x)}{y^{\frac{d}{p}+\gamma}}.
+f_u(x,y):=\frac{D^\alpha u(x)-D^\alpha u(y)}{\abs{x-y}^{\frac{d}{p}+\gamma}}.
 \end{aligned}
 $$
 
@@ -335,13 +348,13 @@ $$
 \end{aligned}
 $$
 
-::: {#rem-1}
+::: {#rem-2}
 
 It is tempting to define $\norm{u}_{H^{s,p}(U )}:=\norm{\Lambda^s v}_{L^p(U )}$. However, since the Fourier transform, and thus $\Lambda^s$, is a nonlocal operator, the norm would depend on the extension $v$  of $u$ to $\R^d$ and be ill-defined.
 
 :::
 
-::: {#rem-2}
+::: {#rem-3}
 
 It would also make sense to define $H^{s,p}(U )$  through complex interpolation. This is likely different from the above definition, however, as we will later see, this will coincide with the definition above when $\Omega$ is smooth enough (for example Lipschitz). See also [@leoni2023first] page 328 for a similar remark.
 
@@ -363,7 +376,7 @@ where
 
 $$
 \begin{aligned}
-\norm{u}_{B^{s,p}(U)}:= \left(\norm{u}_{W^{k_{-},p}(U)}^p+ \sum_{\abs{\alpha}=k_- }\int_{U}\int_{U}\frac{\abs{D^\alpha u(x+y)-D^\alpha u(x)}^p}{\abs{y}^{d+\gamma p}}\d x \d y\right)^\frac{1}{p}.
+\norm{u}_{B^{s,p}(U)}:= \left(\norm{u}_{W^{k_{-},p}(U)}^p+ \sum_{\abs{\alpha}=k_- }\int_{U}\int_{U}\frac{\abs{D^\alpha u(x)-D^\alpha u(y)}^p}{\abs{x-y}^{d+\gamma p}}\d x \d y\right)^\frac{1}{p}.
 \end{aligned}
 $$
 
@@ -427,7 +440,7 @@ $$
 
 :::
 
-::: {#rem-3}
+::: {#rem-4}
 
 Different authors use different notations for these spaces. For example, in [@triebel1992theory], the notation $W^{s,p}(\R^d):= B^{s,p}(\R^d)$ is used. With this notation, one has that, for $p \neq 2$, and $k \in \N_0$,
 
@@ -716,7 +729,7 @@ Negative orders of regularity correspond to the dual of Sobolev spaces. This is 
 
 ::: {#thm-dual-of-integer-sobolev}
 
-For all $k \in \mathbb{Z}$ and $p \in [1,\infty)$  and $\Omega$ an extension domain for $W^{k,p}$, it holds that
+For all $k \in \mathbb{Z}$ and $p \in (1,\infty)$  and $\Omega$ an extension domain for $W^{k,p}$, it holds that
 
 $$
 \begin{aligned}
@@ -730,7 +743,7 @@ The first equality will be discussed in the next subsection and is most easily p
 
 ::: {#thm-2}
 
-Given $s>0, p \in [1,\infty)$ and $\Omega$ an extension domain, it holds that the spaces $W^{s,p}(\Omega ),H^{s,p}(\Omega ),B^{s,p}(\Omega )$ are reflexive Banach spaces with duals
+Given $s>0, p \in (1,\infty)$ and $\Omega$ an extension domain, it holds that the spaces $W^{s,p}(\Omega ),H^{s,p}(\Omega ),B^{s,p}(\Omega )$ are reflexive Banach spaces with duals
 
 $$
 \begin{aligned}
@@ -748,7 +761,7 @@ $$
 
 :::
 
-::: {#rem-4}
+::: {#rem-5}
 
 Some authors define given $s>0$ and $p \in [1,\infty)$
 
@@ -886,7 +899,7 @@ We know that we can homeomorphically map the spaces $H^{s,p}(\R^d )$ and $B^{s,p
 
 ::: {#thm-riesz-representation name="Representation of $W_0^{k,p}(\Omega )'$"}
 
-Let $\Omega \subset \R^d$ be an extension domain for $W^{k,p}$ where   $k \in \N$ and $p \in [1,\infty)$. Then, every element in $W^{-k,p'}(\Omega )=W^{k,p}_0(\Omega )'$ is the unique extension of a distribution  of the form
+Let $\Omega \subset \R^d$ be an extension domain for $W^{k,p}$ where   $k \in \N$ and $p \in (1,\infty)$. Then, every element in $W^{-k,p'}(\Omega )=W^{k,p}_0(\Omega )'$ is the unique extension of a distribution  of the form
 
 $$
 \begin{aligned}
@@ -999,11 +1012,11 @@ $$
 \end{aligned}
 $$ {#eq-pde}
 
-Then, it is necessary to know exactly what boundary data $g$ is admissible. Suppose that $\Ll$ is of order $k$ so we require  $u \in W^{k,p}(\Omega )$. Will ([-@eq-pde]) have a solution? To be able to answer this question, we need to know the image of the trace operator. If $g \notin \operatorname{Tr}(W^{k,p}(\Omega ))$, then there is no hope of finding a solution. The following theorem characterizes the image of the trace operator and can be found in [@agranovich2015sobolev] page 228 and [@leoni2023first] page 390.
+Then, it is necessary to know exactly what boundary data $g$ is admissible. Suppose that $\Ll$ is of order $k$ so we require  $u \in W^{k,p}(\Omega )$. Will ([-@eq-pde]) have a solution? To be able to answer this question, we need to know the image of the trace operator. If $g \notin \operatorname{Tr}(W^{k,p}(\Omega ))$, then there is no hope of finding a solution. The following theorem characterizes the image of the trace operator and can be found in [@agranovich2015sobolev] page 228 and [@leoni2023first, page 350, 492].
 
 ::: {#thm-trace-theorem name="Fractional trace theorem"}
 
-Let $\Omega \subset \R^d$ be open with $C^{0,1}$ boundary. Then, for all  $p\in (1,\infty), s\in (1/p,\infty)$, the trace operator $\operatorname{Tr}$ can be extended from $C(\overline{\Omega } )$  to a bounded operator
+Let $\Omega \subset \R^d$ be open with $C^{k,1}$ boundary. Then, for all  $p\in (1,\infty), s\in (1/p,k)$, the trace operator $\operatorname{Tr}$ can be extended from $C(\overline{\Omega } )$  to a bounded operator
 
 $$
 \begin{aligned}

@@ -378,7 +378,7 @@ B(u,u) \geq \frac{\alpha}{2} \norm{\nabla u}^2_{L^2(U \to \R^d)} -\nu \norm{u}^2
 \end{aligned}
 $$ {#eq-b-not-0}
 
-Where we defined $\nu = \norm{\bm{b}}_{L^\infty(U)} \varepsilon ^{-1}+\norm{c}_{L^\infty(U)}$. The theorem follows from  ([-@eq-b-not-0]) as for all $\gamma > \nu$
+Where we defined $\nu = \frac{1}{2}\norm{\bm{b}}_{L^\infty(U)} \varepsilon ^{-1}+\norm{c}_{L^\infty(U)}$. The theorem follows from  ([-@eq-b-not-0]) as for all $\gamma > \nu$
 
 $$
 \begin{aligned}
@@ -457,7 +457,7 @@ Then, the following hold:
 
     $$
     \begin{aligned}
-    N:= \set{u \in H_0^1(U): \Ll u = \lambda u}, \quad N^*:= \set{w \in L^2(U): \Ll^* w = \lambda w},
+    N:= \set{u \in H_0^1(U): \Ll u = \lambda u}, \quad N^*:= \set{w \in H_0^1(U): \Ll^* w = \lambda w},
     \end{aligned}
     $$
 
@@ -502,11 +502,11 @@ $$
 
 By @thm-well-posed-1 we know that $Kv = \Ll _\gamma ^{-1} v \in H_0^1(U)$ for all $v \in L^2(U)$ . As a result, $u$ solves problem ([-@eq-original]), and by the transformation $v \leftrightarrow u$ problem ([-@eq-fred]) has a solution if and only if problem ([-@eq-original]) has a solution. Taking $f=0$, we also obtain that $u$ solves problem ([-@eq-original]) if and only $v$ solves problem ([-@eq-fred]).  In conclusion,
 
-::: {style="text-align: center;"}
+<div style="text-align: center;">
 
 Problem ([-@eq-original]) is w.p $\iff$ Problem ([-@eq-fred]) is w.p $\iff$ $\ker(T) =0 \iff \ker(\Ll -\lambda \bm{I} )=0$,
 
-:::
+</div>
 
 where the second equivalence is due to the Fredholm alternative, and the third can be verified by an algebraic manipulation. This proves the first point.
 
