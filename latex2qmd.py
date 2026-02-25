@@ -659,7 +659,9 @@ def convert_body(body: str, label_registry: dict | None = None,
                 lines_d = [l.lstrip() if l.strip() else l for l in lines_d]
                 dedented = '\n'.join(lines_d)
                 # Pandoc requires blank lines after the opening fence and before the closing fence
-                return f'\n::: {{{" ".join(attrs)}}}\n\n{dedented}\n\n:::\n'
+                # Pandoc requires blank lines after the opening fence and before the closing fence
+                # Use 3 colons as standard, but ensure blank lines for block separation
+                return f'\n\n::: {{{" ".join(attrs)}}}\n\n{dedented}\n\n:::\n\n'
             return replacer
 
         text = pattern.sub(make_replacer(env_name), text)
@@ -668,7 +670,7 @@ def convert_body(body: str, label_registry: dict | None = None,
     def dedent_proof(m):
         inner = m.group(1)
         dedented = textwrap.dedent(inner.strip('\n'))
-        return f'\n::: {{.proof}}\n\n{dedented}\n\n:::\n'
+        return f'\n\n::: {{.proof}}\n\n{dedented}\n\n:::\n\n'
 
     text = re.sub(r'\\begin\{proof\}[ \t]*\n?(.*?)\\end\{proof\}', dedent_proof, text, flags=re.DOTALL)
 
@@ -676,7 +678,7 @@ def convert_body(body: str, label_registry: dict | None = None,
     def dedent_hint(m):
         inner = m.group(1)
         dedented = textwrap.dedent(inner.strip('\n'))
-        return f'\n::: {{.callout-tip collapse="true" title="Hint"}}\n\n{dedented}\n\n:::\n'
+        return f'\n\n::: {{.callout-tip collapse="true" title="Hint"}}\n\n{dedented}\n\n:::\n\n'
 
     text = re.sub(r'\\begin\{hint\}[ \t]*\n?(.*?)\\end\{hint\}', dedent_hint, text, flags=re.DOTALL)
 
@@ -780,30 +782,63 @@ def convert_body(body: str, label_registry: dict | None = None,
     text = replace_display_math(text, 'equation\\*', starred=True)
 
     # --- Pass 4: Enumerate / Itemize ---
+    def roman(n):
+        val = [10, 9, 5, 4, 1]
+        syb = ["x", "ix", "v", "iv", "i"]
+        res = ""
+        i = 0
+        while n > 0:
+            for _ in range(n // val[i]):
+                res += syb[i]
+                n -= val[i]
+            i += 1
+        return res
+
     def convert_enumerate(m):
-        inner = m.group(1)
+        opt_arg = m.group(1)
+        inner = m.group(2)
         items = re.split(r'\\item\s*', inner)
         items = [it.strip() for it in items if it.strip()]
         lines = []
         for idx, item in enumerate(items, 1):
+            marker = f'{idx}.'
+            if opt_arg:
+                if 'a' in opt_arg:
+                    marker = f'{chr(96+idx)}.' if idx <= 26 else f'{idx}.'
+                elif 'A' in opt_arg:
+                    marker = f'{chr(64+idx)}.' if idx <= 26 else f'{idx}.'
+                elif 'i' in opt_arg:
+                    marker = f'{roman(idx)}.'
+                elif 'I' in opt_arg:
+                    marker = f'{roman(idx).upper()}.'
+            
             # Strip trailing \label{...} from items
             item = re.sub(r'\\label\{[^}]*\}', '', item).strip()
-            lines.append(f'{idx}. {item}')
-        return '\n'.join(lines)
+            item_lines = item.split('\n')
+            indented = item_lines[0]
+            if len(item_lines) > 1:
+                indented += '\n' + '\n'.join('    ' + l for l in item_lines[1:])
+            lines.append(f'{marker} {indented}')
+        return '\n\n' + '\n\n'.join(lines) + '\n\n'
 
-    text = re.sub(r'\\begin\{enumerate\}(.*?)\\end\{enumerate\}',
+    text = re.sub(r'\\begin\{enumerate\}(?:\[(.*?)\])?(.*?)\\end\{enumerate\}',
                   convert_enumerate, text, flags=re.DOTALL)
 
     def convert_itemize(m):
-        inner = m.group(1)
+        opt_arg = m.group(1) # just in case
+        inner = m.group(2)
         items = re.split(r'\\item\s*', inner)
         items = [it.strip() for it in items if it.strip()]
         lines = []
         for item in items:
-            lines.append(f'- {item}')
-        return '\n'.join(lines)
+            item_lines = item.split('\n')
+            indented = item_lines[0]
+            if len(item_lines) > 1:
+                indented += '\n' + '\n'.join('    ' + l for l in item_lines[1:])
+            lines.append(f'- {indented}')
+        return '\n\n' + '\n\n'.join(lines) + '\n\n'
 
-    text = re.sub(r'\\begin\{itemize\}(.*?)\\end\{itemize\}',
+    text = re.sub(r'\\begin\{itemize\}(?:\[(.*?)\])?(.*?)\\end\{itemize\}',
                   convert_itemize, text, flags=re.DOTALL)
 
     # --- Pass 5: Citations ---

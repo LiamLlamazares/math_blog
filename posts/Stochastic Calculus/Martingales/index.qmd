@@ -114,7 +114,9 @@ format:
 ## Three line summary
 
 - Conditional expectations exist in a natural way for simple functions, by taking extensions they also exist for integrable functions to a Banach space $L^1(\Omega\to E)$.
+
 - Using conditional expectations we can define what a martingale is just like in the real case.
+
 - The space of continuous $p$-integrable martingales is a Banach space.
 
 ## Why should I care?
@@ -186,8 +188,11 @@ Okay, so we leveraged some inequalities to prove the existence of a conditional 
 ::: {#def-1}
 
 Let $\{M(t)\}_{t\in I}$ be a stochastic process on $(\Omega, \Ff, \PP)$ with a filtration $\{\Ff_{t}\}_{t \in I}$. The process $M$ is called an $\Ff_{t}$-martingale, if:
+
 1. $M(t)\in L^1(\Omega\to E)$ for all $t\in I$,
+
 2. $M(t):\Ff_{t} \to \Bb(E)$ for all $t\in I$,
+
 3. $\E_{\Ff_{s}}\left[M(t)\right]=M(s)$ for all $s \leq t$.
 
 :::
@@ -264,9 +269,13 @@ Doob's inequality is essentially an equality between different function norms we
 ::: {#cor-1}
 
 Let $M$ be a (left or right) continuous martingale to a separable Banach space $E$. Then the following are equivalent
+
 - $M\in \hat{L}^\infty([0,T]\to \hat{L}^2(\Omega\to E))$
+
 - $M\in \hat{L}^2(\Omega\to \hat{L}^\infty([0,T]\to E))$
+
 - $\mathbb{E}[\norm{M(T)}^2]<\infty$
+
 Where we recall from the previous post that $\hat{L}^p$ symbolizes that $M$ may not be separately valued and only have an integrable norm. That said, the same reasoning shows that the above result also holds for the integrable $L^p$ spaces.
 
 :::

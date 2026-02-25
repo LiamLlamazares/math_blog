@@ -1,10 +1,9 @@
 ---
-title: "PDES 4: Elliptic PDE: Well posedness"
+title: "PDES 4: A physical derivation of parabolic and elliptic PDE"
 author: "Liam Llamazares--Elias"
 date: "2023-12-23"
 categories: [Pdes]
 description: "Just have to balance the mass"
-bibliography: biblio.bib
 format:
   html:
     css: /custom_theorems.css
@@ -201,47 +200,49 @@ $$
 $$ {#eq-balance}
 
 We would now like to express the flux in terms of the properties of the fluid and domain. We recall that $\bm{F}$ determines the magnitude and direction of the flow of the solute. We distinguish two possible reasons for the movement of the solute.
-1. [a)]
-2. *Diffusion*: This is the process that causes the solute to move from areas of lower to higher concentration. A possible physical approximation is to consider the diffusion to be proportional to the gradient of the density, that is
-	      
-$$
-\begin{aligned}
-\bm{F}_{\text{diffusion}} = -\bm{A}\nabla u  .
-\end{aligned}
-$$
 
-	      Here, $\bm{A}(\bm{x} ) \in \R^{d\times d}_+$ is called the *diffusivity*, diffusion coefficient or viscosity depending on the context and is a positive definite matrix. The diffusivity encodes the preference of the solute to flow in one direction or another depending on the properties of the domain itself. If $\bm{A}$ has orthonormal eigensystem
-	      
-$$
-\begin{aligned}
-\{(\bm{e_1},\lambda _1 ),(\bm{e}_2, \lambda _2 ),\ldots, (\bm{e}_3 ,\lambda _d)\} .
-\end{aligned}
-$$
+a. *Diffusion*: This is the process that causes the solute to move from areas of lower to higher concentration. A possible physical approximation is to consider the diffusion to be proportional to the gradient of the density, that is
+    	      
+    $$
+    \begin{aligned}
+    \bm{F}_{\text{diffusion}} = -\bm{A}\nabla u  .
+    \end{aligned}
+    $$
+    
+    	      Here, $\bm{A}(\bm{x} ) \in \R^{d\times d}_+$ is called the *diffusivity*, diffusion coefficient or viscosity depending on the context and is a positive definite matrix. The diffusivity encodes the preference of the solute to flow in one direction or another depending on the properties of the domain itself. If $\bm{A}$ has orthonormal eigensystem
+    	      
+    $$
+    \begin{aligned}
+    \{(\bm{e_1},\lambda _1 ),(\bm{e}_2, \lambda _2 ),\ldots, (\bm{e}_3 ,\lambda _d)\} .
+    \end{aligned}
+    $$
+    
+    	      Then
+    	      
+    $$
+    \begin{aligned}
+    \bm{F}_{\text{diffusion}} = -\bm{A}\nabla u=-  \lambda _j(\nabla u\cdot \bm{e}_j )\bm{e}_j .
+    \end{aligned}
+    $$ {#eq-diffusion}
+    
+    	      That is, the solute diffuses in the direction of $\bm{e}_j$ with speed proportional to $\lambda_j$. For example, if $\bm{A}$ is a constant multiple of the identity, there is no preferred direction of flow. In this case, one says that the flow is *homogeneous*. The minus sign in @eq-diffusion together with the imposition that $\bm{A}$ is positive definite means that diffusion occurs from areas of lower to higher concentration.
+    
+    	      If diffusion is the only cause of movement in the fluid, $\bm{F}= - \bm{A}\nabla u$ and substituting  into the balance equation @eq-balance gives the (non-homogeneous) heat equation
+    	      
+    $$
+    \begin{aligned}
+    \partial_tu= \nabla \cdot (\bm{A}\nabla u)+f .
+    \end{aligned}
+    $$
 
-	      Then
-	      
-$$
-\begin{aligned}
-\bm{F}_{\text{diffusion}} = -\bm{A}\nabla u=-  \lambda _j(\nabla u\cdot \bm{e}_j )\bm{e}_j .
-\end{aligned}
-$$ {#eq-diffusion}
+b. *Advection*: Another possible cause for the flow of the solute within $\Omega$ is that the fluid itself is moving with some velocity  $\bm{v}$, transporting along the particles of the solute. The flux due to advection is
+    	      
+    $$
+    \begin{aligned}
+    \bm{F}_{\text{advection} }= u \bm{v} .
+    \end{aligned}
+    $$
 
-	      That is, the solute diffuses in the direction of $\bm{e}_j$ with speed proportional to $\lambda_j$. For example, if $\bm{A}$ is a constant multiple of the identity, there is no preferred direction of flow. In this case, one says that the flow is *homogeneous*. The minus sign in @eq-diffusion together with the imposition that $\bm{A}$ is positive definite means that diffusion occurs from areas of lower to higher concentration.
-
-	      If diffusion is the only cause of movement in the fluid, $\bm{F}= - \bm{A}\nabla u$ and substituting  into the balance equation @eq-balance gives the (non-homogeneous) heat equation
-	      
-$$
-\begin{aligned}
-\partial_tu= \nabla \cdot (\bm{A}\nabla u)+f .
-\end{aligned}
-$$
-3. *Advection*: Another possible cause for the flow of the solute within $\Omega$ is that the fluid itself is moving with some velocity  $\bm{v}$, transporting along the particles of the solute. The flux due to advection is
-	      
-$$
-\begin{aligned}
-\bm{F}_{\text{advection} }= u \bm{v} .
-\end{aligned}
-$$
 The flux is thus made up of the sum of a diffusion and advection component:
 
 $$
@@ -312,58 +313,63 @@ If $u$ solves @eq-poisson, then $u+p$ also solves @eq-poisson where $p$ is any p
 :::
 
 There are multiple types of boundary conditions which can be specified, each one corresponding to a particular behaviour of the system.
-1. [a)]
-2. *Dirichlet boundary condition*: This is the additional imposition that
-	      
-$$
-\begin{aligned}
-u=g \text{ on } \partial\Omega,
-\end{aligned}
-$$
 
-	      where $g$ is some function defined on  $\partial \Omega$ and $u$ is restricted to $\partial\Omega$ through the trace theorem developed in [the previous post](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/). In the context of the diffusion of heat, $\Omega$ could be a rod which is kept at a constant temperature at its endpoints.
-3. *Robin boundary condition*: Here, it is imposed that
-	      
-$$
-\begin{aligned}
--\bm{F}\cdot  \bm{n} =g \text{  on } \partial \Omega,
-\end{aligned}
-$$ {#eq-robin}
+a. *Dirichlet boundary condition*: This is the additional imposition that
+    	      
+    $$
+    \begin{aligned}
+    u=g \text{ on } \partial\Omega,
+    \end{aligned}
+    $$
+    
+    	      where $g$ is some function defined on  $\partial \Omega$ and $u$ is restricted to $\partial\Omega$ through the trace theorem developed in [the previous post](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/). In the context of the diffusion of heat, $\Omega$ could be a rod which is kept at a constant temperature at its endpoints.
 
-	      where $\bm{F}$ is the flux and in our case is $\bm{F}=-\bm{A} \nabla u+ \bm{v}u$. This condition imposes that a ``mass'' $g$ of substance (solute, heat, etc.) enters the domain at each point of the boundary (or leaves if the minus in @eq-robin is omitted).
-4. *Neumann boundary condition:*	This is a particular case of the Robin boundary condition where there is no diffusion. In this case, @eq-robin  becomes
-	      
-$$
-\begin{aligned}
-(\bm{A} \nabla u) \cdot n=g \text{  on } \partial \Omega.
-\end{aligned}
-$$
+b. *Robin boundary condition*: Here, it is imposed that
+    	      
+    $$
+    \begin{aligned}
+    -\bm{F}\cdot  \bm{n} =g \text{  on } \partial \Omega,
+    \end{aligned}
+    $$ {#eq-robin}
+    
+    	      where $\bm{F}$ is the flux and in our case is $\bm{F}=-\bm{A} \nabla u+ \bm{v}u$. This condition imposes that a ``mass'' $g$ of substance (solute, heat, etc.) enters the domain at each point of the boundary (or leaves if the minus in @eq-robin is omitted).
 
-	      The above is known as a Neumann boundary condition. If the material is homogeneous, that is, $\bm{A}=\bm{I}$, the special notation
-	      
-$$
-\begin{aligned}
-\frac{\partial u}{\partial \bm{n}}:= \nabla u \cdot  \bm{n} =g \text{  on } \partial \Omega,
-\end{aligned}
-$$
+c. *Neumann boundary condition:*	This is a particular case of the Robin boundary condition where there is no diffusion. In this case, @eq-robin  becomes
+    	      
+    $$
+    \begin{aligned}
+    (\bm{A} \nabla u) \cdot n=g \text{  on } \partial \Omega.
+    \end{aligned}
+    $$
+    
+    	      The above is known as a Neumann boundary condition. If the material is homogeneous, that is, $\bm{A}=\bm{I}$, the special notation
+    	      
+    $$
+    \begin{aligned}
+    \frac{\partial u}{\partial \bm{n}}:= \nabla u \cdot  \bm{n} =g \text{  on } \partial \Omega,
+    \end{aligned}
+    $$
+    
+    	      is used. Here $\frac{\partial u}{\partial \bm{n}}$ is known as the *normal derivative*.
 
-	      is used. Here $\frac{\partial u}{\partial \bm{n}}$ is known as the *normal derivative*.
-5. *Mixed boundary condition*: This corresponds a mix of the preceding. That is, $\partial \Omega$ is partitioned into $\Gamma _1, \Gamma _2$, and the following boundary conditions are imposed.
-	      
-$$
-\begin{aligned}
-u=g_1 \text{  on }  \Gamma _1,  \text{ and }  -\bm{F} \cdot n=g_2 \text{  on }  \Gamma _2.
-\end{aligned}
-$$
-6. *Periodic boundary conditions*: Here the domain is an interval  $\Omega=(\bm{a}, \bm{b})$ and we require that for all $k \in \{1,\ldots,d\}$
-	      
-$$
-\begin{aligned}
-u(x_1,\ldots,a_k,\ldots, x_d)=u({x}_1,\ldots,{b}_k,\ldots, {x}_d).
-\end{aligned}
-$$
+d. *Mixed boundary condition*: This corresponds a mix of the preceding. That is, $\partial \Omega$ is partitioned into $\Gamma _1, \Gamma _2$, and the following boundary conditions are imposed.
+    	      
+    $$
+    \begin{aligned}
+    u=g_1 \text{  on }  \Gamma _1,  \text{ and }  -\bm{F} \cdot n=g_2 \text{  on }  \Gamma _2.
+    \end{aligned}
+    $$
 
-	      Equivalently, $u$ is a function of the torus  $\R^d/ (\Z^d \cdot (\bm{b}-\bm{a}))$. These boundary conditions are typically used to approximate a system evolving on a very large domain by working only with a representative cell $[\bm{a},\bm{b}]$.
+e. *Periodic boundary conditions*: Here the domain is an interval  $\Omega=(\bm{a}, \bm{b})$ and we require that for all $k \in \{1,\ldots,d\}$
+    	      
+    $$
+    \begin{aligned}
+    u(x_1,\ldots,a_k,\ldots, x_d)=u({x}_1,\ldots,{b}_k,\ldots, {x}_d).
+    \end{aligned}
+    $$
+    
+    	      Equivalently, $u$ is a function of the torus  $\R^d/ (\Z^d \cdot (\bm{b}-\bm{a}))$. These boundary conditions are typically used to approximate a system evolving on a very large domain by working only with a representative cell $[\bm{a},\bm{b}]$.
+
 Finally, mathematically, it also makes sense to work with infinite domains such as the whole Euclidean space $\R^d$. In this case, rather than a boundary condition, one imposes suitable decay on the function such as $u \in L^p(\R^d)$ or its derivatives such as $u \in W^{k,p}(\R^d)$.
 
 We end the post by commenting that non-linear terms may be considered in the PDE @eq-parabolic-@eq-elliptic.  Many examples can be found [here](https://en.wikipedia.org/wiki/List_of_nonlinear_partial_differential_equations). However, the mathematical theory of nonlinear PDE is much more complicated (think Navier Stokes). The linear case, which we begin to develop in the next post, will keep us busy for a while.

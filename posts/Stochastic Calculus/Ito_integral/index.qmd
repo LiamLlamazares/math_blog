@@ -113,7 +113,9 @@ format:
 ## Three line summary
 
 - The Itô integral is a way of integrating random variables against Brownian motion.
+
 - The Itô integral is well defined for piecewise constant adapted processes $\mathcal{E}$ and turns them isometrically into square integrable continuous martingales ($\Mm_I^2$).
+
 - As a result the Itô integral can be extended isometrically to a function $\overline{\Ee}\to \Mm_I^2$. Furthermore $\overline{\Ee}$ can be characterised explicitly as the square integrable adapted processes that are measurable in time and space.
 
 ## Why should I care?

@@ -114,7 +114,9 @@ format:
 ##  Three point summary
 
 - Elliptic partial differential equations (PDE) are PDE with no time variable and whose leading order derivatives satisfy a positivity condition.
+
 - Using Lax Milgram's theorem, we can prove the existence and uniqueness of weak (distributional) solutions if the reaction term dominates the transport term. Using the Fredholm alternative, we can characterize the spectrum of the elliptic operator and the existence of solutions.
+
 - Under suitable smoothness assumptions on the coefficients and domain, the solution map of the PDE adds two derivatives to the input function. This improved regularity allows us to recover classical solutions if the coefficients are smooth enough.
 
 ## Why should I care?
@@ -184,8 +186,11 @@ Next, when developing the mathematical theory of any equation, the first step is
 ::: {#def-2 name="Well-posedness"}
 
 We say that an equation is *well-posed* if
+
 1. It has a solution.
+
 2. The solution is unique.
+
 3. The solution depends continuously on the data.
 
 :::
@@ -442,15 +447,19 @@ $$
 $$ {#eq-original}
 
 Then, the following hold:
-1. Equation @eq-original is well-posed if and only if @eq-original has no non-zero solutions. That is, if and only if $\lambda \notin \sigma(\Ll)$.
-2. The spectrum $\sigma (\Ll )$ is discrete. If $\sigma(\Ll )= \{\lambda_n \}_{n=1}^\infty$ is infinite, then $\lambda _n \to +\infty$.
-3. The dimensions of the following spaces are equal
 
-$$
-\begin{aligned}
-N:= \set{u \in H_0^1(U): \Ll u = \lambda u}, \quad N^*:= \set{w \in L^2(U): \Ll^* w = \lambda w},
-\end{aligned}
-$$
+1. Equation @eq-original is well-posed if and only if @eq-original has no non-zero solutions. That is, if and only if $\lambda \notin \sigma(\Ll)$.
+
+2. The spectrum $\sigma (\Ll )$ is discrete. If $\sigma(\Ll )= \{\lambda_n \}_{n=1}^\infty$ is infinite, then $\lambda _n \to +\infty$.
+
+3. The dimensions of the following spaces are equal
+    
+    $$
+    \begin{aligned}
+    N:= \set{u \in H_0^1(U): \Ll u = \lambda u}, \quad N^*:= \set{w \in L^2(U): \Ll^* w = \lambda w},
+    \end{aligned}
+    $$
+
 4. Equation, @eq-original has a solution if and only if $f \in (N^*)^\perp$ $($equivalently $\br{w,f}=0$ for all $w \in N^* )$.
 
 :::
@@ -607,7 +616,9 @@ If $u$ is differentiable, then $D_j^h u \to \partial_j u$ as $h \to 0$. The foll
 ::: {#lem-difference-quotients-1 name="Difference quotients and regularity"}
 
 Let $p \in (1, +\infty)$, and $C >0$ be some constant.  Then, the following hold.
+
 1. If $u \in L^p(\R^d)$ and for all $h$ sufficiently small $\norm{D_j^h u}_{L^p(\R^d)} \leq C$. Then $u \in W^{1,p}(\R^d)$.
+
 2. If $u \in W^{1,p}(\R^d)$. Then, $\norm{D_j^h u}_{L^p(\R^d)} \leq \norm{\partial_j u}_{L^p(\R^d)}$.
 
 :::
@@ -650,7 +661,9 @@ The result can be extended to arbitrary open subsets $U \subset \R^d$. In this c
 ::: {#lem-difference-quotients-2 name="Difference quotients and local regularity"}
 
 Let $p \in (1, +\infty)$, $C>0$ be a constant and $V \Subset U$ open. Then, the following hold.
+
 1. If $u \in L^p(U)$ and for all $h$ sufficiently small $\norm{D_j^h u}_{L^p(V)} \leq C$. Then, $u \in W^{1,p}(V)$.
+
 2. If $u \in W^{1,p}(U)$. Then, $\norm{D_j^h u}_{L^p(V)} \leq \norm{\partial_j u}_{L^p(U)}$ for all $h<\d(V,\partial U)$.
 
 :::
@@ -1283,8 +1296,11 @@ The transformation $u \leftrightarrow w$ maintains regularity up to order $m$  f
 ::: {#thm-2}
 
 Let $\Omega$ be a bounded domain with $C^{0,1}$ boundary then
+
 1. The non-homogeneous Dirichlet problem @eq-pde-dirichlet is well-posed for $g \in H^{1/2}(\partial \Omega )$ if and only if the homogeneous problem @eq-pde is well posed.
+
 2. The Fredholm alternative (Theorem @thm-well-posedness-fredholm) holds where we replace $H_0^1(\Omega )$ by the subspace of $H^1(\Omega )$ whose trace is equal to $g$.
+
 3. If $g \in H^{k+3/2}(\partial \Omega )$, then $u \in H^{k+2}(\Omega )$ under the same conditions of Theorem @thm-higher-regularity-boundary on $\Omega$ and the coefficients of $\Ll$.
 
 :::
@@ -1316,24 +1332,27 @@ For the weak form to be well defined we need for $f$ to be in the dual space $H^
 ::: {#thm-3}
 
 Let $\Omega$ be a bounded domain, $f \in H^{1}(\Omega )', g \in H^{-1/2}( \partial \Omega )$ and $\sigma \in L^\infty(\partial \Omega )$.
+
 1. Let $\bm{b}=0$ and $c, \sigma  \geq 0$. Suppose both $c, \sigma$  are not identically zero. Then the Robin boundary condition problem @eq-weak-def-neumann has a unique solution $u \in H^1(\Omega )$.
+
 2. The well posedness of the modified problem $\Ll u + \lambda u=f$ and the Fredholm alternative of Theorem @thm-mod and Theorem @thm-well-posedness-fredholm hold swapping everywhere $H_0^1(U)$ with $H^1(\Omega )$ and $H^{-1}(\Omega )$ with $H^{1}(\Omega )'$.
+
 3. Let $\partial \Omega \in C^{k+2}$. If $u$ solves @eq-pde-neumann and
-
-$$
-\begin{aligned}
-& A_{ij} \in C^{1}(\Omega )\cap W^{k+1, \infty}(\Omega ), \quad b_i,c \in W^{k, \infty}(\Omega ), \quad \sigma \in W^{k+1, \infty}(\partial \Omega ) \\
-& f \in H^{k}(\Omega ), \quad g \in H^{k+1/2}(\partial \Omega ).
-\end{aligned}
-$$
-
-Then, $u \in H^{k+2}(\Omega )$ with
-
-$$
-\begin{aligned}
-\norm{u}_{H^{k+2}(\Omega )} \lesssim_{\bm{A},\bm{b},c, \sigma,  \Omega } \norm{f}_{H^k(\Omega )}+\norm{g}_{H^{k+1/2}(\partial \Omega )}+\norm{u}_{L^2(\Omega )}.
-\end{aligned}
-$$
+    
+    $$
+    \begin{aligned}
+    & A_{ij} \in C^{1}(\Omega )\cap W^{k+1, \infty}(\Omega ), \quad b_i,c \in W^{k, \infty}(\Omega ), \quad \sigma \in W^{k+1, \infty}(\partial \Omega ) \\
+    & f \in H^{k}(\Omega ), \quad g \in H^{k+1/2}(\partial \Omega ).
+    \end{aligned}
+    $$
+    
+    Then, $u \in H^{k+2}(\Omega )$ with
+    
+    $$
+    \begin{aligned}
+    \norm{u}_{H^{k+2}(\Omega )} \lesssim_{\bm{A},\bm{b},c, \sigma,  \Omega } \norm{f}_{H^k(\Omega )}+\norm{g}_{H^{k+1/2}(\partial \Omega )}+\norm{u}_{L^2(\Omega )}.
+    \end{aligned}
+    $$
 
 :::
 

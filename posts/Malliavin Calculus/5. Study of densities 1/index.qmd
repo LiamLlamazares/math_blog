@@ -113,9 +113,14 @@ format:
 
 ## Three line summary
 
-	- A Malliavin differentiable random variable $X\in \mathbb{D}^{1,2}$ is supported in intervals.
+	
+
+- A Malliavin differentiable random variable $X\in \mathbb{D}^{1,2}$ is supported in intervals.
+
 - If $\|DX\|_{L^2(I)}$ is almost nowhere zero, then  $X$ has a density  $p$.
+
 - If  $X$ is smooth then  $p$ is smooth.
+
 	
 
 ## Why should I care?
@@ -143,6 +148,7 @@ $$
 
 	That is, $X$ has a positive probability of falling in any ball that contains  $x$. Our first result characterizes the support of real-valued Malliavin differentiable random variables.
 	
+
 ::: {#prp-1}
 
 Let $X\in \mathbb{D}^{1,2}$, then the support of $X$ is an interval.
@@ -150,6 +156,7 @@ Let $X\in \mathbb{D}^{1,2}$, then the support of $X$ is an interval.
 :::
 
 	
+
 ::: {.proof}
 
 Suppose not, then there must exist $a<x<b$ where  $a,b$ are in the support of  $X$ and  $x$ isn't. In particular, there exists  $\epsilon >0$ such that
@@ -172,6 +179,7 @@ But this contradicts that both $a,b$ are in the support of $X$. This concludes t
 	Ok, now we know the support of Malliavin differentiable functions are nicely shaped intervals. But what about densities, when can we guarantee their existence? Consider for example the simplest of all cases, $X=x\in \R$. That is $X$ always takes the value  $x$. Then  $X$ is Malliavin differentiable, however, it admits no density (no, the $\delta$ function does not count as a density).
 	Let's consider a case that is a bit less trivial, set  $$X=I_1(f)= \int_{I}f(t) dW(t),\quad f \in H.$$  Then, we have that $X$ is a Gaussian random variable with  $$X\sim \Nn(0,\norm{f}^2_{H}).$$ As a result, we obtain that $X$  will fail to have a density if (and only if) $\norm{f}_{H}=\norm{DX}_{H}=0$. Notice that, in the previously considered case where $X$ failed to have a density, we also had that $\norm{DX}_{H}$ became $0$.  The next proposition shows that this is not a fluke.
 	
+
 ::: {#thm-1 name="Existence of densities"}
 
 Let $X\in \mathbb{D}^{1,2}$. If $\norm{DX}_{H}>0$ almost everywhere, then $X$ has a density.
@@ -179,6 +187,7 @@ Let $X\in \mathbb{D}^{1,2}$. If $\norm{DX}_{H}>0$ almost everywhere, then $X$ ha
 :::
 
 	
+
 ::: {.proof}
 
 By the [Radon Nikodyn theorem](https://en.wikipedia.org/wiki/Radon%E2%80%93Nikodym_theorem)  all we need to do is show that $\mathbb{P}_X$ is absolutely continuous with respect to the Lebesgue measure $\lambda$. That is, we must show that if, $\lambda (A)=0$ then also $\mathbb{P}_X(A)=0$. Let us set $g(y):=1_A(y)$ and
@@ -199,6 +208,7 @@ By taking $H$ norms on each side, we would deduce that, since $DX$ is non-zero, 
 
 	The question is, can we give an explicit formula for the density of $X$. The answer is (under some stricter conditions) yes, and the proof uses a similar trick as our last one.
 	
+
 ::: {#thm-dens-exists name="Density expression"}
 
 Let $X\in \mathbb{D}^{1,2}$ such that $\norm{DX}_{H}$ is non-zero almost everywhere. Suppose further that $DX/\norm{DX}^2_{H}\in \text{dom} (\delta )$. Then $X$ has a density given by
@@ -210,6 +220,7 @@ $$
 :::
 
 	
+
 ::: {.proof}
 
 Let us consider $g\in C_c^\infty(\R)$ and set as before
@@ -239,6 +250,7 @@ Since $g$ was any smooth function this concludes the proof (as we can always app
 
 	To show the differentiability of $p(x)$ we need the following lemma which will let us transfer- derivatives onto the density $p$.
 	
+
 ::: {#lem-1 name="Integration by parts"}
 
 Let $X\in \mathbb{D}^{\infty}$ be such that $\norm{DX}_{H}>0$ almost everywhere. Then, given any $Y\in \mathbb{D}^\infty$ and $\varphi \in C_b^\infty(\R)$, there exists $H_{k}(X,Y)\in \mathbb{D}^\infty$ such that
@@ -277,6 +289,7 @@ By the previous comment, since $H_n(X,Y)\in \mathbb{D}^\infty$ also $H_{n+1}(X,Y
 
 	We now finally show that, if $X$ can be differentiated multiple times, then so can its density.
 	
+
 ::: {#thm-2 name="Smooth variables have smooth densities"}
 
 Let $X\in \mathbb{D}^\infty$ such that  $\norm{DX}_{H}>0$ almost everywhere, then $X$ has a smooth density with respect to the Lebesgue measure.

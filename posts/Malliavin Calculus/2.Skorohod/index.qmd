@@ -113,7 +113,9 @@ format:
 ##  Three line summary
 
 - By fixing $t$, one can obtain a chaos expansion for (possibly non-adapted) square integrable stochastic processes $X(t)$.
+
 - The Itô integral of an Itô integrable process $X(t)$ has a chaos expansion.
+
 - This chaos expansion can converge even when $X(t)$ is not adapted to the filtration $\Ff_t$ (and thus not Itô integrable). This allows us to extend the Itô integral to non-adapted processes.
 
 ## Why should I care?
@@ -261,15 +263,18 @@ can depend on $t$. Despite this, the Skorokhod integral still maintains some of 
 
 Let $X(t), Y(t)\in \rm{dom}
 \delta)$,$\lambda \in \R$. Then it holds that
-- $X(t)+ \lambda Y(t) \in \rm{dom}
-\delta)$with$\delta(X+\lambda Y)=\delta(X)+\lambda \delta(Y)$.
-- $\E[\delta(X)]=0$.
-- $X\cdot 1_A \in \rm{dom}
-\delta)$for any measurable subset$A \subset I$. Furthermore, if$A \cup B =I$ then
 
-$$
-\int_{A}X(t) \delta W(t)+ \int_{B}X(t)\delta W(t):=\delta(X\cdot 1_A)+\delta(X\cdot 1_B)=\delta(X).
-$$
+- $X(t)+ \lambda Y(t) \in \rm{dom}
+    \delta)$with$\delta(X+\lambda Y)=\delta(X)+\lambda \delta(Y)$.
+
+- $\E[\delta(X)]=0$.
+
+- $X\cdot 1_A \in \rm{dom}
+    \delta)$for any measurable subset$A \subset I$. Furthermore, if$A \cup B =I$ then
+    
+    $$
+    \int_{A}X(t) \delta W(t)+ \int_{B}X(t)\delta W(t):=\delta(X\cdot 1_A)+\delta(X\cdot 1_B)=\delta(X).
+    $$
 
 :::
 

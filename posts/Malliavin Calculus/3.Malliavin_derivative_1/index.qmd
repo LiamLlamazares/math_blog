@@ -114,7 +114,9 @@ format:
 ## Three line summary
 
 - The Malliavin derivative is an operator defined by manipulating the chaos expansion of a square-integrable random variable.
+
 - The Malliavin derivative transforms square-integrable variables into square integrable processes.
+
 - The Malliavin derivative shares some properties with the classic derivative such as the product rule and chain rule, but the fundamental theorem of calculus only holds in some special cases.
 
 ## Why should I care?

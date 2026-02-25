@@ -114,7 +114,9 @@ format:
 ##  Three line summary
 
 - Solutions to SDEs of the form $dX=b(X) d t +\sigma (X)dW$ are Malliavin differentiable if $b,\sigma \in C^1(\R)$.
+
 - Their Malliavin differential $DX$ can be written as a stochastic integral.
+
 - This gives us an SDE linear in $DX$ and can be solved exactly to obtain an explicit expression for  $DX$.
 
 ## Notation

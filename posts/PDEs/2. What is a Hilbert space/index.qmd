@@ -113,9 +113,14 @@ format:
 
 ##  Three line summary
 
-	- Hilbert spaces are Banach spaces with an inner product. They correspond to an infinite dimensional version of $\R^n$ or $\C^n$.
+	
+
+- Hilbert spaces are Banach spaces with an inner product. They correspond to an infinite dimensional version of $\R^n$ or $\C^n$.
+
 - Much of Euclidean geometry carries over to Hilbert spaces including orthogonality, projections, orthonormal basis, and Pythagoras' theorem.
+
 - Compact operators are a simple kind of operator that can be approximated by infinite dimensional ones.
+
 	
 
 ## Why should I care?
@@ -144,6 +149,7 @@ format:
 
 	Firstly what is a Hilbert space? To answer that question let's start with what kind of spaces we want to model.
 	
+
 ::: {#exm-1}
 
 The Euclidean space $\R^n$ together with the inner product
@@ -157,6 +163,7 @@ $$
 :::
 
 	
+
 ::: {#exm-2}
 
 The complex Euclidean space $\C^n$ together with the inner product
@@ -187,6 +194,7 @@ $$
 
 	A Hilbert space is just this construction generalized to infinite dimensions. Firstly, the inner product is generalized as follows.
 	
+
 ::: {#def-1}
 
 Given a vector space $V$ over  $\K$ where $\K =\R$ or $\K=\C$, an inner product is a mapping
@@ -198,13 +206,17 @@ $$
 $$
 
 Such that the following hold for all $x,y,z \in V$ and all $\lambda \in \K$
+
 1. Linearity: $\br{\lambda x+y,z}= \lambda \br{x,z}+ \br{y,z}$.
+
 2. Conjugate symmetry $\br{x,y}= \overline{\br{y,x}}$.
+
 3. Positivity $\br{x,x} =0$ if and only if $x=0$.
 
 :::
 
 	
+
 ::: {#def-2}
 
 :::
@@ -220,6 +232,7 @@ $$
 
 	A vector space with an inner product is called an inner product space. This inner product gives us a concept of geometry.
 	
+
 ::: {#def-3}
 
 Given an inner product space $V$ we define
@@ -243,6 +256,7 @@ $$
 $$
 
 	An important property of the inner product is the following
+
 ::: {#prp-cs name="Cauchy Schwartz"}
 
 Let $V$ be an inner product space, then it holds that
@@ -256,6 +270,7 @@ $$
 :::
 
 	In particular, this implies that the inner product is continuous jointly, and in each component. An inner product space keeps the key properties of Euclidean space, namely the vector space structure and inner product. The third key property is that of completeness.
+
 ::: {#def-4}
 
 A Hilbert space is a complete inner product space $(H, \br{\cdot ,\cdot })$. Where completeness is respect to the inner product norm
@@ -286,6 +301,7 @@ $$
 
 	(I apologize for using the same notation for the Japanese bracket and the inner product). One result that carries over from Euclidean spaces to Hilbert spaces is the existence of projections.
 	
+
 ::: {#thm-projection name="Projection theorem"}
 
 Let $F$ be a closed convex subset of a Hilbert space $H$. Then, given  $h \in H$ there exists a unique $f \in F$ such that
@@ -307,6 +323,7 @@ $$
 :::
 
 	
+
 ::: {.proof}
 
 The idea of the proof is to consider a sequence $f_n$ that approaches the minimum distance
@@ -323,6 +340,7 @@ The inner product comes in to show that  $f_n$ is a Cauchy sequence. Since $H$ i
 
 	A consequence of the above theorem is that orthogonal complements in Hilbert spaces exist.
 	
+
 ::: {#thm-complement-theorem name="Orthogonal complement"}
 
 Let $V$ be a closed subspace of a vector space  $H$. Then we have that
@@ -346,6 +364,7 @@ $$
 :::
 
 	
+
 ::: {.proof}
 
 Given $h \in  H$ we know that there exists a unique closest point  $v_1 \in V$ to $V$ (the projection of $h$ onto  $v$). Furthermore, $v_2:=h-v \in V^\perp$ so we get the decomposition
@@ -362,6 +381,7 @@ This proves bijectivity, whereas the isomorphism property follows quickly from t
 
 	An important corollary of this is the following
 	
+
 ::: {#cor-cor}
 
 Let $V$ be a vector space, then
@@ -384,6 +404,7 @@ $$
 
 	Another property of Euclidean space that Hilbert spaces reproduce is that of the existence of an orthonormal basis
 	
+
 ::: {#def-5}
 
 Let $H$ be a Hilbert space and  $I$ some index set. We say that $\Bb=\set{\phi_\alpha}_{\alpha \in  I}$ is an orthonormal basis of $H$ if
@@ -406,6 +427,7 @@ $$ {#eq-sum}
 
 	Note that we impose no conditions on the Index set $I$ which may be countable or uncountable.
 	
+
 ::: {#def-6}
 
 Given an index set $I$ and a normed vector space $X$ we say that $x_\alpha$ is absolutely summable to $x$ and write
@@ -428,6 +450,7 @@ $$
 
 	If $I$ is countable, the definition says that $\sum_{\alpha \in I} x_\alpha$ converges to $x$ regardless of the order in which we sum. In fact, the following shows that, even if we start with an uncountable sequence we will always end up back in this case.
 	
+
 ::: {#prp-1}
 
 Let $X$  be a normed space and $\set{x_\alpha}_{\alpha \in I} \subset  X$ be absolutely summable to $x$, then only a countable number of the terms $x_\alpha$ are non-zero. Let us take the nonzero terms and relabel them $\set{x_n}_{n \in \N}$, then
@@ -440,6 +463,7 @@ $$
 :::
 
 	
+
 ::: {.proof}
 
 Take $J_n$ such that
@@ -456,6 +480,7 @@ Then $J:= \cup_n J_n$ is countable (it is a countable union of countable sets) a
 
 	Now that we made sense of the sum over a potentially uncountable number of basis elements in @eq-sum, it remains to address the question of the existence of orthonormal basis.
 	
+
 ::: {#thm-existence name="Existence of orthonormal basis"}
 
 Every Hilbert space has an orthonormal basis $\Bb$.
@@ -463,6 +488,7 @@ Every Hilbert space has an orthonormal basis $\Bb$.
 :::
 
 	
+
 ::: {.proof}
 
 The proof is formally identical to the proof that every vector space has a basis space . Let $\Aa$ be the collection of all orthonormal subsets of $H$. That is,  $\Aa$ is comprised of sets of the form
@@ -487,6 +513,7 @@ As a result by [Zorn's lemma](https://en.wikipedia.org/wiki/Zorn%27s_lemma) ther
 
 	The next result is the natural  generalization of Pythagoras's theorem to Hilbert spaces.
 	
+
 ::: {#thm-parseval name="Parseval"}
 
 Let $H$ be a Hilbert space with orthonormal basis  $\Bb=\set{\phi_\alpha}_{\alpha\in I}$. Then for every $f \in  H$ it holds that
@@ -500,6 +527,7 @@ $$
 :::
 
 	
+
 ::: {.proof}
 
 We have that by the orthonormality of $\phi_\alpha$ and the continuity of the inner product
@@ -533,6 +561,7 @@ $$
 
 	In particular, every Hilbert space with a countable basis is isometric to $\ell ^2(\N)$. However, the identification is not ``canonical'' as it depends on the bases chosen. The next example is all pervasive (in fact it has [even invaded our blog](https://nowheredifferentiable.com/2023-01-29-PDE-1/))
 	
+
 ::: {#exm-3 name="Plancherel"}
 
 The Hilbert space of square integrable complex valued periodic functions $L^2(\R^d /\Z^d \to \C)$ has orthonormal basis
@@ -579,6 +608,7 @@ $$
 
 	Where $e_i$ is the standard orthonormal basis of  $\C^n$. In Hilbert spaces, the same result holds for Hilbert spaces
 	
+
 ::: {#thm-riesz-theorem name="Riesz representation "}
 
 Let $H$ be a Hilbert space, then given $\ell \in H'$ there exists a unique $f_\ell \in H$ such that
@@ -594,6 +624,7 @@ Furthermore, $\norm{f_\ell }=\norm{\ell }$.
 :::
 
 	
+
 ::: {.proof}
 
 Consider an orthonormal basis $\set{\phi_\alpha}_{\alpha \in  I}$ for $H$. Then, just as in  Euclidean space we have that
@@ -634,6 +665,7 @@ $$
 
 	This allows us to identify $H$ with  $H'$. The identification is canonical as it does not depend on the bases chosen. Yes, we fixed a basis to prove it but the vector $f_\ell$ is unique independently of the basis. This allows us to make $H'$ into a Hilbert space in a canonical way
 	
+
 ::: {#prp-2}
 
 Let $H$ be a Hilbert space, then  $H'$ is also a Hilbert space, with inner product given by
@@ -671,6 +703,7 @@ $$
 
 	In other words.
 	
+
 ::: {#thm-1}
 
 Every Hilbert space is reflexive.
@@ -708,6 +741,7 @@ $$
 $$ {#eq-adjoint}
 
 	
+
 ::: {#def-7}
 
 Given $T \in \mathcal{L}(H)$ we denote by $T^\star$ the
@@ -724,6 +758,7 @@ $T=T^\star$ we say that $T$ is self adjoint.
 	$A^\star =A^\dagger:= \overline{A^T}$. As in these finite dimensional cases,
 	the following proof is not difficult.
 	
+
 ::: {#prp-3}
 
 Let $T \in \mathcal{L}(H)$ with $H$ a Hilbert space.
@@ -734,6 +769,7 @@ $\left\lVert T \right\rVert=\left\lVert T^\star  \right\rVert$.
 
 	Hilbert spaces provide us a way to guarantee existence and uniqueness to a wide class of problems, an important tool is Lax-Milgram's theorem. We first need two definitions
 	
+
 ::: {#def-8}
 
 We say that a mapping
@@ -755,6 +791,7 @@ $$
 :::
 
 	
+
 ::: {#def-9}
 
 Let $V$ be a normed vector space then we say that a sesquilinear form  $B$ is $\alpha$ coercive if it is continuous and there exists a constant $\alpha>0$ such that
@@ -769,6 +806,7 @@ $$
 
 	The coercivity condition essentially imposes that the bilinear form is not degenerate. As a particular example, a symmetric sesquilinear form is an inner product.
 	
+
 ::: {#thm-lax-theorem name="Lax Milgram"}
 
 Let $B, L$ be respectively an $\alpha$ coercive sesquilinear form and a linear form on a Hilbert space $H$. Then there exists an invertible linear operator $\Ll:H \to H$ and $f \in H$ such that
@@ -797,6 +835,7 @@ $$
 :::
 
 	
+
 ::: {.proof}
 
 For each fixed $u \in H$, we have that $\ell_u :=B(\cdot ,u) \in  H'$. As a result by Riesz's representation theorem (Theorem @thm-riesz-theorem) there exists a unique $f_{\ell _u} \in H$ such that
@@ -870,6 +909,7 @@ $$
 
 	That is, to solve @eq-lax-eq it would suffice to take $u=f$. In the case where $B$ is symmetric and real, we can also find $u$ by solving a minimization problem
 	
+
 ::: {#prp-4 name="Minimization formulation"}
 
 Let $B: H\times H \to \R$ be a symmetric coercive bilinear operator on a real Hilbert space $H$. Then, problem  @eq-lax-eq is equivalent to minimizing
@@ -883,6 +923,7 @@ $$
 :::
 
 	
+
 ::: {.proof}
 
 To prove that a solution to @eq-lax-eq minimizes $J$ we can develop  $J(u+v)$ and simplify it using  $B(v,u)=L(v)$ to obtain
@@ -919,6 +960,7 @@ Taking $h=u+v$ and $h=u-v$ where $v$ is any shows  $-L(v) \leq -B(u,v)$ and $L(v
 
 	Finally, we wrap up with some operator theory. This will be revisited in a more detailed blog post on spectral theory. For now, we give the essentials.
 	
+
 ::: {#def-10}
 
 We say that a linear operator $K: X \to Y$ where $X,Y$ are two metric spaces is compact  if  $T(B)$ is relatively compact for all bounded  $B \subset  X$.
@@ -933,17 +975,21 @@ $$
 
   In practice, the following equivalent characterizations are useful. 
   
+
 ::: {#prp-equivalent}
 
 Let $X,Y$ be two metric spaces, then the following are equivalent
-1. [a)]
-2. $K \in \Kk(X,Y)$.
-3. $K(B_X)$ is relatively compact where  $B_X=\{ x \in X : \norm{x}<1\}$ is the unit ball in $X$.
-4. From every sequence  $Kx_n$ where  $x_n \in B_X$ one can extract a subsequence $K {x_{n_j}}$ converging in $Y$.
+
+a. $K \in \Kk(X,Y)$.
+
+b. $K(B_X)$ is relatively compact where  $B_X=\{ x \in X : \norm{x}<1\}$ is the unit ball in $X$.
+
+c. From every sequence  $Kx_n$ where  $x_n \in B_X$ one can extract a subsequence $K {x_{n_j}}$ converging in $Y$.
 
 :::
 
  
+
 ::: {.proof}
 
 The prove the first two points are equivalent we observe that every bounded set $B \subset  X$ is contained in $\lambda B_X$ for $\lambda$ big enough. A general fact from topology is that closed subsets of compact sets are compact. This is enough to conclude the equivalence. 
@@ -954,6 +1000,7 @@ To prove that the last two points are equivalent we recall that in metric spaces
 
   An important property of compact operators is that they are preserved by continuous ones.
 	
+
 ::: {#prp-comp}
 
 Let $K \in \Kk(X,Y), T_1\in \Ll(W,X), T_2 \in L(Y,Z)$. Where $W,X,Y,Z$ are metric spaces , then $K\circ T_1$ and $T_2 \circ K$ are compact
@@ -961,6 +1008,7 @@ Let $K \in \Kk(X,Y), T_1\in \Ll(W,X), T_2 \in L(Y,Z)$. Where $W,X,Y,Z$ are metri
 :::
 
 	
+
 ::: {.proof}
 
 This follows by the last equivalent characterization in Proposition @prp-equivalent. 
@@ -969,6 +1017,7 @@ This follows by the last equivalent characterization in Proposition @prp-equival
 
   We already saw that the space of compact operators $\Kk(X,Y)$ is a subset of the space of linear operators. The structure of $\Kk(X,Y)$ as a subspace is as follows 
   
+
 ::: {#prp-5}
 
 Let $X,Y$ be metric spaces then  $\Kk(X,Y)$ is a vector space. Furthermore, if $Y$ is completee then  $\Kk(X,Y)$ is closed in $\Ll(X,Y)$. That is, if $K_n$ are compact and  $K_n \to K \in \Ll(X,Y)$ then $K$ is compact.
@@ -976,6 +1025,7 @@ Let $X,Y$ be metric spaces then  $\Kk(X,Y)$ is a vector space. Furthermore, if $
 :::
 
   
+
 ::: {.proof}
 
 The first part again follows fromb the last equivalent characterization in Proposition @prp-equivalent.  The second part relies on the fact that in complete spaces compact and [totally bounded](https://en.wikipedia.org/wiki/Totally_bounded_space#:~:text=not%20in%20general.-,In,-metric%20spaces%5B) are equivalent.
@@ -987,6 +1037,7 @@ The first part again follows fromb the last equivalent characterization in Propo
   Note that every finite-dimensional operator (that is operators whose image is finite-dimensional) is compact by the Heine-Borel theorem. In fact, a good way of thinking of compact operators is to see them as finite-dimensional operators . Or more precisely,
 	as the limit of them
 	
+
 ::: {#prp-6}
 
 Let $K \in  \Kk(X,H)$ where $H$ is a separable Hilbert space . Then there exists a sequence of finite-dimensional operators $K_n$ such that
@@ -1000,6 +1051,7 @@ $$
 :::
 
 	
+
 ::: {.proof}
 
 Since $H$ is separable there exists a countable orthonormal basis $\set{\phi_n}_{n \in \N}$. If we denote $T_n$ for the projection of $K$ onto the space generated by  $\set{\phi_1,\ldots,\phi_n}$ then, by Parseval's Theorem pointwise convergence holds
@@ -1033,6 +1085,7 @@ This concludes the proof.
 	
 	For us, an important example of compact operators will be the solution operator $\Ll^{-1}$ of a PDE. This is because of the following theorem
 	
+
 ::: {#thm-rellich name="Rellich-Kondrachov"}
 
 Let $U \subset \R^n$ be a bounded open domain in $\R^n$ with smooth boundary. Then, given $s >0$ it holds that the natural inclusion
@@ -1049,6 +1102,7 @@ is compact for all $\sigma >0$.
 
 	For the proof of a more general version see [@taylor2013partial] page 334. It is important to observe the restriction that $U$ is bounded is necessary and the theorem no longer holds if  $U$ is replaced by  $\R^n$.
 	
+
 ::: {#cor-addd name="Adding differentiability is compact"}
 
 Let $U \subset \R^n$ be a bounded open domain in $\R^n$ with smooth boundary and $s, \sigma >0$, then every continuous operator
@@ -1064,6 +1118,7 @@ is compact.
 :::
 
 	
+
 ::: {.proof}
 
 We have that $T= i \circ T$ so we conclude by Rellich-Kondrachov's theorem @thm-rellich and the preservation of compact operators by continuous ones (Proposition @prp-comp).
@@ -1082,6 +1137,7 @@ $$
 	Firstly, the spectrum of a compact operator is equal
 	to it's eigenvalues. Secondly the following holds
 	
+
 ::: {#thm-2 name="Spectral theorem"}
 
 Let $K \in \Kk(H)$ be compact and self adjoint on a Hilbert space $H$. Then  $T$ diagonalizes in an orthonormal basis. That is, there exists an orthonormal basis $\set{\phi_\alpha} _{\alpha \in  I}$  and $\lambda _\alpha \in \K$ such that
@@ -1102,6 +1158,7 @@ $$
 	To end it all off we state without proof a theorem that will be useful
 	in proving properties about the solution space to the solution of PDEs
 	
+
 ::: {#thm-3 name="Fredholm alternative"}
 
 Let $H$ be a Hilbert space and  $K \in \Kk(H)$. Consider $T:= Id-K$ then it holds that
@@ -1113,11 +1170,14 @@ T \text{ is injective } \iff  T \text{ is surjective}.
 $$
 
 Furthermore, it holds that
-1. [a)]
-2. $\ker(T)$ is finite dimensional.
-3. $T$ is closed.
-4. $\Im (T)=\ker(T^*)^\perp$.
-5. $\mathrm{dim}(\ker(T))=\mathrm{dim}(\ker(T^*))$
+
+a. $\ker(T)$ is finite dimensional.
+
+b. $T$ is closed.
+
+c. $\Im (T)=\ker(T^*)^\perp$.
+
+d. $\mathrm{dim}(\ker(T))=\mathrm{dim}(\ker(T^*))$
 
 :::
 

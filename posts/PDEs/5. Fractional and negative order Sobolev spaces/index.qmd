@@ -1,5 +1,5 @@
 ---
-title: "Fractional Sobolev spaces"
+title: "PDEs 5: Fractional Sobolev spaces"
 author: "Liam Llamazares--Elias"
 date: "2024-02-27"
 categories: [Pdes]
@@ -114,10 +114,14 @@ format:
 ## Summary
 
 1. There are three ways to define Sobolev spaces with fractional regularity $s$ and integrability $p$:
-          \begin{enumerate}
+              \begin{enumerate}
+
 2. The spaces $W^{s,p}(\Omega ), B^{s,p}(\Omega )$  are defined by using the analogous to the definition of H\"older spaces. Both spaces are equal when  $s$ is not an integer.
+
 3. The space $H^{s,p}(\Omega )$ is defined by using the Fourier transform and coincides with $W^{s,p}(\Omega )$ for integer $s$.
+
 4. All these spaces coincide with $H^s(\Omega )$  when $p=2$.
+
     \item There is a natural correspondence between negative regularity and the dual. Additionally, negative regularity can be obtained by differentiating functions with higher regularity.
     \item Fractional sobolev spaces appear naturally in the study of PDEs. For example, the trace of Sobolev functions $W^{s,p}(\Omega)$ is equal to the fractional space $B^{s-1/p,p}(\partial \Omega)$. And finer embeddings and regularity results can be obtained by using these spaces.
 \end{enumerate}
@@ -125,8 +129,11 @@ format:
 ## Introduction
 
 In previous posts, we covered the theory of [Sobolev spaces](https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/) $W^{k,p}(\Omega )$ where $k$ is an integer. In the case $k=2$ and when $\Omega =\R^d$ we saw that this space coincided with $H^k(\R^d)$. Furthermore, [we also saw](https://nowheredifferentiable.com/2023-01-29-PDE-1-Fourier/) how to define $H^s(\R^d)$ when $s$ was any real number. This motivates the following two questions.
+
 1. How can we define $H^s(\Omega )$  when $\Omega$ is not $\R^d$ and $s$ is not an integer ?
+
 2. Is it possible to extend such a definition to other orders of integrability $p$?
+
 In this post, we aim to answer these questions. We will see that both of these questions can be answered in the affirmative. If the domain $\Omega$  is smooth enough, the first point can be resolved by restricting functions in $H^s(\R^d)$ to $\Omega$. The second point is trickier and, in fact, like any good trick question, has multiple answers. Three, to be precise. This leads to the theory of *Bessel* spaces, *Sobolev-Slobodeckij* spaces and *Besov* spaces
 
 $$
@@ -1285,6 +1292,7 @@ $$
 This and other results can be formulated for the more general spaces $B^{s,p}_q$. Where $B^{s,p}= B^{s,p}_p$. See, [@triebel1992theory], [@agranovich2015sobolev], [@sawano2018theory].
 % Below we give an example applied to stochastic analysis based off of [@lototsky2017stochastic] page 103.
 % 
+
 ::: {#def-4}
 
 %     Let $(\Omega , \mathcal{A}, \mathbb{P})$ be a probability space supporting a sequence of iid unit Gaussians $\set{X_k}_{k\in \N}$ and let $\set{e_k}_{k=1}^\infty$ be an orthonormal basis of $L^2(\R^d)$. We define *white noise* on $L^2(\R^d)$ as the random variable
@@ -1310,6 +1318,7 @@ $$
 :::
 
 % 
+
 ::: {#exr-10}
 
 %     Show that, for almost every $\omega \in \Omega$, the random variable $\Ww (\omega )$
@@ -1346,6 +1355,7 @@ $$
 % verifies that $W(t, \omega ) \in H^{1/2 -\epsilon}(\R)$ for all $\epsilon >0$ and almost every $\omega \in \Omega$.
 
 % 
+
 ::: {.callout-tip collapse="true" title="Hint"}
 
 %     Show that, $\wh{e}_k$ is an orthonormal basis of $L^2(\R^d)$, so   for all $s< -d /2$,

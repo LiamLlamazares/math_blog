@@ -114,20 +114,24 @@ format:
 ## Three point summary
 
 - A parabolic PDE describes how a function evolves over time under the influence of an elliptic operator. Unlike their elliptic counterparts, parabolic PDEs are typically [well-posed](https://nowheredifferentiable.com/2024-02-28-PDEs-6-Elliptic_PDE._Well_posedness_and_regularity/#:~:text=is%20well%2Dposed.-,Definition%202,-(Well%2Dposedness)). For well-behaved coefficients, a unique solution always exists and depends continuously on the initial data.
+
 - Solutions to parabolic PDEs can be viewed as functions mapping an instant in time to a function in a Banach space. From this viewpoint, the PDE becomes an infinite dimensional ODE. The Galerkin method is a powerful tool to prove the well-posedness of the problem and approximate its solutions using a finite-dimensional ODE that approximates the original infinite-dimensional problem.
+
 - The solution is smoother than the initial data and will always be at least continuous in time and (weakly) differentiable in space. If the coefficients of the PDE are smooth, the solution will be smooth as well.
 
 ## Notation
 
 - As in the rest of the series, we will let $U$ denote an arbitrary open subset of $\R^d$. That is, it may be bounded or unbounded with no conditions on the regularity of the boundary (if it exists). To denote a smooth domain, we will use the notation $\Omega$.
+
 - We will be working with functions of time and space $u(t,x)$ defined on some time interval $I=[0, T]$ and spatial domain $U$. We will denote by $u(t)$ the function $u(t,\cdot):U\to \R$.
+
 - Given a topological vector space $X$ with dual $X'$ and $x \in X, w \in X'$ we write the *duality pairing*
-     
-$$
-\begin{aligned}
-(x,w):= w(x).
-\end{aligned}
-$$
+         
+    $$
+    \begin{aligned}
+    (x,w):= w(x).
+    \end{aligned}
+    $$
 
 ## Introduction
 
@@ -464,174 +468,177 @@ $$ {#eq-bound}
 ::: {.proof}
 
 We divide the proof into three parts. Existence, continuity, and uniqueness.
- 1. [a)]
-2. Existence of solutions:  Since the $\phi_i$ are orthonormal and we impose $u_n \in \Ss _n$, solving @eq-galerkin is equivalent to finding $\bm{\lambda}_n\in C(I \to \R^n)$ such that
-      
-$$
-\begin{aligned}
-\bm{\lambda}_n'(t) + \bm{B}_n(t) \bm{\lambda}_n(t) = \bm{f}_n(t), \quad \bm{\lambda}_n(0) = \bm{g}_n,
-\end{aligned}
-$$ {#eq-galerkin-2}
+ 
 
-where we define the matrix $\bm{B}_n(t) \in R^{n \times n}$ and vectors $\bm{f}_n(t), \bm{g}_n \in \R^n$ as 
-      
-$$
-\begin{aligned}
-[\bm{B_n}(t)]_{ij}:= B(\phi_i, \phi_j;t), \quad [\bm{f}_n(t)]_i:= (\phi_i, f(t)), \quad [\bm{g_n}]_i:= \br{\phi_i,g}_{L_x^2}.
-\end{aligned}
-$$
+a. Existence of solutions:  Since the $\phi_i$ are orthonormal and we impose $u_n \in \Ss _n$, solving @eq-galerkin is equivalent to finding $\bm{\lambda}_n\in C(I \to \R^n)$ such that
+          
+    $$
+    \begin{aligned}
+    \bm{\lambda}_n'(t) + \bm{B}_n(t) \bm{\lambda}_n(t) = \bm{f}_n(t), \quad \bm{\lambda}_n(0) = \bm{g}_n,
+    \end{aligned}
+    $$ {#eq-galerkin-2}
+    
+    where we define the matrix $\bm{B}_n(t) \in R^{n \times n}$ and vectors $\bm{f}_n(t), \bm{g}_n \in \R^n$ as 
+          
+    $$
+    \begin{aligned}
+    [\bm{B_n}(t)]_{ij}:= B(\phi_i, \phi_j;t), \quad [\bm{f}_n(t)]_i:= (\phi_i, f(t)), \quad [\bm{g_n}]_i:= \br{\phi_i,g}_{L_x^2}.
+    \end{aligned}
+    $$
+    
+    The equivalence of solving @eq-galerkin and @eq-galerkin-2 is obtained by setting $u_n(t) = \sum_{j=1}^n [\bm{\lambda}_n]_j \phi_j$.
+    
+    Since $\phi _i \in C_c^\infty(U)$, by the boundedness of the coefficients in Assumption @thm-ass, and by the construction of $\bm{B}_n,\bm{f}_n$. It holds that $\bm{B}_n \in L^\infty_t$ and $\bm{f}_n \in L^2_t$. As a result, according to standard ODE theory, there exists a unique continuous solution $\bm{\lambda }$ to @eq-galerkin-2.  One can even write out the explicit expression for $\bm{\lambda }$ using Duhamel's formula,
+          
+    $$
+    \begin{aligned}
+    \bm{\lambda}_n(t) = e^{\int_0^t \bm{B}_n(s) \d s } \bm{g}_n + \int_0^t e^{ \int_{s}^t \bm{B}_n(r) \d r} \bm{f}_n(s) \d s.
+    \end{aligned}
+    $$ {#eq-duhamel}
+    
+    This proves existence.
 
-The equivalence of solving @eq-galerkin and @eq-galerkin-2 is obtained by setting $u_n(t) = \sum_{j=1}^n [\bm{\lambda}_n]_j \phi_j$.
+b. Continuity in the data: The plan will be to apply Gronwall's inequality. By @eq-galerkin and the linearity of the inner product, we obtain
+          
+    $$
+    \begin{aligned}
+    \br{u_n(t),u_n'(t)}_{L^2_x}+B(u_n(t),u_n(t);t) = (u_n(t), f(t)).
+    \end{aligned}
+    $$ {#eq-sol-un}
+    
+    Now, since $u_n$ is smooth and by differentiating under the integral sign,
+          
+    $$
+    \begin{aligned}
+    \br{u_n(t),u_n'(t)}_{L^2_x} = \frac{1}{2}\left(\norm{u_n(t)}_{L_x^2}^2\right)'.
+    \end{aligned}
+    $$ {#eq-derivative}
+    
+    Using Cauchy's inequality $ab \leq \frac{1}{2} (\epsilon a^2+\epsilon^{-1} b^2)$, the boundedness of the coefficients and the ellipticity of $\bm{A}$ shows that, for some constants $\beta , \nu >0$
+          
+    $$
+    \begin{aligned}
+    B(u_n(t),u_n(t);t) \geq \gamma \norm{u_n(t)}_{H^1_x}^2 - \nu\norm{u_n(t)}_{L^2_x}^2
+    \end{aligned}
+    $$ {#eq-b-bound}
+    
+    (this is the same as [what was proved](https://nowheredifferentiable.com/2024-02-28-PDEs-6-Elliptic_PDE._Well_posedness_and_regularity/#:~:text=%20.%20We-,recall,-the%20Cauchy%20inequality) as in the elliptic case).
+    Whereas, by definition of the dual and by Cauchy's inequality, the bound of the right-hand side of @eq-sol-un is,
+          
+    $$
+    \begin{aligned}
+    \abs{(u_n(t), f(t))} \leq \norm{u_n(t)}_{H_{x}^1} \norm{f(t)}_{H_x^{-1}}\leq \frac{1}{2} \norm{u_n(t)}_{H_{x}^1}^2 + \frac{1}{2} \norm{f(t)}_{H_x^{-1}}^2.
+    \end{aligned}
+    $$ {#eq-rhs-bound}
+    
+    Using @eq-derivative, @eq-b-bound and @eq-rhs-bound in equation @eq-sol-un we obtain that
+          
+    $$
+    \begin{aligned}
+    \left(\norm{u_n(t)}_{L_x^2}^2\right)' + \norm{u_n(t)}_{H^1_x}^2 \lesssim \norm{u_n(t)}^2_{L_x^2} + \norm{f(t)}_{ H_x^{-1}}^2.
+    \end{aligned}
+    $$ {#eq-i0}
+    
+    In particular,
+          
+    $$
+    \begin{aligned}
+    \left(\norm{u_n(t)}_{L_x^2}^2\right)' \lesssim \norm{u_n(t)}^2_{L_x^2} + \norm{f(t)}_{H_x^{-1}}^2.
+    \end{aligned}
+    $$ {#eq-i00}
+    
+    Given differentiable $v:I \to \R$ aa constants $\alpha\in \R$ and integrable $\beta \in L^1(I)$, Gronwall's inequality states that 
+          
+    $$
+    \begin{aligned}
+    v'(t) \leq \alpha v(t) + \beta \quad \Rightarrow \quad v(t) \leq e^{\alpha t}v(0) + \int_I e^{\alpha(t-s)}\beta(s)\d s.
+    \end{aligned}
+    $$
+    
+    Applying this to @eq-i00 gives
+          
+    $$
+    \begin{aligned}
+    \norm{u_n(t)}_{L_x^2}^2 \lesssim e^{\alpha t}\left(\norm{g}_{L_x^2}^2 + \int_I \norm{f(t)}^2_{ H_x^{-1}}\d t\right) \lesssim \norm{g}_{L_x^2}^2 + \norm{f}_{L^2_t H_x^{-1}}^2.
+    \end{aligned}
+    $$ {#eq-i1}
+    
+    Taking the maximum in @eq-i1  gives the first part of the bound in @eq-bound
+          
+    $$
+    \begin{aligned}
+    \norm{u_n}^2_{C_t L_x^2} \lesssim \norm{g}^2_{L_x^2} + \norm{f(t)}^2_{L^2_t H_x^{-1}}.
+    \end{aligned}
+    $$ {#eq-ub}
+    
+    To bound the second term in @eq-bound we combine @eq-i1 with @eq-i0 to obtain
+          
+    $$
+    \begin{aligned}
+    \left(\norm{u_n(t)}_{L_x^2}^2\right)' + \norm{u_n(t)}_{H^1_x}^2 \lesssim \norm{g}^2_{L_x^2} + \norm{f(t)}^2_{H_x^{-1}}.
+    \end{aligned}
+    $$ {#eq-hb0}
+    
+    Integrating over $I$ in @eq-hb0 and applying the fundamental theorem of calculus together with @eq-ub gives
+          
+    $$
+    \begin{aligned}
+    \norm{u_n(t)}_{L_t^2H^1_x}^2:= \int_I \norm{u_n(t)}_{H^1_x}^2 \d t \lesssim \norm{g}^2_{L_x^2} + \norm{f}^2_{L^2_t H_x^{-1}}.
+    \end{aligned}
+    $$ {#eq-hb}
+    
+    To bound $u_n'$ consider any $v \in H_{0,x}^1$, and write $v=v_n+v_n^\perp$ where $v_n$ is the projection of $v$ onto $V_n$ with the inner product on $H^1_x$. Since $v_n^\perp$ is orthogonal to $u_n'(t)\in V_n$ for each $t$, from @eq-galerkin we have
+          
+    $$
+    \begin{aligned}
+    \br{u_n'(t),v}_{L^2_x} & = \br{u_n'(t),v_n}_{L^2_x}= (f(t),v_n)- B(u_n(t),v_n;t)                                                                \\
+                       & \lesssim \norm{f(t)}_{H_x^{-1}}\norm{v_n(t)}_{H^1_x} + \norm{ u_n(t)}_{H^1_x}\norm{v_n}_{H^1_x} \lesssim \left(\norm{f(t)}_{H_x^{-1}} + \norm{ u_n(t)}_{H^1_x}\right)\norm{v}_{H^1_x},
+    \end{aligned}
+    $$
+    
+    where we used that $\norm{v_n}_{H^1_x}= \norm{v}_{H^1_x}- \norm{v_n^\perp}_{H^1_x} \leq \norm{v}_{H^1_x}$. We deduce that
+          
+    $$
+    \begin{aligned}
+    \norm{u_n'(t)}_{H^{-1}_x} \lesssim \norm{f(t)}_{H_x^{-1}} + \norm{ u_n(t)}_{H^1_x}.
+    \end{aligned}
+    $$ {#eq-i2}
+    
+    Integrating the square over $I$ and using @eq-hb in @eq-i2 gives
+          
+    $$
+    \begin{aligned}
+    \norm{u_n'(t)}^2_{L_t^2H^{-1}_x} \lesssim \norm{f(t)}^2_{L^2_t H_x^{-1}} + \norm{g}^2_{L_x^2}.
+    \end{aligned}
+    $$ {#eq-i3}
+    
+    Now, combining @eq-ub and @eq-hb, @eq-i3 and taking square roots, we obtain the desired bound @eq-bound. 
 
-Since $\phi _i \in C_c^\infty(U)$, by the boundedness of the coefficients in Assumption @thm-ass, and by the construction of $\bm{B}_n,\bm{f}_n$. It holds that $\bm{B}_n \in L^\infty_t$ and $\bm{f}_n \in L^2_t$. As a result, according to standard ODE theory, there exists a unique continuous solution $\bm{\lambda }$ to @eq-galerkin-2.  One can even write out the explicit expression for $\bm{\lambda }$ using Duhamel's formula,
-      
-$$
-\begin{aligned}
-\bm{\lambda}_n(t) = e^{\int_0^t \bm{B}_n(s) \d s } \bm{g}_n + \int_0^t e^{ \int_{s}^t \bm{B}_n(r) \d r} \bm{f}_n(s) \d s.
-\end{aligned}
-$$ {#eq-duhamel}
-
-This proves existence.
-3. Continuity in the data: The plan will be to apply Gronwall's inequality. By @eq-galerkin and the linearity of the inner product, we obtain
-      
-$$
-\begin{aligned}
-\br{u_n(t),u_n'(t)}_{L^2_x}+B(u_n(t),u_n(t);t) = (u_n(t), f(t)).
-\end{aligned}
-$$ {#eq-sol-un}
-
-Now, since $u_n$ is smooth and by differentiating under the integral sign,
-      
-$$
-\begin{aligned}
-\br{u_n(t),u_n'(t)}_{L^2_x} = \frac{1}{2}\left(\norm{u_n(t)}_{L_x^2}^2\right)'.
-\end{aligned}
-$$ {#eq-derivative}
-
-Using Cauchy's inequality $ab \leq \frac{1}{2} (\epsilon a^2+\epsilon^{-1} b^2)$, the boundedness of the coefficients and the ellipticity of $\bm{A}$ shows that, for some constants $\beta , \nu >0$
-      
-$$
-\begin{aligned}
-B(u_n(t),u_n(t);t) \geq \gamma \norm{u_n(t)}_{H^1_x}^2 - \nu\norm{u_n(t)}_{L^2_x}^2
-\end{aligned}
-$$ {#eq-b-bound}
-
-(this is the same as [what was proved](https://nowheredifferentiable.com/2024-02-28-PDEs-6-Elliptic_PDE._Well_posedness_and_regularity/#:~:text=%20.%20We-,recall,-the%20Cauchy%20inequality) as in the elliptic case).
-Whereas, by definition of the dual and by Cauchy's inequality, the bound of the right-hand side of @eq-sol-un is,
-      
-$$
-\begin{aligned}
-\abs{(u_n(t), f(t))} \leq \norm{u_n(t)}_{H_{x}^1} \norm{f(t)}_{H_x^{-1}}\leq \frac{1}{2} \norm{u_n(t)}_{H_{x}^1}^2 + \frac{1}{2} \norm{f(t)}_{H_x^{-1}}^2.
-\end{aligned}
-$$ {#eq-rhs-bound}
-
-Using @eq-derivative, @eq-b-bound and @eq-rhs-bound in equation @eq-sol-un we obtain that
-      
-$$
-\begin{aligned}
-\left(\norm{u_n(t)}_{L_x^2}^2\right)' + \norm{u_n(t)}_{H^1_x}^2 \lesssim \norm{u_n(t)}^2_{L_x^2} + \norm{f(t)}_{ H_x^{-1}}^2.
-\end{aligned}
-$$ {#eq-i0}
-
-In particular,
-      
-$$
-\begin{aligned}
-\left(\norm{u_n(t)}_{L_x^2}^2\right)' \lesssim \norm{u_n(t)}^2_{L_x^2} + \norm{f(t)}_{H_x^{-1}}^2.
-\end{aligned}
-$$ {#eq-i00}
-
-Given differentiable $v:I \to \R$ aa constants $\alpha\in \R$ and integrable $\beta \in L^1(I)$, Gronwall's inequality states that 
-      
-$$
-\begin{aligned}
-v'(t) \leq \alpha v(t) + \beta \quad \Rightarrow \quad v(t) \leq e^{\alpha t}v(0) + \int_I e^{\alpha(t-s)}\beta(s)\d s.
-\end{aligned}
-$$
-
-Applying this to @eq-i00 gives
-      
-$$
-\begin{aligned}
-\norm{u_n(t)}_{L_x^2}^2 \lesssim e^{\alpha t}\left(\norm{g}_{L_x^2}^2 + \int_I \norm{f(t)}^2_{ H_x^{-1}}\d t\right) \lesssim \norm{g}_{L_x^2}^2 + \norm{f}_{L^2_t H_x^{-1}}^2.
-\end{aligned}
-$$ {#eq-i1}
-
-Taking the maximum in @eq-i1  gives the first part of the bound in @eq-bound
-      
-$$
-\begin{aligned}
-\norm{u_n}^2_{C_t L_x^2} \lesssim \norm{g}^2_{L_x^2} + \norm{f(t)}^2_{L^2_t H_x^{-1}}.
-\end{aligned}
-$$ {#eq-ub}
-
-To bound the second term in @eq-bound we combine @eq-i1 with @eq-i0 to obtain
-      
-$$
-\begin{aligned}
-\left(\norm{u_n(t)}_{L_x^2}^2\right)' + \norm{u_n(t)}_{H^1_x}^2 \lesssim \norm{g}^2_{L_x^2} + \norm{f(t)}^2_{H_x^{-1}}.
-\end{aligned}
-$$ {#eq-hb0}
-
-Integrating over $I$ in @eq-hb0 and applying the fundamental theorem of calculus together with @eq-ub gives
-      
-$$
-\begin{aligned}
-\norm{u_n(t)}_{L_t^2H^1_x}^2:= \int_I \norm{u_n(t)}_{H^1_x}^2 \d t \lesssim \norm{g}^2_{L_x^2} + \norm{f}^2_{L^2_t H_x^{-1}}.
-\end{aligned}
-$$ {#eq-hb}
-
-To bound $u_n'$ consider any $v \in H_{0,x}^1$, and write $v=v_n+v_n^\perp$ where $v_n$ is the projection of $v$ onto $V_n$ with the inner product on $H^1_x$. Since $v_n^\perp$ is orthogonal to $u_n'(t)\in V_n$ for each $t$, from @eq-galerkin we have
-      
-$$
-\begin{aligned}
-\br{u_n'(t),v}_{L^2_x} & = \br{u_n'(t),v_n}_{L^2_x}= (f(t),v_n)- B(u_n(t),v_n;t)                                                                \\
-                   & \lesssim \norm{f(t)}_{H_x^{-1}}\norm{v_n(t)}_{H^1_x} + \norm{ u_n(t)}_{H^1_x}\norm{v_n}_{H^1_x} \lesssim \left(\norm{f(t)}_{H_x^{-1}} + \norm{ u_n(t)}_{H^1_x}\right)\norm{v}_{H^1_x},
-\end{aligned}
-$$
-
-where we used that $\norm{v_n}_{H^1_x}= \norm{v}_{H^1_x}- \norm{v_n^\perp}_{H^1_x} \leq \norm{v}_{H^1_x}$. We deduce that
-      
-$$
-\begin{aligned}
-\norm{u_n'(t)}_{H^{-1}_x} \lesssim \norm{f(t)}_{H_x^{-1}} + \norm{ u_n(t)}_{H^1_x}.
-\end{aligned}
-$$ {#eq-i2}
-
-Integrating the square over $I$ and using @eq-hb in @eq-i2 gives
-      
-$$
-\begin{aligned}
-\norm{u_n'(t)}^2_{L_t^2H^{-1}_x} \lesssim \norm{f(t)}^2_{L^2_t H_x^{-1}} + \norm{g}^2_{L_x^2}.
-\end{aligned}
-$$ {#eq-i3}
-
-Now, combining @eq-ub and @eq-hb, @eq-i3 and taking square roots, we obtain the desired bound @eq-bound. 
-4. Uniqueness:  To conclude uniqueness, let $u_n^{{1}}, u_n^{{2}}$ be two solutions to the Galerkin problem. Then, $w_n := u_n^{{1}}-u_n^{{2}}$ verifies the homogeneous problem
-      
-$$
-\begin{aligned}
-\br{w_n',v}_{L^2_x} + B(w_n,v;t) = 0, \quad \forall v \in V_n, \quad \text{and} \quad w_n(0) = 0.
-\end{aligned}
-$$
-
-The same reasoning that proved @eq-i00, where now $f=0$, shows that
-      
-$$
-\begin{aligned}
-\left(\norm{w_n(t)}_{L_x^2}^2\right)' \lesssim \norm{w_n(t)}^2_{L_x^2}.
-\end{aligned}
-$$
-
-Now, applying Grönwall's inequality and by the initial condition $w_n(0)=0$, we obtain for some constant $C>0$
-      
-$$
-\begin{aligned}
-\norm{w_n(t)}_{L_x^2} \leq e^{Ct} \norm{w_n(0)}_{L_x^2} = 0.
-\end{aligned}
-$$ {#eq-w0}
-
-This shows that $w_n=0$ and hence $u_n^{{1}}=u_n^{{2}}$. This proves uniqueness and concludes the proof.
+c. Uniqueness:  To conclude uniqueness, let $u_n^{{1}}, u_n^{{2}}$ be two solutions to the Galerkin problem. Then, $w_n := u_n^{{1}}-u_n^{{2}}$ verifies the homogeneous problem
+          
+    $$
+    \begin{aligned}
+    \br{w_n',v}_{L^2_x} + B(w_n,v;t) = 0, \quad \forall v \in V_n, \quad \text{and} \quad w_n(0) = 0.
+    \end{aligned}
+    $$
+    
+    The same reasoning that proved @eq-i00, where now $f=0$, shows that
+          
+    $$
+    \begin{aligned}
+    \left(\norm{w_n(t)}_{L_x^2}^2\right)' \lesssim \norm{w_n(t)}^2_{L_x^2}.
+    \end{aligned}
+    $$
+    
+    Now, applying Grönwall's inequality and by the initial condition $w_n(0)=0$, we obtain for some constant $C>0$
+          
+    $$
+    \begin{aligned}
+    \norm{w_n(t)}_{L_x^2} \leq e^{Ct} \norm{w_n(0)}_{L_x^2} = 0.
+    \end{aligned}
+    $$ {#eq-w0}
+    
+    This shows that $w_n=0$ and hence $u_n^{{1}}=u_n^{{2}}$. This proves uniqueness and concludes the proof.
 
 :::
 

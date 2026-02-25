@@ -112,9 +112,14 @@ format:
 ---
 
 \section*{ Three line summary }
-	- The *Fourier transform* defines a linear isometry on the space of square-integrable complex-valued functions and has as inverse the *inverse Fourier transform*(link). This allows us to write these functions as a superposition of harmonic functions.(link)
+	
+
+- The *Fourier transform* defines a linear isometry on the space of square-integrable complex-valued functions and has as inverse the *inverse Fourier transform*(link). This allows us to write these functions as a superposition of harmonic functions.(link)
+
 - Linear differential operators act as a simple polynomial multiplication on the frequency domain.(link) Smooth functions have Fourier transforms that decay quickly and vice-versa(link). This correspondence also allows us to introduce fractional differential operators and pseudo differential operators such as $\sqrt{-\Delta }$(link).
+
 - The Sobolev spaces $H^s$ and tempered distributions  $\Ss'$ are complete spaces of functions to which we can extend differential operators.(link)
+
 	\section*{Introduction}
 	Hi everyone, welcome to the first post in a new series focusing on partial differential equations (PDEs). In this post, we'll introduce some of the key analytical tools used to solve them. These tools will play a prominent role in the future posts of this series and in other series to come.  We'll begin by introducing some notation and necessary preliminaries on integration. Next, we will introduce the Fourier transform, which is the fundamental object of harmonic analysis and plays a fundamental role in partial differential equations (PDEs), probability theory, and number theory. In particular, we will show in future posts how many linear PDEs such as the heat equation can be solved using it.
 
@@ -160,12 +165,13 @@ sequence of functions $f_n:=f(t_n)$ where $\{t_n\}_{n=1}^\infty$ is some sequenc
 ::: {#prp-derivationundertheintsign name="{Differentiation under the integral sign}"}
 
 Let $X$ be a measure space,  $U$ be a convex open interval of $\R$, and $E$ a Banach space. Consider \[f:U\times X\to E\] such that:
-1. [a)]
-2. $f(t)$ is measurable for every $t\in U$ and integrable for some $t_0\in U$.
-3. For each $x\in X$ we have that $f(x)$ is differentiable and there exists an integrable function $g: X\to\R$ such that
-\[\norm{\partial_{t}{f}(t,x)}\leq g(x)\quad \forall{(t,x)}\in {U\times E}.\]
-Then it holds that
-\[\partial_{t}{\int_X f(t)\mu(dx)}=\int_X \partial_{t}f(t) \mu(dx).\]
+
+a. $f(t)$ is measurable for every $t\in U$ and integrable for some $t_0\in U$.
+
+b. For each $x\in X$ we have that $f(x)$ is differentiable and there exists an integrable function $g: X\to\R$ such that
+    \[\norm{\partial_{t}{f}(t,x)}\leq g(x)\quad \forall{(t,x)}\in {U\times E}.\]
+    Then it holds that
+    \[\partial_{t}{\int_X f(t)\mu(dx)}=\int_X \partial_{t}f(t) \mu(dx).\]
 
 :::
 
@@ -204,11 +210,14 @@ Other exponents such as $e^{-ix}, e^{-\pi i x}$ can also be used with identical 
 ::: {#prp-regularitydecayft name="** Properties of $\Ff_1$**"}
 
 Given $f\in L^1(\R^d\to\C^m)$
+
 1. The Fourier transform   $\Ff_1$ is a continuous linear operators $$\Ff_1:L^1(\R^d\to\C^m) \to L^\infty(\R^d\to\C^m)$$.
+
 2. If $x^\alpha f(x)\in L^1(\R^d\to\C^m)$ then:\quad \[D^\alpha \hat{f}(\xi)=(-2\pi i)^\abs{\alpha}\widehat{x^{\alpha} f}(\xi)\qquad\forall \xi\in\R^d.\]
+
 3. If $f$ is absolutely continuous in $x_j$ for almost every $x_1,...x_{j-1},x_{j+1},...,x_d$ then
-then
-\[\widehat{\partial x_j f}(\xi)=2\pi i\xi_j\widehat{ f}(\xi)\qquad\forall \xi\in\R^d.\]
+    then
+    \[\widehat{\partial x_j f}(\xi)=2\pi i\xi_j\widehat{ f}(\xi)\qquad\forall \xi\in\R^d.\]
 
 :::
 
@@ -537,6 +546,7 @@ H^k(\R^d\to\C^m):=
 Where,  we consider $L^2(\R^d\to\C^m)$ as a subspace of $\Ss '(\R^d\to\C^m)$ (see linkto2).
 
 :::
+
  We may interpret the Sobolev space $H^k(\R^d\to\C^m)$ as the space of $k$ times differentiable functions in $L^2(\R^d\to\C^m)$ and we give it the norm:
 \[\norm{f}_{H^k(\R^d\to\C^m)}:=\sum_{\abs{\alpha}\leq k}\norm{D^\alpha f}_{L^2(\R^d\to\C^m)}\qquad f\in H^k(\R^d\to\C^m).\]
 Note that it is not enough to require $\abs{\alpha}=k$ as, for example, the tempered distribution $1 \in \Ss'(\R^d\to\C)$ has a derivative equal to zero however is not itself in $L^2(\R^d\to\C)$. Now, since, as we saw in (link), the Fourier transform is an automorphism of $\Ss'(\R^d\to\C^m)$, by using property (link)  we deduce that

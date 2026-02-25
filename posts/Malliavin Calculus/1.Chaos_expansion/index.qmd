@@ -119,7 +119,9 @@ based on the book [@nunno2008malliavin], and inspired by a reading group on the 
 ### Three line summary
 
 - Square integrable  *deterministic* functions of multiple variables can be repeatedly Itô integrated to get a square-integrable *random* function.
+
 - Repeated integration satisfies an *isometry*.
+
 - Every square-integrable function can be uniquely written as the *sum* of repeated integrals.
 
 ### Why this is important
