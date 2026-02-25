@@ -10,9 +10,8 @@
 %==============================================================================
 % 2. TYPOGRAPHY & TEXT FORMATTING
 %==============================================================================
-% Moved textpos to allow it to be patched by microtype
-\RequirePackage[relative,overlay]{textpos}  % Absolute positioning of text on the page
 
+\RequirePackage[relative,overlay]{textpos}
 \RequirePackage{microtype}                  % Subliminal refinements towards typographical perfection
                                             % check if compatible with your engine (pdflatex/luatex)
 
@@ -75,13 +74,10 @@
 \RequirePackage{fontawesome}                % Access to FontAwesome icons
 
 %==============================================================================
-% 7. BIBLIOGRAPHY (BibLaTeX)
+% 7. BIBLIOGRAPHY (Natbib + BibTeX)
 %==============================================================================
 \RequirePackage[round]{natbib}
 \bibliographystyle{apalike}
-
-% Reduce font size for bibliography to save space
-% \renewcommand*{\bibfont}{\tiny}
 
 %==============================================================================
 % 8. HYPERLINKS & REFERENCES
@@ -153,14 +149,14 @@
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem*{hint}{Hint}
 
+\newenvironment{exerciseandhint}[2]
+    {\begin{exercise} #1 \par \emph{Hint: #2}}
+    {\end{exercise}}
+
 % Blog metadata
 \newcommand{\description}[1]{}
 \newcommand{\posttags}[1]{}  % comma separated
 
-
-\newenvironment{exerciseandhint}[2]
-    {\begin{exercise} #1 \par \emph{Hint: #2}}
-    {\end{exercise}}
 
 % Custom Align Environments
 \DeclareDocumentEnvironment{aligneq}{ o }{%
