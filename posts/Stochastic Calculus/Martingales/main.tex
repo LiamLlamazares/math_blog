@@ -57,11 +57,11 @@ This allows us to show the following:
 	Then using the linearity of the integral we obtain that $w(Z_1)=w(Z_2)$ for all linear functions $w \in E^*$, so $Z_1=Z_2$.
 \end{proof}
 \section{Martingales}
-Okay, so we leveraged some inequalities to prove the existence of a conditional expectation. This done, the following definition mimicking the real case is quite natural. Given measurable spaces $(F,\Ff),(G,\Gg)$ we use the notation $f: \Ff \to \Gg$ to mean $f:(F,\Ff)\to (G,\Gg)$ is measurable 
-\begin{definition}
+Okay, so we leveraged some inequalities to prove the existence of a conditional expectation. This done, the following definition mimicking the real case is quite natural. Given measurable spaces $(F,\Ff)$ and $(G,\Gg)$, we use the notation $f: \Ff \to \Gg$ to mean $f:(F,\Ff)\to (G,\Gg)$ is measurable.
 	Let $\{M(t)\}_{t\in I}$ be a stochastic process on $(\Omega, \Ff, \PP)$ with a filtration $\{\Ff_{t}\}_{t \in I}$. The process $M$ is called an $\Ff_{t}$-martingale, if:
 	\begin{enumerate}
-		\item $M(t)\in L^1(\Omega\to E)$ for all $t\in I$
+		\item $M(t)\in L^1(\Omega\to E)$ for all $t\in I$,
+		\item $M(t):\Ff_{t} \to \Bb(E)$ for all $t\in I$,
 		\item $\E_{\Ff_{s}}\left[M(t)\right]=M(s)$ for all $s \leq t$.
 	\end{enumerate}
 \end{definition}

@@ -120,13 +120,13 @@ Banach valued martingales form the basis of SPDEs. This is because analogously t
 
 ## Conditional expectation
 
-In graduate-level probability courses, given a $\sigma-$algebra $\Gg$ one shows that by applying Radon-Nikodyn's theorem, for any real-valued random variable $X\in L^1(\Omega\to R)$ there exists a conditional expectation $\E_{\Gg}[X]$ verifying that
+In graduate-level probability courses, given a $\sigma$-algebra $\Gg$ one shows that by applying Radon--Nikodym's theorem, for any real-valued random variable $X\in L^1(\Omega\to \R)$ there exists a conditional expectation $\E_{\Gg}[X]$ verifying that
 
 $$
 \int_A \E_{\Gg}[X]=\int_A X,\quad \forall A\in\Gg.
 $$
 
-Of course, now that we have created an integral for integral random variables to a Banach space $L^1(\Omega\to X)$ we would like to see whether such a conditional expectation also exists for these functions. If we are given a simple function
+Of course, now that we have created an integral for integral random variables to a Banach space $L^1(\Omega\to E)$ we would like to see whether such a conditional expectation also exists for these functions. If we are given a simple function
 
 $$
 X=\sum_{k=1}^n x_k 1_{A_k}, \quad x_k\in E, A_k\in\Gg.
@@ -144,7 +144,7 @@ $$
 \left\|\E_{\Gg}[X]\right\|\leq \sum_{k=1}^n \|x_k\| \E_{\Gg}[1_{A_k}]=\E_{\Gg}\left[\sum_{k=1}^n \|x_k\|1_{A_k}\right]=\E_{\Gg}\left[\|X\|\right].
 $$
 
-This allows us to show the following
+This allows us to show the following:
 
 ::: {#thm-1 name="Existence and uniqueness of conditional expectation"}
 
@@ -158,38 +158,37 @@ $$
 
 ::: {.proof}
 
-We have already proved the above inequality for simple processes. By the previous post, [@Bochner] we can take $X_n$ converging to $X$ in $L^1(\Omega\to E)$ to obtain that
-\begin{multline*}
-	\left\|\E_{\Gg}[X_n-X_m]\right\|\leq\E_{\Gg}\left[\|X_n-X_m\|\right]\\\implies \E[\left\|\E_{\Gg}[X_n]-\E_{\Gg}[X_m]\right\|]\leq \E\left[\|X_n-X_m\|\right]\to 0
-\end{multline*}
-As a result, $\E_{\Gg}[X_n]$ is a Cauchy sequence in $L^1(\Omega\to E)$ and converges to some function $Y$, passing to the limit in the defining equation for the conditional expectation shows that $Z=\mathbb{E}_\mathcal{G}[X]$. Finally, to prove uniqueness we have that if both $Z_1,Z_2$ satisfy
+We have already proved the above inequality for simple processes. By our previous post on the [Bochner integral](https://nowheredifferentiable.com/2022-05-27-The-Bochner-integral/), we can take $X_n$ converging to $X$ in $L^1(\Omega\to E)$ to obtain that
+
+$$
+\begin{aligned}
+\left\|\E_{\Gg}[X_n-X_m]\right\|&\leq\E_{\Gg}\left[\|X_n-X_m\|\right]\\&\implies \E[\left\|\E_{\Gg}[X_n]-\E_{\Gg}[X_m]\right\|]\leq \E\left[\|X_n-X_m\|\right]\to 0
+\end{aligned}
+$$
+
+As a result, $\E_{\Gg}[X_n]$ is a Cauchy sequence in $L^1(\Omega\to E)$ and converges to some function $Y$, passing to the limit in the defining equation for the conditional expectation shows that $Z=\E_\Gg[X]$. Finally, to prove uniqueness we have that if both $Z_1,Z_2$ satisfy
 
 $$
 \int_A Z_1=\int_A X=\int_A Z_2,\quad \forall A\in\Gg.
 $$
 
-Then using the linearity of the integral we obtain that $w(Z_1)=w(Z_2)$ for all linear function $w$, so $Z_1=Z_2$.
+Then using the linearity of the integral we obtain that $w(Z_1)=w(Z_2)$ for all linear functions $w \in E^*$, so $Z_1=Z_2$.
 
 :::
 
 ## Martingales
 
-Okay, so we leveraged some inequalities to prove the existence of a conditional expectation. This done, the following definition mimicking the real case is quite natural
+Okay, so we leveraged some inequalities to prove the existence of a conditional expectation. This done, the following definition mimicking the real case is quite natural. Given measurable spaces $(F,\Ff)$ and $(G,\Gg)$, we use the notation $f: \Ff \to \Gg$ to mean $f:(F,\Ff)\to (G,\Gg)$ is measurable.
+	Let $\{M(t)\}_{t\in I}$ be a stochastic process on $(\Omega, \Ff, \PP)$ with a filtration $\{\Ff_{t}\}_{t \in I}$. The process $M$ is called an $\Ff_{t}$-martingale, if:
+	1. $M(t)\in L^1(\Omega\to E)$ for all $t\in I$,
+2. $M(t):\Ff_{t} \to \Bb(E)$ for all $t\in I$,
+3. $\E_{\Ff_{s}}\left[M(t)\right]=M(s)$ for all $s \leq t$.
+\end{definition}
+The concept of submartingale is  defined by replacing the equality in 3. with a $\geq$. Let us abbreviate $\E_{\Ff_t}$ by $\E_t$. Then, as in the real case, we have the following.
 
-::: {#def-1}
+::: {#lem-lem-norm-is-submart name="Norm: martingale $\to$ submartingale"}
 
-Let $\{M(t)\}_{t\in I}$, be a stochastic process on $(\Omega, \mathcal{F}, \mathbb{P})$ with a filtration $\{\mathcal{F}_{t}\}_{t \in I}$. The process $M$ is called an $\mathcal{F}_{t}$-martingale, if:
-1. $M(t)\in L^1(\Omega\to E)$ for all $t\in I$
-2. $M(t):\mathcal{F}_{t} \to \mathcal{B}(E)$ for all $t\in I$,
-3. $\E_{\mathcal{F}_{s}}\left[M(t)\right]=M(s)$ for all $s \leq t$.
-
-:::
-
-The concept of submartingale is  defined by replacing the equality in 3. with a $\geq$. Let us abbreviate $\E_{\mathcal{F}_t}$ by $\E_t$. Then, as in the real case, we have the following.
-
-::: {#lem-norm-is-submart name="Norm is submartingale"}
-
-Let $M(t)$ be a martingale, then $\norm{M(t)}$ is a martingale
+Let $M(t)$ be a martingale, then $\norm{M(t)}$ is a submartingale.
 
 :::
 
@@ -202,21 +201,24 @@ $$
 $$
 
 As a result, by the linearity of the integral and abbreviating the supremum to just $\sup_\ell$,
-\begin{multline*}
-	\|M(s)\|=\|\E_{s}[M(t)]\|= \sup_\ell \ell\left(\E_{s}[M(t)]\right)=\sup_\ell\|{\E_{s}\left[\ell(M(t))\right]\|}\\
-	\leq \E_{s}\left[\sup_\ell\ell(M(t))\right]=\E_{s}\left[\|M(t)\|\right]
-\end{multline*}
+
+$$
+\begin{aligned}
+\|M(s)\|&=\|\E_{s}[M(t)]\|= \sup_\ell \ell\left(\E_{s}[M(t)]\right)=\sup_\ell\|{\E_{s}\left[\ell(M(t))\right]\|}\\
+	&\leq \E_{s}\left[\sup_\ell\ell(M(t))\right]=\E_{s}\left[\|M(t)\|\right]
+\end{aligned}
+$$
 
 :::
 
-Let us recall the following result for real-valued martingales
+Let us recall the following result for real-valued martingales [@ccinlar2011probability, Theorem 3.2.6].
 
 ::: {#lem-1 name="Doob's maximal Martingale inequality"}
 
-Let $\{X_k\}_{k=1}^\infty$ be a real-valued sub-martingale. Then it holds that
+Let $\{X_k\}_{k=1}^\infty$ be a real-valued submartingale. Then it holds that
 
 $$
-\norm{\max_{k\in\{1,...,n\}}X_k}_{L^p(\Omega)}\leq \frac{p}{p-1}\norm{X_n}_{L^p(\Omega)}
+\norm{\max_{k\in\{1,...,n\}}\abs{X_k}}_{L^p(\Omega)}\leq \frac{p}{p-1}\norm{X_n}_{L^p(\Omega)}
 $$
 
 As a consequence, if $X_t,t\in[0,T]$ is left (or right) continuous then
@@ -227,22 +229,25 @@ $$
 
 :::
 
-The idea of the above result is that, since $X_k$ is a submartingale, $X_k\lesssim X_{k+1}\lesssim...\lesssim X_n$. Getting from the continuous to the discrete case is possible by using the continuity of $X$ and approximating it on some finer and finer mesh $t_0,...,t_n$. This said, applying Doob's maximal martingale inequality together with the Lemma \ref{norm is submart} gives that
+The idea of the above result is that, since $X_k$ is a submartingale, $X_k\lesssim X_{k+1}\lesssim...\lesssim X_n$. Getting from the continuous to the discrete case is possible by using the continuity of $X$ and approximating it on some finer and finer mesh $t_0,...,t_n$. This said, applying Doob's maximal martingale inequality together with @lem-lem-norm-is-submart gives that
 
-::: {#thm-doobs-hilbert name="Maximal Inequality"}
+::: {#thm-thm-doobs-hilbert name="Maximal Inequality"}
 
 Let $p>1$ and let $E$ be a separable Banach space.
 If $M(t)$, is a right-continuous $E$-valued $\mathcal{F}_{t}$-martingale, then
-\begin{multline*}
-\left(E\left(\sup _{t \in[0, T]}\|M(t)\|^{p}\right)\right)^{\frac{1}{p}} \leq \frac{p}{p-1} \sup _{t \in[0, T]}\left(E\left(\|M(t)\|^{p}\right)\right)^{\frac{1}{p}} \\
-=\frac{p}{p-1}\left(E\left(\|M(T)\|^{p}\right)\right)^{\frac{1}{p}}
-\end{multline*}
+
+$$
+\begin{aligned}
+\left(E\left(\sup _{t \in[0, T]}\|M(t)\|^{p}\right)\right)^{\frac{1}{p}} &\leq \frac{p}{p-1} \sup _{t \in[0, T]}\left(E\left(\|M(t)\|^{p}\right)\right)^{\frac{1}{p}} \\
+&=\frac{p}{p-1}\left(E\left(\|M(T)\|^{p}\right)\right)^{\frac{1}{p}}
+\end{aligned}
+$$
 
 :::
 
 ::: {.proof}
 
-This follows by using that $\norm{M(t)}$ is a sub-martingale and Doob's maximal inequality.
+This follows by using that $\norm{M(t)}$ is a submartingale and Doob's maximal inequality.
 
 :::
 
@@ -260,7 +265,7 @@ Where we recall from the previous post that $\hat{L}^p$ symbolizes that $M$ may 
 
 A useful space of Martingales is as follows
 
-::: {#def-2}
+::: {#def-1}
 
 Let $M(t)$ be a $E$ valued martingale with index set $I=[0,T]$, then we define
 
@@ -271,12 +276,12 @@ $$
 and give it the norm
 
 $$
-\norm{M}_{\mathcal{M}_T^2(E)}:=\mathbb{E}[\norm{M(T)}^2].
+\norm{M}_{\mathcal{M}_T^2(E)}:=\left(\mathbb{E}[\norm{M(T)}^2]\right)^ \frac{1}{2}
 $$
 
 :::
 
-By Theorem \ref{doobs Hilbert} we have that
+By @thm-thm-doobs-hilbert we have that
 
 $$
 \mathcal{M}_T^2(E)\subset \hat{L}^\infty([0,T]\to \hat{L}^2(\Omega\to E))\cap \hat{L}^2(\Omega\to \hat{L}^\infty([0,T]\to E)).
@@ -308,28 +313,26 @@ Since $M_{n_k}(\cdot,\omega)$ are continuous and continuity is preserved by unif
 
 :::
 
-In future installments, we will prove that a Banach valued Wiener process belongs to this space and use it to define the stochastic integral that leads to the construction of SPDEs.
+In future instalments, we will prove that a Wiener process valued in a Hilbert space $H$ belongs to this space and use it to define the stochastic integral that leads to the construction of SPDEs.
 
 ::: {#prp-2}
 
-Let $W(t)$ be a $E$ valued $\Sigma$-Wiener process with respect to a filtration $\mathcal{F}_t$. Then $W(t)\in \mathcal{M}_T^2(E)$.
+Let $H$ be a separable Hilbert space and $Q$ be a symmetric, non-negative, trace-class operator on $H$. Let $W(t)$ be an $H$-valued $Q$-Wiener process with respect to a filtration $\Ff_t$. Then $W(t) \in \mathcal{M}_T^2(H)$.
 
 :::
 
 ::: {.proof}
 
-It is a martingale as it is adapted and, given $A\in\Gg_S$ and $u\in E$, by the linearity of the integral and Independence of $W(t)-W(s)$ with $\Gg_s$
-\begin{multline*}
-	\br{\int_A W(t)-W(s)d\PP,u}=\int_A \br{W(t)-W(s),u}d\PP\\=
-	\PP(A)\E[\br{W(t)-W(s),u}]=0
-\end{multline*}
-As a result
+The process $W(t)$ is adapted by definition. Let $0 \leq s < t \leq T$. Given $A \in \Ff_s$ and $u \in H$, the mapping $x \mapsto \langle x, u \rangle$ is a bounded linear functional. Since $W(t) - W(s)$ is independent of $\Ff_s$, we apply the properties of the Bochner integral to obtain:
 
 $$
-\int_A W(t)d\PP=\int_A W(s)d\PP=0\quad \forall A\in\Gg_s\implies \E_s[W(t)]=W(s).
+\begin{aligned}
+\br{ \int_A (W(t)-W(s)) d\mathbb{P}, u  }   &= \int_A \langle W(t)-W(s), u \rangle d\mathbb{P} \\
+    &= \mathbb{E}[1_A] \mathbb{E}[\langle W(t)-W(s), u \rangle] = 0.
+\end{aligned}
 $$
 
-Finally, we have that $\E[W(t)^2]=t<\infty$ for all $t$ and $W$ is continuous by construction. This concludes the proof.
+This satisfies the definition of conditional expectation, proving $\mathbb{E}[W(t) \mid \Ff_s] = W(s)$, so $W(t)$ is a martingale. Finally, by construction $\mathbb{E}[\|W(t)\|^2] = t \operatorname{Tr}(Q)<\infty$ as $Q$ is trace-class. Continuity is given by the definition of the Wiener process. This concludes the proof.
 
 :::
 
