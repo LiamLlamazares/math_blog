@@ -14,12 +14,11 @@ project:
 
 website:
   title: "NoWhere Differentiable Math"
-  site-url: "https://nowheredifferentiable.com"
+  site-url: index.qmd
   description: "A blog about Mathematics, Spatial statistics, stochastic analysis, and PDEs."
   
   navbar:
-    background: "#EAEAEA"
-    foreground: "#404040"
+    logo: "assets/img/tree.jpg"
     left:
       - text: "HOME PAGE"
         href: index.qmd
@@ -27,7 +26,7 @@ website:
         href: aboutme.qmd
     right:
       - text: "Posts by Tag"
-        href: "https://nowheredifferentiable.com/tags/"
+        href: tags.qmd
       - text: "Resources"
         menu:
           - text: "Terence Tao's blog"

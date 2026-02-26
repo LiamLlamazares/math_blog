@@ -98,6 +98,7 @@ format:
               rm: ["\\mathrm{#1}", 1],
               set: ["\\left\\{#1\\right\\}", 1],
               star: "*",
+              supp: "\\operatorname{supp}",
               tl: ["\\widetilde{#1}", 1],
               tll: ["\\widetilde{#1}", 1],
               vol: "\\mathrm{vol}",
@@ -430,7 +431,7 @@ $$
 (u,w):=w(u)
 $$
 
-The reason for this is that $w(u)$ can often be interpreted as the inner product of $w$ against $u$ in a suitable Hilbert space. In our case, this Hilbert space will be $L^2(\R^d\to\C)$ and the above interpretation will allow us to extend differentiation and the Fourier transform by a technique called ``duality''.
+The reason for this is that $w(u)$ can often be interpreted as the inner product of $w$ against $u$ in a suitable Hilbert space. In our case, this Hilbert space will be $L^2(\R^d\to\C)$ and the above interpretation will allow us to extend differentiation and the Fourier transform by a technique called “duality”.
   We will apply this where $V=\Ss(\R^d\to\C)$, first we need to introduce a topology on $E$.
 In general, given a real vector space $V$ together with a countable family of semi-norms $\lbrace p_j\rbrace_{j=0}^\infty$ with the property that: given $x\neq 0$, there exists $j$ such that $p_j(x)\neq 0$. Then
 
@@ -548,7 +549,7 @@ $$
 \Ff^{-1}\Ff w=\Ff\Ff^{-1}w=w.
 $$ {#eq-planchereldistr}
 
-Finally, in addition to ``changing the image'' of our distributions, we may also ``change the domain'' by considering, for example, periodic tempered distributions. Where now, as we saw in the section on the Fourier transform, $C^\infty(\T^d\to\C^m)$ takes the place of the Schwartz space and where we place on $C^\infty(\T^d\to\C^m)$ the topology defined by the countable family of semi-norms:
+Finally, in addition to “changing the image” of our distributions, we may also “change the domain” by considering, for example, periodic tempered distributions. Where now, as we saw in the section on the Fourier transform, $C^\infty(\T^d\to\C^m)$ takes the place of the Schwartz space and where we place on $C^\infty(\T^d\to\C^m)$ the topology defined by the countable family of semi-norms:
 
 $$q_k(u):=\sum_{\abs{\alpha}\leq k}\sup_{x\in\T^d}\abs{D^\alpha u}$$
 
@@ -563,7 +564,7 @@ and its $\alpha$-th distributional derivative by
 
 $$(u,D^\alpha w):=(-1)^\abs{\alpha}(D^\alpha u,w)$$
 
-we derive formulas analogous to the ones seen in the section on the Fourier transform for ``periodic" distributions as well. Namely:
+we derive formulas analogous to the ones seen in the section on the Fourier transform for “periodic" distributions as well. Namely:
 
 $$
 w=\sum_{k\in\Z^d}\hat{w}(k)e^{2\pi i k x};\quad\widehat{D^\alpha w}(k)=(2\pi ik)^\alpha\hat{w}(k).
@@ -580,7 +581,7 @@ $$
 
 This proves the first part and the second can be proved directly by considering the relevant definitions.
 
-To sum up what we have seen, due to the natural inclusion of integrable functions in the space of tempered distributions and the analogous inclusion in the periodic case, the notion of Fourier transform and differentiation extends to the larger space of tempered distributions. This allows us to manipulate rough functions (periodic or non-periodic) as if they had Fourier transforms and were smooth. As we shall see, this will prove of great use when obtaining ``distributional solutions'' to some PDEs. We now give the general method by which this achieved
+To sum up what we have seen, due to the natural inclusion of integrable functions in the space of tempered distributions and the analogous inclusion in the periodic case, the notion of Fourier transform and differentiation extends to the larger space of tempered distributions. This allows us to manipulate rough functions (periodic or non-periodic) as if they had Fourier transforms and were smooth. As we shall see, this will prove of great use when obtaining “distributional solutions” to some PDEs. We now give the general method by which this achieved
 
 ::: {#def-5}
 

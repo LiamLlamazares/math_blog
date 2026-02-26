@@ -17,3 +17,31 @@
 .proposition-title::after, .definition-title::after { content: "."; }
 .theorem-body, .lemma-body, .corollary-body, .proposition-body { font-style: italic; }
 .definition-body, .example-body, .remark-body { font-style: normal; }
+
+/* --- Centered Navbar Logo --- */
+.navbar-brand img {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 5px;
+    height: 70px !important;
+    max-height: 70px !important;
+    width: 70px !important;
+    border-radius: 50%;
+    border: 3px solid #EAEAEA;
+    background: #fff;
+    z-index: 1050;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand img:hover {
+    transform: translateX(-50%) scale(1.05);
+}
+
+[data-bs-theme="dark"] .navbar-brand img,
+body.quarto-dark .navbar-brand img {
+    border-color: #222;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.5);
+}
+

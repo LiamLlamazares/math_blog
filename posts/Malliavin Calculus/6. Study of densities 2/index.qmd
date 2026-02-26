@@ -98,6 +98,7 @@ format:
               rm: ["\\mathrm{#1}", 1],
               set: ["\\left\\{#1\\right\\}", 1],
               star: "*",
+              supp: "\\operatorname{supp}",
               tl: ["\\widetilde{#1}", 1],
               tll: ["\\widetilde{#1}", 1],
               vol: "\\mathrm{vol}",
@@ -110,10 +111,6 @@ format:
         };
         </script>
 ---
-
-::: {.callout-note appearance="minimal"}
-[Download PDF version](main.pdf)
-:::
 
 ## Three line summary
 
@@ -358,7 +355,7 @@ $$
 Applying Itô to  $g(z):=e^z$ gives
 
 $$
-dg(Z) = g'dZ + \frac{1}{2}g''v^2 ds = e^Z\left[\left(u-\frac{1}{2}v^2+\frac{1}{2}v^2\right)ds + v dW(s)\right] = g(Z)(u ds + v dW(s))
+dg(Z) = g'dZ + \frac{1}{2}g”v^2 ds = e^Z\left[\left(u-\frac{1}{2}v^2+\frac{1}{2}v^2\right)ds + v dW(s)\right] = g(Z)(u ds + v dW(s))
 $$
 
 Setting $Y_r=Y_r(r)g(Z)$ proves the result by the uniqueness of solutions as both sides verify the same SDE (note that  $Y_r(r)g(Z)$ has the same stochastic differential as $g(Z)$ but now takes initial data  $Y_r(r)$).

@@ -97,6 +97,7 @@ format:
               rm: ["\\mathrm{#1}", 1],
               set: ["\\left\\{#1\\right\\}", 1],
               star: "*",
+              supp: "\\operatorname{supp}",
               tl: ["\\widetilde{#1}", 1],
               tll: ["\\widetilde{#1}", 1],
               vol: "\\mathrm{vol}",
@@ -110,13 +111,9 @@ format:
         </script>
 ---
 
-::: {.callout-note appearance="minimal"}
-[Download PDF version](A%20physical%20derivation%20of%20parabolic%20and%20elliptic%20PDE.pdf)
-:::
-
 ## Summary
 
-Partial differential equations (PDEs) are a fundamental tool that can be used to describe the evolution and stationary state of a physical system. These PDEs can be derived by understanding the processes that cause the ``mass'' of the system to vary via a balance equation. Namely diffusion, advection, reaction and sources.
+Partial differential equations (PDEs) are a fundamental tool that can be used to describe the evolution and stationary state of a physical system. These PDEs can be derived by understanding the processes that cause the “mass” of the system to vary via a balance equation. Namely diffusion, advection, reaction and sources.
 
 ## Notation
 
@@ -150,7 +147,7 @@ $$
 \end{aligned}
 $$
 
-by calculating the rate of change of the ``mass'' of the system in terms of its flow. Then, we introduce boundary effects and wrap up with some examples.
+by calculating the rate of change of the “mass” of the system in terms of its flow. Then, we introduce boundary effects and wrap up with some examples.
 
 ## A physical derivation
 
@@ -336,7 +333,7 @@ b. *Robin boundary condition*: Here, it is imposed that
     \end{aligned}
     $$ {#eq-robin}
 
-    where $\bm{F}$ is the flux and in our case is $\bm{F}=-\bm{A} \nabla u+ \bm{v}u$. This condition imposes that a ``mass'' $g$ of substance (solute, heat, etc.) enters the domain at each point of the boundary (or leaves if the minus in ([-@eq-robin]) is omitted).
+    where $\bm{F}$ is the flux and in our case is $\bm{F}=-\bm{A} \nabla u+ \bm{v}u$. This condition imposes that a “mass” $g$ of substance (solute, heat, etc.) enters the domain at each point of the boundary (or leaves if the minus in ([-@eq-robin]) is omitted).
 
 c. *Neumann boundary condition:*This is a particular case of the Robin boundary condition where there is no advection flux at the boundary. In this case, ([-@eq-robin])  becomes
 

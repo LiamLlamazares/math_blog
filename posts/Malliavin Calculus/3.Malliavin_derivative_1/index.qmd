@@ -98,6 +98,7 @@ format:
               rm: ["\\mathrm{#1}", 1],
               set: ["\\left\\{#1\\right\\}", 1],
               star: "*",
+              supp: "\\operatorname{supp}",
               tl: ["\\widetilde{#1}", 1],
               tll: ["\\widetilde{#1}", 1],
               vol: "\\mathrm{vol}",
@@ -110,10 +111,6 @@ format:
         };
         </script>
 ---
-
-::: {.callout-note appearance="minimal"}
-[Download PDF version](main.pdf)
-:::
 
 ## Three line summary
 
@@ -157,7 +154,7 @@ $$
 
 :::
 
-The first questions to be asked is: ``what kind of object is the Malliavin derivative of a random variable? What is the link between $\mathbb{D}_{1,2}$ and $D_t$? Is $\|\cdot \|_{\mathbb{D}_{1,2}}$ even a norm?''. We answer this in the next proposition and corollary.
+The first questions to be asked is: “what kind of object is the Malliavin derivative of a random variable? What is the link between $\mathbb{D}_{1,2}$ and $D_t$? Is $\|\cdot \|_{\mathbb{D}_{1,2}}$ even a norm?”. We answer this in the next proposition and corollary.
 
 ::: {#prp-1}
 

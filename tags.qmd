@@ -1,0 +1,10 @@
+---
+title: "Posts by Tag"
+page-layout: full
+listing:
+  contents: posts
+  type: default
+  categories: true
+  sort: "date desc"
+  fields: [date, title, reading-time, description, categories]
+---

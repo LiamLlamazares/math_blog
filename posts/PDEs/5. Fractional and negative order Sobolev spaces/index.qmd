@@ -98,6 +98,7 @@ format:
               rm: ["\\mathrm{#1}", 1],
               set: ["\\left\\{#1\\right\\}", 1],
               star: "*",
+              supp: "\\operatorname{supp}",
               tl: ["\\widetilde{#1}", 1],
               tll: ["\\widetilde{#1}", 1],
               vol: "\\mathrm{vol}",
@@ -110,10 +111,6 @@ format:
         };
         </script>
 ---
-
-::: {.callout-note appearance="minimal"}
-[Download PDF version](fractional_sobolev_spaces.pdf)
-:::
 
 ## Summary
 
@@ -387,7 +384,7 @@ For $p = \infty$, we define $B^{s,\infty}(U):= C^{k_{-},\gamma}(U)$.
 
 :::
 
-The above definition is extremely similar in form to that of the Sobolev-Slobodeckij spaces @def-soledkij-def.  In fact, it is equivalent when $s \notin \N$. The difference is that in the definition of Besov spaces @def-besov-def, we require that $\gamma >0$. As a result, always $k_{-}<s$. We have chosen to indicate this fact by the index ``$-$'' on $k_{-}$. An equivalent definition is possible which extends the above to negative values of $s$
+The above definition is extremely similar in form to that of the Sobolev-Slobodeckij spaces @def-soledkij-def.  In fact, it is equivalent when $s \notin \N$. The difference is that in the definition of Besov spaces @def-besov-def, we require that $\gamma >0$. As a result, always $k_{-}<s$. We have chosen to indicate this fact by the index “$-$” on $k_{-}$. An equivalent definition is possible which extends the above to negative values of $s$
 
 ::: {#def-besov-def-negative name="Besov spaces, negative $s$"}
 

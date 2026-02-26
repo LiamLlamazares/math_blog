@@ -97,6 +97,7 @@ format:
               rm: ["\\mathrm{#1}", 1],
               set: ["\\left\\{#1\\right\\}", 1],
               star: "*",
+              supp: "\\operatorname{supp}",
               tl: ["\\widetilde{#1}", 1],
               tll: ["\\widetilde{#1}", 1],
               vol: "\\mathrm{vol}",
@@ -109,10 +110,6 @@ format:
         };
         </script>
 ---
-
-::: {.callout-note appearance="minimal"}
-[Download PDF version](main.pdf)
-:::
 
 ## Three line summary
 
@@ -249,7 +246,7 @@ $$
 \delta(X)= I_2(1)=\int_{0}^T\int_{0}^t dW(t_1)dW(t)=\int_{0}^T W(t) dW(t)= \frac{1}{2}(W^2(T)-T).
 $$
 
-Note however that the Itô integral of $W(T)$ is undefined as it is not  $\Ff_t$ adapted. Since the Skorokhod integral of $1$ is equal to  $W(T)$, the above example shows how one cannot simply ``pull out constants in $t$'' in the sense that, if $G$ is a random variable independent of  $t$ and  $X(t)=G\cdot u(t)$, then
+Note however that the Itô integral of $W(T)$ is undefined as it is not  $\Ff_t$ adapted. Since the Skorokhod integral of $1$ is equal to  $W(T)$, the above example shows how one cannot simply “pull out constants in $t$” in the sense that, if $G$ is a random variable independent of  $t$ and  $X(t)=G\cdot u(t)$, then
 
 $$
 \int_{I} X(t) \delta W(t)=\int_{I}G\cdot u(t)\delta W(t) \neq G\int_{I}u(t) dW(t).

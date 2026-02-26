@@ -98,6 +98,7 @@ format:
               rm: ["\\mathrm{#1}", 1],
               set: ["\\left\\{#1\\right\\}", 1],
               star: "*",
+              supp: "\\operatorname{supp}",
               tl: ["\\widetilde{#1}", 1],
               tll: ["\\widetilde{#1}", 1],
               vol: "\\mathrm{vol}",
@@ -110,10 +111,6 @@ format:
         };
         </script>
 ---
-
-::: {.callout-note appearance="minimal"}
-[Download PDF version](main.pdf)
-:::
 
 ## Three line summary
 
@@ -296,12 +293,12 @@ $$
 \E[\varphi^{(n)}(X)] = \E[\varphi'(X)H_{n-1}(X,1)].
 $$
 
-Using the fundamental theorem of calculus, we write $\varphi'(X) = \int_{\R} 1_{\{x < X\}} \varphi''(x) dx$. Substituting this into the expectation and applying Fubini's theorem yields:
+Using the fundamental theorem of calculus, we write $\varphi'(X) = \int_{\R} 1_{\{x < X\}} \varphi”(x) dx$. Substituting this into the expectation and applying Fubini's theorem yields:
 
 $$
 \begin{aligned}
-\E[\varphi^{(n)}(X)] &= \E\left[\left(\int_{\R} 1_{{x < X}} \varphi''(x) dx\right) H_{n-1}(X,1)\right] \\
-&= \int_{\R} \varphi''(x) \E\left[1_{{X > x}} H_{n-1}(X,1)\right] dx \\
+\E[\varphi^{(n)}(X)] &= \E\left[\left(\int_{\R} 1_{{x < X}} \varphi”(x) dx\right) H_{n-1}(X,1)\right] \\
+&= \int_{\R} \varphi”(x) \E\left[1_{{X > x}} H_{n-1}(X,1)\right] dx \\
 &= -\int_{\R} \varphi'(x) \frac{d}{dx} \E\left[1_{{X > x}} H_{n-1}(X,1)\right] dx.
 \end{aligned}
 $$

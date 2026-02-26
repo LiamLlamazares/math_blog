@@ -307,6 +307,8 @@ def parse_preamble_macros(sty_path: Path) -> dict:
         macros['mathbbm'] = (r'\mathbb{#1}', 1)
     if 'mathds' not in macros:
         macros['mathds'] = (r'\mathbb{#1}', 1)
+    if 'supp' not in macros:
+        macros['supp'] = (r'\operatorname{supp}', 0)
 
     return macros
 
@@ -1111,9 +1113,12 @@ def convert_body(body: str, label_registry: dict | None = None,
 
     # --- Pass 7b: Cross-post references (\postref) ---
     def convert_postref(m):
-        folder_arg = m.group(1)   # e.g. "Stochastic Calculus/Martingales"
-        label_arg = m.group(2)    # e.g. "thm:doobs" or ""
-        display = m.group(3)      # e.g. "Theorem 3.2"
+        folder_arg = re.sub(r'\s+', ' ', m.group(1).strip())   # Normalize whitespace
+        label_arg = m.group(2).strip()    # e.g. "thm:doobs" or ""
+        display = m.group(3).strip()      # e.g. "Theorem 3.2"
+
+        # Expand display math/linebreaks inside the display text just in case
+        display = re.sub(r'\s+', ' ', display)
 
         # Attempt anchor resolution via registry
         anchor = ''
@@ -1125,7 +1130,6 @@ def convert_body(body: str, label_registry: dict | None = None,
         elif label_registry and folder_arg not in label_registry:
             print(f"  WARNING: \\postref folder '{folder_arg}' not found in registry")
 
-        # Use Quarto-native relative paths to .qmd files
         # Use absolute path from project root for maximum reliability in Quarto
         # Quarto resolves paths starting with / relative to the project root.
         dst_clean = folder_arg.replace('\\', '/')
@@ -1149,6 +1153,10 @@ def convert_body(body: str, label_registry: dict | None = None,
     )
 
     # --- Pass 8: Clean up ---
+    # Convert LaTeX double quotes to standard curly quotes
+    text = re.sub(r'``', r'“', text)
+    text = re.sub(r"''", r'”', text)
+
     # Remove stray \label{} that weren't consumed
     text = re.sub(r'\\label\{[^}]*\}', '', text)
 

@@ -98,6 +98,7 @@ format:
               rm: ["\\mathrm{#1}", 1],
               set: ["\\left\\{#1\\right\\}", 1],
               star: "*",
+              supp: "\\operatorname{supp}",
               tl: ["\\widetilde{#1}", 1],
               tll: ["\\widetilde{#1}", 1],
               vol: "\\mathrm{vol}",
@@ -110,10 +111,6 @@ format:
         };
         </script>
 ---
-
-::: {.callout-note appearance="minimal"}
-[Download PDF version](Hilbert_spaces.pdf)
-:::
 
 ## Three line summary
 
@@ -209,7 +206,7 @@ Such that the following hold for all $x,y,z \in V$ and all $\lambda \in \K$
 :::
 
 In what follows we will take always take the base field to be $\K$, that is, we will consider real and complex vector spaces as the theory is the same. In the real case, the conjugate
-function just being the identity. Note that the first two properties also imply  ``antilinearity'' of the second component as
+function just being the identity. Note that the first two properties also imply  “antilinearity” of the second component as
 
 $$
 \begin{aligned}
@@ -527,7 +524,7 @@ H\to \ell ^2(I); \quad f \to \set{\br{f,\phi_{\alpha}}}_{\alpha \in I}.
 \end{aligned}
 $$
 
-In particular, every Hilbert space with a countable basis is isometric to $\ell ^2(\N)$. However, the identification is not ``canonical'' as it depends on the bases chosen. The next example is all pervasive (in fact it has [even invaded our blog](</posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>))
+In particular, every Hilbert space with a countable basis is isometric to $\ell ^2(\N)$. However, the identification is not “canonical” as it depends on the bases chosen. The next example is all pervasive (in fact it has [even invaded our blog](</posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>))
 
 ::: {#exm-3 name="Plancherel"}
 
@@ -565,7 +562,7 @@ $$
 \end{aligned}
 $$
 
-Here one can calculate directly that $y_\ell$ is the conjugate of the ``matrix'' defined by $\ell$ as a linear function
+Here one can calculate directly that $y_\ell$ is the conjugate of the “matrix” defined by $\ell$ as a linear function
 
 $$
 \begin{aligned}
@@ -641,11 +638,11 @@ $$
 
 :::
 
-Where we had to ``swap the order'' of the representatives of $\ell_1, \ell_2$ due to the anti-linearity of the mapping $\ell \to f_\ell$. Since $H'$ is also a Hilbert space we can apply Riesz's theorem to $H'$ to show that $H''$ is also a Hilbert space and there exists a canonical antilinear isometry
+Where we had to “swap the order” of the representatives of $\ell_1, \ell_2$ due to the anti-linearity of the mapping $\ell \to f_\ell$. Since $H'$ is also a Hilbert space we can apply Riesz's theorem to $H'$ to show that $H”$ is also a Hilbert space and there exists a canonical antilinear isometry
 
 $$
 \begin{aligned}
-\Phi_2:  H'\to H''; \ell_\varphi \to \varphi .
+\Phi_2:  H'\to H”; \ell_\varphi \to \varphi .
 \end{aligned}
 $$
 
@@ -657,7 +654,7 @@ $$
 \end{aligned}
 $$
 
-That is, $H$ is identified canonically with  $H''$ and, the identification is such that 
+That is, $H$ is identified canonically with  $H”$ and, the identification is such that 
 $$
 \begin{aligned}
 f(\ell )=\ell (f).

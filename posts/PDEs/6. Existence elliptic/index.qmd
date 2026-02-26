@@ -98,6 +98,7 @@ format:
               rm: ["\\mathrm{#1}", 1],
               set: ["\\left\\{#1\\right\\}", 1],
               star: "*",
+              supp: "\\operatorname{supp}",
               tl: ["\\widetilde{#1}", 1],
               tll: ["\\widetilde{#1}", 1],
               vol: "\\mathrm{vol}",
@@ -110,10 +111,6 @@ format:
         };
         </script>
 ---
-
-::: {.callout-note appearance="minimal"}
-[Download PDF version](Elliptic_PDE_1.pdf)
-:::
 
 ## Three point summary
 
@@ -285,7 +282,7 @@ $$ {#eq-weak-def}
 
 :::
 
-In ([-@eq-weak-def]) we used the ``duality notation'' $(v,f):= f(v)$ for $f \in X, v \in X'$ (here $X= H_0^1(U)$). We have now reformulated our problem to something that looks very similar to the setup of Lax Milgram's theorem and can use this to prove the well-posedness of ([-@eq-pde]) under certain conditions.
+In ([-@eq-weak-def]) we used the “duality notation” $(v,f):= f(v)$ for $f \in X, v \in X'$ (here $X= H_0^1(U)$). We have now reformulated our problem to something that looks very similar to the setup of Lax Milgram's theorem and can use this to prove the well-posedness of ([-@eq-pde]) under certain conditions.
 
 ::: {#thm-well-posed-1}
 
@@ -638,7 +635,7 @@ $$
 \end{aligned}
 $$ {#eq-weak-int-parts}
 
-where in the first equality, we used the weak convergence of $D_j^{h_n}u$ to $v$; in the second, we separated the integral in two and used the change of variable $x \to x-h_n e_j$ on the first of the integrals (from now on we will call this ``discrete integration by parts''). The final equality follows from the smoothness of $\varphi$. Since $\varphi \in C_c^\infty(\R^d)$ was arbitrary, we have that $v=\partial_j u$ almost everywhere. Since $u \in L^p(\R^d)$, this shows that $u \in W^{1,p}(\R^d)$.
+where in the first equality, we used the weak convergence of $D_j^{h_n}u$ to $v$; in the second, we separated the integral in two and used the change of variable $x \to x-h_n e_j$ on the first of the integrals (from now on we will call this “discrete integration by parts”). The final equality follows from the smoothness of $\varphi$. Since $\varphi \in C_c^\infty(\R^d)$ was arbitrary, we have that $v=\partial_j u$ almost everywhere. Since $u \in L^p(\R^d)$, this shows that $u \in W^{1,p}(\R^d)$.
 
 For the second point, suppose that $u$ is smooth; then, by the fundamental theorem of calculus,
 
@@ -952,7 +949,7 @@ $$
 \end{aligned}
 $$
 
-However, $\tl{u}$ is not in $H^2(\R)$ as $\tl{u}''= \delta _{-1}+ \delta _1 -2 \cdot  1_U \in \Dd '(\R)$.
+However, $\tl{u}$ is not in $H^2(\R)$ as $\tl{u}”= \delta _{-1}+ \delta _1 -2 \cdot  1_U \in \Dd '(\R)$.
 
 :::
 

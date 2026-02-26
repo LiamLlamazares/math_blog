@@ -97,6 +97,7 @@ format:
               rm: ["\\mathrm{#1}", 1],
               set: ["\\left\\{#1\\right\\}", 1],
               star: "*",
+              supp: "\\operatorname{supp}",
               tl: ["\\widetilde{#1}", 1],
               tll: ["\\widetilde{#1}", 1],
               vol: "\\mathrm{vol}",
@@ -109,10 +110,6 @@ format:
         };
         </script>
 ---
-
-::: {.callout-note appearance="minimal"}
-[Download PDF version](part4.pdf)
-:::
 
 ## The Malliavin derivative as a Fr\'{e
 
@@ -378,7 +375,7 @@ Then, since $\mathbb{D}^{1, 2}$ is dense in $L^2(\Omega)$, we see that $Y =
 
 ::: {#rem-2}
 
-Perhaps a more intuitive way to say the Skorokhod integral is ``closable''
+Perhaps a more intuitive way to say the Skorokhod integral is “closable”
 in the book's words is that it is sequentially continuous as a map
 $D(\delta) \subseteq L^2([0,T]\times\Omega) \to L^2(\Omega)$ with
 respect to the strong $L^2$ topology in its domain and weak $L^2$ topology
