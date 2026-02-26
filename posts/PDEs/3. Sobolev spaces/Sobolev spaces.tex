@@ -68,7 +68,7 @@ Hi everyone, welcome back to another post on our series on PDEs. This post goes 
 \begin{align}\label{PDE1}
 	\Ll u = f\quad  \mathrm{ on  }\quad  D .
 \end{align}
-Where $D$ is some domain in $\R^d$. In a previous post on the \postref{PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces}{}{Fourier transform} we saw how to define the Sobolev spaces $H^s(D)$ when $D$ is the whole Euclidean space $\R^d$ or the torus $\T^d$. These spaces correspond to $s$-times weakly differentiable functions and we saw how these spaces could help us solve \eqref{PDE1}. However, in practice $D$ may be an open set in $\R^d$ or even some $d$-dimensional manifold with a boundary condition
+Where $D$ is some domain in $\R^d$. In a previous post on the \postref{PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces}{fracsobdef}{Fourier transform} we saw how to define the Sobolev spaces $H^s(D)$ when $D$ is the whole Euclidean space $\R^d$ or the torus $\T^d$. These spaces correspond to $s$-times weakly differentiable functions and we saw how these spaces could help us solve \eqref{PDE1}. However, in practice $D$ may be an open set in $\R^d$ or even some $d$-dimensional manifold with a boundary condition
 \begin{align}\label{bc}
 	\restr{u}{\partial  D}= g.
 \end{align}
@@ -83,7 +83,7 @@ Suppose for example $D=U$ is an open set and $u: U \to \R$. Then, we can try to 
 			                    0    & \quad x \not\in U
 		                    \end{cases}.
 	      \end{align*}
-	\item Studying if $\tilde{u} \in  H^s(\R^d)$. That is, as we saw in the \postref{PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces}{}{previous post}, checking if
+	\item Studying if $\tilde{u} \in  H^s(\R^d)$. That is, as we saw in the \postref{PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces}{fracsobdef}{previous post}, checking if
 	      \begin{align*}
 		      \norm{\tilde{u}}_{H^s(\R^d)}^2= \int_{\R^d}\br{\xi }^{2s}\wh{\tilde{u}}(\xi )^2 \d \xi < \infty
 	      \end{align*}
@@ -106,7 +106,7 @@ As we will see later (\Cref{restriction}) this is a better approach. However, it
 
 \section{Test functions and distributions}%
 \subsection{Seminorms and their topologies}
-We need a new approach. Motivated as in the previous post by \postref{PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces}{}{duality} we should begin by defining what is meant by a weak derivative of a function $u$ in $L^p(U)$. If $u,\varphi$ are smooth functions then we have by integration by parts
+We need a new approach. Motivated as in the previous post by \postref{PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces}{distrsec}{duality} we should begin by defining what is meant by a weak derivative of a function $u$ in $L^p(U)$. If $u,\varphi$ are smooth functions then we have by integration by parts
 \begin{align*}
 	(\varphi, D^\alpha u):= \int_{D} \varphi D^\alpha u  = (-1)^{\abs{\alpha} }\int_{D}(D^{\alpha} \varphi) u + \text{ boundary effects}  .
 \end{align*}
@@ -125,7 +125,7 @@ Another notation for $C^\infty_c(U)$ is $\Dd(U)$ and it is often called the spac
 	\begin{align*}
 		C_c^\infty(K):= \set{\varphi \in C_c^\infty(U): \supp{\varphi} \subset K } .
 	\end{align*}
-	We endow  $C_c^\infty(K)$ with the \postref{PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces}{}{topology generated  by the countable family of seminorms}
+	We endow  $C_c^\infty(K)$ with the \postref{PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces}{seminormsgivemetric}{topology generated  by the countable family of seminorms}
 	\begin{align}\label{local smooth norms}
 		\norm{\varphi}_{C^k(K)}:= \sup_{x \in K} \sum_{\abs{\alpha}\leq k } \abs{D^\alpha \varphi}, \quad  k \in \N_{0}
 	\end{align}
@@ -285,7 +285,7 @@ Note that $L^q_{\mathrm{loc}}(U) \subset L^p_{\mathrm{loc} }(U)$ for all $q \leq
 	Show that $L^p_{\mathrm{loc} }(U)$ is a Fréchet space.
 \end{exercise}
 \begin{hint}
-	The topology is \postref{PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces}{}{metrizable} as the family of seminorms is countable. By \Cref{convergence TVS}  if $f_n \in L^p_{\mathrm{loc}}(U)$ is Cauchy then $f_n$ is Cauchy for all  $L^p(K)$ $D^\alpha \varphi_n $ so converges to some $f_K \in L^p(K)$. Show that $f_K= \restr{f}{K}$ where $f \in L^p_{\mathrm{loc}}(U)$    to conclude the proof.
+	The topology is \postref{PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces}{seminormsgivemetric}{metrizable} as the family of seminorms is countable. By \Cref{convergence TVS}  if $f_n \in L^p_{\mathrm{loc}}(U)$ is Cauchy then $f_n$ is Cauchy for all  $L^p(K)$ $D^\alpha \varphi_n $ so converges to some $f_K \in L^p(K)$. Show that $f_K= \restr{f}{K}$ where $f \in L^p_{\mathrm{loc}}(U)$    to conclude the proof.
 \end{hint}
 \begin{theorem}[Locally integrable functions as distributions]\label{motivation}
 	The mapping
@@ -484,7 +484,7 @@ As a result, if $c \in W^{1,p}(0,1)$ then $u$ would be constant (which it is not
 
 
 
-\section{Smooth approximation of Sobolev functions}
+\section{Smooth approximation of Sobolev functions}\label{approxsec}
 The definition of weak derivative requires one to integrate against smooth functions whenever trying to prove some property holds. This is somewhat cumbersome. One would much rather
 \begin{enumerate}
 	\item Work pretending all Sobolev functions are (classically) smooth.
@@ -731,7 +731,7 @@ Using extensions also gives us a way to define the Sobolev spaces $H^s(\Omega)$ 
 \end{definition}
 To further generalize this definition to domains where restriction is not possible one needs to use \href{https://en.wikipedia.org/wiki/Interpolation_space}{complex interpolation} (see for example \cite{taylor2013partial} pages 321-333).
 
-\section{Trace theorem}
+\section{Trace theorem}\label{trace sec}
 As we already discussed, a PDE often incorporates boundary information such as $\restr{u}{\partial \Omega}=0$. This is well defined if $u$ is continuous, however, if  $u \in  W^{k,p}(U)$, and is thus only defined \textbf{almost everywhere}, then $\restr{u}{\partial  U}$ is a priori not well defined. The following theorem remedies this issue.
 \begin{theorem}[Trace]\label{trace} Let $\Omega $ be a \textbf{bounded} open set of $\R^d$ with $C^1$  \textbf{boundary}. Then, there exists a continuous linear operator
 	\begin{align*}
@@ -1000,7 +1000,7 @@ Note that the constant in our above estimate blows up on iterating. As a result,
 \begin{align*}
 	W^{1,d}(\R^d) \hookrightarrow L^\infty(\R^d).
 \end{align*}
-This holds if and only if $d=1$. Otherwise, we require more integrability. However, this extra integrability can be converted into regularity in the style of \postref{PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces}{}{Sobolev spaces}. First, we recall the following definition
+This holds if and only if $d=1$. Otherwise, we require more integrability. However, this extra integrability can be converted into regularity in the converse direction of \postref{PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces}{regularitydecayft}{Sobolev spaces}. First, we recall the following definition
 \begin{definition}
 	Let $U \subset \R^d$ be open and $\gamma \in \R_+$, we define the \textbf{Holder space}
 	\begin{align*}
@@ -1288,7 +1288,7 @@ In the above we can also swap all occurrences of $C_c^\infty(\R^d)$ and $\Dd'(\R
 		\item  Let $\varphi \in \Ss(\R^d), w \in \Ss'(\R^d) $ then $\omega * \varphi \in  C^\infty _{\mathrm{loc}}(\R^d)$.
 	\end{enumerate}
 \end{proposition}
-The previous definitions all go through word by word in the case where we substitute the domain from Euclidean space  $\R^d$ to a \postref{PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces}{}{LCA group with Haar measure} $\mu $. For example
+The previous definitions all go through word by word in the case where we substitute the domain from Euclidean space  $\R^d$ to a \href{https://en.wikipedia.org/wiki/Haar_measure}{LCA group with the Haar measure} $\mu $. For example
 \begin{align*}
 	f*g(x):= \int_{G}f(y)g(x-y) \d \mu (y).
 \end{align*}
@@ -1393,7 +1393,7 @@ The question is why would we want to approximate a function by its convolutions 
 	Furthermore, if $f$ is compactly supported then  $f*\phi \in  C_c^\infty(\R^d)$.
 \end{proposition}
 \begin{proof}
-	By induction, it suffices to consider the case $D^\alpha = \partial _i$ for some $1 \leq i \leq d$. This case can be proved by a \postref{PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces}{}{differentiation under the integral sign} as, given $\abs{x}\leq M$
+	By induction, it suffices to consider the case $D^\alpha = \partial _i$ for some $1 \leq i \leq d$. This case can be proved by a \postref{PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces}{derivationundertheintsign}{differentiation under the integral sign} as, given $\abs{x}\leq M$
 	\begin{align*}
 		\partial _{x_i} f(y)\phi(x-y) \leq f(y)\norm{\phi}_{C^\infty(K)} 1_{K+B(0,M)}(y) \in L^1(\R^d)
 	\end{align*}

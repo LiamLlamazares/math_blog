@@ -1,69 +1,77 @@
-\begin{thebibliography}{10}
-\expandafter\ifx\csname url\endcsname\relax
-  \def\url#1{\texttt{#1}}\fi
-\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
-\expandafter\ifx\csname href\endcsname\relax
-  \def\href#1#2{#2} \def\path#1{#1}\fi
+\begin{thebibliography}{}
 
-\bibitem{ccinlar2011probability}
-E.~{\c{C}}inlar, E.~{\dh}C{\i}nlar, Probability and stochastics, Vol. 261,
-  Springer, 2011.
+\bibitem[Adler et~al., 2007]{adler2007random}
+Adler, R.~J., Taylor, J.~E., et~al. (2007).
+\newblock {\em Random fields and geometry}, volume~80.
+\newblock Springer.
 
-\bibitem{taylor2013partial}
-M.~Taylor, Partial differential equations II: Qualitative studies of linear
-  equations, Vol. 116, Springer Science \& Business Media, 2013.
+\bibitem[Ash et~al., 2000]{ash2000probability}
+Ash, R.~B., Robert, B., Doleans-Dade, C.~A., and Catherine, A. (2000).
+\newblock {\em Probability and measure theory}.
+\newblock Academic press.
 
-\bibitem{lindgren2012stationary}
-G.~Lindgren,
-  \href{https://www.amazon.co.uk/Stationary-Stochastic-Processes-Applications-Statistical/dp/1466557796}{Stationary
-  stochastic processes: theory and applications}, CRC Press, 2012.
-\newline\urlprefix\url{https://www.amazon.co.uk/Stationary-Stochastic-Processes-Applications-Statistical/dp/1466557796}
+\bibitem[Bochner, 1933]{bochner1933monotone}
+Bochner, S. (1933).
+\newblock Monotone funktionen, stieltjessche integrale und harmonische analyse.
+\newblock {\em Mathematische Annalen}, 108(1):378--410.
 
-\bibitem{bochner1933monotone}
-S.~Bochner, Monotone funktionen, stieltjessche integrale und harmonische
-  analyse, Mathematische Annalen 108~(1) (1933) 378--410.
+\bibitem[{\c{C}}inlar, 2011]{ccinlar2011probability}
+{\c{C}}inlar, E. (2011).
+\newblock {\em Probability and stochastics}, volume 261.
+\newblock Springer.
 
-\bibitem{ash2000probability}
-R.~B. Ash, B.~Robert, C.~A. Doleans-Dade, A.~Catherine,
-  \href{https://www.elsevier.com/books/probability-and-measure-theory/ash/978-0-08-051487-1}{Probability
-  and measure theory}, Academic press, 2000.
-\newline\urlprefix\url{https://www.elsevier.com/books/probability-and-measure-theory/ash/978-0-08-051487-1}
+\bibitem[Hairer, 2009]{hairer2009introduction}
+Hairer, M. (2009).
+\newblock An introduction to stochastic pdes.
+\newblock {\em arXiv preprint arXiv:0907.4178}.
 
-\bibitem{yaglom1987correlation}
-A.~M. Yaglom, Correlation Theory of Stationary and Related Random Functions,
-  Volume I: Basic Results, Vol. 131, Springer, 1987.
+\bibitem[Lindgren, 2012]{lindgren2012stationary}
+Lindgren, G. (2012).
+\newblock {\em Stationary stochastic processes: theory and applications}.
+\newblock CRC Press.
 
-\bibitem{adler2007random}
-R.~J. Adler, J.~E. Taylor, et~al.,
-  \href{https://www.dcs.warwick.ac.uk/~feng/papers/Random_Fields_and_Geometry_%5BAdler%5D.pdf}{Random
-  fields and geometry}, Vol.~80, Springer, 2007.
-\newline\urlprefix\url{https://www.dcs.warwick.ac.uk/~feng/papers/Random_Fields_and_Geometry_%5BAdler%5D.pdf}
+\bibitem[Liu and R{\"o}ckner, 2015]{liu2015stochastic}
+Liu, W. and R{\"o}ckner, M. (2015).
+\newblock {\em Stochastic partial differential equations: an introduction}.
+\newblock Springer.
 
-\bibitem{yaglom1961second}
-A.~M. Yaglom, et~al., Second-order homogeneous random fields, in: Proc. 4th
-  Berkeley Sympos. Math. Statist. and Prob, Vol.~2, 1961, pp. 593--622.
+\bibitem[Lototsky et~al., 2017]{lototsky2017stochastic}
+Lototsky, S.~V., Rozovsky, B.~L., et~al. (2017).
+\newblock {\em Stochastic partial differential equations}.
+\newblock Springer.
 
-\bibitem{oksendal2003stochastic}
-B.~{\O}ksendal, Stochastic differential equations, in: Stochastic differential
-  equations, Springer, 2003, pp. 65--84.
+\bibitem[Murphy, 2014]{murphy2014c}
+Murphy, G.~J. (2014).
+\newblock {\em C*-algebras and operator theory}.
+\newblock Academic press.
 
-\bibitem{whittle1963stochastic}
-P.~Whittle, Stochastic-processes in several dimensions, Bulletin of the
-  International Statistical Institute 40~(2) (1963) 974--994.
+\bibitem[{\O}ksendal, 2003]{oksendal2003stochastic}
+{\O}ksendal, B. (2003).
+\newblock Stochastic differential equations.
+\newblock In {\em Stochastic differential equations}, pages 65--84. Springer.
 
-\bibitem{lototsky2017stochastic}
-S.~V. Lototsky, B.~L. Rozovsky, et~al., Stochastic partial differential
-  equations, Springer, 2017.
+\bibitem[Taylor, 2013]{taylor2013partial}
+Taylor, M. (2013).
+\newblock {\em Partial differential equations II: Qualitative studies of linear
+  equations}, volume 116.
+\newblock Springer Science \& Business Media.
 
-\bibitem{liu2015stochastic}
-W.~Liu, M.~R{\"o}ckner, Stochastic partial differential equations: an
-  introduction, Springer, 2015.
+\bibitem[Whittle, 1963]{whittle1963stochastic}
+Whittle, P. (1963).
+\newblock Stochastic-processes in several dimensions.
+\newblock {\em Bulletin of the International Statistical Institute},
+  40(2):974--994.
 
-\bibitem{hairer2009introduction}
-M.~Hairer, An introduction to stochastic pdes, arXiv preprint arXiv:0907.4178
-  (2009).
+\bibitem[Yaglom, 1987]{yaglom1987correlation}
+Yaglom, A.~M. (1987).
+\newblock {\em Correlation Theory of Stationary and Related Random Functions,
+  Volume I: Basic Results}, volume 131.
+\newblock Springer.
 
-\bibitem{murphy2014c}
-G.~J. Murphy, C*-algebras and operator theory, Academic press, 2014.
+\bibitem[Yaglom et~al., 1961]{yaglom1961second}
+Yaglom, A.~M. et~al. (1961).
+\newblock Second-order homogeneous random fields.
+\newblock In {\em Proc. 4th Berkeley Sympos. Math. Statist. and Prob},
+  volume~2, pages 593--622.
 
 \end{thebibliography}

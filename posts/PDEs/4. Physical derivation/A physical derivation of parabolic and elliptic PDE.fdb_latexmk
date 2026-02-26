@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1772046281.86921 "c:/Users/liaml/Documents/GitHub/Research/math_blog/posts/PDEs/4. Physical derivation/A physical derivation of parabolic and elliptic PDE.tex" "A physical derivation of parabolic and elliptic PDE.pdf" "A physical derivation of parabolic and elliptic PDE" 1772046284.49177 0
-  "A physical derivation of parabolic and elliptic PDE.aux" 1772046283 3108 be70d03b538bb68f91a272fe5fe84b08 "pdflatex"
-  "A physical derivation of parabolic and elliptic PDE.out" 1772046283 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "A physical derivation of parabolic and elliptic PDE.tex" 1772046279 14568 7c80503984102a761b4e4b6960e6ba9f ""
+["pdflatex"] 1772145310.85572 "c:/Users/liaml/Documents/GitHub/Research/math_blog/posts/PDEs/4. Physical derivation/A physical derivation of parabolic and elliptic PDE.tex" "A physical derivation of parabolic and elliptic PDE.pdf" "A physical derivation of parabolic and elliptic PDE" 1772145312.78205 0
+  "A physical derivation of parabolic and elliptic PDE.aux" 1772145312 3108 be70d03b538bb68f91a272fe5fe84b08 "pdflatex"
+  "A physical derivation of parabolic and elliptic PDE.out" 1772145312 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "A physical derivation of parabolic and elliptic PDE.tex" 1772145308 14748 20db5dd27e333bfa572509155d016d28 ""
   "C:/Users/liaml/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1769074998 83513 d1dc4855fee81f47259d50274e15f623 ""
   "C:/Users/liaml/AppData/Local/MiKTeX/fonts/pk/ljfour/public/mathabx/dpi600/matha8.pk" 1746291390 20784 432176b72a6a2bccb64a66ad64d83dee ""
   "C:/Users/liaml/AppData/Local/MiKTeX/fonts/pk/ljfour/public/mathabx/dpi657/matha10.pk" 1751898816 27204 77ba07fc0d9cea36ba561439012592a2 ""
@@ -247,8 +247,8 @@
   "C:/Users/liaml/AppData/Local/Programs/MiKTeX/tex/latex/xpatch/xpatch.sty" 1585221260 8510 7803f78066c4f9d008405191a4b43073 ""
   "C:/Users/liaml/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-abspage.sty" 1750428951 2269 2de6c7a5fd634dfef00a960544463a38 ""
   "C:/Users/liaml/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-base.sty" 1750428951 20785 198a9cb2e04238d92c320d0d9edbd76a ""
-  "c:/Users/liaml/Documents/GitHub/Research/math_blog/posts/PDEs/4. Physical derivation/A physical derivation of parabolic and elliptic PDE.tex" 1772046279 14568 7c80503984102a761b4e4b6960e6ba9f ""
-  "preamble.sty" 1772044290 14116 3dc475004c28ba816665114513850580 ""
+  "c:/Users/liaml/Documents/GitHub/Research/math_blog/posts/PDEs/4. Physical derivation/A physical derivation of parabolic and elliptic PDE.tex" 1772145308 14748 20db5dd27e333bfa572509155d016d28 ""
+  "preamble.sty" 1772049426 14116 272385d6d65a5f537035514e9e15ccb9 ""
   (generated)
   "A physical derivation of parabolic and elliptic PDE.aux"
   "A physical derivation of parabolic and elliptic PDE.log"

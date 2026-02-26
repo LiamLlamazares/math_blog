@@ -26,7 +26,7 @@
     \item Fractional sobolev spaces appear naturally in the study of PDEs. For example, the trace of Sobolev functions $W^{s,p}(\Omega)$ is equal to the fractional space $B^{s-1/p,p}(\partial \Omega)$. And finer embeddings and regularity results can be obtained by using these spaces.
 \end{enumerate}
 \section{Introduction}
-In previous posts, we covered the theory of \postref{PDEs/3. Sobolev spaces}{}{Sobolev spaces} $W^{k,p}(\Omega )$ where $k$ is an integer. In the case $k=2$ and when $\Omega =\R^d$ we saw that this space coincided with $H^k(\R^d)$. Furthermore, \postref{PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces}{}{we also saw} how to define $H^s(\R^d)$ when $s$ was any real number. This motivates the following two questions.
+In previous posts, we covered the theory of \postref{PDEs/3. Sobolev spaces}{}{Sobolev spaces} $W^{k,p}(\Omega )$ where $k$ is an integer. In the case $k=2$ and when $\Omega =\R^d$ we saw that this space coincided with $H^k(\R^d)$. Furthermore, \postref{PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces}{fracsobdef}{we also saw} how to define $H^s(\R^d)$ when $s$ was any real number. This motivates the following two questions.
 \begin{enumerate}
     \item How can we define $H^s(\Omega )$  when $\Omega $ is not $\R^d$ and $s$ is not an integer ?
     \item Is it possible to extend such a definition to other orders of integrability $p$?
@@ -39,11 +39,11 @@ We will cover the basic properties of these spaces as well as their relationship
 \subsection{Preliminaries}
 In terms of notation, we will always denote $U$ by an arbitrary open subset of $\R^d$  whereas $\Omega \subset \R^d $ will be open with a smooth enough boundary (in a sense to be made precise later).
 
-We make frequent use of the fact that, as \postref{PDEs/3. Sobolev spaces}{}{shown} in a previous post, functions in $L^p(U)$ can be identified as elements of the larger space of \emph{distributions} $\Dd '(U ):= C_c^\infty(U)'$. This is done by identifying a function $f \in L^p(U)$ with the linear functional 
+We make frequent use of the fact that, as \postref{PDEs/3. Sobolev spaces}{identificationfuncdist}{shown} in a previous post, functions in $L^p(U)$ can be identified as elements of the larger space of \emph{distributions} $\Dd '(U ):= C_c^\infty(U)'$. This is done by identifying a function $f \in L^p(U)$ with the linear functional 
 \begin{align*}
     T_f:\phi \mapsto \int_U f\phi \d x.
 \end{align*}
-This identification between $f$ and $T_f$  allows us to extend by \postref{PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces}{}{duality} operators that are defined on $C_c^\infty(U)$ to $L^p(U)$. For example, given $u \in L^p(U) \in \Dd'(\Omega )$ we can define its Fourier transform $\Ff u$  and  $\alpha$-th derivative $D^\alpha u$  to be the distributions defined by
+This identification between $f$ and $T_f$  allows us to extend by \postref{PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces}{distrsec}{duality} operators that are defined on $C_c^\infty(U)$ to $L^p(U)$. For example, given $u \in L^p(U) \in \Dd'(\Omega )$ we can define its Fourier transform $\Ff u$  and  $\alpha$-th derivative $D^\alpha u$  to be the distributions defined by
 \begin{align*}
     (\varphi ,\Ff u):=(\Ff^{-1}\varphi ,u),\quad (\varphi ,D^\alpha u):=(-1)^{\abs{\alpha}}(D^\alpha \varphi ,u), \quad \forall \varphi \in C_c^\infty(U).
 \end{align*}

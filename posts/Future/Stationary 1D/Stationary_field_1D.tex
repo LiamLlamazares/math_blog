@@ -1,45 +1,11 @@
-\documentclass[12pt]{article}
-\special{papersize=3in,5in}
-\usepackage[utf8]{inputenc}
-%PACKAGES
-\usepackage{CJKutf8}
-\usepackage[colorlinks = true,
-    linkcolor = blue,
-    urlcolor  = black,
-    citecolor = blue,
-    anchorcolor = blue]{hyperref}
-\usepackage[T1]{fontenc}
-\makeatletter
-\def\ps@pprintTitle{%
-    \let\@oddhead\@empty
-    \let\@evenhead\@empty
-    \let\@oddfoot\@empty
-    \let\@evenfoot\@oddfoot
-}
-\usepackage{amssymb,amsmath,physics,amsthm,xcolor,graphicx}
-\usepackage[shortlabels]{enumitem}
-\newtheorem{observation}{Observation}
-\newtheorem{theorem}{Theorem}
-\newtheorem{proposition}{Proposition}
-\newtheorem{lemma}{Lemma}
-\newtheorem{definition}{Definition}
-\newtheorem{corollary}{Corollary}
-\newcommand{\red}[1]{{\color{red}#1}}
-\usepackage[colorlinks = true,
-    linkcolor = blue,
-    urlcolor  = black,
-    citecolor = blue,
-    anchorcolor = blue]{hyperref}
-\usepackage{cleveref}
-\bibliographystyle{elsarticle-num}\newcommand{\Ck}{\mathcal{K}}
-\DeclareMathOperator*{\argmin}{arg\,min}
-\newcommand{\A}{\mathbb{A}}\newcommand{\C}{\mathbb{C}}\newcommand{\E}{\mathbb{E}}\newcommand{\F}{\mathbb{F}}\newcommand{\K}{\mathbb{K}}\newcommand{\LL}{\mathbb{L}}\newcommand{\M}{\mathbb{M}}\newcommand{\N}{\mathbb{N}}\newcommand{\PP}{\mathbb{P}}\newcommand{\Q}{\mathbb{Q}}\newcommand{\R}{{\mathbb R}}\newcommand{\T}{{\mathbb T}}\newcommand{\Z}{{\mathbb Z}}
-\newcommand{\Ww}{\mathcal{W}}\newcommand{\Aa}{\mathcal{A}}\newcommand{\Bb}{\mathcal{B}}\newcommand{\Cc}{\mathcal{C}}\newcommand{\Ee}{\mathcal{E}}\newcommand{\Ff}{\mathcal{F}}\newcommand{\Gg}{\mathcal{G}}\newcommand{\Hh}{\mathcal{H}}\newcommand{\Kk}{\mathcal{K}}\newcommand{\Ll}{\mathcal{L}}\newcommand{\Mm}{\mathcal{M}}\newcommand{\Nn}{\mathcal{N}}\newcommand{\Pp}{\mathcal{P}}\newcommand{\Qq}{\mathcal{Q}}\newcommand{\Rr}{{\mathcal R}}\newcommand{\Ss}{{\mathcal S}}\newcommand{\Tt}{{\mathcal T}}\newcommand{\Zz}{{\mathcal Z}}\newcommand{\Uu}{{\mathcal U}}
-\newcommand\restr[2]{{\left.\kern-\nulldelimiterspace #1\vphantom{\big|} \right|_{#2}}}
-\newcommand{\br}[1]{\left\langle#1\right\rangle}
-\pagestyle{empty}
-\setlength{\parindent}{0in}
+\documentclass[
+    a4paper,
+    DIV=14,
+    abstract=true,
+    numbers=noenddot
+]{scrartcl}
 
+\usepackage{preamble}
 \begin{document}
 \section{Introduction}
 
@@ -52,14 +18,14 @@ As for what $X(u)$ actually represents it could be anything
 that interests us and that fundamentally has some uncertainty. For example  $X$ could be a weather field, the concentration of a chemical in the stream next to your house, the amount of moose in the
 Amazon rainforest or even be elements of a Hilbert space. \\
 \\
-In this series of posts we'll show the relationship between stationary fields and Fourier analysis through Bochner's theorem and the spectral theorem (links). Furthermore we'll show how differential differential equations (both SDEs and SPDEs) with constant coefficients have as solutions stationary fields. This fact is very useful both for modeling and numerical purposes.Ok enough chit-chat, time for some definitions that we'll use throughout these posts.
+In this series of posts we'll show the relationship between stationary fields and Fourier analysis through Bochner's theorem and the spectral theorem. Furthermore we'll show how differential differential equations (both SDEs and SPDEs) with constant coefficients have as solutions stationary fields. This fact is very useful both for modeling and numerical purposes.Ok enough chit-chat, time for some definitions that we'll use throughout these posts.
 
 \subsection{Preliminary definitions and notation}
 We consider in what follows a complete probability space $(\Omega,\Ff,\mathbb{P})$. We will also fix a Banach space $E$ and a complex Hilbert space $H$ with inner product $\br{\cdot,\cdot}$.
 \begin{definition}
 	Given a measurable space $(N,\Nn)$, we say that $X:\Omega\to N$ is a \emph{$N$-valued random variable} if  $X$ is  $\Ff/\Nn$  measurable.
 \end{definition}
-The above definition depends on the sigma-algebra $\Nn$ placed on $N$. In our work, $N$ will only ever be a topological space. In this case, we will implicitly assume that $\Nn=\Bb(N)$ is the Borel sigma-algebra (link) on $N$.
+The above definition depends on the sigma-algebra $\Nn$ placed on $N$. In our work, $N$ will only ever be a topological space. In this case, we will implicitly assume that $\Nn=\Bb(N)$ is the Borel sigma-algebra on $N$.
 \begin{definition}
 	Given a measurable space $(N,\Nn)$ and an arbitrary set $I$  we say that a \emph{$N$ valued random field with index set $I$} is a collection $\{X(u)\}_{u\in I} $ of $N$-valued random variables.
 \end{definition}
@@ -146,7 +112,7 @@ Since the above sum must be real, a small reasoning  shows that any positive sem
 	There is a $1$ to  $1$ equivalence between positive semi-definite functions and  covariance functions of weakly stationary fields.
 \end{proposition}
 \begin{proof}
-	We have already seen that every covariance function is positive semi-definite, so it remains to check that a positive semi-definite function $r(u)$ corresponds to the  covariance function of some weakly stationary field. We can choose the process to be Gaussian. This follows by the fact that given any positive semi-definite Hermitian matrix $A$,  we can always find a Gaussian variable with covariance matrix $A$. This allows us to construct the desired family of finite dimensional distributions $\{X_j\}_{j \in  J}$, and then an application of Kolmogorov's extension theorem (link) concludes the proof. See \cite{lindgren2012stationary} page 72 for the details.
+	We have already seen that every covariance function is positive semi-definite, so it remains to check that a positive semi-definite function $r(u)$ corresponds to the  covariance function of some weakly stationary field. We can choose the process to be Gaussian. This follows by the fact that given any positive semi-definite Hermitian matrix $A$,  we can always find a Gaussian variable with covariance matrix $A$. This allows us to construct the desired family of finite dimensional distributions $\{X_j\}_{j \in  J}$, and then an application of \href{https://en.wikipedia.org/wiki/Kolmogorov_extension_theorem}{Kolmogorov's extension theorem} concludes the proof. See \cite{lindgren2012stationary} page 72 for the details.
 \end{proof}
 There, is a nice characterization of the positive semi-definite functions first proved by Bochner in \cite{bochner1933monotone}
 \begin{theorem}[Bochner's theorem]\label{Bochner's theorem}
@@ -389,7 +355,7 @@ Having set up the theory for general Hilbert spaces, we now somewhat restrict to
 	\begin{equation*}
 		r_{jk}=\int_{\R^d}e^{i\omega\cdot u}dF_{jk}
 	\end{equation*}
-	Where $dF_{jk}$ is a complex linear combination of $dF_{a^{(jk)}},dF_{b^{(jk)}}, dF_{c^(j)},dF_{c^{(k)}}$ and is thus a \emph{complex} valued measure (link).
+	Where $dF_{jk}$ is a complex linear combination of $dF_{a^{(jk)}},dF_{b^{(jk)}}, dF_{c^(j)},dF_{c^{(k)}}$ and is thus a \href{https://en.wikipedia.org/wiki/Complex_measure}{\emph{complex} valued measure}.
 \end{proof}
 From the above, we can quickly obtain Bochner's theorem for fields valued in Hilbert spaces
 \begin{theorem}[Bochner's theorem for $H$ valued fields]\label{bochner hilbert}
@@ -570,7 +536,7 @@ What does all this have to do with linear filters? Well, as in calculus, we have
 \begin{theorem}[Differentiation of fields]\label{diff fields theorem}
 	Given a mean $0$ stationary  field $X:\R^d\to\C$ with spectral distribution $dF$ the following are equivalent
 	\begin{enumerate}
-		\item $X$ is $\alpha$ times mean square differentiable.
+		\item $X$ is $\alpha$ times mean square differentiable.\label{p1}
 		\item $r$ is $2\alpha$ times square differentiable in some interval of $0$.
 		\item $r$ is $2\alpha$ times square differentiable and $D^\alpha X$ has covariance function
 		      \begin{equation*}
@@ -584,7 +550,7 @@ What does all this have to do with linear filters? Well, as in calculus, we have
 	\end{enumerate}
 \end{theorem}
 \begin{proof}
-	To prove the equivalence between the points, it is sufficient to prove it when $\abs{\alpha}=1$ and then apply an iteration. Let us take then\\ $\alpha=(0,\ldots,\overset{(i)}{1},\ldots 0)$. We have that, by the Loeve condition (link) for $L^2$ convergence, the derivative exists if and only if the limit
+	To prove the equivalence between the points, it is sufficient to prove it when $\abs{\alpha}=1$ and then apply an iteration. Let us take then\\ $\alpha=(0,\ldots,\overset{(i)}{1},\ldots 0)$. We have that, by the Loeve condition for $L^2$ convergence, the derivative exists if and only if the limit
 	\begin{multline*}
 		\lim_{h,k \to 0}\E\qty(\frac{X(u+he_j)-X(u)}{h}\cdot\overline{\frac{X(u+ke_j)-X(u)}{k}})\\=
 		\lim_{h,k \to 0}\frac{r((h-k)e_j)-r(he_j)-r(-ke_j)+r(0)}{kh}
@@ -594,7 +560,7 @@ What does all this have to do with linear filters? Well, as in calculus, we have
 		-\partial_j^2 r(0)=\lim_{h \to 0}\mathbb{E}\qty[\abs{\frac{X(u+he_j)-X(u)}{h}}^2]=\lim_{h \to 0}2\frac{r(0)-\Re(r(he_j))}{h^2}\\=\lim_{h\to 0}
 		\int_{R^d}2\frac{1-cos(\omega_j h)}{(\omega_jh)^2}\omega_j^2dF(\omega)\geq\int_{\R^d}\omega_j^2dF(\omega).
 	\end{multline*}
-	Where the first equality was already shown to be implied by point $1$ (link) and the inequality is due to Fatou's lemma. The fact that $4$ implies $2$, and thus also $1$, is proved similarly by the dominated convergence theorem.  We now prove the equivalence of $4$ and $5$. Suppose that  $4$ holds. Then we have  that, by the dominated convergence theorem
+	Where the first equality was already shown to be implied by \Cref{p1} and the inequality is due to Fatou's lemma. The fact that $4$ implies $2$, and thus also $1$, is proved similarly by the dominated convergence theorem.  We now prove the equivalence of $4$ and $5$. Suppose that  $4$ holds. Then we have  that, by the dominated convergence theorem
 	\begin{equation*}
 		i\omega_j=\lim_{h\to 0}\frac{e^{i\omega_j h}-1}{h}\in L^2(\R^d\to\C,dF).
 	\end{equation*}
@@ -762,7 +728,7 @@ Using this lemma, we can show a similar result holds in the case of SDEs as for 
 		\textbf{X}(t)= e^{At} \textbf{X}_0+\int_{0}^te^{A(t-s)} d \textbf{W}(s).
 	\end{equation*}
 	For a proof based on Itô's formula see Øksendal's book on SDEs \cite{oksendal2003stochastic} page 65. To now obtain $X$ of the desired form, we set as in the theorem for ODEs
-	$$X(t)= [\textbf{X}(t)]_{1} ;\quad\textbf{X}_0:=(0,\ldots,X_0);\quad X_0:=\int_{-\infty}^0e^{-As} dW(s).$$ Where $X_0$ is well-defined by the assumption that the SDE is stable. Finally, the resulting spectral density follows formally from Propositions \ref{dens linear filter} and \ref{density of derivative} together with the fact that the ``spectral density'' of one dimensional white noise is $2\pi$ (we'll see more of this later) (link). Alternatively, one can also compute $\abs{\hat{h}}^2$ where
+	$$X(t)= [\textbf{X}(t)]_{1} ;\quad\textbf{X}_0:=(0,\ldots,X_0);\quad X_0:=\int_{-\infty}^0e^{-As} dW(s).$$ Where $X_0$ is well-defined by the assumption that the SDE is stable. Finally, the resulting spectral density follows formally from Propositions \ref{dens linear filter} and \ref{density of derivative} together with the fact that the ``spectral density'' of one dimensional white noise is $2\pi$ (we'll see more of this later). Alternatively, one can also compute $\abs{\hat{h}}^2$ where
 	$h(s)=\qty(e^{sA})_{1,p}1_{(0,\infty)}(s)$.
 \end{proof}
 \subsubsection{Stochastic partial differential equations}
@@ -844,7 +810,7 @@ Let us denote by $S_M,r_M,X_M$ the spectral density, the covariance function, an
 \end{equation*}
 We will also consider
 \begin{equation}\label{omk}
-	\omega_k:=\frac{2\pi k}{hn},\quad k\in \Ck_0:=\qty[\frac{n}{2},\frac{n}{2}-1]\cap \Z^d
+	\omega_k:=\frac{2\pi k}{hn},\quad k\in \Kk_0:=\qty[\frac{n}{2},\frac{n}{2}-1]\cap \Z^d
 \end{equation}
 By \Cref{spde theorem} and Bochner's theorem, we know that, for $i\in \{M,S,T\}$
 \begin{equation*}
@@ -869,18 +835,18 @@ Let us denote the variance of $dZ_k$ by  $\sigma _k$, so that,
 \begin{equation*}
 	dZ_k=\sigma _k(x_k+iy_k).
 \end{equation*}
-Where $x_k,y_k$ are iid unit, real-valued normal random variables for $k \in \Ck_+$.
+Where $x_k,y_k$ are iid unit, real-valued normal random variables for $k \in \Kk_+$.
 \\
 \red{By the isometry in \eqref{dZ properties}, we have that $Z_k,Z_j$ are independent for different  $k\neq j$. However, why are the real and imaginary part of $Z_k$  iid and had the same variance. Is this  a property or just something we assume? Why make such an assumption? Also I checked his spectral notes, and at the end of page three he says the complex and imaginary parts are not independent??}\\
 Since we know that $X$ is real valued, its imaginary part must be zero, so as $n$ goes to infinity (in all directions)
 \begin{multline}\label{sr+}
-	X(u)\simeq\sum_{k\in \Ck_0} e^{i\omega_k\cdot u}Z_k=\sum_{k\in \Ck_0}\sigma _k(cos(\omega_k\cdot u) + i sin(\omega_k\cdot u))(x_k +iy_k)\\
-	=\sum_{k\in \Ck_0}\sigma _k(x_{k}cos(\omega_k\cdot u)-y_{k}sin(\omega_k\cdot u))
+	X(u)\simeq\sum_{k\in \Kk_0} e^{i\omega_k\cdot u}Z_k=\sum_{k\in \Kk_0}\sigma _k(cos(\omega_k\cdot u) + i sin(\omega_k\cdot u))(x_k +iy_k)\\
+	=\sum_{k\in \Kk_0}\sigma _k(x_{k}cos(\omega_k\cdot u)-y_{k}sin(\omega_k\cdot u))
 \end{multline}
 Using this together with the independence of $x_k,y_k\sim\mathcal{N}(0,1)$ gives that
 \begin{multline}\label{eq1}
-	r(u-v)=Cov(X(u),X(v))\\\simeq \sum_{k\in \Ck_0} \sigma_k^2(cos(\omega_k\cdot u)cos(\omega_k\cdot v)+sin(\omega_k\cdot u)sin(\omega_k\cdot v))\\
-	=\sum_{k\in \Ck_0} \sigma _k^2 cos(\omega_k\cdot(u-v)).
+	r(u-v)=Cov(X(u),X(v))\\\simeq \sum_{k\in \Kk_0} \sigma_k^2(cos(\omega_k\cdot u)cos(\omega_k\cdot v)+sin(\omega_k\cdot u)sin(\omega_k\cdot v))\\
+	=\sum_{k\in \Kk_0} \sigma _k^2 cos(\omega_k\cdot(u-v)).
 \end{multline}
 Where we used the formula for the cosine of the difference in the last equality.
 By a change of variables and the period of the complex exponential, we have that if $u$ is divisible by  $h$ (i.e. $u=jh$ for some $j\in\mathbb{Z}^d$), then by Bochner's theorem and the periodicity of the complex exponential
@@ -891,7 +857,7 @@ Where we defined $\tilde{S}_h$ as the sum appearing in the above integral.
 Since $r$ must be real, $S$ (and thus $\tilde{S}_h$) is real, we deduce that, if $u-v$ is divisible by  $h$, then
 \begin{multline}\label{eq2}
 	r(u-v)=\int_{[-\frac{\pi}{h},\frac{\pi}{h})} Re(e^{i(u-v)\cdot\omega})\tilde{S}_h(\omega)d\omega=\int_{[-\frac{\pi}{h},\frac{\pi}{h})}cos(\omega\cdot(u-v)) \tilde{S}_h(\omega)d\omega\\
-	\simeq \sum_{k \in \Ck_0}\abs{\frac{2\pi}{hn}}\tilde{S}_h(\omega_k)cos(\omega_k\cdot(u-v)).
+	\simeq \sum_{k \in \Kk_0}\abs{\frac{2\pi}{hn}}\tilde{S}_h(\omega_k)cos(\omega_k\cdot(u-v)).
 \end{multline}
 Where in the last line we did an approximation to the integral over the interval $[-\pi/h,\pi/h)$ by subdividing it into $n/2$ parts.
 Due to \eqref{eq1} and \eqref{eq2}, and by the definition of $\omega_k$ in \eqref{omk},  we set
@@ -974,7 +940,7 @@ In the standard construction of the Lebesgue integral it is used that every meas
 \begin{proof}
 	Consider $\{e_k\}_{k=1}^\infty$ to be dense in $f(\Omega)$. Now set
 	\begin{equation*}
-		f_n(\omega):= \argmin_{i\in\{1,...,n\}} \{d(f(\omega),e_i)\}
+		f_n(\omega):= \rm{argmin}_{i\in\{1,...,n\}} \{d(f(\omega),e_i)\}
 	\end{equation*}
 	Since for each fixed $\omega$ the above distance goes to $0$ we have that
 	\begin{equation*}

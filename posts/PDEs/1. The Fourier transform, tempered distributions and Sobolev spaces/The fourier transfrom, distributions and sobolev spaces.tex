@@ -194,7 +194,7 @@ and where now Plancherel's theorem gives that, for such $f$:
 	f(x)=\sum_{k\in\Z^d}\hat{f}(k)e^{2\pi ik\cdot x}.
 \end{equation}
 
-\section{Distributions and Sobolev Spaces}
+\section{Distributions and Sobolev Spaces}\label{distrsec}
 Here we will quickly recall the concepts of tempered distributions and Sobolev spaces, which are concepts of utmost importance in the field of PDEs and Fourier analysis.
 The idea is as follows, given a topological vector space $V$ we denote the dual of $V$  by \[V':=\lbrace w:E\to\C\hspace{2pt}: w \hspace{2pt}\text{continuous}\rbrace.\]
 Furthermore, given $w\in V'$ and $u\in V$ we use the notation
@@ -346,7 +346,10 @@ In fact, since the Fourier transform is a unitary transformation on $L^2(\R^d\to
 	\norm{f}_{H^k(\R^d\to\C^m)}\sim_k \norm{\br{\xi}^k\hat{f}(\xi)}_{L^2(\R^d\to\C^m)}
 \end{equation}
 From the two equations above we deduce that if we define for a given real number $s$ (including negative numbers!) the $s$-th order Sobolev space as
-\[H^s(\R^d\to\C^m):=\lbrace f\in L^2(\R^d\to\C^m): \br{\xi}^s\hat{f}(\xi)\in L^2(\R^d\to\C^m)\rbrace\]
+\begin{aligneq}\label{fracsobdef}
+	H^s(\R^d\to\C^m):=\lbrace f\in L^2(\R^d\to\C^m): \br{\xi}^s\hat{f}(\xi)\in L^2(\R^d\to\C^m)\rbrace
+\end{aligneq}
+
 and give it the norm
 \[\norm{f}_{H^k(\R^d\to\C^m)}:= \norm{\br{\xi}^s\hat{f}(\xi)}_{L^2(\R^d\to\C^m)}\]
 then our new definition is equivalent to the previous one \eqref{normdef1}  when $s$ is a positive integer. We have thus found how to generalize the concept of Sobolev space to all real orders and obtained a useful way of characterizing them and giving a neat expression for their norm. Nonetheless, it will always be useful to retain the first definition based on derivatives, as it carries with it the motivation behind the definition of Sobolev spaces.\bigbreak

@@ -1,48 +1,48 @@
 This is BibTeX, Version 0.99d
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: Stationary_field_1D.aux
-Reallocating 'name_of_file' (item size: 1) to 15 items.
-The style file: elsarticle-num.bst
+Reallocating 'name_of_file' (item size: 1) to 8 items.
+The style file: apalike.bst
 Reallocating 'name_of_file' (item size: 1) to 11 items.
 Database file #1: biblio.bib
 You've used 14 entries,
-            2952 wiz_defined-function locations,
-            747 strings with 7065 characters,
-and the built_in function-call counts, 3713 in all, are:
-= -- 311
-> -- 86
-< -- 7
-+ -- 38
-- -- 24
-* -- 186
-:= -- 469
-add.period$ -- 14
+            1935 wiz_defined-function locations,
+            546 strings with 5375 characters,
+and the built_in function-call counts, 4786 in all, are:
+= -- 459
+> -- 148
+< -- 18
++ -- 48
+- -- 46
+* -- 346
+:= -- 839
+add.period$ -- 43
 call.type$ -- 14
-change.case$ -- 5
-chr.to.int$ -- 0
+change.case$ -- 81
+chr.to.int$ -- 14
 cite$ -- 14
-duplicate$ -- 133
-empty$ -- 524
-format.name$ -- 30
-if$ -- 1037
-int.to.chr$ -- 0
-int.to.str$ -- 14
+duplicate$ -- 219
+empty$ -- 371
+format.name$ -- 63
+if$ -- 957
+int.to.chr$ -- 1
+int.to.str$ -- 0
 missing$ -- 23
-newline$ -- 53
-num.names$ -- 14
-pop$ -- 134
+newline$ -- 73
+num.names$ -- 42
+pop$ -- 104
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 90
 quote$ -- 0
-skip$ -- 282
+skip$ -- 170
 stack$ -- 0
-substring$ -- 106
-swap$ -- 27
+substring$ -- 276
+swap$ -- 35
 text.length$ -- 7
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
+type$ -- 66
 warning$ -- 0
-while$ -- 24
-width$ -- 16
-write$ -- 120
+while$ -- 38
+width$ -- 0
+write$ -- 180
