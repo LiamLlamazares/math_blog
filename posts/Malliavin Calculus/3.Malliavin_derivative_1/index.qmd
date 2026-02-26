@@ -5,6 +5,9 @@ date: "2022-06-30"
 categories: [Malliavin Calculus]
 description: "Part 3 of the series on Malliavin calculus"
 bibliography: biblio.bib
+pdf: "main.pdf"
+resources:
+  - "main.pdf"
 format:
   html:
     toc: true
@@ -112,6 +115,8 @@ format:
         </script>
 ---
 
+<div id="quarto-post-pdf-url" data-url="main.pdf" style="display:none;"></div>
+
 ## Three line summary
 
 - The Malliavin derivative is an operator defined by manipulating the chaos expansion of a square-integrable random variable.
@@ -132,7 +137,7 @@ The same as in previous posts. Furthermore we will shorten the notation  $L^2(\O
 
 The Malliavin derivative was originally introduced as an operator associated with the Fréchet differential of random variables $X: C(I)\to \R$. The aforementioned construction provides some motivation behind the Malliavin derivative and will be developed in the next post. However, a more general construction  can be obtained via the chaos expansion.
 
-::: {#def-1}
+::: {#def-malnormdef}
 
 Given $X=\sum_{n=0}^{\infty} I_n(f_n)\in L^2(\Omega)$ we say that $X$ is *Malliavin differentiable* if
 
@@ -250,7 +255,7 @@ As desired.
 
 We now conclude this post by stating two  properties of the Malliavin derivative that are analogous to those verified by the derivative of ordinary functions. Firstly, an analog to the chain rule for the ordinary derivative. The proof can be found on page $29$ of Nunno and Øksendal's book [@nunno2008malliavin] but is rather technical and relies on Hermite polynomials which were not discussed previously, so we omit it.
 
-::: {#def-2}
+::: {#def-1}
 
 We write $\mathbb{D}_{1,2}^0\subset L^2(\Omega)$ for the space of square integrable random variables $X=\sum_{n=0}^{\infty} I_n(f_n)$ such that $f_n=0$ for all but finitely many  $n$.
 
@@ -403,7 +408,7 @@ In the same fashion as before, we can now define the $k$-th differential norm as
 
 $$
 \norm{X}_{\mathbb{D}^{k,p}}:=\sum_{j=0}^{k}  \norm{D^j X}_{L^p(\Omega\to L^2(I^j))}.
-$$
+$$ {#eq-higher-order}
 
 Where we use the convention $D^0 X:=X, L^2(I^0):= \R$. Then we simply define $\mathbb{D}^{k,p}$ to be the completion of $\W$ with this norm. Finally, we define
 

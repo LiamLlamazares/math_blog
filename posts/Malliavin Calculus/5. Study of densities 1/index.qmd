@@ -5,6 +5,9 @@ date: "2022-10-24"
 categories: [Malliavin Calculus]
 description: "Part 5 of the series on Malliavin calculus"
 bibliography: biblio.bib
+pdf: "main.pdf"
+resources:
+  - "main.pdf"
 format:
   html:
     toc: true
@@ -112,6 +115,8 @@ format:
         </script>
 ---
 
+<div id="quarto-post-pdf-url" data-url="main.pdf" style="display:none;"></div>
+
 ## Three line summary
 
 - A Malliavin differentiable random variable $X\in \mathbb{D}^{1,2}$ is supported in intervals.
@@ -157,7 +162,7 @@ $$
 $$ {#eq-sup}
 
 Where we also take $\varepsilon$ small enough so that $a<x-\varepsilon<x+\varepsilon<b$.
-Now take a smooth and bounded function $\varphi$ with $\varphi(y)=0$ for $y<x-\varepsilon$ and with $\varphi(y)=1$ for $y>x+\varepsilon$. By ([-@eq-sup]) it holds that (almost everywhere) $\varphi(X)=1_{X>x+\varepsilon}$. Combining [proposition 5](</posts/Malliavin Calculus/3.Malliavin_derivative_1/index.qmd#prp-5>) and [corollary 1](</posts/Malliavin Calculus/3.Malliavin_derivative_1/index.qmd#cor-1>) of the previous post, we obtain that $1_{X>x+\varepsilon}$ is either $0$ or $1$ almost everywhere. That is,
+Now take a smooth and bounded function $\varphi$ with $\varphi(y)=0$ for $y<x-\varepsilon$ and with $\varphi(y)=1$ for $y>x+\varepsilon$. By ([-@eq-sup]) it holds that (almost everywhere) $\varphi(X)=1_{X>x+\varepsilon}$. Combining [proposition 5](</posts/Malliavin Calculus/3.Malliavin_derivative_1/index.qmd>) and [corollary 1](</posts/Malliavin Calculus/3.Malliavin_derivative_1/index.qmd>) of the previous post, we obtain that $1_{X>x+\varepsilon}$ is either $0$ or $1$ almost everywhere. That is,
 
 $$
 \mathbb{P}(X>x+\varepsilon)=0\quad \text{or}\quad \mathbb{P}(X\leq x+\varepsilon)<0 .
@@ -178,13 +183,13 @@ Let $X\in \mathbb{D}^{1,2}$. If $\norm{DX}_{H}>0$ almost everywhere, then $X$ ha
 
 ::: {.proof}
 
-By the [Radon Nikodyn theorem](<https://en.wikipedia.org/wiki/Radon%E2%80%93Nikodym_theorem>)  all we need to do is show that $\mathbb{P}_X$ is absolutely continuous with respect to the Lebesgue measure $\lambda$. That is, we must show that if, $\lambda (A)=0$ then also $\mathbb{P}_X(A)=0$. Let us set $g(y):=1_A(y)$ and
+By the <https://en.wikipedia.org/wiki/Radon
 
 $$
 \varphi(x):=\int_{-\infty}^x g(y)dy.
 $$
 
-Then, by construction $\varphi=0$, so also $\varphi(X)=0$. Suppose now that $g$ were continuous. Then we would have that, by the fundamental theorem of calculus $\varphi'(x)=g(x)$. So by the [chain rule](</posts/Malliavin Calculus/3.Malliavin_derivative_1/index.qmd#prp-5>)
+Then, by construction $\varphi=0$, so also $\varphi(X)=0$. Suppose now that $g$ were continuous. Then we would have that, by the fundamental theorem of calculus $\varphi'(x)=g(x)$. So by the [chain rule](</posts/Malliavin Calculus/3.Malliavin_derivative_1/index.qmd>)
 
 $$
 0=D \varphi(X)=\varphi'(X)DX=g(X)DX.
@@ -214,13 +219,13 @@ $$
 \varphi(X):=\int_{-\infty}^X g(x)dx.
 $$
 
-Then by the [chain rule](</posts/Malliavin Calculus/3.Malliavin_derivative_1/index.qmd#prp-5>) and the fundamental theorem of calculus, we have that
+Then by the [chain rule](</posts/Malliavin Calculus/3.Malliavin_derivative_1/index.qmd>) and the fundamental theorem of calculus, we have that
 
 $$
 \br{D\varphi(X),\frac{DX}{\norm{DX}^2_{H}}}_{H}=g(X).
 $$
 
-By taking expectations on both sides, and using that the Skorokhod integral is the [adjoint](</posts/Malliavin Calculus/4.Malliavin_derivative_2/index.qmd#thm-1>) of the Malliavin derivative, and Fubini we obtain
+By taking expectations on both sides, and using that the Skorokhod integral is the [adjoint](</posts/Malliavin Calculus/4.Malliavin_derivative_2/index.qmd>) of the Malliavin derivative, and Fubini we obtain
 
 $$
 \begin{aligned}
@@ -281,7 +286,7 @@ Let $X\in \mathbb{D}^\infty$ such that  $\norm{DX}_{H}>0$ almost everywhere, the
 
 ::: {.proof}
 
-By @thm-dens-exists we know that $X$ has a density $p(x)$. To show that $p$ is smooth, by [Sobolev embeddings](</posts/PDEs/3. Sobolev spaces/index.qmd#thm-rellich>) it is sufficient to show that $p$ is weakly differentiable with order $n$ for all $n \in \N$. That is, for all $\varphi\in C_c^\infty(\R)$, there exists a function $p^{(n)}$ such that
+By @thm-dens-exists we know that $X$ has a density $p(x)$. To show that $p$ is smooth, by [Sobolev embeddings](</posts/PDEs/3. Sobolev spaces/index.qmd>) it is sufficient to show that $p$ is weakly differentiable with order $n$ for all $n \in \N$. That is, for all $\varphi\in C_c^\infty(\R)$, there exists a function $p^{(n)}$ such that
 
 $$
 \E[\varphi^{(n)}(X)]=\int_{\R}\varphi^{(n)}(x)p(x) dx=(-1)^n\int_{\R}\varphi(x) p^{(n)}(x) dx.
@@ -316,6 +321,8 @@ Since this bounded expectation exists for all $n$, $p$ is smooth.
 Finally, we comment that all these theorems carry over to the case where $X$ is a vector-valued random variable (as opposed to real-valued). In this case, the condition
 for the existence of densities becomes that the matrix of derivatives $(\br{DX_i,DX_j}_{H})_{i,j}$ has non-zero determinant almost everywhere. We refer the reader to [@nualart2018introduction] 
 Chapter  $7$ or [@hairer2021introduction]  chapter $4$ for the multidimensional theory.
+
+>
 
 ## References
 

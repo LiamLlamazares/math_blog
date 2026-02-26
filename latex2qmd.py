@@ -47,6 +47,7 @@ def detect_cover_image(folder: Path) -> str | None:
     return None
 
 
+
 def infer_tags(folder: Path) -> list[str]:
     """Default tag = parent folder name (e.g. 'analysis' from latex/analysis/MyPost)."""
     parent = folder.parent.name
@@ -564,18 +565,21 @@ def convert_body(body: str, label_registry: dict | None = None,
     r"""Apply all mechanical transformations to the LaTeX body.
     """
     # --- Pass 0a: Structural Normalization ---
+    # Strip unescaped LaTeX comments %...
+    body = re.sub(r'(?<!\\)%.*', '', body)
+    
+    # Replace escaped percentages \% with plain %
+    body = body.replace(r'\%', '%')
+
     # Split, lstrip, and rejoin to prevent 4-space/tab indented code blocks in Markdown.
     # We do this first because LaTeX source indentation is purely cosmetic,
     # but Markdown indentation is semantic.
     lines = [l.lstrip() for l in body.split('\n')]
     text = '\n'.join(lines)
 
-    # Insert PDF Link at the top if available （done elsewhere so redundant)
-    # if pdf_filename:
-    #     import urllib.parse
-    #     pdf_url = urllib.parse.quote(pdf_filename)
-    #     pdf_banner = f"::: {{.callout-note appearance=\"minimal\"}}\n[Download PDF version]({pdf_url})\n:::\n\n"
-    #     text = pdf_banner + text
+    # Insert PDF Link data at the top if available
+    if pdf_filename:
+        text = f'<div id="quarto-post-pdf-url" data-url="{pdf_filename}" style="display:none;"></div>\n\n' + text
 
     # Strip legacy "outdated PDF" disclaimers and spacing commands
     text = re.sub(r'(?i)link to a (?:possibly )?outdated PDF content.*?\.', '', text)
@@ -1248,6 +1252,20 @@ def build_qmd(meta: dict, body: str, mathjax_macros: str) -> str:
     if bib:
         lines.append(f'bibliography: {bib}')
 
+    # Resources (PDF and Image) so Quarto copies them
+    resources = []
+    if img:
+        resources.append(f'"{img}"')
+    pdf_file = meta.get('pdf', '')
+    if pdf_file:
+        lines.append(f'pdf: "{pdf_file}"') # Inject pdf into YAML for dashboard
+        resources.append(f'"{pdf_file}"')
+    
+    if resources:
+        lines.append('resources:')
+        for res in resources:
+            lines.append(f'  - {res}')
+
     # Format block with MathJax
     lines.append('format:')
     lines.append('  html:')
@@ -1323,6 +1341,16 @@ def convert_folder(folder: Path, tex_name='main.tex', preamble_name='preamble.st
         print(f"  Image:    {cover}")
     else:
         print(f"  Image:    (none)")
+        
+    # Determine if a PDF version exists to provide a link
+    pdf_file = tex_path.with_suffix('.pdf')
+    pdf_filename = pdf_file.name if pdf_file.exists() else None
+    
+    if pdf_filename:
+        meta['pdf'] = pdf_filename
+        print(f"  PDF:      {pdf_filename}")
+    else:
+        print(f"  PDF:      (none)")
 
     # Compute current folder path relative to posts/ for cross-post resolution
     current_folder = None
@@ -1337,10 +1365,6 @@ def convert_folder(folder: Path, tex_name='main.tex', preamble_name='preamble.st
     macros = parse_preamble_macros(sty_path)
     print(f"  Extracted {len(macros)} macros from {preamble_name}")
     mathjax_macros = format_mathjax_macros(macros)
-
-    # Determine if a PDF version exists to provide a link
-    pdf_file = tex_path.with_suffix('.pdf')
-    pdf_filename = pdf_file.name if pdf_file.exists() else None
 
     # Extract and convert body
     body = extract_body(tex_content)

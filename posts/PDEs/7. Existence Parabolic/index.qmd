@@ -6,6 +6,10 @@ categories: [Pdes]
 description: "A journey through time and space"
 image: "cover.png"
 bibliography: biblio.bib
+pdf: "approx_boundary_l2.pdf"
+resources:
+  - "cover.png"
+  - "approx_boundary_l2.pdf"
 format:
   html:
     toc: true
@@ -112,6 +116,8 @@ format:
         };
         </script>
 ---
+
+<div id="quarto-post-pdf-url" data-url="approx_boundary_l2.pdf" style="display:none;"></div>
 
 ## Three point summary
 
@@ -660,7 +666,7 @@ $$ {#eq-bound-p}
 
 ::: {.proof}
 
-Let $\set{u_n}_{n=1}^\infty$ be the sequence of solutions to the Galerkin problem ([-@eq-galerkin]) guaranteed by Theorem ([-@eq-galerkin]).  By said theorem, $u_n$ and $u'_n$ are bounded sequences in $L_t^2H_{0,x}^1$ and $L_t^2 H_x^{-1}$ respectively. Since these spaces are Hilbert spaces, they are reflexive, and we deduce by the [Banach-Alaoglu theorem](<https://en.wikipedia.org/wiki/Banach%E2%80%93Alaoglu_theorem>) that respective subsequences converge weakly in their respective spaces to some $u \in L_tH_{0,x}^1$ and $\tl{u} \in L_t H_x^{-1}$. That is, 
+Let $\set{u_n}_{n=1}^\infty$ be the sequence of solutions to the Galerkin problem ([-@eq-galerkin]) guaranteed by Theorem ([-@eq-galerkin]).  By said theorem, $u_n$ and $u'_n$ are bounded sequences in $L_t^2H_{0,x}^1$ and $L_t^2 H_x^{-1}$ respectively. Since these spaces are Hilbert spaces, they are reflexive, and we deduce by the <https://en.wikipedia.org/wiki/Banach
 
 $$
 \begin{aligned}
@@ -850,6 +856,8 @@ $A_{ij}(t),b_j(t), c_j(t) \in C^{k, \alpha}(\Omega )$. If $u$ is a classical sol
 This ends our study of parabolic partial differential equations. With it, we bring this series on linear PDEs to a, at least momentary, end. We began our study with the Fourier transform, then ventured into the thick jungle of distributions, emerging into the open plains of Sobolev spaces. There, we lingered, marveling at its vast expanse and many corners, fractional and otherwise. Armed with newfound knowledge, we marched bravely into the land of elliptic PDEs and, with our trusty aide Lax-Milgram and a few carefully derived energy estimates, made short work of the enemy. In this final stop, we added time into the mix and, wielding the ideas of Bochner, Galerkin, and Grönwall (plus our ever-reliable bag of tricks), secured the well-posedness and regularity of solutions.
 
 At times, our journey may have seemed arduous, long, and winding, but I hope you found it as rewarding as I did. Though we now move on to fresh pastures, our hard-earned map of the land of linear PDEs will surely serve us well in future adventures. Next, we turn our sights to new horizons, and there are many to choose from, such as the nature of probability, Bayesian inference, and stochastic partial differential equations. The road ahead is filled with possibilities, and I hope you'll join us for this next leg of our journey.
+
+>
 
 ## References
 

@@ -5,6 +5,9 @@ date: "2022-05-23"
 categories: [Malliavin calculus]
 description: "Iterated Itô integrals and their consequences"
 bibliography: biblio.bib
+pdf: "main.pdf"
+resources:
+  - "main.pdf"
 format:
   html:
     toc: true
@@ -112,6 +115,8 @@ format:
         </script>
 ---
 
+<div id="quarto-post-pdf-url" data-url="main.pdf" style="display:none;"></div>
+
 This is the first post of many to come on this blog, thanks for joining! This is also the first in a series on Malliavin calculus. This chain is
 based on the book [@nunno2008malliavin], and inspired by a reading group on the topic.
 
@@ -201,7 +206,7 @@ $$
 
 Where it is important to note that the second equality is by definition and where the rescaling factor is motivated by the fact that, by counting permutations, if $I$ is finite then $\mu(I^n)=n! \mu(S_n)$.
 
-::: {#prp-1 name="Itô's n-th isometry"}
+::: {#prp-itosnthisometry name="Itô's n-th isometry"}
 
 Let $f,g\in L^2(S^n)$ then
 
@@ -237,7 +242,7 @@ Furthermore it holds that $\norm{X}_{L^2(I\times\Omega)}\leq \norm{\xi}_{L^2(\Om
 
 :::
 
-::: {#thm-1 name="Chaos expansion"}
+::: {#thm-chaos-thm name="Chaos expansion"}
 
 Let $\xi\in L^2(\Omega,\Ff_\infty)$, then there exists a unique sequence of functions $g_n \in L^2(S_n),f_n \in L^2(I^n)$ such that
 

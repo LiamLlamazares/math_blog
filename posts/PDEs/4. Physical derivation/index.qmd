@@ -4,6 +4,9 @@ author: "Liam Llamazares--Elias"
 date: "2023-12-23"
 categories: [Pdes]
 description: "Just have to balance the mass"
+pdf: "A physical derivation of parabolic and elliptic PDE - Copy.pdf"
+resources:
+  - "A physical derivation of parabolic and elliptic PDE - Copy.pdf"
 format:
   html:
     toc: true
@@ -111,6 +114,8 @@ format:
         </script>
 ---
 
+<div id="quarto-post-pdf-url" data-url="A physical derivation of parabolic and elliptic PDE - Copy.pdf" style="display:none;"></div>
+
 ## Summary
 
 Partial differential equations (PDEs) are a fundamental tool that can be used to describe the evolution and stationary state of a physical system. These PDEs can be derived by understanding the processes that cause the “mass” of the system to vary via a balance equation. Namely diffusion, advection, reaction and sources.
@@ -184,7 +189,7 @@ $$
 \end{aligned}
 $$
 
-Now, the mass of the solute in $V$ is just the integral of the density over $V$. Using this and the [divergence theorem](<https://en.wikipedia.org/wiki/Divergence_theorem#:~:text=%5Bedit%5D-,For,-bounded%20open%20subsets>) gives
+Now, the mass of the solute in $V$ is just the integral of the density over $V$. Using this and the <https://en.wikipedia.org/wiki/Divergence_theorem#:~:text=
 
 $$
 \begin{aligned}
@@ -296,7 +301,6 @@ Equations ([-@eq-parabolic]), and ([-@eq-elliptic]) are, respectively, the parab
 
 ## Boundary conditions
 
-%
 In an application, the system we are studying will evolve within some smooth bounded domain $\Omega$. In order for a unique solution to be defined it is necessary to impose a boundary condition for what $u$ is allowed to do on  $\Omega$ (as well as an initial condition $u(0,\bm{x})=u_0(\bm{x})$ in the parabolic case ([-@eq-parabolic])).
 
 ::: {#exm-1}
@@ -374,6 +378,8 @@ e. *Periodic boundary conditions*: Here the domain is an interval  $\Omega=(\bm{
 Finally, mathematically, it also makes sense to work with infinite domains such as the whole Euclidean space $\R^d$. In this case, rather than a boundary condition, one imposes suitable decay on the function such as $u \in L^p(\R^d)$ or its derivatives such as $u \in W^{k,p}(\R^d)$.
 
 We end the post by commenting that non-linear terms may be considered in the PDE ([-@eq-parabolic])-([-@eq-elliptic]).  Many examples can be found [here](<https://en.wikipedia.org/wiki/List_of_nonlinear_partial_differential_equations>). However, the mathematical theory of nonlinear PDE is much more complicated (think Navier Stokes). The linear case, which we begin to develop in the next post, will keep us busy for a while.
+
+>
 
 ## References
 

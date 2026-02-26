@@ -5,6 +5,9 @@ date: "2022-05-22"
 categories: [Stochastic Calculus, Ito Integral]
 description: "Can you really construct this thing?"
 bibliography: biblio.bib
+pdf: "main.pdf"
+resources:
+  - "main.pdf"
 format:
   html:
     toc: true
@@ -111,6 +114,8 @@ format:
         </script>
 ---
 
+<div id="quarto-post-pdf-url" data-url="main.pdf" style="display:none;"></div>
+
 ## Three line summary
 
 - The Itô integral is a way of integrating random variables against Brownian motion.
@@ -140,7 +145,7 @@ A stochastic process $\{X_t\}_{t\in I}$ valued in a measurable space $(H,\Hh)$ i
 
 As we will soon see the only stochastic process that can be integrated are the square integrable and progressively measurable. But what does this mysterious term mean?
 
-::: {#def-2}
+::: {#def-prog-def}
 
 A stochastic process $\{X_t\}_{t\in I}$ valued in a measurable space $(H,\Hh)$ is *progressively measurable* if its restriction to $[0,t]\times\Omega$ is measurable as a map $$X|_{[0,t]\times\Omega} : \Bb([0,t])\otimes\Ff_t\to \Hh$$ for all $t\in I$.
 
@@ -156,7 +161,7 @@ Progressively measurable processes are adapted.
 
 Additionally, stochastic processes can be viewed path-wise but also be seen as functions of a product space, this leads to the following definition.
 
-::: {#def-3}
+::: {#def-2}
 
 We say that a stochastic process $\{X_t\}_{t\in I}$ valued in a measurable space $(H,\Hh)$ is jointly measurable if $$X:\Bb(I)\otimes\Ff_\infty\to \Hh$$
 where $\Ff_\infty:=\vee_{t\in I}\Ff_t$.
@@ -232,7 +237,7 @@ Since $X$ is adapted, $X_{(k+1)t/2^n}^{-1}(A) \in \Ff_{(k+1)t/2^n} \subseteq \Ff
 
 As for Riemann integration our construction relies on step functions, here called elementary processes.
 
-::: {#def-4}
+::: {#def-3}
 
 We say that $f: I \times \Omega \to \R$ is an elementary process if there exist increasing $\set{t_j}_{j=1}^n  \subset I$ and $\xi_j : \Ff_{t_j} \to I$ such that
 

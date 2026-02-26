@@ -4,6 +4,9 @@ author: "Billy Summers"
 date: "2022-07-02"
 categories: [Malliavin Calculus]
 description: "Part 4 of the series on Malliavin calculus"
+pdf: "part4.pdf"
+resources:
+  - "part4.pdf"
 format:
   html:
     toc: true
@@ -110,6 +113,8 @@ format:
         };
         </script>
 ---
+
+<div id="quarto-post-pdf-url" data-url="part4.pdf" style="display:none;"></div>
 
 ## The Malliavin derivative as a Fr\'{e
 
@@ -446,7 +451,7 @@ calculus case (see the remark above).
 
 :::
 
-::: {#thm-3}
+::: {#thm-divergence-prop}
 
 Let $X \in L^2([0,T]\times\Omega)$ be a stochastic process such that
 for all $s \in [0, T]$, $X_s$ is in $\mathbb{D}^{1, 2}$, $D{X_s}$ is

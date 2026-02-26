@@ -3,20 +3,11 @@ document.addEventListener("DOMContentLoaded", function() {
   const meta = document.querySelector('.quarto-title-meta');
   if (!meta) return;
 
-  // 1. Try to get PDF from meta tag if Quarto has it
-  // Since Quarto doesn't always put custom YAML into meta tags, 
-  // we look for a hidden element that our EJS might have provided 
-  // or just search for links again but with better logic.
-  
-  let pdfUrl = null;
-  const links = document.querySelectorAll('a[href$=".pdf"]');
-  if (links.length > 0) {
-    pdfUrl = links[0].getAttribute('href');
-  }
+  // Find the hidden data div injected by latex2qmd.py
+  const pdfDataElement = document.getElementById('quarto-post-pdf-url');
+  if (!pdfDataElement) return;
 
-  // If no link found, we can't really "guess" the path without help.
-  // We'll stick to link detection for now as it's the most robust way 
-  // to ensure the file actually exists and Quarto knows about it.
+  const pdfUrl = pdfDataElement.getAttribute('data-url');
 
   if (pdfUrl && meta) {
     // Check if we already injected it

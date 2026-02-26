@@ -5,6 +5,9 @@ date: "2023-05-30"
 categories: [Pdes]
 description: "An appendix for a series on PDEs"
 bibliography: biblio.bib
+pdf: "Hilbert_spaces.pdf"
+resources:
+  - "Hilbert_spaces.pdf"
 format:
   html:
     toc: true
@@ -111,6 +114,8 @@ format:
         };
         </script>
 ---
+
+<div id="quarto-post-pdf-url" data-url="Hilbert_spaces.pdf" style="display:none;"></div>
 
 ## Three line summary
 
@@ -370,7 +375,7 @@ $$
 
 :::
 
-Note that the imposition that $V$ is closed in @thm-complement-theorem is necessary. Finite-dimensional subspaces are always closed, but infinite-dimensional subspaces may not be. For example, consider $H=L^2(I)$ for some bounded $I$ and take  $V$ to polynomials on $I$ . By the [Stone-Weierstrass](<https://en.wikipedia.org/wiki/Stone%E2%80%93Weierstrass_theorem>) theorem $V$ is dense  in $H$. That is $H=\overline{V}$, whereas
+Note that the imposition that $V$ is closed in @thm-complement-theorem is necessary. Finite-dimensional subspaces are always closed, but infinite-dimensional subspaces may not be. For example, consider $H=L^2(I)$ for some bounded $I$ and take  $V$ to polynomials on $I$ . By the <https://en.wikipedia.org/wiki/Stone
 
 $$
 \begin{aligned}
@@ -475,7 +480,7 @@ $$
 \end{aligned}
 $$
 
-As a result by [Zorn's lemma](<https://en.wikipedia.org/wiki/Zorn%27s_lemma>) there exists a maximal element $\Bb$. If $\Bb$ is not complete (that is ([-@eq-sum]) doesn't hold), then there exists $f \in \overline{\Bb}^\perp$. By taking $f /\norm{f}$ and forming $\Bb':=\Bb \cup \set{f / \norm{f}}$ we obtain that $\Bb \subsetneq \Bb' \in \Aa$. This contradicts the maximality of $\Bb$ and concludes the proof.
+As a result by <https://en.wikipedia.org/wiki/Zorn
 
 :::
 
@@ -962,7 +967,7 @@ Let $X,Y$ be metric spaces then  $\Kk(X,Y)$ is a vector space. Furthermore, if $
 
 ::: {.proof}
 
-The first part again follows fromb the last equivalent characterization in @prp-equivalent.  The second part relies on the fact that in complete spaces compact and [totally bounded](<https://en.wikipedia.org/wiki/Totally_bounded_space#:~:text=not%20in%20general.-,In,-metric%20spaces%5B>) are equivalent.
+The first part again follows fromb the last equivalent characterization in @prp-equivalent.  The second part relies on the fact that in complete spaces compact and <https://en.wikipedia.org/wiki/Totally_bounded_space#:~:text=not
 
 :::
 
@@ -1105,6 +1110,8 @@ d. $\mathrm{dim}(\ker(T))=\mathrm{dim}(\ker(T^*))$
 :::
 
 We delay the proof till another day, in the meantime, see [@evans2022partial] page 725.
+
+>>>
 
 ## References
 

@@ -5,6 +5,9 @@ date: "date"
 categories: [Malliavin Calculus]
 description: "Part 6 of the series on Malliavin calculus"
 bibliography: biblio.bib
+pdf: "main.pdf"
+resources:
+  - "main.pdf"
 format:
   html:
     toc: true
@@ -112,6 +115,8 @@ format:
         </script>
 ---
 
+<div id="quarto-post-pdf-url" data-url="main.pdf" style="display:none;"></div>
+
 ## Three line summary
 
 - Solutions to SDEs of the form $dX=b(X) d t +\sigma (X)dW$ are Malliavin differentiable if $b,\sigma \in C^1(\R)$.
@@ -122,13 +127,13 @@ format:
 
 ## Notation
 
-The same as in the other posts of this series. In particular, we recall the notation $\mathbb{L}^2(I\times\Omega)$ for the set of progressively measurable (link) square integrable stochastic processes. Furthermore, given a stochastic process $X$ such that  $X(t)\in \mathbb{D}^{1,2}$ for each $t\in I$ we write $D_rX(t)$ for the Malliavin differential at  time $r\in I$ of $X(t)$. That is, if
+The same as in the other posts of this series. In particular, we recall the notation $\mathbb{L}^2(I\times\Omega)$ for the set of  [progressively measurable](</posts/Stochastic Calculus/Ito_integral/index.qmd>) square integrable stochastic processes. Furthermore, given a stochastic process $X$ such that  $X(t)\in \mathbb{D}^{1,2}$ for each $t\in I$ we write $D_rX(t)$ for the Malliavin differential at  time $r\in I$ of $X(t)$. That is, if
 
 $$
 X(t)=\sum_{n=0}^{\infty}  I_n(f_n(\cdot ,t)),\quad f_n(\cdot ,t)\in L^2(S_n).
 $$ {#eq-ce}
 
-is the chaos expansion (link) of $X(t)$ for each  $t$ then we have that
+is the  [chaos expansion](</posts/Stochastic Calculus/Ito_integral/index.qmd>) of $X(t)$ for each  $t$ then we have that
 
 $$
 D_rX(t)=\sum_{n=0}^{\infty}  nI_{n-1}(f_n(\cdot ,r,t)) , \quad\forall r,t\in I.
@@ -162,7 +167,7 @@ $$
 
 ::: {.proof}
 
-Suppose that $D_tX$ is progressively measurable. Then, using the previously studied divergence property (link) and the fact that the Skorokhod integral is an extension of the Itô integral (link) gives
+Suppose that $D_tX$ is progressively measurable. Then, using the previously studied [divergence property](</posts/Malliavin Calculus/4.Malliavin_derivative_2/index.qmd>)    and the fact that the Skorokhod integral is an [extension](</posts/Malliavin Calculus/2.Skorohod/index.qmd>) of the Itô integral  gives
 
 $$
 \begin{aligned}
@@ -170,7 +175,7 @@ D_r \int_{0}^t X(s) dW(s) & =D_r(\delta X1_{[0,t]}) =X(r)1_{[0,t]}(r)+\delta (D_
 \end{aligned}
 $$
 
-We consider the chaos expansion of $X$. Then, as was seen previously (link), we have that
+We consider the chaos expansion of $X$. Then, as was seen [previously](</posts/Malliavin Calculus/2.Skorohod/index.qmd>), we have that
 
 $$
 f_n(t_1,\ldots,t_n,t)=0,\quad\forall t\leq\max_{i=1,\ldots,n} t_i .
@@ -228,7 +233,7 @@ $$
 \end{aligned}
 $$
 
-Where in the first inequality we applied Fubini, Cauchy Schwartz, and the triangle inequality, and in the equality, we used our old calculation of the norm of the Malliavin derivative (link)
+Where in the first inequality we applied Fubini, Cauchy Schwartz, and the triangle inequality, and in the equality, we used our [old calculation](</posts/Malliavin Calculus/3.Malliavin_derivative_1/index.qmd>)   of the norm of the Malliavin derivative
 
 $$
 \norm{D_rX}_{L^2(I\times\Omega)}^2=\sum_{n=0}^{\infty} n!n\|f_n(\cdot ,r )\|_{L^2(I^{n+1})}<\infty.
@@ -257,9 +262,9 @@ $$
 D_rX(t)=\sigma(X_r)+\int_{r}^tb'(X(s))D_rX(s) ds+\int_{r}^t \sigma'(X(s))D_rX(s) dW(s) .
 $$
 
-::: {#prp-1}
+::: {#prp-maldersde}
 
-Given our SDE (link) with $\sigma ,b\in C^1_b(\R)$ it holds that there exists a unique solution $X_t$ and for all $r\leq t$ we have
+Given our SDE ([-@eq-sde]) with $\sigma ,b\in C^1_b(\R)$ it holds that there exists a unique solution $X_t$ and for all $r\leq t$ we have
 
 $$
 \begin{aligned}
@@ -364,7 +369,7 @@ Setting $Y_r=Y_r(r)g(Z)$ proves the result by the uniqueness of solutions as bot
 
 :::
 
-We end this post by noting that  Proposition $1$ (link) has a multidimensional generalization which can also be found in Nualart's book [@nualart2018introduction], on page 119.
+We end this post by noting that  @prp-maldersde has a multidimensional generalization which can also be found in Nualart's book [@nualart2018introduction], on page 119.
 
 ## References
 

@@ -5,6 +5,9 @@ date: "2024-02-28"
 categories: [Pdes]
 description: "From rough beginnings to smooth endings"
 bibliography: biblio.bib
+pdf: "Elliptic_PDE_1.pdf"
+resources:
+  - "Elliptic_PDE_1.pdf"
 format:
   html:
     toc: true
@@ -111,6 +114,8 @@ format:
         };
         </script>
 ---
+
+<div id="quarto-post-pdf-url" data-url="Elliptic_PDE_1.pdf" style="display:none;"></div>
 
 ## Three point summary
 
@@ -645,7 +650,7 @@ D_j^h u(x) = \int_0^1 \partial_j u(x+the_j) \d t.
 \end{aligned}
 $$
 
-Taking norms and using [Minkowski's integral inequality](<https://en.wikipedia.org/wiki/Minkowski_inequality#:~:text=.-,Minkowski%27s,-integral%20inequality%5B>) we obtain
+Taking norms and using <https://en.wikipedia.org/wiki/Minkowski_inequality#:~:text=.-,Minkowski
 
 $$
 \begin{aligned}
@@ -1446,6 +1451,8 @@ Furthermore, show that the solution is unique up to a constant on each connected
 Apply the final point  of the Fredholm alternative (@thm-well-posedness-fredholm) together with @exr-eigensapace. 
 
 :::
+
+>
 
 ## References
 

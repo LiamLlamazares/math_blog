@@ -644,22 +644,51 @@ Now we provide a final global approximation result in the case where the domain 
 \end{proof}
 In contrast to \Cref{Meyers}, \Cref{global} shows that Sobolev functions on smooth bounded domains can be approximated by functions that are also \textbf{smooth on the boundary} of the domain $\Omega$. This will prove fundamental in the next section. Both to extend them to the whole of $\R^d$ and to restrict them to $\partial \Omega$.
 \section{Extensions and restrictions}\label{extension section}
-Using the approximation of Sobolev functions by functions smooth on the boundary we can extend  functions in $W^{k,p}(\Omega)$ to the whole of  $\R^d$. However, the extension is not unique.
-\begin{theorem}[Extension theorem]\label{extension}
-	Let $\Omega\subset \R^d$ be a \textbf{bounded} open set with \textbf{$C^k$} \textbf{ boundary } where $k \in \N_+$.  Then for all $ p \in [1,\infty)$ . Then, given an open set $W$ with $\Omega \Subset W$ there exists a continuous operator
+
+Many results in the theory of Sobolev spaces are proved first on $\R^d$ and then extended to more general domains by a continuous extension followed by a restriction. For example, if one can show that $W^{k,p}(\R^d) \in L^q(\R^d)$ for some $p,q,r$ then, denoting by $\tilde{u}$ the extension of $u$ to $\R^d$
+\begin{align*}
+	\norm{u}_{L^q(\Omega)} \sim  \norm{u}_{L^q(\R^d)} \lesssim \norm{u}_{W^{k,p}(\R^d)} \sim \norm{u}_{W^{k,p}(\Omega)},
+\end{align*}
+which shows that $W^{k,p}(\R^d) \subset L^q(\Omega)$. In the reasoning above, it is necessary for the extension to be continuous, otherwise we fail on the first $\sim$. As we saw previously, merely extending by zero will not do and in this section, we develop the necessary tools to extend Sobolev functions from a domain $\Omega$ to $\R^d$.
+
+\begin{definition}\label{extension domain}
+	Let $X(U)$ be a topological space of functions for each open $U \subset \R^d$. We say that $\Omega $ is an \textbf{extension domain} for $X$ if there exists a continuous operator
 	\begin{align*}
-		E: W^{k,p}(\Omega)\to W^{k,p}(\R^d); \quad E: C^{k}(\Omega)\to C^k(\R^d).
+		E: X(\Omega ) \to X(\R^d),
 	\end{align*}
-	such that
-	\begin{align*}
-		Eu = \begin{cases}
-			     u \quad & \text{ on  }  \Omega \\
-			     0 \quad & \text{ on }  W^c
-		     \end{cases}.
-	\end{align*}
-	We call $E u$ an  \textbf{extension}  of $u$ to $\R^n$.
+	such that $Eu(x)=u(x)$ for almost all $x \in \Omega $. We call $E$ an \textbf{extension operator}.
+\end{definition}
+
+For an extension to be possible, it is crucial that $\Omega$ is regular enough. It will be sufficient to impose that $\Omega$ have uniformly Lipschitz boundary. The following definition and Theorem can be found in \cite[Section 13]{leoni2017first}.
+
+\begin{definition}\label{uniformly Lipschitz domain}
+	We say that an open set $\Omega \subset \R^d$ has \textbf{uniformly Lipschitz boundary} if there exists $\eps,L>0, N \in \N$ and an open covering $\set{U_n}_{n \in \N}$ of $\partial \Omega$ such that
+	\begin{enumerate}
+		\item For all $x \in \partial \Omega$ there exists a $U_n$ such that $B_\eps(x) \subset U_n$.
+		\item Every point in $\R^d$ is contained in at most $N$ sets $U_n$.
+		\item For each $n$ there exist local coordinates $y=(y', y_n) \in \R^{d-1} \times \R$ and a Lipschitz continuous function $f: \R^{d-1} \to \R$ (both depending on $n$), with Lipschitz constant $\operatorname{Lip} f \leq L$, such that $U_n \cap \Omega=U_n \cap V_n$, where $V_n$ is given in local coordinates by
+		      \begin{align*}
+			      \set{(x', x_d) \in \R^{d-1} \times \R: x_d>f(x')} .
+		      \end{align*}
+	\end{enumerate}
+	That is, a domain is uniformly Lipschitz if it has a locally finite covering which makes it of type $C^{0,1}$ (see Appendix \ref{boundary}). Below we show two typical examples.
+\end{definition}
+
+\begin{exercise}\label{exercise lipschitz}
+	Show that if $\Omega$ is bounded with Lipschitz boundary or if $\Omega=\R^d$ then it has uniformly Lipschitz boundary.
+\end{exercise}
+\begin{hint}
+	For the first part, use the fact that $\Omega$ is bounded to extract a finite subcovering. For the second use that $\partial\R^d=\emptyset$ and that everything is true for elements of the empty set.
+\end{hint}
+
+The following theorem shows that if $\partial\Omega$ is uniformly Lipschitz, $\Omega$ is an extension domain for $W^{k,p}$. To simplify the proof we will give the proof in the case of bounded open sets with $C^k$ boundary. Using the approximation of Sobolev functions by functions smooth on the boundary and a change of variables, we can extend functions in $W^{k,p}(\Omega)$ to the whole of $\R^d$.
+
+\begin{theorem}[General extension]\label{extension general}
+	Let $\Omega\subset \R^d$ be an open set with uniformly Lipschitz boundary. Then $\Omega$ is an extension domain for $W^{k,p}(\Omega)$ and $C^k(\Omega)$ for all $p \in [1,\infty]$.
 \end{theorem}
 \begin{proof}
+	We prove the result when the domain is bounded with $C^k$ boundary and when $p<\infty$. The general result can be found in \cite[page 424]{leoni2017first}.
+
 	We work first in the upper half-space (the canonical example of a manifold with boundary)
 	\begin{align*}
 		\Hh^d =\set{x=(x_1,\ldots,x_d) \in \R^d : x_d \geq 0} .
@@ -733,13 +762,16 @@ To further generalize this definition to domains where restriction is not possib
 
 \section{Trace theorem}\label{trace sec}
 As we already discussed, a PDE often incorporates boundary information such as $\restr{u}{\partial \Omega}=0$. This is well defined if $u$ is continuous, however, if  $u \in  W^{k,p}(U)$, and is thus only defined \textbf{almost everywhere}, then $\restr{u}{\partial  U}$ is a priori not well defined. The following theorem remedies this issue.
-\begin{theorem}[Trace]\label{trace} Let $\Omega $ be a \textbf{bounded} open set of $\R^d$ with $C^1$  \textbf{boundary}. Then, there exists a continuous linear operator
+\begin{proposition}[Trace]\label{trace}
+	Let $\Omega \subset \R^d$ be open with Lipschitz boundary and let $p\in[1,\infty)$. Then there exists a continuous linear operator
 	\begin{align*}
-		T: W^{1,p}(U)\to L^p(\partial U) .
+		\operatorname{Tr}: W^{1,p}(\Omega)\to L^p_{\mathrm{loc}}(\partial \Omega) .
 	\end{align*}
-	Such that $ Tu =\restr{u}{\partial \Omega} $ for all $u \in C(\overline{\Omega}) \cap W^{1,p}(\Omega)$.
-\end{theorem}
+	Such that $\operatorname{Tr}(u) =\restr{u}{\partial \Omega} $ for all $u \in C(\overline{\Omega}) \cap W^{1,p}(\Omega)$.
+\end{proposition}
 \begin{proof}
+	We will only prove the case where $\Omega$ is bounded and of class $C^1$. The proof of the general statement can once more be found in \cite[page 592]{leoni2017first}.
+
 	As in previous results, the trick is to suppose first $u$ is smooth, work locally, and then obtain a global result using a partition of unity and the density in \Cref{global}. \\
 
 	Given $x_0 \in \partial  \Omega$ we take a open set $U \subset \R^d$ containing $x_0$. Flattening out the boundary by $\Phi : U \simeq U'$ where necessarily the boundary is preserved
@@ -761,31 +793,34 @@ As we already discussed, a PDE often incorporates boundary information such as $
 	\end{align*}
 	That is,
 	\begin{align*}
-		\norm{T u}_{L^p( \partial \Omega)}\lesssim  \norm{u}_{W^{1,p}(U)} .
+		\norm{\operatorname{Tr}(u)}_{L^p( \partial \Omega)}\lesssim  \norm{u}_{W^{1,p}(U)} .
 	\end{align*}
-	Using \Cref{global} to extend $T$ continuously to $W^{k,p}(\Omega)= \overline{\restr{C_c^\infty(\R^d)}{\Omega}}$ concludes the proof.
+	Using \Cref{global} to extend $\operatorname{Tr}$ continuously to $W^{k,p}(\Omega)= \overline{\restr{C_c^\infty(\R^d)}{\Omega}}$ concludes the proof.
 \end{proof}
+
+Note that, if $\Omega$ is bounded, then $L^p_{\mathrm{loc}}(\partial \Omega)=L^p(\partial \Omega)$ so $\operatorname{Tr}(u) \in L^p(\partial \Omega)$.
+
 \begin{definition}
-	We define the \textbf{trace} of $u \in W^{k,p}(\Omega)$ as $Tu$. We also use the notation
+	We define the \textbf{trace} of $u \in W^{k,p}(\Omega)$ as $\operatorname{Tr}(u)$. We also use the notation
 	\begin{align*}
-		\restr{u}{\partial \Omega}:= Tu.
+		\restr{u}{\partial \Omega}:= \operatorname{Tr}(u).
 	\end{align*}
 \end{definition}
-To get an estimate on the trace we paid $1$-degree of regularity. We can do better and only pay ${1}/{p}$ degrees of regularity. This uses the theory of \href{https://en.wikipedia.org/wiki/Trace_operator#For_p_=_1:~:text=%5Bedit%5D-,A%20more,-concrete%20representation%20of}{Sobolev–Slobodeckij spaces} which we will not develop here. In the case $p=2$ we can use the fractional Sobolev spaces $H^s(\Omega)$ to get the improved result.
+To get an estimate on the trace we paid $1$-degree of regularity. We can do better and only pay ${1}/{p}$ degrees of regularity. This uses the theory of \href{https://en.wikipedia.org/wiki/Trace_operator#For_p_=_1:~:text=%5Bedit%5D-,A%20more,-concrete%20representation%20of}{Besov spaces} which we will not develop here. In the case $p=2$ we can use the fractional Sobolev spaces $H^s(\Omega)$ to get the improved result.
 \begin{theorem}
 	For all real $s> 1 /2$ the trace operator is a continuous operator
 	\begin{align*}
-		T: H^s(\Omega) \to H^{s -\frac{1}{2}}(\Omega).
+		\operatorname{Tr}: H^s(\Omega) \to H^{s -\frac{1}{2}}(\Omega).
 	\end{align*}
 \end{theorem}
 \begin{proof}
 	Straightening out the boundary and using the extension operator as in the trace \Cref{trace}, it is sufficient to work in the case where $u$ is smooth and defined on  $\Hh^{d}$.  By Fourier inversion, if we write $\xi=(\xi',\xi _d) $
 	\begin{align*}
-		\wh{Tu}(\xi ')=\int_{\R}\wh{u}(\xi) \d \xi _d .
+		\wh{\operatorname{Tr}(u)}(\xi ')=\int_{\R}\wh{u}(\xi) \d \xi _d .
 	\end{align*}
 	So, by Cauchy Schwartz
 	\begin{align}\label{f1}
-		\abs{\wh{Tu}(\xi ')}^2\leq \int_{\R}\abs{\wh{u}(\xi)}^2\br{\xi }^{2s} \d \xi _d \int_{\R}\br{\xi }^{-2s} \d \xi _d.
+		\abs{\wh{\operatorname{Tr}(u)}(\xi ')}^2\leq \int_{\R}\abs{\wh{u}(\xi)}^2\br{\xi }^{2s} \d \xi _d \int_{\R}\br{\xi }^{-2s} \d \xi _d.
 	\end{align}
 	The change of variables $\xi _d \to \br{\xi '}\xi _d$ shows that
 	\begin{align}\label{f2}
@@ -827,7 +862,7 @@ The converse to \Cref{trace 0} holds but is far from trivial.
 The proof is very technical, see \cite{evans2022partial} page 274 for the details.\\
 
 Being able to approximate functions in $W_0^{k,p}(U)$ by smooth functions compactly supported  \textbf{inside of} $U$  gives us many more tools. For example, a function $u$ in $W^{k,p}_0(U)$ can be extended by zero to obtain an element $\tl{u}$ in $W^{k,p}(\R^d)$ even for non-smooth unbounded domains.
-\begin{exercise}[Extension trace 0]
+\begin{exercise}[Extension trace 0]\label{extensiontrace}
 	Let $U$ be an open set,     and define
 	\begin{align*}
 		\widetilde{u}:=\begin{cases}
@@ -844,7 +879,7 @@ Being able to approximate functions in $W_0^{k,p}(U)$ by smooth functions compac
 \begin{hint}
 	It is immediate that $\norm{\widetilde{u}}_{W^{k,p}(\R^d)}=\norm{\widetilde{u}}_{W^{k,p}(U)}$ for $u \in C_c^\infty(U)$. As a result, we can extend $E$ by density to the closure $C_c^\infty(U)$ in $W^{k,p}(U)$. Which by definition is  $W^{k,p}_0(U)$.
 \end{hint}
-\begin{observation}
+\begin{observation}\label{traceobs}
 	The fact that we can extend functions in $W^{k,p}_0(U)$ for arbitrary  $U$ allows one to derive results that when stated for the whole of $W^{k,p}(U)$ require $U$ to be smooth so that it is possible to extend $U$.
 \end{observation}
 \begin{exercise}[Integration by parts 1] Let $U$ be any open set and consider $u \in  W^{1,p}_0(U), v \in W^{1,p'}(U)$ then
@@ -1051,9 +1086,12 @@ Combining the three results gives
 		 & W^{k,p}(\Omega) \hookrightarrow C^{k,\gamma }(\overline{\Omega}) \hookrightarrow C^{k}(\overline{\Omega}) ,  \quad & \text{ and }  p>\frac{d}{k}\end{align*}
 	Where $p^{k*}$ is defined by the relation $\frac{1}{p^{k*}}=\frac{1}{p}-\frac{k}{d}$ and $\gamma =1 -\frac{d}{p}$. Furthermore, the first, second, fourth, and third composed with fourth inclusions are \href{https://en.wikipedia.org/wiki/Compact_embedding}{compact}.
 \end{theorem}
-\begin{observation}
-	The continuous embeddings above also hold for $\Omega = \R^d$ (by the Sobolev inequalities in Exercises \ref{est12},\ref{est22},\ref{est32}). However, the \textbf{compact} embeddings require $\Omega$ to be bounded. Indeed, on $\R^d$ one can construct bounded sequences in $W^{k,p}(\R^d)$ whose mass escapes to infinity, precluding any convergent subsequence.
-\end{observation}
+\begin{exercise}
+	Show that if $\Omega$ is unbounded then the inclusions in \Cref{rellich} are not compact.
+\end{exercise}
+\begin{hint}
+	Consider a sequence of smooth functions whose support goes to infinity. For example, for $\Omega = \R^d$ consider the sequence $u_n(x) = \varphi(x-n)$ where $\varphi\in C^\infty_c(\R^d)$.
+\end{hint}
 \begin{proof}
 	The fact that the above inclusions are continuous follows by our three Sobolev inequalities in Exercises \ref{est12},\ref{est22},\ref{est32} together with the extension \Cref{extension}.
 
@@ -1132,6 +1170,15 @@ This result can be combined directly with Rellich-Kondrachov \ref{rellich} or an
 		W^{k+l,p}(\Omega) \hookrightarrow W^{l,p}(\Omega).
 	\end{align*}
 \end{corollary}
+
+Using \Cref{traceobs} we can also obtain Sobolev embeddings for non-smooth domains if we consider Sobolev spaces with trace $0$.
+
+\begin{theorem}[Rellich for trace 0 and irregular domain] 
+	Let $U\subset \R^d$ be a \textbf{bounded} domain. Then, the conclusions of \Cref{rellich}, higher degree embeddings, and its corollary hold if we swap everywhere $W^{k,p}(\Omega)$ for $W^{k,p}_0(U)$ and $W^{k+l,p}(\Omega)$ for $W^{k+l,p}_0(U)$.
+\end{theorem}
+\begin{proof}
+	The proof follows in an identical method as the aforementioned results as we still have density of smooth functions $W^{k,p}_0(U)$ and the extension theorem, which is now given by \Cref{extensiontrace}.
+\end{proof}
 
 
 

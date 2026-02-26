@@ -5,6 +5,9 @@ date: "2024-02-27"
 categories: [Pdes]
 description: "Filling in the gaps"
 bibliography: biblio.bib
+pdf: "fractional_sobolev_spaces.pdf"
+resources:
+  - "fractional_sobolev_spaces.pdf"
 format:
   html:
     toc: true
@@ -111,6 +114,8 @@ format:
         };
         </script>
 ---
+
+<div id="quarto-post-pdf-url" data-url="fractional_sobolev_spaces.pdf" style="display:none;"></div>
 
 ## Summary
 
@@ -1300,88 +1305,6 @@ $$
 :::
 
 This and other results can be formulated for the more general spaces $B^{s,p}_q$. Where $B^{s,p}= B^{s,p}_p$. See, [@triebel1992theory], [@agranovich2015sobolev], [@sawano2018theory].
-% Below we give an example applied to stochastic analysis based off of [@lototsky2017stochastic] page 103.
-% 
-
-::: {#def-4}
-
-%     Let $(\Omega , \mathcal{A}, \mathbb{P})$ be a probability space supporting a sequence of iid unit Gaussians $\set{X_k}_{k\in \N}$ and let $\set{e_k}_{k=1}^\infty$ be an orthonormal basis of $L^2(\R^d)$. We define *white noise* on $L^2(\R^d)$ as the random variable
-%     
-$$
-\begin{aligned}
-%         \Ww : \Omega \to \Dd '(\R^d), \quad  \Ww(\omega ) =\sum_{k=1}^\infty X_k(\omega ) e_k.
-%
-\end{aligned}
-$$
-
-%     Define the *Brownian sheet* as the random variable
-%     
-$$
-\begin{aligned}
-%         W:  \Omega \to \Dd '(\R^d) ,\quad W(\omega ):=  \int_{[0,x]} \Ww(y) \d y:= \Ww\left(1_{[0,x]}\right) =\sum_{k=1}^\infty X_k(\omega ) \int_{[0,x]} e_k(y) \d y .
-%
-\end{aligned}
-$$
-
-% 
-
-:::
-
-% 
-
-::: {#exr-10}
-
-%     Show that, for almost every $\omega \in \Omega$, the random variable $\Ww (\omega )$
-%     
-$$
-\begin{aligned}
-%         \Ww (\omega ) \in H^{-d/2 -\varepsilon}(\R^d), \quad \text{for all } \varepsilon >0.
-%
-\end{aligned}
-$$
-
-% 
-
-:::
-
-% Deduce that
-% 
-$$
-\begin{aligned}
-%     W(\cdot , \omega ) \in H^{d/2 -\varepsilon}(\R^d), \quad \text{for all } \varepsilon >0 \in H^{1 -\varepsilon}(\R^d).
-%
-\end{aligned}
-$$
-
-% In the particular case $d=1$, show that the Wiener process
-% 
-$$
-\begin{aligned}
-%     W(t, \omega ) =\sum_{k=1}^\infty X_k(\omega ) \int_{0}^t e_k(s) \d s,
-%
-\end{aligned}
-$$
-
-% verifies that $W(t, \omega ) \in H^{1/2 -\varepsilon}(\R)$ for all $\varepsilon >0$ and almost every $\omega \in \Omega$.
-
-% 
-
-::: {.callout-tip collapse="true" title="Hint"}
-
-%     Show that, $\wh{e}_k$ is an orthonormal basis of $L^2(\R^d)$, so   for all $s< -d /2$,
-%     
-$$
-\begin{aligned}
-%         \E\qb{\norm{ \Ww }^2_{H^s(\R^d)} }=  \E\qb{\norm{\Lambda^s \Ww }^2_{L^2(\R^d)} }= \sum_{k=1}^\infty \E\qb{\abs{\br{k}^sX_k}^2}= \sum_{k=1}^\infty \br{k}^{2s}<\infty.
-%
-\end{aligned}
-$$
-
-%     Conclude that $\norm{\Ww }_{H^s(\R^d)}<\infty$ almost everywhere. From which the first part follows
-
-% 
-
-:::
 
 We conclude this post by commenting that given a second-order PDE with smooth coefficients, such as
 

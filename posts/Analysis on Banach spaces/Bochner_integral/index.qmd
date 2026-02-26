@@ -5,6 +5,9 @@ date: "2022-05-27"
 categories: [Analysis On Banach Spaces]
 description: "Wait a second, how many integrals are there?"
 bibliography: biblio.bib
+pdf: "Bochner.pdf"
+resources:
+  - "Bochner.pdf"
 format:
   html:
     toc: true
@@ -112,6 +115,8 @@ format:
         </script>
 ---
 
+<div id="quarto-post-pdf-url" data-url="Bochner.pdf" style="display:none;"></div>
+
 This is the first post in a series on extending analysis from real-valued functions to functions valued in Banach spaces. Our first topic is the Bochner integral. That is, the extension of the Lebesgue integral to functions valued in Banach spaces.
 
 ## Three line summary
@@ -138,7 +143,7 @@ This is the first post in a series on extending analysis from real-valued functi
     \end{aligned}
     $$
 
-## Strong measurability
+## Strong measurability {#sec-strong-measurability-sec}
 
 Our goal is to define integration for functions valued in a Banach space
 
@@ -433,7 +438,7 @@ f=\sum_{n=1}^\infty f_n\in L^p(\Omega\to X).
 \end{aligned}
 $$
 
-To do so, one first applies [Minkowski's](<https://en.wikipedia.org/wiki/Minkowski_inequality#:~:text=.-,Minkowski%27s,-integral%20inequality%5B>) inequality for real-valued functions to show that
+To do so, one first applies <https://en.wikipedia.org/wiki/Minkowski_inequality#:~:text=.-,Minkowski
 
 $$
 \begin{aligned}
@@ -602,7 +607,7 @@ Let $(\Omega_1, \Ff _1 , \mu _1 )$ and $(\Omega_2, \Ff _2 , \mu _2 )$ be $\sigma
 
 1. From Fubini's theorem, we know that the [sections](<https://proofwiki.org/wiki/Horizontal_Section_of_Measurable_Function_is_Measurable>) $f(\omega_1,\cdot )$ and $f(\cdot,\omega_2)$ are measurable. Since $f$ is separately valued so are $f(\omega_1,\cdot )$ and $f(\cdot,\omega_2)$. As a result, by @thm-thm:pettis2, they are strongly measurable.
 
-2. By [Fubini-Tonelli's](<https://en.wikipedia.org/wiki/Fubini%27s_theorem#Fubini%E2%80%93Tonelli_theorem:~:text=the%20uncompleted%20product.-,For,-integrable%20functions%5B>) theorem we know that if any of the integrals in ([-@eq-norm-ints]) is finite, then all of them are equal. By the first point, we conclude from the characterization of the integrable functions (Definitions @def-def:lp, @def-def-int) that all the integrals in ([-@eq-ints]) are well defined, and it remains to see they are equal. To do so, let $x^* \in X^*$ be and then, by Fubini-Tonelli for real-valued functions
+2. By <https://en.wikipedia.org/wiki/Fubini
 
     $$
     \begin{aligned}
@@ -703,6 +708,8 @@ d. **Smooth approximation**. The space $C_c^\infty(\R^d)$ is dense in $L^p(\R^d\
 :::
 
 Ok, that's it. This post was a bit more technical than some of the others, but you get the picture. Define an integral for simple functions, and figure out what can be approximated by simple functions. As we saw, the extra requirement that appears over the Lebesgue case is that the function $f$ is separately valued and justifies why, as we will see in future posts on SPDEs, the image of $f$ is often taken to be some separable Hilbert space. Until the next time!
+
+>>
 
 ## References
 
