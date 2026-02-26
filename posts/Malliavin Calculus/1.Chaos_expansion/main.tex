@@ -73,7 +73,7 @@ In this case, we have that the first integral is $\Ff_T$ adapted and not $\Ff_{t
 	\end{equation*}
 \end{definition}
 Where it is important to note that the second equality is by definition and where the rescaling factor is motivated by the fact that, by counting permutations, if $I$ is finite then $\mu(I^n)=n! \mu(S_n)$.
-\begin{proposition}[Itô's n-th isometry]
+\begin{proposition}[Itô's n-th isometry]\label{itosnthisometry}
 	Let $f,g\in L^2(S^n)$ then
 	\begin{equation*}
 		\br{J_n(f),J_m(g)}_{L^2(\Omega)}=\br{f,g}_{L^2(S_n)}\delta_{nm}
@@ -96,7 +96,7 @@ As a result, we also get by a calculation that if $f,g\in L^2(I^n)$ then
 \end{lemma}
 
 
-\begin{theorem}[Chaos expansion]
+\begin{theorem}[Chaos expansion]\label{chaos thm}
 	Let $\xi\in L^2(\Omega,\Ff_\infty)$, then there exists a unique sequence of functions $g_n \in L^2(S_n),f_n \in L^2(I^n)$ such that
 	\begin{equation*}
 		\xi=\sum_{n=0}^{\infty}  J_n(g_n);\quad \xi=\sum_{n=0}^{\infty} I_n(f_n).

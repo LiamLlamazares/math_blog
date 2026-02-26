@@ -21,11 +21,11 @@
 	\item This gives us an SDE linear in $DX$ and can be solved exactly to obtain an explicit expression for  $DX$.
 \end{itemize}
 \section{Notation}
-The same as in the other posts of this series. In particular, we recall the notation $\mathbb{L}^2(I\times\Omega)$ for the set of progressively measurable (link) square integrable stochastic processes. Furthermore, given a stochastic process $X$ such that  $X(t)\in \mathbb{D}^{1,2}$ for each $t\in I$ we write $D_rX(t)$ for the Malliavin differential at  time $r\in I$ of $X(t)$. That is, if
+The same as in the other posts of this series. In particular, we recall the notation $\mathbb{L}^2(I\times\Omega)$ for the set of  \postref{Stochastic Calculus/Ito_integral}{prog def}{progressively measurable} square integrable stochastic processes. Furthermore, given a stochastic process $X$ such that  $X(t)\in \mathbb{D}^{1,2}$ for each $t\in I$ we write $D_rX(t)$ for the Malliavin differential at  time $r\in I$ of $X(t)$. That is, if
 \begin{equation}\label{ce}
 	X(t)=\sum_{n=0}^{\infty}  I_n(f_n(\cdot ,t)),\quad f_n(\cdot ,t)\in L^2(S_n).
 \end{equation}
-is the chaos expansion (link) of $X(t)$ for each  $t$ then we have that
+is the  \postref{Stochastic Calculus/Ito_integral}{Malliavin Calculus/1.Chaos_expansion}{chaos expansion} of $X(t)$ for each  $t$ then we have that
 \begin{equation}\label{ced}
 	D_rX(t)=\sum_{n=0}^{\infty}  nI_{n-1}(f_n(\cdot ,r,t)) , \quad\forall r,t\in I.
 \end{equation}
@@ -46,11 +46,11 @@ Our goal will be to obtain an explicit expression for the derivative of $X$. We 
 	\end{equation*}
 \end{lemma}
 \begin{proof}
-	Suppose that $D_tX$ is progressively measurable. Then, using the previously studied divergence property (link) and the fact that the Skorokhod integral is an extension of the Itô integral (link) gives
+	Suppose that $D_tX$ is progressively measurable. Then, using the previously studied \postref{Malliavin Calculus/4.Malliavin_derivative_2}{divergence prop}{divergence property}    and the fact that the Skorokhod integral is an \postref{Malliavin Calculus/2.Skorohod}{itoskor}{extension} of the Itô integral  gives
 	\begin{align*}
 		D_r \int_{0}^t X(s) dW(s) & =D_r(\delta X1_{[0,t]}) =X(r)1_{[0,t]}(r)+\delta (D_rX1_{[0,t]}) \\&=X(r)+\int_{0}^t D_r(X(s)) dW(s).
 	\end{align*}
-	We consider the chaos expansion of $X$. Then, as was seen previously (link), we have that
+	We consider the chaos expansion of $X$. Then, as was seen \postref{Malliavin Calculus/2.Skorohod}{zerolemma}{previously}, we have that
 	\begin{equation*}
 		f_n(t_1,\ldots,t_n,t)=0,\quad\forall t\leq\max_{i=1,\ldots,n} t_i .
 	\end{equation*}
@@ -86,7 +86,7 @@ Our second lemma shows how to differentiate deterministic integrals. In this cas
 		&\leq \int_{I}\sum_{n=0}^{\infty}n^2 \left(\int_{\R}\norm{I_{n-1}f_n(\cdot ,r,s)}^2_{L^2(\Omega)}d r\right)ds \norm{h}^2_{L^2(I)}\\
 		&=\norm{h}^2_{L^2(I)}\int_{I}\sum_{n=0}^{\infty}\norm{D_tX}_{L^2(I\times\Omega)}d t<\infty .
 	\end{align*}
-	Where in the first inequality we applied Fubini, Cauchy Schwartz, and the triangle inequality, and in the equality, we used our old calculation of the norm of the Malliavin derivative (link)
+	Where in the first inequality we applied Fubini, Cauchy Schwartz, and the triangle inequality, and in the equality, we used our \postref{Malliavin Calculus/3.Malliavin_derivative_1}{malnormdef}{old calculation}   of the norm of the Malliavin derivative (link)
 	\begin{equation*}
 		\norm{D_rX}_{L^2(I\times\Omega)}^2=\sum_{n=0}^{\infty} n!n\|f_n(\cdot ,r )\|_{L^2(I^{n+1})}<\infty.
 	\end{equation*}
@@ -104,8 +104,8 @@ That is, we can commute the derivative with deterministic integrals. The previou
 \begin{equation*}
 	D_rX(t)=\sigma(X_r)+\int_{r}^tb'(X(s))D_rX(s) ds+\int_{r}^t \sigma'(X(s))D_rX(s) dW(s) .
 \end{equation*}
-\begin{proposition}
-	Given our SDE (link) with $\sigma ,b\in C^1_b(\R)$ it holds that there exists a unique solution $X_t$ and for all $r\leq t$ we have
+\begin{proposition}\label{maldersde}
+	Given our SDE \eqref{SDE} with $\sigma ,b\in C^1_b(\R)$ it holds that there exists a unique solution $X_t$ and for all $r\leq t$ we have
 	\begin{align*}
 		D_rX(t)=\sigma(X_r)+\int_{r}^tb'(X(s))D_rX(s) ds+\int_{r}^t \sigma'(X(s))D_rX(s) dW(s) .
 	\end{align*}
@@ -171,7 +171,7 @@ dg(Z) = g'dZ + \frac{1}{2}g''v^2 ds = e^Z\left[\left(u-\frac{1}{2}v^2+\frac{1}{2
 		Setting $Y_r=Y_r(r)g(Z)$ proves the result by the uniqueness of solutions as both sides verify the same SDE (note that  $Y_r(r)g(Z)$ has the same stochastic differential as $g(Z)$ but now takes initial data  $Y_r(r)$).
 	\end{proof}
 \end{theorem}
-We end this post by noting that  Proposition $1$ (link) has a multidimensional generalization which can also be found in Nualart's book \cite{nualart2018introduction}, on page 119.
+We end this post by noting that  \Cref{maldersde} has a multidimensional generalization which can also be found in Nualart's book \cite{nualart2018introduction}, on page 119.
 
 \bibliography{biblio.bib}
 

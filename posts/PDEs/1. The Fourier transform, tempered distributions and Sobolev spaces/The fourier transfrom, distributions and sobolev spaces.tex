@@ -15,20 +15,20 @@
 	\maketitle
 	\section*{ Three line summary }
 	\begin{itemize}
-		\item The \emph{Fourier transform} defines a linear isometry on the space of square-integrable complex-valued functions and has as inverse the \emph{inverse Fourier transform}(link). This allows us to write these functions as a superposition of harmonic functions.(link)
-		\item Linear differential operators act as a simple polynomial multiplication on the frequency domain.(link) Smooth functions have Fourier transforms that decay quickly and vice-versa(link). This correspondence also allows us to introduce fractional differential operators and pseudo differential operators such as $\sqrt{-\Delta }$(link).
-		\item The Sobolev spaces $H^s$ and tempered distributions  $\Ss'$ are complete spaces of functions to which we can extend differential operators.(link)
+		\item The \emph{Fourier transform} defines a linear isometry on the space of square-integrable complex-valued functions and has as inverse the \emph{inverse Fourier transform}. This allows us to write these functions as a superposition of harmonic functions.
+		\item Linear differential operators act as a simple polynomial multiplication on the frequency domain. Smooth functions have Fourier transforms that decay quickly and vice-versa. This correspondence also allows us to introduce fractional differential operators and pseudo differential operators such as $\sqrt{-\Delta }$.
+		\item The Sobolev spaces $H^s$ and tempered distributions  $\Ss'$ are complete spaces of functions to which we can extend differential operators.
 	\end{itemize}
 	\section*{Introduction}
 	Hi everyone, welcome to the first post in a new series focusing on partial differential equations (PDEs). In this post, we'll introduce some of the key analytical tools used to solve them. These tools will play a prominent role in the future posts of this series and in other series to come.  We'll begin by introducing some notation and necessary preliminaries on integration. Next, we will introduce the Fourier transform, which is the fundamental object of harmonic analysis and plays a fundamental role in partial differential equations (PDEs), probability theory, and number theory. In particular, we will show in future posts how many linear PDEs such as the heat equation can be solved using it.
 
 	
 
-	After this, we'll discuss the generalization of what it means to solve a PDE. To do so we will need to introduce the space of (tempered) distributions $\Ss'$ and Sobolev spaces $H^s$.	These two spaces will be crucial in allowing us to extend the concept of solution to PDE(link) to these spaces and use their completeness to prove the existence, uniqueness, and regularity of solutions.
+	After this, we'll discuss the generalization of what it means to solve a PDE. To do so we will need to introduce the space of (tempered) distributions $\Ss'$ and Sobolev spaces $H^s$.	These two spaces will be crucial in allowing us to extend the concept of solution to PDE to these spaces and use their completeness to prove the existence, uniqueness, and regularity of solutions.
 
 	
 
-	Much of the material here contained can be found in my undergraduate thesis(link) on the Navier Stokes equations which in turn are based on Terence Tao's excellent notes(link).
+	Much of the material here contained can be found in my \href{https://gredos.usal.es/bitstream/handle/10366/145629/TFG%20LIAM%20LLAMAZARES.pdf;jsessionid=CA7AE0CE6BF33CAA6305E55B21A9A1E0?sequence=1}{undergraduate thesis} on the Navier Stokes equations which in turn are based on Terence Tao's excellent \href{https://terrytao.wordpress.com/2018/09/03/254a-notes-0-physical-derivation-of-the-incompressible-euler-and-navier-stokes-equations/}{notes}.
 
 \subsection*{Notation}
 We  write $L^p(\R^d)$ and $L^p(\R^d\to\C^m)$ to denote the space of equivalence classes of $p$ integrable functions from $\R^d$ to $\R$ and $\C^m$ respectively.\bigbreak
@@ -40,19 +40,19 @@ Given  $x\in\R^d$ we will write $\abs{x}$ to denote its norm and the \emph{Japan
 
 Finally, we will employ the notation $f\lesssim g$ to mean that there exists some constant $C$ such that $f\leq Cg$. If the value of $C$ depends on some other parameter such as the dimension $d$ we shall make this explicit by writing $f\lesssim_d g$.\bigbreak
 \subsection*{Some useful results on integration}
-In PDEs, it is essential to be able to commute limits and differentials with both summation and integration. The main way of doing this is the dominated and monotone convergence theorem (link) together with the following two propositions which we state in full generality for functions valued in a Banach space $E$. Though for now, we will only need the case $E=\R$. On first reading, this can be assumed for commodity.
+In PDEs, it is essential to be able to commute limits and differentials with both summation and integration. The main way of doing this is the dominated and monotone convergence theorem  together with the following two propositions which we state in full generality for functions valued in a Banach space $E$. Though for now, we will only need the case $E=\R$. On first reading, this can be assumed for commodity.
 \begin{proposition}[Continuity of the integral]\label{commuting limits with integral}
 	Let $(X,\mu )$ be a measure space, $T$ a first countable metric space, $(E,\norm{})$ a Banach space and
 	\[f:T\times X\to E\]
-	such that $f(t)$ is (Bochner(link)) integrable for all ${t}\in{T}$ and such that
+	such that $f(t)$ is (\postref{Analysis on Banach spaces/Bochner_integral}{}{Bochner}) integrable for all ${t}\in{T}$ and such that
 	\[\norm{f(t)}\leq g\in L^1(X)\quad \forall{t}\in {T}.\]
 	Then given $t_0\in T$ we have that
 	\[\lim_{t\to t_0}\int_X f(t,x)\mu(dx) =\int_X\lim_{t\to t_0}f(t,x)\mu(dx) .\]
 	In consequence, if $f(x)$ is continuous so is $\int_X f(t,x) \mu(dx)$.
 \end{proposition}
 \begin{proof}
-	The proof is an application of the dominated convergence theorem(link) to the
-	sequence of functions $f_n:=f(t_n)$ where $\{t_n\}_{n=1}^\infty$ is some sequence converging to $t$ and the fact that, in first countable spaces, sequential continuity(link) is equivalent to continuity.
+	The proof is an application of the \href{https://en.wikipedia.org/wiki/Dominated_convergence_theorem}{dominated convergence theorem} to the
+	sequence of functions $f_n:=f(t_n)$ where $\{t_n\}_{n=1}^\infty$ is some sequence converging to $t$ and the fact that, in first countable spaces, sequential continuity is \href{https://en.wikipedia.org/wiki/Sequential_space#Sequential_continuity}{equivalent} to continuity.
 \end{proof}
 \begin{proposition}[{Differentiation under the integral sign}]\label{derivationundertheintsign}
 	Let $X$ be a measure space,  $U$ be a convex open interval of $\R$, and $E$ a Banach space. Consider \[f:U\times X\to E\] such that:
@@ -75,9 +75,9 @@ In PDEs, it is essential to be able to commute limits and differentials with bot
 		\lim_{t \to t_0}\frac{\int_{X} f(t)\mu (dx)-\int_{X}f(t_0) \mu (dx)}{t-t_0}  &=\lim_{t \to t_0}\int_{X}    \frac{f(t)-f(t_0)}{t-t_0} \mu (dx) 
 \\&=\int_{X}\lim_{t \to t_0} \frac{f(t)-f(t_0)}{t-t_0} \mu (dx) =\int_{X}\partial _t f(t) \mu(dx).
 	\end{align*}
-	Where in the first equality we also used the linearity of the Bochner integral (link) and in the last equality we used that by hypothesis $f(x)$ is everywhere differentiable. This concludes the proof.
+	Where in the first equality we also used the  \postref{Analysis on Banach spaces/Bochner_integral}{strong measurability sec}{linearity of the Bochner integral} and in the last equality we used that by hypothesis $f(x)$ is everywhere differentiable. This concludes the proof.
 \end{proof}
-In the literature the usual hypothesis is that $\partial _t f$ is integrable everywhere (see for example \cite{FF} page 108), however as we have seen it is sufficient to require the integrability at a point.
+In the literature the usual hypothesis is that $\partial _t f$ is integrable everywhere \cite[p. 108]{FF}, however as we have seen it is sufficient to require the integrability at a point.
 \section{The Fourier transform on $\R^d$}
 These preliminaries out of the way, we now get to our first main section. We assume the reader has encountered the Fourier transform before, and limit ourselves to giving a rundown of the theory and main ideas, taking the reader through a basic definition to an extension of it. To make the Fourier transform an isometry we will use the following convention.
 \begin{definition}
@@ -85,10 +85,10 @@ These preliminaries out of the way, we now get to our first main section. We ass
 	\[\hat{f}(\xi):=\int_{\R^d}f(x)e^{-2\pi i\xi\cdot  x} dx, \quad \check{f}(\xi):=\int_{\R^d}f(x)e^{2\pi i\xi\cdot  x} dx \]
 \end{definition}
 Other exponents such as $e^{-ix}, e^{-\pi i x}$ can also be used with identical results modulo constants. Let us introduce the notation $$\Ff_1 f:=\hat{f}, \Ff_1^*f$$ for the Fourier transform (on $L^1$) and its inverse.  The following proposition holds.
-\begin{proposition}[\textbf{ Properties of $\Ff_1$}]\label{regularitydecayft}
+\begin{proposition}[Properties of $\Ff_1$]\label{regularitydecayft}
 	Given $f\in L^1(\R^d\to\C^m)$
 	\begin{enumerate}
-		\item The Fourier transform   $\Ff_1$ is a continuous linear operators $$\Ff_1:L^1(\R^d\to\C^m) \to L^\infty(\R^d\to\C^m)$$.
+		\item The Fourier transform   $\Ff_1$ is a continuous linear operators $$\Ff_1:L^1(\R^d\to\C^m) \to L^\infty(\R^d\to\C^m)$$\label{p1}.
 		\item If $x^\alpha f(x)\in L^1(\R^d\to\C^m)$ then:\quad \[D^\alpha \hat{f}(\xi)=(-2\pi i)^\abs{\alpha}\widehat{x^{\alpha} f}(\xi)\qquad\forall \xi\in\R^d.\]
 		\item If $f$ is absolutely continuous in $x_j$ for almost every $x_1,...x_{j-1},x_{j+1},...,x_d$ then
 		      then
@@ -100,33 +100,34 @@ Other exponents such as $e^{-ix}, e^{-\pi i x}$ can also be used with identical 
 	\begin{equation*}
 		\abs{\hat{f}(\xi )}=\abs{\int_{\R^d}f(x)e^{2\pi i x\cdot \xi } dx}\leq\int_{\R^d}\abs{f(x)}dx\quad\forall \xi \in \R^d.
 	\end{equation*}
-	and similarly for the inverse. The second point follows by differentiation under the integral(link). The third point can be proved by using integration by parts and the observation that every absolutely continuous function must go to zero at infinity.
+	and similarly for the inverse. The second point follows by differentiation under the integral \Cref{derivationundertheintsign}. The third point can be proved by using integration by parts and the observation that every absolutely continuous function must go to zero at infinity.
 \end{proof}
 We note that the analogous holds for the inverse Fourier transform where it is only necessary to remove the minus sign in $2$ and a change of the sign in $3$. The proof can be completed
 in an identical fashion or by noting that $\check{f}(\xi )=\hat{f}(-\xi )$.
 \bigbreak
-The importance of these last two properties is that they give us information on the Fourier transform of a function $f$ based on its regularity and decay. They can be stated informally as decay gives regularity and regularity gives decay (as the Fourier transform of any $f\in L^1(\R^d\to\R^d)$ decays to 0 at infinity by the Riemann-Lebesgue lemma(link)).\bigbreak
+The importance of these last two properties is that they give us information on the Fourier transform of a function $f$ based on its regularity and decay. They can be stated informally as decay gives regularity and regularity gives decay (as the Fourier transform of any $f\in L^1(\R^d\to\R^d)$ decays to 0 at infinity by the \href{https://en.wikipedia.org/wiki/Riemann%E2%80%93Lebesgue_lemma}{Riemann-Lebesgue lemma}).\bigbreak
 In general, the Fourier transform of an integrable function is not itself integrable. That is, $L^1(\R^d\to\C^m)$ is not closed under the Fourier transform. We now introduce a space that is closed under the Fourier transform; the Schwartz space, which can be thought of as the space of infinitely regular functions with infinite decay: \bigbreak
 \begin{definition}\label{Schwartz space definition}
 	The \emph{Schwartz space} $\mathcal{S}(\R^d\to\C^m)$ is:
 	\[\mathcal{S}(\R^d\to\C^m):=\lbrace f\in\C^\infty(\R^d\to\C^m):x^\alpha D^\beta f\in L^\infty(\R^d\to\C^m)\quad\forall\hspace{2pt}\alpha,\beta\in \N^d\rbrace.\]
 \end{definition}
-By applying Proposition $1$ (link) we deduce that, given $f\in\mathcal{S}(\R^d\to\C^m)$ (linkme1)
-\begin{align*}\label{rdft}
+By applying \Cref{regularitydecayft} we deduce that, given $f\in\mathcal{S}(\R^d\to\C^m)$
+\begin{align}\label{rdft}
 	\xi^\alpha D^\beta \hat{f}(\xi)   & =(-2\pi i)^{\abs{\beta}}\xi^{\alpha}\widehat{x^{\beta}f}=\frac{(-2\pi i)^{\abs{\beta}}}{(2\pi i)^{\abs{\alpha}}}\widehat{D^{\alpha}x^{\beta}f}\in L^\infty(\R^d\to\C^m)\\
 	\xi^\alpha D^\beta \check{f}(\xi) & =\frac{(2\pi i)^{\abs{\beta}}}{(-2\pi i)^{\abs{\alpha}}}\widehat{D^{\alpha}x^{\beta}f}\in L^\infty(\R^d\to\C^m).
-\end{align*}
+\end{align}
 Hence, the Fourier transform and the inverse Fourier transform restrict to endomorphisms of the Schwartz space which we will denote respectively by
 \[\mathcal{F}_\mathcal{S},\mathcal{F}^*_\mathcal{S}:\mathcal{S}(\R^d\to\C^m)\to\mathcal{S}(\R^d\to\C^m).\]
 The next item on the agenda is Plancherel's theorem which is proven via the following lemma, in which we shall use the notation\[\br{f,g}_{L^2(\R^d\to\C^m)}:=\int_{\R^d}f(x)\cdot  \overline{g(x)} dx\] for the inner product on $L^2(\R^d\to\C^m)$.
 \begin{lemma}[\textbf{Plancherel for Schwartz functions}]\label{Planncherellemma}
-	Given $f,g\in \mathcal{S}(\R^d\to\C^m)$ \bigbreak
-	(i) $\br{\mathcal{F}_\mathcal{S}f,g}_{L^2(\R^d\to\C^m)}=\br{f,\mathcal{F}_\mathcal{S}^*g}_{L^2(\R^d\to\C^m)};\quad\br{\mathcal{F}_\mathcal{S}^*f,g}_{L^2(\R^d\to\C^m)}=\br{f,\mathcal{F}_\mathcal{S}g}_{L^2(\R^d\to\C^m)}$
-	\bigbreak
-	(ii) $\mathcal{F}_\mathcal{S}^*\mathcal{F}_\mathcal{S}f=\mathcal{F}_\mathcal{S}\mathcal{F}_\mathcal{S}^*f=f$
+	Given $f,g\in \mathcal{S}(\R^d\to\C^m)$ 
+	\begin{enumerate}[i)]
+		\item $\br{\mathcal{F}_\mathcal{S}f,g}_{L^2(\R^d\to\C^m)}=\br{f,\mathcal{F}_\mathcal{S}^*g}_{L^2(\R^d\to\C^m)};\quad\br{\mathcal{F}_\mathcal{S}^*f,g}_{L^2(\R^d\to\C^m)}=\br{f,\mathcal{F}_\mathcal{S}g}_{L^2(\R^d\to\C^m)}$\label{adjointft}
+		\item $\mathcal{F}_\mathcal{S}^*\mathcal{F}_\mathcal{S}f=\mathcal{F}_\mathcal{S}\mathcal{F}_\mathcal{S}^*f=f$\label{inverseft}
+	\end{enumerate}
 \end{lemma}
 The first point can be proved by a direct application of Fubini. The second point is trickier and is the crux of why we call $\Ff^*$ the \emph{inverse} Fourier transform. The proof can be found in \cite{Tay} pages 222-226.
-From $(i)$ and $(ii)$ we deduce immediately that, given a Schwartz function $f$,
+From \Cref{adjointft} and \Cref{inverseft} we deduce immediately that, given a Schwartz function $f$,
 \begin{equation}\label{Plancherel}
 	\norm{f}_{L^2(\R^d\to\C^m)}=\norm{\mathcal{F}_\mathcal{S}f}_{L^2(\R^d\to\C^m)}=\norm{\mathcal{F}_\mathcal{S}^*f}_{L^2(\R^d\to\C^m)}
 \end{equation}
@@ -137,13 +138,13 @@ are linear unitary operators which are the inverse the one to the other. We obta
 With $\Ff\Ff^*=\Ff^*\Ff=Id$.
 \end {proposition}
 \begin{proof}
-	This is a immediate result of the density of $\mathcal{S}(\R^d\to\C^m)$ in the larger $L^2(\R^d\to\C^m)$ and the completeness of $L^2(\R^d\to\C^m)$ together with $(ii)$ and Plancherel (link). As, by a simple limiting argument, it is easy to see that continuous extensions of continuous linear operators preserve the norm and the inverses of the operators in question.
+	This is a immediate result of the density of $\mathcal{S}(\R^d\to\C^m)$ in the larger $L^2(\R^d\to\C^m)$ and the completeness of $L^2(\R^d\to\C^m)$ together with \Cref{inverseft} and Plancherel for $\Ss$ \Cref{Planncherellemma}. As, by a simple limiting argument, it is easy to see that continuous extensions of continuous linear operators preserve the norm and the inverses of the operators in question.
 \end{proof}
 It is reasonable to wonder if this extended Fourier transform $\Ff$ coincides with our initial definition when reasonable.
 That is, whether given a function $f \in L^1(\R^d\to\C^m)\cap L^2(\R^d\to\C^m)$ we have that
 \[\Ff f(\xi)=\Ff_1f(\xi)=\int_{\R^d}f(x)e^{-2\pi ix\cdot \xi} dx\qquad\forall \xi\in\R^d.\]
 This indeed holds as can be seen by taking a sequence of functions $\lbrace f_n\rbrace_{n=1}^\infty\in\Ss(\R^d\to\C^m)$ converging to $f$ in  $L^1(\R^d\to\C^m)$ and in $L^2(\R^d\to\C^m)$.
-As then $\Ff_1 f_n$ converges uniformly to $\Ff_1f$ by $1$ (point one prop 1 link) and in $L^2(\R^d\to\C^m)$ to $\Ff f$ by Proposition 2 (link), from where we deduce that as desired $\Ff_1f=\Ff f$. \bigbreak
+As then $\Ff_1 f_n$ converges uniformly to $\Ff_1f$ by \Cref{p1} and in $L^2(\R^d\to\C^m)$ to $\Ff f$ by Plancherel \Cref{Plancherel's Theorem}, from where we deduce that as desired $\Ff_1f=\Ff f$. \bigbreak
 
 \section{The Fourier transform of periodic functions}
 We now extend our previous results to $\Z^d$ periodic functions, though, for any period, analogous results may be achieved. By identifying $\Z^d$ periodic functions with functions on the torus $\T^d:=\R^d/\Z^d\equiv [0,1]^d$ we will work with functions $f:\T^d\to\C^m.$ As we will see strikingly similar results are achieved in this setting
@@ -172,7 +173,7 @@ Similarly to the non-periodic case we now define
 
 with:
 \[\check{a}(x):=\sum_{k\in\Z^d}a(k)e^{2\pi ik\cdot x}.\]
-This is indeed smooth as, by the rapid decay of $a$, we may  differentiate under the integral sign(link) (we recall that sums are just integrals against discrete measures) to commute all derivatives with the above sum to obtain that
+This is indeed smooth as, by the rapid decay of $a$, we may  differentiate under the integral sign \Cref{derivationundertheintsign} (we recall that sums are just integrals against discrete measures) to commute all derivatives with the above sum to obtain that
 \begin{equation}\label{dgivesrpft}
 	D^\alpha \check{a}(x)=\sum_{k\in\Z^d}(2\pi ik)^\alpha a(k)e^{2\pi ik\cdot x}\quad\forall{a}\in {s(\Z^d\to\C^m)}.
 \end{equation}
@@ -264,14 +265,16 @@ where the only change is that the inclusion of integrable functions is now given
 \begin{align}\label{lpisvectordistr}
 	L^p(\R^d\to\C^m)\hookrightarrow\Ss'(\R^d\to\C^m);\quad f\mapsto T_f
 \end{align}
-with $T_f$ defined by (linkme2)
-\[T_f(u):=\int_{\R^d} u\cdot \bar{f}\quad\forall{u}\in {\Ss(\R^d\to\C^m)}.\]
-In both cases we have that, by duality, due to the formulas derived previously (link1), given a tempered distribution $w$ and $\alpha\in \N^d$
+with $T_f$ defined by 
+\begin{aligneq}\label{identificationfuncdist}
+	T_f(u):=\int_{\R^d} u\cdot \bar{f}\quad\forall{u}\in {\Ss(\R^d\to\C^m)}.
+\end{aligneq}
+In both cases we have that, by duality, due to the \eqref{rgivesdpft}, given a tempered distribution $w$ and $\alpha\in \N^d$
 \begin{align}\label{derivativedistronperiodic}
 	D^\alpha\Ff w =(-2\pi i)^{\abs{\alpha}}\Ff x^\alpha w;\quad
 	\Ff D^{\alpha} w= (2\pi i)^{\abs{\alpha}}x^\alpha\Ff w.
 \end{align}
-As we have observed before (link) multiplication by functions of polynomial growth is a well-defined operation on $\Ss(\R^d\to\C^m)$ so the above expressions are also well defined. A quick verification also shows that, since Plancherel's theorem holds for all Schwartz functions,
+As we have observed before multiplication by functions of polynomial growth is a well-defined operation on $\Ss(\R^d\to\C^m)$ so the above expressions are also well defined. A quick verification also shows that, since Plancherel's theorem holds for all Schwartz functions,
 \begin{equation}\label{planchereldistr}
 	\Ff^{-1}\Ff w=\Ff\Ff^{-1}w=w.
 \end{equation}
@@ -310,7 +313,7 @@ To sum up what we have seen, due to the natural inclusion of integrable function
 \end{definition}
 In the above definition, $P$ typically defines a linear or non-linear differential equation. Note that the above definition may be extended without any difficulty to the case of (periodic) distributional solutions in the case where $P: C^\infty(\T^d\to\C^m)\to C^\infty(\T^d\to\R^n)$.
 \begin{example}
-	Set $P=\Delta $, as we have seen previously (link) $\Delta$ extends to $S:=\Ss'(\R^d\to\C^m)$ with
+	Set $P=\Delta $, as we have seen previously $\Delta$ extends to $S:=\Ss'(\R^d\to\C^m)$ with
 	\begin{equation*}
 		\Ff(\Delta \omega)=-4\pi \abs{\xi }^2\Ff w .
 	\end{equation*}
@@ -320,16 +323,19 @@ Solving $Pw=f$ formally yields $w=\Ff^{-1}\left(\frac{-\Ff f}{4\pi^2 \abs{\xi }^
 
 \bigbreak
 \section{Sobolev spaces}
-Sobolev spaces form a particular case of tempered distributions that we interpret as being smooth and integrable up to sufficient orders (linkme3).
+Sobolev spaces form a particular case of tempered distributions that we interpret as being smooth and integrable up to sufficient orders.
 \begin{definition}\label{sobolevdef}
 	Given $k\in\N^+$ we define the \emph{Sobolev space} $H^k(\R^d\to\C^m)$ as:
 	\begin{align*}
 		H^k(\R^d\to\C^m):=
  \lbrace f\in &L^2(\R^d\to\C^m)\\&: D^\alpha f\in L^2(\R^d\to\C^m)\hookrightarrow\Ss '(\R^d\to\C^m)\quad\forall\hspace{2pt}\abs{\alpha}\leq k\rbrace.
 	\end{align*}
-	Where,  we consider $L^2(\R^d\to\C^m)$ as a subspace of $\Ss '(\R^d\to\C^m)$ (see linkto2).\end{definition} We may interpret the Sobolev space $H^k(\R^d\to\C^m)$ as the space of $k$ times differentiable functions in $L^2(\R^d\to\C^m)$ and we give it the norm:
-\[\norm{f}_{H^k(\R^d\to\C^m)}:=\sum_{\abs{\alpha}\leq k}\norm{D^\alpha f}_{L^2(\R^d\to\C^m)}\qquad f\in H^k(\R^d\to\C^m).\]
-Note that it is not enough to require $\abs{\alpha}=k$ as, for example, the tempered distribution $1 \in \Ss'(\R^d\to\C)$ has a derivative equal to zero however is not itself in $L^2(\R^d\to\C)$. Now, since, as we saw in (link), the Fourier transform is an automorphism of $\Ss'(\R^d\to\C^m)$, by using property (link)  we deduce that
+	Where,  we consider $L^2(\R^d\to\C^m)$ as a subspace of $\Ss '(\R^d\to\C^m)$ using \eqref{identificationfuncdist}.\end{definition} We may interpret the Sobolev space $H^k(\R^d\to\C^m)$ as the space of $k$ times differentiable functions in $L^2(\R^d\to\C^m)$ and we give it the norm:
+\begin{aligneq}\label{normdef1}
+	\norm{f}_{H^k(\R^d\to\C^m)}:=\sum_{\abs{\alpha}\leq k}\norm{D^\alpha f}_{L^2(\R^d\to\C^m)}\qquad f\in H^k(\R^d\to\C^m).
+\end{aligneq}
+
+Note that it is not enough to require $\abs{\alpha}=k$ as, for example, the tempered distribution $1 \in \Ss'(\R^d\to\C)$ has a derivative equal to zero however is not itself in $L^2(\R^d\to\C)$. Now, by Plancherel for $\Ss$ \Cref{Planncherellemma}, the Fourier transform is an automorphism of $\Ss'(\R^d\to\C^m)$, by using \Cref{regularitydecayft}  we deduce that
 \[D^\alpha f\in L^2(\R^d\to\C^m)\iff \Ff (D^\alpha f)=\abs{(2\pi i\xi )^{\alpha}} \hat{f}(\xi)\in L^2(\R^d\to\C^m)\]
 from which we deduce that
 \begin{equation}\label{sobolevcondition}
@@ -343,13 +349,13 @@ From the two equations above we deduce that if we define for a given real number
 \[H^s(\R^d\to\C^m):=\lbrace f\in L^2(\R^d\to\C^m): \br{\xi}^s\hat{f}(\xi)\in L^2(\R^d\to\C^m)\rbrace\]
 and give it the norm
 \[\norm{f}_{H^k(\R^d\to\C^m)}:= \norm{\br{\xi}^s\hat{f}(\xi)}_{L^2(\R^d\to\C^m)}\]
-then our new definition is equivalent to the previous one (linkto3)  when $s$ is a positive integer. We have thus found how to generalize the concept of Sobolev space to all real orders and obtained a useful way of characterizing them and giving a neat expression for their norm. Nonetheless, it will always be useful to retain the first definition based on derivatives, as it carries with it the motivation behind the definition of Sobolev spaces.\bigbreak
+then our new definition is equivalent to the previous one \eqref{normdef1}  when $s$ is a positive integer. We have thus found how to generalize the concept of Sobolev space to all real orders and obtained a useful way of characterizing them and giving a neat expression for their norm. Nonetheless, it will always be useful to retain the first definition based on derivatives, as it carries with it the motivation behind the definition of Sobolev spaces.\bigbreak
 As was the case with tempered distributions we can extend the concept of Sobolev space to periodic domains by defining given an integer $k$ the Sobolev space $H^k(\T^d\to\C^m)$ as the space of square-integrable $\Z^d$ periodic functions with distributional derivatives themselves square integrable. Explicitly we define:
-\begin{align}\label{sobolevdef2}
+\begin{aligneq}\label{sobolevdef2}
 	H^k(\T^d\to\C^m):=
 \lbrace f\in &L^2(\T^d\to\C^m)\\&: D^\alpha f\in L^2(\T^d\to\C^m)\hookrightarrow\Ss '(\T^d\to\C^m)\quad\forall\hspace{2pt}\abs{\alpha}\leq k\rbrace
-\end{align}
-Using the same method as before, this time by Proposition 4 (link) and equation of the correspondence between regularity and decay for the Fourier transform of periodic functions (link), we deduce that
+\end{aligneq}
+Using the same method as before, by the correspondence between regularity and decay for the Fourier transform of periodic functions  \Cref{regdecaypft} and \Cref{Plancherelperiodictheorem}, we deduce that
 \[D^\alpha f\in H^k(\T^d\to\C^m)\iff\widehat{D^\alpha f}(k)=\abs{k^\alpha}\hat{f}(k)\in l^2(\Z^d\to\C^m)\]
 which leads us as in the previous case to define for $s\in\R$ the more general Sobolev space
 \[H^s(\T^d\to\C^m):=\lbrace f\in L^2(\R^d\to\C^m): \br{k}^{s}\hat{f}(k)\in l^2(\Z^d\to\C^m)\rbrace\]
@@ -357,7 +363,7 @@ and to give it the norm
 \begin{equation}\label{sobolevgeneraldef}
 	\norm{f}_{H^s(\T^d\to\C^m)}:=\left(\sum_{k\in\Z^d}\br{k}^{2s}\abs{\hat{f}(k)}^2\right)^{\frac{1}{2}}
 \end{equation}
-where of course the definitions in (link) and (link) coincide for $s\in\N$.
+where of course the definitions in \eqref{sobolevdef2} and \eqref{sobolevgeneraldef} coincide for $s\in\N$.
 Note that, by the previous discussion, we have that both in the euclidean and periodic case
 \begin{align}\label{Sobolev derivatives embedding}
 	f\in H^s(\R^d\to\C^m)  & \iff  D^\alpha f\in H^{s-\abs{\alpha}}(\R^d\to\C^m)\qquad\forall\abs{\alpha}\leq s\\
@@ -440,5 +446,5 @@ In our future post we will discuss the well posedness of second order elliptic e
 
 
 
-% \bibliography{biblio.bib}
+\bibliography{biblio.bib}
 \end{document}

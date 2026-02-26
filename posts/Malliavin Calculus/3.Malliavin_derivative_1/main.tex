@@ -25,7 +25,7 @@ The Malliavin derivative is  (somewhat unsurprisingly) a fundamental object of M
 The same as in previous posts. Furthermore we will shorten the notation  $L^2(\Omega,\mathcal{F}_T)$ and $L^2(I\times\Omega,\Bb(I)\otimes \Ff_T)$ to $L^2(\Omega)$ and $L^2(I\times\Omega)$ respectively.
 \section{Introduction}
 The Malliavin derivative was originally introduced as an operator associated with the Fréchet differential of random variables $X: C(I)\to \R$. The aforementioned construction provides some motivation behind the Malliavin derivative and will be developed in the next post. However, a more general construction  can be obtained via the chaos expansion.
-\begin{definition}
+\begin{definition}\label{malnormdef}
 	Given $X=\sum_{n=0}^{\infty} I_n(f_n)\in L^2(\Omega)$ we say that $X$ is \emph{Malliavin differentiable} if
 	\begin{equation*}
 		\|X\|_{\mathbb{D}_{1,2}}^2 := \norm{X}_{L^2(\Omega)}^2  + \sum_{n=1}^{\infty} n n!\|f_n\|_{L^2([0,T]^n)}^2
@@ -197,9 +197,9 @@ As a result, we define given $X\in \W$
 	D^k_{t_1,\ldots,t_k} X:= \sum_{i_1,\ldots,i_k=1}^{n}  \frac{\partial \varphi}{\partial x_{i_1}\ldots\partial x_{i_k}}(X)h_{i_1}(t_1)\ldots h_{i_k}(t_k) .
 \end{equation*}
 In the same fashion as before, we can now define the $k$-th differential norm as
-\begin{equation*}
+\begin{equation}\label{higher order}
 	\norm{X}_{\mathbb{D}^{k,p}}:=\sum_{j=0}^{k}  \norm{D^j X}_{L^p(\Omega\to L^2(I^j))}.
-\end{equation*}
+\end{equation}
 Where we use the convention $D^0 X:=X, L^2(I^0):= \R$. Then we simply define $\mathbb{D}^{k,p}$ to be the completion of $\W$ with this norm. Finally, we define
 \begin{equation*}
 	\mathbb{D}^{\infty,p}:= \bigcap_{k=1}^\infty \mathbb{D}^{k,p};\quad \mathbb{D}^\infty := \bigcap_{p \geq 1} \bigcap_{k \geq 1} \mathbb{D}^{k,p}.

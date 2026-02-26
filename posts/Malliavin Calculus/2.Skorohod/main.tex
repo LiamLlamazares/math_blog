@@ -30,7 +30,7 @@ Our goal in this post is to construct the Skorokhod integral. This serves as a g
 	X=\sum_{n=0}^{\infty} I_n(f_{n,t}).
 \end{equation*}
 Let us write $f_{n}(\cdot,t):=f_{n,t}$. Note that we are now considering $f_n$ as a function of $n+1$ variables instead of  $n$. In particular, we will be able to consider expressions like  $I_{n+1}(f_n)$ later on. The first thing we do is study what the adaptedness of $X$ means in term of the functions $f_n$ appearing in its chaos expansion.
-\begin{lemma}
+\begin{lemma}\label{zerolemma}
 	Let $X(t) \in L^2(\Omega,\Ff_\infty)$ for each $t \in  I$, then $X$ is adapted iff
 	\begin{equation*}
 		f_n(t_1,\ldots,t_n,t)=0,\quad\forall t\leq\max_{i=1,\ldots,n} t_i .
@@ -49,7 +49,7 @@ In particular, we obtain that, since $f_n$ is already symmetric in its first n-c
 	f_{n,S}(t_1,\ldots,t_n,t_{n+1})=\frac{1}{n+1}f_n(t_1,\ldots\hat{t_{j}},\ldots,t_{n+1},t_j),\quad \text{where } j=\text{arg}\max_i t_i.
 \end{equation*}
 Using this relationship we can directly calculate the Itô integral of a stochastic process to obtain that.
-\begin{theorem}
+\begin{theorem}\label{itoskor}
 	Let $X \in \mathbb{L}^2(I\times\Omega)$ then the Itô integral of $X$ is
 	\begin{equation*}
 		\int_{I} X(t) dW(t)=\sum_{n=0}^{\infty} I_{n+1}(f_{n,S}).
@@ -97,8 +97,7 @@ Thus, for all $t\in I$ we have that
 \begin{equation*}
 	f_1=1;\quad f_n=0\quad\forall n \in \N \setminus \{1\}  .
 \end{equation*}
-So $X\in \rm{dom}
-\delta)$ with
+So $X\in \rm{dom}(\delta)$ with
 \begin{equation*}
 	\delta(X)= I_2(1)=\int_{0}^T\int_{0}^t dW(t_1)dW(t)=\int_{0}^T W(t) dW(t)= \frac{1}{2}(W^2(T)-T).
 \end{equation*}

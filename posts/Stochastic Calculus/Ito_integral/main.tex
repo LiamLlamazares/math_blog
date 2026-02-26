@@ -31,7 +31,7 @@ Perhaps the best way to understand a $\sigma$-algebra is as a set of available i
 A stochastic process $\{X_t\}_{t\in I}$ valued in a measurable space $(H,\Hh)$ is \emph{adapted} if $X_t : \Ff_t \to \Hh$ for all $t \in I$.
 \end{definition}
 As we will soon see the only stochastic process that can be integrated are the square integrable and progressively measurable. But what does this mysterious term mean?
-\begin{definition}
+\begin{definition}\label{prog def}
 	A stochastic process $\{X_t\}_{t\in I}$ valued in a measurable space $(H,\Hh)$ is \emph{progressively measurable} if its restriction to $[0,t]\times\Omega$ is measurable as a map $$X|_{[0,t]\times\Omega} : \Bb([0,t])\otimes\Ff_t\to \Hh$$ for all $t\in I$.
 \end{definition}
 Whenever we're given a stochastic process and a filtration the first thing to check is that it is adapted. In fact, since $\omega\to(t,\omega)$ is $\Ff_t\to \Bb([0,t])\otimes \Ff_t$ measurable for all $t$ we have that the following holds.
