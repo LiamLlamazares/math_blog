@@ -10,13 +10,13 @@ html {
     /* Slightly wider to fit 3 cards easily */
     margin: 0 auto;
 
-    /* FIX 1: Add top padding to clear the navbar */
-    padding-top: 100px;
+    /* Reduced top padding */
+    padding-top: 20px;
     padding-bottom: 40px;
     padding-left: 20px;
     padding-right: 20px;
 
-    background-color: #f8f9fa;
+    background-color: #ffffff;
     border-radius: 8px;
 }
 
@@ -93,8 +93,8 @@ html {
 }
 
 .featured-pane .pane-label {
-    background-color: #2e7d32;
-    /* Green for Latest Post */
+    background-color: #1E3A8A;
+    /* Navy for Latest Post */
     color: white;
     margin: -25px -25px 20px -25px;
     padding: 15px 25px;
@@ -102,8 +102,8 @@ html {
 }
 
 .recent-list-pane .pane-label {
-    background-color: #1565c0;
-    /* Blue for Most recent posts */
+    background-color: #334155;
+    /* Slate for Most recent posts */
     color: white;
     margin: -25px -25px 20px -25px;
     padding: 15px 25px;
@@ -112,8 +112,8 @@ html {
 
 /* --- FIXED HEADER STYLING --- */
 .tag-header {
-    background-color: #182848; /* Solid fallback */
-    background-image: linear-gradient(135deg, #4b6cb7, #182848); /* Default gradient */
+    background-color: #0F172A; /* Solid fallback */
+    background-image: linear-gradient(135deg, #1E3A8A, #0F172A); /* Navy gradient */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

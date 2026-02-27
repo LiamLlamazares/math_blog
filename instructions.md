@@ -78,7 +78,11 @@ The `fetch-comments.yml` workflow runs every hour to update the recent comments 
 
 | Goal | Edit | Re-run converter? |
 |---|---|---|
-| Visual styling (colors, spacing, theorem boxes) | `custom_theorems.css` or `assets/css/dashboard.css` | No |
+| Global Theme & Typography | `styles.scss` (Primary color, font families) | No |
+| LaTeX Link Colors | `styles.scss` (RoyalBlue/ForestGreen/NavyBlue logic) | No |
+| Homepage Dashboard (Grids, Tiles) | `assets/css/dashboard.css` | No |
+| Latex-style theorem boxes | `custom_theorems.css` | No |
+| Dashboard spacing/Title hiding | `index.qmd` (header-includes) | No |
 | Global MathJax config (delimiters, macros) | `_quarto.yml` | No |
 | How LaTeX is converted (equation labels, figure syntax, cross-refs) | `latex2qmd.py` | **Yes** — `py latex2qmd.py posts --all` |
 | Post-specific macros | Edit `preamble.sty`, then re-run converter | **Yes**, on affected posts |
@@ -86,6 +90,29 @@ The `fetch-comments.yml` workflow runs every hour to update the recent comments 
 | Post tags/categories | Use `\posttags{...}` in `main.tex` | **Yes** |
 | Post subtitle | Use `\postsubtitle{...}` in `main.tex` | **Yes** |
 | Cross-post references | Use `\postref{...}{...}{...}` in `main.tex` | **Yes** — must use `--all` |
+
+---
+
+## Design & Customization
+
+The site uses a layered CSS/SCSS architecture to replicate a high-end mathematical typesetting aesthetic:
+
+### 1. Global Styling (`styles.scss`)
+This is where the "Terence Tao" aesthetic is defined. It overrides Quarto's default Bootstrap variables and implements the LaTeX-style link coloring:
+- **Primary Color:** Set to a deep navy (`#1E3A8A`).
+- **Typography:** Uses serif fonts (*Merriweather*, *Georgia*) for article content and sans-serif (*Inter*) for UI elements.
+- **Link Logic:** 
+  - **Internal Refs (Theorems, Eqs):** `RoyalBlue` (#4169E1) — *scoped to article content*.
+  - **Citations:** `ForestGreen` (#228B22).
+  - **External Links:** `NavyBlue` (#000080).
+
+### 2. Homepage Listing (`assets/css/dashboard.css`)
+Controls the layout of the homepage grid and cards. 
+- Edit the `.featured-pane .pane-label` and `.recent-list-pane .pane-label` to change the colors of the "Latest Post" and "Most recent posts" header bars.
+- Controls the hover effects and tile shadows.
+
+### 3. Homepage Layout Overrides (`index.qmd`)
+The homepage title block ("NoWhere Differentiable Math") is hidden via a CSS block in the `header-includes` section. It also manages the top padding between the navbar and the dashboard.
 
 ---
 

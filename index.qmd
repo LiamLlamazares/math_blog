@@ -1,5 +1,5 @@
 ---
-title: "NoWhere Differentiable Math"
+title: ""
 listing:
   contents: posts
   sort: "date desc"
@@ -8,7 +8,13 @@ listing:
   feed: true
 css:
   - assets/css/dashboard.css
+  - styles.scss
 include-after-body: _includes/comment-sidebar.html
 page-layout: full
 title-block-banner: false
+header-includes:
+  - |
+    <style>
+    #title-block-header, .quarto-title-header, .quarto-title-block, .title { display: none !important; }
+    </style>
 ---

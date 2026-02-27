@@ -51,8 +51,12 @@ website:
 format:
   html:
     theme:
-      light: flatly
-      dark: darkly
+      light: 
+        - flatly
+        - styles.scss
+      dark: 
+        - darkly
+        - styles.scss
     toc: true
     css: custom_theorems.css
     html-math-method: mathjax
