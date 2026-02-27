@@ -1,16 +1,15 @@
 # Fdb version 4
-["bibtex Sobolev spaces"] 1772146381.51491 "Sobolev spaces.aux" "Sobolev spaces.bbl" "Sobolev spaces" 1772146384.85023 0
+["bibtex Sobolev spaces"] 1772152576.54278 "Sobolev spaces.aux" "Sobolev spaces.bbl" "Sobolev spaces" 1772152584.23735 0
   "./biblio.bib" 1772031610 13479 eb0273621293e68ccb1f102aa6a82957 ""
   "C:/Users/liaml/AppData/Local/Programs/MiKTeX/bibtex/bst/bibtex/apalike.bst" 1291972791 24635 604dafcc79f521a11ea73e506e1fbd98 ""
-  "Sobolev spaces.aux" 1772146384 20356 c3a98c54abc97ae617eb861556940929 "pdflatex"
+  "Sobolev spaces.aux" 1772152582 20894 be7750fd7953947d99fd2e3aa7b6f2df "pdflatex"
   (generated)
   "Sobolev spaces.bbl"
   "Sobolev spaces.blg"
   (rewritten before read)
-["pdflatex"] 1772146381.79418 "c:/Users/liaml/Documents/GitHub/Research/math_blog/posts/PDEs/3. Sobolev spaces/Sobolev spaces.tex" "Sobolev spaces.pdf" "Sobolev spaces" 1772146384.85071 0
+["pdflatex"] 1772152577.23967 "c:/Users/liaml/Documents/GitHub/Research/math_blog/posts/PDEs/3. Sobolev spaces/Sobolev spaces.tex" "Sobolev spaces.pdf" "Sobolev spaces" 1772152584.23813 0
   "C:/Users/liaml/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1769074998 83513 d1dc4855fee81f47259d50274e15f623 ""
   "C:/Users/liaml/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1749931301 12668 9eac45e7a580cc7a699cd5316167dec3 ""
-  "C:/Users/liaml/AppData/Local/MiKTeX/fonts/pk/ljfour/public/mathabx/dpi480/mathx10.pk" 1746291388 24888 d961b5d2741263cbd644a848ebc1ddf1 ""
   "C:/Users/liaml/AppData/Local/MiKTeX/fonts/pk/ljfour/public/mathabx/dpi600/matha6.pk" 1746291389 16824 2186f786440c757b54d2c8934c0ff7fb ""
   "C:/Users/liaml/AppData/Local/MiKTeX/fonts/pk/ljfour/public/mathabx/dpi600/matha8.pk" 1746291390 20784 432176b72a6a2bccb64a66ad64d83dee ""
   "C:/Users/liaml/AppData/Local/MiKTeX/fonts/pk/ljfour/public/mathabx/dpi657/matha10.pk" 1751898816 27204 77ba07fc0d9cea36ba561439012592a2 ""
@@ -275,11 +274,11 @@
   "C:/Users/liaml/AppData/Local/Programs/MiKTeX/tex/latex/xpatch/xpatch.sty" 1585221260 8510 7803f78066c4f9d008405191a4b43073 ""
   "C:/Users/liaml/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-abspage.sty" 1750428951 2269 2de6c7a5fd634dfef00a960544463a38 ""
   "C:/Users/liaml/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-base.sty" 1750428951 20785 198a9cb2e04238d92c320d0d9edbd76a ""
-  "Sobolev spaces.aux" 1772146384 20356 c3a98c54abc97ae617eb861556940929 "pdflatex"
-  "Sobolev spaces.bbl" 1772146381 1184 c4606e9524bdfb66edfad362954fc836 "bibtex Sobolev spaces"
-  "Sobolev spaces.out" 1772146383 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "Sobolev spaces.tex" 1772146377 108310 c9686c179cd0250d36cbdc31e1255d23 ""
-  "c:/Users/liaml/Documents/GitHub/Research/math_blog/posts/PDEs/3. Sobolev spaces/Sobolev spaces.tex" 1772146377 108310 c9686c179cd0250d36cbdc31e1255d23 ""
+  "Sobolev spaces.aux" 1772152582 20894 be7750fd7953947d99fd2e3aa7b6f2df "pdflatex"
+  "Sobolev spaces.bbl" 1772152577 1184 c4606e9524bdfb66edfad362954fc836 "bibtex Sobolev spaces"
+  "Sobolev spaces.out" 1772152580 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "Sobolev spaces.tex" 1772152569 109602 35351d7774b3fb849085d326fc81a244 ""
+  "c:/Users/liaml/Documents/GitHub/Research/math_blog/posts/PDEs/3. Sobolev spaces/Sobolev spaces.tex" 1772152569 109602 35351d7774b3fb849085d326fc81a244 ""
   "preamble.sty" 1772049426 14116 272385d6d65a5f537035514e9e15ccb9 ""
   (generated)
   "Sobolev spaces.aux"

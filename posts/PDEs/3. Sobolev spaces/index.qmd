@@ -1866,10 +1866,10 @@ This concludes the proof.
 
 ::: {#exr-est12}
 
-Given $p<\frac{d}{k}$ define    $p^{k*}$ by $\frac{1}{p^{k*}}=\frac{1}{p}-\frac{k}{d}$. Then,        
+Given $p<\frac{d}{k}$ define    $p_k^*$ by $\frac{1}{p_k^*}=\frac{1}{p}-\frac{k}{d}$. Then,        
 $$
 \begin{aligned}
-\norm{u}_{L^{p^{k*}}(\R^d)} \lesssim  \norm{\nabla^k u}_{L^p(\R^d)}
+\norm{u}_{L^{p_k^*}(\R^d)} \lesssim  \norm{\nabla^k u}_{L^p(\R^d)}
 \end{aligned}
 $$
 
@@ -2064,13 +2064,13 @@ Let $\Omega$ be **bounded** with $C^k$ boundary, then the following  inclusions 
 
 $$
 \begin{aligned}
-& W^{k,p}(\Omega) \hookrightarrow L^q(\Omega) ,           \quad\forall q \in [1,p^{k*})                              & \text{ and }     p<\frac{d}{k} \\
+& W^{k,p}(\Omega) \hookrightarrow L^q(\Omega) ,           \quad\forall q \in [1,p_k^*)                              & \text{ and }     p<\frac{d}{k} \\
 & W^{k,p}(\Omega) \hookrightarrow L^q(\Omega) ,           \quad\forall q \in [p,\infty)                              & \text{ and }   p=\frac{d}{k}   \\
 & W^{k,p}(\Omega) \hookrightarrow C^{k,\gamma }(\overline{\Omega}) \hookrightarrow C^{k}(\overline{\Omega}) ,  \quad & \text{ and }  p>\frac{d}{k}
 \end{aligned}
 $$
 
-Where $p^{k*}$ is defined by the relation $\frac{1}{p^{k*}}=\frac{1}{p}-\frac{k}{d}$ and $\gamma =1 -\frac{d}{p}$. Furthermore, the first, second, fourth, and third composed with fourth inclusions are [compact](<https://en.wikipedia.org/wiki/Compact_embedding>).
+Where $p_k^*$ is defined by the relation $\frac{1}{p_k^*}=\frac{1}{p}-\frac{k}{d}$ and $\gamma =1 -\frac{d}{p}$. Furthermore, the first, second, fourth, and third composed with fourth inclusions are [compact](<https://en.wikipedia.org/wiki/Compact_embedding>).
 
 :::
 
@@ -2094,11 +2094,11 @@ The compactness of the embeddings requires reduce to showing that the unit ball 
     \end{aligned}
     $$
 
-    Where the above is known to be true for smooth functions by the fundamental theorem of calculus and extends by density to $W^{k,p}(\Omega)$ (we recall translation is continuous on $L^p$ for  $p<\infty$). The above also holds for $p^{k*}$ and since $p<q<p^{k*}$ we can write
+    Where the above is known to be true for smooth functions by the fundamental theorem of calculus and extends by density to $W^{k,p}(\Omega)$ (we recall translation is continuous on $L^p$ for  $p<\infty$). The above also holds for $p_k^*$ and since $p<q<p_k^*$ we can write
 
     $$
     \begin{aligned}
-    \frac{1}{q}=\frac{\alpha}{p}+\frac{1-\alpha}{p^{k*}}   .
+    \frac{1}{q}=\frac{\alpha}{p}+\frac{1-\alpha}{p_k^*}   .
     \end{aligned}
     $$
 
@@ -2106,7 +2106,7 @@ The compactness of the embeddings requires reduce to showing that the unit ball 
 
     $$
     \begin{aligned}
-    \norm{\tau_h u-u}_{L^q(\Omega)}\leq \norm{\nabla u}_{L^p(\Omega)}^\alpha\norm{\nabla u}_{L^{p^{k*}}(\Omega)}^{1-\alpha}\abs{h} , \quad\forall u \in W^{1,p}(\Omega) .
+    \norm{\tau_h u-u}_{L^q(\Omega)}\leq \norm{\nabla u}_{L^p(\Omega)}^\alpha\norm{\nabla u}_{L^{p_k^*}(\Omega)}^{1-\alpha}\abs{h} , \quad\forall u \in W^{1,p}(\Omega) .
     \end{aligned}
     $$
 
@@ -2141,7 +2141,7 @@ As a particular case of the above we obtain the following simpler looking coroll
 
 ::: {#cor-simple-embedding}
 
-Let $q< p^{k*}$, then it holds that following inclusion is compact
+Let $q< p_k^*$, then it holds that following inclusion is compact
 
 $$
 \begin{aligned}
@@ -2207,7 +2207,7 @@ This result can be combined directly with Rellich-Kondrachov @thm-rellich or any
 
 ::: {#cor-1}
 
-Let $q< p^{k*}$, then it holds that following inclusion is compact
+Let $q< p_k^*$, then it holds that following inclusion is compact
 
 $$
 \begin{aligned}

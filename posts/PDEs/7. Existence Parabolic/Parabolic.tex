@@ -15,7 +15,7 @@
 \maketitle
 \section{Three point summary}
 \begin{itemize}
-  \item A parabolic PDE describes how a function evolves over time under the influence of an elliptic operator. Unlike their elliptic counterparts, parabolic PDEs are typically \postref{PDEs/6. Existence elliptic}{}{well-posed}. For well-behaved coefficients, a unique solution always exists and depends continuously on the initial data.
+  \item A parabolic PDE describes how a function evolves over time under the influence of an elliptic operator. Unlike their elliptic counterparts, parabolic PDEs are typically \postref{PDEs/6. Existence elliptic}{well-posedness}{well-posed}. For well-behaved coefficients, a unique solution always exists and depends continuously on the initial data.
   \item Solutions to parabolic PDEs can be viewed as functions mapping an instant in time to a function in a Banach space. From this viewpoint, the PDE becomes an infinite dimensional ODE. The Galerkin method is a powerful tool to prove the well-posedness of the problem and approximate its solutions using a finite-dimensional ODE that approximates the original infinite-dimensional problem.
   \item The solution is smoother than the initial data and will always be at least continuous in time and (weakly) differentiable in space. If the coefficients of the PDE are smooth, the solution will be smooth as well.
 \end{itemize}
@@ -86,7 +86,7 @@ Many familiar properties carry over to the Bochner integral. Namely, integration
 \begin{align*}
  (u,v):= \int_I (u(t),v(t))_X \d t, \quad u \in L^p(I \to X).
 \end{align*}
-With this identification, the dual of $L^p(I \to X)$ is equal to $L^{p'}(I \to X')$ . We will also use that if $\phi_n \in C^\infty(I)$ is a \postref{PDEs/3. Sobolev spaces}{}{smooth approximation of unity} then, for $p \in [1, \infty)$ 
+With this identification, the dual of $L^p(I \to X)$ is equal to $L^{p'}(I \to X')$ . We will also use that if $\phi_n \in C^\infty(I)$ is a \postref{PDEs/3. Sobolev spaces}{app def}{smooth approximation of unity} then, for $p \in [1, \infty)$ 
 \begin{align}\label{approximation}
  \lim_{n \to \infty} u * \phi_n \to u \text{ in } L^p(I \to X),\quad \quad \lim_{n \to \infty} u * \phi_n=u \text{ almost everywhere }. 
 \end{align}
@@ -203,7 +203,7 @@ Use that $L^2(U)$ is separable to show that it has a smooth orthonormal basis of
 \begin{hint}
 Since $L^2(U)$ is separable, it has a countable dense subset $\set{f_i}_{i=1}^\infty \subset L^2(U)$. Since $C_c^\infty(U)$ is dense in $L^2(U)$, for each $f_i$ there exists a sequence $\set{\phi_{i,n}}_{n=1}^\infty \subset C_c^\infty(U)$ that converges to $f_i$ in $L^2(U)$. Then, the set $\set{\phi_{i,n}}_{i,n}$ is a countable dense subset of $L^2(U)$, and we can apply the Gram-Schmidt process to obtain an orthonormal basis. 
 
-Alternatively, if $U$ is bounded and smooth, $\Delta ^{-1}$ is compact and self-adjoint. Hence, it has a countable orthonormal basis of eigenfunctions which are smooth by the \postref{PDEs/6. Existence elliptic}{}{previous post} and induction.  
+Alternatively, if $U$ is bounded and smooth, $\Delta ^{-1}$ is compact and self-adjoint. Hence, it has a countable orthonormal basis of eigenfunctions which are smooth by the \postref{PDEs/6. Existence elliptic}{infinite interior regularity2}{previous post} and induction.  
 \end{hint}
 
 Let $\set{\phi_i}_{i=1}^\infty\subset C^\infty_c(U)$ be an orthonormal basis of $L^2(U)$, let $V_n:= \text{span}\set{\phi_i}_{i=1}^n$ and let
@@ -256,7 +256,7 @@ Equation \eqref{galerkin} is known as the \emph{Galerkin problem}.
        \begin{align}\label{B bound}
  B(u_n(t),u_n(t);t) \geq \gamma \norm{u_n(t)}_{H^1_x}^2 - \nu\norm{u_n(t)}_{L^2_x}^2
        \end{align}
- (this is the same as \postref{PDEs/6. Existence elliptic}{}{what was proved} as in the elliptic case).
+ (this is the same as \postref{PDEs/6. Existence elliptic}{b not 0}{what was proved} as in the elliptic case).
  Whereas, by definition of the dual and by Cauchy's inequality, the bound of the right-hand side of \eqref{sol un} is,
        \begin{align}\label{rhs bound}
          \abs{(u_n(t), f(t))} \leq \norm{u_n(t)}_{H_{x}^1} \norm{f(t)}_{H_x^{-1}}\leq \frac{1}{2} \norm{u_n(t)}_{H_{x}^1}^2 + \frac{1}{2} \norm{f(t)}_{H_x^{-1}}^2.
@@ -423,7 +423,7 @@ as before for $n=20$ basis functions. As we can see, the Galerkin solution and t
 
 \section{Regularity of the solutions}
 
-Having proved the well-posedness of the parabolic problem \eqref{parabolic} and its finite-dimensional Galerkin approximation, we can now move on to study the regularity of the solutions. The proof is similar to the one given in the \postref{PDEs/6. Existence elliptic}{}{elliptic case} but more technical, and we will mainly cite some main results without proof. 
+Having proved the well-posedness of the parabolic problem \eqref{parabolic} and its finite-dimensional Galerkin approximation, we can now move on to study the regularity of the solutions. The proof is similar to the one given in the \postref{PDEs/6. Existence elliptic}{higher sec}{elliptic case} but more technical, and we will mainly cite some main results without proof. 
 
 As one expects from the elliptic case, the spatial regularity of the solutions is increased by $2$. Our study of the previous section shows that the regularity of the time derivatives of the solution is $2$ orders lower. In fact, it is two orders lower for each time derivative taken. To be able to obtain higher regularity however, we will need to impose some compatibility between the boundary condition $f$ and the initial data $g$. The following can be found in Section 7.13 of \cite{evans2022partial}
 \begin{theorem}
@@ -445,7 +445,7 @@ Let $\Omega $ be a bounded domain with smooth boundary $\partial \Omega$. Let $\
   \end{align*}
  In consequence, if $f \in C^\infty_{t,x}, g \in C^\infty_x$ then $u \in C^\infty_{t,x}$. 
 \end{theorem}
-We also show a result where the coefficients are allowed to depend on time. The following can be found in Chapter $3$ of \cite{Friedman1983PartialDE} and assumes that the coefficients are \postref{PDEs/3. Sobolev spaces}{}{Hölder continuous}
+We also show a result where the coefficients are allowed to depend on time. The following can be found in Chapter $3$ of \cite{Friedman1983PartialDE} and assumes that the coefficients are \postref{PDEs/3. Sobolev spaces}{holder def}{Hölder continuous}
 
 \begin{theorem}
  Let $\Omega $ be a bounded domain with smooth boundary and assume that for all $t \in I$,

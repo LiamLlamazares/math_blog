@@ -52,11 +52,11 @@ We recall from post \postref{PDEs/4. Physical derivation}{}{4} that physically; 
     \end{align}
     We also say that $\bm{A}$ is elliptic.
 \end{definition}
-There are some points to clear up. Firstly, if this is the first time you've encountered the ellipticity condition in \eqref{elliptic}, then it may seem a bit strange. With the previous physical interpretation, the ellipticity condition \eqref{elliptic} says that diffusion occurs from the region of \postref{PDEs/4. Physical derivation}{}{higher to lower density}. Mathematically speaking, \eqref{elliptic} will prove necessary to apply \postref{PDEs/2. What is a Hilbert space}{}{Lax Milgram's theorem} and obtain regularity estimates on $u$. 
+There are some points to clear up. Firstly, if this is the first time you've encountered the ellipticity condition in \eqref{elliptic}, then it may seem a bit strange. With the previous physical interpretation, the ellipticity condition \eqref{elliptic} says that diffusion occurs from the region of \postref{PDEs/4. Physical derivation}{diffusion}{higher to lower density}. Mathematically speaking, \eqref{elliptic} will prove necessary to apply \postref{PDEs/2. What is a Hilbert space}{Lax theorem}{Lax Milgram's theorem} and obtain regularity estimates on $u$. 
 
 
 Next, when developing the mathematical theory of any equation, the first step is to establish whether the equation is \emph{well-posed}.
-\begin{definition}[Well-posedness] We say that an equation is \emph{well-posed} if
+\begin{definition}[Well-posedness]\label{well-posedness} We say that an equation is \emph{well-posed} if
     \begin{enumerate}
         \item It has a solution.
         \item The solution is unique.
@@ -80,7 +80,7 @@ The first part of Assumption \ref{Ass1} will make it easy to get bounds on $\Ll$
         H^{-k}(U ):= H_0^k(U )'
     \end{align*}
 \end{definition}
-For more details on why we denote the dual using negative exponents, see the \postref{PDEs/5. Fractional and negative order Sobolev spaces}{}{relevant section} in the previous post on fractional Sobolev spaces. We \postref{PDEs/5. Fractional and negative order Sobolev spaces}{}{recall} also that every element in $H^{-k}(U)$ can be written as the sum of derivatives up to order $k$ of a function in $L^2(U)$.
+For more details on why we denote the dual using negative exponents, see the \postref{PDEs/5. Fractional and negative order Sobolev spaces}{dual sec}{relevant section} in the previous post on fractional Sobolev spaces. We \postref{PDEs/5. Fractional and negative order Sobolev spaces}{riesz representation}{recall} also that every element in $H^{-k}(U)$ can be written as the sum of derivatives up to order $k$ of a function in $L^2(U)$.
 \begin{exercise}\label{domain L}
     Suppose $A_{ij}, b_i, c \in L^\infty(U)$. Then, $\Ll $ defines a bounded linear operator
     \begin{align*}
@@ -120,7 +120,7 @@ In \eqref{weak def} we used the ``duality notation'' $(v,f):= f(v)$ for $f \in X
     \begin{align}\label{b=0}
         B(u,u) & = \int_{U}\bm{A} \nabla u \cdot \nabla u + \int_{U} cu^2 \geq \alpha \norm{\nabla u}^2_{L^2(U \to \R^d)} + \int_{U}c u^2 \gtrsim \norm{u}^2_{H^1_0(U)}.
     \end{align}
-    Where in the first inequality, we used the ellipticity assumption on $\bm{A}$, and in the last inequality, we used \postref{PDEs/3. Sobolev spaces}{}{Poincaré's inequality} if $U$ is bounded. The result now follows from \postref{PDEs/2. What is a Hilbert space}{}{Lax Milgram's theorem}.
+    Where in the first inequality, we used the ellipticity assumption on $\bm{A}$, and in the last inequality, we used \postref{PDEs/3. Sobolev spaces}{poincare}{Poincaré's inequality} if $U$ is bounded. The result now follows from \postref{PDEs/2. What is a Hilbert space}{Lax theorem}{Lax Milgram's theorem}.
 \end{proof}
 \Cref{well-posed 1} is an example of the advantages of working with a weak formulation instead of solutions differentiable in a classical sense. The weak formulation allows us not only to make sense of our equation \eqref{PDE} for a wider class of coefficients but also provides a natural framework to study the well-posedness of \eqref{PDE}.
 \begin{exercise}
@@ -162,7 +162,7 @@ That is, the problem $\Ll u +\gamma u =f$ is well-posed for all $\gamma > \nu$.
     \end{align}
     Equation \eqref{pd} also shows that $\Ll_\gamma$ is positive definite and the proof is complete.
 \end{proof}
-\subsection{Fredholm alternative}
+\subsection{Fredholm alternative}\label{fred sec}
 We now analyze further what we can say about the well-posedness of \eqref{PDE}. What has to happen for the equation to be ill-posed? If there are multiple solutions, what does the space of solutions look like? As we will see, this is intimately linked to the spectrum of the operator $\Ll$ and the Fredholm alternative will provide the answers we are looking for,
 
 We begin by considering $\Ll u =\lambda u+f$, which is a small generalization of our original problem \eqref{PDE}. We take $\gamma > \abs{\lambda }$ large enough as in \Cref{mod} and note that
@@ -276,7 +276,7 @@ In particular, to study the \emph{existence} of solutions to \eqref{PDE}, it is 
 \end{hint}
 
 
-\section{Higher regularity}
+\section{Higher regularity}\label{higher sec}
 We have so far seen that, under the previous assumptions, solutions to \eqref{PDE} are in $H_0^1(U)$. However, analogously to the classical setting, we may expect that $u$ is two degrees of regularity smoother than $f$. That is that $ u \in H^2(U)$. This improved regularity is true, but only with the caveat that the domain $U$ is sufficiently regular. Counterexamples with non-smooth domains exist. See \cite{savare1998regularity}.
 
 We will also see how, for smoother coefficients, we can iterate to obtain a higher regularity of $u$. As a result, when the coefficients of \eqref{PDE} are smooth, $u$ will be as well, and we will obtain a classical solution to problem \eqref{PDE}.

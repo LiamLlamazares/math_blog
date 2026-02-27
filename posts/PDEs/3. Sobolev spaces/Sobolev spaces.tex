@@ -331,7 +331,7 @@ Due to the above immersion, we will naturally consider $L^1_{\mathrm{loc}}(U)$ a
 \begin{hint}
 	Show that an approximation to the identity converges to a Dirac delta $ \delta _0 \in \Dd'(U)$. However $\delta _0 \not\in L^1_{\mathrm{loc}}(U) $.
 \end{hint}
-\subsection{Support of a distribution}
+\subsection{Support of a distribution}\label{support sec}
 In the continuous case, the support of a function is well-defined as the smallest closed set outside of which the function is zero. However, when working with an equivalence class of functions the definition must be amended (consider for example the support of $0=1_{\Q}$). This is resolved by the following definitions.
 \begin{definition} We say that a distribution $w \in \Dd'(U)$ \textbf{vanishes} on $V \subset U$ if
 	\begin{align*}
@@ -454,7 +454,7 @@ We now show some relevant properties of the weak derivative all of which are to 
 			      \partial _{i} (u \varphi)= \partial_i u \varphi+ u \partial _i \varphi .
 		      \end{align*}
 
-		\item The translation $\tau_y u(x):=u(x-y) \in W^{k,p}(U)$ with $D^\alpha \tau_y u = \tau_y D^\alpha u$.
+		\item For $U = \R^d$, the translation $\tau_y u(x):=u(x-y) \in W^{k,p}(\R^d)$ with $D^\alpha \tau_y u = \tau_y D^\alpha u$.
 		\item  Let $u \in W^{k,p}(\R^d)$ and $v \in L^1(\R^d)$. Then
 		      \begin{align*}
 			      D^\alpha (v*u)= v* D^\alpha u
@@ -479,7 +479,7 @@ A natural question is what relationship there is between Sobolev functions and c
 We omit the proof which can be found in \cite{Juha2023} pages $39-43$. The next exercise show that, perhaps somewhat unexpectedly, to have $u \in  W^{1,p}(U)$ it is not sufficient to require that $u$ is differentiable almost everywhere with integrable derivatives.
 \begin{example}
 	The \href{https://en.wikipedia.org/wiki/Cantor_function}{devil's staircase} $c$ is differentiable almost everywhere with $c'=0$. \end{example}
-As a result, if $c \in W^{1,p}(0,1)$ then $u$ would be constant (which it is not). In fact, $c \not\in W^{1,p}(0,1)$ as it is not absolutely continuous.
+As a result, if $c \in W^{1,p}(0,1)$ then $c$ would be constant (which it is not). In fact, $c \not\in W^{1,p}(0,1)$ as it is not absolutely continuous.
 
 
 
@@ -965,7 +965,7 @@ Using the Loomis-Whitney inequality and the fundamental theorem of calculus give
 	\end{align*}
 	Applying the Loomis-Whitney inequality \eqref{loomis ineq}  ``with $p=1$'' and Hölder's inequality shows
 	\begin{align}\label{hard}
-		\norm{u}_{L^{ md /(d-1)}(\R^d)}^{md}\lesssim  \prod_{i=1}^{d}  \norm{u^{m-1}\partial_iu}_{L^1(\R^d)} \leq \norm{u}_{L^{(m-1)p'}(\R^d)}^{(m-1)d}\norm{\nabla u}_{L^{p}(\R^d \to  \R^d)}^d
+		\norm{u}_{L^{ md /(d-1)}(\R^d)}^{md/(d-1)}\lesssim  \prod_{i=1}^{d}  \norm{u^{m-1}\partial_iu}_{L^1(\R^d)} \leq \norm{u}_{L^{(m-1)p'}(\R^d)}^{(m-1)d}\norm{\nabla u}_{L^{p}(\R^d \to  \R^d)}^d
 	\end{align}
 	It remains to choose $m$ such that
 	\begin{align*}
@@ -978,8 +978,8 @@ Using the Loomis-Whitney inequality and the fundamental theorem of calculus give
 	This concludes the proof.
 \end{proof}
 \begin{exercise}\label{est12}
-	Given $ p<\frac{d}{k}$ define    $p^{k*}$ by $\frac{1}{p^{k*}}=\frac{1}{p}-\frac{k}{d}$. Then,        \begin{align*}
-		\norm{u}_{L^{p^{k*}}(\R^d)} \lesssim  \norm{\nabla^k u}_{L^p(\R^d)}    \end{align*}
+	Given $ p<\frac{d}{k}$ define    $p_k^*$ by $\frac{1}{p_k^*}=\frac{1}{p}-\frac{k}{d}$. Then,        \begin{align*}
+		\norm{u}_{L^{p_k^*}(\R^d)} \lesssim  \norm{\nabla^k u}_{L^p(\R^d)}    \end{align*}
 \end{exercise}
 \begin{hint}
 	Apply induction on $k$ using \Cref{est1}.
@@ -1036,8 +1036,8 @@ Note that the constant in our above estimate blows up on iterating. As a result,
 	W^{1,d}(\R^d) \hookrightarrow L^\infty(\R^d).
 \end{align*}
 This holds if and only if $d=1$. Otherwise, we require more integrability. However, this extra integrability can be converted into regularity in the converse direction of \postref{PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces}{regularitydecayft}{Sobolev spaces}. First, we recall the following definition
-\begin{definition}
-	Let $U \subset \R^d$ be open and $\gamma \in \R_+$, we define the \textbf{Holder space}
+\begin{definition}\label{holder def}
+	Let $U \subset \R^d$ be open and $\gamma \in \R_+$, we define the \textbf{Hölder space}
 	\begin{align*}
 		C^{k,\gamma }(\R^d):= \set{u \in C^k(U): \norm{u}_{C^{k,\gamma }(U)}<\infty} .
 	\end{align*}
@@ -1060,31 +1060,32 @@ For $\gamma =1$ the $C^{k,\gamma }$ is the space of functions with bounded deriv
 \end{theorem}
 The proof is technical and can be found in \cite{brezis2011functional} page 282.
 
+As is logical, as $p$ approaches  $d$ from above the extra differentiability we get goes to  $0$. Furthermore, no matter how much integrability we cash in, we can never get more differentiability than we started with, so $\gamma \to 1$ as $p \to \infty$.
 
-As is logical, as $p$ approaches  $d$ from above the extra differentiability we get goes to  $0$. Furthermore, no matter how much integrability we cash in, we can never get more differentiability than we started with, so $\gamma \to 1$ as $p \to \infty$.\begin{exercise}[Sobolev regularity]\label{est32}
-	Let $p>d$ and set $\gamma=1-\frac{d}{p}$. Then, the following inclusion is continuous
+\begin{exercise}[Sobolev regularity]\label{est32}
+	Let $kp>d$ and $\frac{d}{p} \notin \N$. Set $m = k - \lfloor d/p \rfloor - 1$ and $\gamma = \lfloor d/p \rfloor + 1 -\frac{d}{p}$. Then, the following inclusion is continuous
 	\begin{align*}
-		W^{k,p}(\R^d) \hookrightarrow C^{k,\gamma }(\R^d).
+		W^{k,p}(\R^d) \hookrightarrow C^{m,\gamma }(\R^d).
 	\end{align*}
 \end{exercise}
 \begin{hint}
-	This holds for the case $k=1$. We now proceed by induction. Since $\nabla u \in W^{k-1,p}(\R^d \to  \R^d)$ by hypothesis of induction we obtain
-	\begin{align*}
-		\nabla u \in C^{k-1,\widetilde{\gamma }}(\R^d \to \R^d); \quad \widetilde{\gamma }:= k-1 -\frac{d}{p} .
-	\end{align*}
-	In consequence,
-	\begin{align*}
-		u \in C^{k-1+1,\widetilde{\gamma}+1}(\R^d )=C^{k,\gamma}(\R^d ) .
-	\end{align*}
+By iteratively applying the continuous Sobolev embedding $l=\lfloor d/p \rfloor$ times, we obtain a chain of continuous inclusions:
+	$$W^{k,p}(\R^d) \hookrightarrow W^{k-1, p_1}(\R^d) \hookrightarrow \dots \hookrightarrow W^{k-l, p_l}(\R^d),$$
+	where the exponents are governed by the relation $$\frac{1}{p_j} = \frac{1}{p_{j-1}} - \frac{1}{d} \implies \frac{1}{p_l} = \frac{1}{p} - \frac{l}{d}.$$
+So by assumption we verify the	Morrey Condition $p_l > d$. As a result, $W^{1, p_l}(\R^d) \hookrightarrow C^{0, \gamma}(\R^d)$ with $\gamma = 1 - \frac{d}{p_l} = \lfloor d/p \rfloor + 1 - \frac{d}{p}$.
+	
+We started with $k$ derivatives, spent $l$ to reach integrability $p_l$, and $1$ to apply Morrey's inequality and obtain $C^{0, \gamma}$ regularity. The number of classical derivatives remaining is $m = k - l - 1 = k - \lfloor d/p \rfloor - 1$.
+	
+In the edge case where $\frac{d}{p} = l$ is an integer, the bootstrapping argument stops at $W^{1,d}(\R^d)$, which embeds into $L^q(\R^d)$ for all $q<\infty$, but \textbf{fails} to embed into $L^\infty(\R^d)$ and $C^{0,\gamma}$. To guarantee continuity, we must sacrifice to a slightly lower integrability $q_\eps = d-\eps < d$ in our final bootstrapping step. This pushes us back into the Morrey regime where $p_{l-1} > d$, yielding $\gamma = 1 - \frac{d}{q_\eps} \in (0,1)$, meaning we achieve $C^{m, \gamma}(\R^d)$ for all $\gamma \in (0,1)$.
 \end{hint}
 Combining the three results gives
 \begin{theorem}[Rellich-Kondrachov]\label{rellich}
 	Let $\Omega$ be \textbf{bounded} with $C^k$ boundary, then the following  inclusions are continuous
 	\begin{align*}
-		 & W^{k,p}(\Omega) \hookrightarrow L^q(\Omega) ,           \quad\forall q \in [1,p^{k*})                              & \text{ and }     p<\frac{d}{k} \\
+		 & W^{k,p}(\Omega) \hookrightarrow L^q(\Omega) ,           \quad\forall q \in [1,p_k^*]                              & \text{ and }     p<\frac{d}{k} \\
 		 & W^{k,p}(\Omega) \hookrightarrow L^q(\Omega) ,           \quad\forall q \in [p,\infty)                              & \text{ and }   p=\frac{d}{k}   \\
-		 & W^{k,p}(\Omega) \hookrightarrow C^{k,\gamma }(\overline{\Omega}) \hookrightarrow C^{k}(\overline{\Omega}) ,  \quad & \text{ and }  p>\frac{d}{k}\end{align*}
-	Where $p^{k*}$ is defined by the relation $\frac{1}{p^{k*}}=\frac{1}{p}-\frac{k}{d}$ and $\gamma =1 -\frac{d}{p}$. Furthermore, the first, second, fourth, and third composed with fourth inclusions are \href{https://en.wikipedia.org/wiki/Compact_embedding}{compact}.
+		 & W^{k,p}(\Omega) \hookrightarrow C^{m,\gamma }(\overline{\Omega}) \hookrightarrow C^{m}(\overline{\Omega}) ,  \quad & \text{ and }  p>\frac{d}{k}\end{align*}
+	Where $p_k^*$ is defined by the relation $\frac{1}{p_k^*}=\frac{1}{p}-\frac{k}{d}$, $m = k - \lfloor d/p \rfloor - 1$, and $\gamma = \lfloor d/p \rfloor + 1 -\frac{d}{p}$ or $\gamma \in (0,1)$ if $\frac{d}{p} \in \mathbb{N}$. Furthermore, the first for $q<p_k^*$, second, fourth, and third composed with fourth inclusions are \href{https://en.wikipedia.org/wiki/Compact_embedding}{compact}.
 \end{theorem}
 \begin{exercise}
 	Show that if $\Omega$ is unbounded then the inclusions in \Cref{rellich} are not compact.
@@ -1101,34 +1102,34 @@ Combining the three results gives
 		      \begin{align*}
 			      \norm{\tau_h u-u}_{L^p(\Omega)}\leq \norm{\nabla u}_{L^p(\Omega)}\abs{h} , \quad\forall u \in W^{1,p}(\Omega) .
 		      \end{align*}
-		      Where the above is known to be true for smooth functions by the fundamental theorem of calculus and extends by density to $W^{k,p}(\Omega)$ (we recall translation is continuous on $L^p$ for  $p<\infty$). The above also holds for $p^{k*}$ and since $p<q<p^{k*}$ we can write
+		      Where the above is known to be true for smooth functions by the fundamental theorem of calculus and extends by density to $W^{k,p}(\Omega)$ (we recall translation is continuous on $L^p$ for  $p<\infty$). The above also holds for $p_k^*$ and since $p<q<p_k^*$ we can write
 		      \begin{align*}
-			      \frac{1}{q}=\frac{\alpha}{p}+\frac{1-\alpha}{p^{k*}}   .
+			      \frac{1}{q}=\frac{\alpha}{p}+\frac{1-\alpha}{p_k^*}   .
 		      \end{align*}
 		      By \href{https://en.wikipedia.org/wiki/Riesz%E2%80%93Thorin_theorem#:~:text=the%20sumset%20formulation.-,Riesz%E2%80%93Thorin,-interpolation%20theorem%C2%A0%E2%80%94%C2%A0}{interpolation} we obtain that
 		      \begin{align*}
-			      \norm{\tau_h u-u}_{L^q(\Omega)}\leq \norm{\nabla u}_{L^p(\Omega)}^\alpha\norm{\nabla u}_{L^{p^{k*}}(\Omega)}^{1-\alpha}\abs{h} , \quad\forall u \in W^{1,p}(\Omega) .
+			      \norm{\tau_h u-u}_{L^q(\Omega)}\leq \norm{\nabla u}_{L^p(\Omega)}^\alpha\norm{\nabla u}_{L^{p_k^*}(\Omega)}^{1-\alpha}\abs{h} , \quad\forall u \in W^{1,p}(\Omega) .
 		      \end{align*}
 		      This shows equicontinuity and concludes the first case.
 
 		\item The compactness of the second inclusion is proved identically.
 		\item For the compactness of the last inclusion we use \href{https://en.wikipedia.org/wiki/Arzel%C3%A0%E2%80%93Ascoli_theorem#:~:text=%2C%20%C2%A7IV.6.7}{Arzelà–Ascoli theorem} on a ``derivative by derivative basis''. By definition of Hölder norm,
 		      \begin{align*}
-			      \abs{D^\alpha u(x)- D^\alpha u(y)} & \lesssim  \norm{u}_{C^{k}(\R^d)}\abs{x-y} ,                 &  & \quad\forall \abs{\alpha}<k  \\
-			      \abs{D^\alpha u(x)- D^\alpha u(y)} & \lesssim  \norm{u}_{C^{k,\gamma }(\R^d)}\abs{x-y}^\gamma  , &  & \quad\forall \abs{\alpha}=k.
+			      \abs{D^\alpha u(x)- D^\alpha u(y)} & \lesssim  \norm{u}_{C^{m}(\R^d)}\abs{x-y} ,                 &  & \quad\forall \abs{\alpha}<m  \\
+			      \abs{D^\alpha u(x)- D^\alpha u(y)} & \lesssim  \norm{u}_{C^{m,\gamma }(\R^d)}\abs{x-y}^\gamma  , &  & \quad\forall \abs{\alpha}=m.
 		      \end{align*}
-		      As a result, for each $\abs{\alpha}\leq k$ the family
+		      As a result, for each $\abs{\alpha}\leq m$ the family
 		      \begin{align*}
-			      A_\alpha:=\set{D^\alpha u: u \in B_1 \subset C^{k,\gamma }(\overline{\Omega})},
+			      A_\alpha:=\set{D^\alpha u: u \in B_1 \subset C^{m,\gamma }(\overline{\Omega})},
 		      \end{align*}
-		      is equicontinuous. So by Arzelà–Ascoli we may extract a sequence $u_{n}$ such that $D^\alpha u_n$ converges uniformly to some $u^{(\alpha)}$. By the fundamental theorem of calculus we conclude that $u^{(\alpha)}=D^\alpha u^{(0)}$ and as a result $u_n \to u \in C^k(\overline{\Omega})$. That is, the unit ball $B_1 \subset C^{k,\gamma }$ is sequentially compact and thus compact when embedded in  $C^k(\overline{\Omega})$. This proves this point.
+		      is equicontinuous. So by Arzelà–Ascoli we may extract a sequence $u_{n}$ such that $D^\alpha u_n$ converges uniformly to some $u^{(\alpha)}$. By the fundamental theorem of calculus we conclude that $u^{(\alpha)}=D^\alpha u^{(0)}$ and as a result $u_n \to u \in C^m(\overline{\Omega})$. That is, the unit ball $B_1 \subset C^{m,\gamma }$ is sequentially compact and thus compact when embedded in  $C^m(\overline{\Omega})$. This proves this point.
 
 		\item The composition of the inclusions on the last line is compact as the composition of a compact and a continuous operator is compact.    This concludes the proof.
 	\end{enumerate}
 \end{proof}
 As a particular case of the above we obtain the following simpler looking corollary
 \begin{corollary}\label{simple embedding}
-	Let $q< p^{k*}$, then it holds that following inclusion is compact
+	Let $q< p_k^*$, then it holds that following inclusion is compact
 	\begin{align*}
 		W^{k,p}(\Omega) \hookrightarrow L^q(\Omega).
 	\end{align*}
@@ -1161,7 +1162,7 @@ Compact embeddings in spaces of higher order can be obtained through the followi
 \end{proof}
 This result can be combined directly with Rellich-Kondrachov \ref{rellich} or any other embedding. For example, when combined with \Cref{simple embedding} we get
 \begin{corollary}
-	Let $q< p^{k*}$, then it holds that following inclusion is compact
+	Let $q< p_k^*$, then it holds that following inclusion is compact
 	\begin{align*}
 		W^{k+l,p}(\Omega) \hookrightarrow W^{l,q}(\Omega).
 	\end{align*}
@@ -1185,9 +1186,9 @@ Using \Cref{traceobs} we can also obtain Sobolev embeddings for non-smooth domai
 
 
 The main utility of all these compact embeddings is that given a sequence $u_n$ whose derivatives are bounded in certain  $L^p$ norms we can extract convergent subsequences in appropriate spaces. We end this post (modulo appendices) with one of the most useful inequalities which we will make use of in future posts.
-\begin{theorem}[Poincaré inequality] Let $u \in W^{1,p}_0(U)$ where $U$ is bounded in one direction. Then
+\begin{theorem}[Poincaré inequality]\label{poincare} Let $u \in W^{1,p}_0(U)$ where $U$ is bounded in one direction. Then
 	\begin{align*}
-		\norm{u}_{W^{1,p}(U)}\leq C\norm{\nabla u}_{W^{1,p}(U \to \R^d)}.
+		\norm{u}_{L^p(U)}\leq C\norm{\nabla u}_{L^p(U \to \R^d)}.
 	\end{align*}
 \end{theorem}
 \begin{proof}
@@ -1309,7 +1310,7 @@ Then, the convolution $\tilde{f}*g$ is well defined and equal to
 \end{align*}
 As we can see, the convolution in general depends on how we extend $f$ outside of $U$. However, it is independent of the extension for $x$ in
 \begin{align*}
-	U_\eps :=\set{x \in  U : d(x,\partial U)< \eps }.
+	U_\eps :=\set{x \in  U : d(x,\partial U)> \eps }.
 \end{align*}
 With
 \begin{align*}
@@ -1512,7 +1513,7 @@ The proof can be found in \cite{leoni2017first} page 308.
 
 \section{Global to local and back again}\label{local to global}
 Often it is advantageous to work locally and then reason in the general case by some kind of approximation. A useful tool in this respect are \textbf{bump functions}.
-\begin{definition}
+\begin{definition}\label{bump def}
 	A \textbf{bump function} (also called \textbf{cutoff function}) is a function $\eta \in C_c^\infty(\R^n)$.
 \end{definition}
 Constructing bump functions that have some desired support is a tool we use frequently throughout. Here we provide two examples to show how this may be done. Other constructions are of course possible.
