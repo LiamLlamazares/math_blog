@@ -5,9 +5,6 @@ date: "2022-05-22"
 categories: [Stochastic Calculus, Ito Integral]
 description: "Can you really construct this thing?"
 bibliography: biblio.bib
-pdf: "main.pdf"
-resources:
-  - "main.pdf"
 format:
   html:
     toc: true
@@ -113,8 +110,6 @@ format:
         };
         </script>
 ---
-
-<div id="quarto-post-pdf-url" data-url="main.pdf" style="display:none;"></div>
 
 ## Three line summary
 

@@ -5,9 +5,6 @@ date: "2022-10-24"
 categories: [Malliavin Calculus]
 description: "Part 5 of the series on Malliavin calculus"
 bibliography: biblio.bib
-pdf: "main.pdf"
-resources:
-  - "main.pdf"
 format:
   html:
     toc: true
@@ -114,8 +111,6 @@ format:
         };
         </script>
 ---
-
-<div id="quarto-post-pdf-url" data-url="main.pdf" style="display:none;"></div>
 
 ## Three line summary
 

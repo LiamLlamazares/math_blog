@@ -4,9 +4,6 @@ author: "Liam Llamazares--Elias"
 date: "2022-05-28"
 categories: [Malliavin calculus]
 description: "How does one generalize the Itô integral?"
-pdf: "main.pdf"
-resources:
-  - "main.pdf"
 format:
   html:
     toc: true
@@ -113,8 +110,6 @@ format:
         };
         </script>
 ---
-
-<div id="quarto-post-pdf-url" data-url="main.pdf" style="display:none;"></div>
 
 ## Three line summary
 

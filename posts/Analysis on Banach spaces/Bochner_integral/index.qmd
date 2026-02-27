@@ -5,9 +5,6 @@ date: "2022-05-27"
 categories: [Analysis On Banach Spaces]
 description: "Wait a second, how many integrals are there?"
 bibliography: biblio.bib
-pdf: "The-Bochner-Integral.pdf"
-resources:
-  - "The-Bochner-Integral.pdf"
 format:
   html:
     toc: true
@@ -114,8 +111,6 @@ format:
         };
         </script>
 ---
-
-<div id="quarto-post-pdf-url" data-url="The-Bochner-Integral.pdf" style="display:none;"></div>
 
 This is the first post in a series on extending analysis from real-valued functions to functions valued in Banach spaces. Our first topic is the Bochner integral. That is, the extension of the Lebesgue integral to functions valued in Banach spaces.
 
