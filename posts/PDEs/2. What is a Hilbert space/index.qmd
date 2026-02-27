@@ -1087,7 +1087,7 @@ Hilbert-Schmidt operators which we will discuss more in the future.
 To end it all off we state without proof a theorem that will be useful
 in proving properties about the solution space to the solution of PDEs
 
-::: {#thm-3 name="Fredholm alternative"}
+::: {#thm-fredholm name="Fredholm alternative"}
 
 Let $H$ be a Hilbert space and  $K \in \Kk(H)$. Consider $T:= Id-K$ then it holds that
 

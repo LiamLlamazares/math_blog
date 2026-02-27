@@ -5,9 +5,9 @@ date: "2022-10-14"
 categories: [Pdes]
 description: "The holy trinity"
 bibliography: biblio.bib
-pdf: "Sobolev.pdf"
+pdf: "The fourier transfrom, distributions and sobolev spaces.pdf"
 resources:
-  - "Sobolev.pdf"
+  - "The fourier transfrom, distributions and sobolev spaces.pdf"
 format:
   html:
     toc: true
@@ -115,7 +115,7 @@ format:
         </script>
 ---
 
-<div id="quarto-post-pdf-url" data-url="Sobolev.pdf" style="display:none;"></div>
+<div id="quarto-post-pdf-url" data-url="The fourier transfrom, distributions and sobolev spaces.pdf" style="display:none;"></div>
 
 ## Three line summary {.unnumbered}
 

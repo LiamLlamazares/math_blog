@@ -782,19 +782,19 @@ def convert_body(body: str, label_registry: dict | None = None,
             return inner
 
         path = img_m.group(1).strip()
-        # Swap .pdf to .png for web rendering
+        # Swap .pdf to .svg for web rendering
         if path.lower().endswith('.pdf'):
-            path = path[:-4] + '.png'
+            path = path[:-4] + '.svg'
         
         caption = cap_m.group(1).strip() if cap_m else ""
         
-        attr = ""
+        attr = '{fig-align="center" width="80%"}'
         if lab_m:
             raw_lab = lab_m.group(1)
             qid = sanitize_label(raw_lab)
             # Quarto figure labels must start with fig-
             fig_id = qid if qid.startswith('fig-') else f"fig-{qid}"
-            attr = f" {{#{fig_id}}}"
+            attr = f"{{#{fig_id} fig-align=\"center\" width=\"80%\"}}"
             label_map[raw_lab] = fig_id
         
         return f'\n\n![{caption}]({path}){attr}\n\n'
@@ -804,8 +804,8 @@ def convert_body(body: str, label_registry: dict | None = None,
     def convert_standalone_graphics(m):
         path = m.group(1).strip()
         if path.lower().endswith('.pdf'):
-            path = path[:-4] + '.png'
-        return f'\n\n![]({path})\n\n'
+            path = path[:-4] + '.svg'
+        return f'\n\n![]({path}){{fig-align="center" width="80%"}}\n\n'
     
     text = re.sub(r'\\includegraphics(?:\[[^\]]*\])?\{([^}]*)\}', convert_standalone_graphics, text)
 

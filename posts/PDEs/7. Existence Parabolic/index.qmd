@@ -6,10 +6,10 @@ categories: [Pdes]
 description: "A journey through time and space"
 image: "cover.png"
 bibliography: biblio.bib
-pdf: "approx_boundary_l2.pdf"
+pdf: "Parabolic.pdf"
 resources:
   - "cover.png"
-  - "approx_boundary_l2.pdf"
+  - "Parabolic.pdf"
 format:
   html:
     toc: true
@@ -117,7 +117,7 @@ format:
         </script>
 ---
 
-<div id="quarto-post-pdf-url" data-url="approx_boundary_l2.pdf" style="display:none;"></div>
+<div id="quarto-post-pdf-url" data-url="Parabolic.pdf" style="display:none;"></div>
 
 ## Three point summary
 
@@ -764,13 +764,13 @@ $$
  
 We show solutions for $n=3$ and $n=20$; as we can see, as the number of basis functions increases, the solution converges to $1$ when $t=0$ and becomes quite oscillatory at the boundary to try to adapt to the admittedly somewhat incompatible boundary conditions.
 
-![Galerkin solution to the parabolic problem ([-@eq-parabolic-2]) with $n=3$ basis functions.](Galerkin_n_3.png)
+![Galerkin solution to the parabolic problem ([-@eq-parabolic-2]) with $n=3$ basis functions.](Galerkin_n_3.svg){fig-align="center" width="80%"}
 
-![Galerkin solution to the parabolic problem ([-@eq-parabolic-2]) with $n=20$ basis functions.](Galerkin_n_20.png)
+![Galerkin solution to the parabolic problem ([-@eq-parabolic-2]) with $n=20$ basis functions.](Galerkin_n_20.svg){fig-align="center" width="80%"}
 
 We also include a figure to show how the boundary condition $g=1$ may be approximated in $H_0^1(U)$ using the basis functions $\phi_j$. We note that the approximating sequence does not converge $H_0^1$ as the derivative explodes at the boundary.  
 
-![Approximation of $g=1$ in $L^2(U)$ using the basis functions $\phi_j \in H_0^1(U)$.](approx_boundary_l2.png)
+![Approximation of $g=1$ in $L^2(U)$ using the basis functions $\phi_j \in H_0^1(U)$.](approx_boundary_l2.svg){fig-align="center" width="80%"}
 
 Next, we show a case where the exact solution can be calculated. We take $U=(0,1)$ and $I=(0,1)$ and consider the problem
 
@@ -794,9 +794,9 @@ $$
  
 as before for $n=20$ basis functions. As we can see, the Galerkin solution and the exact solution are quite close.
 
-![Exact solution to the parabolic problem ([-@eq-exact]). ](Galerkin_exact.png)
+![Exact solution to the parabolic problem ([-@eq-exact]). ](Galerkin_exact.svg){fig-align="center" width="80%"}
 
-![Galerkin solution to the parabolic problem ([-@eq-exact]) with $n=20$ basis functions.](Galerkin_n_20_2.png)
+![Galerkin solution to the parabolic problem ([-@eq-exact]) with $n=20$ basis functions.](Galerkin_n_20_2.svg){fig-align="center" width="80%"}
 
 ## Regularity of the solutions
 

@@ -5,9 +5,6 @@ date: "2022-05-23"
 categories: [Stochastic Calculus]
 description: "Doob's Martingale inequality is cool"
 bibliography: biblio.bib
-pdf: "Martingales.pdf"
-resources:
-  - "Martingales.pdf"
 format:
   html:
     toc: true
@@ -114,8 +111,6 @@ format:
         };
         </script>
 ---
-
-<div id="quarto-post-pdf-url" data-url="Martingales.pdf" style="display:none;"></div>
 
 ## Three line summary
 

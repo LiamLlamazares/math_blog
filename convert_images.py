@@ -32,14 +32,15 @@ def convert_pdfs_to_pngs(root_dir):
                     # We assume these are 1-page figure PDFs
                     page = doc.load_page(0)
                     
-                    # 300 DPI calculation: 300 / 72 = 4.1666...
-                    zoom = 300 / 72
-                    mat = fitz.Matrix(zoom, zoom)
+                    # Convert to SVG for perfect vector scaling on the web
+                    svg_content = page.get_svg_image(matrix=fitz.Identity)
                     
-                    pix = page.get_pixmap(matrix=mat, alpha=False)
-                    pix.save(png_path)
+                    svg_path = os.path.join(root, file[:-4] + '.svg')
+                    with open(svg_path, 'w', encoding='utf-8') as f:
+                        f.write(svg_content)
+                    
                     doc.close()
-                    print(f"    SUCCESS -> {os.path.basename(png_path)}")
+                    print(f"    SUCCESS -> {os.path.basename(svg_path)}")
                     success_count += 1
                 except Exception as e:
                     print(f"    FAILED: {e}")

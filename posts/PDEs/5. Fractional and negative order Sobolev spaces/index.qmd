@@ -211,7 +211,7 @@ $$
 In the case where $U= \R^d$, by a change of variables, we can equivalently define    
 $$
 \begin{aligned}
-\norm{u}_{W^{s,p}(\R^d)}:= \left(\norm{\R^d}_{W^{k,p}(\R^d)}^p+ \sum_{\abs{\alpha}=k }\int_{\R^d}\int_{\R^d}\frac{\abs{D^\alpha u(x+y)-D^\alpha u(y)}^p}{\abs{x-y}^{d+\gamma p}}\d x \d y\right)^\frac{1}{p}.
+\norm{u}_{W^{s,p}(\R^d)}:= \left(\norm{u}_{W^{k,p}(\R^d)}^p+ \sum_{\abs{\alpha}=k }\int_{\R^d}\int_{\R^d}\frac{\abs{D^\alpha u(x+y)-D^\alpha u(y)}^p}{\abs{x}^{d+\gamma p}}\d x \d y\right)^\frac{1}{p}.
 \end{aligned}
 $$ {#eq-norm-def}
 
@@ -491,7 +491,7 @@ Let $s_1 \neq s_2 >0, p \in (1, \infty)$, $0<\theta<1$ and
 
 $$
 \begin{aligned}
-s=s_1(1-\theta)+s_2 \theta, \quad p=p_1(1-\theta)+p_2 \theta.
+s=s_1(1-\theta)+s_2 \theta, \quad \frac{1}{p}=\frac{1-\theta}{p_1}+\frac{\theta}{p_2}.
 \end{aligned}
 $$
 
@@ -713,8 +713,8 @@ Using ([-@eq-second-order]) and proceeding as in @thm-equivalence-fractional-spa
 
 $$
 \begin{aligned}
-& \Ff \left(\int_{\R^d}\frac{u(x)-u(x+y)}{\abs{y}^{d+2\gamma}}\d y\right)= -\frac{1}{2} \int_{\R^d}\left(\int_{\R^d}\frac{e^{2\pi i y \cdot \xi}-2+e^{-2\pi i y \cdot \xi}}{\abs{y}^{d+2\gamma}}\d y\right) \wh{u}(\xi)\d \xi       \\
-& =\int_{\R^d}\left(\int_{\R^d}\frac{1-\cos(2\pi y \cdot \xi)}{\abs{y}^{d+2\gamma}}\d y\right) \wh{u}(\xi)\d \xi =\int_{\R^d}  \frac{1-\cos(2\pi  y_1) }{\abs{y}^{d+2\gamma	}}\d y\int_{\R^d}\abs{\xi}^{2 \gamma }\wh{u}(\xi)\d \xi \\& \sim \abs{\xi}^{2 \gamma }\wh{u}(\xi)\d \xi.
+& \Ff \left(\int_{\R^d}\frac{u(x)-u(x+y)}{\abs{y}^{d+2\gamma}}\d y\right)(\xi)= -\frac{1}{2} \left(\int_{\R^d}\frac{e^{2\pi i y \cdot \xi}-2+e^{-2\pi i y \cdot \xi}}{\abs{y}^{d+2\gamma}}\d y\right) \wh{u}(\xi)       \\
+& =\left(\int_{\R^d}\frac{1-\cos(2\pi y \cdot \xi)}{\abs{y}^{d+2\gamma}}\d y\right) \wh{u}(\xi) =\int_{\R^d}  \frac{1-\cos(2\pi  y_1) }{\abs{y}^{d+2\gamma	}}\d y\abs{\xi}^{2 \gamma }\wh{u}(\xi) \\& \sim \abs{\xi}^{2 \gamma }\wh{u}(\xi).
 \end{aligned}
 $$
 
@@ -728,7 +728,7 @@ $$
 
 :::
 
-## Dual of Sobolev spaces and correspondence with negative regularity
+## Dual of Sobolev spaces and correspondence with negative regularity {#sec-dual-sec}
 
 Negative orders of regularity correspond to the dual of Sobolev spaces. This is best seen in the integer case. We first introduce the notation $W^{s,p}_0(U),H^{s,p}_0(U),B^{s,p}_0(U)$ for the closure of $C_c^\infty(U)$ in $W^{s,p}(U),H^{s,p}(U),B^{s,p}(U)$ respectively. We also introduce the notation $p' = p/(p-1)$ for the conjugate exponent of $p$. We then have the following result (see [@evans2022partial] pages 326-344 for the case $p=2$).
 
@@ -776,7 +776,7 @@ W^{-s,p'}(\Omega )':=	W^{s,p}_0(\Omega )'.
 \end{aligned}
 $$ {#eq-alternative-negative}
 
-See, for example, [@biccari2018local], [@leoni2023first] page 228. The definition in ([-@eq-alternative-negative]) is equivalent to Definition @def-negative-s-slobodeckij when $\Omega = \R^d$ or when $s \in k$. However, in other cases, the two definitions are not equivalent.
+See, for example, [@biccari2018local], [@leoni2023first] page 228. The definition in ([-@eq-alternative-negative]) is equivalent to Definition @def-negative-s-slobodeckij when $\Omega = \R^d$ or when $s=k \in \Z$. However, in other cases, the two definitions are not equivalent.
 
 :::
 
@@ -904,11 +904,11 @@ We know that we can homeomorphically map the spaces $H^{s,p}(\R^d )$ and $B^{s,p
 
 ::: {#thm-riesz-representation name="Representation of $W_0^{k,p}(\Omega )'$"}
 
-Let $\Omega \subset \R^d$ be an extension domain for $W^{k,p}$ where   $k \in \N$ and $p \in (1,\infty)$. Then, every element in $W^{-k,p'}(\Omega )=W^{k,p}_0(\Omega )'$ is the unique extension of a distribution  of the form
+Let $\Omega \subset \R^d$ be an extension domain for $W^{k,p}$ where   $k \in \N_0$ and $p \in (1,\infty)$. Then, every element in $W^{-k,p'}(\Omega )=W^{k,p}_0(\Omega )'$ is the unique extension of a distribution  of the form
 
 $$
 \begin{aligned}
-\sum_{1\leq\abs{\alpha}\leq k} D^\alpha u_\alpha\in \Dd'(\Omega ),\quad \text{where }    u_\alpha \in L^{p'}(\Omega ).
+\sum_{0\leq\abs{\alpha}\leq k} D^\alpha u_\alpha\in \Dd'(\Omega ),\quad \text{where }    u_\alpha \in L^{p'}(\Omega ).
 \end{aligned}
 $$
 
@@ -920,11 +920,12 @@ Define the mapping
 
 $$
 \begin{aligned}
-T: W^{k,p}(\Omega ) & \longrightarrow L^p(\Omega \to \R^d)                \\
-u                   & \longmapsto(D^\alpha u)_{1 \leq\abs{\alpha}\leq k}.
+T: W^{k,p}(\Omega ) & \longrightarrow L^p(\Omega \to \R^M)                \\
+u                   & \longmapsto(D^\alpha u)_{0 \leq\abs{\alpha}\leq k},
 \end{aligned}
 $$
 
+where $M$ is the number of multi-indices bounded by $k$.
 Where the notation says that we send $u$ to the vector formed by all its derivatives. By our definition of the norm on $W^{k,p}(\Omega )$, we have that $T$ is an isometry and, in particular, continuously invertible on its image. Denote the image of $T$ by $X:=\rm{Im}(T)$. Given $\ell \in W^{-k,p'}(\Omega )$ we define
 
 $$
@@ -933,11 +934,11 @@ $$
 \end{aligned}
 $$
 
-By Hahn Banach's theorem, we can extend $\ell_0$ from $X$ to a functional $\ell_1 \in  L^p(\Omega \to \R^d)'$ and by the Riesz representation theorem, we have that there exists a unique $\mathbf{f}=(f_\alpha)_{1\leq \abs{\alpha}\leq k }\in L^{p'}(\Omega \to \R^d)$ such that
+By Hahn Banach's theorem, we can extend $\ell_0$ from $X$ to a functional $\ell_1 \in  L^p(\Omega \to \R^M)'$ and by the Riesz representation theorem, we have that there exists a unique $\mathbf{f}=(f_\alpha)_{0\leq \abs{\alpha}\leq k }\in L^{p'}(\Omega \to \R^M)$ such that
 
 $$
 \begin{aligned}
-\ell_1(\mathbf{w})=\int_{\Omega}\mathbf{w}\cdot \mathbf{h}, \quad \forall \mathbf{w} \in L^p(\Omega \to \R^d).
+\ell_1(\mathbf{w})=\int_{\Omega}\mathbf{w}\cdot \mathbf{f}, \quad \forall \mathbf{w} \in L^p(\Omega \to \R^M).
 \end{aligned}
 $$
 
@@ -945,7 +946,7 @@ By construction, it holds that, for all $v \in W^{k,p}(\Omega )$
 
 $$
 \begin{aligned}
-\ell(v)=\ell_0(Tv)=\int_{\Omega}Tv\cdot \mathbf{f}=\sum_{1\leq\abs{\alpha}\leq k}\int_{\Omega}f_\alpha D^\alpha v .
+\ell(v)=\ell_0(Tv)=\int_{\Omega}Tv\cdot \mathbf{f}=\sum_{0\leq\abs{\alpha}\leq k}\int_{\Omega}f_\alpha D^\alpha v .
 \end{aligned}
 $$
 
@@ -953,7 +954,7 @@ In particular, this holds for $v \in \Dd(\Omega )$ and if we set $u_\alpha:=(-1)
 
 $$
 \begin{aligned}
-\ell(v)=\left(v,\sum_{1\leq\abs{\alpha}\leq k} D^\alpha u_\alpha\right)=: \omega(v)
+\ell(v)=\left(v,\sum_{0\leq\abs{\alpha}\leq k} D^\alpha u_\alpha\right)=: \omega(v)
 \end{aligned}
 $$ {#eq-representation}
 
@@ -1080,7 +1081,7 @@ Given an extension domain $\Omega$ for $W^{\gamma,p}$ and $\gamma \in (0,1), p \
 
 $$
 \begin{aligned}
-\|u\|_{L^{p_\gamma^*}(\Omega )} \lesssim |u|_{W^{\gamma, p}(\Omega )}, \quad\forall \gamma <  \frac{d}{p}
+\|u\|_{L^{p_\gamma^*}(\Omega )} \lesssim \|u\|_{W^{\gamma, p}(\Omega )}, \quad\forall \gamma <  \frac{d}{p}
 \end{aligned}
 $$
 
@@ -1196,31 +1197,33 @@ $$
 
 Higher order embeddings and interpolations can be obtained from the previous cases with regularity parameter below 1 in combination with the integer case.
 
-::: {#exr-fractional-rellich name="Fractional Rellich-Kondrachov"}
+::: {#exr-fractional-sobolev name="Fractional Sobolev Embeddings"}
 
-Let $\Omega$ be an extension domain for $W^{s,p}$, then, given $s \geq 0, p \in [1, \infty)$. Set $k=\left\lfloor s \right\rfloor$ and $\gamma =s-k$. Then, it holds that
+Let $\Omega \subset \mathbb{R}^d$ be an extension domain for $W^{s,p}$. Given $s \ge 0$ and $p \in [1, \infty)$, set $k=\lfloor s \rfloor$ and $\gamma =s-k$. The following continuous embeddings hold:
 
 $$
 \begin{aligned}
-& W^{s, p}(\Omega) \hookrightarrow L^q(\Omega), \quad \forall q \in [p, p_k^*) \quad \text { and } s<\frac{d}{p} \\
-& W^{s, p}(\Omega) \hookrightarrow L^q(\Omega), \quad \forall q \in[p, \infty) \quad \text { and } s=\frac{d}{p} \\
-& W^{s, p}(\Omega) \hookrightarrow C^{s-d/p}(\bar{\Omega})\text { and } s>\frac{d}{p},
+& W^{s, p}(\Omega) \hookrightarrow L^q(\Omega), \quad \forall q \in [p, p_s^*] \quad \text{ if } s<\frac{d}{p} \\
+& W^{s, p}(\Omega) \hookrightarrow L^q(\Omega), \quad \forall q \in [p, \infty) \quad \text{ if } s=\frac{d}{p} \\
+& W^{s, p}(\Omega) \hookrightarrow C^{m, \alpha}(\bar{\Omega})  \text{ if } s>\frac{d}{p} \text{ and } s-\frac{d}{p} \notin \mathbb{N},
 \end{aligned}
 $$
+
+where $\frac{1}{p_s^*} = \frac{1}{p} - \frac{s}{d}$, $m = \lfloor s - d/p \rfloor$, and $\alpha = s - d/p - m$ if $s - d/p \notin \mathbb{N}$ or $\alpha \in (0, 1)$ is any otherwise.
 
 :::
 
 ::: {.callout-tip collapse="true" title="Hint"}
 
-Observe that
+Observe the algebraic relation:
 
 $$
 \begin{aligned}
-\frac{1}{(p_\gamma ^*)_k^*}=\frac{1}{p_\gamma }-\frac{k}{d}=\frac{1}{p}-\frac{s}{d}= \frac{1}{p_s^*}.
+\frac{1}{(p_\gamma ^*)_k^*}=\frac{1}{p_\gamma^*}-\frac{k}{d}=\frac{1}{p}-\frac{s}{d}= \frac{1}{p_s^*}.
 \end{aligned}
 $$
 
-The result follows from @thm-subcritical-embedding,  @thm-morrey-embedding together with the [integer-case](</posts/PDEs/3. Sobolev spaces/index.qmd>) embeddings. For the first case, by @thm-subcritical-embedding, we have
+The result follows from applying @thm-subcritical-embedding and @thm-morrey-embedding sequentially with the [integer-case](</posts/PDEs/3. Sobolev spaces/index.qmd>) embeddings. For the first (the subcritical) case, the fractional embedding @thm-subcritical-embedding yields:
 
 $$
 \begin{aligned}
@@ -1228,35 +1231,23 @@ $$
 \end{aligned}
 $$
 
-Then, using the integer case, we conclude
+Applying the integer Sobolev embedding to $W^{k, p_\gamma^*}(\Omega)$, we conclude:
 
 $$
 \begin{aligned}
-\norm{u}_{L^{p_s^*}(\Omega )}=\norm{u}_{L^{(p_\gamma ^*)_k ^*}(\Omega )}\lesssim \norm{u}_{W^{k,p_\gamma ^*}(\Omega )}\lesssim \norm{u}_{W^{s,p}(\Omega )}.
+\norm{u}_{L^{p_s^*}(\Omega)}=\norm{u}_{L^{(p_\gamma ^*)_k ^*}(\Omega)}\lesssim \norm{u}_{W^{k,p_\gamma ^*}(\Omega)}\lesssim \norm{u}_{W^{s,p}(\Omega)}.
 \end{aligned}
 $$
 
-For the second case, by @thm-subcritical-embedding and reasoning with derivatives up to order $k$, we obtain similarly
+For the second (critical) case $s=d/p$, the same bootstrapping yields $W^{s,p}(\Omega) \hookrightarrow W^{k, p_\gamma^*}(\Omega)$. Since $k = d/p_\gamma^*$, the integer critical embedding applies. 
 
-$$
-\begin{aligned}
-\norm{u}_{W^{k,p_\gamma ^*}(\Omega )}\lesssim \norm{u}_{W^{s,p}(\Omega )},
-\end{aligned}
-$$
-
-where by a calculation $k = d / p_\gamma ^*$. So, we conclude once more by using the integer case. Likewise, for the final case, we use @thm-morrey-embedding to directly obtain
-
-$$
-\begin{aligned}
-\norm{u}_{C^{k,\gamma}(\Omega )}\lesssim \norm{u}_{W^{s,p}(\Omega )}.
-\end{aligned}
-$$
+For the supercritical case ($s>d/p$), apply the fractional Morrey embedding directly, or bootstrap to an integer space $W^{k, \tilde{p}}(\Omega)$ where $k > d/\tilde{p}$, and apply the integer Morrey embedding to extract the precise Hölder regularity $C^{m, \alpha}(\bar{\Omega})$.
 
 :::
 
 Below we plot the Sobolev critical exponent $p_s^*$ for $p=2$ and $d=1,2,3$. As we can see, it decreases with $d$ and increases with $s$. This means that the larger the dimension the more regularity we need to obtain a bound on the same $L^q(\R^d)$ norm. The integrability increasing to infinity around the critical threshold $s=d/p$.
 
-![Sobolev critical exponent for $p=2$ and $d=1,2,3$](regularity_coefficient.png) {#fig-fig:regularity-coefficient}
+![Sobolev critical exponent for $p=2$ and $d=1,2,3$](regularity_coefficient.svg){#fig-fig:regularity-coefficient fig-align="center" width="80%"}
 
 ::: {#exr-9}
 

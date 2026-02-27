@@ -703,7 +703,7 @@ Show that an approximation to the identity converges to a Dirac delta $\delta _0
 
 :::
 
-### Support of a distribution
+### Support of a distribution {#sec-support-sec}
 
 In the continuous case, the support of a function is well-defined as the smallest closed set outside of which the function is zero. However, when working with an equivalence class of functions the definition must be amended (consider for example the support of $0=1_{\Q}$). This is resolved by the following definitions.
 
@@ -936,7 +936,7 @@ Let $u \in W^{k,p}(U)$. Then it holds that
     \end{aligned}
     $$
 
-2. The translation $\tau_y u(x):=u(x-y) \in W^{k,p}(U)$ with $D^\alpha \tau_y u = \tau_y D^\alpha u$.
+2. For $U = \R^d$, the translation $\tau_y u(x):=u(x-y) \in W^{k,p}(\R^d)$ with $D^\alpha \tau_y u = \tau_y D^\alpha u$.
 
 3. Let $u \in W^{k,p}(\R^d)$ and $v \in L^1(\R^d)$. Then
 
@@ -983,7 +983,7 @@ The [devil's staircase](<https://en.wikipedia.org/wiki/Cantor_function>) $c$ is 
 
 :::
 
-As a result, if $c \in W^{1,p}(0,1)$ then $u$ would be constant (which it is not). In fact, $c \not\in W^{1,p}(0,1)$ as it is not absolutely continuous.
+As a result, if $c \in W^{1,p}(0,1)$ then $c$ would be constant (which it is not). In fact, $c \not\in W^{1,p}(0,1)$ as it is not absolutely continuous.
 
 ## Smooth approximation of Sobolev functions {#sec-approxsec}
 
@@ -1293,34 +1293,75 @@ In contrast to @thm-meyers, @thm-global shows that Sobolev functions on smooth b
 
 ## Extensions and restrictions {#sec-extension-section}
 
-Using the approximation of Sobolev functions by functions smooth on the boundary we can extend  functions in $W^{k,p}(\Omega)$ to the whole of  $\R^d$. However, the extension is not unique.
-
-::: {#thm-extension name="Extension theorem"}
-
-Let $\Omega\subset \R^d$ be a **bounded** open set with **$C^k$** ** boundary ** where $k \in \N_+$.  Then for all $p \in [1,\infty)$ . Then, given an open set $W$ with $\Omega \Subset W$ there exists a continuous operator
+Many results in the theory of Sobolev spaces are proved first on $\R^d$ and then extended to more general domains by a continuous extension followed by a restriction. For example, if one can show that $W^{k,p}(\R^d) \in L^q(\R^d)$ for some $p,q,r$ then, denoting by $\tilde{u}$ the extension of $u$ to $\R^d$
 
 $$
 \begin{aligned}
-E: W^{k,p}(\Omega)\to W^{k,p}(\R^d); \quad E: C^{k}(\Omega)\to C^k(\R^d).
+\norm{u}_{L^q(\Omega)} \sim  \norm{u}_{L^q(\R^d)} \lesssim \norm{u}_{W^{k,p}(\R^d)} \sim \norm{u}_{W^{k,p}(\Omega)},
 \end{aligned}
 $$
 
-such that
+which shows that $W^{k,p}(\R^d) \subset L^q(\Omega)$. In the reasoning above, it is necessary for the extension to be continuous, otherwise we fail on the first $\sim$. As we saw previously, merely extending by zero will not do and in this section, we develop the necessary tools to extend Sobolev functions from a domain $\Omega$ to $\R^d$.
+
+::: {#def-extension-domain}
+
+Let $X(U)$ be a topological space of functions for each open $U \subset \R^d$. We say that $\Omega$ is an **extension domain** for $X$ if there exists a continuous operator
 
 $$
 \begin{aligned}
-Eu = \begin{cases}
-u \quad & \text{ on  }  \Omega \\
-0 \quad & \text{ on }  W^c
-\end{cases}.
+E: X(\Omega ) \to X(\R^d),
 \end{aligned}
 $$
 
-We call $E u$ an  **extension**  of $u$ to $\R^n$.
+such that $Eu(x)=u(x)$ for almost all $x \in \Omega$. We call $E$ an **extension operator**.
+
+:::
+
+For an extension to be possible, it is crucial that $\Omega$ is regular enough. It will be sufficient to impose that $\Omega$ have uniformly Lipschitz boundary. The following definition and Theorem can be found in [@leoni2017first, Section 13].
+
+::: {#def-uniformly-lipschitz-domain}
+
+We say that an open set $\Omega \subset \R^d$ has **uniformly Lipschitz boundary** if there exists $\eps,L>0, N \in \N$ and an open covering $\set{U_n}_{n \in \N}$ of $\partial \Omega$ such that
+
+1. For all $x \in \partial \Omega$ there exists a $U_n$ such that $B_\eps(x) \subset U_n$.
+
+2. Every point in $\R^d$ is contained in at most $N$ sets $U_n$.
+
+3. For each $n$ there exist local coordinates $y=(y', y_n) \in \R^{d-1} \times \R$ and a Lipschitz continuous function $f: \R^{d-1} \to \R$ (both depending on $n$), with Lipschitz constant $\operatorname{Lip} f \leq L$, such that $U_n \cap \Omega=U_n \cap V_n$, where $V_n$ is given in local coordinates by
+
+    $$
+    \begin{aligned}
+    \set{(x', x_d) \in \R^{d-1} \times \R: x_d>f(x')} .
+    \end{aligned}
+    $$
+
+That is, a domain is uniformly Lipschitz if it has a locally finite covering which makes it of type $C^{0,1}$ (see Appendix @sec-boundary). Below we show two typical examples.
+
+:::
+
+::: {#exr-exercise-lipschitz}
+
+Show that if $\Omega$ is bounded with Lipschitz boundary or if $\Omega=\R^d$ then it has uniformly Lipschitz boundary.
+
+:::
+
+::: {.callout-tip collapse="true" title="Hint"}
+
+For the first part, use the fact that $\Omega$ is bounded to extract a finite subcovering. For the second use that $\partial\R^d=\emptyset$ and that everything is true for elements of the empty set.
+
+:::
+
+The following theorem shows that if $\partial\Omega$ is uniformly Lipschitz, $\Omega$ is an extension domain for $W^{k,p}$. To simplify the proof we will give the proof in the case of bounded open sets with $C^k$ boundary. Using the approximation of Sobolev functions by functions smooth on the boundary and a change of variables, we can extend functions in $W^{k,p}(\Omega)$ to the whole of $\R^d$.
+
+::: {#thm-extension-general name="General extension"}
+
+Let $\Omega\subset \R^d$ be an open set with uniformly Lipschitz boundary. Then $\Omega$ is an extension domain for $W^{k,p}(\Omega)$ and $C^k(\Omega)$ for all $p \in [1,\infty]$.
 
 :::
 
 ::: {.proof}
+
+We prove the result when the domain is bounded with $C^k$ boundary and when $p<\infty$. The general result can be found in [@leoni2017first, page 424].
 
 We work first in the upper half-space (the canonical example of a manifold with boundary)
 
@@ -1465,21 +1506,23 @@ To further generalize this definition to domains where restriction is not possib
 
 As we already discussed, a PDE often incorporates boundary information such as $\restr{u}{\partial \Omega}=0$. This is well defined if $u$ is continuous, however, if  $u \in  W^{k,p}(U)$, and is thus only defined **almost everywhere**, then $\restr{u}{\partial  U}$ is a priori not well defined. The following theorem remedies this issue.
 
-::: {#thm-trace name="Trace"}
+::: {#prp-trace name="Trace"}
 
-Let $\Omega$ be a **bounded** open set of $\R^d$ with $C^1$  **boundary**. Then, there exists a continuous linear operator
+Let $\Omega \subset \R^d$ be open with Lipschitz boundary and let $p\in[1,\infty)$. Then there exists a continuous linear operator
 
 $$
 \begin{aligned}
-T: W^{1,p}(U)\to L^p(\partial U) .
+\operatorname{Tr}: W^{1,p}(\Omega)\to L^p_{\mathrm{loc}}(\partial \Omega) .
 \end{aligned}
 $$
 
-Such that $Tu =\restr{u}{\partial \Omega}$ for all $u \in C(\overline{\Omega}) \cap W^{1,p}(\Omega)$.
+Such that $\operatorname{Tr}(u) =\restr{u}{\partial \Omega}$ for all $u \in C(\overline{\Omega}) \cap W^{1,p}(\Omega)$.
 
 :::
 
 ::: {.proof}
+
+We will only prove the case where $\Omega$ is bounded and of class $C^1$. The proof of the general statement can once more be found in [@leoni2017first, page 592].
 
 As in previous results, the trick is to suppose first $u$ is smooth, work locally, and then obtain a global result using a partition of unity and the density in @thm-global.  \\
 
@@ -1520,21 +1563,23 @@ That is,
 
 $$
 \begin{aligned}
-\norm{T u}_{L^p( \partial \Omega)}\lesssim  \norm{u}_{W^{1,p}(U)} .
+\norm{\operatorname{Tr}(u)}_{L^p( \partial \Omega)}\lesssim  \norm{u}_{W^{1,p}(U)} .
 \end{aligned}
 $$
 
-Using @thm-global to extend $T$ continuously to $W^{k,p}(\Omega)= \overline{\restr{C_c^\infty(\R^d)}{\Omega}}$ concludes the proof.
+Using @thm-global to extend $\operatorname{Tr}$ continuously to $W^{k,p}(\Omega)= \overline{\restr{C_c^\infty(\R^d)}{\Omega}}$ concludes the proof.
 
 :::
 
+Note that, if $\Omega$ is bounded, then $L^p_{\mathrm{loc}}(\partial \Omega)=L^p(\partial \Omega)$ so $\operatorname{Tr}(u) \in L^p(\partial \Omega)$.
+
 ::: {#def-9}
 
-We define the **trace** of $u \in W^{k,p}(\Omega)$ as $Tu$. We also use the notation
+We define the **trace** of $u \in W^{k,p}(\Omega)$ as $\operatorname{Tr}(u)$. We also use the notation
 
 $$
 \begin{aligned}
-\restr{u}{\partial \Omega}:= Tu.
+\restr{u}{\partial \Omega}:= \operatorname{Tr}(u).
 \end{aligned}
 $$
 
@@ -1548,7 +1593,7 @@ For all real $s> 1 /2$ the trace operator is a continuous operator
 
 $$
 \begin{aligned}
-T: H^s(\Omega) \to H^{s -\frac{1}{2}}(\Omega).
+\operatorname{Tr}: H^s(\Omega) \to H^{s -\frac{1}{2}}(\Omega).
 \end{aligned}
 $$
 
@@ -1556,11 +1601,11 @@ $$
 
 ::: {.proof}
 
-Straightening out the boundary and using the extension operator as in the trace @thm-trace, it is sufficient to work in the case where $u$ is smooth and defined on  $\Hh^{d}$.  By Fourier inversion, if we write $\xi=(\xi',\xi _d)$
+Straightening out the boundary and using the extension operator as in the trace @prp-trace, it is sufficient to work in the case where $u$ is smooth and defined on  $\Hh^{d}$.  By Fourier inversion, if we write $\xi=(\xi',\xi _d)$
 
 $$
 \begin{aligned}
-\wh{Tu}(\xi ')=\int_{\R}\wh{u}(\xi) \d \xi _d .
+\wh{\operatorname{Tr}(u)}(\xi ')=\int_{\R}\wh{u}(\xi) \d \xi _d .
 \end{aligned}
 $$
 
@@ -1568,7 +1613,7 @@ So, by Cauchy Schwartz
 
 $$
 \begin{aligned}
-\abs{\wh{Tu}(\xi ')}^2\leq \int_{\R}\abs{\wh{u}(\xi)}^2\br{\xi }^{2s} \d \xi _d \int_{\R}\br{\xi }^{-2s} \d \xi _d.
+\abs{\wh{\operatorname{Tr}(u)}(\xi ')}^2\leq \int_{\R}\abs{\wh{u}(\xi)}^2\br{\xi }^{2s} \d \xi _d \int_{\R}\br{\xi }^{-2s} \d \xi _d.
 \end{aligned}
 $$ {#eq-f1}
 
@@ -1644,7 +1689,7 @@ The proof is very technical, see [@evans2022partial] page 274 for the details.\\
 
 Being able to approximate functions in $W_0^{k,p}(U)$ by smooth functions compactly supported  **inside of** $U$  gives us many more tools. For example, a function $u$ in $W^{k,p}_0(U)$ can be extended by zero to obtain an element $\tl{u}$ in $W^{k,p}(\R^d)$ even for non-smooth unbounded domains.
 
-::: {#exr-13 name="Extension trace 0"}
+::: {#exr-extensiontrace name="Extension trace 0"}
 
 Let $U$ be an open set,     and define
 
@@ -1675,13 +1720,13 @@ It is immediate that $\norm{\widetilde{u}}_{W^{k,p}(\R^d)}=\norm{\widetilde{u}}_
 
 :::
 
-::: {#rem-4}
+::: {#rem-traceobs}
 
 The fact that we can extend functions in $W^{k,p}_0(U)$ for arbitrary  $U$ allows one to derive results that when stated for the whole of $W^{k,p}(U)$ require $U$ to be smooth so that it is possible to extend $U$.
 
 :::
 
-::: {#exr-14 name="Integration by parts 1"}
+::: {#exr-13 name="Integration by parts 1"}
 
 Let $U$ be any open set and consider $u \in  W^{1,p}_0(U), v \in W^{1,p'}(U)$ then
 
@@ -1699,7 +1744,7 @@ Give yourself an epsilon of room and take limits.
 
 :::
 
-::: {#exr-15 name="Integration by parts 2"}
+::: {#exr-14 name="Integration by parts 2"}
 
 Let $\Omega$ be a **bounded** open set of $\R^d$ with $C^1$  **boundary** and consider $u \in  W^{1,p}(\Omega), v \in W^{1,p'}(\Omega)$ then
 
@@ -1840,7 +1885,7 @@ Applying the Loomis-Whitney inequality ([-@eq-loomis-ineq])  “with $p=1$” an
 
 $$
 \begin{aligned}
-\norm{u}_{L^{ md /(d-1)}(\R^d)}^{md}\lesssim  \prod_{i=1}^{d}  \norm{u^{m-1}\partial_iu}_{L^1(\R^d)} \leq \norm{u}_{L^{(m-1)p'}(\R^d)}^{(m-1)d}\norm{\nabla u}_{L^{p}(\R^d \to  \R^d)}^d
+\norm{u}_{L^{ md /(d-1)}(\R^d)}^{md/(d-1)}\lesssim  \prod_{i=1}^{d}  \norm{u^{m-1}\partial_iu}_{L^1(\R^d)} \leq \norm{u}_{L^{(m-1)p'}(\R^d)}^{(m-1)d}\norm{\nabla u}_{L^{p}(\R^d \to  \R^d)}^d
 \end{aligned}
 $$ {#eq-hard}
 
@@ -1985,9 +2030,9 @@ $$
 
 This holds if and only if $d=1$. Otherwise, we require more integrability. However, this extra integrability can be converted into regularity in the converse direction of [Sobolev spaces](</posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.qmd>). First, we recall the following definition
 
-::: {#def-12}
+::: {#def-holder-def}
 
-Let $U \subset \R^d$ be open and $\gamma \in \R_+$, we define the **Holder space**
+Let $U \subset \R^d$ be open and $\gamma \in \R_+$, we define the **Hölder space**
 
 $$
 \begin{aligned}
@@ -2026,11 +2071,11 @@ As is logical, as $p$ approaches  $d$ from above the extra differentiability we 
 
 ::: {#exr-est32 name="Sobolev regularity"}
 
-Let $p>d$ and set $\gamma=1-\frac{d}{p}$. Then, the following inclusion is continuous
+Let $kp>d$ and $\frac{d}{p} \notin \N$. Set $m = k - \lfloor d/p \rfloor - 1$ and $\gamma = \lfloor d/p \rfloor + 1 -\frac{d}{p}$. Then, the following inclusion is continuous
 
 $$
 \begin{aligned}
-W^{k,p}(\R^d) \hookrightarrow C^{k,\gamma }(\R^d).
+W^{k,p}(\R^d) \hookrightarrow C^{m,\gamma }(\R^d).
 \end{aligned}
 $$
 
@@ -2038,21 +2083,14 @@ $$
 
 ::: {.callout-tip collapse="true" title="Hint"}
 
-This holds for the case $k=1$. We now proceed by induction. Since $\nabla u \in W^{k-1,p}(\R^d \to  \R^d)$ by hypothesis of induction we obtain
+By iteratively applying the continuous Sobolev embedding $l=\lfloor d/p \rfloor$ times, we obtain a chain of continuous inclusions:
+$$W^{k,p}(\R^d) \hookrightarrow W^{k-1, p_1}(\R^d) \hookrightarrow \dots \hookrightarrow W^{k-l, p_l}(\R^d),$$
+where the exponents are governed by the relation $$\frac{1}{p_j} = \frac{1}{p_{j-1}} - \frac{1}{d} \implies \frac{1}{p_l} = \frac{1}{p} - \frac{l}{d}.$$
+So by assumption we verify the	Morrey Condition $p_l > d$. As a result, $W^{1, p_l}(\R^d) \hookrightarrow C^{0, \gamma}(\R^d)$ with $\gamma = 1 - \frac{d}{p_l} = \lfloor d/p \rfloor + 1 - \frac{d}{p}$.
 
-$$
-\begin{aligned}
-\nabla u \in C^{k-1,\widetilde{\gamma }}(\R^d \to \R^d); \quad \widetilde{\gamma }:= k-1 -\frac{d}{p} .
-\end{aligned}
-$$
+We started with $k$ derivatives, spent $l$ to reach integrability $p_l$, and $1$ to apply Morrey's inequality and obtain $C^{0, \gamma}$ regularity. The number of classical derivatives remaining is $m = k - l - 1 = k - \lfloor d/p \rfloor - 1$.
 
-In consequence,
-
-$$
-\begin{aligned}
-u \in C^{k-1+1,\widetilde{\gamma}+1}(\R^d )=C^{k,\gamma}(\R^d ) .
-\end{aligned}
-$$
+In the edge case where $\frac{d}{p} = l$ is an integer, the bootstrapping argument stops at $W^{1,d}(\R^d)$, which embeds into $L^q(\R^d)$ for all $q<\infty$, but **fails** to embed into $L^\infty(\R^d)$ and $C^{0,\gamma}$. To guarantee continuity, we must sacrifice to a slightly lower integrability $q_\eps = d-\eps < d$ in our final bootstrapping step. This pushes us back into the Morrey regime where $p_{l-1} > d$, yielding $\gamma = 1 - \frac{d}{q_\eps} \in (0,1)$, meaning we achieve $C^{m, \gamma}(\R^d)$ for all $\gamma \in (0,1)$.
 
 :::
 
@@ -2064,19 +2102,25 @@ Let $\Omega$ be **bounded** with $C^k$ boundary, then the following  inclusions 
 
 $$
 \begin{aligned}
-& W^{k,p}(\Omega) \hookrightarrow L^q(\Omega) ,           \quad\forall q \in [1,p_k^*)                              & \text{ and }     p<\frac{d}{k} \\
+& W^{k,p}(\Omega) \hookrightarrow L^q(\Omega) ,           \quad\forall q \in [1,p_k^*]                              & \text{ and }     p<\frac{d}{k} \\
 & W^{k,p}(\Omega) \hookrightarrow L^q(\Omega) ,           \quad\forall q \in [p,\infty)                              & \text{ and }   p=\frac{d}{k}   \\
-& W^{k,p}(\Omega) \hookrightarrow C^{k,\gamma }(\overline{\Omega}) \hookrightarrow C^{k}(\overline{\Omega}) ,  \quad & \text{ and }  p>\frac{d}{k}
+& W^{k,p}(\Omega) \hookrightarrow C^{m,\gamma }(\overline{\Omega}) \hookrightarrow C^{m}(\overline{\Omega}) ,  \quad & \text{ and }  p>\frac{d}{k}
 \end{aligned}
 $$
 
-Where $p_k^*$ is defined by the relation $\frac{1}{p_k^*}=\frac{1}{p}-\frac{k}{d}$ and $\gamma =1 -\frac{d}{p}$. Furthermore, the first, second, fourth, and third composed with fourth inclusions are [compact](<https://en.wikipedia.org/wiki/Compact_embedding>).
+Where $p_k^*$ is defined by the relation $\frac{1}{p_k^*}=\frac{1}{p}-\frac{k}{d}$, $m = k - \lfloor d/p \rfloor - 1$, and $\gamma = \lfloor d/p \rfloor + 1 -\frac{d}{p}$ or $\gamma \in (0,1)$ if $\frac{d}{p} \in \mathbb{N}$. Furthermore, the first for $q<p_k^*$, second, fourth, and third composed with fourth inclusions are [compact](<https://en.wikipedia.org/wiki/Compact_embedding>).
 
 :::
 
-::: {#rem-5}
+::: {#exr-15}
 
-The continuous embeddings above also hold for $\Omega = \R^d$ (by the Sobolev inequalities in Exercises @exr-est12,@exr-est22,@exr-est32). However, the **compact** embeddings require $\Omega$ to be bounded. Indeed, on $\R^d$ one can construct bounded sequences in $W^{k,p}(\R^d)$ whose mass escapes to infinity, precluding any convergent subsequence.
+Show that if $\Omega$ is unbounded then the inclusions in @thm-rellich are not compact.
+
+:::
+
+::: {.callout-tip collapse="true" title="Hint"}
+
+Consider a sequence of smooth functions whose support goes to infinity. For example, for $\Omega = \R^d$ consider the sequence $u_n(x) = \varphi(x-n)$ where $\varphi\in C^\infty_c(\R^d)$.
 
 :::
 
@@ -2118,20 +2162,20 @@ The compactness of the embeddings requires reduce to showing that the unit ball 
 
     $$
     \begin{aligned}
-    \abs{D^\alpha u(x)- D^\alpha u(y)} & \lesssim  \norm{u}_{C^{k}(\R^d)}\abs{x-y} ,                 &  & \quad\forall \abs{\alpha}<k  \\
-    \abs{D^\alpha u(x)- D^\alpha u(y)} & \lesssim  \norm{u}_{C^{k,\gamma }(\R^d)}\abs{x-y}^\gamma  , &  & \quad\forall \abs{\alpha}=k.
+    \abs{D^\alpha u(x)- D^\alpha u(y)} & \lesssim  \norm{u}_{C^{m}(\R^d)}\abs{x-y} ,                 &  & \quad\forall \abs{\alpha}<m  \\
+    \abs{D^\alpha u(x)- D^\alpha u(y)} & \lesssim  \norm{u}_{C^{m,\gamma }(\R^d)}\abs{x-y}^\gamma  , &  & \quad\forall \abs{\alpha}=m.
     \end{aligned}
     $$
 
-    As a result, for each $\abs{\alpha}\leq k$ the family
+    As a result, for each $\abs{\alpha}\leq m$ the family
 
     $$
     \begin{aligned}
-    A_\alpha:=\set{D^\alpha u: u \in B_1 \subset C^{k,\gamma }(\overline{\Omega})},
+    A_\alpha:=\set{D^\alpha u: u \in B_1 \subset C^{m,\gamma }(\overline{\Omega})},
     \end{aligned}
     $$
 
-    is equicontinuous. So by Arzelà–Ascoli we may extract a sequence $u_{n}$ such that $D^\alpha u_n$ converges uniformly to some $u^{(\alpha)}$. By the fundamental theorem of calculus we conclude that $u^{(\alpha)}=D^\alpha u^{(0)}$ and as a result $u_n \to u \in C^k(\overline{\Omega})$. That is, the unit ball $B_1 \subset C^{k,\gamma }$ is sequentially compact and thus compact when embedded in  $C^k(\overline{\Omega})$. This proves this point.
+    is equicontinuous. So by Arzelà–Ascoli we may extract a sequence $u_{n}$ such that $D^\alpha u_n$ converges uniformly to some $u^{(\alpha)}$. By the fundamental theorem of calculus we conclude that $u^{(\alpha)}=D^\alpha u^{(0)}$ and as a result $u_n \to u \in C^m(\overline{\Omega})$. That is, the unit ball $B_1 \subset C^{m,\gamma }$ is sequentially compact and thus compact when embedded in  $C^m(\overline{\Omega})$. This proves this point.
 
 4. The composition of the inclusions on the last line is compact as the composition of a compact and a continuous operator is compact.    This concludes the proof.
 
@@ -2225,15 +2269,29 @@ $$
 
 :::
 
+Using @rem-traceobs we can also obtain Sobolev embeddings for non-smooth domains if we consider Sobolev spaces with trace $0$.
+
+::: {#thm-2 name="Rellich for trace 0 and irregular domain"}
+
+Let $U\subset \R^d$ be a **bounded** domain. Then, the conclusions of @thm-rellich, higher degree embeddings, and its corollary hold if we swap everywhere $W^{k,p}(\Omega)$ for $W^{k,p}_0(U)$ and $W^{k+l,p}(\Omega)$ for $W^{k+l,p}_0(U)$.
+
+:::
+
+::: {.proof}
+
+The proof follows in an identical method as the aforementioned results as we still have density of smooth functions $W^{k,p}_0(U)$ and the extension theorem, which is now given by @exr-extensiontrace. 
+
+:::
+
 The main utility of all these compact embeddings is that given a sequence $u_n$ whose derivatives are bounded in certain  $L^p$ norms we can extract convergent subsequences in appropriate spaces. We end this post (modulo appendices) with one of the most useful inequalities which we will make use of in future posts.
 
-::: {#thm-2 name="Poincaré inequality"}
+::: {#thm-poincare name="Poincaré inequality"}
 
 Let $u \in W^{1,p}_0(U)$ where $U$ is bounded in one direction. Then
 
 $$
 \begin{aligned}
-\norm{u}_{W^{1,p}(U)}\leq C\norm{\nabla u}_{W^{1,p}(U \to \R^d)}.
+\norm{u}_{L^p(U)}\leq C\norm{\nabla u}_{L^p(U \to \R^d)}.
 \end{aligned}
 $$
 
@@ -2275,7 +2333,7 @@ This concludes the proof.
 
 The convolution of two functions $f,g$ can be thought of as “blurring”  $f$ by averaging it against $g$. In the case where  $g$ is smooth, this blurring has the effect of smoothing out any sharp edges and irregularities in  $f$. This allows us to approximate irregular functions by smooth ones and serves as an important technical tool in our analysis.
 
-::: {#def-13 name="Convolution of functions"}
+::: {#def-12 name="Convolution of functions"}
 
 Given $f$ and $g$ we define the **convolution** of $f,g$ to be
 the function $f *g$
@@ -2352,7 +2410,7 @@ f*\mu(x):= f*g(x)= \int_{\R^d}f(x-y) g(y)\d y = \int_{\R^d} f(x-y)\d \mu (y) .
 \end{aligned}
 $$
 
-::: {#def-14 name="Convolution of function with measure"}
+::: {#def-13 name="Convolution of function with measure"}
 
 Let $\mu$ be a finite signed Borel measure on $\R^d$ and  $f \in L^p(\R^d)$ then we define the convolution
 
@@ -2383,7 +2441,7 @@ $$ {#eq-push}
 
 That is, the convolution of $\mu$ with $\nu$ is the [pushforward](<https://en.wikipedia.org/wiki/Pushforward_measure>)  of the product measure $\mu \otimes \nu$ with the sum $S(x,y)$.
 
-::: {#def-15 name="Convolution of measures"}
+::: {#def-14 name="Convolution of measures"}
 
 Let $\mu ,\nu$ be two finite signed measures on $\Bb(\R^d)$. Then the convolution of  $\mu *\nu$ is the pushforward
 
@@ -2460,7 +2518,7 @@ As we can see, the convolution in general depends on how we extend $f$ outside o
 
 $$
 \begin{aligned}
-U_\eps :=\set{x \in  U : d(x,\partial U)< \eps }.
+U_\eps :=\set{x \in  U : d(x,\partial U)> \eps }.
 \end{aligned}
 $$
 
@@ -2488,7 +2546,7 @@ $$
 
 Convolution of distributions with test functions can also be considered. A similar reason to previously leads us to the following definition
 
-::: {#def-16}
+::: {#def-15}
 
 Let $T \in \Dd'(\R^d)$ and $\varphi \in C_c^\infty(\R^d)$. Then we define the convolution $T*\varphi \in \Dd^*(\R^d)$ by
 
@@ -2554,7 +2612,7 @@ If $\phi_n \in C_c^\infty(\R^d)$ we say that $\phi_n$ are smooth.
 
 :::
 
-::: {#rem-6}
+::: {#rem-4}
 
 The above definition is frequently also given letting the index set range over $\eps \in \R_+$ and taking $\supp{\phi_\eps } \subset B(0,\eps )$. This is equivalent and simply leads to taking $\eps \to 0$ instead of $n \to \infty$. 
 
@@ -2838,7 +2896,7 @@ The proof can be found in [@leoni2017first] page 308.
 
 Often it is advantageous to work locally and then reason in the general case by some kind of approximation. A useful tool in this respect are **bump functions**.
 
-::: {#def-17}
+::: {#def-bump-def}
 
 A **bump function** (also called **cutoff function**) is a function $\eta \in C_c^\infty(\R^n)$.
 
@@ -2891,7 +2949,7 @@ Let $\eta_1 \in C_c^\infty(\R^d)$ be any (for example that of ([-@eq-bump-exampl
 
 In the opposite direction. One is often in the situation where it is possible to derive some local properties for a given object (think manifolds). To recover a global result one needs some way to piece together the local results. A useful tool in this respect is **partitions of unity**.
 
-::: {#def-18}
+::: {#def-16}
 
 Given a manifold $M$ and an o pen covering $\{U_\alpha\}_{\alpha \in  J}$ of $M$ we say that  $\{\rho_i\}_{i\in  I}$ is a **partition of unity on $\{U_\alpha\}_{\alpha \in  J}$** if:
 
@@ -2952,7 +3010,7 @@ Let $S \subset \R^d$ be an arbitrary set. We say that a function $f:S \to \R$ is
 
 :::
 
-::: {#def-19}
+::: {#def-17}
 
 If $f$ is  $k$-times differentiable at every point of  $S$ we say that $f \in C^k(S)$.
 
@@ -2988,7 +3046,7 @@ $$ {#eq-diff}
 
 Are diffeomorphisms on $\Hh^d$ (again with the subspace topology). Here $\Aa=\set{(U_\alpha,\Phi_\alpha)}$ is an **atlas** of $M$. We say that $\Aa$ is $C^k$ if the diffeomorphisms in ([-@eq-diff]) are $C^k$ (see Definition @def-smooth-non-open).
 
-::: {#def-20}
+::: {#def-18}
 
 We say that $(M,\Aa)$ is a **$C^k$ manifold with boundary** if $M$ is a second countable Hausdorff space and $\Aa$ is a $C^k$ atlas.
 
@@ -2996,7 +3054,7 @@ We say that $(M,\Aa)$ is a **$C^k$ manifold with boundary** if $M$ is a second c
 
 The boundary of $M$ is its points that are mapped to the boundary $\set{x_d=0}$ in $\Hh^d$.
 
-::: {#def-21}
+::: {#def-19}
 
 Given a point $p \in M$ we say that $p$ is a **boundary point** if for some (and thus every chart) $\Phi_\alpha(p) \in \partial \Hh ^{d}$. We call the set of all boundary points the **boundary** of $M$ and denote it by $\partial M$.
 
@@ -3057,7 +3115,7 @@ $$ {#eq-alt3}
 
 The equivalent formulations in ([-@eq-alt0]) and in ([-@eq-alt1])-([-@eq-alt3]) are used in the main exposition. Finally, in our case, we will typically take $M =\overline{\Omega}$ where $\Omega \subset \R^d$ is some open set. In this case, we adopt the following terminology.
 
-::: {#def-22}
+::: {#def-20}
 
 We say that an open set $\Omega\subset \R^d$ has **$C^k$ boundary** of  $\overline{\Omega}$ is a $C^k$ manifold with boundary.
 

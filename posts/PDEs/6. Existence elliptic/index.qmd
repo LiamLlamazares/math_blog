@@ -189,7 +189,7 @@ There are some points to clear up. Firstly, if this is the first time you've enc
 
 Next, when developing the mathematical theory of any equation, the first step is to establish whether the equation is *well-posed*.
 
-::: {#def-2 name="Well-posedness"}
+::: {#def-well-posedness name="Well-posedness"}
 
 We say that an equation is *well-posed* if
 
@@ -275,7 +275,7 @@ So, $\Ll u \in H^{-1}(U)$ is well defined and $\Ll$ is bounded. Extend by densit
 
 By @exr-domain-l, we can make sense of the equation $\Ll u =f$ for all $f \in H^{-1}(U)$.
 
-::: {#def-3 name="Weak formulation"}
+::: {#def-2 name="Weak formulation"}
 
 Given $f \in H^{-1}(U)$, we say that $u~\in~H_0^1(U)$ solves equation ([-@eq-pde]) if
 
@@ -395,7 +395,7 @@ Equation ([-@eq-pd]) also shows that $\Ll_\gamma$ is positive definite and the p
 
 :::
 
-### Fredholm alternative
+### Fredholm alternative {#sec-fred-sec}
 
 We now analyze further what we can say about the well-posedness of ([-@eq-pde]).  What has to happen for the equation to be ill-posed? If there are multiple solutions, what does the space of solutions look like? As we will see, this is intimately linked to the spectrum of the operator $\Ll$ and the Fredholm alternative will provide the answers we are looking for,
 
@@ -601,7 +601,7 @@ $$
 
 :::
 
-## Higher regularity
+## Higher regularity {#sec-higher-sec}
 
 We have so far seen that, under the previous assumptions, solutions to ([-@eq-pde]) are in $H_0^1(U)$. However, analogously to the classical setting, we may expect that $u$ is two degrees of regularity smoother than $f$. That is that $u \in H^2(U)$. This improved regularity is true, but only with the caveat that the domain $U$ is sufficiently regular. Counterexamples with non-smooth domains exist. See [@savare1998regularity].
 
