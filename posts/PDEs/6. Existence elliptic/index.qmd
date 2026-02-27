@@ -1,5 +1,7 @@
 ---
 title: "PDEs 6: Elliptic PDE"
+aliases:
+  - /2024-02-28-PDEs-6-Elliptic_PDE._Well_posedness_and_regularity/
 author: "Liam Llamazares--Elias"
 date: "2024-02-28"
 categories: [Pdes]

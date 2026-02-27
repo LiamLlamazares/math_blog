@@ -1,5 +1,7 @@
 ---
 title: "PDEs 2: What is a Hilbert space?"
+aliases:
+  - /2023-05-30-PDE-2-Hilbert/
 author: "Liam Llamazares--Elias"
 date: "2023-05-30"
 categories: [Pdes]

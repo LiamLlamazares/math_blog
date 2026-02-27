@@ -1,10 +1,15 @@
 ---
 title: "MC 7: The Ornstein-Uhlenbeck Semigroup"
+aliases:
+  - /2022-11-16-Malliavin-Calculus-7/
 author: "Liam Llamazares--Elias"
 date: "date"
 categories: [Malliavin Calculus]
 description: "Part 7 of the series on Malliavin calculus"
 bibliography: biblio.bib
+pdf: "The Ornstein-Uhlenbeck Semigorup.pdf"
+resources:
+  - "The Ornstein-Uhlenbeck Semigorup.pdf"
 format:
   html:
     toc: true
@@ -111,6 +116,8 @@ format:
         };
         </script>
 ---
+
+<div id="quarto-post-pdf-url" data-url="The Ornstein-Uhlenbeck Semigorup.pdf" style="display:none;"></div>
 
 ## Three line summary
 

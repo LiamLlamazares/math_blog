@@ -1,5 +1,7 @@
 ---
 title: "PDEs 5: Fractional Sobolev spaces"
+aliases:
+  - /2024-02-27-PDEs-5-Fractional_Sobolev_spaces/
 author: "Liam Llamazares--Elias"
 date: "2024-02-27"
 categories: [Pdes]

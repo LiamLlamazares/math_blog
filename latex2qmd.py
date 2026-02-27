@@ -146,6 +146,11 @@ def parse_tex_metadata(tex: str) -> dict:
     if posttags:
         meta['tags'] = [t.strip() for t in posttags.split(',')]
 
+    # Extract \postaliases{...} → aliases (comma-separated)
+    postaliases = _extract_braced(tex, 'postaliases')
+    if postaliases:
+        meta['aliases'] = [a.strip() for a in postaliases.split(',')]
+
     # Check for bibliography
     bib_match = re.search(r'\\bibliography\{([^}]+)\}', tex)
     if bib_match:
@@ -1241,6 +1246,13 @@ def build_qmd(meta: dict, body: str, mathjax_macros: str) -> str:
     subtitle = meta.get('subtitle', '')
     if subtitle:
         lines.append(f'description: "{subtitle}"')
+
+    # Aliases
+    aliases = meta.get('aliases', [])
+    if aliases:
+        lines.append('aliases:')
+        for alias in aliases:
+            lines.append(f'  - {alias}')
 
     # Image (auto-detected cover)
     img = meta.get('image', '')
