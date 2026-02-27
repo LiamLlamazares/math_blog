@@ -1,11 +1,11 @@
 ---
 title: "PDEs 5: Fractional Sobolev spaces"
-aliases:
-  - /2024-02-27-PDEs-5-Fractional_Sobolev_spaces/
 author: "Liam Llamazares--Elias"
 date: "2024-02-27"
 categories: [Pdes]
 description: "Filling in the gaps"
+aliases:
+  - /2024-02-27-PDEs-5-Fractional_Sobolev_spaces/
 bibliography: biblio.bib
 pdf: "fractional_sobolev_spaces.pdf"
 resources:
@@ -118,6 +118,8 @@ format:
 ---
 
 <div id="quarto-post-pdf-url" data-url="fractional_sobolev_spaces.pdf" style="display:none;"></div>
+
+\postaliases{/2024-02-27-PDEs-5-Fractional_Sobolev_spaces/}
 
 ## Summary
 

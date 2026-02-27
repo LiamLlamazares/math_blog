@@ -4,6 +4,8 @@ author: "Billy Summers"
 date: "2022-07-02"
 categories: [Malliavin Calculus]
 description: "Part 4 of the series on Malliavin calculus"
+aliases:
+  - /2022-07-02-Malliavin-Calculus-4/
 pdf: "part4.pdf"
 resources:
   - "part4.pdf"
@@ -115,6 +117,8 @@ format:
 ---
 
 <div id="quarto-post-pdf-url" data-url="part4.pdf" style="display:none;"></div>
+
+\postaliases{/2022-07-02-Malliavin-Calculus-4/}
 
 ## The Malliavin derivative as a Fr\'{e
 

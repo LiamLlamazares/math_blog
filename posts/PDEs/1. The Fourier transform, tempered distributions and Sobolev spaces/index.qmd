@@ -1,15 +1,12 @@
 ---
 title: "PDEs 1: The Fourier transform, tempered distributions and Sobolev spaces"
-aliases:
-  - /2023-01-29-PDE-1-Fourier/
 author: "Liam Llamazares--Elias"
 date: "2022-10-14"
 categories: [Pdes]
 description: "The holy trinity"
+aliases:
+  - /2023-01-29-PDE-1-Fourier/
 bibliography: biblio.bib
-pdf: "The fourier transfrom, distributions and sobolev spaces.pdf"
-resources:
-  - "The fourier transfrom, distributions and sobolev spaces.pdf"
 format:
   html:
     toc: true
@@ -117,7 +114,7 @@ format:
         </script>
 ---
 
-<div id="quarto-post-pdf-url" data-url="The fourier transfrom, distributions and sobolev spaces.pdf" style="display:none;"></div>
+\postaliases{/2023-01-29-PDE-1-Fourier/}
 
 ## Three line summary {.unnumbered}
 

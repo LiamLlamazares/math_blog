@@ -4,10 +4,9 @@ author: "Liam Llamazares--Elias"
 date: "2022-05-23"
 categories: [Malliavin calculus]
 description: "Iterated Itô integrals and their consequences"
+aliases:
+  - /2022-05-26-Malliavin-Calculus-1/
 bibliography: biblio.bib
-pdf: "main.pdf"
-resources:
-  - "main.pdf"
 format:
   html:
     toc: true
@@ -115,7 +114,7 @@ format:
         </script>
 ---
 
-<div id="quarto-post-pdf-url" data-url="main.pdf" style="display:none;"></div>
+\postaliases{/2022-05-26-Malliavin-Calculus-1/}
 
 This is the first post of many to come on this blog, thanks for joining! This is also the first in a series on Malliavin calculus. This chain is
 based on the book [@nunno2008malliavin], and inspired by a reading group on the topic.

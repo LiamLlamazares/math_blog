@@ -1,11 +1,11 @@
 ---
 title: "PDEs 2: What is a Hilbert space?"
-aliases:
-  - /2023-05-30-PDE-2-Hilbert/
 author: "Liam Llamazares--Elias"
 date: "2023-05-30"
 categories: [Pdes]
 description: "An appendix for a series on PDEs"
+aliases:
+  - /2023-05-30-PDE-2-Hilbert/
 bibliography: biblio.bib
 pdf: "Hilbert_spaces.pdf"
 resources:
@@ -118,6 +118,8 @@ format:
 ---
 
 <div id="quarto-post-pdf-url" data-url="Hilbert_spaces.pdf" style="display:none;"></div>
+
+\postaliases{/2023-05-30-PDE-2-Hilbert/}
 
 ## Three line summary
 

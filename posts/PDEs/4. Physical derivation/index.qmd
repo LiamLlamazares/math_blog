@@ -1,11 +1,11 @@
 ---
 title: "PDES 4: A physical derivation of parabolic and elliptic PDE"
-aliases:
-  - /2023-12-23-PDEs-4-Physical_derivation_of_parabolic_and_elliptic_PDE/
 author: "Liam Llamazares--Elias"
 date: "2023-12-23"
 categories: [Pdes]
 description: "Just have to balance the mass"
+aliases:
+  - /2023-12-23-PDEs-4-Physical_derivation_of_parabolic_and_elliptic_PDE/
 pdf: "A physical derivation of parabolic and elliptic PDE.pdf"
 resources:
   - "A physical derivation of parabolic and elliptic PDE.pdf"
@@ -117,6 +117,8 @@ format:
 ---
 
 <div id="quarto-post-pdf-url" data-url="A physical derivation of parabolic and elliptic PDE.pdf" style="display:none;"></div>
+
+\postaliases{/2023-12-23-PDEs-4-Physical_derivation_of_parabolic_and_elliptic_PDE/}
 
 ## Summary
 

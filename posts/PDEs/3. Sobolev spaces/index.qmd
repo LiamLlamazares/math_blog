@@ -1,11 +1,11 @@
 ---
 title: "PDEs 3: Sobolev spaces"
-aliases:
-  - /2023-07-12-PDEs-3-Sobolev_spaces/
 author: "Liam Llamazares--Elias"
 date: "2023-07-12"
 categories: [Pdes]
 description: "Density, trace and embeddings"
+aliases:
+  - /2023-07-12-PDEs-3-Sobolev_spaces/
 bibliography: biblio.bib
 pdf: "Sobolev spaces.pdf"
 resources:
@@ -118,6 +118,8 @@ format:
 ---
 
 <div id="quarto-post-pdf-url" data-url="Sobolev spaces.pdf" style="display:none;"></div>
+
+\postaliases{/2023-07-12-PDEs-3-Sobolev_spaces/}
 
 ## Three line summary
 

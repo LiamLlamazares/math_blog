@@ -1,15 +1,12 @@
 ---
 title: "MC 6: Study of densities part 2"
-aliases:
-  - /2022-11-03-Malliavin-Calculus-6/
 author: "Liam Llamazares--Elias"
 date: "date"
 categories: [Malliavin Calculus]
 description: "Part 6 of the series on Malliavin calculus"
+aliases:
+  - /2022-11-03-Malliavin-Calculus-6/
 bibliography: biblio.bib
-pdf: "main.pdf"
-resources:
-  - "main.pdf"
 format:
   html:
     toc: true
@@ -117,7 +114,7 @@ format:
         </script>
 ---
 
-<div id="quarto-post-pdf-url" data-url="main.pdf" style="display:none;"></div>
+\postaliases{/2022-11-03-Malliavin-Calculus-6/}
 
 ## Three line summary
 

@@ -1,11 +1,11 @@
 ---
 title: "PDEs 6: Elliptic PDE"
-aliases:
-  - /2024-02-28-PDEs-6-Elliptic_PDE._Well_posedness_and_regularity/
 author: "Liam Llamazares--Elias"
 date: "2024-02-28"
 categories: [Pdes]
 description: "From rough beginnings to smooth endings"
+aliases:
+  - /2024-02-28-PDEs-6-Elliptic_PDE._Well_posedness_and_regularity/
 bibliography: biblio.bib
 pdf: "Elliptic_PDE_1.pdf"
 resources:
@@ -118,6 +118,8 @@ format:
 ---
 
 <div id="quarto-post-pdf-url" data-url="Elliptic_PDE_1.pdf" style="display:none;"></div>
+
+\postaliases{/2024-02-28-PDEs-6-Elliptic_PDE._Well_posedness_and_regularity/}
 
 ## Three point summary
 

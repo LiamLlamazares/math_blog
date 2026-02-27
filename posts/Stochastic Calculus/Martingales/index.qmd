@@ -4,6 +4,8 @@ author: "Liam Llamazares--Elias"
 date: "2022-05-23"
 categories: [Stochastic Calculus]
 description: "Doob's Martingale inequality is cool"
+aliases:
+  - /2022-05-28-Martingales-to-Banach-spaces/
 bibliography: biblio.bib
 format:
   html:
@@ -111,6 +113,8 @@ format:
         };
         </script>
 ---
+
+\postaliases{/2022-05-28-Martingales-to-Banach-spaces/}
 
 ## Three line summary
 

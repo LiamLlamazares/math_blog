@@ -4,10 +4,9 @@ author: "Liam Llamazares--Elias"
 date: "2022-10-24"
 categories: [Malliavin Calculus]
 description: "Part 5 of the series on Malliavin calculus"
+aliases:
+  - /2022-11-02-Malliavin-Calculus-5/
 bibliography: biblio.bib
-pdf: "main.pdf"
-resources:
-  - "main.pdf"
 format:
   html:
     toc: true
@@ -115,7 +114,7 @@ format:
         </script>
 ---
 
-<div id="quarto-post-pdf-url" data-url="main.pdf" style="display:none;"></div>
+\postaliases{/2022-11-02-Malliavin-Calculus-5/}
 
 ## Three line summary
 
