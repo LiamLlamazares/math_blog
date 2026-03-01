@@ -5,6 +5,7 @@ project:
     - _data/recent_comments.json
     - assets/
     - custom_theorems.css
+    - CNAME
   post-render:
     - python3 copy_feed.py
   render:

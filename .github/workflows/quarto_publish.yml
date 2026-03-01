@@ -4,8 +4,12 @@ on:
   push:
     branches:
       - master
-      - quarto-migration
   workflow_dispatch:
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   build-deploy:
@@ -44,17 +48,11 @@ jobs:
         run: |
           python check_links.py
 
-      - name: Publish Quarto site
-        uses: quarto-dev/quarto-actions/publish@v2
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          target: gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          path: _site
 
-      - name: Upload Broken Links Report
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: broken_links_report
-          path: broken_links_report.md
-          retention-days: 7
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
