@@ -100,7 +100,8 @@ if (items.length > 0) {
     if (tagPosts.length > 1) { 
 %>
 <div class="pane tag-pane">
-<div class="tag-header" style="<%- bannerImg ? `background-image: url('/${bannerImg}') !important;` : '' %>">
+<% const tagStyle = bannerImg ? `background-image: url('/${bannerImg}') !important;` : ''; %>
+<div class="tag-header" style="<%- tagStyle %>">
 <h3 class="math-font"><%- tag %></h3>
 <span class="count"><%- tagPosts.length %> <img src="/assets/img/svgs/leaf.svg" alt="leaf" class="leaf-icon"></span>
 </div>
