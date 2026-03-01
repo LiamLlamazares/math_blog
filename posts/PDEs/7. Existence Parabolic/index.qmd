@@ -6,11 +6,11 @@ categories: [Pdes]
 description: "A journey through time and space"
 aliases:
   - /2024-10-19-PDEs-7-Parabolic_PDE._Well_posedness_and_regularity/
-image: "cover.png"
+image: "Cover.png"
 bibliography: biblio.bib
 pdf: "Parabolic.pdf"
 resources:
-  - "cover.png"
+  - "Cover.png"
   - "Parabolic.pdf"
 format:
   html:
