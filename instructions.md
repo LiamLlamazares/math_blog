@@ -57,11 +57,7 @@ Just push to `master` (or your active working branch):
 ```powershell
 git add .
 git commit -m "Add <post name>"
-git push
-```
-GitHub Actions (`ci.yml`) builds and deploys the site automatically.
-
-**Link Checking:** The `link_checker.yml` continuous integration workflow (defined in `.github/workflows/link_checker.yml`) runs on push as well. It automatically renders the site and executes `py check_links.py` to scan for broken internal Quarto anchors (`\postref`), dead external URLs, and soft-404 pages. If any link is broken, the GitHub Action will fail, attaching a detailed debug report to the action artifact.
+GitHub Actions (`quarto_publish.yml`) automatically builds, converts LaTeX images to SVG, checks for dead links, and seamlessly overrides the gh-pages branch to deploy the site natively.
 
 The `fetch-comments.yml` workflow runs every hour to update the recent comments sidebar.
 

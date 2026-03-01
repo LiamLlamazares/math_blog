@@ -1,20 +1,19 @@
-name: Link Checker
+name: Quarto Publish
 
 on:
   push:
     branches:
       - master
       - quarto-migration
-  pull_request:
-    branches:
-      - master
-      - quarto-migration
   workflow_dispatch:
 
 jobs:
-  check-links:
+  build-deploy:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -32,7 +31,7 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      - name: Compile LaTeX to Quarto Markdown
+      - name: Convert Images and Compile LaTeX
         run: |
           python convert_images.py
           python latex2qmd.py posts --all
@@ -44,6 +43,13 @@ jobs:
       - name: Run Link Checker
         run: |
           python check_links.py
+
+      - name: Publish Quarto site
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload Broken Links Report
         if: failure()

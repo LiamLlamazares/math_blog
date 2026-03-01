@@ -5,6 +5,8 @@ project:
     - _data/recent_comments.json
     - assets/
     - custom_theorems.css
+  post-render:
+    - py copy_feed.py
   render:
     - "!posts/Future/**"
     - "*.qmd"
@@ -15,6 +17,7 @@ project:
 website:
   title: "NoWhere Differentiable Math"
   site-url: index.qmd
+  google-analytics: "UA-230263372-2"
   description: "A blog about Mathematics, Spatial statistics, stochastic analysis, and PDEs."
   
   navbar:
