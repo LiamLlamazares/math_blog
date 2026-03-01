@@ -16,7 +16,7 @@ project:
 
 website:
   title: "NoWhere Differentiable Math"
-  site-url: index.qmd
+  site-url: "https://nowheredifferentiable.com"
   google-analytics: "UA-230263372-2"
   description: "A blog about Mathematics, Spatial statistics, stochastic analysis, and PDEs."
   
@@ -24,9 +24,9 @@ website:
     logo: "assets/img/tree.jpg"
     left:
       - text: "HOME PAGE"
-        href: index.qmd
+        href: index.html
       - text: "About"
-        href: aboutme.qmd
+        href: aboutme.html
     right:
       - text: "Posts by Tag"
         href: tags.qmd
