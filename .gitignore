@@ -67,3 +67,5 @@ _minted*
 
 # Locally compiled PDF output
 *.pdf
+
+/instructions_files/
