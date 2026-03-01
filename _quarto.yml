@@ -60,6 +60,7 @@ format:
     toc: true
     css: custom_theorems.css
     html-math-method: mathjax
+    link-external-newwindow: true
     include-in-header:
       text: |
         <script>
