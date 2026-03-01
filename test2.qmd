@@ -1,5 +1,0 @@
----
-title: Test
----
-
-[Poincaré’s inequality](<https://nowheredifferentiable.com/2023-07-12-PDEs-3-Sobolev_spaces/#:~:text=in%20future%20posts-,Theorem,-14%20(Poincar%C3%A9%20inequality)>) if $\bm{A}$ is bounded.
