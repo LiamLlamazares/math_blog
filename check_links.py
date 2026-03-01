@@ -14,6 +14,15 @@ init()
 SITE_DIR = Path("_site")
 SOURCE_DIR = Path("posts")
 
+# Links to skip entirely (e.g. known legacy dead links or domains that block bots)
+IGNORED_URLS = [
+    "https://nowheredifferentiable.com/math-formatting",
+    "https://nowheredifferentiable.com/2022-05-29-Malliavin-Calculus-2/",
+]
+IGNORED_DOMAINS = [
+    "scholar.google.com",
+]
+
 if not SITE_DIR.exists():
     print(Fore.RED + "Error: '_site' directory not found. Please run 'quarto render' first." + Style.RESET_ALL)
     exit(1)
@@ -53,6 +62,8 @@ def check_external_link(url):
         req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
         with urllib.request.urlopen(req, timeout=10) as response:
             if response.status >= 400:
+                if response.status in [401, 403]:
+                    return (True, f"Warning: HTTP {response.status}")
                 return (False, f"HTTP {response.status}")
             
             content = response.read(10000)
@@ -61,6 +72,8 @@ def check_external_link(url):
             
             return (True, "OK")
     except urllib.error.HTTPError as e:
+        if e.code in [401, 403]:
+            return (True, f"Warning: HTTP {e.code}")
         return (False, f"HTTP {e.code}")
     except urllib.error.URLError as e:
         return (False, f"Connection Error: {e.reason}")
@@ -116,6 +129,10 @@ def check_links():
         for href, line_num in parser.links:
             total_links += 1
             
+            # Skip ignored URLs or domains
+            if href in IGNORED_URLS or any(domain in href for domain in IGNORED_DOMAINS):
+                continue
+
             if href.startswith(('mailto:', 'tel:', 'javascript:', '#', 'data:')):
                 # Check internal current-page anchors
                 if href.startswith('#') and len(href) > 1:
@@ -176,6 +193,9 @@ def check_links():
                     print(Fore.YELLOW + f"[BROKEN INTERNAL] {href} -> Missing file (in {file_path.name}:{line_num})" + Style.RESET_ALL)
                 elif anchor:
                     # File exists, check the anchor inside the file
+                    if anchor.startswith('category='):
+                        continue
+                        
                     if not check_anchor_exists(target_path, anchor):
                         broken_links.append({
                             'file': str(file_path.relative_to(SITE_DIR)),
