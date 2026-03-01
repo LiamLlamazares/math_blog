@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Liam Llamazares–Elias">
+<meta name="dcterms.date" content="2022-05-23">
+<meta name="description" content="Doob’s Martingale inequality is cool">
 
-<title>Posts by Tag – NoWhere Differentiable Math</title>
+<title>Martingales in Banach spaces – NoWhere Differentiable Math</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,33 +23,51 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-2cab38f689c5f066e21a94e3c73297ae.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-428acbe8fe795edd664e6bfe67298593.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-2cab38f689c5f066e21a94e3c73297ae.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-2cab38f689c5f066e21a94e3c73297ae.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-428acbe8fe795edd664e6bfe67298593.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-2cab38f689c5f066e21a94e3c73297ae.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,35 +95,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-reading-time','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 
 <script type="text/javascript">
 
@@ -120,9 +112,98 @@ ga('send', {
 <script>
 window.MathJax = {
   tex: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\\[','\\]']],
-    processEscapes: true
+    tags: "ams",
+    macros: {
+      A: "\\mathbb{A}",
+      Aa: "\\mathcal{A}",
+      Bb: "\\mathcal{B}",
+      C: "\\mathbb{C}",
+      Cc: "\\mathcal{C}",
+      Dd: "\\mathcal{D}",
+      E: "\\mathbb{E}",
+      Ee: "\\mathcal{E}",
+      F: "\\mathbb{F}",
+      Ff: "\\mathcal{F}",
+      Gg: "\\mathcal{G}",
+      Hh: "\\mathcal{H}",
+      II: "\\mathbb{I}",
+      Id: "\\bm{I}",
+      Ii: "\\mathcal{I}",
+      Im: "\\bm{Im}",
+      Jj: "\\mathcal{J}",
+      K: "\\mathbb{K}",
+      KL: ["\\rm{KL}\\left(#1 \\| #2\\right)", 2],
+      Kk: "\\mathcal{K}",
+      LL: "\\mathbb{L}",
+      Ll: "\\mathcal{L}",
+      M: "\\mathbb{M}",
+      Mm: "\\mathcal{M}",
+      N: "\\mathbb{N}",
+      Nn: "\\mathcal{N}",
+      Oo: "\\mathcal{O}",
+      PP: "\\mathbb{P}",
+      Pp: "\\mathcal{P}",
+      Q: "\\mathbb{Q}",
+      Qq: "\\mathcal{Q}",
+      R: "\\mathbb{R}",
+      Rr: "\\mathcal{R}",
+      Ss: "\\mathcal{S}",
+      T: "\\mathbb{T}",
+      Th: "{\\bm{\\theta}}",
+      Thh: "{\\bm{\\Theta}}",
+      Tt: "\\mathcal{T}",
+      Uu: "\\mathcal{U}",
+      Vv: "\\mathcal{V}",
+      W: "\\mathbb{W}",
+      Ww: "\\mathcal{W}",
+      X: "\\mathbb{X}",
+      Xx: "\\mathcal{X}",
+      Yy: "\\mathcal{Y}",
+      Z: "\\mathbb{Z}",
+      Zz: "\\mathcal{Z}",
+      abs: ["{\\left| #1 \\right|}", 1],
+      alf: "{\\alpha}",
+      b: ["{\\bm{#1}}", 1],
+      bm: ["\\boldsymbol{#1}", 1],
+      br: ["\\left\\langle#1\\right\\rangle", 1],
+      bt: "\\beta",
+      co: ["\\overset{\\circ}{#1}", 1],
+      d: "\\mathrm{d}",
+      diag: ["\\operatorname{diag}\\left(#1\\right)", 1],
+      dx: "\\,\\mathrm{d}x",
+      dy: "\\,\\mathrm{d}y",
+      eps: "\\varepsilon",
+      et: "{\\bm{\\eta}}",
+      ex: ["\\mathrm{exp}\\left(#1\\right)", 1],
+      fk: ["\\mathfrak{#1}", 1],
+      fracc: ["{#1}/{#2}", 2],
+      frc: ["\\left(#2)^{-1}(#1\\right)", 2],
+      iso: "\\xrightarrow{\\sim}",
+      ker: "\\rm{ker}",
+      mat: ["\\begin{bmatrix}{#1}\\end{bmatrix}", 1],
+      mathbbm: ["\\mathbb{#1}", 1],
+      mathds: ["\\mathbb{#1}", 1],
+      norm: ["\\left\\lVert #1 \\right\\rVert", 1],
+      om: "\\omega",
+      postref: ["\\href{https://nowheredifferentiable.com/posts/#1/}{#3}", 3],
+      proj: "\\mathrm{proj}",
+      qb: ["\\left[#1\\right]", 1],
+      qp: ["\\left(#1\\right)", 1],
+      qt: ["\\left(#1\\right)", 1],
+      red: ["{\\color{red}#1}", 1],
+      restr: ["\\left.#1\\right|{#2}", 2],
+      rm: ["\\mathrm{#1}", 1],
+      set: ["\\left\\{#1\\right\\}", 1],
+      star: "*",
+      supp: "\\operatorname{supp}",
+      tl: ["\\widetilde{#1}", 1],
+      tll: ["\\widetilde{#1}", 1],
+      vol: "\\mathrm{vol}",
+      wh: ["\\widehat{#1}", 1],
+      x: "\\bm{x}",
+      xxi: "{\\bm{\\xi}}",
+      y: "\\bm{y}"
+    }
   }
 };
 </script>
@@ -157,7 +238,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="custom_theorems.css">
+<link rel="stylesheet" href="../../../custom_theorems.css">
 </head>
 
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -329,11 +410,11 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./assets/img/tree.jpg" alt="" class="navbar-logo light-content">
-    <img src="./assets/img/tree.jpg" alt="" class="navbar-logo dark-content">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../assets/img/tree.jpg" alt="" class="navbar-logo light-content">
+    <img src="../../../assets/img/tree.jpg" alt="" class="navbar-logo dark-content">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">NoWhere Differentiable Math</span>
     </a>
   </div>
@@ -344,17 +425,17 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../../index.html"> 
 <span class="menu-text">HOME PAGE</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./aboutme.html"> 
+    <a class="nav-link" href="../../../aboutme.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./tags.html" aria-current="page"> 
+    <a class="nav-link" href="../../../tags.html"> 
 <span class="menu-text">Posts by Tag</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -390,26 +471,56 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(17)</span></div><div class="category" data-category="QW5hbHlzaXMlMjBPbiUyMEJhbmFjaCUyMFNwYWNlcw==">Analysis On Banach Spaces <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SXRvJTIwSW50ZWdyYWw=">Ito Integral <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TWFsbGlhdmluJTIwQ2FsY3VsdXM=">Malliavin Calculus <span class="quarto-category-count">(5)</span></div><div class="category" data-category="TWFsbGlhdmluJTIwY2FsY3VsdXM=">Malliavin calculus <span class="quarto-category-count">(2)</span></div><div class="category" data-category="UGRlcw==">Pdes <span class="quarto-category-count">(7)</span></div><div class="category" data-category="U3RvY2hhc3RpYyUyMENhbGN1bHVz">Stochastic Calculus <span class="quarto-category-count">(2)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#three-line-summary" id="toc-three-line-summary" class="nav-link active" data-scroll-target="#three-line-summary"><span class="header-section-number">1</span> Three line summary</a></li>
+  <li><a href="#why-should-i-care" id="toc-why-should-i-care" class="nav-link" data-scroll-target="#why-should-i-care"><span class="header-section-number">2</span> Why should I care?</a></li>
+  <li><a href="#conditional-expectation" id="toc-conditional-expectation" class="nav-link" data-scroll-target="#conditional-expectation"><span class="header-section-number">3</span> Conditional expectation</a></li>
+  <li><a href="#martingales" id="toc-martingales" class="nav-link" data-scroll-target="#martingales"><span class="header-section-number">4</span> Martingales</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">5</span> References</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Posts by Tag</h1>
+<h1 class="title">Martingales in Banach spaces</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Stochastic Calculus</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Doob’s Martingale inequality is cool
+  </div>
 </div>
 
 
+<div class="quarto-title-meta">
 
-<div class="quarto-title-meta column-page-left">
-
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Liam Llamazares–Elias </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 23, 2022</p>
+    </div>
+  </div>
   
     
   </div>
@@ -419,408 +530,269 @@ window.Quarto = {
 </header>
 
 
+<section id="three-line-summary" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="three-line-summary"><span class="header-section-number">1</span> Three line summary</h2>
+<ul>
+<li><p>Conditional expectations exist in a natural way for simple functions, by taking extensions they also exist for integrable functions to a Banach space <span class="math inline">\(L^1(\Omega\to E)\)</span>.</p></li>
+<li><p>Using conditional expectations we can define what a martingale is just like in the real case.</p></li>
+<li><p>The space of continuous <span class="math inline">\(p\)</span>-integrable martingales is a Banach space.</p></li>
+</ul>
+</section>
+<section id="why-should-i-care" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="why-should-i-care"><span class="header-section-number">2</span> Why should I care?</h2>
+<p>Banach valued martingales form the basis of SPDEs. This is because analogously to Itô integration of real-valued processes. Integrating against a Wiener process valued in a Banach space the same will produce a square integrable continuous martingale.</p>
+</section>
+<section id="conditional-expectation" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="conditional-expectation"><span class="header-section-number">3</span> Conditional expectation</h2>
+<p>In graduate-level probability courses, given a <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\Gg\)</span> one shows that by applying Radon–Nikodym’s theorem, for any real-valued random variable <span class="math inline">\(X\in L^1(\Omega\to \R)\)</span> there exists a conditional expectation <span class="math inline">\(\E_{\Gg}[X]\)</span> verifying that</p>
+<p><span class="math display">\[
+\int_A \E_{\Gg}[X]=\int_A X,\quad \forall A\in\Gg.
+\]</span></p>
+<p>Of course, now that we have created an integral for integral random variables to a Banach space <span class="math inline">\(L^1(\Omega\to E)\)</span> we would like to see whether such a conditional expectation also exists for these functions. If we are given a simple function</p>
+<p><span class="math display">\[
+X=\sum_{k=1}^n x_k 1_{A_k}, \quad x_k\in E, A_k\in\Gg.
+\]</span></p>
+<p>It is a simple calculation to show that, since <span class="math inline">\(1_{A_k}\)</span> are real-valued and thus <span class="math inline">\(\E_{\Gg}[1_{A_k}]\)</span> are well defined, then</p>
+<p><span class="math display">\[
+\E_{\Gg}[X]=\sum_{k=1}^n x_k \E_{\Gg}[1_{A_k}],
+\]</span></p>
+<p>verifies the desired formula. Furthermore, we have that <span class="math inline">\(\mathbb{E}_\mathcal{F}\)</span> is a linear, and pointwise continuous operator with</p>
+<p><span class="math display">\[
+\left\|\E_{\Gg}[X]\right\|\leq \sum_{k=1}^n \|x_k\| \E_{\Gg}[1_{A_k}]=\E_{\Gg}\left[\sum_{k=1}^n \|x_k\|1_{A_k}\right]=\E_{\Gg}\left[\|X\|\right].
+\]</span></p>
+<p>This allows us to show the following:</p>
+<div id="thm-1" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1 (Existence and uniqueness of conditional expectation)</strong></span> Let <span class="math inline">\(X\in L^1(\Omega\to E)\)</span> for some Banach space <span class="math inline">\(E\)</span>. Then <span class="math inline">\(X\)</span> has a conditional expectation satisfying</p>
+<p><span class="math display">\[
+\left\|\E_{\Gg}[X]\right\|\leq\E_{\Gg}\left[\|X\|\right].
+\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>We have already proved the above inequality for simple processes. By our previous post on the <a href="../../../posts/Analysis on Banach spaces/Bochner_integral/index.html">Bochner integral</a>, we can take <span class="math inline">\(X_n\)</span> converging to <span class="math inline">\(X\)</span> in <span class="math inline">\(L^1(\Omega\to E)\)</span> to obtain that</p>
+<p><span class="math display">\[
+\begin{aligned}
+\left\|\E_{\Gg}[X_n-X_m]\right\|&amp;\leq\E_{\Gg}\left[\|X_n-X_m\|\right]\\&amp;\implies \E[\left\|\E_{\Gg}[X_n]-\E_{\Gg}[X_m]\right\|]\leq \E\left[\|X_n-X_m\|\right]\to 0
+\end{aligned}
+\]</span></p>
+<p>As a result, <span class="math inline">\(\E_{\Gg}[X_n]\)</span> is a Cauchy sequence in <span class="math inline">\(L^1(\Omega\to E)\)</span> and converges to some function <span class="math inline">\(Y\)</span>, passing to the limit in the defining equation for the conditional expectation shows that <span class="math inline">\(Z=\E_\Gg[X]\)</span>. Finally, to prove uniqueness we have that if both <span class="math inline">\(Z_1,Z_2\)</span> satisfy</p>
+<p><span class="math display">\[
+\int_A Z_1=\int_A X=\int_A Z_2,\quad \forall A\in\Gg.
+\]</span></p>
+<p>Then using the linearity of the integral we obtain that <span class="math inline">\(w(Z_1)=w(Z_2)\)</span> for all linear functions <span class="math inline">\(w \in E^*\)</span>, so <span class="math inline">\(Z_1=Z_2\)</span>.</p>
+</div>
+</section>
+<section id="martingales" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="martingales"><span class="header-section-number">4</span> Martingales</h2>
+<p>Okay, so we leveraged some inequalities to prove the existence of a conditional expectation. This done, the following definition mimicking the real case is quite natural. Given measurable spaces <span class="math inline">\((F,\Ff)\)</span> and <span class="math inline">\((G,\Gg)\)</span>, we use the notation <span class="math inline">\(f: \Ff \to \Gg\)</span> to mean <span class="math inline">\(f:(F,\Ff)\to (G,\Gg)\)</span> is measurable.</p>
+<div id="def-1" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1</strong></span> Let <span class="math inline">\(\{M(t)\}_{t\in I}\)</span> be a stochastic process on <span class="math inline">\((\Omega, \Ff, \PP)\)</span> with a filtration <span class="math inline">\(\{\Ff_{t}\}_{t \in I}\)</span>. The process <span class="math inline">\(M\)</span> is called an <span class="math inline">\(\Ff_{t}\)</span>-martingale, if:</p>
+<ol type="1">
+<li><p><span class="math inline">\(M(t)\in L^1(\Omega\to E)\)</span> for all <span class="math inline">\(t\in I\)</span>,</p></li>
+<li><p><span class="math inline">\(M(t):\Ff_{t} \to \Bb(E)\)</span> for all <span class="math inline">\(t\in I\)</span>,</p></li>
+<li><p><span class="math inline">\(\E_{\Ff_{s}}\left[M(t)\right]=M(s)\)</span> for all <span class="math inline">\(s \leq t\)</span>.</p></li>
+</ol>
+</div>
+<p>The concept of submartingale is defined by replacing the equality in 3. with a <span class="math inline">\(\geq\)</span>. Let us abbreviate <span class="math inline">\(\E_{\Ff_t}\)</span> by <span class="math inline">\(\E_t\)</span>. Then, as in the real case, we have the following.</p>
+<div id="lem-lem:norm-is-submart" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 1 (Norm: martingale <span class="math inline">\(\to\)</span> submartingale)</strong></span> Let <span class="math inline">\(M(t)\)</span> be a martingale, then <span class="math inline">\(\norm{M(t)}\)</span> is a submartingale.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>We recall that, by the Hahn Banach theorem, it holds for any metric space that given <span class="math inline">\(y\in E\)</span></p>
+<p><span class="math display">\[
+\norm{z}=\sup_{\ell\in E^*:\|\ell\|=1}\ell(z)
+\]</span></p>
+<p>As a result, by the linearity of the integral and abbreviating the supremum to just <span class="math inline">\(\sup_\ell\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\|M(s)\|&amp;=\|\E_{s}[M(t)]\|= \sup_\ell \ell\left(\E_{s}[M(t)]\right)=\sup_\ell\|{\E_{s}\left[\ell(M(t))\right]\|}\\
+&amp;\leq \E_{s}\left[\sup_\ell\ell(M(t))\right]=\E_{s}\left[\|M(t)\|\right]
+\end{aligned}
+\]</span></p>
+</div>
+<p>Let us recall the following result for real-valued martingales <span class="citation" data-cites="ccinlar2011probability">(<a href="#ref-ccinlar2011probability" role="doc-biblioref">Çinlar 2011</a>, Theorem 3.2.6)</span>.</p>
+<div id="lem-1" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 2 (Doob’s maximal Martingale inequality)</strong></span> Let <span class="math inline">\(\{X_k\}_{k=1}^\infty\)</span> be a real-valued submartingale. Then it holds that</p>
+<p><span class="math display">\[
+\norm{\max_{k\in\{1,...,n\}}\abs{X_k}}_{L^p(\Omega)}\leq \frac{p}{p-1}\norm{X_n}_{L^p(\Omega)}
+\]</span></p>
+<p>As a consequence, if <span class="math inline">\(X_t,t\in[0,T]\)</span> is left (or right) continuous then</p>
+<p><span class="math display">\[
+\norm{\max_{t\in[0,T]}X_k}_{L^p(\Omega)}\leq \frac{p}{p-1}\norm{X_T}_{L^p(\Omega)}.
+\]</span></p>
+</div>
+<p>The idea of the above result is that, since <span class="math inline">\(X_k\)</span> is a submartingale, <span class="math inline">\(X_k\lesssim X_{k+1}\lesssim...\lesssim X_n\)</span>. Getting from the continuous to the discrete case is possible by using the continuity of <span class="math inline">\(X\)</span> and approximating it on some finer and finer mesh <span class="math inline">\(t_0,...,t_n\)</span>. This said, applying Doob’s maximal martingale inequality together with <a href="#lem-lem:norm-is-submart" class="quarto-xref">Lemma&nbsp;1</a> gives that</p>
+<div id="thm-thm:doobs-hilbert" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2 (Maximal Inequality)</strong></span> Let <span class="math inline">\(p&gt;1\)</span> and let <span class="math inline">\(E\)</span> be a separable Banach space. If <span class="math inline">\(M(t)\)</span>, is a right-continuous <span class="math inline">\(E\)</span>-valued <span class="math inline">\(\mathcal{F}_{t}\)</span>-martingale, then</p>
+<p><span class="math display">\[
+\begin{aligned}
+\left(E\left(\sup _{t \in[0, T]}\|M(t)\|^{p}\right)\right)^{\frac{1}{p}} &amp;\leq \frac{p}{p-1} \sup _{t \in[0, T]}\left(E\left(\|M(t)\|^{p}\right)\right)^{\frac{1}{p}} \\
+&amp;=\frac{p}{p-1}\left(E\left(\|M(T)\|^{p}\right)\right)^{\frac{1}{p}}
+\end{aligned}
+\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>This follows by using that <span class="math inline">\(\norm{M(t)}\)</span> is a submartingale and Doob’s maximal inequality.</p>
+</div>
+<p>Doob’s inequality is essentially an equality between different function norms we can place on the space of continuous Martingales and will provide a very powerful tool later on.</p>
+<div id="cor-1" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 1</strong></span> Let <span class="math inline">\(M\)</span> be a (left or right) continuous martingale to a separable Banach space <span class="math inline">\(E\)</span>. Then the following are equivalent</p>
+<ul>
+<li><p><span class="math inline">\(M\in \hat{L}^\infty([0,T]\to \hat{L}^2(\Omega\to E))\)</span></p></li>
+<li><p><span class="math inline">\(M\in \hat{L}^2(\Omega\to \hat{L}^\infty([0,T]\to E))\)</span></p></li>
+<li><p><span class="math inline">\(\mathbb{E}[\norm{M(T)}^2]&lt;\infty\)</span></p></li>
+</ul>
+<p>Where we recall from the previous post that <span class="math inline">\(\hat{L}^p\)</span> symbolizes that <span class="math inline">\(M\)</span> may not be separately valued and only have an integrable norm. That said, the same reasoning shows that the above result also holds for the integrable <span class="math inline">\(L^p\)</span> spaces.</p>
+</div>
+<p>A useful space of Martingales is as follows</p>
+<div id="def-2" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2</strong></span> Let <span class="math inline">\(M(t)\)</span> be a <span class="math inline">\(E\)</span> valued martingale with index set <span class="math inline">\(I=[0,T]\)</span>, then we define</p>
+<p><span class="math display">\[
+\mathcal{M}_T^2(E):=\left\{\text{continuous martingales } M:\mathbb{E}[\norm{M(T)}^2]&lt;\infty\right\}
+\]</span></p>
+<p>and give it the norm</p>
+<p><span class="math display">\[
+\norm{M}_{\mathcal{M}_T^2(E)}:=\left(\mathbb{E}[\norm{M(T)}^2]\right)^ \frac{1}{2}
+\]</span></p>
+</div>
+<p>By <a href="#thm-thm:doobs-hilbert" class="quarto-xref">Theorem&nbsp;2</a> we have that</p>
+<p><span class="math display">\[
+\mathcal{M}_T^2(E)\subset \hat{L}^\infty([0,T]\to \hat{L}^2(\Omega\to E))\cap \hat{L}^2(\Omega\to \hat{L}^\infty([0,T]\to E)).
+\]</span></p>
+<p>and that any of the norms of these spaces is equivalent to the one set on <span class="math inline">\(\mathcal{M}_T^2(E)\)</span>. This is useful in the following result</p>
+<div id="prp-1" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 1</strong></span> Let <span class="math inline">\(E\)</span> be a separable Banach space, then <span class="math inline">\(\mathcal{M}_T^2(E)\)</span> is a Banach space.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>By the previous observation and the completeness of the <span class="math inline">\(\hat{L}^p\)</span> spaces proved in the previous post, <span class="math inline">\(\mathcal{M}_T^2(E)\)</span> is a subspace of a Hilbert space. As a result, it is sufficient to show that it is closed. Let <span class="math inline">\(M_n\)</span> converge to <span class="math inline">\(M\)</span>. Then, by the equivalence of the norms we have that <span class="math inline">\(M_n(t)\to M(t)\in \hat{L}^1(\Omega\to E)\subset \hat{L}^2(\Omega\to E)\)</span> so that for all <span class="math inline">\(A\in\mathcal{F}_s\)</span></p>
+<p><span class="math display">\[
+\int_A M(s)d\mathbb{P}=\lim_{n\to\infty}\int_A M_n(s)d\mathbb{P}=\lim_{n\to\infty}\int_A M_n(t)d\mathbb{P}=\int_A M(t)d\mathbb{P}.
+\]</span></p>
+<p>This shows that <span class="math inline">\(M\)</span> is a martingale. Furthermore, as was seen in the previous post, there exists a subsequence <span class="math inline">\(M_{n_k}\)</span> such that</p>
+<p><span class="math display">\[
+\lim_{n\to\infty}{M_{n_k}}(\cdot,\omega)=M(\cdot,\omega)\in \hat{L}^\infty([0,T]\to E)\quad a.e.\quad \omega\in\Omega
+\]</span></p>
+<p>Since <span class="math inline">\(M_{n_k}(\cdot,\omega)\)</span> are continuous and continuity is preserved by uniform limits this proves that <span class="math inline">\(M\)</span> is continuous almost everywhere. This concludes the proof.</p>
+</div>
+<p>In future instalments, we will prove that a Wiener process valued in a Hilbert space <span class="math inline">\(H\)</span> belongs to this space and use it to define the stochastic integral that leads to the construction of SPDEs.</p>
+<div id="prp-2" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 2</strong></span> Let <span class="math inline">\(H\)</span> be a separable Hilbert space and <span class="math inline">\(Q\)</span> be a symmetric, non-negative, trace-class operator on <span class="math inline">\(H\)</span>. Let <span class="math inline">\(W(t)\)</span> be an <span class="math inline">\(H\)</span>-valued <span class="math inline">\(Q\)</span>-Wiener process with respect to a filtration <span class="math inline">\(\Ff_t\)</span>. Then <span class="math inline">\(W(t) \in \mathcal{M}_T^2(H)\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The process <span class="math inline">\(W(t)\)</span> is adapted by definition. Let <span class="math inline">\(0 \leq s &lt; t \leq T\)</span>. Given <span class="math inline">\(A \in \Ff_s\)</span> and <span class="math inline">\(u \in H\)</span>, the mapping <span class="math inline">\(x \mapsto \langle x, u \rangle\)</span> is a bounded linear functional. Since <span class="math inline">\(W(t) - W(s)\)</span> is independent of <span class="math inline">\(\Ff_s\)</span>, we apply the properties of the Bochner integral to obtain:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\br{ \int_A (W(t)-W(s)) d\mathbb{P}, u  }   &amp;= \int_A \langle W(t)-W(s), u \rangle d\mathbb{P} \\
+&amp;= \mathbb{E}[1_A] \mathbb{E}[\langle W(t)-W(s), u \rangle] = 0.
+\end{aligned}
+\]</span></p>
+<p>This satisfies the definition of conditional expectation, proving <span class="math inline">\(\mathbb{E}[W(t) \mid \Ff_s] = W(s)\)</span>, so <span class="math inline">\(W(t)\)</span> is a martingale. Finally, by construction <span class="math inline">\(\mathbb{E}[\|W(t)\|^2] = t \operatorname{Tr}(Q)&lt;\infty\)</span> as <span class="math inline">\(Q\)</span> is trace-class. Continuity is given by the definition of the Wiener process. This concludes the proof.</p>
+</div>
+</section>
+<section id="references" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="references"><span class="header-section-number">5</span> References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-ccinlar2011probability" class="csl-entry" role="listitem">
+Çinlar, Erhan. 2011. <em>Probability and Stochastics</em>. Springer.
+</div>
+</div>
 
 
+</section>
 
+</main> <!-- /main -->
+<hr style="margin-top: 1em; margin-bottom: 2em;">
+<h2 id="comments">Comments</h2>
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="UGRlcw==" data-listing-date-sort="1729296000000" data-listing-file-modified-sort="1772403292919" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="26" data-listing-word-count-sort="5084">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/PDEs/7. Existence Parabolic/index.html" class="no-external">PDEs 7: Parabolic PDE, well-posedness and regularity</a>
-</h3>
-<div class="listing-categories">
+<div class="giscus-comments">
+  <div style="
+      background: #f9f9f9;
+      border-left: 4px solid #008aff;
+      padding: 10px;
+      margin-bottom: 20px;
+      font-size: 0.9em;
+      color: #555;
+      border-radius: 0 4px 4px 0;
+    ">
+    <strong>Tip:</strong> Supports LaTeX using $$.
+    <a href="https://nowheredifferentiable.com/math-formatting" target="_blank" style="text-decoration: underline; color: #008aff">See formatting examples</a>.
+    <br>
+    To edit or delete, click the <strong>timestamp</strong> (e.g., "5 minutes
+    ago").
+  </div>
 
-<div class="listing-category" onclick="window.quartoListingCategory('UGRlcw=='); return false;">Pdes</div>
+  <div class="giscus" id="giscus-container"></div>
 
-</div>
-<div class="delink listing-description"><a href="./posts/PDEs/7. Existence Parabolic/index.html" class="no-external">
-<p>A journey through time and space</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/PDEs/7. Existence Parabolic/index.html" class="no-external">
-<div class="listing-date">
-Oct 19, 2024
-</div>
-<div class="listing-reading-time">26 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="UGRlcw==" data-listing-date-sort="1709078400000" data-listing-file-modified-sort="1772403292900" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="38" data-listing-word-count-sort="7508">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/PDEs/6. Existence elliptic/index.html" class="no-external">PDEs 6: Elliptic PDE</a>
-</h3>
-<div class="listing-categories">
+  <script src="https://giscus.app/client.js" data-repo="LiamLlamazares/math_blog" data-repo-id="R_kgDOHZYcTQ" data-category="Comments" data-category-id="DIC_kwDOHZYcTc4Cx-sY" data-mapping="pathname" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="bottom" data-theme="light" data-lang="en" crossorigin="anonymous" async=""></script>
 
-<div class="listing-category" onclick="window.quartoListingCategory('UGRlcw=='); return false;">Pdes</div>
+  <script>
+    (function () {
+      function handleDeepLink() {
+        const hash = window.location.hash;
+        if (!hash || !hash.includes("discussioncomment")) return;
 
-</div>
-<div class="delink listing-description"><a href="./posts/PDEs/6. Existence elliptic/index.html" class="no-external">
-<p>From rough beginnings to smooth endings</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/PDEs/6. Existence elliptic/index.html" class="no-external">
-<div class="listing-date">
-Feb 28, 2024
-</div>
-<div class="listing-reading-time">38 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="UGRlcw==" data-listing-date-sort="1708992000000" data-listing-file-modified-sort="1772403292867" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="30" data-listing-word-count-sort="5818">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/PDEs/5. Fractional and negative order Sobolev spaces/index.html" class="no-external">PDEs 5: Fractional Sobolev spaces</a>
-</h3>
-<div class="listing-categories">
+        const container = document.getElementById("giscus-container");
+        if (container) {
+          container.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
 
-<div class="listing-category" onclick="window.quartoListingCategory('UGRlcw=='); return false;">Pdes</div>
+        const iframe = document.querySelector("iframe.giscus-frame");
+        if (iframe) {
+          try {
+            const url = new URL(iframe.src);
+            if (url.hash !== hash) {
+              url.hash = hash;
+              iframe.src = url.toString();
+            }
+          } catch (e) {
+            console.error(e);
+          }
+        }
+      }
 
+      window.addEventListener("load", handleDeepLink);
+      window.addEventListener("hashchange", handleDeepLink);
+      window.addEventListener("message", function (event) {
+        if (
+          event.origin === "https://giscus.app" &&
+          event.data &&
+          event.data.giscus &&
+          event.data.giscus.resizeHeight
+        ) {
+          setTimeout(handleDeepLink, 500);
+        }
+      });
+    })();
+  </script>
 </div>
-<div class="delink listing-description"><a href="./posts/PDEs/5. Fractional and negative order Sobolev spaces/index.html" class="no-external">
-<p>Filling in the gaps</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/PDEs/5. Fractional and negative order Sobolev spaces/index.html" class="no-external">
-<div class="listing-date">
-Feb 27, 2024
-</div>
-<div class="listing-reading-time">30 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="UGRlcw==" data-listing-date-sort="1703289600000" data-listing-file-modified-sort="1772403292842" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2203">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/PDEs/4. Physical derivation/index.html" class="no-external">PDES 4: A physical derivation of parabolic and elliptic PDE</a>
-</h3>
-<div class="listing-categories">
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const meta = document.querySelector('.quarto-title-meta');
+  if (!meta) return;
 
-<div class="listing-category" onclick="window.quartoListingCategory('UGRlcw=='); return false;">Pdes</div>
+  // Find the hidden data div injected by latex2qmd.py
+  const pdfDataElement = document.getElementById('quarto-post-pdf-url');
+  if (!pdfDataElement) return;
 
-</div>
-<div class="delink listing-description"><a href="./posts/PDEs/4. Physical derivation/index.html" class="no-external">
-<p>Just have to balance the mass</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/PDEs/4. Physical derivation/index.html" class="no-external">
-<div class="listing-date">
-Dec 23, 2023
-</div>
-<div class="listing-reading-time">12 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="UGRlcw==" data-listing-date-sort="1689120000000" data-listing-file-modified-sort="1772403292832" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="67" data-listing-word-count-sort="13280">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/PDEs/3. Sobolev spaces/index.html" class="no-external">PDEs 3: Sobolev spaces</a>
-</h3>
-<div class="listing-categories">
+  const pdfUrl = pdfDataElement.getAttribute('data-url');
 
-<div class="listing-category" onclick="window.quartoListingCategory('UGRlcw=='); return false;">Pdes</div>
+  if (pdfUrl && meta) {
+    // Check if we already injected it
+    if (document.querySelector('.quarto-title-meta-pdf')) return;
 
-</div>
-<div class="delink listing-description"><a href="./posts/PDEs/3. Sobolev spaces/index.html" class="no-external">
-<p>Density, trace and embeddings</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/PDEs/3. Sobolev spaces/index.html" class="no-external">
-<div class="listing-date">
-Jul 12, 2023
-</div>
-<div class="listing-reading-time">67 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="UGRlcw==" data-listing-date-sort="1685404800000" data-listing-file-modified-sort="1772403292695" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="21" data-listing-word-count-sort="4127">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/PDEs/2. What is a Hilbert space/index.html" class="no-external">PDEs 2: What is a Hilbert space?</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UGRlcw=='); return false;">Pdes</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/PDEs/2. What is a Hilbert space/index.html" class="no-external">
-<p>An appendix for a series on PDEs</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/PDEs/2. What is a Hilbert space/index.html" class="no-external">
-<div class="listing-date">
-May 30, 2023
-</div>
-<div class="listing-reading-time">21 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="TWFsbGlhdmluJTIwQ2FsY3VsdXM=" data-listing-date-sort="1666569600000" data-listing-file-modified-sort="1772403292636" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1196">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Malliavin Calculus/5. Study of densities 1/index.html" class="no-external">Study of densities part 1</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWFsbGlhdmluJTIwQ2FsY3VsdXM='); return false;">Malliavin Calculus</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/Malliavin Calculus/5. Study of densities 1/index.html" class="no-external">
-<p>Part 5 of the series on Malliavin calculus</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/Malliavin Calculus/5. Study of densities 1/index.html" class="no-external">
-<div class="listing-date">
-Oct 24, 2022
-</div>
-<div class="listing-reading-time">6 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="7" data-categories="UGRlcw==" data-listing-date-sort="1665705600000" data-listing-file-modified-sort="1772403292673" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="20" data-listing-word-count-sort="3997">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.html" class="no-external">PDEs 1: The Fourier transform, tempered distributions and Sobolev spaces</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UGRlcw=='); return false;">Pdes</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.html" class="no-external">
-<p>The holy trinity</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.html" class="no-external">
-<div class="listing-date">
-Oct 14, 2022
-</div>
-<div class="listing-reading-time">20 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="8" data-categories="TWFsbGlhdmluJTIwQ2FsY3VsdXM=" data-listing-date-sort="1656720000000" data-listing-file-modified-sort="1772403292629" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1648">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Malliavin Calculus/4.Malliavin_derivative_2/index.html" class="no-external">MC 4: The Malliavin derivative, part 2</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWFsbGlhdmluJTIwQ2FsY3VsdXM='); return false;">Malliavin Calculus</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/Malliavin Calculus/4.Malliavin_derivative_2/index.html" class="no-external">
-<p>Part 4 of the series on Malliavin calculus</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/Malliavin Calculus/4.Malliavin_derivative_2/index.html" class="no-external">
-<div class="listing-date">
-Jul 2, 2022
-</div>
-<div class="listing-reading-time">9 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="9" data-categories="TWFsbGlhdmluJTIwQ2FsY3VsdXM=" data-listing-date-sort="1656547200000" data-listing-file-modified-sort="1772403292622" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1692">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Malliavin Calculus/3.Malliavin_derivative_1/index.html" class="no-external">MC 3: The Malliavin Derivative 1</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWFsbGlhdmluJTIwQ2FsY3VsdXM='); return false;">Malliavin Calculus</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/Malliavin Calculus/3.Malliavin_derivative_1/index.html" class="no-external">
-<p>Part 3 of the series on Malliavin calculus</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/Malliavin Calculus/3.Malliavin_derivative_1/index.html" class="no-external">
-<div class="listing-date">
-Jun 30, 2022
-</div>
-<div class="listing-reading-time">9 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="10" data-categories="TWFsbGlhdmluJTIwY2FsY3VsdXM=" data-listing-date-sort="1653696000000" data-listing-file-modified-sort="1772403292613" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="908">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Malliavin Calculus/2.Skorohod/index.html" class="no-external">MC 2: The Skorokhod Integral</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWFsbGlhdmluJTIwY2FsY3VsdXM='); return false;">Malliavin calculus</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/Malliavin Calculus/2.Skorohod/index.html" class="no-external">
-<p>How does one generalize the Itô integral?</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/Malliavin Calculus/2.Skorohod/index.html" class="no-external">
-<div class="listing-date">
-May 28, 2022
-</div>
-<div class="listing-reading-time">5 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="11" data-categories="QW5hbHlzaXMlMjBPbiUyMEJhbmFjaCUyMFNwYWNlcw==" data-listing-date-sort="1653609600000" data-listing-file-modified-sort="1772403292602" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17" data-listing-word-count-sort="3310">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Analysis on Banach spaces/Bochner_integral/index.html" class="no-external">The Bochner Integral</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('QW5hbHlzaXMlMjBPbiUyMEJhbmFjaCUyMFNwYWNlcw=='); return false;">Analysis On Banach Spaces</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/Analysis on Banach spaces/Bochner_integral/index.html" class="no-external">
-<p>Wait a second, how many integrals are there?</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/Analysis on Banach spaces/Bochner_integral/index.html" class="no-external">
-<div class="listing-date">
-May 27, 2022
-</div>
-<div class="listing-reading-time">17 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="12" data-categories="TWFsbGlhdmluJTIwY2FsY3VsdXM=" data-listing-date-sort="1653264000000" data-listing-file-modified-sort="1772403292608" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="796">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Malliavin Calculus/1.Chaos_expansion/index.html" class="no-external">MC 1: The chaos expansion</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWFsbGlhdmluJTIwY2FsY3VsdXM='); return false;">Malliavin calculus</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/Malliavin Calculus/1.Chaos_expansion/index.html" class="no-external">
-<p>Iterated Itô integrals and their consequences</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/Malliavin Calculus/1.Chaos_expansion/index.html" class="no-external">
-<div class="listing-date">
-May 23, 2022
-</div>
-<div class="listing-reading-time">4 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="13" data-categories="TWFsbGlhdmluJTIwQ2FsY3VsdXM=" data-listing-date-sort="NaN" data-listing-file-modified-sort="1772403292643" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1056">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Malliavin Calculus/6. Study of densities 2/index.html" class="no-external">MC 6: Study of densities part 2</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWFsbGlhdmluJTIwQ2FsY3VsdXM='); return false;">Malliavin Calculus</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/Malliavin Calculus/6. Study of densities 2/index.html" class="no-external">
-<p>Part 6 of the series on Malliavin calculus</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/Malliavin Calculus/6. Study of densities 2/index.html" class="no-external">
-<div class="listing-date">
-Invalid Date
-</div>
-<div class="listing-reading-time">6 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="14" data-categories="TWFsbGlhdmluJTIwQ2FsY3VsdXM=" data-listing-date-sort="NaN" data-listing-file-modified-sort="1772403292649" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="830">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Malliavin Calculus/7. The Ornstein-Uhlenbeck Semigroup/index.html" class="no-external">MC 7: The Ornstein-Uhlenbeck Semigroup</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWFsbGlhdmluJTIwQ2FsY3VsdXM='); return false;">Malliavin Calculus</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/Malliavin Calculus/7. The Ornstein-Uhlenbeck Semigroup/index.html" class="no-external">
-<p>Part 7 of the series on Malliavin calculus</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/Malliavin Calculus/7. The Ornstein-Uhlenbeck Semigroup/index.html" class="no-external">
-<div class="listing-date">
-Invalid Date
-</div>
-<div class="listing-reading-time">5 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="15" data-categories="U3RvY2hhc3RpYyUyMENhbGN1bHVz" data-listing-date-sort="1653264000000" data-listing-file-modified-sort="1772403292932" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1123">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Stochastic Calculus/Martingales/index.html" class="no-external">Martingales in Banach spaces</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3RvY2hhc3RpYyUyMENhbGN1bHVz'); return false;">Stochastic Calculus</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/Stochastic Calculus/Martingales/index.html" class="no-external">
-<p>Doob’s Martingale inequality is cool</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/Stochastic Calculus/Martingales/index.html" class="no-external">
-<div class="listing-date">
-May 23, 2022
-</div>
-<div class="listing-reading-time">6 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="16" data-categories="U3RvY2hhc3RpYyUyMENhbGN1bHVzJTJDSXRvJTIwSW50ZWdyYWw=" data-listing-date-sort="1653177600000" data-listing-file-modified-sort="1772403292926" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1312">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Stochastic Calculus/Ito_integral/index.html" class="no-external">The Itô integral</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3RvY2hhc3RpYyUyMENhbGN1bHVz'); return false;">Stochastic Calculus</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('SXRvJTIwSW50ZWdyYWw='); return false;">Ito Integral</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/Stochastic Calculus/Ito_integral/index.html" class="no-external">
-<p>Can you really construct this thing?</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/Stochastic Calculus/Ito_integral/index.html" class="no-external">
-<div class="listing-date">
-May 22, 2022
-</div>
-<div class="listing-reading-time">7 min</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+    const pdfDiv = window.document.createElement('div');
+    pdfDiv.className = 'quarto-title-meta-pdf';
+    pdfDiv.innerHTML = `
+      <div class="quarto-title-meta-heading">PDF Version</div>
+      <div class="quarto-title-meta-contents">
+        <p><a href="${pdfUrl}" target="_blank">
+          <i class="bi bi-file-earmark-pdf"></i> PDF version
+        </a></p>
+      </div>
+    `;
+    meta.appendChild(pdfDiv);
+  }
+});
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

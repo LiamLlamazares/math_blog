@@ -1,0 +1,98 @@
+/*-- scss:defaults --*/
+$primary: #1E3A8A; 
+$body-bg: #FCFCFC; 
+$body-color: #333333; 
+
+// LaTeX-style colors
+// $royal-blue: #4169E1;
+$royal-blue: #0000f9;
+$forest-green: #228B22;
+$navy-blue: #00baee;
+
+// Typography
+$font-family-base: "Merriweather", "Georgia", "Times New Roman", serif !default;
+$headings-font-family: "Inter", "Helvetica Neue", Arial, sans-serif !default;
+$headings-font-weight: 600 !default;
+
+/*-- scss:rules --*/
+
+// Base readability tweaks
+body {
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.01em;
+}
+
+// Scoped LaTeX link logic - only appies to the main article text
+// We exclude dashboard and nav elements to respect their specific styling
+#quarto-document-content {
+    // Internal links (Theorem/Eq/Section refs)
+    a.quarto-xref, .sidebar-toc a, .toc-active {
+        color: $royal-blue !important;
+    }
+
+    // Citations
+    .citation, a[href*="#ref-"], a.footnote-back {
+        color: $forest-green !important;
+    }
+
+    // External URLs / Ordinary links within the post
+    // We strictly target links that are NOT part of the dashboard UI or navbar
+    a:not(.quarto-xref):not(.citation):not(.nav-link):not(.navbar-brand):not(.featured-link) {
+        &:not(.dashboard-container a) {
+            color: $navy-blue;
+        }
+    }
+}
+
+// Ensure navbar links are white
+.navbar .nav-link, 
+.navbar .navbar-brand {
+    color: #ffffff !important;
+}
+
+// Spacious layout
+#quarto-document-content, .quarto-title-block .quarto-title {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// Navbar styling: Refined Navy blue (slightly lighter)
+.navbar {
+    background-color: #757679 !important; 
+}
+
+// Sidebar styling
+#quarto-margin-sidebar {
+    border-left: 1px solid #E2E8F0;
+    padding-left: 1.5rem;
+}
+
+.sidebar-toc a {
+    color: #64748B;
+    transition: color 0.2s ease;
+}
+
+.sidebar-toc a:hover, .sidebar-toc a.active {
+    color: #1E3A8A;
+    font-weight: 600;
+}
+
+// Math equations padding
+.math.display {
+    padding: 1.5rem 0;
+    overflow-x: auto;
+}
+
+// Callout redesign
+.callout {
+    border: 1px solid #E2E8F0 !important;
+    background-color: #FFFFFF !important;
+    border-left-width: 4px !important;
+    border-left-color: #1E3A8A !important;
+    border-radius: 4px;
+}
+
+a:hover {
+    text-decoration: underline;
+}

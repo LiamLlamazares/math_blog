@@ -1,0 +1,2131 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Liam Llamazares–Elias">
+<meta name="dcterms.date" content="2024-02-27">
+<meta name="description" content="Filling in the gaps">
+
+<title>PDEs 5: Fractional Sobolev spaces – NoWhere Differentiable Math</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-2cab38f689c5f066e21a94e3c73297ae.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-428acbe8fe795edd664e6bfe67298593.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-2cab38f689c5f066e21a94e3c73297ae.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+<script type="text/javascript">
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-230263372-2', 'auto');
+
+ga('send', {
+  hitType: 'pageview',
+  'anonymizeIp': true,
+});
+</script>
+<script>
+window.MathJax = {
+  tex: {
+    tags: "ams",
+    macros: {
+      A: "\\mathbb{A}",
+      Aa: "\\mathcal{A}",
+      Bb: "\\mathcal{B}",
+      C: "\\mathbb{C}",
+      Cc: "\\mathcal{C}",
+      Dd: "\\mathcal{D}",
+      E: "\\mathbb{E}",
+      Ee: "\\mathcal{E}",
+      F: "\\mathbb{F}",
+      Ff: "\\mathcal{F}",
+      Gg: "\\mathcal{G}",
+      Hh: "\\mathcal{H}",
+      II: "\\mathbb{I}",
+      Id: "\\bm{I}",
+      Ii: "\\mathcal{I}",
+      Im: "\\bm{Im}",
+      Jj: "\\mathcal{J}",
+      K: "\\mathbb{K}",
+      KL: ["\\rm{KL}\\left(#1 \\| #2\\right)", 2],
+      Kk: "\\mathcal{K}",
+      LL: "\\mathbb{L}",
+      Ll: "\\mathcal{L}",
+      M: "\\mathbb{M}",
+      Mm: "\\mathcal{M}",
+      N: "\\mathbb{N}",
+      Nn: "\\mathcal{N}",
+      Oo: "\\mathcal{O}",
+      PP: "\\mathbb{P}",
+      Pp: "\\mathcal{P}",
+      Q: "\\mathbb{Q}",
+      Qq: "\\mathcal{Q}",
+      R: "\\mathbb{R}",
+      Rr: "\\mathcal{R}",
+      Ss: "\\mathcal{S}",
+      T: "\\mathbb{T}",
+      Th: "{\\bm{\\theta}}",
+      Thh: "{\\bm{\\Theta}}",
+      Tt: "\\mathcal{T}",
+      Uu: "\\mathcal{U}",
+      Vv: "\\mathcal{V}",
+      W: "\\mathbb{W}",
+      Ww: "\\mathcal{W}",
+      X: "\\mathbb{X}",
+      Xx: "\\mathcal{X}",
+      Yy: "\\mathcal{Y}",
+      Z: "\\mathbb{Z}",
+      Zz: "\\mathcal{Z}",
+      abs: ["{\\left| #1 \\right|}", 1],
+      alf: "{\\alpha}",
+      b: ["{\\bm{#1}}", 1],
+      bm: ["\\boldsymbol{#1}", 1],
+      br: ["\\left\\langle#1\\right\\rangle", 1],
+      bt: "\\beta",
+      co: ["\\overset{\\circ}{#1}", 1],
+      d: "\\mathrm{d}",
+      diag: ["\\operatorname{diag}\\left(#1\\right)", 1],
+      dx: "\\,\\mathrm{d}x",
+      dy: "\\,\\mathrm{d}y",
+      eps: "\\varepsilon",
+      et: "{\\bm{\\eta}}",
+      ex: ["\\mathrm{exp}\\left(#1\\right)", 1],
+      fk: ["\\mathfrak{#1}", 1],
+      fracc: ["{#1}/{#2}", 2],
+      frc: ["\\left(#2)^{-1}(#1\\right)", 2],
+      iso: "\\xrightarrow{\\sim}",
+      ker: "\\rm{ker}",
+      mat: ["\\begin{bmatrix}{#1}\\end{bmatrix}", 1],
+      mathbbm: ["\\mathbb{#1}", 1],
+      mathds: ["\\mathbb{#1}", 1],
+      norm: ["\\left\\lVert #1 \\right\\rVert", 1],
+      om: "\\omega",
+      postref: ["\\href{https://nowheredifferentiable.com/posts/#1/}{#3}", 3],
+      proj: "\\mathrm{proj}",
+      qb: ["\\left[#1\\right]", 1],
+      qp: ["\\left(#1\\right)", 1],
+      qt: ["\\left(#1\\right)", 1],
+      red: ["{\\color{red}#1}", 1],
+      restr: ["\\left.#1\\right|{#2}", 2],
+      rm: ["\\mathrm{#1}", 1],
+      set: ["\\left\\{#1\\right\\}", 1],
+      star: "*",
+      supp: "\\operatorname{supp}",
+      tl: ["\\widetilde{#1}", 1],
+      tll: ["\\widetilde{#1}", 1],
+      vol: "\\mathrm{vol}",
+      wh: ["\\widehat{#1}", 1],
+      x: "\\bm{x}",
+      xxi: "{\\bm{\\xi}}",
+      y: "\\bm{y}"
+    }
+  }
+};
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../custom_theorems.css">
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../assets/img/tree.jpg" alt="" class="navbar-logo light-content">
+    <img src="../../../assets/img/tree.jpg" alt="" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">NoWhere Differentiable Math</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html"> 
+<span class="menu-text">HOME PAGE</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../aboutme.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../tags.html"> 
+<span class="menu-text">Posts by Tag</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-resources">    
+        <li>
+    <a class="dropdown-item" href="https://terrytao.wordpress.com/">
+ <span class="dropdown-text">Terence Tao’s blog</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://lukasz.ls314.com/">
+ <span class="dropdown-text">Lukasz Sliwinski’s blog</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="http://eepurl.com/itcRso"> 
+<span class="menu-text">Subscribe</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/LiamLlamazares"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary"><span class="header-section-number">1</span> Summary</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">2</span> Introduction</a>
+  <ul class="collapse">
+  <li><a href="#preliminaries" id="toc-preliminaries" class="nav-link" data-scroll-target="#preliminaries"><span class="header-section-number">2.1</span> Preliminaries</a></li>
+  </ul></li>
+  <li><a href="#fractional-sobolev-spaces-three-definitions" id="toc-fractional-sobolev-spaces-three-definitions" class="nav-link" data-scroll-target="#fractional-sobolev-spaces-three-definitions"><span class="header-section-number">3</span> Fractional Sobolev spaces: three definitions</a>
+  <ul class="collapse">
+  <li><a href="#sobolev-slobodeckij-spaces" id="toc-sobolev-slobodeckij-spaces" class="nav-link" data-scroll-target="#sobolev-slobodeckij-spaces"><span class="header-section-number">3.1</span> Sobolev-Slobodeckij spaces</a></li>
+  <li><a href="#bessel-potential-spaces" id="toc-bessel-potential-spaces" class="nav-link" data-scroll-target="#bessel-potential-spaces"><span class="header-section-number">3.2</span> Bessel potential spaces</a></li>
+  <li><a href="#besov-spaces" id="toc-besov-spaces" class="nav-link" data-scroll-target="#besov-spaces"><span class="header-section-number">3.3</span> Besov spaces</a></li>
+  <li><a href="#extension-domains" id="toc-extension-domains" class="nav-link" data-scroll-target="#extension-domains"><span class="header-section-number">3.4</span> Extension domains</a></li>
+  <li><a href="#interpolation" id="toc-interpolation" class="nav-link" data-scroll-target="#interpolation"><span class="header-section-number">3.5</span> Interpolation</a></li>
+  </ul></li>
+  <li><a href="#relationship-between-the-definitions" id="toc-relationship-between-the-definitions" class="nav-link" data-scroll-target="#relationship-between-the-definitions"><span class="header-section-number">4</span> Relationship between the definitions</a></li>
+  <li><a href="#sec-dual-sec" id="toc-sec-dual-sec" class="nav-link" data-scroll-target="#sec-dual-sec"><span class="header-section-number">5</span> Dual of Sobolev spaces and correspondence with negative regularity</a>
+  <ul class="collapse">
+  <li><a href="#the-dual-of-hsp" id="toc-the-dual-of-hsp" class="nav-link" data-scroll-target="#the-dual-of-hsp"><span class="header-section-number">5.1</span> The dual of $H^{s,p</a></li>
+  <li><a href="#the-dual-of-hsp-1" id="toc-the-dual-of-hsp-1" class="nav-link" data-scroll-target="#the-dual-of-hsp-1"><span class="header-section-number">5.2</span> The dual of $H^{s,p</a></li>
+  </ul></li>
+  <li><a href="#representation-theorems" id="toc-representation-theorems" class="nav-link" data-scroll-target="#representation-theorems"><span class="header-section-number">6</span> Representation theorems</a></li>
+  <li><a href="#some-applications-trace-embeddings-and-regularity" id="toc-some-applications-trace-embeddings-and-regularity" class="nav-link" data-scroll-target="#some-applications-trace-embeddings-and-regularity"><span class="header-section-number">7</span> Some applications: Trace, embeddings and regularity</a>
+  <ul class="collapse">
+  <li><a href="#trace-operator" id="toc-trace-operator" class="nav-link" data-scroll-target="#trace-operator"><span class="header-section-number">7.1</span> Trace operator</a></li>
+  <li><a href="#fractional-sobolev-embeddings" id="toc-fractional-sobolev-embeddings" class="nav-link" data-scroll-target="#fractional-sobolev-embeddings"><span class="header-section-number">7.2</span> Fractional Sobolev embeddings</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">8</span> References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">PDEs 5: Fractional Sobolev spaces</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Pdes</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Filling in the gaps
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Liam Llamazares–Elias </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 27, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div id="quarto-post-pdf-url" data-url="fractional_sobolev_spaces.pdf" style="display:none;">
+
+</div>
+<section id="summary" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="summary"><span class="header-section-number">1</span> Summary</h2>
+<ol type="1">
+<li><p>There are three ways to define Sobolev spaces with fractional regularity <span class="math inline">\(s\)</span> and integrability <span class="math inline">\(p\)</span>: \begin{enumerate}</p></li>
+<li><p>The spaces <span class="math inline">\(W^{s,p}(\Omega ), B^{s,p}(\Omega )\)</span> are defined by using the analogous to the definition of H"older spaces. Both spaces are equal when <span class="math inline">\(s\)</span> is not an integer.</p></li>
+<li><p>The space <span class="math inline">\(H^{s,p}(\Omega )\)</span> is defined by using the Fourier transform and coincides with <span class="math inline">\(W^{s,p}(\Omega )\)</span> for integer <span class="math inline">\(s\)</span>.</p></li>
+<li><p>All these spaces coincide with <span class="math inline">\(H^s(\Omega )\)</span> when <span class="math inline">\(p=2\)</span>.</p></li>
+</ol>
+There is a natural correspondence between negative regularity and the dual. Additionally, negative regularity can be obtained by differentiating functions with higher regularity.
+<p>Fractional sobolev spaces appear naturally in the study of PDEs. For example, the trace of Sobolev functions <span class="math inline">\(W^{s,p}(\Omega)\)</span> is equal to the fractional space <span class="math inline">\(B^{s-1/p,p}(\partial \Omega)\)</span>. And finer embeddings and regularity results can be obtained by using these spaces. \end{enumerate}</p>
+</section>
+<section id="introduction" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="introduction"><span class="header-section-number">2</span> Introduction</h2>
+<p>In previous posts, we covered the theory of <a href="../../../posts/PDEs/3. Sobolev spaces/index.html">Sobolev spaces</a> <span class="math inline">\(W^{k,p}(\Omega )\)</span> where <span class="math inline">\(k\)</span> is an integer. In the case <span class="math inline">\(k=2\)</span> and when <span class="math inline">\(\Omega =\R^d\)</span> we saw that this space coincided with <span class="math inline">\(H^k(\R^d)\)</span>. Furthermore, <a href="../../../posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.html#eq-fracsobdef">we also saw</a> how to define <span class="math inline">\(H^s(\R^d)\)</span> when <span class="math inline">\(s\)</span> was any real number. This motivates the following two questions.</p>
+<ol type="1">
+<li><p>How can we define <span class="math inline">\(H^s(\Omega )\)</span> when <span class="math inline">\(\Omega\)</span> is not <span class="math inline">\(\R^d\)</span> and <span class="math inline">\(s\)</span> is not an integer ?</p></li>
+<li><p>Is it possible to extend such a definition to other orders of integrability <span class="math inline">\(p\)</span>?</p></li>
+</ol>
+<p>In this post, we aim to answer these questions. We will see that both of these questions can be answered in the affirmative. If the domain <span class="math inline">\(\Omega\)</span> is smooth enough, the first point can be resolved by restricting functions in <span class="math inline">\(H^s(\R^d)\)</span> to <span class="math inline">\(\Omega\)</span>. The second point is trickier and, in fact, like any good trick question, has multiple answers. Three, to be precise. This leads to the theory of <em>Bessel</em> spaces, <em>Sobolev-Slobodeckij</em> spaces and <em>Besov</em> spaces</p>
+<p><span class="math display">\[
+\begin{aligned}
+H^{s,p}(\Omega ),W^{s,p}(\Omega ),B^{s,p}(\Omega ).
+\end{aligned}
+\]</span></p>
+<p>We will cover the basic properties of these spaces as well as their relationship to each other with a special focus on <span class="math inline">\(W^{s,p}(\Omega )\)</span> which is the most widely used. We will see how these spaces can be used to obtain finer regularity results, such as in the trace theorem or Sobolev embeddings. The material in this post is mostly based on <span class="citation" data-cites="leoni2023first">(<a href="#ref-leoni2023first" role="doc-biblioref">Leoni 2023</a>)</span>, <span class="citation" data-cites="agranovich2015sobolev">(<a href="#ref-agranovich2015sobolev" role="doc-biblioref">Agranovich 2015</a>)</span>, <span class="citation" data-cites="di2012hitchhikers">(<a href="#ref-di2012hitchhikers" role="doc-biblioref">Di Nezza, Palatucci, and Valdinoci 2012</a>)</span>, <span class="citation" data-cites="triebel1992theory">(<a href="#ref-triebel1992theory" role="doc-biblioref">Triebel 1992</a>)</span>. The material can be quite technical, and there are multiple <span class="math inline">\(800\)</span> plus page books on the subject, so in many cases, we will state the main results, providing references for the proofs, as well as proving some of the more tractable results.</p>
+<section id="preliminaries" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="preliminaries"><span class="header-section-number">2.1</span> Preliminaries</h3>
+<p>In terms of notation, we will always denote <span class="math inline">\(U\)</span> by an arbitrary open subset of <span class="math inline">\(\R^d\)</span> whereas <span class="math inline">\(\Omega \subset \R^d\)</span> will be open with a smooth enough boundary (in a sense to be made precise later).</p>
+<p>We make frequent use of the fact that, as <a href="../../../posts/PDEs/3. Sobolev spaces/index.html">shown</a> in a previous post, functions in <span class="math inline">\(L^p(U)\)</span> can be identified as elements of the larger space of <em>distributions</em> <span class="math inline">\(\Dd '(U ):= C_c^\infty(U)'\)</span>. This is done by identifying a function <span class="math inline">\(f \in L^p(U)\)</span> with the linear functional</p>
+<p><span class="math display">\[
+\begin{aligned}
+T_f:\phi \mapsto \int_U f\phi \d x.
+\end{aligned}
+\]</span></p>
+<p>This identification between <span class="math inline">\(f\)</span> and <span class="math inline">\(T_f\)</span> allows us to extend by <a href="../../../posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.html#sec-distrsec">duality</a> operators that are defined on <span class="math inline">\(C_c^\infty(U)\)</span> to <span class="math inline">\(L^p(U)\)</span>. For example, given <span class="math inline">\(u \in L^p(U) \in \Dd'(\Omega )\)</span> we can define its Fourier transform <span class="math inline">\(\Ff u\)</span> and <span class="math inline">\(\alpha\)</span>-th derivative <span class="math inline">\(D^\alpha u\)</span> to be the distributions defined by</p>
+<p><span class="math display">\[
+\begin{aligned}
+(\varphi ,\Ff u):=(\Ff^{-1}\varphi ,u),\quad (\varphi ,D^\alpha u):=(-1)^{\abs{\alpha}}(D^\alpha \varphi ,u), \quad \forall \varphi \in C_c^\infty(U).
+\end{aligned}
+\]</span></p>
+<p>The above definition is justified by the fact that if it turns out that <span class="math inline">\(u\)</span> is smooth and integrable enough after all, this coincides with the usual definitions of <span class="math inline">\(\Ff, D^\alpha\)</span>.</p>
+</section>
+</section>
+<section id="fractional-sobolev-spaces-three-definitions" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="fractional-sobolev-spaces-three-definitions"><span class="header-section-number">3</span> Fractional Sobolev spaces: three definitions</h2>
+<p>The definitions developed in the next three subsections can be found in <span class="citation" data-cites="agranovich2015sobolev">(<a href="#ref-agranovich2015sobolev" role="doc-biblioref">Agranovich 2015</a>)</span> page 222.</p>
+<section id="sobolev-slobodeckij-spaces" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="sobolev-slobodeckij-spaces"><span class="header-section-number">3.1</span> Sobolev-Slobodeckij spaces</h3>
+<div id="def-soledkij-def" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1 (Sobolev-Slobodeckij spaces)</strong></span> Let <span class="math inline">\(s=k+\gamma\)</span> where <span class="math inline">\(k \in \N_0\)</span>, and <span class="math inline">\(\gamma \in [0,1)\)</span>. Then, given <span class="math inline">\(p \in [1,\infty)\)</span> and an arbitrary open <span class="math inline">\(U \subset \R^d\)</span> we define</p>
+<p><span class="math display">\[
+\begin{aligned}
+W^{s ,p}(U):= \set{u \in W^{k ,p}(U): \norm{u}_{W^{s,p}(U)}&lt;\infty},
+\end{aligned}
+\]</span></p>
+<p>where</p>
+<p><span id="eq-norm-def"><span class="math display">\[
+\begin{aligned}
+\norm{u}_{W^{s,p}(U)}:= \left(\norm{u}_{W^{k,p}(U)}^p+ \sum_{\abs{\alpha}=k }\int_{U}\int_{U}\frac{\abs{D^\alpha u(x)-D^\alpha u(y)}^p}{\abs{x-y}^{d+\gamma p}}\d x \d y\right)^\frac{1}{p}.
+\end{aligned}
+\tag{1}\]</span></span></p>
+<p>For <span class="math inline">\(p = \infty\)</span>, we define <span class="math inline">\(W^{s,\infty}(U):= C^{k,\gamma}(U)\)</span>. The norm is then given by</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{u}_{W^{s,\infty}(U)}= \norm{u}_{C^{k}(U)}+ \sum_{\abs{\alpha} =k}  \sup _{x, y \in U, x \neq y} \frac{|D^\alpha u(x)- D^\alpha u(y)|}{|x-y|^\gamma }.
+\end{aligned}
+\]</span></p>
+</div>
+<div id="rem-1" class="proof remark">
+<p><span class="proof-title"><em>Remark 1</em>. </span>In the case where <span class="math inline">\(U= \R^d\)</span>, by a change of variables, we can equivalently define<br>
+<span id="eq-norm-def"><span class="math display">\[
+\begin{aligned}
+\norm{u}_{W^{s,p}(\R^d)}:= \left(\norm{u}_{W^{k,p}(\R^d)}^p+ \sum_{\abs{\alpha}=k }\int_{\R^d}\int_{\R^d}\frac{\abs{D^\alpha u(x+y)-D^\alpha u(y)}^p}{\abs{x}^{d+\gamma p}}\d x \d y\right)^\frac{1}{p}.
+\end{aligned}
+\tag{2}\]</span></span></p>
+<p>If <span class="math inline">\(U \neq \R^d\)</span> this is not possible as <span class="math inline">\(x+y\)</span> may leave the domain where <span class="math inline">\(u\)</span> is defined.</p>
+</div>
+<p>We will later define <span class="math inline">\(W^{s,p}(U)\)</span> also for negative <span class="math inline">\(s\)</span> (see Definition <a href="#def-negative-s-slobodeckij" class="quarto-xref">Definition&nbsp;8</a>). We observe that the above definition coincides with our usual definition of Sobolev space when <span class="math inline">\(s=k \in \N_0\)</span> and mimics that of the H"older spaces, coinciding exactly when <span class="math inline">\(p=\infty\)</span>.</p>
+<div id="exr-1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1</strong></span> Show that <span class="math inline">\(W^{s,p}(U)\)</span> is a Banach space.</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>To show that <span class="math inline">\(|| \cdot ||_{W^{s,p}(U)}\)</span> is a norm apply Minkowski’s inequality to <span class="math inline">\(u\)</span> and to</p>
+<p><span class="math display">\[
+\begin{aligned}
+f_u(x,y):=\frac{D^\alpha u(x)-D^\alpha u(y)}{\abs{x-y}^{\frac{d}{p}+\gamma}}.
+\end{aligned}
+\]</span></p>
+<p>Given a Cauchy sequence show that, since <span class="math inline">\(L^p(U)\)</span> is complete, <span class="math inline">\(u_n \to u\)</span> in <span class="math inline">\(L^p(U)\)</span> and that <span class="math inline">\(f_{u_n} \to f_u\)</span> in <span class="math inline">\(L^p(U\times U)\)</span> to conclude that <span class="math inline">\(u_n \to u\)</span> in <span class="math inline">\(W^{s,p}(U)\)</span>.</p>
+</div>
+</div>
+</div>
+<p>Though the Sobolev-Slobodeckij spaces can be defined for any open set <span class="math inline">\(U\)</span>, they are most useful when <span class="math inline">\(U=\R^d\)</span> or <span class="math inline">\(U\)</span> is regular enough. Otherwise, basic properties such as the following break down</p>
+<div id="prp-inclusion-ordered-by-regularity" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 1 (Inclusion ordered by regularity)</strong></span> Let <span class="math inline">\(\Omega\)</span> be an <a href="../../../posts/PDEs/3. Sobolev spaces/index.html#def-extension-domain">extension domain</a> for <span class="math inline">\(W^{1,p}\)</span>. Then, for <span class="math inline">\(p \in [1,\infty)\)</span> and <span class="math inline">\(0&lt;s&lt;s'\)</span> it holds that</p>
+<p><span class="math display">\[
+\begin{aligned}
+W^{s',p}(\Omega )\hookrightarrow W^{s,p}(\Omega ).
+\end{aligned}
+\]</span></p>
+</div>
+<p>The proof can be found in <span class="citation" data-cites="di2012hitchhikers">(<a href="#ref-di2012hitchhikers" role="doc-biblioref">Di Nezza, Palatucci, and Valdinoci 2012</a>)</span> page 10. The regularity of the domain is necessary to be able to extend functions in <span class="math inline">\(W^{1,p}(\Omega )\)</span> to <span class="math inline">\(W^{1,p}(\R^d)\)</span>. The result is not true otherwise, and an example is given in this same reference.</p>
+</section>
+<section id="bessel-potential-spaces" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="bessel-potential-spaces"><span class="header-section-number">3.2</span> Bessel potential spaces</h3>
+<p>We now give a second definition of fractional Sobolev spaces through the Fourier transform. Here, it is immediately possible to define everything for negative <span class="math inline">\(s\)</span>.</p>
+<div id="def-1" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2</strong></span> Let <span class="math inline">\(s\in\R\)</span> and <span class="math inline">\(u \in \Ss'(\R^d)\)</span>. We define the <em>Bessel potential operator</em> <span class="math inline">\(\Lambda^s\)</span> by</p>
+<p><span class="math display">\[
+\begin{aligned}
+\Lambda^s u := \Ff^{-1}\left(\br{\xi}^s \wh{u}(\xi)\right).
+\end{aligned}
+\]</span></p>
+</div>
+<p>In the definition above, we used the notation <span class="math inline">\(\br{\xi}:=\sqrt{1+|\xi|^2}\)</span>. As we saw when we studied Sobolev spaces through the <a href="../../../posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.html#eq-sobolevcondition">Fourier transform</a>, using the fact that <span class="math inline">\(\Ff\)</span> is an isometry which transforms differentiation into polynomial multiplication</p>
+<p><span id="eq-motivation-bessel"><span class="math display">\[
+\begin{aligned}
+u \in H^k(\R^d) \iff \Lambda^k u \in L^2(\R^d).
+\end{aligned}
+\tag{3}\]</span></span></p>
+<p>Equation (<a href="#eq-motivation-bessel" class="quarto-xref">3</a>) motivates the following extension to general <span class="math inline">\(p\)</span>.</p>
+<div id="def-bessel-potential-def" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3 (Bessel potential spaces on <span class="math inline">\(\R^d\)</span>)</strong></span> Let <span class="math inline">\(s \in \R\)</span> and <span class="math inline">\(p \in (1,\infty)\)</span>, we define the <em>Bessel potential space</em></p>
+<p><span class="math display">\[
+\begin{aligned}
+H^{s,p}(\R^d):=\left\{u \in \mathcal{S}^{\prime}(\mathbb{R}^d): \Lambda ^s u \in L^p(\mathbb{R}^d)\right\},
+\end{aligned}
+\]</span></p>
+<p>and give it the norm</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{u}_{H^{s,p}(\R^d)}:= \norm{\Lambda^s u}_{L^p(\R^d)}.
+\end{aligned}
+\]</span></p>
+</div>
+<p>By construction, <span class="math inline">\(H^{k,2}(\R^d)=H^{k}(\R^d)\)</span>.</p>
+<div id="exr-2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2</strong></span> Show that <span class="math inline">\(\Lambda^s\Lambda^r=\Lambda^{s+r}\)</span>. Use this to show that the following is an invertible isomorphism</p>
+<p><span class="math display">\[
+\begin{aligned}
+\Lambda^r: H^{r+s,p}(\R^d) \iso  H^{s,p}(\R^d).
+\end{aligned}
+\]</span></p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Use that <span class="math inline">\(\br{\xi}^s\br{\xi}^r=\br{\xi}^{s+r}\)</span> and show that the inverse of <span class="math inline">\(\Lambda^r\)</span> is <span class="math inline">\(\Lambda^{-r}\)</span>.</p>
+</div>
+</div>
+</div>
+<p>We now extend this to open domains</p>
+<div id="def-bessel-potential-def-omega" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 4 (Bessel potential spaces on <span class="math inline">\(\Omega\)</span>)</strong></span> Let <span class="math inline">\(U  \subset \R^d\)</span> be open. We define</p>
+<p><span class="math display">\[
+\begin{aligned}
+H^{s,p}(U ):=\left\{u \in \mathcal{D}^{\prime}(U ): \text{ there exists } v \in H^{s,p}(\R^d) \text{ with } \restr{v}{U }=u\right\},
+\end{aligned}
+\]</span></p>
+<p>and give it the norm</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{u}_{H^{s,p}(U )}:= \inf \set{\norm{v}_{H^{s,p}(\R^d)}: \restr{v}{U }=u}.
+\end{aligned}
+\]</span></p>
+</div>
+<p>The restriction above is in the sense of distributions. That is, we define the restriction of <span class="math inline">\(u\)</span> to <span class="math inline">\(U\)</span> as the distribution <span class="math inline">\(v\)</span> such that</p>
+<p><span class="math display">\[
+\begin{aligned}
+(\phi,u):=(\phi,v), \quad \forall \phi \in C_c^\infty(U ).
+\end{aligned}
+\]</span></p>
+<div id="rem-2" class="proof remark">
+<p><span class="proof-title"><em>Remark 2</em>. </span>It is tempting to define <span class="math inline">\(\norm{u}_{H^{s,p}(U )}:=\norm{\Lambda^s v}_{L^p(U )}\)</span>. However, since the Fourier transform, and thus <span class="math inline">\(\Lambda^s\)</span>, is a nonlocal operator, the norm would depend on the extension <span class="math inline">\(v\)</span> of <span class="math inline">\(u\)</span> to <span class="math inline">\(\R^d\)</span> and be ill-defined.</p>
+</div>
+<div id="rem-3" class="proof remark">
+<p><span class="proof-title"><em>Remark 3</em>. </span>It would also make sense to define <span class="math inline">\(H^{s,p}(U )\)</span> through complex interpolation. This is likely different from the above definition, however, as we will later see, this will coincide with the definition above when <span class="math inline">\(\Omega\)</span> is smooth enough (for example Lipschitz). See also <span class="citation" data-cites="leoni2023first">(<a href="#ref-leoni2023first" role="doc-biblioref">Leoni 2023</a>)</span> page 328 for a similar remark.</p>
+</div>
+</section>
+<section id="besov-spaces" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="besov-spaces"><span class="header-section-number">3.3</span> Besov spaces</h3>
+<div id="def-besov-def" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 5 (Besov spaces)</strong></span> Let <span class="math inline">\(s=k_{-}+\gamma\)</span> where <span class="math inline">\(k_{-} \in \N_0\)</span>, and <span class="math inline">\(\gamma \in (0,1]\)</span>. Then, given <span class="math inline">\(p \in [1,\infty)\)</span> and <span class="math inline">\(\Omega  \subset \R^d\)</span> be an arbitrary open set we define</p>
+<p><span class="math display">\[
+\begin{aligned}
+B^{s ,p}(U):= \set{u \in W^{k_{-} ,p}(U): \norm{u}_{B^{s,p}(U)}&lt;\infty},
+\end{aligned}
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{u}_{B^{s,p}(U)}:= \left(\norm{u}_{W^{k_{-},p}(U)}^p+ \sum_{\abs{\alpha}=k_- }\int_{U}\int_{U}\frac{\abs{D^\alpha u(x)-D^\alpha u(y)}^p}{\abs{x-y}^{d+\gamma p}}\d x \d y\right)^\frac{1}{p}.
+\end{aligned}
+\]</span></p>
+<p>For <span class="math inline">\(p = \infty\)</span>, we define <span class="math inline">\(B^{s,\infty}(U):= C^{k_{-},\gamma}(U)\)</span>.</p>
+</div>
+<p>The above definition is extremely similar in form to that of the Sobolev-Slobodeckij spaces <a href="#def-soledkij-def" class="quarto-xref">Definition&nbsp;1</a>. In fact, it is equivalent when <span class="math inline">\(s \notin \N\)</span>. The difference is that in the definition of Besov spaces <a href="#def-besov-def" class="quarto-xref">Definition&nbsp;5</a>, we require that <span class="math inline">\(\gamma &gt;0\)</span>. As a result, always <span class="math inline">\(k_{-}&lt;s\)</span>. We have chosen to indicate this fact by the index “<span class="math inline">\(-\)</span>” on <span class="math inline">\(k_{-}\)</span>. An equivalent definition is possible which extends the above to negative values of <span class="math inline">\(s\)</span></p>
+<div id="def-besov-def-negative" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 6 (Besov spaces, negative <span class="math inline">\(s\)</span>)</strong></span> Let <span class="math inline">\(s \in \R\)</span> and choose any <span class="math inline">\(\sigma \not\in \N_0\)</span> with <span class="math inline">\(\sigma &gt;0\)</span>. Then, given <span class="math inline">\(p \in [1,\infty)\)</span> we define</p>
+<p><span class="math display">\[
+\begin{aligned}
+\|u\|_{B^{s,p}(\R^d)}=\left\|\Lambda^{s-\sigma} u\right\|_{W^{\sigma,p}(\R^d)}.
+\end{aligned}
+\]</span></p>
+</div>
+<p>The requirement <span class="math inline">\(\sigma &gt;0\)</span> is necessary as <span class="math inline">\(B^{s,p}(\R^d)\neq H^{s,p}(\R^d)\)</span>.</p>
+<div id="exr-3" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 3</strong></span> Show that, for all <span class="math inline">\(r \in \R\)</span> the operator <span class="math inline">\(\Lambda ^r\)</span> defines an invertible isomorphism</p>
+<p><span class="math display">\[
+\begin{aligned}
+\Lambda ^r : B^{s,p}(\R^d)\iso B^{s-r ,p}(\R^d).
+\end{aligned}
+\]</span></p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Use definition <a href="#def-besov-def-negative" class="quarto-xref">Definition&nbsp;6</a> and that <span class="math inline">\(\Lambda^r\)</span> has inverse <span class="math inline">\(\Lambda^{-r}\)</span>.</p>
+</div>
+</div>
+</div>
+<p>The definition of <span class="math inline">\(B^{s,p}(\R^d)\)</span> can then be extended to general open sets <span class="math inline">\(\Omega\)</span> and <span class="math inline">\(U\)</span> in the same way as for the Bessel potential spaces, once more the same observations apply.</p>
+<div id="def-besov-def-on-u" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 7 (Besov spaces on <span class="math inline">\(\Omega\)</span>)</strong></span> Let <span class="math inline">\(\Omega  \subset \R^d\)</span> be an smooth. We define,</p>
+<p><span class="math display">\[
+\begin{aligned}
+B^{s,p}(\Omega):=\left\{u \in \mathcal{D}^{\prime}(\Omega ): \text{ there exists } v \in B^{s,p}(\R^d) \text{ such that } \restr{v}{\Omega }=u\right\},
+\end{aligned}
+\]</span></p>
+<p>and give it the norm</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{u}_{B^{s,p}(\Omega)}:= \inf \set{\norm{v}_{B^{s,p}(\R^d)}: \restr{v}{\Omega }=u}.
+\end{aligned}
+\]</span></p>
+</div>
+<div id="rem-4" class="proof remark">
+<p><span class="proof-title"><em>Remark 4</em>. </span>Different authors use different notations for these spaces. For example, in <span class="citation" data-cites="triebel1992theory">(<a href="#ref-triebel1992theory" role="doc-biblioref">Triebel 1992</a>)</span>, the notation <span class="math inline">\(W^{s,p}(\R^d):= B^{s,p}(\R^d)\)</span> is used. With this notation, one has that, for <span class="math inline">\(p \neq 2\)</span>, and <span class="math inline">\(k \in \N_0\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+W^{k,p}(\R^d) \neq \set{ u \in \Dd'(\R^d) : D^\alpha u \in L^p(\R^d) \quad \forall \abs{\alpha}\leq   k}= W^{k,p}(\R^d).
+\end{aligned}
+\]</span></p>
+<p>This clashes with the definition of integer-valued Sobolev spaces, so we do not use this notation. Other notations which can be found are the notation <span class="math inline">\(B^{s,p}= \Lambda^{p}_s\)</span> and <span class="math inline">\(H^{s,p}= \Ll ^{p}_s\)</span>. See <span class="citation" data-cites="stein1970singular">(<a href="#ref-stein1970singular" role="doc-biblioref">Stein 1970</a>)</span> and <span class="citation" data-cites="biccari2018local">(<a href="#ref-biccari2018local" role="doc-biblioref">Biccari, Warma, and Zuazua 2018</a>)</span>.</p>
+</div>
+</section>
+<section id="extension-domains" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="extension-domains"><span class="header-section-number">3.4</span> Extension domains</h3>
+<p>Though it is possible to define fractional spaces for any open set, these are most useful when the domain is regular enough. We begin by characterizing the set of extension domains for <span class="math inline">\(W^{s,p}\)</span>. The following result can be found in <span class="citation" data-cites="leoni2017first">(<a href="#ref-leoni2017first" role="doc-biblioref">Leoni 2017</a>)</span> page 313.</p>
+<div id="thm-plump-sets" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1 (Plump sets are extension domains)</strong></span> Let <span class="math inline">\(\Omega \subseteq \mathbb{R}^N\)</span> be an open connected set, and consider <span class="math inline">\(p\in [1,+\infty]\)</span>, and <span class="math inline">\(\gamma\in (0,1)\)</span>. Then, <span class="math inline">\(\Omega\)</span> is an extension domain for <span class="math inline">\(W^{\gamma, p}(\Omega)\)</span> if and only if there exists a constant <span class="math inline">\(C&gt;0\)</span> such that <span class="math display">\[
+\lambda_d(B(x, r) \cap \Omega) \geq C r^d
+\]</span> for all <span class="math inline">\(x \in \Omega\)</span> and all <span class="math inline">\(0&lt;r \leq 1\)</span>. Where <span class="math inline">\(\lambda_d\)</span> is the Lebesgue measure on <span class="math inline">\(\R^d\)</span>.</p>
+</div>
+<p>For higher orders of regularity, the following is sufficient: see <span class="citation" data-cites="leoni2023first">(<a href="#ref-leoni2023first" role="doc-biblioref">Leoni 2023</a>)</span> and <span class="citation" data-cites="sawano2018theory">(<a href="#ref-sawano2018theory" role="doc-biblioref">Sawano et al. 2018</a>)</span> section 5.1.</p>
+<div id="thm-1" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2</strong></span> Let <span class="math inline">\(\Omega \subset \R^d\)</span> be open with <a href="../../../posts/PDEs/3. Sobolev spaces/index.html#def-uniformly-lipschitz-domain">uniformly Lipschitz boundary</a> and consider <span class="math inline">\(p\in [1,\infty), s\in[1,\infty)\)</span>. Then, <span class="math inline">\(\Omega\)</span> is an extension domain for <span class="math inline">\(W^{s,p},H^{s,p},B^{s,p}\)</span>.</p>
+</div>
+</section>
+<section id="interpolation" class="level3" data-number="3.5">
+<h3 data-number="3.5" class="anchored" data-anchor-id="interpolation"><span class="header-section-number">3.5</span> Interpolation</h3>
+<p>Both the Sobolev-Slobodeckij and Bessel potential spaces can be viewed as a way to fill the gaps between integer-valued Sobolev spaces. The following uses the concept of <a href="https://en.wikipedia.org/wiki/Interpolation_space">complex interpolation</a>. We will not go into detail as the results will not be essential to us, but merely serve as a nice way to understand the relationship between the spaces.</p>
+<div id="prp-interpolation" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 2 (Interpolation)</strong></span> Let <span class="math inline">\(s_1 \neq s_2 &gt;0, p \in (1, \infty)\)</span>, <span class="math inline">\(0&lt;\theta&lt;1\)</span> and</p>
+<p><span class="math display">\[
+\begin{aligned}
+s=s_1(1-\theta)+s_2 \theta, \quad \frac{1}{p}=\frac{1-\theta}{p_1}+\frac{\theta}{p_2}.
+\end{aligned}
+\]</span></p>
+<p>Then, given an extension domain <span class="math inline">\(\Omega\)</span> it holds that</p>
+<p><span class="math display">\[
+\begin{aligned}
+H^{s,p}(\Omega )=\left[H^{s_1,p_1}(\Omega), H^{s_2,p_2}(\Omega)\right]_{\theta},\quad B^{s,p}(\Omega )=\left[B^{s_1,p}(\Omega ), B^{s_2, p}(\Omega )\right]_\theta,
+\end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\([X,Y]_\theta\)</span> denotes the complex interpolation space.</p>
+</div>
+<p>The result can be found in <span class="citation" data-cites="triebel1992theory">(<a href="#ref-triebel1992theory" role="doc-biblioref">Triebel 1992</a>)</span> page 45 for <span class="math inline">\(\Omega = \R^d\)</span>. The general result follows by extension. In particular, if we write <span class="math inline">\(k:=\left\lfloor s \right\rfloor\)</span> and <span class="math inline">\(\gamma:=s-k\)</span>, then</p>
+<p><span class="math display">\[
+\begin{aligned}
+H^{s,p}(\Omega ) &amp; =\left[H^{k,p}(\Omega), H^{k+1,p}(\Omega)\right]_{\gamma }= \left[L^p(\Omega ), H^{k+1,p}(\Omega)\right]_{s/(k+1) }  \\
+B^{s,p}(\Omega ) &amp; =\left[B^{k,p}(\Omega), B^{k+1,p}(\Omega)\right]_{\gamma }= \left[L^p(\Omega ), B^{k+1,p}(\Omega)\right]_{s/(k+1) }.
+\end{aligned}
+\]</span></p>
+</section>
+</section>
+<section id="relationship-between-the-definitions" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="relationship-between-the-definitions"><span class="header-section-number">4</span> Relationship between the definitions</h2>
+<p>The following result shows the inclusions between <span class="math inline">\(W^{s,p}(\Omega ),H^{s,p}(\Omega ),B^{s,p}(\Omega )\)</span> and can be found in <span class="citation" data-cites="agranovich2015sobolev">(<a href="#ref-agranovich2015sobolev" role="doc-biblioref">Agranovich 2015</a>)</span> page 224 and in <span class="citation" data-cites="stein1970singular">(<a href="#ref-stein1970singular" role="doc-biblioref">Stein 1970</a>)</span> page 155.</p>
+<div id="thm-equivalence-fractional-spaces" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3</strong></span> Let <span class="math inline">\(s \geq 0, \varepsilon &gt;0\)</span> and <span class="math inline">\(\Omega\)</span> an extension domain for <span class="math inline">\(H^{s+\varepsilon,p},B^{s+\varepsilon,p}\)</span>. Then,</p>
+<p><span class="math display">\[
+\begin{aligned}
+H^{s+\varepsilon,p}(\Omega ) &amp; \subset B^{s,p}(\Omega )  \subset H^{s,p}(\Omega )\quad \forall p \in (1,2]       \\
+B^{s+\varepsilon,p}(\Omega ) &amp; \subset H^{s,p}(\Omega )  \subset B^{s,p}(\Omega )\quad \forall p \in [2,\infty),
+\end{aligned}
+\]</span></p>
+<p>where the above inclusions are continuous and dense. Furthermore,</p>
+<p><span id="eq-slobodeckij-equivalence"><span class="math display">\[
+\begin{aligned}
+W^{s,p}(\Omega )= \begin{cases}
+H^{s,p}(\Omega ) &amp; \text{ if } s \in \N_0    \\
+B^{s,p}(\Omega ) &amp; \text{ if } s \notin \N_0
+\end{cases}.
+\end{aligned}
+\tag{4}\]</span></span></p>
+<p>In consequence, for <span class="math inline">\(p=2\)</span>,</p>
+<p><span id="eq-p-2"><span class="math display">\[
+\begin{aligned}
+H^{s,2}(\Omega )=W^{s,2}(\Omega )=B^{s,2}(\Omega ).
+\end{aligned}
+\tag{5}\]</span></span></p>
+</div>
+<p>The equality in (<a href="#eq-slobodeckij-equivalence" class="quarto-xref">4</a>) shows that, as long as we understand the behaviour of <span class="math inline">\(H^{s,p}(\Omega )\)</span> and <span class="math inline">\(B^{s,p}(\Omega )\)</span>, we can completely determine that of <span class="math inline">\(W^{s,p}(\Omega )\)</span>. It also justifies the following extension of <span class="math inline">\(W^{s,p}(\Omega )\)</span> to negative regularity.</p>
+<div id="def-negative-s-slobodeckij" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 8 (Slobodeckij space negative <span class="math inline">\(s\)</span>)</strong></span> Let <span class="math inline">\(\Omega \subset \R^d\)</span> be an extension domain for <span class="math inline">\(H^{s,p}(\Omega ), B^{s,p}(\Omega )\)</span>. Then, given <span class="math inline">\(p \in [1,\infty)\)</span> and any <span class="math inline">\(s \in \R\)</span> we define</p>
+<p><span class="math display">\[
+\begin{aligned}
+W^{s,p}(\Omega )= \begin{cases}
+H^{s,p}(\Omega ) &amp; \text{ if } s \in \Z    \\
+B^{s,p}(\Omega ) &amp; \text{ if } s \notin \Z
+\end{cases}.
+\end{aligned}
+\]</span></p>
+</div>
+<p>The equality for <span class="math inline">\(p=2\)</span> in (<a href="#eq-p-2" class="quarto-xref">5</a>) justifies that, for sufficiently regular domains, all three spaces are written <span class="math inline">\(H^s(\Omega )\)</span>. We will prove the left-hand side of this equivalence in <a href="#exr-equivalence-of-fractional-spaces" class="quarto-xref">Exercise&nbsp;4</a>. For <span class="math inline">\(p\neq 2\)</span>, the inclusions are, in general, strict. An example is constructed in <span class="citation" data-cites="stein1970singular">(<a href="#ref-stein1970singular" role="doc-biblioref">Stein 1970</a>)</span> page 161 exercise 6.8.</p>
+<div id="exr-equivalence-of-fractional-spaces" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 4 (Equivalence of fractional spaces)</strong></span> Show without using <a href="#thm-equivalence-fractional-spaces" class="quarto-xref">Theorem&nbsp;3</a> that</p>
+<p><span class="math display">\[
+\begin{aligned}
+H^{s,2}(\R^d)=W^{s,2}(\R^d).
+\end{aligned}
+\]</span></p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We want to show that the norms are equivalent. That is, that</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{u}_{H^{s,2}(\R^d)}\sim\norm{u}_{W^{s,2}(\R^d)}.
+\end{aligned}
+\]</span></p>
+<p>We already know this is the case when <span class="math inline">\(s\)</span> is an integer, so it suffices to show that the norms are equivalent for <span class="math inline">\(s= \gamma  \in (0,1)\)</span>. That is, that</p>
+<p><span class="math display">\[
+\begin{aligned}
+|u|_{\gamma ,2}^2\sim \int_{\mathbb{R}^d}|\xi|^{2 \gamma }|\mathcal{F} u(\xi)|^2 d \xi , \quad\forall \gamma \in (0,1).
+\end{aligned}
+\]</span></p>
+<p>By Plancherel’s theorem and a calculation of the Fourier transform of the translation, we have</p>
+<p><span class="math display">\[
+\begin{aligned}
+|u|_{\gamma ,2}^2 &amp; =\int_{\R^d}\int_{\R^d}\frac{\abs{u(x+y)-u(y)}^2}{\abs{x}^{d+2\gamma    }}\d x \d y                                                                                                       = \int_{\R^d}\frac{\norm{\Ff \{u(x+\cdot )-u\}}^2_{L^2(\R^d)}}{\abs{x}^{d+2\gamma }}\d x \\
+&amp; =\int_{\R^d}\int_{\R^d}  \frac{|e^{2 \pi i x \cdot \xi}-1|^2}{\abs{x}^{d+2\gamma  }}|\wh{u}(\xi)|^2\d x\d\xi                                                                                                                                                                     \\&amp;=2\int_{\R^d}\left(\int_{\R^d}  \frac{1-\cos(2\pi \xi\cdot x)}{\abs{x}^{d+2\gamma }}\d x\right)|\wh{u}(\xi)|^2\d\xi.
+\end{aligned}
+\]</span></p>
+<p>To treat the inner integral, we note that it is rotationally invariant, and so, by rotating <span class="math inline">\(\xi\)</span> to the first axis and later changing variable <span class="math inline">\(x \to x / \abs{\xi}\)</span>, we get</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_{\R^d}  \frac{1-\cos(2\pi \xi\cdot x)}{\abs{x}^{d+2\gamma  }}\d x &amp; =\int_{\R^d}  \frac{1-\cos(2\pi \abs{\xi}x_1 )}{\abs{x}^{d+2\gamma }}\d x                                          \\
+&amp; =\abs{\xi}^{2 \gamma } \int_{\R^d}  \frac{1-\cos(2\pi  x_1) }{\abs{x}^{d+2\gamma  }}\d x\sim \abs{\xi}^{2 \gamma }.
+\end{aligned}
+\]</span></p>
+<p>The last integral is finite as, since <span class="math inline">\(d+2\gamma &gt;d\)</span>, the tails <span class="math inline">\(\abs{\xi}\to\infty\)</span> are controlled, and since <span class="math inline">\(1-\cos(2\pi x_1)\sim x_1^2\leq \abs{x}^2\)</span> the integrand has order <span class="math inline">\(-d+2(1-\gamma)&gt;-d\)</span> for <span class="math inline">\(\abs{\xi}\sim 0\)</span> . That said, substituting this back into the previous expression gives the desired result.</p>
+</div>
+</div>
+</div>
+<div id="exr-4" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5</strong></span> Use the previous <a href="#exr-equivalence-of-fractional-spaces" class="quarto-xref">Exercise&nbsp;4</a> to show that if <span class="math inline">\(\Omega\)</span> is an extension domain for <span class="math inline">\(H^{s}\)</span>, then</p>
+<p><span class="math display">\[
+\begin{aligned}
+H^{s,2}(\Omega )=W^{s,2}(\Omega ).
+\end{aligned}
+\]</span></p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>By definition <a href="#def-bessel-potential-def" class="quarto-xref">Definition&nbsp;3</a> choose a sequence <span class="math inline">\(v_n \in H^{s,2}(\R^d)\)</span> such that <span class="math inline">\(\norm{v_n}_{H^{s,2}(\R^d)} \to \norm{u}_{H^{s,2}(\Omega )}\)</span> in <span class="math inline">\(H^s(\Omega )\)</span>. Then,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{u}_{H^{s,2}(\Omega)}= \lim_{n\to\infty}\norm{v_n}_{H^{2,2}(\R^d)}\sim \lim_{n\to\infty}\norm{v_n}_{W^{s,2}(\R^d)}\geq \norm{u}_{W^{s,2}(\Omega )}.
+\end{aligned}
+\]</span></p>
+<p>To obtain the reverse inequality, use the existence of a continuous extension operator <span class="math inline">\(E: W^{s,2}(\Omega )\to W^{s,2}(\R^d)\)</span> to obtain</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{u}_{W^{s,2}(\Omega )}\sim \norm{Eu}_{W^{s,2}(\R^d)}\geq \norm{u}_{H^{s,2}(\R^d)}.
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+<p>The above suggests that, for <span class="math inline">\(p=2\)</span>, the integrals appearing in the definition of the Slobodeckij spaces <a href="#def-soledkij-def" class="quarto-xref">Definition&nbsp;1</a> correspond to differentiating a fractional amount of times. This indeed is the case</p>
+<div id="def-2" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 9</strong></span> Given <span class="math inline">\(s \in [0,+\infty)\)</span> and <span class="math inline">\(u \in \Ss (\R^d)\)</span> we define the fractional Laplacian as</p>
+<p><span class="math display">\[
+\begin{aligned}
+(-\Delta )^{s }u(x):= \mathcal{F}^{-1}(\abs{2\pi\xi}^{2 s }\wh{u}(\xi )).
+\end{aligned}
+\]</span></p>
+</div>
+<div id="prp-fractional-laplacian" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 3</strong></span> For <span class="math inline">\(\gamma  \in (0,1)\)</span> and <span class="math inline">\(u \in H^{\gamma }(\R^d)\)</span> it holds that</p>
+<p><span class="math display">\[
+\begin{aligned}
+(-\Delta )^{\gamma }u(x)=C\int_{\R^d}\frac{u(x)-u(x+y)}{\abs{y}^{d+2\gamma}}\d y,
+\end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(C\)</span> is a constant that depends on <span class="math inline">\(d,\gamma\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The above equality may seem odd at first if we compare it with the integral in <a href="#def-soledkij-def" class="quarto-xref">Definition&nbsp;1</a> where a square appears in the numerator, which gives us our <span class="math inline">\(2\)</span> in the <span class="math inline">\(2 \gamma\)</span>. However, it is justified by the fact that, by the change of variables <span class="math inline">\(y \to -y\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_{\R^d}\frac{u(x)-u(x+y)}{\abs{y}^{d+2\gamma}}\d y=\int_{\R^d}\frac{u(x)-u(x-y)}{\abs{y}^{d+2\gamma}}\d y.
+\end{aligned}
+\]</span></p>
+<p>So, we can get the <em>second</em> order difference in the numerator by adding the two integrals.</p>
+<p><span id="eq-second-order"><span class="math display">\[
+\begin{aligned}
+\int_{\R^d}\frac{u(x)-u(x+y)}{\abs{y}^{d+2\gamma}}\d y=-\frac{1}{2}\int_{\R^d}\frac{u(x+y)-2u(x)+u(x-y)}{\abs{y}^{d+2\gamma}}\d y.
+\end{aligned}
+\tag{6}\]</span></span></p>
+<p>We will conclude the proof if we show that</p>
+<p><span class="math display">\[
+\begin{aligned}
+\abs{\xi}^{2\gamma }\wh{u}(\xi )\sim \Ff \left(\int_{\R^d}\frac{u(x)-u(x+y)}{\abs{y}^{d+2\gamma}}\d y\right).
+\end{aligned}
+\]</span></p>
+<p>Using (<a href="#eq-second-order" class="quarto-xref">6</a>) and proceeding as in <a href="#thm-equivalence-fractional-spaces" class="quarto-xref">Theorem&nbsp;3</a> gives</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \Ff \left(\int_{\R^d}\frac{u(x)-u(x+y)}{\abs{y}^{d+2\gamma}}\d y\right)(\xi)= -\frac{1}{2} \left(\int_{\R^d}\frac{e^{2\pi i y \cdot \xi}-2+e^{-2\pi i y \cdot \xi}}{\abs{y}^{d+2\gamma}}\d y\right) \wh{u}(\xi)       \\
+&amp; =\left(\int_{\R^d}\frac{1-\cos(2\pi y \cdot \xi)}{\abs{y}^{d+2\gamma}}\d y\right) \wh{u}(\xi) =\int_{\R^d}  \frac{1-\cos(2\pi  y_1) }{\abs{y}^{d+2\gamma  }}\d y\abs{\xi}^{2 \gamma }\wh{u}(\xi) \\&amp; \sim \abs{\xi}^{2 \gamma }\wh{u}(\xi).
+\end{aligned}
+\]</span></p>
+<p>This completes the proof and shows that the explicit expression for <span class="math inline">\(C\)</span> is</p>
+<p><span class="math display">\[
+\begin{aligned}
+C=\frac{1}{(2\pi)^{2 \gamma }}\int_{\R^d}  \frac{1-\cos(2\pi  y_1) }{\abs{y}^{d+2\gamma }}\d y.
+\end{aligned}
+\]</span></p>
+</div>
+</section>
+<section id="sec-dual-sec" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="sec-dual-sec"><span class="header-section-number">5</span> Dual of Sobolev spaces and correspondence with negative regularity</h2>
+<p>Negative orders of regularity correspond to the dual of Sobolev spaces. This is best seen in the integer case. We first introduce the notation <span class="math inline">\(W^{s,p}_0(U),H^{s,p}_0(U),B^{s,p}_0(U)\)</span> for the closure of <span class="math inline">\(C_c^\infty(U)\)</span> in <span class="math inline">\(W^{s,p}(U),H^{s,p}(U),B^{s,p}(U)\)</span> respectively. We also introduce the notation <span class="math inline">\(p' = p/(p-1)\)</span> for the conjugate exponent of <span class="math inline">\(p\)</span>. We then have the following result (see <span class="citation" data-cites="evans2022partial">(<a href="#ref-evans2022partial" role="doc-biblioref">Evans 2022</a>)</span> pages 326-344 for the case <span class="math inline">\(p=2\)</span>).</p>
+<div id="thm-dual-of-integer-sobolev" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 4</strong></span> For all <span class="math inline">\(k \in \mathbb{Z}\)</span> and <span class="math inline">\(p \in (1,\infty)\)</span> and <span class="math inline">\(\Omega\)</span> an extension domain for <span class="math inline">\(W^{k,p}\)</span>, it holds that</p>
+<p><span class="math display">\[
+\begin{aligned}
+H^{k,p}_0(\Omega )' = H^{-k,p'}(\Omega ), \quad W^{k,p}_0(\Omega )' = W^{-k,p'}(\Omega ).
+\end{aligned}
+\]</span></p>
+</div>
+<p>The first equality will be discussed in the next subsection and is most easily proved when <span class="math inline">\(\Omega =\R^d\)</span>, in which case one can use the homeomorphism <span class="math inline">\(\Lambda ^s: H^{r,p}(\R^d )\iso H^{r-s,p}(\R^d )\)</span> together with the reflexivity of <span class="math inline">\(L^p(\R^d )\)</span>. The second equality is a direct consequence of the integer order equality <span class="math inline">\(W^{k,p}(\Omega )=H^{k,p}(\Omega )\)</span> of <a href="#thm-equivalence-fractional-spaces" class="quarto-xref">Theorem&nbsp;3</a>. For fractional order regularities, we have the following result, which can be found in <span class="citation" data-cites="agranovich2015sobolev">(<a href="#ref-agranovich2015sobolev" role="doc-biblioref">Agranovich 2015</a>)</span> page 228.</p>
+<div id="thm-2" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 5</strong></span> Given <span class="math inline">\(s&gt;0, p \in (1,\infty)\)</span> and <span class="math inline">\(\Omega\)</span> an extension domain, it holds that the spaces <span class="math inline">\(W^{s,p}(\Omega ),H^{s,p}(\Omega ),B^{s,p}(\Omega )\)</span> are reflexive Banach spaces with duals</p>
+<p><span class="math display">\[
+\begin{aligned}
+W^{s,p}(\Omega )'=  W^{-s,p'}_{\overline{\Omega } }(\R^d ), \quad H^{s,p}(\Omega )' = H^{-s,p'}_{\overline{\Omega } }(\R^d ), \quad B^{s,p}(\Omega )' = B^{-s,p'}_{\overline{\Omega } }(\R^d ).
+\end{aligned}
+\]</span></p>
+<p>where given a space of distributions <span class="math inline">\(X\)</span> on <span class="math inline">\(\R^d\)</span> we define <span class="math inline">\(X_{\overline{\Omega }}\)</span> as the space of distributions on <span class="math inline">\(\R^d\)</span> which are supported in <span class="math inline">\(\overline{\Omega }\)</span>. In particular, for <span class="math inline">\(\Omega =\R^d\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+W^{s,p}(\R^d )'=    W^{-s,p'}(\R^d ), \quad H^{s,p}(\R^d )' = H^{-s,p'}(\R^d ), \quad B^{s,p}(\R^d )' = B^{-s,p'}(\R^d ).
+\end{aligned}
+\]</span></p>
+</div>
+<div id="rem-5" class="proof remark">
+<p><span class="proof-title"><em>Remark 5</em>. </span>Some authors define given <span class="math inline">\(s&gt;0\)</span> and <span class="math inline">\(p \in [1,\infty)\)</span></p>
+<p><span id="eq-alternative-negative"><span class="math display">\[
+\begin{aligned}
+W^{-s,p'}(\Omega )':=   W^{s,p}_0(\Omega )'.
+\end{aligned}
+\tag{7}\]</span></span></p>
+<p>See, for example, <span class="citation" data-cites="biccari2018local">(<a href="#ref-biccari2018local" role="doc-biblioref">Biccari, Warma, and Zuazua 2018</a>)</span>, <span class="citation" data-cites="leoni2023first">(<a href="#ref-leoni2023first" role="doc-biblioref">Leoni 2023</a>)</span> page 228. The definition in (<a href="#eq-alternative-negative" class="quarto-xref">7</a>) is equivalent to Definition <a href="#def-negative-s-slobodeckij" class="quarto-xref">Definition&nbsp;8</a> when <span class="math inline">\(\Omega = \R^d\)</span> or when <span class="math inline">\(s=k \in \Z\)</span>. However, in other cases, the two definitions are not equivalent.</p>
+</div>
+<section id="the-dual-of-hsp" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="the-dual-of-hsp"><span class="header-section-number">5.1</span> The dual of $H^{s,p</h3>
+<p>(^d)$} For some motivation, we start by considering the case <span class="math inline">\(\Omega =\R^d\)</span>. Note that, in this setting, <span class="math inline">\(H_0^{s,p}(\R^d)=H^{s,p}(\R^d)\)</span>.</p>
+<div id="exr-dual-exercise" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6 (Dual identification)</strong></span> Prove the identification <span class="math inline">\(H^{-s,p'}(\R^d)=H^{s,p}(\R^d)'\)</span> for <span class="math inline">\(s&gt;0\)</span> and <span class="math inline">\(p \in [1,\infty)\)</span>.</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Consider the mapping <span class="math inline">\(H_0^{-s,p'}(\R^d) \to H^{s,p}_0(\R^d)'\)</span> given by <span class="math inline">\(f \mapsto \ell_f\)</span> where</p>
+<p><span class="math display">\[
+\begin{aligned}
+\ell_f(u):= \int_{\R^d}(\Lambda^s u)(\Lambda ^{-s}f).
+\end{aligned}
+\]</span></p>
+<p>Show that this mapping is well-defined and continuous. To see that it is invertible, show that, by duality, given <span class="math inline">\(\ell \in H^{s,p}(\R^d)'\)</span> and <span class="math inline">\(u \in H^{s,p}(\R^d)\)</span>, it holds that</p>
+<p><span class="math display">\[
+\begin{aligned}
+(u,\ell )=(\Lambda ^s u,\Lambda ^{-s}\ell ).
+\end{aligned}
+\]</span></p>
+<p>Since <span class="math inline">\(\Lambda ^s u \in L^p(\R^d)\)</span> we deduce that <span class="math inline">\(\Lambda ^{-s}\ell \in L^{p}(\R^d)'\)</span> and so by the Riesz representation theorem there exists <span class="math inline">\(f_\ell \in L^{p'}(\R^d)\)</span> such that <span class="math inline">\(\Lambda ^{-s}\ell =\br{\cdot,f_\ell}\)</span>. Show that the inverse of the previous mapping is</p>
+<p><span class="math display">\[
+\begin{aligned}
+H^{s,p}(\R^d)'                &amp; \longrightarrow H^{-s,p'}(\R^d); \quad \ell = \br{\cdot, \Lambda^s  f_\ell} \to \Lambda^s  f_\ell.
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="exr-5" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 7</strong></span> Since <span class="math inline">\(H^{s}(\R^d)\)</span> is a Hilbert space, by the Riesz representation theorem, we have the identification <span class="math inline">\(H^s(\R^d) = H^{s}(\R^d)'\)</span>. As a result, by the previous exercise <span class="math inline">\(H^{-s}(\R^d)= H^s(\R^d)\)</span> How is this possible?</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>It does <strong>not</strong> hold that <span class="math inline">\(H^{-s}(\R^d)= H^s(\R^d)\)</span>. The problem occurs when considering too many identifications at once, as we are identifying duals using different inner products. By following the mappings, we obtain isomorphisms</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; H^{s}(\R^d) \iso   H^s(\R^d)' \iso H^{-s}(\R^d)                                                 \\
+&amp; u \longmapsto   \br{\cdot, u}_{H^s(\R^d)}= \br{\cdot, \Lambda^{2s} u } \mapsto \Lambda ^{2s} u.
+\end{aligned}
+\]</span></p>
+<p>However, the composition <span class="math inline">\(H^s(\R^d) \iso H^{-s}(\R^d)\)</span> is <span class="math inline">\(\Lambda ^{2s}\)</span>, which is hardly the identity mapping.</p>
+</div>
+</div>
+</div>
+<p>For another example where confusion with this kind of identification can arise, see remark 3 on page 136 of <span class="citation" data-cites="brezis2011functional">(<a href="#ref-brezis2011functional" role="doc-biblioref">Brezis and Brézis 2011</a>)</span>.</p>
+</section>
+<section id="the-dual-of-hsp-1" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="the-dual-of-hsp-1"><span class="header-section-number">5.2</span> The dual of $H^{s,p</h3>
+<p>_0()$} Given an extension domain <span class="math inline">\(\Omega\)</span> and <span class="math inline">\(s \geq \R\)</span> , one can define extension and restriction operators,</p>
+<p><span class="math display">\[
+\begin{aligned}
+E:H^{s,p}(\Omega ) \to H^{s,p}(\R^d), \quad \rho: H^{s,p}(\R^d) \to H^{s,p}(\Omega ),
+\end{aligned}
+\]</span></p>
+<p>which verify <span class="math inline">\(\rho \circ E = \Id_{H^s(\Omega )}\)</span>. As a result, the restriction is surjective, and we can factor <span class="math inline">\(H^{s,p}(\Omega )\)</span> as</p>
+<p><span id="eq-ismorphism"><span class="math display">\[
+\begin{aligned}
+H^{s,p}(\Omega )\simeq H^{s,p}(\R^d)\backslash H^s_{\Omega^c}(\R^d ),
+\end{aligned}
+\tag{8}\]</span></span></p>
+<p>where given a closed set <span class="math inline">\(K \subset \R^d\)</span> we define</p>
+<p><span class="math display">\[
+\begin{aligned}
+H^{s,p}_K(\R^d):= \set{u \in H^{s,p}(\R^d): \rm{supp}(u) \subset K},
+\end{aligned}
+\]</span></p>
+<p>the support being understood <a href="../../../posts/PDEs/3. Sobolev spaces/index.html#sec-support-sec">in the sense of distributions</a> Now, given a Banach space <span class="math inline">\(X\)</span> and a closed subspace <span class="math inline">\(Y \hookrightarrow X\)</span>, elements of <span class="math inline">\(X'\)</span> can be restricted to <span class="math inline">\(Y\)</span>, obtaining functionals in <span class="math inline">\(Y'\)</span>. The kernel of this restriction is <span class="math inline">\(Y^\circ:=\set{\ell \in X': Y \subset \rm{ker}(\ell)}\)</span>. Since, by the Hahn Banach theorem, the restriction is surjective, we obtain the <a href="https://math.la.asu.edu/~quigg/teach/courses/578/2008/notes/adjoints.pdf">factorization</a></p>
+<p><span id="eq-dual-isomormphism"><span class="math display">\[
+\begin{aligned}
+Y' \simeq X'\backslash Y^\circ.
+\end{aligned}
+\tag{9}\]</span></span></p>
+<p>Applying this to <span class="math inline">\(Y= H^{k,p}_0(\Omega )\hookrightarrow H^{k,p}(\R^d) =X\)</span> we obtain the result of <a href="#thm-dual-of-integer-sobolev" class="quarto-xref">Theorem&nbsp;4</a>.</p>
+<p><span class="math display">\[
+\begin{aligned}
+H^{k,p}_0(\Omega )' \simeq H^{k,p}(\R^d)'\backslash H^{k,p}(\Omega)^\circ\simeq H^{-k,p'}(\R^d)\backslash H^{-k,p'}_{\Omega^c}(\R^d )
+\end{aligned}
+\]</span></p>
+<p>where the second equality is by <a href="#exr-dual-exercise" class="quarto-xref">Exercise&nbsp;6</a>. This coincides well with what we observed in (<a href="#eq-ismorphism" class="quarto-xref">8</a>) and justifies an extension of (<a href="#eq-ismorphism" class="quarto-xref">8</a>) for negative <span class="math inline">\(s\)</span>.</p>
+<p>As a final note, if <span class="math inline">\(\Omega \neq \R^d\)</span>, then <span class="math inline">\(H_0^k(\Omega )'\)</span> and <span class="math inline">\(H^k(\Omega )'\)</span> are not equal. Rather,</p>
+<p><span class="math display">\[
+\begin{aligned}
+H^{k,p}(\Omega )'\simeq H_{\overline{\Omega } }^{-k,p'}(\R^d), \quad H^{-k,p'}(\Omega ) \simeq H^{-k,p'}(\R^d)\backslash H^{-k,p'}_{\Omega ^c }(\R^d).
+\end{aligned}
+\]</span></p>
+<p>See <span class="citation" data-cites="taylor2013partial">(<a href="#ref-taylor2013partial" role="doc-biblioref">Taylor 2013</a>)</span> Section 4 for more details.</p>
+</section>
+</section>
+<section id="representation-theorems" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="representation-theorems"><span class="header-section-number">6</span> Representation theorems</h2>
+<p>We know that we can homeomorphically map the spaces <span class="math inline">\(H^{s,p}(\R^d )\)</span> and <span class="math inline">\(B^{s,p}(\R^d )\)</span> to the lower order spaces <span class="math inline">\(H^{s-r,p}(\R^d )\)</span> and <span class="math inline">\(B^{s-r,p}(\R^d )\)</span> by application of <span class="math inline">\(\Lambda ^r\)</span> (differentiating <span class="math inline">\(r\)</span> times). In other words, spaces of lower-order regularity are obtained by differentiating functions with higher regularity. We show how to extend this idea to smooth domains in some particular cases.</p>
+<div id="thm-riesz-representation" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 6 (Representation of <span class="math inline">\(W_0^{k,p}(\Omega )'\)</span>)</strong></span> Let <span class="math inline">\(\Omega \subset \R^d\)</span> be an extension domain for <span class="math inline">\(W^{k,p}\)</span> where <span class="math inline">\(k \in \N_0\)</span> and <span class="math inline">\(p \in (1,\infty)\)</span>. Then, every element in <span class="math inline">\(W^{-k,p'}(\Omega )=W^{k,p}_0(\Omega )'\)</span> is the unique extension of a distribution of the form</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{0\leq\abs{\alpha}\leq k} D^\alpha u_\alpha\in \Dd'(\Omega ),\quad \text{where }    u_\alpha \in L^{p'}(\Omega ).
+\end{aligned}
+\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Define the mapping</p>
+<p><span class="math display">\[
+\begin{aligned}
+T: W^{k,p}(\Omega ) &amp; \longrightarrow L^p(\Omega \to \R^M)                \\
+u                   &amp; \longmapsto(D^\alpha u)_{0 \leq\abs{\alpha}\leq k},
+\end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(M\)</span> is the number of multi-indices bounded by <span class="math inline">\(k\)</span>. Where the notation says that we send <span class="math inline">\(u\)</span> to the vector formed by all its derivatives. By our definition of the norm on <span class="math inline">\(W^{k,p}(\Omega )\)</span>, we have that <span class="math inline">\(T\)</span> is an isometry and, in particular, continuously invertible on its image. Denote the image of <span class="math inline">\(T\)</span> by <span class="math inline">\(X:=\rm{Im}(T)\)</span>. Given <span class="math inline">\(\ell \in W^{-k,p'}(\Omega )\)</span> we define</p>
+<p><span class="math display">\[
+\begin{aligned}
+\ell_0: X \to \R, \quad \ell_0(\mathbf{w}):= \ell(T^{-1}\mathbf{w}), \quad \forall \mathbf{w} \in X.
+\end{aligned}
+\]</span></p>
+<p>By Hahn Banach’s theorem, we can extend <span class="math inline">\(\ell_0\)</span> from <span class="math inline">\(X\)</span> to a functional <span class="math inline">\(\ell_1 \in  L^p(\Omega \to \R^M)'\)</span> and by the Riesz representation theorem, we have that there exists a unique <span class="math inline">\(\mathbf{f}=(f_\alpha)_{0\leq \abs{\alpha}\leq k }\in L^{p'}(\Omega \to \R^M)\)</span> such that</p>
+<p><span class="math display">\[
+\begin{aligned}
+\ell_1(\mathbf{w})=\int_{\Omega}\mathbf{w}\cdot \mathbf{f}, \quad \forall \mathbf{w} \in L^p(\Omega \to \R^M).
+\end{aligned}
+\]</span></p>
+<p>By construction, it holds that, for all <span class="math inline">\(v \in W^{k,p}(\Omega )\)</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+\ell(v)=\ell_0(Tv)=\int_{\Omega}Tv\cdot \mathbf{f}=\sum_{0\leq\abs{\alpha}\leq k}\int_{\Omega}f_\alpha D^\alpha v .
+\end{aligned}
+\]</span></p>
+<p>In particular, this holds for <span class="math inline">\(v \in \Dd(\Omega )\)</span> and if we set <span class="math inline">\(u_\alpha:=(-1)^\alpha f_\alpha\)</span> we obtain that for all <span class="math inline">\(v \in \Dd(\Omega )\)</span></p>
+<p><span id="eq-representation"><span class="math display">\[
+\begin{aligned}
+\ell(v)=\left(v,\sum_{0\leq\abs{\alpha}\leq k} D^\alpha u_\alpha\right)=: \omega(v)
+\end{aligned}
+\tag{10}\]</span></span></p>
+<p>(we recall the notation <span class="math inline">\((v,\omega)\)</span> for the duality pairing). By definitions of the norm on <span class="math inline">\(W^{k,p}(\Omega )\)</span> and Cauchy Schwartz, we have that <span class="math inline">\(\omega\)</span> is continuous with respect to the norm on <span class="math inline">\(W^{k,p}(\Omega )\)</span> and so we may extend it uniquely to the closure of <span class="math inline">\(\Dd(\Omega )\)</span> in <span class="math inline">\(W^{k,p}(\Omega )\)</span> which is <span class="math inline">\(W^{k,p}_0(\Omega )\)</span>. By (<a href="#eq-representation" class="quarto-xref">10</a>), the extension is necessarily <span class="math inline">\(\omega\)</span>. This completes the proof.</p>
+</div>
+<p>The above theorem shows that <span class="math inline">\(W^{-k,p'}(\Omega )\)</span> can be equivalently formed by differentiating <span class="math inline">\(k\)</span> times functions in <span class="math inline">\(L^{p'}(\Omega )\)</span>. The proof also sheds some light as to why <span class="math inline">\(W^{-s,p'}(\Omega )\)</span> is the dual of <span class="math inline">\(W^{k,p}_0(\Omega )\)</span> and not the dual of <span class="math inline">\(W^{k,p}(\Omega )\)</span>. The reason is that given a sufficiently regular distribution in <span class="math inline">\(\Dd'(\Omega )\)</span>, it has a unique continuous extension to an element of <span class="math inline">\(W_0^{k,p}(\Omega )'\)</span>, but not to an element of <span class="math inline">\(W^{k,p}(\Omega )'\)</span>. We note however that, though the extension from <span class="math inline">\(\Dd'(\Omega )\)</span> to <span class="math inline">\(W^{-s,p}(\Omega )\)</span> is unique, the functions <span class="math inline">\(u_\alpha\)</span> will not be, for example, if <span class="math inline">\(\abs{\alpha}&gt;0\)</span> it is possible to add a constant to <span class="math inline">\(u_\alpha\)</span> and still obtain the same result.</p>
+<div id="exr-6" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8</strong></span> Show that for <span class="math inline">\(s= \gamma +k\)</span> where <span class="math inline">\(k \in \N_0, \gamma \in [0,1)\)</span> and <span class="math inline">\(p \in [1,\infty)\)</span> and an extension domain for <span class="math inline">\(H^{s,p}\)</span>, every element in <span class="math inline">\(H^{-s,p'}(\Omega )\)</span> can be written in the form <span class="math inline">\(\restr{w}{\partial \Omega }\)</span>, where</p>
+<p><span class="math display">\[
+\begin{aligned}
+w=\sum_{0\leq\abs{\alpha}\leq k} \Lambda^{\gamma } D^\alpha u_\alpha\in \Dd'(\R^d ),\quad \text{where }    u_\alpha \in L^{p'}(\R^d ).
+\end{aligned}
+\]</span></p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Use that <span class="math inline">\(\Lambda ^{\gamma }: H^{s,p}(\R^d) \to H^{k ,p}(\R^d)\)</span> is an isomorphism and the just proved <a href="#thm-riesz-representation" class="quarto-xref">Theorem&nbsp;6</a> together with the integer equivalence in <a href="#thm-equivalence-fractional-spaces" class="quarto-xref">Theorem&nbsp;3</a> to show that</p>
+<p><span class="math display">\[
+\begin{aligned}
+H^{s,p}(\R^d)' = \set{ \sum_{0\leq\abs{\alpha}\leq k} \Lambda^{\gamma } D^\alpha u_\alpha\in \Dd'(\R^d ),\quad \text{where }    u_\alpha \in L^{p'}(\R^d )}.
+\end{aligned}
+\]</span></p>
+<p>Now conclude by the definition of <span class="math inline">\(H^{-s,p'}(\Omega )\)</span> for open domains <a href="#def-bessel-potential-def-omega" class="quarto-xref">Definition&nbsp;4</a>.</p>
+</div>
+</div>
+</div>
+<p>The above results extend to Besov spaces; see <span class="citation" data-cites="agranovich2015sobolev">(<a href="#ref-agranovich2015sobolev" role="doc-biblioref">Agranovich 2015</a>)</span> page 227. This gives,</p>
+<div id="thm-3" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 7</strong></span> Let <span class="math inline">\(k \in \N_0, \gamma \in [0,1), \theta \in (0,1)\)</span> and <span class="math inline">\(p \in [1,\infty)\)</span> where <span class="math inline">\(\Omega\)</span> is an extension domain for <span class="math inline">\(B^{\theta   ,p}, H^{\gamma ,p}\)</span>. Then,</p>
+<p><span class="math display">\[
+\begin{aligned}
+B^{\theta  -k,p}(\Omega ) &amp; = \set{ \sum_{0\leq\abs{\alpha}\leq k} D^\alpha u_\alpha\in \Dd'(\Omega ),\quad \text{where }    u_\alpha \in B^{\theta  ,p}(\Omega )} \\
+H^{\gamma -k,p}(\Omega )  &amp; = \set{ \sum_{0\leq\abs{\alpha}\leq k} D^\alpha u_\alpha\in \Dd'(\Omega ),\quad \text{where }    u_\alpha \in H^{\gamma ,p}(\Omega )}  \\
+W^{\gamma -k,p}(\Omega )  &amp; = \set{ \sum_{0\leq\abs{\alpha}\leq k} D^\alpha u_\alpha\in \Dd'(\Omega ),\quad \text{where }    u_\alpha \in W^{\gamma ,p}(\Omega )}.
+\end{aligned}
+\]</span></p>
+</div>
+</section>
+<section id="some-applications-trace-embeddings-and-regularity" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="some-applications-trace-embeddings-and-regularity"><span class="header-section-number">7</span> Some applications: Trace, embeddings and regularity</h2>
+<section id="trace-operator" class="level3" data-number="7.1">
+<h3 data-number="7.1" class="anchored" data-anchor-id="trace-operator"><span class="header-section-number">7.1</span> Trace operator</h3>
+<p>Consider <span class="math inline">\(f \in L^p(\Omega )\)</span> a PDE of the form</p>
+<p><span id="eq-pde"><span class="math display">\[
+\begin{aligned}
+\Ll u =f \text{ in } \Omega , \quad \restr{u}{\partial \Omega }= g.
+\end{aligned}
+\tag{11}\]</span></span></p>
+<p>Then, it is necessary to know exactly what boundary data <span class="math inline">\(g\)</span> is admissible. Suppose that <span class="math inline">\(\Ll\)</span> is of order <span class="math inline">\(k\)</span> so we require <span class="math inline">\(u \in W^{k,p}(\Omega )\)</span>. Will (<a href="#eq-pde" class="quarto-xref">11</a>) have a solution? To be able to answer this question, we need to know the image of the trace operator. If <span class="math inline">\(g \notin \operatorname{Tr}(W^{k,p}(\Omega ))\)</span>, then there is no hope of finding a solution. The following theorem characterizes the image of the trace operator and can be found in <span class="citation" data-cites="agranovich2015sobolev">(<a href="#ref-agranovich2015sobolev" role="doc-biblioref">Agranovich 2015</a>)</span> page 228 and <span class="citation" data-cites="leoni2023first">(<a href="#ref-leoni2023first" role="doc-biblioref">Leoni 2023, 229:350, 492</a>)</span>.</p>
+<div id="thm-trace-theorem" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 8 (Fractional trace theorem)</strong></span> Let <span class="math inline">\(\Omega \subset \R^d\)</span> be open with <span class="math inline">\(C^{k,1}\)</span> boundary. Then, for all <span class="math inline">\(p\in (1,\infty), s\in (1/p,k)\)</span>, the trace operator <span class="math inline">\(\operatorname{Tr}\)</span> can be extended from <span class="math inline">\(C(\overline{\Omega } )\)</span> to a bounded operator</p>
+<p><span class="math display">\[
+\begin{aligned}
+\operatorname{Tr}: H^{s,p}(\Omega ) \to B^{s-1/p,p}(\partial\Omega), \quad \operatorname{Tr}: B^{s,p}(\Omega ) \to B^{s-1/p,p}(\partial\Omega).
+\end{aligned}
+\]</span></p>
+<p>Furthermore, given <span class="math inline">\(g \in B^{s-1/p,p}(\partial\Omega)\)</span>, there exists <span class="math inline">\(u \in W^{s,p}(\Omega )\)</span> such that <span class="math inline">\(\operatorname{Tr}(u)=g\)</span> with</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{u}_{W^{s,p}(\Omega )}\lesssim \norm{g}_{B^{s-1/p,p}(\partial\Omega)}.
+\end{aligned}
+\]</span></p>
+</div>
+<p>Note that, since we have equality of <span class="math inline">\(W^{s,p}(\Omega )\)</span> with <span class="math inline">\(H^{s,p}(\Omega )\)</span> and <span class="math inline">\(B^{s,p}(\Omega )\)</span> for integer and non-integer <span class="math inline">\(s\)</span> respectively, we can also extend</p>
+<p><span class="math display">\[
+\begin{aligned}
+\operatorname{Tr}: W^{s,p}(\Omega ) \to B^{s-1/p,p}(\partial\Omega).
+\end{aligned}
+\]</span></p>
+</section>
+<section id="fractional-sobolev-embeddings" class="level3" data-number="7.2">
+<h3 data-number="7.2" class="anchored" data-anchor-id="fractional-sobolev-embeddings"><span class="header-section-number">7.2</span> Fractional Sobolev embeddings</h3>
+<p>In this section, we state the fractional analogue of the Sobolev embedding theorems for regularity <span class="math inline">\(\gamma \in (0,1)\)</span>. Here, the <a href="../../../posts/PDEs/3. Sobolev spaces/index.html#exr-est12">analogous</a> of the exponent <span class="math inline">\(p_k^{*}\)</span> is</p>
+<div id="def-3" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 10</strong></span> Given <span class="math inline">\(p \in [1,\infty)\)</span> and <span class="math inline">\(s&gt;0\)</span>, with <span class="math inline">\(s\in (d/p, \infty)\)</span>, we define the <em>Sobolev critical exponent</em> <span class="math inline">\(p_s^*\)</span> by</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{1}{p_s ^*}:=\frac{1}{p}-\frac{s }{d}.
+\end{aligned}
+\]</span></p>
+</div>
+<p>The natural extension of the Sobolev embedding theorem to the fractional case is the following. First, we introduce the following notation for the fractional seminorm.</p>
+<p><span class="math display">\[
+\begin{aligned}
+\abs{u}_{W^{\gamma, p}(\Omega )}:=\int_{\R^d}\int_{\R^d}\frac{\abs{u(x+y)-u(y)}}{\abs{x}^{d+\gamma p}}\d x \d y.
+\end{aligned}
+\]</span></p>
+<p>See <span class="citation" data-cites="leoni2023first">(<a href="#ref-leoni2023first" role="doc-biblioref">Leoni 2023</a>)</span> page 262 for the following result.</p>
+<div id="thm-subcritical-embedding" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 9 (Fractional Sobolev-Gagliardo-Niremberg)</strong></span> Given an extension domain <span class="math inline">\(\Omega\)</span> for <span class="math inline">\(W^{\gamma,p}\)</span> and <span class="math inline">\(\gamma \in (0,1), p \in [1,\infty)\)</span>, it holds that</p>
+<p><span class="math display">\[
+\begin{aligned}
+\|u\|_{L^{p_\gamma^*}(\Omega )} \lesssim \|u\|_{W^{\gamma, p}(\Omega )}, \quad\forall \gamma &lt;  \frac{d}{p}
+\end{aligned}
+\]</span></p>
+<p>In particular, by interpolation, for all <span class="math inline">\(q \in [p,p_\gamma^*]\)</span>.</p>
+<p><span class="math display">\[
+\begin{aligned}
+\|u\|_{L^{q}(\Omega )} \lesssim \norm{u}_{W^{\gamma, p}(\Omega )}, \quad\forall \gamma &lt;  \frac{d}{p}.
+\end{aligned}
+\]</span></p>
+</div>
+<p>The critical case <span class="math inline">\(\gamma=\frac{d}{p}\)</span> corresponding to <span class="math inline">\(p_\gamma^*=\infty\)</span> is now (see <span class="citation" data-cites="leoni2023first">(<a href="#ref-leoni2023first" role="doc-biblioref">Leoni 2023</a>)</span> page 265)</p>
+<div id="thm-critical-embedding" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 10</strong></span> Given an extension domain <span class="math inline">\(\Omega\)</span> for <span class="math inline">\(W^{\gamma,p}\)</span> and <span class="math inline">\(\gamma \in (0,1), q \in [p,\infty)\)</span>, it holds that</p>
+<p><span class="math display">\[
+\begin{aligned}
+\|u\|_{L^q(\Omega )} \lesssim\|u\|_{W^{\gamma, p}(\Omega)}, \quad \gamma =  \frac{d}{p}.
+\end{aligned}
+\]</span></p>
+</div>
+<div id="exr-7" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 9</strong></span> Using <a href="#thm-subcritical-embedding" class="quarto-xref">Theorem&nbsp;9</a> prove <a href="#thm-critical-embedding" class="quarto-xref">Theorem&nbsp;10</a></p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We are in the subcritical case for <span class="math inline">\(r&lt;d/p=\gamma\)</span>. Extend <span class="math inline">\(u\)</span> to <span class="math inline">\(\R^d\)</span> to form <span class="math inline">\(\tl{u}\)</span>. Then, by <a href="#prp-inclusion-ordered-by-regularity" class="quarto-xref">Proposition&nbsp;1</a>, we have</p>
+<p><span class="math display">\[
+\begin{aligned}
+\|u\|_{L^{p_r^*}(\Omega )}\leq \|u\|_{L^{p_r^*}(\R^d )}  \lesssim \norm{u}_{W^{r, p}(\R^d )}\leq \norm{u}_{W^{\gamma, p}(\R^d  )}\lesssim \norm{u}_{W^{\gamma, p}(\Omega )}.
+\end{aligned}
+\]</span></p>
+<p>Conclude by finding <span class="math inline">\(r\)</span> such that <span class="math inline">\(p_r^*=q\)</span>.</p>
+</div>
+</div>
+</div>
+<p>The supercritical case <span class="math inline">\(\gamma&gt;d/p\)</span> can be found in <span class="citation" data-cites="agranovich2015sobolev">(<a href="#ref-agranovich2015sobolev" role="doc-biblioref">Agranovich 2015</a>)</span> page 224 and <span class="citation" data-cites="leoni2023first">(<a href="#ref-leoni2023first" role="doc-biblioref">Leoni 2023</a>)</span> page 275. To simplify the notation we use the convention that <span class="math inline">\(C^r\)</span> stands for <span class="math inline">\(C^{\lfloor r \rfloor, r-\lfloor r \rfloor}\)</span>.</p>
+<div id="thm-morrey-embedding" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 11 (Morrey’s fractional embedding)</strong></span> Let <span class="math inline">\(\Omega\)</span> be an extension domain for <span class="math inline">\(W^{s,p}\)</span>, we have a continuous embedding</p>
+<p><span class="math display">\[
+\begin{aligned}
+W^{s,p}(\Omega) \hookrightarrow  C^{s-d/p}(\Omega), \quad\forall s&gt; \frac{d}{p}.
+\end{aligned}
+\]</span></p>
+<p>This embedding also holds for <span class="math inline">\(s=d / p\)</span> provided that <span class="math inline">\(s-d/p\)</span> is non-integer.</p>
+</div>
+<p>As in the non-fractional case, one can also consider higher smoothness on the right-hand side (see <span class="citation" data-cites="leoni2023first">(<a href="#ref-leoni2023first" role="doc-biblioref">Leoni 2023</a>)</span> page 290).</p>
+<div id="thm-higher-smoothness-embedding" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 12 (Sobolev embedding into higher smoothness)</strong></span> Let <span class="math inline">\(\Omega\)</span> be an extension domain for <span class="math inline">\(W^{\gamma,p}\)</span>. Then, given <span class="math inline">\(p_1, p_2 \in [1,\infty)\)</span> and <span class="math inline">\(0\leq \gamma_1&lt;\gamma_2&lt; 1\)</span>, it holds that</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{u}_{W^{\gamma_1,p_1}(\Omega )}\lesssim \norm{u}_{W^{\gamma_2,p_2}(\Omega )}, \quad\forall \gamma_2 - \frac{d}{p_2} = \gamma_1 - \frac{d}{p_1}.
+\end{aligned}
+\]</span></p>
+</div>
+<div id="exr-8" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 10</strong></span> Justify via a scaling argument that the condition <span class="math inline">\(\gamma_2 - \frac{d}{p_2} = \gamma_1 - \frac{d}{p_1}\)</span> is necessary for the embedding in <a href="#thm-higher-smoothness-embedding" class="quarto-xref">Theorem&nbsp;12</a>.</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Extend to a function on <span class="math inline">\(\R^d\)</span>, then swap <span class="math inline">\(u\)</span> with <span class="math inline">\(u_\lambda (x):=u(\lambda x)\)</span>and apply the change of variables <span class="math inline">\((x,y)\to \lambda (x,y)\)</span>.</p>
+</div>
+</div>
+</div>
+<p>Finally, interpolation results are also possible. See <span class="citation" data-cites="leoni2023first">(<a href="#ref-leoni2023first" role="doc-biblioref">Leoni 2023</a>)</span> page 300.</p>
+<div id="thm-interpolation-embedding" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 13</strong></span> Let <span class="math inline">\(\Omega\)</span> be an extension domain for <span class="math inline">\(W^{\gamma,p}\)</span> and consider <span class="math inline">\(p_1,p_2 \in (1,\infty), 0 \leq \gamma_1&lt;\gamma_2 \leq 1,\)</span> and <span class="math inline">\(0&lt;\theta&lt;1\)</span>. Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+\|u\|_{W^{s, p}(\R^d)} \lesssim\|u\|_{W^{\gamma_1, p_1}(\R^d)}^\theta\|u\|_{W^{\gamma_2, p_2}(\R^d)}^{1-\theta}
+\end{aligned}
+\]</span></p>
+<p>for all <span class="math inline">\(u \in W^{\gamma_1, p_1}(\R^d) \cap W^{\gamma_2, p_2}(\R^d)\)</span>, where <span class="math inline">\(\frac{1}{p}=\frac{\theta}{p_1}+\frac{1-\theta}{p_2}\)</span> and <span class="math inline">\(s=\theta \gamma_1+\)</span> <span class="math inline">\((1-\theta) \gamma_2.\)</span></p>
+</div>
+<p>The above results can also be formulated in terms of the Sobolev seminorm. For example, <a href="#thm-interpolation-embedding" class="quarto-xref">Theorem&nbsp;13</a> can be formulated as</p>
+<p><span class="math display">\[
+\begin{aligned}
+\abs{u}_{W^{s, p}(\R^d)} \lesssim \abs{u}_{W^{\gamma_1, p_1}(\R^d)}^\theta\abs{u}_{W^{\gamma_2, p_2}(\R^d)}^{1-\theta}.
+\end{aligned}
+\]</span></p>
+<p>Higher order embeddings and interpolations can be obtained from the previous cases with regularity parameter below 1 in combination with the integer case.</p>
+<div id="exr-fractional-sobolev" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 11 (Fractional Sobolev Embeddings)</strong></span> Let <span class="math inline">\(\Omega \subset \mathbb{R}^d\)</span> be an extension domain for <span class="math inline">\(W^{s,p}\)</span>. Given <span class="math inline">\(s \ge 0\)</span> and <span class="math inline">\(p \in [1, \infty)\)</span>, set <span class="math inline">\(k=\lfloor s \rfloor\)</span> and <span class="math inline">\(\gamma =s-k\)</span>. The following continuous embeddings hold:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; W^{s, p}(\Omega) \hookrightarrow L^q(\Omega), \quad \forall q \in [p, p_s^*] \quad \text{ if } s&lt;\frac{d}{p} \\
+&amp; W^{s, p}(\Omega) \hookrightarrow L^q(\Omega), \quad \forall q \in [p, \infty) \quad \text{ if } s=\frac{d}{p} \\
+&amp; W^{s, p}(\Omega) \hookrightarrow C^{m, \alpha}(\bar{\Omega})  \text{ if } s&gt;\frac{d}{p} \text{ and } s-\frac{d}{p} \notin \mathbb{N},
+\end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(\frac{1}{p_s^*} = \frac{1}{p} - \frac{s}{d}\)</span>, <span class="math inline">\(m = \lfloor s - d/p \rfloor\)</span>, and <span class="math inline">\(\alpha = s - d/p - m\)</span> if <span class="math inline">\(s - d/p \notin \mathbb{N}\)</span> or <span class="math inline">\(\alpha \in (0, 1)\)</span> is any otherwise.</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Observe the algebraic relation:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{1}{(p_\gamma ^*)_k^*}=\frac{1}{p_\gamma^*}-\frac{k}{d}=\frac{1}{p}-\frac{s}{d}= \frac{1}{p_s^*}.
+\end{aligned}
+\]</span></p>
+<p>The result follows from applying <a href="#thm-subcritical-embedding" class="quarto-xref">Theorem&nbsp;9</a> and <a href="#thm-morrey-embedding" class="quarto-xref">Theorem&nbsp;11</a> sequentially with the <a href="../../../posts/PDEs/3. Sobolev spaces/index.html#thm-rellich">integer-case</a> embeddings. For the first (the subcritical) case, the fractional embedding <a href="#thm-subcritical-embedding" class="quarto-xref">Theorem&nbsp;9</a> yields:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{D^\alpha u}_{L^{p_\gamma ^*}(\Omega )}\lesssim \norm{D^\alpha u}_{W^{\gamma ,p}(\Omega )} \lesssim \norm{u}_{W^{s,p}(\Omega )}, \quad \forall \abs{\alpha}\leq k.
+\end{aligned}
+\]</span></p>
+<p>Applying the integer Sobolev embedding to <span class="math inline">\(W^{k, p_\gamma^*}(\Omega)\)</span>, we conclude:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{u}_{L^{p_s^*}(\Omega)}=\norm{u}_{L^{(p_\gamma ^*)_k ^*}(\Omega)}\lesssim \norm{u}_{W^{k,p_\gamma ^*}(\Omega)}\lesssim \norm{u}_{W^{s,p}(\Omega)}.
+\end{aligned}
+\]</span></p>
+<p>For the second (critical) case <span class="math inline">\(s=d/p\)</span>, the same bootstrapping yields <span class="math inline">\(W^{s,p}(\Omega) \hookrightarrow W^{k, p_\gamma^*}(\Omega)\)</span>. Since <span class="math inline">\(k = d/p_\gamma^*\)</span>, the integer critical embedding applies.</p>
+<p>For the supercritical case (<span class="math inline">\(s&gt;d/p\)</span>), apply the fractional Morrey embedding directly, or bootstrap to an integer space <span class="math inline">\(W^{k, \tilde{p}}(\Omega)\)</span> where <span class="math inline">\(k &gt; d/\tilde{p}\)</span>, and apply the integer Morrey embedding to extract the precise Hölder regularity <span class="math inline">\(C^{m, \alpha}(\bar{\Omega})\)</span>.</p>
+</div>
+</div>
+</div>
+<p>Below we plot the Sobolev critical exponent <span class="math inline">\(p_s^*\)</span> for <span class="math inline">\(p=2\)</span> and <span class="math inline">\(d=1,2,3\)</span>. As we can see, it decreases with <span class="math inline">\(d\)</span> and increases with <span class="math inline">\(s\)</span>. This means that the larger the dimension the more regularity we need to obtain a bound on the same <span class="math inline">\(L^q(\R^d)\)</span> norm. The integrability increasing to infinity around the critical threshold <span class="math inline">\(s=d/p\)</span>.</p>
+<div id="fig-fig:regularity-coefficient" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fig:regularity-coefficient-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="regularity_coefficient.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig:regularity-coefficient-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Sobolev critical exponent for <span class="math inline">\(p=2\)</span> and <span class="math inline">\(d=1,2,3\)</span>
+</figcaption>
+</figure>
+</div>
+<div id="exr-9" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 12</strong></span> Let <span class="math inline">\(\Omega\)</span> be an extension domain for <span class="math inline">\(W^{s_1,p}\)</span>. Show that, given <span class="math inline">\(p_1, p_2 \in [1,\infty)\)</span> and <span class="math inline">\(0 \leq s_2&lt;s_1 &lt;\infty\)</span>, it holds that</p>
+<p><span class="math display">\[
+\begin{aligned}
+W^{s_1, p_1}(\Omega ) \hookrightarrow W^{s_2, p_2}(\Omega ), \quad s_1 - \frac{d}{p_1} = s_2 - \frac{d}{p_2}.
+\end{aligned}
+\]</span></p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Set <span class="math inline">\(k_i =\left\lfloor s_i \right\rfloor\)</span> and <span class="math inline">\(\gamma_i =s_i-k_i\)</span>. Apply <a href="#thm-higher-smoothness-embedding" class="quarto-xref">Theorem&nbsp;12</a> to the derivatives of order up to <span class="math inline">\(k_2\)</span> to obtain</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{D^\alpha u}_{W^{\gamma_2, p_2}(\Omega )}\lesssim \norm{D^\alpha u}_{W^{\gamma _1,p_1}(\Omega )} \leq \norm{u}_{W^{s_1,p_1}(\Omega )}, \quad \forall \abs{\alpha}\leq k_2.
+\end{aligned}
+\]</span></p>
+<p>Deduce that</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{u}_{W^{s_2,p_2}(\Omega )}\lesssim \norm{u}_{W^{s_1,p_1}(\Omega )}.
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+<p>For more higher order embeddings see also <span class="citation" data-cites="leoni2023first">(<a href="#ref-leoni2023first" role="doc-biblioref">Leoni 2023</a>)</span> Section 11.4. Finally, embeddings can be similarly formulated for Besov spaces. See <span class="citation" data-cites="sawano2018theory">(<a href="#ref-sawano2018theory" role="doc-biblioref">Sawano et al. 2018</a>)</span> page 219 for the following result.</p>
+<div id="thm-4" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 14 (Embedding for Besov spaces)</strong></span> Let <span class="math inline">\(\Omega\)</span> be an extension domain, and consider <span class="math inline">\(1 \leq p_1&lt;p_2 \leq \infty, - \infty &lt;s_2&lt;s_1&lt;\infty\)</span>. Then,</p>
+<p><span class="math display">\[
+\begin{aligned}
+B^{s_1,p_1}(\Omega) \hookrightarrow B^{s_2,p_2}(\Omega), \quad s_1-\frac{n}{p_1}=s_2-\frac{n}{p_2} .
+\end{aligned}
+\]</span></p>
+</div>
+<p>This and other results can be formulated for the more general spaces <span class="math inline">\(B^{s,p}_q\)</span>. Where <span class="math inline">\(B^{s,p}= B^{s,p}_p\)</span>. See, <span class="citation" data-cites="triebel1992theory">(<a href="#ref-triebel1992theory" role="doc-biblioref">Triebel 1992</a>)</span>, <span class="citation" data-cites="agranovich2015sobolev">(<a href="#ref-agranovich2015sobolev" role="doc-biblioref">Agranovich 2015</a>)</span>, <span class="citation" data-cites="sawano2018theory">(<a href="#ref-sawano2018theory" role="doc-biblioref">Sawano et al. 2018</a>)</span>.</p>
+<p>We conclude this post by commenting that given a second-order PDE with smooth coefficients, such as</p>
+<p><span class="math display">\[
+\begin{aligned}
+- \Delta u =f \text{ in } \Omega , \quad \restr{u}{\partial \Omega }= 0.
+\end{aligned}
+\]</span></p>
+<p>One expects that <span class="math inline">\(u\)</span> is two degrees more regular than <span class="math inline">\(f\)</span>. That is, if <span class="math inline">\(f \in W^{s,p}(\Omega )\)</span>, then we should have <span class="math inline">\(u \in W^{s+2,p}(\Omega )\)</span>. This is indeed the case locally. However, to obtain smoothness up to the boundary, one also needs <span class="math inline">\(\partial \Omega\)</span> to be regular enough. In this case, Lipschitz continuity of <span class="math inline">\(\Omega\)</span> is not sufficient, even if <span class="math inline">\(f \in C^\infty(\overline{\Omega } )\)</span> (see for example <span class="citation" data-cites="savare1998regularity">(<a href="#ref-savare1998regularity" role="doc-biblioref">Savaré 1998</a>)</span>). We may comment on this later in a future post.</p>
+</section>
+</section>
+<section id="references" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="references"><span class="header-section-number">8</span> References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-agranovich2015sobolev" class="csl-entry" role="listitem">
+Agranovich, Mikhail S. 2015. <em>Sobolev Spaces, Their Generalizations and Elliptic Problems in Smooth and Lipschitz Domains</em>. Springer. <a href="https://link.springer.com/book/10.1007/978-3-319-14648-5">https://link.springer.com/book/10.1007/978-3-319-14648-5</a>.
+</div>
+<div id="ref-biccari2018local" class="csl-entry" role="listitem">
+Biccari, Umberto, Mahamadi Warma, and Enrique Zuazua. 2018. <span>“Local Regularity for Fractional Heat Equations.”</span> <em>Recent Advances in PDEs: Analysis, Numerics and Control: In Honor of Prof. Fern<span>á</span>ndez-Cara’s 60th Birthday</em>, 233–49. <a href="https://link.springer.com/chapter/10.1007/978-3-319-97613-6_12">https://link.springer.com/chapter/10.1007/978-3-319-97613-6_12</a>.
+</div>
+<div id="ref-brezis2011functional" class="csl-entry" role="listitem">
+Brezis, Haim, and Haim Brézis. 2011. <em>Functional Analysis, Sobolev Spaces and Partial Differential Equations</em>. Vol. 2. 3. Springer.
+</div>
+<div id="ref-di2012hitchhikers" class="csl-entry" role="listitem">
+Di Nezza, Eleonora, Giampiero Palatucci, and Enrico Valdinoci. 2012. <span>“Hitchhiker’s Guide to the Fractional Sobolev Spaces.”</span> <em>Bulletin Des Sciences Mathematiques</em> 136 (5): 521–73. <a href="https://www.sciencedirect.com/science/article/pii/S0007449711001254">https://www.sciencedirect.com/science/article/pii/S0007449711001254</a>.
+</div>
+<div id="ref-evans2022partial" class="csl-entry" role="listitem">
+Evans, Lawrence C. 2022. <em>Partial Differential Equations</em>. Vol. 19. American Mathematical Society. <a href="https://math24.files.wordpress.com/2013/02/partial-differential-equations-by-evans.pdf">https://math24.files.wordpress.com/2013/02/partial-differential-equations-by-evans.pdf</a>.
+</div>
+<div id="ref-leoni2017first" class="csl-entry" role="listitem">
+Leoni, Giovanni. 2017. <em>A First Course in Sobolev Spaces</em>. American Mathematical Soc. <a href="https://www.google.co.uk/books/edition/A_First_Course_in_Sobolev_Spaces/qoA8DwAAQBAJ?hl=en&amp;gbpv=0">https://www.google.co.uk/books/edition/A_First_Course_in_Sobolev_Spaces/qoA8DwAAQBAJ?hl=en&amp;gbpv=0</a>.
+</div>
+<div id="ref-leoni2023first" class="csl-entry" role="listitem">
+———. 2023. <em>A First Course in Fractional Sobolev Spaces</em>. Vol. 229. American Mathematical Society. <a href="https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&amp;gbpv=1&amp;dq=giovanni+leoni+fractional+sobolev&amp;pg=PP1&amp;printsec=frontcover">https://www.google.co.uk/books/edition/A_First_Course_in_Fractional_Sobolev_Spa/lh2_EAAAQBAJ?hl=en&amp;gbpv=1&amp;dq=giovanni+leoni+fractional+sobolev&amp;pg=PP1&amp;printsec=frontcover</a>.
+</div>
+<div id="ref-savare1998regularity" class="csl-entry" role="listitem">
+Savaré, Giuseppe. 1998. <span>“Regularity Results for Elliptic Equations in Lipschitz Domains.”</span> <em>Journal of Functional Analysis</em> 152 (1): 176–201. <a href="https://www.sciencedirect.com/science/article/pii/S002212369793158X/pdf?md5=c646200fe7117dd7d25d27439f36b342&amp;pid=1-s2.0-S002212369793158X-main.pdf">https://www.sciencedirect.com/science/article/pii/S002212369793158X/pdf?md5=c646200fe7117dd7d25d27439f36b342&amp;pid=1-s2.0-S002212369793158X-main.pdf</a>.
+</div>
+<div id="ref-sawano2018theory" class="csl-entry" role="listitem">
+Sawano, Yoshihiro et al. 2018. <em>Theory of Besov Spaces</em>. Vol. 56. Springer. <a href="https://link.springer.com/book/10.1007/978-981-13-0836-9">https://link.springer.com/book/10.1007/978-981-13-0836-9</a>.
+</div>
+<div id="ref-stein1970singular" class="csl-entry" role="listitem">
+Stein, Elias M. 1970. <em>Singular Integrals and Differentiability Properties of Functions</em>. Princeton university press. <a href="https://www.degruyter.com/document/doi/10.1515/9781400883882/html">https://www.degruyter.com/document/doi/10.1515/9781400883882/html</a>.
+</div>
+<div id="ref-taylor2013partial" class="csl-entry" role="listitem">
+Taylor, Michael. 2013. <em>Partial Differential Equations II: Qualitative Studies of Linear Equations</em>. Vol. 116. Springer Science &amp; Business Media.
+</div>
+<div id="ref-triebel1992theory" class="csl-entry" role="listitem">
+Triebel, Hans. 1992. <em>Theory of Function Spaces II</em>. Vol. 84. Birkh<span>ä</span>user. <a href="https://link.springer.com/book/10.1007/978-3-0346-0419-2">https://link.springer.com/book/10.1007/978-3-0346-0419-2</a>.
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<hr style="margin-top: 1em; margin-bottom: 2em;">
+<h2 id="comments">Comments</h2>
+
+<div class="giscus-comments">
+  <div style="
+      background: #f9f9f9;
+      border-left: 4px solid #008aff;
+      padding: 10px;
+      margin-bottom: 20px;
+      font-size: 0.9em;
+      color: #555;
+      border-radius: 0 4px 4px 0;
+    ">
+    <strong>Tip:</strong> Supports LaTeX using $$.
+    <a href="https://nowheredifferentiable.com/math-formatting" target="_blank" style="text-decoration: underline; color: #008aff">See formatting examples</a>.
+    <br>
+    To edit or delete, click the <strong>timestamp</strong> (e.g., "5 minutes
+    ago").
+  </div>
+
+  <div class="giscus" id="giscus-container"></div>
+
+  <script src="https://giscus.app/client.js" data-repo="LiamLlamazares/math_blog" data-repo-id="R_kgDOHZYcTQ" data-category="Comments" data-category-id="DIC_kwDOHZYcTc4Cx-sY" data-mapping="pathname" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="bottom" data-theme="light" data-lang="en" crossorigin="anonymous" async=""></script>
+
+  <script>
+    (function () {
+      function handleDeepLink() {
+        const hash = window.location.hash;
+        if (!hash || !hash.includes("discussioncomment")) return;
+
+        const container = document.getElementById("giscus-container");
+        if (container) {
+          container.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+
+        const iframe = document.querySelector("iframe.giscus-frame");
+        if (iframe) {
+          try {
+            const url = new URL(iframe.src);
+            if (url.hash !== hash) {
+              url.hash = hash;
+              iframe.src = url.toString();
+            }
+          } catch (e) {
+            console.error(e);
+          }
+        }
+      }
+
+      window.addEventListener("load", handleDeepLink);
+      window.addEventListener("hashchange", handleDeepLink);
+      window.addEventListener("message", function (event) {
+        if (
+          event.origin === "https://giscus.app" &&
+          event.data &&
+          event.data.giscus &&
+          event.data.giscus.resizeHeight
+        ) {
+          setTimeout(handleDeepLink, 500);
+        }
+      });
+    })();
+  </script>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const meta = document.querySelector('.quarto-title-meta');
+  if (!meta) return;
+
+  // Find the hidden data div injected by latex2qmd.py
+  const pdfDataElement = document.getElementById('quarto-post-pdf-url');
+  if (!pdfDataElement) return;
+
+  const pdfUrl = pdfDataElement.getAttribute('data-url');
+
+  if (pdfUrl && meta) {
+    // Check if we already injected it
+    if (document.querySelector('.quarto-title-meta-pdf')) return;
+
+    const pdfDiv = window.document.createElement('div');
+    pdfDiv.className = 'quarto-title-meta-pdf';
+    pdfDiv.innerHTML = `
+      <div class="quarto-title-meta-heading">PDF Version</div>
+      <div class="quarto-title-meta-contents">
+        <p><a href="${pdfUrl}" target="_blank">
+          <i class="bi bi-file-earmark-pdf"></i> PDF version
+        </a></p>
+      </div>
+    `;
+    meta.appendChild(pdfDiv);
+  }
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("index\.qmd");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>L. Llamazares-Elias</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/LiamLlamazares">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=nW7-c62TwJ0C">
+<p>Google Scholar</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

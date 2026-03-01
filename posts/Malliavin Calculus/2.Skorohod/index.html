@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Liam Llamazares–Elias">
+<meta name="dcterms.date" content="2022-05-28">
+<meta name="description" content="How does one generalize the Itô integral?">
 
-<title>Posts by Tag – NoWhere Differentiable Math</title>
+<title>MC 2: The Skorokhod Integral – NoWhere Differentiable Math</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,33 +23,50 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-2cab38f689c5f066e21a94e3c73297ae.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-428acbe8fe795edd664e6bfe67298593.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-2cab38f689c5f066e21a94e3c73297ae.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-2cab38f689c5f066e21a94e3c73297ae.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-428acbe8fe795edd664e6bfe67298593.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-2cab38f689c5f066e21a94e3c73297ae.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,35 +94,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-reading-time','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 
 <script type="text/javascript">
 
@@ -120,9 +111,98 @@ ga('send', {
 <script>
 window.MathJax = {
   tex: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\\[','\\]']],
-    processEscapes: true
+    tags: "ams",
+    macros: {
+      A: "\\mathbb{A}",
+      Aa: "\\mathcal{A}",
+      Bb: "\\mathcal{B}",
+      C: "\\mathbb{C}",
+      Cc: "\\mathcal{C}",
+      Dd: "\\mathcal{D}",
+      E: "\\mathbb{E}",
+      Ee: "\\mathcal{E}",
+      F: "\\mathbb{F}",
+      Ff: "\\mathcal{F}",
+      Gg: "\\mathcal{G}",
+      Hh: "\\mathcal{H}",
+      II: "\\mathbb{I}",
+      Id: "\\bm{I}",
+      Ii: "\\mathcal{I}",
+      Im: "\\bm{Im}",
+      Jj: "\\mathcal{J}",
+      K: "\\mathbb{K}",
+      KL: ["\\rm{KL}\\left(#1 \\| #2\\right)", 2],
+      Kk: "\\mathcal{K}",
+      LL: "\\mathbb{L}",
+      Ll: "\\mathcal{L}",
+      M: "\\mathbb{M}",
+      Mm: "\\mathcal{M}",
+      N: "\\mathbb{N}",
+      Nn: "\\mathcal{N}",
+      Oo: "\\mathcal{O}",
+      PP: "\\mathbb{P}",
+      Pp: "\\mathcal{P}",
+      Q: "\\mathbb{Q}",
+      Qq: "\\mathcal{Q}",
+      R: "\\mathbb{R}",
+      Rr: "\\mathcal{R}",
+      Ss: "\\mathcal{S}",
+      T: "\\mathbb{T}",
+      Th: "{\\bm{\\theta}}",
+      Thh: "{\\bm{\\Theta}}",
+      Tt: "\\mathcal{T}",
+      Uu: "\\mathcal{U}",
+      Vv: "\\mathcal{V}",
+      W: "\\mathbb{W}",
+      Ww: "\\mathcal{W}",
+      X: "\\mathbb{X}",
+      Xx: "\\mathcal{X}",
+      Yy: "\\mathcal{Y}",
+      Z: "\\mathbb{Z}",
+      Zz: "\\mathcal{Z}",
+      abs: ["{\\left| #1 \\right|}", 1],
+      alf: "{\\alpha}",
+      b: ["{\\bm{#1}}", 1],
+      bm: ["\\boldsymbol{#1}", 1],
+      br: ["\\left\\langle#1\\right\\rangle", 1],
+      bt: "\\beta",
+      co: ["\\overset{\\circ}{#1}", 1],
+      d: "\\mathrm{d}",
+      diag: ["\\operatorname{diag}\\left(#1\\right)", 1],
+      dx: "\\,\\mathrm{d}x",
+      dy: "\\,\\mathrm{d}y",
+      eps: "\\varepsilon",
+      et: "{\\bm{\\eta}}",
+      ex: ["\\mathrm{exp}\\left(#1\\right)", 1],
+      fk: ["\\mathfrak{#1}", 1],
+      fracc: ["{#1}/{#2}", 2],
+      frc: ["\\left(#2)^{-1}(#1\\right)", 2],
+      iso: "\\xrightarrow{\\sim}",
+      ker: "\\rm{ker}",
+      mat: ["\\begin{bmatrix}{#1}\\end{bmatrix}", 1],
+      mathbbm: ["\\mathbb{#1}", 1],
+      mathds: ["\\mathbb{#1}", 1],
+      norm: ["\\left\\lVert #1 \\right\\rVert", 1],
+      om: "\\omega",
+      postref: ["\\href{https://nowheredifferentiable.com/posts/#1/}{#3}", 3],
+      proj: "\\mathrm{proj}",
+      qb: ["\\left[#1\\right]", 1],
+      qp: ["\\left(#1\\right)", 1],
+      qt: ["\\left(#1\\right)", 1],
+      red: ["{\\color{red}#1}", 1],
+      restr: ["\\left.#1\\right|{#2}", 2],
+      rm: ["\\mathrm{#1}", 1],
+      set: ["\\left\\{#1\\right\\}", 1],
+      star: "*",
+      supp: "\\operatorname{supp}",
+      tl: ["\\widetilde{#1}", 1],
+      tll: ["\\widetilde{#1}", 1],
+      vol: "\\mathrm{vol}",
+      wh: ["\\widehat{#1}", 1],
+      x: "\\bm{x}",
+      xxi: "{\\bm{\\xi}}",
+      y: "\\bm{y}"
+    }
   }
 };
 </script>
@@ -157,7 +237,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="custom_theorems.css">
+<link rel="stylesheet" href="../../../custom_theorems.css">
 </head>
 
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -329,11 +409,11 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./assets/img/tree.jpg" alt="" class="navbar-logo light-content">
-    <img src="./assets/img/tree.jpg" alt="" class="navbar-logo dark-content">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../assets/img/tree.jpg" alt="" class="navbar-logo light-content">
+    <img src="../../../assets/img/tree.jpg" alt="" class="navbar-logo dark-content">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">NoWhere Differentiable Math</span>
     </a>
   </div>
@@ -344,17 +424,17 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../../index.html"> 
 <span class="menu-text">HOME PAGE</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./aboutme.html"> 
+    <a class="nav-link" href="../../../aboutme.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./tags.html" aria-current="page"> 
+    <a class="nav-link" href="../../../tags.html"> 
 <span class="menu-text">Posts by Tag</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -390,26 +470,57 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(17)</span></div><div class="category" data-category="QW5hbHlzaXMlMjBPbiUyMEJhbmFjaCUyMFNwYWNlcw==">Analysis On Banach Spaces <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SXRvJTIwSW50ZWdyYWw=">Ito Integral <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TWFsbGlhdmluJTIwQ2FsY3VsdXM=">Malliavin Calculus <span class="quarto-category-count">(5)</span></div><div class="category" data-category="TWFsbGlhdmluJTIwY2FsY3VsdXM=">Malliavin calculus <span class="quarto-category-count">(2)</span></div><div class="category" data-category="UGRlcw==">Pdes <span class="quarto-category-count">(7)</span></div><div class="category" data-category="U3RvY2hhc3RpYyUyMENhbGN1bHVz">Stochastic Calculus <span class="quarto-category-count">(2)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#three-line-summary" id="toc-three-line-summary" class="nav-link active" data-scroll-target="#three-line-summary"><span class="header-section-number">1</span> Three line summary</a></li>
+  <li><a href="#why-should-i-care" id="toc-why-should-i-care" class="nav-link" data-scroll-target="#why-should-i-care"><span class="header-section-number">2</span> Why should I care?</a></li>
+  <li><a href="#notation" id="toc-notation" class="nav-link" data-scroll-target="#notation"><span class="header-section-number">3</span> Notation</a></li>
+  <li><a href="#the-chaos-expansion-of-an-itô-integral" id="toc-the-chaos-expansion-of-an-itô-integral" class="nav-link" data-scroll-target="#the-chaos-expansion-of-an-itô-integral"><span class="header-section-number">4</span> The chaos expansion of an Itô integral</a></li>
+  <li><a href="#the-skorokhod-integral" id="toc-the-skorokhod-integral" class="nav-link" data-scroll-target="#the-skorokhod-integral"><span class="header-section-number">5</span> The Skorokhod integral</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">6</span> References</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Posts by Tag</h1>
+<h1 class="title">MC 2: The Skorokhod Integral</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Malliavin calculus</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    How does one generalize the Itô integral?
+  </div>
 </div>
 
 
+<div class="quarto-title-meta">
 
-<div class="quarto-title-meta column-page-left">
-
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Liam Llamazares–Elias </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 28, 2022</p>
+    </div>
+  </div>
   
     
   </div>
@@ -419,408 +530,231 @@ window.Quarto = {
 </header>
 
 
-
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="UGRlcw==" data-listing-date-sort="1729296000000" data-listing-file-modified-sort="1772403292919" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="26" data-listing-word-count-sort="5084">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/PDEs/7. Existence Parabolic/index.html" class="no-external">PDEs 7: Parabolic PDE, well-posedness and regularity</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UGRlcw=='); return false;">Pdes</div>
-
+<section id="three-line-summary" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="three-line-summary"><span class="header-section-number">1</span> Three line summary</h2>
+<ul>
+<li><p>By fixing <span class="math inline">\(t\)</span>, one can obtain a chaos expansion for (possibly non-adapted) square integrable stochastic processes <span class="math inline">\(X(t)\)</span>.</p></li>
+<li><p>The Itô integral of an Itô integrable process <span class="math inline">\(X(t)\)</span> has a chaos expansion.</p></li>
+<li><p>This chaos expansion can converge even when <span class="math inline">\(X(t)\)</span> is not adapted to the filtration <span class="math inline">\(\Ff_t\)</span> (and thus not Itô integrable). This allows us to extend the Itô integral to non-adapted processes.</p></li>
+</ul>
+</section>
+<section id="why-should-i-care" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="why-should-i-care"><span class="header-section-number">2</span> Why should I care?</h2>
+<p>If you want to define the Malliavin derivative you need the Skorokhod integral.</p>
+</section>
+<section id="notation" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="notation"><span class="header-section-number">3</span> Notation</h2>
+<p>The same as in <a href="../../../posts/Malliavin Calculus/1.Chaos_expansion/index.html">the previous post</a> on the chaos expansion. We will also write <span class="math inline">\(\mathbb{L}^2(I\times \Omega)\)</span> for the space of <a href="../../../posts/Stochastic Calculus/Ito_integral/index.html">Itô integrable</a> functions.</p>
+</section>
+<section id="the-chaos-expansion-of-an-itô-integral" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="the-chaos-expansion-of-an-itô-integral"><span class="header-section-number">4</span> The chaos expansion of an Itô integral</h2>
+<p>Our goal in this post is to construct the Skorokhod integral. This serves as a generalization of the Itô integral and the starting point for the definition of the Malliavin derivative. How is this done? Let us first consider a (not-necessarily adapted) stochastic process <span class="math inline">\(X\)</span> such that <span class="math inline">\(X_t\in L^2(\Omega,\Ff_\infty)\)</span> for each <span class="math inline">\(t \in I\)</span>. Then we know that by the chaos expansion proved in the previous post, for each <span class="math inline">\(t\)</span> there exists <span class="math inline">\(f_{n,t}\in L^2(S_n)\)</span> such that</p>
+<p><span class="math display">\[
+X=\sum_{n=0}^{\infty} I_n(f_{n,t}).
+\]</span></p>
+<p>Let us write <span class="math inline">\(f_{n}(\cdot,t):=f_{n,t}\)</span>. Note that we are now considering <span class="math inline">\(f_n\)</span> as a function of <span class="math inline">\(n+1\)</span> variables instead of <span class="math inline">\(n\)</span>. In particular, we will be able to consider expressions like <span class="math inline">\(I_{n+1}(f_n)\)</span> later on. The first thing we do is study what the adaptedness of <span class="math inline">\(X\)</span> means in term of the functions <span class="math inline">\(f_n\)</span> appearing in its chaos expansion.</p>
+<div id="lem-zerolemma" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 1</strong></span> Let <span class="math inline">\(X(t) \in L^2(\Omega,\Ff_\infty)\)</span> for each <span class="math inline">\(t \in  I\)</span>, then <span class="math inline">\(X\)</span> is adapted iff</p>
+<p><span class="math display">\[
+f_n(t_1,\ldots,t_n,t)=0,\quad\forall t\leq\max_{i=1,\ldots,n} t_i .
+\]</span></p>
 </div>
-<div class="delink listing-description"><a href="./posts/PDEs/7. Existence Parabolic/index.html" class="no-external">
-<p>A journey through time and space</p>
-</a></div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Firstly, we note that a stochastic process <span class="math inline">\(X\)</span> is adapted iff <span class="math display">\[X_t=\E_{\Ff_t}[X(t)]\quad\forall t\in I.\]</span> Since the Itô integral is a martingale, we obtain that, by commuting the sum and using the uniqueness of the chaos expansion this is equivalent to requiring that, for all <span class="math inline">\(t\)</span> <span class="math display">\[\begin{multline*}
+I_n(f_n(\cdot,t))\\=    n!\E_{\Ff_t} \left[\int_{I} \left( \int_{0}^{t_n}\cdots \int_{0}^{t_2}f(t_1\ldots t_n,t) dW(t_1) \cdots dW(t_{n-1}) \right)dW(t_n)\right]\\
+=n!\int_{0}^t \int_{0}^{t_n}\cdots \int_{0}^{t_2}f(t_1\ldots t_n,t) dW(t_1) \cdots dW(t_{n-1})dW(t_n)\\= I_n(f_n(\cdot,t) 1_{\max_{t_i\leq t}}),
+\end{multline*}\]</span> where the commutation of the sum and the integral is justified by the <span class="math inline">\(L^2(\Omega)\)</span> convergence of the chaos expansion (<span class="math inline">\(L^1(\Omega)\)</span> convergence would have been enough).</p>
 </div>
-<div class="metadata">
-<a href="./posts/PDEs/7. Existence Parabolic/index.html" class="no-external">
-<div class="listing-date">
-Oct 19, 2024
+<p>In particular, we obtain that, since <span class="math inline">\(f_n\)</span> is already symmetric in its first n-coordinates, its symmetrization verifies that</p>
+<p><span class="math display">\[
+f_{n,S}(t_1,\ldots,t_n,t_{n+1})=\frac{1}{n+1}f_n(t_1,\ldots\hat{t_{j}},\ldots,t_{n+1},t_j),\quad \text{where } j=\text{arg}\max_i t_i.
+\]</span></p>
+<p>Using this relationship we can directly calculate the Itô integral of a stochastic process to obtain that.</p>
+<div id="thm-itoskor" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1</strong></span> Let <span class="math inline">\(X \in \mathbb{L}^2(I\times\Omega)\)</span> then the Itô integral of <span class="math inline">\(X\)</span> is</p>
+<p><span class="math display">\[
+\int_{I} X(t) dW(t)=\sum_{n=0}^{\infty} I_{n+1}(f_{n,S}).
+\]</span></p>
 </div>
-<div class="listing-reading-time">26 min</div>
-</a>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>This is a direct calculation using the previous result as</p>
+<p><span class="math display">\[\begin{multline*}
+\int_{I} X(t) dW(t)=\sum_{n=0}^{\infty}\int_{I} I_n(f_{n,t})dW(t)\\=\sum_{n=0}^{\infty}n! \int_{I}\int_{S_n}f_{n,t}(t_1,\ldots,t_n) dW(t_1)\ldots dW(t_n) dW(t)\\=\sum_{n=0}^{\infty}(n+1)! \int_{I}\int_{S_n}f_{n,S}(t_1,\ldots,t_n,t) dW(t_1)\ldots dW(t_n) dW(t)\\=\sum_{n=0}^{\infty}(n+1)! J_{n+1}(f_{n,S}) =\sum_{n=0}^{\infty}  I_{n+1}(f_{n,S}).
+\end{multline*}\]</span></p>
 </div>
+</section>
+<section id="the-skorokhod-integral" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="the-skorokhod-integral"><span class="header-section-number">5</span> The Skorokhod integral</h2>
+<p>The last term appearing in the equality is what we will call the Skorokhod integral.</p>
+<div id="def-1" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1</strong></span> Let <span class="math inline">\(X(t)\in L^2(\Omega,\Ff_\infty)\)</span> be a stochastic process such that</p>
+<p><span class="math display">\[
+\delta(X):=\int_{I} X(t)\delta W(t):=\sum_{n=0}^{\infty} I_{n+1}(f_{n,S})\in L^2(\Omega).
+\]</span></p>
+<p>Then we will say that <span class="math inline">\(X\)</span> has Skorokhod integral <span class="math inline">\(\delta(X)\)</span> and write <span class="math inline">\(X\in \rm{dom}
+\delta)\)</span>.</p>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="UGRlcw==" data-listing-date-sort="1709078400000" data-listing-file-modified-sort="1772403292900" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="38" data-listing-word-count-sort="7508">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/PDEs/6. Existence elliptic/index.html" class="no-external">PDEs 6: Elliptic PDE</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UGRlcw=='); return false;">Pdes</div>
-
+<p>As we saw in the previous theorem the Skorokhod integral is equal to the Itô integral for all stochastic processes in <span class="math inline">\(\mathbb{L}^2(I\times\Omega)\)</span>. However, it may also be defined for non-adapted stochastic processes. In fact, by using the orthogonality of the iterated integrals (what we called <em>Itô’s</em> <span class="math inline">\(n\)</span>-<em>th isometry</em> in the last post <span class="citation" data-cites="Chaosblog">[@Chaosblog]</span>, we deduce the following).</p>
+<div id="prp-1" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 1</strong></span> A stochastic process <span class="math inline">\(X(t)\in L^2(\Omega,\Ff_\infty)\)</span> has a Skorokhod integral iff</p>
+<p><span class="math display">\[
+\sum_{n=0}^{\infty} (n+1)!\|f_{n,S}\|^2_{L^2([0,T]^{n+1})}&lt;\infty.
+\]</span></p>
 </div>
-<div class="delink listing-description"><a href="./posts/PDEs/6. Existence elliptic/index.html" class="no-external">
-<p>From rough beginnings to smooth endings</p>
-</a></div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>By Itô’s <span class="math inline">\(n\)</span>-th isometry we have that</p>
+<p><span class="math display">\[
+\norm{\delta(X)}^2_{L^2(\Omega)}=\sum_{n=0}^{\infty}  \norm{I_{n+1}(f_{n,S})}_{L^2(\Omega)}^2=\sum_{n=0}^{\infty} (n+1)!\norm{f_{n,S}}_{L^2(I^{n+1})}^2.
+\]</span></p>
 </div>
-<div class="metadata">
-<a href="./posts/PDEs/6. Existence elliptic/index.html" class="no-external">
-<div class="listing-date">
-Feb 28, 2024
+<p>Of course, a priori the above condition is not that easy to check for a given function as it involves calculating the chaos expansion for the given process <span class="math inline">\(X\)</span>. In some cases however it is possible, to consider for example the stochastic process defined by <span class="math inline">\(X(t)=W(T)\)</span> on the interval <span class="math inline">\(I=[0,T]\)</span>. Then we have that</p>
+<p><span class="math display">\[
+X(t)=\int_{0}^T dW(t)=I_1(1).
+\]</span></p>
+<p>Thus, for all <span class="math inline">\(t\in I\)</span> we have that</p>
+<p><span class="math display">\[
+f_1=1;\quad f_n=0\quad\forall n \in \N \setminus \{1\}  .
+\]</span></p>
+<p>So <span class="math inline">\(X\in \rm{dom}(\delta)\)</span> with</p>
+<p><span class="math display">\[
+\delta(X)= I_2(1)=\int_{0}^T\int_{0}^t dW(t_1)dW(t)=\int_{0}^T W(t) dW(t)= \frac{1}{2}(W^2(T)-T).
+\]</span></p>
+<p>Note however that the Itô integral of <span class="math inline">\(W(T)\)</span> is undefined as it is not <span class="math inline">\(\Ff_t\)</span> adapted. Since the Skorokhod integral of <span class="math inline">\(1\)</span> is equal to <span class="math inline">\(W(T)\)</span>, the above example shows how one cannot simply “pull out constants in <span class="math inline">\(t\)</span>” in the sense that, if <span class="math inline">\(G\)</span> is a random variable independent of <span class="math inline">\(t\)</span> and <span class="math inline">\(X(t)=G\cdot u(t)\)</span>, then</p>
+<p><span class="math display">\[
+\int_{I} X(t) \delta W(t)=\int_{I}G\cdot u(t)\delta W(t) \neq G\int_{I}u(t) dW(t).
+\]</span></p>
+<p>Though this may seem unintuitive, it is a consequence of the fact that, even though <span class="math inline">\(f_i\)</span> may not depend on <span class="math inline">\(t\)</span>, the terms</p>
+<p><span class="math display">\[
+g(t):=\int_{0}^t\int_{0}^{t_{n}}\cdots \int_{0}^{t_2} f_i dW(t_1)\cdots dW(t_{n-1})dW(t_n)
+\]</span></p>
+<p>can depend on <span class="math inline">\(t\)</span>. Despite this, the Skorokhod integral still maintains some of the natural properties we associate with integration.</p>
+<div id="prp-2" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 2</strong></span> Let <span class="math inline">\(X(t), Y(t)\in \rm{dom}
+\delta)\)</span>,<span class="math inline">\(\lambda \in \R\)</span>. Then it holds that</p>
+<ul>
+<li><p><span class="math inline">\(X(t)+ \lambda Y(t) \in \rm{dom}
+  \delta)\)</span>with<span class="math inline">\(\delta(X+\lambda Y)=\delta(X)+\lambda \delta(Y)\)</span>.</p></li>
+<li><p><span class="math inline">\(\E[\delta(X)]=0\)</span>.</p></li>
+<li><p><span class="math inline">\(X\cdot 1_A \in \rm{dom}
+  \delta)\)</span>for any measurable subset<span class="math inline">\(A \subset I\)</span>. Furthermore, if<span class="math inline">\(A \cup B =I\)</span> then</p>
+<p><span class="math display">\[
+  \int_{A}X(t) \delta W(t)+ \int_{B}X(t)\delta W(t):=\delta(X\cdot 1_A)+\delta(X\cdot 1_B)=\delta(X).
+  \]</span></p></li>
+</ul>
 </div>
-<div class="listing-reading-time">38 min</div>
-</a>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The first property is a consequence of the chaos expansion’s linearity (which is itself a consequence of the linearity of iterated Itô integration). The second is due to the expectation of the Itô integral being <span class="math inline">\(0\)</span>. The final property is a consequence of the fact that the chaos expansion of <span class="math inline">\(X\cdot 1_A\)</span> is</p>
+<p><span class="math display">\[
+X\cdot 1_A=\sum_{n=0}^{\infty} I_{n}([f_n 1_A]_S).
+\]</span></p>
+<p>Which shown by the equivalent characterization of Skorokhod functions that <span class="math inline">\(X\cdot 1_A\in \rm{dom}
+\delta)\)</span>. The final property is a consequence of the previously proved linearity.</p>
 </div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="UGRlcw==" data-listing-date-sort="1708992000000" data-listing-file-modified-sort="1772403292867" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="30" data-listing-word-count-sort="5818">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/PDEs/5. Fractional and negative order Sobolev spaces/index.html" class="no-external">PDEs 5: Fractional Sobolev spaces</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UGRlcw=='); return false;">Pdes</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/PDEs/5. Fractional and negative order Sobolev spaces/index.html" class="no-external">
-<p>Filling in the gaps</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/PDEs/5. Fractional and negative order Sobolev spaces/index.html" class="no-external">
-<div class="listing-date">
-Feb 27, 2024
-</div>
-<div class="listing-reading-time">30 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="UGRlcw==" data-listing-date-sort="1703289600000" data-listing-file-modified-sort="1772403292842" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2203">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/PDEs/4. Physical derivation/index.html" class="no-external">PDES 4: A physical derivation of parabolic and elliptic PDE</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UGRlcw=='); return false;">Pdes</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/PDEs/4. Physical derivation/index.html" class="no-external">
-<p>Just have to balance the mass</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/PDEs/4. Physical derivation/index.html" class="no-external">
-<div class="listing-date">
-Dec 23, 2023
-</div>
-<div class="listing-reading-time">12 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="UGRlcw==" data-listing-date-sort="1689120000000" data-listing-file-modified-sort="1772403292832" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="67" data-listing-word-count-sort="13280">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/PDEs/3. Sobolev spaces/index.html" class="no-external">PDEs 3: Sobolev spaces</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UGRlcw=='); return false;">Pdes</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/PDEs/3. Sobolev spaces/index.html" class="no-external">
-<p>Density, trace and embeddings</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/PDEs/3. Sobolev spaces/index.html" class="no-external">
-<div class="listing-date">
-Jul 12, 2023
-</div>
-<div class="listing-reading-time">67 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="UGRlcw==" data-listing-date-sort="1685404800000" data-listing-file-modified-sort="1772403292695" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="21" data-listing-word-count-sort="4127">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/PDEs/2. What is a Hilbert space/index.html" class="no-external">PDEs 2: What is a Hilbert space?</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UGRlcw=='); return false;">Pdes</div>
+<p>We now know what the Skorokhod expansion is, how to characterize it, and its main properties, in the next post we will construct the Malliavin derivative as its adjoint.</p>
+</section>
+<section id="references" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="references"><span class="header-section-number">6</span> References</h2>
+<div id="refs" role="list">
 
 </div>
-<div class="delink listing-description"><a href="./posts/PDEs/2. What is a Hilbert space/index.html" class="no-external">
-<p>An appendix for a series on PDEs</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/PDEs/2. What is a Hilbert space/index.html" class="no-external">
-<div class="listing-date">
-May 30, 2023
-</div>
-<div class="listing-reading-time">21 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="TWFsbGlhdmluJTIwQ2FsY3VsdXM=" data-listing-date-sort="1666569600000" data-listing-file-modified-sort="1772403292636" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1196">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Malliavin Calculus/5. Study of densities 1/index.html" class="no-external">Study of densities part 1</a>
-</h3>
-<div class="listing-categories">
 
-<div class="listing-category" onclick="window.quartoListingCategory('TWFsbGlhdmluJTIwQ2FsY3VsdXM='); return false;">Malliavin Calculus</div>
 
-</div>
-<div class="delink listing-description"><a href="./posts/Malliavin Calculus/5. Study of densities 1/index.html" class="no-external">
-<p>Part 5 of the series on Malliavin calculus</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/Malliavin Calculus/5. Study of densities 1/index.html" class="no-external">
-<div class="listing-date">
-Oct 24, 2022
-</div>
-<div class="listing-reading-time">6 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="7" data-categories="UGRlcw==" data-listing-date-sort="1665705600000" data-listing-file-modified-sort="1772403292673" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="20" data-listing-word-count-sort="3997">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.html" class="no-external">PDEs 1: The Fourier transform, tempered distributions and Sobolev spaces</a>
-</h3>
-<div class="listing-categories">
+</section>
 
-<div class="listing-category" onclick="window.quartoListingCategory('UGRlcw=='); return false;">Pdes</div>
+</main> <!-- /main -->
+<hr style="margin-top: 1em; margin-bottom: 2em;">
+<h2 id="comments">Comments</h2>
 
-</div>
-<div class="delink listing-description"><a href="./posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.html" class="no-external">
-<p>The holy trinity</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.html" class="no-external">
-<div class="listing-date">
-Oct 14, 2022
-</div>
-<div class="listing-reading-time">20 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="8" data-categories="TWFsbGlhdmluJTIwQ2FsY3VsdXM=" data-listing-date-sort="1656720000000" data-listing-file-modified-sort="1772403292629" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1648">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Malliavin Calculus/4.Malliavin_derivative_2/index.html" class="no-external">MC 4: The Malliavin derivative, part 2</a>
-</h3>
-<div class="listing-categories">
+<div class="giscus-comments">
+  <div style="
+      background: #f9f9f9;
+      border-left: 4px solid #008aff;
+      padding: 10px;
+      margin-bottom: 20px;
+      font-size: 0.9em;
+      color: #555;
+      border-radius: 0 4px 4px 0;
+    ">
+    <strong>Tip:</strong> Supports LaTeX using $$.
+    <a href="https://nowheredifferentiable.com/math-formatting" target="_blank" style="text-decoration: underline; color: #008aff">See formatting examples</a>.
+    <br>
+    To edit or delete, click the <strong>timestamp</strong> (e.g., "5 minutes
+    ago").
+  </div>
 
-<div class="listing-category" onclick="window.quartoListingCategory('TWFsbGlhdmluJTIwQ2FsY3VsdXM='); return false;">Malliavin Calculus</div>
+  <div class="giscus" id="giscus-container"></div>
 
-</div>
-<div class="delink listing-description"><a href="./posts/Malliavin Calculus/4.Malliavin_derivative_2/index.html" class="no-external">
-<p>Part 4 of the series on Malliavin calculus</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/Malliavin Calculus/4.Malliavin_derivative_2/index.html" class="no-external">
-<div class="listing-date">
-Jul 2, 2022
-</div>
-<div class="listing-reading-time">9 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="9" data-categories="TWFsbGlhdmluJTIwQ2FsY3VsdXM=" data-listing-date-sort="1656547200000" data-listing-file-modified-sort="1772403292622" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1692">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Malliavin Calculus/3.Malliavin_derivative_1/index.html" class="no-external">MC 3: The Malliavin Derivative 1</a>
-</h3>
-<div class="listing-categories">
+  <script src="https://giscus.app/client.js" data-repo="LiamLlamazares/math_blog" data-repo-id="R_kgDOHZYcTQ" data-category="Comments" data-category-id="DIC_kwDOHZYcTc4Cx-sY" data-mapping="pathname" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="bottom" data-theme="light" data-lang="en" crossorigin="anonymous" async=""></script>
 
-<div class="listing-category" onclick="window.quartoListingCategory('TWFsbGlhdmluJTIwQ2FsY3VsdXM='); return false;">Malliavin Calculus</div>
+  <script>
+    (function () {
+      function handleDeepLink() {
+        const hash = window.location.hash;
+        if (!hash || !hash.includes("discussioncomment")) return;
 
-</div>
-<div class="delink listing-description"><a href="./posts/Malliavin Calculus/3.Malliavin_derivative_1/index.html" class="no-external">
-<p>Part 3 of the series on Malliavin calculus</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/Malliavin Calculus/3.Malliavin_derivative_1/index.html" class="no-external">
-<div class="listing-date">
-Jun 30, 2022
-</div>
-<div class="listing-reading-time">9 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="10" data-categories="TWFsbGlhdmluJTIwY2FsY3VsdXM=" data-listing-date-sort="1653696000000" data-listing-file-modified-sort="1772403292613" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="908">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Malliavin Calculus/2.Skorohod/index.html" class="no-external">MC 2: The Skorokhod Integral</a>
-</h3>
-<div class="listing-categories">
+        const container = document.getElementById("giscus-container");
+        if (container) {
+          container.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
 
-<div class="listing-category" onclick="window.quartoListingCategory('TWFsbGlhdmluJTIwY2FsY3VsdXM='); return false;">Malliavin calculus</div>
+        const iframe = document.querySelector("iframe.giscus-frame");
+        if (iframe) {
+          try {
+            const url = new URL(iframe.src);
+            if (url.hash !== hash) {
+              url.hash = hash;
+              iframe.src = url.toString();
+            }
+          } catch (e) {
+            console.error(e);
+          }
+        }
+      }
 
+      window.addEventListener("load", handleDeepLink);
+      window.addEventListener("hashchange", handleDeepLink);
+      window.addEventListener("message", function (event) {
+        if (
+          event.origin === "https://giscus.app" &&
+          event.data &&
+          event.data.giscus &&
+          event.data.giscus.resizeHeight
+        ) {
+          setTimeout(handleDeepLink, 500);
+        }
+      });
+    })();
+  </script>
 </div>
-<div class="delink listing-description"><a href="./posts/Malliavin Calculus/2.Skorohod/index.html" class="no-external">
-<p>How does one generalize the Itô integral?</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/Malliavin Calculus/2.Skorohod/index.html" class="no-external">
-<div class="listing-date">
-May 28, 2022
-</div>
-<div class="listing-reading-time">5 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="11" data-categories="QW5hbHlzaXMlMjBPbiUyMEJhbmFjaCUyMFNwYWNlcw==" data-listing-date-sort="1653609600000" data-listing-file-modified-sort="1772403292602" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17" data-listing-word-count-sort="3310">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Analysis on Banach spaces/Bochner_integral/index.html" class="no-external">The Bochner Integral</a>
-</h3>
-<div class="listing-categories">
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const meta = document.querySelector('.quarto-title-meta');
+  if (!meta) return;
 
-<div class="listing-category" onclick="window.quartoListingCategory('QW5hbHlzaXMlMjBPbiUyMEJhbmFjaCUyMFNwYWNlcw=='); return false;">Analysis On Banach Spaces</div>
+  // Find the hidden data div injected by latex2qmd.py
+  const pdfDataElement = document.getElementById('quarto-post-pdf-url');
+  if (!pdfDataElement) return;
 
-</div>
-<div class="delink listing-description"><a href="./posts/Analysis on Banach spaces/Bochner_integral/index.html" class="no-external">
-<p>Wait a second, how many integrals are there?</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/Analysis on Banach spaces/Bochner_integral/index.html" class="no-external">
-<div class="listing-date">
-May 27, 2022
-</div>
-<div class="listing-reading-time">17 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="12" data-categories="TWFsbGlhdmluJTIwY2FsY3VsdXM=" data-listing-date-sort="1653264000000" data-listing-file-modified-sort="1772403292608" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="796">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Malliavin Calculus/1.Chaos_expansion/index.html" class="no-external">MC 1: The chaos expansion</a>
-</h3>
-<div class="listing-categories">
+  const pdfUrl = pdfDataElement.getAttribute('data-url');
 
-<div class="listing-category" onclick="window.quartoListingCategory('TWFsbGlhdmluJTIwY2FsY3VsdXM='); return false;">Malliavin calculus</div>
+  if (pdfUrl && meta) {
+    // Check if we already injected it
+    if (document.querySelector('.quarto-title-meta-pdf')) return;
 
-</div>
-<div class="delink listing-description"><a href="./posts/Malliavin Calculus/1.Chaos_expansion/index.html" class="no-external">
-<p>Iterated Itô integrals and their consequences</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/Malliavin Calculus/1.Chaos_expansion/index.html" class="no-external">
-<div class="listing-date">
-May 23, 2022
-</div>
-<div class="listing-reading-time">4 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="13" data-categories="TWFsbGlhdmluJTIwQ2FsY3VsdXM=" data-listing-date-sort="NaN" data-listing-file-modified-sort="1772403292643" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1056">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Malliavin Calculus/6. Study of densities 2/index.html" class="no-external">MC 6: Study of densities part 2</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWFsbGlhdmluJTIwQ2FsY3VsdXM='); return false;">Malliavin Calculus</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/Malliavin Calculus/6. Study of densities 2/index.html" class="no-external">
-<p>Part 6 of the series on Malliavin calculus</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/Malliavin Calculus/6. Study of densities 2/index.html" class="no-external">
-<div class="listing-date">
-Invalid Date
-</div>
-<div class="listing-reading-time">6 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="14" data-categories="TWFsbGlhdmluJTIwQ2FsY3VsdXM=" data-listing-date-sort="NaN" data-listing-file-modified-sort="1772403292649" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="830">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Malliavin Calculus/7. The Ornstein-Uhlenbeck Semigroup/index.html" class="no-external">MC 7: The Ornstein-Uhlenbeck Semigroup</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWFsbGlhdmluJTIwQ2FsY3VsdXM='); return false;">Malliavin Calculus</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/Malliavin Calculus/7. The Ornstein-Uhlenbeck Semigroup/index.html" class="no-external">
-<p>Part 7 of the series on Malliavin calculus</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/Malliavin Calculus/7. The Ornstein-Uhlenbeck Semigroup/index.html" class="no-external">
-<div class="listing-date">
-Invalid Date
-</div>
-<div class="listing-reading-time">5 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="15" data-categories="U3RvY2hhc3RpYyUyMENhbGN1bHVz" data-listing-date-sort="1653264000000" data-listing-file-modified-sort="1772403292932" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1123">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Stochastic Calculus/Martingales/index.html" class="no-external">Martingales in Banach spaces</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3RvY2hhc3RpYyUyMENhbGN1bHVz'); return false;">Stochastic Calculus</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/Stochastic Calculus/Martingales/index.html" class="no-external">
-<p>Doob’s Martingale inequality is cool</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/Stochastic Calculus/Martingales/index.html" class="no-external">
-<div class="listing-date">
-May 23, 2022
-</div>
-<div class="listing-reading-time">6 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="16" data-categories="U3RvY2hhc3RpYyUyMENhbGN1bHVzJTJDSXRvJTIwSW50ZWdyYWw=" data-listing-date-sort="1653177600000" data-listing-file-modified-sort="1772403292926" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1312">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Stochastic Calculus/Ito_integral/index.html" class="no-external">The Itô integral</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3RvY2hhc3RpYyUyMENhbGN1bHVz'); return false;">Stochastic Calculus</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('SXRvJTIwSW50ZWdyYWw='); return false;">Ito Integral</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/Stochastic Calculus/Ito_integral/index.html" class="no-external">
-<p>Can you really construct this thing?</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/Stochastic Calculus/Ito_integral/index.html" class="no-external">
-<div class="listing-date">
-May 22, 2022
-</div>
-<div class="listing-reading-time">7 min</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+    const pdfDiv = window.document.createElement('div');
+    pdfDiv.className = 'quarto-title-meta-pdf';
+    pdfDiv.innerHTML = `
+      <div class="quarto-title-meta-heading">PDF Version</div>
+      <div class="quarto-title-meta-contents">
+        <p><a href="${pdfUrl}" target="_blank">
+          <i class="bi bi-file-earmark-pdf"></i> PDF version
+        </a></p>
+      </div>
+    `;
+    meta.appendChild(pdfDiv);
+  }
+});
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

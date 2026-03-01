@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Posts by Tag – NoWhere Differentiable Math</title>
+<title>instructions – NoWhere Differentiable Math</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +65,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -74,35 +107,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-reading-time','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 
 <script type="text/javascript">
 
@@ -127,35 +131,6 @@ window.MathJax = {
 };
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="custom_theorems.css">
 </head>
@@ -354,7 +329,7 @@ window.Quarto = {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./tags.html" aria-current="page"> 
+    <a class="nav-link" href="./tags.html"> 
 <span class="menu-text">Posts by Tag</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -390,437 +365,217 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(17)</span></div><div class="category" data-category="QW5hbHlzaXMlMjBPbiUyMEJhbmFjaCUyMFNwYWNlcw==">Analysis On Banach Spaces <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SXRvJTIwSW50ZWdyYWw=">Ito Integral <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TWFsbGlhdmluJTIwQ2FsY3VsdXM=">Malliavin Calculus <span class="quarto-category-count">(5)</span></div><div class="category" data-category="TWFsbGlhdmluJTIwY2FsY3VsdXM=">Malliavin calculus <span class="quarto-category-count">(2)</span></div><div class="category" data-category="UGRlcw==">Pdes <span class="quarto-category-count">(7)</span></div><div class="category" data-category="U3RvY2hhc3RpYyUyMENhbGN1bHVz">Stochastic Calculus <span class="quarto-category-count">(2)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#nowhere-differentiable-math-site-instructions" id="toc-nowhere-differentiable-math-site-instructions" class="nav-link active" data-scroll-target="#nowhere-differentiable-math-site-instructions">NoWhere Differentiable Math — Site Instructions</a>
+  <ul class="collapse">
+  <li><a href="#converting-a-latex-post-to-quarto" id="toc-converting-a-latex-post-to-quarto" class="nav-link" data-scroll-target="#converting-a-latex-post-to-quarto">Converting a LaTeX post to Quarto</a></li>
+  <li><a href="#previewing-locally" id="toc-previewing-locally" class="nav-link" data-scroll-target="#previewing-locally">Previewing locally</a></li>
+  <li><a href="#deploying-to-github-pages" id="toc-deploying-to-github-pages" class="nav-link" data-scroll-target="#deploying-to-github-pages">Deploying to GitHub Pages</a>
+  <ul class="collapse">
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
+  <li><a href="#how-it-renders" id="toc-how-it-renders" class="nav-link" data-scroll-target="#how-it-renders">How it renders</a></li>
+  <li><a href="#important-notes" id="toc-important-notes" class="nav-link" data-scroll-target="#important-notes">Important notes</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
-
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Posts by Tag</h1>
-</div>
-
-
-
-<div class="quarto-title-meta column-page-left">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
 
 
+<section id="nowhere-differentiable-math-site-instructions" class="level1">
+<h1>NoWhere Differentiable Math — Site Instructions</h1>
+<section id="converting-a-latex-post-to-quarto" class="level2">
+<h2 class="anchored" data-anchor-id="converting-a-latex-post-to-quarto">Converting a LaTeX post to Quarto</h2>
+<ol type="1">
+<li><p>Place your LaTeX folder inside <code>posts/&lt;collection&gt;/</code>, e.g.:</p>
+<pre><code>posts/Analysis on Banach spaces/My_Post/
+    main.tex
+    preamble.sty
+    biblio.bib
+    cover.jpg          ← optional, shown as the post image</code></pre></li>
+<li><p>Add blog metadata to your <code>main.tex</code> (alongside <code>\title</code>, <code>\author</code>, <code>\date</code>):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">\postsubtitle</span>{One sentence description of the post.}</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\posttags</span>{Analysis, Measure Theory}   <span class="co">% optional — defaults to collection folder name</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Add to your shared <code>preamble.sty</code> (once only):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">\providecommand</span>{<span class="ex">\postsubtitle</span>}[1]{}</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\providecommand</span>{<span class="ex">\posttags</span>}[1]{}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>Run the converter. From inside the post folder:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>py <span class="op">.</span>\latex2qmd<span class="op">.</span><span class="fu">py</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This writes <code>index.qmd</code> in the same folder. The file is named <code>index.qmd</code> (not <code>main.qmd</code>) so Quarto generates clean URLs like <code>/posts/.../My_Post/</code> instead of <code>/posts/.../My_Post/main.html</code>.</p></li>
+<li><p><strong>Batch mode</strong> — regenerate all posts at once from the blog root:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>py latex2qmd<span class="op">.</span><span class="fu">py</span> posts <span class="op">--</span>all</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This finds every folder containing <code>main.tex</code> under <code>posts/</code>, skips <code>Future/</code>, and converts them all.</p></li>
+</ol>
+<hr>
+</section>
+<section id="previewing-locally" class="level2">
+<h2 class="anchored" data-anchor-id="previewing-locally">Previewing locally</h2>
+<p>Start a live preview server (hot-reloads on file changes):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>quarto preview index<span class="op">.</span><span class="fu">qmd</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Then open the URL shown in the terminal.</p>
+<p>To do a full site build without the server:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>quarto render</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="deploying-to-github-pages" class="level2">
+<h2 class="anchored" data-anchor-id="deploying-to-github-pages">Deploying to GitHub Pages</h2>
+<p>Just push to <code>master</code> (or your active working branch):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>git add <span class="op">.</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>git commit <span class="op">-</span>m <span class="st">"Add &lt;post name&gt;"</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>GitHub Actions <span class="op">(</span><span class="ch">`q</span>uarto_publish<span class="op">.</span><span class="fu">yml</span><span class="ch">`)</span> automatically builds<span class="op">,</span> converts LaTeX images to SVG<span class="op">,</span> checks <span class="cf">for</span> dead links<span class="op">,</span> and seamlessly overrides the gh-pages branch to deploy the site natively<span class="op">.</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>The <span class="ch">`f</span>etch-comments<span class="op">.</span><span class="fu">yml</span><span class="ch">` </span><span class="kw">workflow</span> runs every hour to update the recent comments sidebar<span class="op">.</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">## Dashboard tags and ordering</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> Posts are ordered by <span class="ch">`d</span>ate<span class="ch">` </span><span class="op">(</span>newest first<span class="op">)</span> on the homepage<span class="op">.</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> Tags come <span class="kw">from</span> <span class="ch">`\</span>posttags<span class="op">{}</span><span class="ch">` </span><span class="kw">in</span> <span class="ch">`m</span>ain<span class="op">.</span><span class="fu">tex</span><span class="ch">`,</span> or default to the parent collection folder name<span class="op">.</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> The featured post <span class="op">(</span>large card<span class="op">)</span> is always the most recent post<span class="op">.</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> To hide a post <span class="kw">from</span> the site<span class="op">,</span> place it inside <span class="ch">`p</span>osts<span class="op">/</span>Future<span class="op">/</span><span class="ch">` </span>— this folder is excluded <span class="kw">from</span> rendering<span class="op">.</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co">## What to change</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="op">|</span> Goal <span class="op">|</span> Edit <span class="op">|</span> Re-run converter<span class="op">?</span> <span class="op">|</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="op">|---|---|---|</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="op">|</span> Global Theme <span class="op">&amp;</span> Typography <span class="op">|</span> <span class="ch">`s</span>tyles<span class="op">.</span><span class="fu">scss</span><span class="ch">` </span><span class="op">(</span>Primary color<span class="op">,</span> font families<span class="op">)</span> <span class="op">|</span> No <span class="op">|</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="op">|</span> LaTeX Link Colors <span class="op">|</span> <span class="ch">`s</span>tyles<span class="op">.</span><span class="fu">scss</span><span class="ch">` </span><span class="op">(</span>RoyalBlue<span class="op">/</span>ForestGreen<span class="op">/</span>NavyBlue logic<span class="op">)</span> <span class="op">|</span> No <span class="op">|</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="op">|</span> Homepage Dashboard <span class="op">(</span>Grids<span class="op">,</span> Tiles<span class="op">)</span> <span class="op">|</span> <span class="ch">`a</span>ssets<span class="op">/</span>css<span class="op">/</span>dashboard<span class="op">.</span><span class="fu">css</span><span class="ch">` </span><span class="op">(</span>Handles dark mode natively via <span class="ch">`[</span>data-bs-theme<span class="op">=</span><span class="st">"dark"</span><span class="op">]</span><span class="ch">`)</span> <span class="op">|</span> No <span class="op">|</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="op">|</span> Latex-style theorem boxes <span class="op">|</span> <span class="ch">`c</span>ustom_theorems<span class="op">.</span><span class="fu">css</span><span class="ch">` </span><span class="op">|</span> No <span class="op">|</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="op">|</span> Dashboard spacing<span class="op">/</span>Title hiding <span class="op">|</span> <span class="ch">`i</span>ndex<span class="op">.</span><span class="fu">qmd</span><span class="ch">` </span><span class="op">(</span>header-includes<span class="op">)</span> <span class="op">|</span> No <span class="op">|</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="op">|</span> Global MathJax config <span class="op">(</span>delimiters<span class="op">,</span> macros<span class="op">)</span> <span class="op">|</span> <span class="ch">`_</span>quarto<span class="op">.</span><span class="fu">yml</span><span class="ch">` </span><span class="op">|</span> No <span class="op">|</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="op">|</span> How LaTeX is converted <span class="op">(</span>equation labels<span class="op">,</span> figure syntax<span class="op">,</span> cross-refs<span class="op">)</span> <span class="op">|</span> <span class="ch">`l</span>atex2qmd<span class="op">.</span><span class="fu">py</span><span class="ch">` </span><span class="op">|</span> <span class="op">**</span>Yes<span class="op">**</span> — <span class="ch">`p</span>y latex2qmd<span class="op">.</span><span class="fu">py</span> posts <span class="op">--</span>all<span class="ch">` </span><span class="op">|</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="op">|</span> Post-specific macros <span class="op">|</span> Edit <span class="ch">`p</span>reamble<span class="op">.</span><span class="fu">sty</span><span class="ch">`,</span> then re-run converter <span class="op">|</span> <span class="op">**</span>Yes<span class="op">**,</span> on affected posts <span class="op">|</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="op">|</span> Equation Labels <span class="op">(</span>names instead of numbers<span class="op">)</span> <span class="op">|</span> Use <span class="ch">`\</span>tag<span class="op">{</span>label<span class="op">}</span><span class="ch">` </span>inside math envs <span class="op">|</span> <span class="op">**</span>Yes<span class="op">**</span> <span class="op">|</span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="op">|</span> Post tags<span class="op">/</span>categories <span class="op">|</span> Use <span class="ch">`\</span>posttags<span class="op">{...}</span><span class="ch">` </span><span class="kw">in</span> <span class="ch">`m</span>ain<span class="op">.</span><span class="fu">tex</span><span class="ch">` </span><span class="op">|</span> <span class="op">**</span>Yes<span class="op">**</span> <span class="op">|</span></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="op">|</span> Post subtitle <span class="op">|</span> Use <span class="ch">`\</span>postsubtitle<span class="op">{...}</span><span class="ch">` </span><span class="kw">in</span> <span class="ch">`m</span>ain<span class="op">.</span><span class="fu">tex</span><span class="ch">` </span><span class="op">|</span> <span class="op">**</span>Yes<span class="op">**</span> <span class="op">|</span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="op">|</span> Cross-post references <span class="op">|</span> Use <span class="ch">`\</span>postref<span class="op">{...}{...}{...}</span><span class="ch">` </span><span class="kw">in</span> <span class="ch">`m</span>ain<span class="op">.</span><span class="fu">tex</span><span class="ch">` </span><span class="op">|</span> <span class="op">**</span>Yes<span class="op">**</span> — must use <span class="ch">`-</span><span class="op">-</span>all<span class="ch">` </span><span class="op">|</span></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a><span class="op">|</span> Checking <span class="cf">for</span> broken links <span class="op">|</span> Run <span class="ch">`p</span>y check_links<span class="op">.</span><span class="fu">py</span><span class="ch">` </span>entirely locally after generating the <span class="ch">`_</span>site<span class="ch">` </span>directory to view the report <span class="op">|</span> <span class="op">**</span>No<span class="op">**</span> <span class="op">|</span></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a><span class="co">## Design &amp; Customization</span></span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>The site uses a layered CSS<span class="op">/</span>SCSS architecture to replicate a high-end mathematical typesetting aesthetic<span class="op">:</span></span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a><span class="co">### 1. Global Styling (`styles.scss`)</span></span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>This is <span class="fu">where</span> the <span class="st">"Terence Tao"</span> aesthetic is defined<span class="op">.</span> It overrides Quarto<span class="st">'s default Bootstrap variables and implements the LaTeX-style link coloring:</span></span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a><span class="st">- **Primary Color:** Set to a deep navy (`#1E3A8A`).</span></span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a><span class="st">- **Typography:** Uses serif fonts (*Merriweather*, *Georgia*) for article content and sans-serif (*Inter*) for UI elements.</span></span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a><span class="st">- **Link Logic:** </span></span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a><span class="st">  - **Internal Refs (Theorems, Eqs):** `RoyalBlue` (#4169E1) — *scoped to article content*.</span></span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a><span class="st">  - **Citations:** `ForestGreen` (#228B22).</span></span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a><span class="st">  - **External Links:** `NavyBlue` (#000080).</span></span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a><span class="st">### 2. Homepage Listing (`assets/css/dashboard.css`)</span></span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a><span class="st">Controls the layout of the homepage grid and cards. </span></span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a><span class="st">- Edit the `.featured-pane .pane-label` and `.recent-list-pane .pane-label` to change the colors of the "Latest Post" and "Most recent posts" header bars.</span></span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a><span class="st">- Controls the hover effects and tile shadows.</span></span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a><span class="st">### 3. Homepage Layout Overrides (`index.qmd`)</span></span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a><span class="st">The homepage title block ("NoWhere Differentiable Math") is hidden via a CSS block in the `header-includes` section. It also manages the top padding between the navbar and the dashboard.</span></span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a><span class="st">---</span></span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a><span class="st">## Cross-post references (`\postref`)</span></span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a><span class="st">Use `\postref` to link from one post to another, optionally targeting a specific theorem, equation, or definition.</span></span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a><span class="st">### Syntax</span></span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a><span class="st">```latex</span></span>
+<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a><span class="st">\postref{folder-path}{label}{display text}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>folder-path</code></td>
+<td>Relative path from <code>posts/</code> to the target folder, e.g.&nbsp;<code>Stochastic Calculus/Martingales</code></td>
+</tr>
+<tr class="even">
+<td><code>label</code></td>
+<td>LaTeX label in the target post (e.g.&nbsp;<code>thm:doobs</code>). Leave empty <code>{}</code> to link to the post without an anchor.</td>
+</tr>
+<tr class="odd">
+<td><code>display text</code></td>
+<td>What the reader sees, e.g.&nbsp;<code>Theorem 3.2</code> or <code>the Martingales post</code></td>
+</tr>
+</tbody>
+</table>
+<section id="examples" class="level3">
+<h3 class="anchored" data-anchor-id="examples">Examples</h3>
+<p><strong>Link to a specific theorem in another post:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>By <span class="fu">\postref</span>{Stochastic Calculus/Martingales}{thm:doobs-hilbert}{Doob's maximal inequality}, we obtain...</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Link to another post (no specific anchor):</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>As shown in <span class="fu">\postref</span>{Analysis on Banach spaces/Bochner_integral}{}{the Bochner integral post}, ...</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="how-it-renders" class="level3">
+<h3 class="anchored" data-anchor-id="how-it-renders">How it renders</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Environment</th>
+<th>What happens</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>pdflatex</strong></td>
+<td>Renders as an <code>\href</code> linking to the live blog URL (<code>nowheredifferentiable.com/posts/...</code>). The label argument is ignored by LaTeX — it only uses the folder path and display text. Compiles without error.</td>
+</tr>
+<tr class="even">
+<td><strong>Quarto (via <code>latex2qmd.py --all</code>)</strong></td>
+<td>The converter resolves the label via a global registry to compute the correct relative <code>.qmd</code> path and anchor (e.g.&nbsp;<code>../../Martingales/index.qmd#thm-doobs-hilbert</code>). If the label is not found, it emits a <strong>warning</strong> and links to the post without an anchor.</td>
+</tr>
+<tr class="odd">
+<td><strong>Quarto (single-folder mode)</strong></td>
+<td>Without <code>--all</code>, no registry is built. The converter falls back to an absolute URL to the live site.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="important-notes" class="level3">
+<h3 class="anchored" data-anchor-id="important-notes">Important notes</h3>
+<ul>
+<li><strong>You must use <code>--all</code> mode</strong> (<code>py latex2qmd.py posts --all</code>) for cross-post labels to resolve. Single-folder mode has no access to labels in other posts.</li>
+<li><strong>Folder paths must match exactly.</strong> If you rename or move a post folder, update all <code>\postref</code> commands pointing to it. The converter will emit a warning if a referenced label is not found.</li>
+<li><strong>The command is already defined</strong> in all <code>preamble.sty</code> files. No setup needed — just use it in your <code>main.tex</code>.</li>
+</ul>
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="UGRlcw==" data-listing-date-sort="1729296000000" data-listing-file-modified-sort="1772403292919" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="26" data-listing-word-count-sort="5084">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/PDEs/7. Existence Parabolic/index.html" class="no-external">PDEs 7: Parabolic PDE, well-posedness and regularity</a>
-</h3>
-<div class="listing-categories">
 
-<div class="listing-category" onclick="window.quartoListingCategory('UGRlcw=='); return false;">Pdes</div>
+</section>
+</section>
+</section>
 
-</div>
-<div class="delink listing-description"><a href="./posts/PDEs/7. Existence Parabolic/index.html" class="no-external">
-<p>A journey through time and space</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/PDEs/7. Existence Parabolic/index.html" class="no-external">
-<div class="listing-date">
-Oct 19, 2024
-</div>
-<div class="listing-reading-time">26 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="UGRlcw==" data-listing-date-sort="1709078400000" data-listing-file-modified-sort="1772403292900" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="38" data-listing-word-count-sort="7508">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/PDEs/6. Existence elliptic/index.html" class="no-external">PDEs 6: Elliptic PDE</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UGRlcw=='); return false;">Pdes</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/PDEs/6. Existence elliptic/index.html" class="no-external">
-<p>From rough beginnings to smooth endings</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/PDEs/6. Existence elliptic/index.html" class="no-external">
-<div class="listing-date">
-Feb 28, 2024
-</div>
-<div class="listing-reading-time">38 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="UGRlcw==" data-listing-date-sort="1708992000000" data-listing-file-modified-sort="1772403292867" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="30" data-listing-word-count-sort="5818">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/PDEs/5. Fractional and negative order Sobolev spaces/index.html" class="no-external">PDEs 5: Fractional Sobolev spaces</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UGRlcw=='); return false;">Pdes</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/PDEs/5. Fractional and negative order Sobolev spaces/index.html" class="no-external">
-<p>Filling in the gaps</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/PDEs/5. Fractional and negative order Sobolev spaces/index.html" class="no-external">
-<div class="listing-date">
-Feb 27, 2024
-</div>
-<div class="listing-reading-time">30 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="UGRlcw==" data-listing-date-sort="1703289600000" data-listing-file-modified-sort="1772403292842" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2203">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/PDEs/4. Physical derivation/index.html" class="no-external">PDES 4: A physical derivation of parabolic and elliptic PDE</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UGRlcw=='); return false;">Pdes</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/PDEs/4. Physical derivation/index.html" class="no-external">
-<p>Just have to balance the mass</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/PDEs/4. Physical derivation/index.html" class="no-external">
-<div class="listing-date">
-Dec 23, 2023
-</div>
-<div class="listing-reading-time">12 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="UGRlcw==" data-listing-date-sort="1689120000000" data-listing-file-modified-sort="1772403292832" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="67" data-listing-word-count-sort="13280">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/PDEs/3. Sobolev spaces/index.html" class="no-external">PDEs 3: Sobolev spaces</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UGRlcw=='); return false;">Pdes</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/PDEs/3. Sobolev spaces/index.html" class="no-external">
-<p>Density, trace and embeddings</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/PDEs/3. Sobolev spaces/index.html" class="no-external">
-<div class="listing-date">
-Jul 12, 2023
-</div>
-<div class="listing-reading-time">67 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="UGRlcw==" data-listing-date-sort="1685404800000" data-listing-file-modified-sort="1772403292695" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="21" data-listing-word-count-sort="4127">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/PDEs/2. What is a Hilbert space/index.html" class="no-external">PDEs 2: What is a Hilbert space?</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UGRlcw=='); return false;">Pdes</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/PDEs/2. What is a Hilbert space/index.html" class="no-external">
-<p>An appendix for a series on PDEs</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/PDEs/2. What is a Hilbert space/index.html" class="no-external">
-<div class="listing-date">
-May 30, 2023
-</div>
-<div class="listing-reading-time">21 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="TWFsbGlhdmluJTIwQ2FsY3VsdXM=" data-listing-date-sort="1666569600000" data-listing-file-modified-sort="1772403292636" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1196">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Malliavin Calculus/5. Study of densities 1/index.html" class="no-external">Study of densities part 1</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWFsbGlhdmluJTIwQ2FsY3VsdXM='); return false;">Malliavin Calculus</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/Malliavin Calculus/5. Study of densities 1/index.html" class="no-external">
-<p>Part 5 of the series on Malliavin calculus</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/Malliavin Calculus/5. Study of densities 1/index.html" class="no-external">
-<div class="listing-date">
-Oct 24, 2022
-</div>
-<div class="listing-reading-time">6 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="7" data-categories="UGRlcw==" data-listing-date-sort="1665705600000" data-listing-file-modified-sort="1772403292673" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="20" data-listing-word-count-sort="3997">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.html" class="no-external">PDEs 1: The Fourier transform, tempered distributions and Sobolev spaces</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UGRlcw=='); return false;">Pdes</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.html" class="no-external">
-<p>The holy trinity</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.html" class="no-external">
-<div class="listing-date">
-Oct 14, 2022
-</div>
-<div class="listing-reading-time">20 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="8" data-categories="TWFsbGlhdmluJTIwQ2FsY3VsdXM=" data-listing-date-sort="1656720000000" data-listing-file-modified-sort="1772403292629" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1648">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Malliavin Calculus/4.Malliavin_derivative_2/index.html" class="no-external">MC 4: The Malliavin derivative, part 2</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWFsbGlhdmluJTIwQ2FsY3VsdXM='); return false;">Malliavin Calculus</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/Malliavin Calculus/4.Malliavin_derivative_2/index.html" class="no-external">
-<p>Part 4 of the series on Malliavin calculus</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/Malliavin Calculus/4.Malliavin_derivative_2/index.html" class="no-external">
-<div class="listing-date">
-Jul 2, 2022
-</div>
-<div class="listing-reading-time">9 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="9" data-categories="TWFsbGlhdmluJTIwQ2FsY3VsdXM=" data-listing-date-sort="1656547200000" data-listing-file-modified-sort="1772403292622" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1692">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Malliavin Calculus/3.Malliavin_derivative_1/index.html" class="no-external">MC 3: The Malliavin Derivative 1</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWFsbGlhdmluJTIwQ2FsY3VsdXM='); return false;">Malliavin Calculus</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/Malliavin Calculus/3.Malliavin_derivative_1/index.html" class="no-external">
-<p>Part 3 of the series on Malliavin calculus</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/Malliavin Calculus/3.Malliavin_derivative_1/index.html" class="no-external">
-<div class="listing-date">
-Jun 30, 2022
-</div>
-<div class="listing-reading-time">9 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="10" data-categories="TWFsbGlhdmluJTIwY2FsY3VsdXM=" data-listing-date-sort="1653696000000" data-listing-file-modified-sort="1772403292613" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="908">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Malliavin Calculus/2.Skorohod/index.html" class="no-external">MC 2: The Skorokhod Integral</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWFsbGlhdmluJTIwY2FsY3VsdXM='); return false;">Malliavin calculus</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/Malliavin Calculus/2.Skorohod/index.html" class="no-external">
-<p>How does one generalize the Itô integral?</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/Malliavin Calculus/2.Skorohod/index.html" class="no-external">
-<div class="listing-date">
-May 28, 2022
-</div>
-<div class="listing-reading-time">5 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="11" data-categories="QW5hbHlzaXMlMjBPbiUyMEJhbmFjaCUyMFNwYWNlcw==" data-listing-date-sort="1653609600000" data-listing-file-modified-sort="1772403292602" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17" data-listing-word-count-sort="3310">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Analysis on Banach spaces/Bochner_integral/index.html" class="no-external">The Bochner Integral</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('QW5hbHlzaXMlMjBPbiUyMEJhbmFjaCUyMFNwYWNlcw=='); return false;">Analysis On Banach Spaces</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/Analysis on Banach spaces/Bochner_integral/index.html" class="no-external">
-<p>Wait a second, how many integrals are there?</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/Analysis on Banach spaces/Bochner_integral/index.html" class="no-external">
-<div class="listing-date">
-May 27, 2022
-</div>
-<div class="listing-reading-time">17 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="12" data-categories="TWFsbGlhdmluJTIwY2FsY3VsdXM=" data-listing-date-sort="1653264000000" data-listing-file-modified-sort="1772403292608" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="796">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Malliavin Calculus/1.Chaos_expansion/index.html" class="no-external">MC 1: The chaos expansion</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWFsbGlhdmluJTIwY2FsY3VsdXM='); return false;">Malliavin calculus</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/Malliavin Calculus/1.Chaos_expansion/index.html" class="no-external">
-<p>Iterated Itô integrals and their consequences</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/Malliavin Calculus/1.Chaos_expansion/index.html" class="no-external">
-<div class="listing-date">
-May 23, 2022
-</div>
-<div class="listing-reading-time">4 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="13" data-categories="TWFsbGlhdmluJTIwQ2FsY3VsdXM=" data-listing-date-sort="NaN" data-listing-file-modified-sort="1772403292643" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1056">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Malliavin Calculus/6. Study of densities 2/index.html" class="no-external">MC 6: Study of densities part 2</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWFsbGlhdmluJTIwQ2FsY3VsdXM='); return false;">Malliavin Calculus</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/Malliavin Calculus/6. Study of densities 2/index.html" class="no-external">
-<p>Part 6 of the series on Malliavin calculus</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/Malliavin Calculus/6. Study of densities 2/index.html" class="no-external">
-<div class="listing-date">
-Invalid Date
-</div>
-<div class="listing-reading-time">6 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="14" data-categories="TWFsbGlhdmluJTIwQ2FsY3VsdXM=" data-listing-date-sort="NaN" data-listing-file-modified-sort="1772403292649" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="830">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Malliavin Calculus/7. The Ornstein-Uhlenbeck Semigroup/index.html" class="no-external">MC 7: The Ornstein-Uhlenbeck Semigroup</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWFsbGlhdmluJTIwQ2FsY3VsdXM='); return false;">Malliavin Calculus</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/Malliavin Calculus/7. The Ornstein-Uhlenbeck Semigroup/index.html" class="no-external">
-<p>Part 7 of the series on Malliavin calculus</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/Malliavin Calculus/7. The Ornstein-Uhlenbeck Semigroup/index.html" class="no-external">
-<div class="listing-date">
-Invalid Date
-</div>
-<div class="listing-reading-time">5 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="15" data-categories="U3RvY2hhc3RpYyUyMENhbGN1bHVz" data-listing-date-sort="1653264000000" data-listing-file-modified-sort="1772403292932" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1123">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Stochastic Calculus/Martingales/index.html" class="no-external">Martingales in Banach spaces</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3RvY2hhc3RpYyUyMENhbGN1bHVz'); return false;">Stochastic Calculus</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/Stochastic Calculus/Martingales/index.html" class="no-external">
-<p>Doob’s Martingale inequality is cool</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/Stochastic Calculus/Martingales/index.html" class="no-external">
-<div class="listing-date">
-May 23, 2022
-</div>
-<div class="listing-reading-time">6 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="16" data-categories="U3RvY2hhc3RpYyUyMENhbGN1bHVzJTJDSXRvJTIwSW50ZWdyYWw=" data-listing-date-sort="1653177600000" data-listing-file-modified-sort="1772403292926" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1312">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Stochastic Calculus/Ito_integral/index.html" class="no-external">The Itô integral</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3RvY2hhc3RpYyUyMENhbGN1bHVz'); return false;">Stochastic Calculus</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('SXRvJTIwSW50ZWdyYWw='); return false;">Ito Integral</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/Stochastic Calculus/Ito_integral/index.html" class="no-external">
-<p>Can you really construct this thing?</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/Stochastic Calculus/Ito_integral/index.html" class="no-external">
-<div class="listing-date">
-May 22, 2022
-</div>
-<div class="listing-reading-time">7 min</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

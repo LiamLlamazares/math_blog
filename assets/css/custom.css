@@ -1,0 +1,49 @@
+/* Increase body text size and spacing */
+body {
+    font-size: 20px;      /* Default is usually 16-18px */
+    line-height: 1.8;     /* Gives math more vertical breathing room */
+    color: #222;          /* Slightly darker text for better contrast */
+}
+
+/* Ensure inline math doesn't look tiny compared to text */
+.MathJax, .katex {
+    font-size: 1.1em;
+}
+
+/* Default: Hide TOC on mobile */
+.sidebar-toc { display: none; }
+
+/* On large screens, position it on the left */
+@media (min-width: 1200px) {
+  .post-container {
+    position: relative;
+  }
+  .sidebar-toc {
+    display: block;
+    position: fixed;
+    top: 100px;
+    left: 20px; /* Moved to the left */
+    width: 250px;
+    font-size: 16px;
+    border-right: 2px solid #eee; /* Border on the right now */
+    padding-right: 15px;
+  }
+  
+  /* Inactive TOC links are greyed out for scroll-spying effect */
+  .sidebar-toc a {
+    color: #999;
+    text-decoration: none;
+    display: block; /* Ensures proper spacing and clicking */
+    padding: 2px 0;
+  }
+
+  /* Active link is highlighted with the theme color */
+  .sidebar-toc a.active {
+    color: #0085a1;
+    font-weight: bold;
+  }
+  
+  .sidebar-toc a:hover {
+    color: #0085a1; /* Hover color remains the theme color */
+  }
+}

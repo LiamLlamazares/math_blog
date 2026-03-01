@@ -1,0 +1,2186 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Liam Llamazares–Elias">
+<meta name="dcterms.date" content="2024-02-28">
+<meta name="description" content="From rough beginnings to smooth endings">
+
+<title>PDEs 6: Elliptic PDE – NoWhere Differentiable Math</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-2cab38f689c5f066e21a94e3c73297ae.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-428acbe8fe795edd664e6bfe67298593.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-2cab38f689c5f066e21a94e3c73297ae.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+<script type="text/javascript">
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-230263372-2', 'auto');
+
+ga('send', {
+  hitType: 'pageview',
+  'anonymizeIp': true,
+});
+</script>
+<script>
+window.MathJax = {
+  tex: {
+    tags: "ams",
+    macros: {
+      A: "\\mathbb{A}",
+      Aa: "\\mathcal{A}",
+      Bb: "\\mathcal{B}",
+      C: "\\mathbb{C}",
+      Cc: "\\mathcal{C}",
+      Dd: "\\mathcal{D}",
+      E: "\\mathbb{E}",
+      Ee: "\\mathcal{E}",
+      F: "\\mathbb{F}",
+      Ff: "\\mathcal{F}",
+      Gg: "\\mathcal{G}",
+      Hh: "\\mathcal{H}",
+      II: "\\mathbb{I}",
+      Id: "\\bm{I}",
+      Ii: "\\mathcal{I}",
+      Im: "\\bm{Im}",
+      Jj: "\\mathcal{J}",
+      K: "\\mathbb{K}",
+      KL: ["\\rm{KL}\\left(#1 \\| #2\\right)", 2],
+      Kk: "\\mathcal{K}",
+      LL: "\\mathbb{L}",
+      Ll: "\\mathcal{L}",
+      M: "\\mathbb{M}",
+      Mm: "\\mathcal{M}",
+      N: "\\mathbb{N}",
+      Nn: "\\mathcal{N}",
+      Oo: "\\mathcal{O}",
+      PP: "\\mathbb{P}",
+      Pp: "\\mathcal{P}",
+      Q: "\\mathbb{Q}",
+      Qq: "\\mathcal{Q}",
+      R: "\\mathbb{R}",
+      Rr: "\\mathcal{R}",
+      Ss: "\\mathcal{S}",
+      T: "\\mathbb{T}",
+      Th: "{\\bm{\\theta}}",
+      Thh: "{\\bm{\\Theta}}",
+      Tt: "\\mathcal{T}",
+      Uu: "\\mathcal{U}",
+      Vv: "\\mathcal{V}",
+      W: "\\mathbb{W}",
+      Ww: "\\mathcal{W}",
+      X: "\\mathbb{X}",
+      Xx: "\\mathcal{X}",
+      Yy: "\\mathcal{Y}",
+      Z: "\\mathbb{Z}",
+      Zz: "\\mathcal{Z}",
+      abs: ["{\\left| #1 \\right|}", 1],
+      alf: "{\\alpha}",
+      b: ["{\\bm{#1}}", 1],
+      bm: ["\\boldsymbol{#1}", 1],
+      br: ["\\left\\langle#1\\right\\rangle", 1],
+      bt: "\\beta",
+      co: ["\\overset{\\circ}{#1}", 1],
+      d: "\\mathrm{d}",
+      diag: ["\\operatorname{diag}\\left(#1\\right)", 1],
+      dx: "\\,\\mathrm{d}x",
+      dy: "\\,\\mathrm{d}y",
+      eps: "\\varepsilon",
+      et: "{\\bm{\\eta}}",
+      ex: ["\\mathrm{exp}\\left(#1\\right)", 1],
+      fk: ["\\mathfrak{#1}", 1],
+      fracc: ["{#1}/{#2}", 2],
+      frc: ["\\left(#2)^{-1}(#1\\right)", 2],
+      iso: "\\xrightarrow{\\sim}",
+      ker: "\\rm{ker}",
+      mat: ["\\begin{bmatrix}{#1}\\end{bmatrix}", 1],
+      mathbbm: ["\\mathbb{#1}", 1],
+      mathds: ["\\mathbb{#1}", 1],
+      norm: ["\\left\\lVert #1 \\right\\rVert", 1],
+      om: "\\omega",
+      postref: ["\\href{https://nowheredifferentiable.com/posts/#1/}{#3}", 3],
+      proj: "\\mathrm{proj}",
+      qb: ["\\left[#1\\right]", 1],
+      qp: ["\\left(#1\\right)", 1],
+      qt: ["\\left(#1\\right)", 1],
+      red: ["{\\color{red}#1}", 1],
+      restr: ["\\left.#1\\right|{#2}", 2],
+      rm: ["\\mathrm{#1}", 1],
+      set: ["\\left\\{#1\\right\\}", 1],
+      star: "*",
+      supp: "\\operatorname{supp}",
+      tl: ["\\widetilde{#1}", 1],
+      tll: ["\\widetilde{#1}", 1],
+      vol: "\\mathrm{vol}",
+      wh: ["\\widehat{#1}", 1],
+      x: "\\bm{x}",
+      xxi: "{\\bm{\\xi}}",
+      y: "\\bm{y}"
+    }
+  }
+};
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../custom_theorems.css">
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../assets/img/tree.jpg" alt="" class="navbar-logo light-content">
+    <img src="../../../assets/img/tree.jpg" alt="" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">NoWhere Differentiable Math</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html"> 
+<span class="menu-text">HOME PAGE</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../aboutme.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../tags.html"> 
+<span class="menu-text">Posts by Tag</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-resources">    
+        <li>
+    <a class="dropdown-item" href="https://terrytao.wordpress.com/">
+ <span class="dropdown-text">Terence Tao’s blog</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://lukasz.ls314.com/">
+ <span class="dropdown-text">Lukasz Sliwinski’s blog</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="http://eepurl.com/itcRso"> 
+<span class="menu-text">Subscribe</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/LiamLlamazares"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#three-point-summary" id="toc-three-point-summary" class="nav-link active" data-scroll-target="#three-point-summary"><span class="header-section-number">1</span> Three point summary</a></li>
+  <li><a href="#why-should-i-care" id="toc-why-should-i-care" class="nav-link" data-scroll-target="#why-should-i-care"><span class="header-section-number">2</span> Why should I care?</a></li>
+  <li><a href="#notation" id="toc-notation" class="nav-link" data-scroll-target="#notation"><span class="header-section-number">3</span> Notation</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">4</span> Introduction</a></li>
+  <li><a href="#the-problem-mathematical-framework" id="toc-the-problem-mathematical-framework" class="nav-link" data-scroll-target="#the-problem-mathematical-framework"><span class="header-section-number">5</span> The problem: Mathematical framework</a></li>
+  <li><a href="#weak-solutions-and-well-posedness" id="toc-weak-solutions-and-well-posedness" class="nav-link" data-scroll-target="#weak-solutions-and-well-posedness"><span class="header-section-number">6</span> Weak solutions and well-posedness</a>
+  <ul class="collapse">
+  <li><a href="#sec-fred-sec" id="toc-sec-fred-sec" class="nav-link" data-scroll-target="#sec-fred-sec"><span class="header-section-number">6.1</span> Fredholm alternative</a></li>
+  </ul></li>
+  <li><a href="#sec-higher-sec" id="toc-sec-higher-sec" class="nav-link" data-scroll-target="#sec-higher-sec"><span class="header-section-number">7</span> Higher regularity</a>
+  <ul class="collapse">
+  <li><a href="#finite-differences" id="toc-finite-differences" class="nav-link" data-scroll-target="#finite-differences"><span class="header-section-number">7.1</span> Finite differences</a></li>
+  <li><a href="#regularity-on-rd" id="toc-regularity-on-rd" class="nav-link" data-scroll-target="#regularity-on-rd"><span class="header-section-number">7.2</span> Regularity on <span class="math inline">\(\R^d\)</span></a></li>
+  <li><a href="#interior-regularity" id="toc-interior-regularity" class="nav-link" data-scroll-target="#interior-regularity"><span class="header-section-number">7.3</span> Interior regularity</a></li>
+  <li><a href="#regularity-at-the-boundary" id="toc-regularity-at-the-boundary" class="nav-link" data-scroll-target="#regularity-at-the-boundary"><span class="header-section-number">7.4</span> Regularity at the boundary</a></li>
+  </ul></li>
+  <li><a href="#other-boundary-conditions" id="toc-other-boundary-conditions" class="nav-link" data-scroll-target="#other-boundary-conditions"><span class="header-section-number">8</span> Other boundary conditions</a>
+  <ul class="collapse">
+  <li><a href="#non-homogeneous-dirichlet-boundary-conditions" id="toc-non-homogeneous-dirichlet-boundary-conditions" class="nav-link" data-scroll-target="#non-homogeneous-dirichlet-boundary-conditions"><span class="header-section-number">8.1</span> Non-homogeneous Dirichlet boundary conditions</a></li>
+  <li><a href="#neumann-and-robin-boundary-conditions" id="toc-neumann-and-robin-boundary-conditions" class="nav-link" data-scroll-target="#neumann-and-robin-boundary-conditions"><span class="header-section-number">8.2</span> Neumann and Robin boundary conditions</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">9</span> References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">PDEs 6: Elliptic PDE</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Pdes</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    From rough beginnings to smooth endings
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Liam Llamazares–Elias </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 28, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div id="quarto-post-pdf-url" data-url="Elliptic_PDE_1.pdf" style="display:none;">
+
+</div>
+<section id="three-point-summary" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="three-point-summary"><span class="header-section-number">1</span> Three point summary</h2>
+<ul>
+<li><p>Elliptic partial differential equations (PDE) are PDE with no time variable and whose leading order derivatives satisfy a positivity condition.</p></li>
+<li><p>Using Lax Milgram’s theorem, we can prove the existence and uniqueness of weak (distributional) solutions if the reaction term dominates the transport term. Using the Fredholm alternative, we can characterize the spectrum of the elliptic operator and the existence of solutions.</p></li>
+<li><p>Under suitable smoothness assumptions on the coefficients and domain, the solution map of the PDE adds two derivatives to the input function. This improved regularity allows us to recover classical solutions if the coefficients are smooth enough.</p></li>
+</ul>
+</section>
+<section id="why-should-i-care" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="why-should-i-care"><span class="header-section-number">2</span> Why should I care?</h2>
+<p>Many problems arising in physics, such as the Laplace and Poisson equation, are elliptic PDE. Furthermore, the tools used to analyze them can be extrapolated to other settings, such as parabolic PDE (depending on your viewpoint this may be a bit circular). The analysis also helps contextualize and provide motivation for theoretical tools such as Hilbert spaces, compact operators and Fredholm operators.</p>
+</section>
+<section id="notation" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="notation"><span class="header-section-number">3</span> Notation</h2>
+<p>We will use Vinogradov notation <span class="math inline">\(f \lesssim g\)</span> to mean that there exists a constant <span class="math inline">\(C&gt;0\)</span> such that <span class="math inline">\(f \leq Cg\)</span>. If we want to emphasize that the constant depends on a parameter <span class="math inline">\(\alpha\)</span>, we will write <span class="math inline">\(f \lesssim_\alpha g\)</span>.</p>
+<p>We fix <span class="math inline">\(U \subset \R^d\)</span> to be an open subset of <span class="math inline">\(\R^n\)</span> with <strong>no conditions</strong> on the regularity of <span class="math inline">\(\partial U\)</span>. If we need to impose regularity on the boundary, we will write <span class="math inline">\(\Omega\)</span> instead of <span class="math inline">\(U\)</span>. Finally, we will write</p>
+<p><span class="math display">\[
+\begin{aligned}
+\nabla \cdot (\bm{A}\nabla)=\sum_{i,j=1}^d \partial_i A_{ij} \partial _j.
+\end{aligned}
+\]</span></p>
+</section>
+<section id="introduction" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="introduction"><span class="header-section-number">4</span> Introduction</h2>
+<p>Welcome back to the second post on our series of PDE. In post <a href="../../../posts/PDEs/4. Physical derivation/index.html">4</a>, we gave a physical derivation of PDE (both parabolic and elliptic) that justify why we are interested in such equations. In posts <a href="../../../posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/index.html">1</a>, <a href="../../../posts/PDEs/2. What is a Hilbert space/index.html">2</a>, <a href="../../../posts/PDEs/3. Sobolev spaces/index.html">3</a>, <a href="../../../posts/PDEs/5. Fractional and negative order Sobolev spaces/index.html">5</a> of the series we built up the theoretical framework necessary to define Sobolev spaces, spaces of weakly differentiable functions to which we could extend the concept of differentiation (I know, the order is a bit messed up). We are now going to use the previous theory to study these equations.</p>
+</section>
+<section id="the-problem-mathematical-framework" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="the-problem-mathematical-framework"><span class="header-section-number">5</span> The problem: Mathematical framework</h2>
+<p>We consider the following problem: given a bounded open set <span class="math inline">\(U \subset \R^n\)</span> and some coefficients <span class="math inline">\(\bm{A},\bm{b},c\)</span>, we want to solve the following elliptic PDE</p>
+<p><span id="eq-pde"><span class="math display">\[
+\begin{aligned}
+\begin{cases}
+\Ll u:=  -\nabla \cdot (\bm{A} \nabla u)+ \nabla \cdot (\bm{b} u)+cu=f, &amp; \text{in } U,          \\
+u=0,                                                                    &amp; \text{on } \partial U,
+\end{cases}
+\end{aligned}
+\tag{1}\]</span></span></p>
+<p>where <span class="math inline">\(f: U \to \R\)</span> is some known function, <span class="math inline">\(u\)</span> is the solution we want to find. In the case where <span class="math inline">\(U = \R^d\)</span> the boundary condition is vacuous as <span class="math inline">\(\partial \R^d = \emptyset\)</span>.</p>
+<p>We recall from post <a href="../../../posts/PDEs/4. Physical derivation/index.html">4</a> that physically; we can interpret <span class="math inline">\(u\)</span> as the density of some substance, <span class="math inline">\(\bm{A}\)</span> as a diffusion matrix, <span class="math inline">\(\bm{b}\)</span> as a transport vector, <span class="math inline">\(c\)</span> as a reaction coefficient and <span class="math inline">\(f\)</span> as the source term. For the mathematical theory, we will need some conditions on the coefficients. Primarily, we require that <span class="math inline">\(\bm{A}\)</span> is <em>elliptic</em>.</p>
+<div id="def-1" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1 (Ellipticity)</strong></span> Given <span class="math inline">\(\bm{A}: U \to \R^{d \times d}, \bm{b}: U \to \R^d\)</span> and <span class="math inline">\(c:U \to \R\)</span> we say that the operator</p>
+<p><span id="eq-operator"><span class="math display">\[
+\begin{aligned}
+\Ll u:= -\nabla \cdot (\bm{A} \nabla u)+ \nabla \cdot (\bm{b} u)+c
+\end{aligned}
+\tag{2}\]</span></span></p>
+<p>is <em>elliptic</em> if there exists <span class="math inline">\(\alpha&gt;0\)</span> such that</p>
+<p><span id="eq-elliptic"><span class="math display">\[
+\begin{aligned}
+\xi ^T\bm{A}(x) \xi \geq \alpha \abs{\xi }^2 , \quad\forall \xi \in \R^d , \quad\forall x \in U .
+\end{aligned}
+\tag{3}\]</span></span></p>
+<p>We also say that <span class="math inline">\(\bm{A}\)</span> is elliptic.</p>
+</div>
+<p>There are some points to clear up. Firstly, if this is the first time you’ve encountered the ellipticity condition in (<a href="#eq-elliptic" class="quarto-xref">3</a>), then it may seem a bit strange. With the previous physical interpretation, the ellipticity condition (<a href="#eq-elliptic" class="quarto-xref">3</a>) says that diffusion occurs from the region of <a href="../../../posts/PDEs/4. Physical derivation/index.html#eq-diffusion">higher to lower density</a>. Mathematically speaking, (<a href="#eq-elliptic" class="quarto-xref">3</a>) will prove necessary to apply <a href="../../../posts/PDEs/2. What is a Hilbert space/index.html#thm-lax-theorem">Lax Milgram’s theorem</a> and obtain regularity estimates on <span class="math inline">\(u\)</span>.</p>
+<p>Next, when developing the mathematical theory of any equation, the first step is to establish whether the equation is <em>well-posed</em>.</p>
+<div id="def-well-posedness" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2 (Well-posedness)</strong></span> We say that an equation is <em>well-posed</em> if</p>
+<ol type="1">
+<li><p>It has a solution.</p></li>
+<li><p>The solution is unique.</p></li>
+<li><p>The solution depends continuously on the data.</p></li>
+</ol>
+</div>
+<p>The above definition originates from the work of Hadamard and is standard in the context of PDE. The three properties above make the problem nice to work with and may be familiar from the basic theory of ODE. However, not all problems are well-posed. Ill-posedness often arises when one works with inverse problems, such as the backward heat equation, where one tries to recover the initial heat distribution from the final one.</p>
+<p>The well-posedness of any given PDE is highly contingent on the space considered. In our case, we still need to define which function space our coefficients <span class="math inline">\(\bm{A,b},c\)</span> live in and what space <span class="math inline">\(\Ll\)</span> acts on. It would be natural to assume that we need <span class="math inline">\(\bm{A}\)</span> and <span class="math inline">\(\bm{b}\)</span> to be differentiable. However, the following will suffice.</p>
+<div id="thm-ass1" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1</strong></span> We assume that <span class="math inline">\(A_{ij}, b_i, c \in L^\infty (U)\)</span> for all <span class="math inline">\(i,j=1,\ldots,d\)</span>. Furthermore, <span class="math inline">\(\bm{A}\)</span> is symmetric (<span class="math inline">\(A_{ij}=A_{ji}\)</span>) and elliptic.</p>
+</div>
+<p>In the future, <span class="math inline">\(i,j\)</span> will always run from <span class="math inline">\(1\)</span> to <span class="math inline">\(d\)</span>, where <span class="math inline">\(d\)</span> is the dimension of the space.</p>
+<div id="rem-1" class="proof remark">
+<p><span class="proof-title"><em>Remark 1</em>. </span>We lose no generality by assuming that <span class="math inline">\(\bm{A}\)</span> is symmetric as <span class="math inline">\(\partial _{ij} u =\partial _{ji} u\)</span>. If <span class="math inline">\(\bm{A}\)</span> is not symmetric, we can replace <span class="math inline">\(\bm{A}\)</span> by <span class="math inline">\((\bm{A}+\bm{A}^T)/2\)</span> and equation (<a href="#eq-pde" class="quarto-xref">1</a>) will remain unchanged.</p>
+</div>
+<p>The first part of Assumption <a href="#thm-ass1" class="quarto-xref">Theorem&nbsp;1</a> will make it easy to get bounds on <span class="math inline">\(\Ll\)</span>, and the second part will prove useful when we look at the spectral theory of <span class="math inline">\(\Ll\)</span>. Now, to make sense of our problem (<a href="#eq-pde" class="quarto-xref">1</a>), we need to define what we mean by a solution. Here, the theory of Sobolev Spaces and the Fourier transform prove crucial. We will work with the following space.</p>
+<div id="def-dual-definition-2" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3 (Negative Sobolev space)</strong></span> Given <span class="math inline">\(k \in \N\)</span> we define</p>
+<p><span class="math display">\[
+\begin{aligned}
+H^{-k}(U ):= H_0^k(U )'
+\end{aligned}
+\]</span></p>
+</div>
+<p>For more details on why we denote the dual using negative exponents, see the <a href="../../../posts/PDEs/5. Fractional and negative order Sobolev spaces/index.html#sec-dual-sec">relevant section</a> in the previous post on fractional Sobolev spaces. We <a href="../../../posts/PDEs/5. Fractional and negative order Sobolev spaces/index.html#thm-riesz-representation">recall</a> also that every element in <span class="math inline">\(H^{-k}(U)\)</span> can be written as the sum of derivatives up to order <span class="math inline">\(k\)</span> of a function in <span class="math inline">\(L^2(U)\)</span>.</p>
+<div id="exr-domain-l" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1</strong></span> Suppose <span class="math inline">\(A_{ij}, b_i, c \in L^\infty(U)\)</span>. Then, <span class="math inline">\(\Ll\)</span> defines a bounded linear operator</p>
+<p><span class="math display">\[
+\begin{aligned}
+\Ll : H_0^{1}(U)\to H^{-1} (U).
+\end{aligned}
+\]</span></p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>By definition of the weak derivative, show that given <span class="math inline">\(v \in C_c^\infty(U)\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+(v, \Ll u) = \int_{U} \bm{A} \nabla v \cdot \nabla u + \int_{U} \bm{b} \cdot \nabla v u + \int_{U} cvu.
+\end{aligned}
+\]</span></p>
+<p>Use this to conclude that,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\abs{(v, \Ll u)} \lesssim \norm{v}_{H^1(U)}\norm{u}_{H^1(U)}.
+\end{aligned}
+\]</span></p>
+<p>So, <span class="math inline">\(\Ll u \in H^{-1}(U)\)</span> is well defined and <span class="math inline">\(\Ll\)</span> is bounded. Extend by density to <span class="math inline">\(H_0^1(U)\)</span>.</p>
+</div>
+</div>
+</div>
+<p><a href="#exr-domain-l" class="quarto-xref">Exercise&nbsp;1</a> allows us to define the weak formulation of (<a href="#eq-pde" class="quarto-xref">1</a>) and study its well-posedness using Lax Milgram’s theorem. We will do this in the next section.</p>
+</section>
+<section id="weak-solutions-and-well-posedness" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="weak-solutions-and-well-posedness"><span class="header-section-number">6</span> Weak solutions and well-posedness</h2>
+<p>By <a href="#exr-domain-l" class="quarto-xref">Exercise&nbsp;1</a>, we can make sense of the equation <span class="math inline">\(\Ll u =f\)</span> for all <span class="math inline">\(f \in H^{-1}(U)\)</span>.</p>
+<div id="def-2" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 4 (Weak formulation)</strong></span> Given <span class="math inline">\(f \in H^{-1}(U)\)</span>, we say that <span class="math inline">\(u~\in~H_0^1(U)\)</span> solves equation (<a href="#eq-pde" class="quarto-xref">1</a>) if</p>
+<p><span id="eq-weak-def"><span class="math display">\[
+\begin{aligned}
+B(u,v):= (v, \Ll u)=\int_{U}\bm{A} \nabla u \cdot \nabla v + \int_{U} \bm{b} \cdot ( \nabla u) v + \int_{U} cuv= (v,f), \quad \forall v \in H_0^1(U).
+\end{aligned}
+\tag{4}\]</span></span></p>
+</div>
+<p>In (<a href="#eq-weak-def" class="quarto-xref">4</a>) we used the “duality notation” <span class="math inline">\((v,f):= f(v)\)</span> for <span class="math inline">\(f \in X, v \in X'\)</span> (here <span class="math inline">\(X= H_0^1(U)\)</span>). We have now reformulated our problem to something that looks very similar to the setup of Lax Milgram’s theorem and can use this to prove the well-posedness of (<a href="#eq-pde" class="quarto-xref">1</a>) under certain conditions.</p>
+<div id="thm-well-posed-1" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2</strong></span> Let <span class="math inline">\(U \subset \R^d\)</span> be an arbitrary open set. Suppose Assumption <a href="#thm-ass1" class="quarto-xref">Theorem&nbsp;1</a> holds and let <span class="math inline">\(\bm{b}=0\)</span>. Then, if <span class="math inline">\(c &gt;0\)</span> equation (<a href="#eq-pde" class="quarto-xref">1</a>) is well-posed, and we have the homeomorphism</p>
+<p><span class="math display">\[
+\begin{aligned}
+\Ll : H_0^1(U) \iso H^{-1}(U).
+\end{aligned}
+\]</span></p>
+<p>If <span class="math inline">\(U\)</span> is bounded, the above also holds for <span class="math inline">\(c\geq 0\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The continuity of <span class="math inline">\(B\)</span> is a consequence of <a href="#exr-domain-l" class="quarto-xref">Exercise&nbsp;1</a>. It remains to see that <span class="math inline">\(B\)</span> is coercive. For smooth <span class="math inline">\(u \in C_c^\infty(U)\)</span> we have that</p>
+<p><span id="eq-b-0"><span class="math display">\[
+\begin{aligned}
+B(u,u) &amp; = \int_{U}\bm{A} \nabla u \cdot \nabla u + \int_{U} cu^2 \geq \alpha \norm{\nabla u}^2_{L^2(U \to \R^d)} + \int_{U}c u^2 \gtrsim \norm{u}^2_{H^1_0(U)}.
+\end{aligned}
+\tag{5}\]</span></span></p>
+<p>Where in the first inequality, we used the ellipticity assumption on <span class="math inline">\(\bm{A}\)</span>, and in the last inequality, we used <a href="../../../posts/PDEs/3. Sobolev spaces/index.html#thm-poincare">Poincaré’s inequality</a> if <span class="math inline">\(U\)</span> is bounded. The result now follows from <a href="../../../posts/PDEs/2. What is a Hilbert space/index.html#thm-lax-theorem">Lax Milgram’s theorem</a>.</p>
+</div>
+<p><a href="#thm-well-posed-1" class="quarto-xref">Theorem&nbsp;2</a> is an example of the advantages of working with a weak formulation instead of solutions differentiable in a classical sense. The weak formulation allows us not only to make sense of our equation (<a href="#eq-pde" class="quarto-xref">1</a>) for a wider class of coefficients but also provides a natural framework to study the well-posedness of (<a href="#eq-pde" class="quarto-xref">1</a>).</p>
+<div id="exr-1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2</strong></span> Show that, under the conditions of <a href="#thm-well-posed-1" class="quarto-xref">Theorem&nbsp;2</a>, if <span class="math inline">\(U\)</span> is bounded, there is a countable basis of eigenfunctions for <span class="math inline">\(\Ll\)</span>.</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>By <a href="../../../posts/PDEs/3. Sobolev spaces/index.html">Rellich’s theorem</a> <span class="math inline">\(\Ll^{-1}: L^2(U) \to L^2(U)\)</span> is compact and, since <span class="math inline">\(\bm{b}\)</span> is <span class="math inline">\(0\)</span>, <span class="math inline">\(\Ll\)</span> is also is self adjoint. As a result, so there is a countable basis of eigenvectors in <span class="math inline">\(L^2(U)\)</span>.</p>
+</div>
+</div>
+</div>
+<p>In <a href="#thm-well-posed-1" class="quarto-xref">Theorem&nbsp;2</a>, we somewhat unsatisfyingly had to impose the extra assumption that <span class="math inline">\(\bm{b}\)</span> was identically zero and that <span class="math inline">\(c &gt; 0\)</span>. These extra assumptions can be done away with but at the cost of modifying our initial problem by a correction term <span class="math inline">\(\gamma\)</span> so we can obtain a coercive operator <span class="math inline">\(B_\gamma\)</span>.</p>
+<div id="thm-mod" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3 (Modified problem)</strong></span> Let <span class="math inline">\(U \subset \R^d\)</span> be any open set and let Assumption <a href="#thm-ass1" class="quarto-xref">Theorem&nbsp;1</a> hold. Then, there exists some constant <span class="math inline">\(\nu \geq 0\)</span> (depending on the coefficients) such that for all <span class="math inline">\(\gamma \geq \nu\)</span> the operator <span class="math inline">\(\Ll_\gamma := \Ll + \gamma \bm{I}\)</span> is positive definite and defines a homeomorphism</p>
+<p><span class="math display">\[
+\begin{aligned}
+\Ll_\gamma : H_0^1(U) \iso H^{-1}(U).
+\end{aligned}
+\]</span></p>
+</div>
+<p>That is, the problem <span class="math inline">\(\Ll u +\gamma u =f\)</span> is well-posed for all <span class="math inline">\(\gamma &gt; \nu\)</span>.</p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Once more, the proof will go through the Lax-Milgram theorem, where now we work with the bilinear operator <span class="math inline">\(B_\gamma\)</span> associated with <span class="math inline">\(\Ll_\gamma\)</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+B_\gamma (u,v):= (v, \Ll_\gamma u)=B(u,v) + \gamma (u,v).
+\end{aligned}
+\]</span></p>
+<p>The calculation proceeds similarly to (<a href="#eq-b-0" class="quarto-xref">5</a>). We recall the Cauchy inequality</p>
+<p><span id="eq-cauchy"><span class="math display">\[
+\begin{aligned}
+ab\leq\frac{\varepsilon }{2} a^2+ \frac{1}{2 \varepsilon } b^2 , \quad\forall a,b \in \R, \quad \varepsilon &gt;0,
+\end{aligned}
+\tag{6}\]</span></span></p>
+<p>which can be checked directly by using that <span class="math inline">\((c-d)^2 \geq 0\)</span>. Applying (<a href="#eq-cauchy" class="quarto-xref">6</a>) to <span class="math inline">\(a=\nabla u\)</span> and <span class="math inline">\(b= v\)</span>, shows that</p>
+<p><span class="math display">\[
+\begin{aligned}
+B(u,u) &amp; = \int_{U}(\bm{A} \nabla u) \cdot \nabla u + \int_{U} \bm{b}\cdot (\nabla u) u + \int_{U} cu^2 \geq \alpha \norm{\nabla u}^2_{L^2(U \to \R^d)}                          \\
+&amp; - \frac{1}{2}\norm{\bm{b}}_{L^\infty(U)} \qt{\varepsilon \norm{\nabla u}_{L^2(U)}^2+ \varepsilon ^{-1}\norm{u}^2_{L^2(U)}}- \norm{c}_{L^\infty(U)}\norm{u}^2_{L^2(U)} .
+\end{aligned}
+\]</span></p>
+<p>Taking <span class="math inline">\(\varepsilon\)</span> small enough (smaller than <span class="math inline">\(\alpha \norm{\bm{b}}_{L^\infty(U)}^{-1}\)</span> to be precise) and gathering up terms gives</p>
+<p><span id="eq-b-not-0"><span class="math display">\[
+\begin{aligned}
+B(u,u) \geq \frac{\alpha}{2} \norm{\nabla u}^2_{L^2(U \to \R^d)} -\nu \norm{u}^2_{L^2(U)}.
+\end{aligned}
+\tag{7}\]</span></span></p>
+<p>Where we defined <span class="math inline">\(\nu = \frac{1}{2}\norm{\bm{b}}_{L^\infty(U)} \varepsilon ^{-1}+\norm{c}_{L^\infty(U)}\)</span>. The theorem follows from (<a href="#eq-b-not-0" class="quarto-xref">7</a>) as for all <span class="math inline">\(\gamma &gt; \nu\)</span></p>
+<p><span id="eq-pd"><span class="math display">\[
+\begin{aligned}
+B_\gamma (u,u)=B(u,u)+ \gamma \norm{u}^2_{L^2(U)} \geq\frac{\alpha}{2} \norm{\nabla u}^2_{L^2(U \to \R^d)}+(\gamma - \nu) \norm{u}^2_{L^2(U)}\gtrsim \norm{u}^2_{H_0^1(U)} .
+\end{aligned}
+\tag{8}\]</span></span></p>
+<p>Equation (<a href="#eq-pd" class="quarto-xref">8</a>) also shows that <span class="math inline">\(\Ll_\gamma\)</span> is positive definite and the proof is complete.</p>
+</div>
+<section id="sec-fred-sec" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="sec-fred-sec"><span class="header-section-number">6.1</span> Fredholm alternative</h3>
+<p>We now analyze further what we can say about the well-posedness of (<a href="#eq-pde" class="quarto-xref">1</a>). What has to happen for the equation to be ill-posed? If there are multiple solutions, what does the space of solutions look like? As we will see, this is intimately linked to the spectrum of the operator <span class="math inline">\(\Ll\)</span> and the Fredholm alternative will provide the answers we are looking for,</p>
+<p>We begin by considering <span class="math inline">\(\Ll u =\lambda u+f\)</span>, which is a small generalization of our original problem (<a href="#eq-pde" class="quarto-xref">1</a>). We take <span class="math inline">\(\gamma &gt; \abs{\lambda }\)</span> large enough as in <a href="#thm-mod" class="quarto-xref">Theorem&nbsp;3</a> and note that</p>
+<p><span id="eq-above"><span class="math display">\[
+\begin{aligned}
+\Ll u = \lambda u + f \iff \Ll_\gamma u =(\gamma+\lambda)u +f.
+\end{aligned}
+\tag{9}\]</span></span></p>
+<p>Now write <span class="math inline">\(\mu:=(\gamma+\lambda)\)</span> and rename <span class="math inline">\(v:=\mu u +f\)</span>. An algebraic manipulation shows that (<a href="#eq-above" class="quarto-xref">9</a>) is equivalent to</p>
+<p><span id="eq-below"><span class="math display">\[
+\begin{aligned}
+(\bm{I}- \mu \Ll_\gamma ^{-1} )v =f,
+\end{aligned}
+\tag{10}\]</span></span></p>
+<p>where <span class="math inline">\(\bm{I}\)</span> is the identity operator. Suppose now that <span class="math inline">\(U\)</span> is bounded, then, by <a href="../../../posts/PDEs/3. Sobolev spaces/index.html">Rellich’s theorem</a>, we know that the following inclusion is compact</p>
+<p><span class="math display">\[
+\begin{aligned}
+i: H^1(U) \hookrightarrow L^2(U).
+\end{aligned}
+\]</span></p>
+<p>As a result, by <a href="#thm-well-posed-1" class="quarto-xref">Theorem&nbsp;2</a>, we deduce that <span class="math inline">\(\Ll_\gamma^{-1}: L^2(U) \to L^2(U)\)</span>, which we are now viewing as an operator on <span class="math inline">\(L^2(U)\)</span>, is compact. More precisely,</p>
+<p><span class="math display">\[
+\begin{aligned}
+K:= i \circ \restr{\Ll_\gamma ^{-1}}{L^2(U)}
+\end{aligned}
+\]</span></p>
+<p>is compact and the reasoning in (<a href="#eq-above" class="quarto-xref">9</a>), (<a href="#eq-below" class="quarto-xref">10</a>) shows that, given <span class="math inline">\(f \in L^2(U)\)</span>, and <span class="math inline">\(u \in H_0^1(U)\)</span></p>
+<p><span id="eq-reasoning"><span class="math display">\[
+\begin{aligned}
+\Ll u = \lambda u+f\iff Tv:=(\bm{I}-\mu K)v =f.
+\end{aligned}
+\tag{11}\]</span></span></p>
+<p>Equation (<a href="#eq-reasoning" class="quarto-xref">11</a>) is exactly the form the <a href="../../../posts/PDEs/2. What is a Hilbert space/index.html">Fredholm alternative</a> takes (<span class="math inline">\(\mu\)</span> can be incorporated into the compact operator <span class="math inline">\(K\)</span>) and justifies the following.</p>
+<div id="thm-well-posedness-fredholm" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 4</strong></span> Let <span class="math inline">\(U\subset \R^d\)</span> be bounded, let <span class="math inline">\(\Ll\)</span> verify Assumption <a href="#thm-ass1" class="quarto-xref">Theorem&nbsp;1</a>, and <span class="math inline">\(\lambda \in \R, f \in L^2(U)\)</span> be any. Consider the problems</p>
+<p><span id="eq-original"><span class="math display">\[
+\begin{aligned}
+\mathcal{L}u &amp; = \lambda u + f \quad \text{and} \quad u \in H_0^1(U)                            \\
+\mathcal{L}u &amp; = \lambda u \quad \text{and} \quad u \in H_0^1(U)
+\end{aligned}
+\tag{12}\]</span></span></p>
+<p>Then, the following hold:</p>
+<ol type="1">
+<li><p>Equation (<a href="#eq-original" class="quarto-xref">12</a>) is well-posed if and only if (<a href="#eq-original" class="quarto-xref">12</a>) has no non-zero solutions. That is, if and only if <span class="math inline">\(\lambda \notin \sigma(\Ll)\)</span>.</p></li>
+<li><p>The spectrum <span class="math inline">\(\sigma (\Ll )\)</span> is discrete. If <span class="math inline">\(\sigma(\Ll )= \{\lambda_n \}_{n=1}^\infty\)</span> is infinite, then <span class="math inline">\(\lambda _n \to +\infty\)</span>.</p></li>
+<li><p>The dimensions of the following spaces are equal</p>
+<p><span class="math display">\[
+\begin{aligned}
+N:= \set{u \in H_0^1(U): \Ll u = \lambda u}, \quad N^*:= \set{w \in H_0^1(U): \Ll^* w = \lambda w},
+\end{aligned}
+\]</span></p></li>
+<li><p>Equation, (<a href="#eq-original" class="quarto-xref">12</a>) has a solution if and only if <span class="math inline">\(f \in (N^*)^\perp\)</span> <span class="math inline">\((\)</span>equivalently <span class="math inline">\(\br{w,f}=0\)</span> for all <span class="math inline">\(w \in N^* )\)</span>.</p></li>
+</ol>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Given <span class="math inline">\(f \in L^2(U)\)</span> and <span class="math inline">\(\lambda \in \R\)</span> as before, we consider <span class="math inline">\(\gamma &gt; \abs{\lambda }\)</span> large and define</p>
+<p><span class="math display">\[
+\begin{aligned}
+\Ll _\gamma := \Ll + \gamma \bm{I}, \quad  K:= i \circ \restr{\Ll_\gamma ^{-1}}{L^2(U)}, \quad  \mu := \gamma + \lambda, \quad T := (\bm{I}- \mu K)
+\end{aligned}
+\]</span></p>
+<p>, where <span class="math inline">\(i : H^1(U) \hookrightarrow L^2(U)\)</span> is the inclusion. Consider the following two problems,</p>
+<p><span id="eq-fred"><span class="math display">\[
+\begin{aligned}
+Tv &amp; = f  \quad \text{and} \quad  v \in L^2(U),              \\
+Tv &amp; = 0 \quad \text{and} \quad  v \in L^2(U).
+\end{aligned}
+\tag{13}\]</span></span></p>
+<p>The reasoning in (<a href="#eq-reasoning" class="quarto-xref">11</a>) showed that a solution <span class="math inline">\(u\)</span> to (<a href="#eq-original" class="quarto-xref">12</a>) gives a solution to (<a href="#eq-fred" class="quarto-xref">13</a>) via the transformation <span class="math inline">\(v=\mu u +f\)</span>. The converse needs to be clarified, as given <span class="math inline">\(v \in L^2(U)\)</span>, the inverse transformation <span class="math inline">\(u = \mu ^{-1}(v-f)\)</span> may not return a function in <span class="math inline">\(H_0^1(U)\)</span>. However, if <span class="math inline">\(v\)</span> solves (<a href="#eq-fred" class="quarto-xref">13</a>), then <span class="math inline">\(u\)</span> verifies</p>
+<p><span class="math display">\[
+\begin{aligned}
+Tv=v-\mu K v=\mu u +f - \mu K v=f.
+\end{aligned}
+\]</span></p>
+<p>Cancelling out the <span class="math inline">\(f\)</span> and dividing by <span class="math inline">\(\mu\)</span> we obtain that</p>
+<p><span class="math display">\[
+\begin{aligned}
+u =Kv.
+\end{aligned}
+\]</span></p>
+<p>By <a href="#thm-well-posed-1" class="quarto-xref">Theorem&nbsp;2</a> we know that <span class="math inline">\(Kv = \Ll _\gamma ^{-1} v \in H_0^1(U)\)</span> for all <span class="math inline">\(v \in L^2(U)\)</span> . As a result, <span class="math inline">\(u\)</span> solves problem (<a href="#eq-original" class="quarto-xref">12</a>), and by the transformation <span class="math inline">\(v \leftrightarrow u\)</span> problem (<a href="#eq-fred" class="quarto-xref">13</a>) has a solution if and only if problem (<a href="#eq-original" class="quarto-xref">12</a>) has a solution. Taking <span class="math inline">\(f=0\)</span>, we also obtain that <span class="math inline">\(u\)</span> solves problem (<a href="#eq-original" class="quarto-xref">12</a>) if and only <span class="math inline">\(v\)</span> solves problem (<a href="#eq-fred" class="quarto-xref">13</a>). In conclusion,</p>
+<div style="text-align: center;">
+<p>Problem (<a href="#eq-original" class="quarto-xref">12</a>) is w.p <span class="math inline">\(\iff\)</span> Problem (<a href="#eq-fred" class="quarto-xref">13</a>) is w.p <span class="math inline">\(\iff\)</span> <span class="math inline">\(\ker(T) =0 \iff \ker(\Ll -\lambda \bm{I} )=0\)</span>,</p>
+</div>
+<p>where the second equivalence is due to the Fredholm alternative, and the third can be verified by an algebraic manipulation. This proves the first point.</p>
+<p>To see the second point, note that, by definition of <span class="math inline">\(T\)</span>, equation (<a href="#eq-fred" class="quarto-xref">13</a>) has non-zero solutions if and only if <span class="math inline">\(\mu ^{-1} \in \sigma (K)\)</span>. Since <span class="math inline">\(K\)</span> is compact, <span class="math inline">\(\sigma(K)\)</span> is discrete and if <span class="math inline">\(\sigma (K)\)</span> is infinite, then its eigenvalues, which we denote by <span class="math inline">\(\left\{\mu _n^{-1}\right\}_{n=1}^\infty\)</span>, go to <span class="math inline">\(0\)</span>. Furthermore, since by <a href="#thm-mod" class="quarto-xref">Theorem&nbsp;3</a> <span class="math inline">\(K\)</span> is positive definite, <span class="math inline">\(\mu_n &gt;0\)</span> and the claim follows by the correspondence <span class="math inline">\(\lambda_n =\mu_n -\gamma\)</span>.</p>
+<p>For the third and fourth points, we use that, as we have already proved, <span class="math inline">\(\ker(T)=N\)</span>. Additionally,</p>
+<p><span class="math display">\[
+\begin{aligned}
+T^* =(\bm{I}-\mu K^*) =\bm{I}-\mu (\Ll^*+ \gamma )^{-1},
+\end{aligned}
+\]</span></p>
+<p>from where</p>
+<p><span class="math display">\[
+\begin{aligned}
+\quad \ker(T^*)=\ker(\Ll^* -\lambda \bm{I})= N^*.
+\end{aligned}
+\]</span></p>
+<p>Applying the Fredholm alternative concludes the proof.</p>
+</div>
+<p>Setting <span class="math inline">\(\lambda =0\)</span> in <a href="#thm-well-posedness-fredholm" class="quarto-xref">Theorem&nbsp;4</a>, we recover our original problem and obtain the following corollary.</p>
+<div id="cor-1" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 1</strong></span> Equation (<a href="#eq-pde" class="quarto-xref">1</a>) is well-posed unless the homogeneous problem <span class="math inline">\(\Ll u=0\)</span> has a non-zero solution (that is, <span class="math inline">\(\ker(\Ll )\neq 0\)</span>). The space of solutions then has dimension <span class="math inline">\(\ker(\Ll)\)</span>, which is also equal to the dimension of <span class="math inline">\(\ker(\Ll ^*)\)</span>. Finally, (<a href="#eq-pde" class="quarto-xref">1</a>) will have a solution if and only if <span class="math inline">\(f\)</span> is orthogonal to the kernel of <span class="math inline">\(\Ll^*\)</span>.</p>
+</div>
+<p>In particular, to study the <em>existence</em> of solutions to (<a href="#eq-pde" class="quarto-xref">1</a>), it is enough to study the <em>uniqueness</em> of solutions to (<a href="#eq-pde" class="quarto-xref">1</a>)!</p>
+<div id="exr-2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 3</strong></span> In <a href="#thm-well-posedness-fredholm" class="quarto-xref">Theorem&nbsp;4</a> we used that, for <span class="math inline">\(\gamma\)</span> large enough, <span class="math inline">\(K= \Ll_{\gamma }^{-1}\)</span> is compact. However, <span class="math inline">\(\Ll_{\gamma }^{-1}\)</span> is invertible with inverse <span class="math inline">\(\Ll _\gamma\)</span>. As a result <span class="math inline">\(\bm{I}=\Ll _\gamma \circ \Ll _\gamma ^{-1}\)</span> is compact. How is this possible?</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>In fact, <span class="math inline">\(\Ll_\gamma^{-1}\)</span> is only invertible as an operator from <span class="math inline">\(H^{-1}(U) \to H^1_0(U)\)</span>. However, it is not invertible as an operator from <span class="math inline">\(K: L^2(U) \to L^2(U)\)</span>. Given <span class="math inline">\(f \in L^2(U)\)</span>, it is not generally possible to find an <span class="math inline">\(u \in L^2(U)\)</span> such that <span class="math inline">\(\Ll_\gamma u =f\)</span>.</p>
+</div>
+</div>
+</div>
+<div id="exr-3" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 4</strong></span> Where does the proof of <a href="#thm-well-posedness-fredholm" class="quarto-xref">Theorem&nbsp;4</a> break down if we replace <span class="math inline">\(U\)</span> with <span class="math inline">\(\R^d\)</span>?</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Can you apply <a href="../../../posts/PDEs/3. Sobolev spaces/index.html">Rellich’s theorem</a> to unbounded domains? What is the spectrum of the Laplacian on <span class="math inline">\(\R^d\)</span>?</p>
+</div>
+</div>
+</div>
+<div id="exr-4" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5</strong></span> Show using <a href="#thm-well-posedness-fredholm" class="quarto-xref">Theorem&nbsp;4</a> that equation (<a href="#eq-fred" class="quarto-xref">13</a>) (the generalization of (<a href="#eq-pde" class="quarto-xref">1</a>)) is well-posed saved for at most a discrete set of <span class="math inline">\(\lambda\)</span>.</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Combine the first and second points of <a href="#thm-well-posedness-fredholm" class="quarto-xref">Theorem&nbsp;4</a>.</p>
+</div>
+</div>
+</div>
+<div id="exr-5" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6</strong></span> Show the necessity of point 4 in <a href="#thm-well-posedness-fredholm" class="quarto-xref">Theorem&nbsp;4</a> using only linear algebra.</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Suppose <span class="math inline">\(\Ll u = \lambda u+f\)</span> and <span class="math inline">\(w \in N^*\)</span>. Then,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\br{w,f} = \br{w,\Ll u -\lambda u} = \br{w,\Ll u} -\lambda \br{w,u} =\br{\Ll^* w,u} -\lambda \br{w,u}= 0.
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-higher-sec" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="sec-higher-sec"><span class="header-section-number">7</span> Higher regularity</h2>
+<p>We have so far seen that, under the previous assumptions, solutions to (<a href="#eq-pde" class="quarto-xref">1</a>) are in <span class="math inline">\(H_0^1(U)\)</span>. However, analogously to the classical setting, we may expect that <span class="math inline">\(u\)</span> is two degrees of regularity smoother than <span class="math inline">\(f\)</span>. That is that <span class="math inline">\(u \in H^2(U)\)</span>. This improved regularity is true, but only with the caveat that the domain <span class="math inline">\(U\)</span> is sufficiently regular. Counterexamples with non-smooth domains exist. See <span class="citation" data-cites="savare1998regularity">(<a href="#ref-savare1998regularity" role="doc-biblioref">Savaré 1998</a>)</span>.</p>
+<p>We will also see how, for smoother coefficients, we can iterate to obtain a higher regularity of <span class="math inline">\(u\)</span>. As a result, when the coefficients of (<a href="#eq-pde" class="quarto-xref">1</a>) are smooth, <span class="math inline">\(u\)</span> will be as well, and we will obtain a classical solution to problem (<a href="#eq-pde" class="quarto-xref">1</a>).</p>
+<section id="finite-differences" class="level3" data-number="7.1">
+<h3 data-number="7.1" class="anchored" data-anchor-id="finite-differences"><span class="header-section-number">7.1</span> Finite differences</h3>
+<p>In our study of regularity, we will make use of the difference quotients. Given a function <span class="math inline">\(u \in L^p(\R^d)\)</span>, we define the difference quotients in the <span class="math inline">\(j\)</span>-th direction as</p>
+<p><span class="math display">\[
+\begin{aligned}
+D_j^h u := \frac{u(x+ he_j)-u(x)}{h},\quad  e_j=(0,\ldots,\overset{(j)}{1},\ldots,0).
+\end{aligned}
+\]</span></p>
+<p>If <span class="math inline">\(u\)</span> is differentiable, then <span class="math inline">\(D_j^h u \to \partial_j u\)</span> as <span class="math inline">\(h \to 0\)</span>. The following lemma shows that, on <span class="math inline">\(\R^d\)</span>, the difference quotients of <span class="math inline">\(u\)</span> are bounded if and only if <span class="math inline">\(u\)</span> is weakly differentiable.</p>
+<div id="lem-difference-quotients-1" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 1 (Difference quotients and regularity)</strong></span> Let <span class="math inline">\(p \in (1, +\infty)\)</span>, and <span class="math inline">\(C &gt;0\)</span> be some constant. Then, the following hold.</p>
+<ol type="1">
+<li><p>If <span class="math inline">\(u \in L^p(\R^d)\)</span> and for all <span class="math inline">\(h\)</span> sufficiently small <span class="math inline">\(\norm{D_j^h u}_{L^p(\R^d)} \leq C\)</span>. Then <span class="math inline">\(u \in W^{1,p}(\R^d)\)</span>.</p></li>
+<li><p>If <span class="math inline">\(u \in W^{1,p}(\R^d)\)</span>. Then, <span class="math inline">\(\norm{D_j^h u}_{L^p(\R^d)} \leq \norm{\partial_j u}_{L^p(\R^d)}\)</span>.</p></li>
+</ol>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>We begin by proving the first point. Since <span class="math inline">\(L^p(\R^d)\)</span> is reflexive, every bounded sequence in <span class="math inline">\(L^p(\R^d)\)</span> has a weakly convergent subsequence. Thus, we can find <span class="math inline">\(h_n\)</span> and <span class="math inline">\(v \in L^p(\R^d)\)</span> such that <span class="math inline">\(D_j^{h_n} u \rightharpoonup v\)</span> weakly in <span class="math inline">\(L^p(\R^d)\)</span>. We want to show that <span class="math inline">\(v = \partial_j u\)</span>. To this aim, let <span class="math inline">\(\varphi \in C_c^\infty(\R^d)\)</span>. Then,</p>
+<p><span id="eq-weak-int-parts"><span class="math display">\[
+\begin{aligned}
+\int_{\R^d} v \varphi &amp; = \lim_{n \to \infty} \int_{\R^d} D_j^{h_n} u \varphi = \lim_{n \to \infty} \int_{\R^d} u(x)\frac{\varphi(x-h_n e_j)- \varphi (x)}{h_n}\d x
+\\&amp;= \int_{\R^d} u(x)\lim_{n \to \infty} -D_j^{-h_n} \varphi \d x =-\int_{\R^d} u \partial_j \varphi,\notag
+\end{aligned}
+\tag{14}\]</span></span></p>
+<p>where in the first equality, we used the weak convergence of <span class="math inline">\(D_j^{h_n}u\)</span> to <span class="math inline">\(v\)</span>; in the second, we separated the integral in two and used the change of variable <span class="math inline">\(x \to x-h_n e_j\)</span> on the first of the integrals (from now on we will call this “discrete integration by parts”). The final equality follows from the smoothness of <span class="math inline">\(\varphi\)</span>. Since <span class="math inline">\(\varphi \in C_c^\infty(\R^d)\)</span> was arbitrary, we have that <span class="math inline">\(v=\partial_j u\)</span> almost everywhere. Since <span class="math inline">\(u \in L^p(\R^d)\)</span>, this shows that <span class="math inline">\(u \in W^{1,p}(\R^d)\)</span>.</p>
+<p>For the second point, suppose that <span class="math inline">\(u\)</span> is smooth; then, by the fundamental theorem of calculus,</p>
+<p><span class="math display">\[
+\begin{aligned}
+D_j^h u(x) = \int_0^1 \partial_j u(x+the_j) \d t.
+\end{aligned}
+\]</span></p>
+<p>Taking norms and using &lt;https://en.wikipedia.org/wiki/Minkowski_inequality#:~:text=.-,Minkowski</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{D_j^h u}_{L^p(\R^d)} \leq \int_0^1 \norm{\partial_j u(\cdot+the_j)}_{L^p(\R^d)} \d t= \int_{0}^1 \norm{\partial_j u}_{L^p(\R^d)} \d t=\norm{\partial_j u}_{L^p(\R^d)},
+\end{aligned}
+\]</span></p>
+<p>where in the second equality, we used the change of variables <span class="math inline">\(x \to x-the_j\)</span>. We conclude by using the density of smooth functions in <span class="math inline">\(W^{1,p}(\R^d)\)</span> to take limits in the above inequality.</p>
+</div>
+<p>The result can be extended to arbitrary open subsets <span class="math inline">\(U \subset \R^d\)</span>. In this case, one can only obtain local regularity as the translation <span class="math inline">\(u(x+h e_j)\)</span> is not well defined on the whole of <span class="math inline">\(U\)</span>. We recall the notation <span class="math inline">\(V \Subset U\)</span> to mean that <span class="math inline">\(V\)</span> is a subset of <span class="math inline">\(U\)</span> with <span class="math inline">\(\bar{V} \subset U\)</span>.</p>
+<div id="lem-difference-quotients-2" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 2 (Difference quotients and local regularity)</strong></span> Let <span class="math inline">\(p \in (1, +\infty)\)</span>, <span class="math inline">\(C&gt;0\)</span> be a constant and <span class="math inline">\(V \Subset U\)</span> open. Then, the following hold.</p>
+<ol type="1">
+<li><p>If <span class="math inline">\(u \in L^p(U)\)</span> and for all <span class="math inline">\(h\)</span> sufficiently small <span class="math inline">\(\norm{D_j^h u}_{L^p(V)} \leq C\)</span>. Then, <span class="math inline">\(u \in W^{1,p}(V)\)</span>.</p></li>
+<li><p>If <span class="math inline">\(u \in W^{1,p}(U)\)</span>. Then, <span class="math inline">\(\norm{D_j^h u}_{L^p(V)} \leq \norm{\partial_j u}_{L^p(U)}\)</span> for all <span class="math inline">\(h&lt;\d(V,\partial U)\)</span>.</p></li>
+</ol>
+</div>
+<div id="exr-6" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 7</strong></span> Prove <a href="#lem-difference-quotients-2" class="quarto-xref">Lemma&nbsp;2</a>.</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Adapt the proof of <a href="#lem-difference-quotients-1" class="quarto-xref">Lemma&nbsp;1</a>. Take <span class="math inline">\(\varphi \in C_c^\infty(V)\)</span> for the first point. For the second point, use the <a href="../../../posts/PDEs/3. Sobolev spaces/index.html">local density</a> of smooth functions in <span class="math inline">\(W^{1,p}(U)\)</span>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="regularity-on-rd" class="level3" data-number="7.2">
+<h3 data-number="7.2" class="anchored" data-anchor-id="regularity-on-rd"><span class="header-section-number">7.2</span> Regularity on <span class="math inline">\(\R^d\)</span></h3>
+<p>By using second-order finite difference, we now show that the solution to (<a href="#eq-pde" class="quarto-xref">1</a>) is in <span class="math inline">\(H^2(\R^d)\)</span> if we impose additionally that <span class="math inline">\(\bm{A}\)</span> is continuously differentiable.</p>
+<div id="thm-improved-reg-rd" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 5 (Improved regularity on <span class="math inline">\(\R^d\)</span>)</strong></span> Suppose that <span class="math inline">\(A_{ij}\in C^1(\R^d)\)</span> is elliptic and that <span class="math inline">\(b_i \in L^\infty(\R^d ), c \in L^\infty(\R^d)\)</span> . Then, if <span class="math inline">\(u \in H^1(\R^d)\)</span> solves <span class="math inline">\(\Ll u=f\)</span>, it holds that <span class="math inline">\(u \in H^2(\R^d)\)</span> with</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{u}_{H^2(\R^d)} \lesssim_{\bm{A},\bm{b},c} \norm{f}_{L^2(\R^d)}+\norm{u}_{L^2(\R^d)}.
+\end{aligned}
+\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The idea is to use difference quotients to approximate the second derivative of <span class="math inline">\(u\)</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+v:= -D_j^{-h} D_j^h u = \frac{u(x+he_k)-2u(x)+u(x-he_k)}{h^2}.
+\end{aligned}
+\]</span></p>
+<p>Since <span class="math inline">\(v \in H^1(U)\)</span>, we can substitute <span class="math inline">\(v\)</span> into the weak formulation (<a href="#eq-weak-def" class="quarto-xref">4</a>), do a discrete integration by parts and use Cauchy’s inequality to show that <span class="math inline">\(\norm{D_j^h \nabla u}_{L^2(\R^d)}\)</span> is bounded. Using <a href="#lem-difference-quotients-1" class="quarto-xref">Lemma&nbsp;1</a>, we will then conclude that <span class="math inline">\(u \in H^{2}(\R^d)\)</span> and finish off the proof. We now put this plan into action. From (<a href="#eq-weak-def" class="quarto-xref">4</a>), we have that</p>
+<p><span id="eq-start"><span class="math display">\[
+\begin{aligned}
+\int_{\R^d} \bm{A} \nabla u \cdot \nabla v =\int_{\R^d} (f- \bm{b} \cdot \nabla u -cu)v.
+\end{aligned}
+\tag{15}\]</span></span></p>
+<p>Applying a discrete integration by parts to the left-hand side of (<a href="#eq-start" class="quarto-xref">15</a>) as in (<a href="#eq-weak-int-parts" class="quarto-xref">14</a>), we obtain</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_{\R^d} \bm{A} \nabla u \cdot \nabla v = \int_{\R^d} D_j^h( \bm{A} \nabla u) \cdot (D_j^h \nabla u)= \int_{\R^d} \bm{A}^h D_j^h \nabla u \cdot D_j^h \nabla u+ \int_{\R^d} (D_j^h\bm{A}) \nabla u \cdot D_j^h \nabla u,
+\end{aligned}
+\]</span></p>
+<p>where in the last equality, we used the notation <span class="math inline">\(\bm{A}^h(x):=\bm{A}(x+h)\)</span> and the product rule for difference quotients (this can be checked by basic algebra). Using the ellipticity of <span class="math inline">\(\bm{A}\)</span> and Cauchy’s inequality (<a href="#eq-cauchy" class="quarto-xref">6</a>) to put <span class="math inline">\(\varepsilon\)</span> on the higher order negative term <span class="math inline">\(D_j^h \nabla  u\)</span> we obtain that for some constant <span class="math inline">\(C\)</span></p>
+<p><span id="eq-first"><span class="math display">\[
+\begin{aligned}
+\int_{\R^d} \bm{A} \nabla u \cdot \nabla v \geq \alpha \norm{D_j^h \nabla u}_{L^2(\R^d)}^2 -\frac{C}{\varepsilon }\norm{ \nabla u}_{L^2(\R^d)}^2-\varepsilon \norm{D_j^h \nabla u}_{L^2(\R^d)}^2,
+\end{aligned}
+\tag{16}\]</span></span></p>
+<p>where we used that, since <span class="math inline">\(\bm{A} \in C^1(\R^d)\)</span>, the term <span class="math inline">\(D_j^h \bm{A}\)</span> is bounded. Setting <span class="math inline">\(\varepsilon =\alpha /3\)</span> in (<a href="#eq-first" class="quarto-xref">16</a>) we obtain that</p>
+<p><span id="eq-second"><span class="math display">\[
+\begin{aligned}
+\int_{\R^d} \bm{A} \nabla u \cdot \nabla v \geq \frac{2\alpha}{3} \norm{D_j^h \nabla u}_{L^2(\R^d)}^2-\frac{3C}{\alpha}\norm{\nabla u}_{L^2(\R^d)}^2.
+\end{aligned}
+\tag{17}\]</span></span></p>
+<p>We now estimate the right-hand side of (<a href="#eq-start" class="quarto-xref">15</a>). We have that, by Cauchy’s inequality and the second point of <a href="#lem-difference-quotients-1" class="quarto-xref">Lemma&nbsp;1</a>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_{\R^d} (f- \bm{b} \cdot \nabla u -cu)v \leq \frac{C}{\varepsilon }\left(\norm{f}^2_{L^2(\R^d)}+ \norm{\nabla u}^2_{L^2(\R^d)}+\norm{u}^2_{L^2(\R^d)}\right)+\varepsilon \norm{D_j^h \nabla u}_{L^2(\R^d)}^2.
+\end{aligned}
+\]</span></p>
+<p>Once more, setting <span class="math inline">\(\varepsilon =\alpha /3\)</span> gives</p>
+<p><span id="eq-third"><span class="math display">\[
+\begin{aligned}
+\int_{\R^d} (f- \bm{b} \cdot \nabla u -cu)v \leq \frac{3C}{\alpha }\left(\norm{f}^2_{L^2(\R^d)}+ \norm{\nabla u}^2_{L^2(\R^d)}+\norm{u}^2_{L^2(\R^d)}\right)+\frac{\alpha }{3}\norm{D_j^h \nabla u}_{L^2(\R^d)}^2.
+\end{aligned}
+\tag{18}\]</span></span></p>
+<p>Using (<a href="#eq-second" class="quarto-xref">17</a>) and (<a href="#eq-third" class="quarto-xref">18</a>) in (<a href="#eq-start" class="quarto-xref">15</a>) shows that, for some constant <span class="math inline">\(\tl{C}\)</span>,</p>
+<p><span id="eq-fourth"><span class="math display">\[
+\begin{aligned}
+\norm{D_j^h \nabla u}_{L^2(\R^d)}^2 \leq \frac{\tl{C} }{\alpha^2 }\left(\norm{f}^2_{L^2(\R^d)}+ \norm{\nabla u}^2_{L^2(\R^d)}+\norm{u}^2_{L^2(\R^d)}\right).
+\end{aligned}
+\tag{19}\]</span></span></p>
+<p>Equation (<a href="#eq-fourth" class="quarto-xref">19</a>) is almost the desired result save the presence of <span class="math inline">\(\norm{\nabla u}_{L^2(\R^d)}\)</span> on the right-hand side. However, by setting <span class="math inline">\(v= u\)</span> in (<a href="#eq-start" class="quarto-xref">15</a>) and once more using Cauchy’s inequality, we obtain that</p>
+<p><span id="eq-fifth"><span class="math display">\[
+\begin{aligned}
+\norm{\nabla u}_{L^2(\R^d)}^2 \lesssim_{\bm{A},\bm{b},c} \norm{f}^2_{L^2(\R^d)}+ \norm{ u}^2_{L^2(\R^d)}.
+\end{aligned}
+\tag{20}\]</span></span></p>
+<p>Combining (<a href="#eq-fourth" class="quarto-xref">19</a>) and (<a href="#eq-fifth" class="quarto-xref">20</a>) gives the bound</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{D_j^h \nabla u}_{L^2(\R^d)}^2 \lesssim_{\bm{A},\bm{b},c} \norm{f}^2_{L^2(\R^d)}+ \norm{ u}^2_{L^2(\R^d)}.
+\end{aligned}
+\]</span></p>
+<p>Applying the first point of <a href="#lem-difference-quotients-1" class="quarto-xref">Lemma&nbsp;1</a> and taking square roots concludes the proof.</p>
+</div>
+<p>By induction, we can obtain higher-order regularity. For notational convenience, we write</p>
+<p><span class="math display">\[
+\begin{aligned}
+X^k:= H^k(\R^d) \cap W^{k,\infty}(\R^d).
+\end{aligned}
+\]</span></p>
+<p>This space corresponds to functions that are <span class="math inline">\(k\)</span> times weakly differentiable with bounded and square-integrable derivatives up to order <span class="math inline">\(k\)</span>.</p>
+<div id="thm-higher-regularity-rd" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 6 (Regularity on <span class="math inline">\(\R^d\)</span>)</strong></span> Suppose that <span class="math inline">\(\Ll\)</span> is elliptic and that its coefficients verify</p>
+<p><span class="math display">\[
+\begin{aligned}
+A_{ij} \in C^{1}(\R^d)\cap X^{k+1}, \quad b_i,c \in X^k, \quad f \in H^k(\R^d).
+\end{aligned}
+\]</span></p>
+<p>Then, if <span class="math inline">\(u \in H^1(\R^d)\)</span> solves <span class="math inline">\(\Ll u=f\)</span>, it holds that <span class="math inline">\(u \in H^{k+2}(\R^d)\)</span> with</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{u}_{H  ^{k+2}(\R^d)} \lesssim_{\bm{A},\bm{b},c} \norm{f}_{H^k(\R^d)}+\norm{u}_{L^2(\R^d)}.
+\end{aligned}
+\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The theorem holds for <span class="math inline">\(k=0\)</span> by <a href="#thm-improved-reg-rd" class="quarto-xref">Theorem&nbsp;5</a>. Suppose by hypothesis of induction that the theorem holds up to order <span class="math inline">\(k\)</span>. Let</p>
+<p><span id="eq-coefficients-k1"><span class="math display">\[
+\begin{aligned}
+A_{ij} \in C^{1}(\R^d)\cap X^{k+2}, \quad b_i,c \in X^{k+1}, \quad f \in H^{k+1}(\R^d).
+\end{aligned}
+\tag{21}\]</span></span></p>
+<p>Then, by the induction hypothesis <span class="math inline">\(u \in H^{k+2}(\R^d)\)</span> with</p>
+<p><span id="eq-hi"><span class="math display">\[
+\begin{aligned}
+\norm{u}_{H^{k+2}(U)} \lesssim_{\bm{A},\bm{b},c} \norm{f}_{H^k(\R^d)}+\norm{u}_{L^2(\R^d)}.
+\end{aligned}
+\tag{22}\]</span></span></p>
+<p>Consider a multi-index <span class="math inline">\(\alpha\)</span> with <span class="math inline">\(|\alpha|=k+1\)</span> and <span class="math inline">\(\tl{v } \in C_c^\infty(\R^d)\)</span>. Then, substituting <span class="math inline">\(v := (-1)^{\abs{\alpha} } D^\alpha \tl{v}\)</span> in the weak formulation (<a href="#eq-weak-def" class="quarto-xref">4</a>) we obtain by integrating by parts that</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_{\R^d} D^\alpha(\bm{A} \nabla u) \cdot \nabla \tl{v} +\int_{\R^d} D^\alpha(\bm{b} \nabla u) \cdot \nabla \tl{v} +\int_{\R^d} D^\alpha (c u) \tl{v} =\int_{\R^d} D^\alpha f \tl{v}.
+\end{aligned}
+\]</span></p>
+<p>Let us write <span class="math inline">\(\tl{u}:= D^\alpha u\)</span>. Applying the chain rule repeatedly and keeping only the derivatives of order <span class="math inline">\(k+3\)</span> of <span class="math inline">\(u\)</span> on the left-hand side to obtain</p>
+<p><span id="eq-weak-solk"><span class="math display">\[
+\begin{aligned}
+B(\tl{u},\tl{v} ) = \int_{\R^d} \bm{A} \nabla D^\alpha u \cdot \nabla \tl{v} +\int_{\R^d} \bm{b} \nabla D^\alpha u \cdot \nabla \tl{v} +\int_{\R^d} c D^\alpha u \tl{v} =\int_{\R^d} \tl{f} \tl{v}= (\tl{f} ,\tl{v}),
+\end{aligned}
+\tag{23}\]</span></span></p>
+<p>where <span class="math inline">\(\tl{f}\)</span> involves only <span class="math inline">\(D^\alpha f\)</span> as well as sums and products of derivatives up to order <span class="math inline">\(k+2\)</span> of <span class="math inline">\(u,\bm{A}\)</span> and up to order <span class="math inline">\(k+1\)</span> of <span class="math inline">\(\bm{b}\)</span> and <span class="math inline">\(c\)</span>. As a result, by the conditions on the coefficients in (<a href="#eq-coefficients-k1" class="quarto-xref">21</a>) and the induction hypothesis (<a href="#eq-hi" class="quarto-xref">22</a>), we have that <span class="math inline">\(\tl{f} \in L^2(\R^d)\)</span> with</p>
+<p><span id="eq-hkr"><span class="math display">\[
+\begin{aligned}
+\|{\tl{f}}\|_{L^2(\R^d)} \lesssim_{\bm{A},\bm{b},c} \norm{f}_{H^{k+1}(\R^d)}+\norm{u}_{L^2(\R^d)}.
+\end{aligned}
+\tag{24}\]</span></span></p>
+<p>By equation (<a href="#eq-weak-solk" class="quarto-xref">23</a>), <span class="math inline">\(\tl{u}\)</span> is a solution to <span class="math inline">\(\Ll \tl{u}= \tl{f}\)</span> and applying the case <span class="math inline">\(k=0\)</span> (<a href="#thm-improved-reg-rd" class="quarto-xref">Theorem&nbsp;5</a>) together with (<a href="#eq-hi" class="quarto-xref">22</a>) and (<a href="#eq-hkr" class="quarto-xref">24</a>) shows that <span class="math inline">\(\tl{u} \in H^{2}(\R^d)\)</span> with</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{\tl{u}}_{H^{2}(\R^d)} \lesssim_{\bm{A},\bm{b},c} \|\tilde{f}\|_{L^2(\R^d)}+\norm{\tl{u}}_{L^2(\R^d)} \lesssim_{\bm{A},\bm{b},c} \norm{f}_{H^{k+1}(\R^d)}+\norm{u}_{L^2(\R^d)}.
+\end{aligned}
+\]</span></p>
+<p>Since <span class="math inline">\(\alpha\)</span> was any coefficient of order <span class="math inline">\(k+1\)</span>, we deduce that <span class="math inline">\(u \in H^{k+3}(\R^d)\)</span> with</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{u}_{H^{k+3}(\R^d)} \lesssim_{\bm{A},\bm{b},c} \norm{f}_{H^{k+1}(\R^d)}+\norm{u}_{L^2(\R^d)}.
+\end{aligned}
+\]</span></p>
+<p>The equation above is the hypothesis of induction for <span class="math inline">\(k+1\)</span>, and the proof is complete.</p>
+</div>
+<p>Iterating the above theorem, we obtain that if the coefficients of <span class="math inline">\(\Ll\)</span> are smooth, then the solution to (<a href="#eq-pde" class="quarto-xref">1</a>) is smooth as well. And <span class="math inline">\(u\)</span> is a classical solution to (<a href="#eq-pde" class="quarto-xref">1</a>).</p>
+<div id="thm-infinite-interior-regularity" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 7 (Infinite regularity on <span class="math inline">\(\R^d\)</span>)</strong></span> Let <span class="math inline">\(A_{ij}, b_i,c \in C^{\infty}(\R^d)\)</span> with <span class="math inline">\(\bm{A}\)</span> elliptic. Then, if <span class="math inline">\(u \in H^1(U)\)</span> solves <span class="math inline">\(\Ll u=f\)</span>, it holds that <span class="math inline">\(u \in C^\infty(\R^d)\)</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>By <a href="#thm-higher-regularity-2" class="quarto-xref">Theorem&nbsp;9</a>, we have that <span class="math inline">\(u \in H^k(\R^d)\)</span> for all <span class="math inline">\(k \in \N\)</span>. By <a href="../../../posts/PDEs/3. Sobolev spaces/index.html">Sobolev embeddings</a> we deduce that <span class="math inline">\(u \in C^\infty(\R^d)\)</span>.</p>
+</div>
+<p>At first sight, it may seem as if the above results can be extended to solutions of (<a href="#eq-pde" class="quarto-xref">1</a>) on <span class="math inline">\(U \subsetneq \R^d\)</span> with the following reasoning. However, there is a mistake in the reasoning. Can you spot it?</p>
+<div id="exr-7" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8</strong></span> The following argument is <strong>false</strong>. Show the flaw in the reasoning.</p>
+<p>Let <span class="math inline">\(U \subset \R^d\)</span> be any open subset. Suppose that <span class="math inline">\(A_{ij}\in C^1(\overline{U} )\)</span> is elliptic and that <span class="math inline">\(b_i, c \in L^\infty(U)\)</span> . Let <span class="math inline">\(u \in H_0^1(U)\)</span> solve <span class="math inline">\(\Ll u=f\)</span>. The <a href="../../../posts/PDEs/3. Sobolev spaces/index.html">extension</a> <span class="math inline">\(\tl{u}\)</span> to <span class="math inline">\(\R^d\)</span> by zero of <span class="math inline">\(u\)</span> is in <span class="math inline">\(H^1(\R^d)\)</span>. The coefficients <span class="math inline">\(b,c\)</span> can likewise be extended by <span class="math inline">\(0\)</span> to functions <span class="math inline">\(\tl{\bm{b}}, \tl{c} \in  L^\infty(\R^d)\)</span>. Likewise for <span class="math inline">\(f\)</span> to <span class="math inline">\(\tl{f} \in L^2(\R^d)\)</span> and by Assumption, <span class="math inline">\(\bm{A}\)</span> is the restriction to <span class="math inline">\(U\)</span> of some function <span class="math inline">\(\tl{A} \in C^1(\R^d)\)</span>. We have that</p>
+<p><span id="eq-extension"><span class="math display">\[
+\begin{aligned}
+\tl{\Ll} \tl{u} := -\nabla \cdot (\tl{A} \nabla \tl{u})+ \tl{b} \cdot \nabla \tl{u} + \tl{c} \tl{u} =\tl{f} .
+\end{aligned}
+\tag{25}\]</span></span></p>
+<p>As a result by <a href="#thm-improved-reg-rd" class="quarto-xref">Theorem&nbsp;5</a> it holds that <span class="math inline">\(\tl{u} \in H^2(\R^d)\)</span> with</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{u}_{H^2(U)}=  \norm{\tl{u} }_{H^2(\R^d)} \lesssim_{\bm{A},\bm{b},c} \norm{f}_{L^2(\R^d)}+\norm{u}_{L^2(\R^d)}.
+\end{aligned}
+\]</span></p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Are you sure that <span class="math inline">\(\tl{u}\)</span> solves (<a href="#eq-extension" class="quarto-xref">25</a>)? Consider for example the case <span class="math inline">\(\bm{A}= \bm{I}, \bm{b}=c=0\)</span>. For <span class="math inline">\(\tl{u}\)</span> to solve (<a href="#eq-extension" class="quarto-xref">25</a>) it is necessary that for all <span class="math inline">\(\varphi \in C_c^\infty(\R^d)\)</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_{\R^d} \nabla \tl{u} \cdot \nabla \varphi = \int_{\R^d} \tl{f} \varphi.
+\end{aligned}
+\]</span></p>
+<p>That is, that</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_{U} \nabla u \cdot \nabla \varphi = \int_{U} f \varphi, \quad \forall \varphi \in C^\infty(\R^d).
+\end{aligned}
+\]</span></p>
+<p>Whereas we only know that <span class="math inline">\(u\)</span> solves (<a href="#eq-weak-def" class="quarto-xref">4</a>). That is,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_{U} \nabla u \cdot \nabla \varphi = \int_{U} f \varphi, \quad \forall \varphi \in C_c^\infty(U).
+\end{aligned}
+\]</span></p>
+<p>This equality does not imply the previous one. The problem is that extension by zero does not respect the second derivative of functions in <span class="math inline">\(H_0^1(\R^d)\)</span>. For example, if <span class="math inline">\(u \in H^2(U) \cap H_0^1(U)\)</span> we do not necessarily have that <span class="math inline">\(\tl{u}\)</span> is in <span class="math inline">\(H^2(\R^d)\)</span>. Consider for example <span class="math inline">\(U=(-1,1)\)</span> and <span class="math inline">\(u(x)=1-\frac{1}{2} x^2\)</span>. Then, <span class="math inline">\(u\)</span> solves our equation (<a href="#eq-pde" class="quarto-xref">1</a>) with <span class="math inline">\(f=1\)</span> and, given <span class="math inline">\(\varphi \in C_c^\infty(\R)\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_{\R}\tl{u} ' \varphi ' = -\int_{-1}^1 x \varphi' =-(\varphi (1)-\varphi(-1) )+ \int_{-1}^1 \varphi \neq \int_{-1}^1 \varphi = \int_\R \tl{f} \varphi.
+\end{aligned}
+\]</span></p>
+<p>However, <span class="math inline">\(\tl{u}\)</span> is not in <span class="math inline">\(H^2(\R)\)</span> as <span class="math inline">\(\tl{u}”= \delta _{-1}+ \delta _1 -2 \cdot  1_U \in \Dd '(\R)\)</span>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="interior-regularity" class="level3" data-number="7.3">
+<h3 data-number="7.3" class="anchored" data-anchor-id="interior-regularity"><span class="header-section-number">7.3</span> Interior regularity</h3>
+<p>We have just seen that a direct generalization of <a href="#thm-improved-reg-rd" class="quarto-xref">Theorem&nbsp;5</a> to unbounded domains is not possible using an extension by zero. However, by adapting the proof of <a href="#thm-improved-reg-rd" class="quarto-xref">Theorem&nbsp;5</a>, one can prove the analogous result.</p>
+<p>In this case, however, one has to be careful as the difference quotients may not be well defined at the boundary. As a result, it is necessary to work locally and use a <a href="../../../posts/PDEs/3. Sobolev spaces/index.html">bump function</a>. This makes the proofs a bit messier, though the idea is the same. We sketch the proof, which can also be found in <span class="citation" data-cites="evans2022partial">(<a href="#ref-evans2022partial" role="doc-biblioref">Evans 2022</a>)</span> page 326</p>
+<div id="thm-higher-regularity" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 8 (Improved interior regularity)</strong></span> Let <span class="math inline">\(u \in H^1(U)\)</span> be a solution to <span class="math inline">\(\Ll u =f\)</span> where <span class="math inline">\(f \in L^2(U)\)</span>, <span class="math inline">\(\bm{A} \in C^1(\overline{U} )\)</span> is elliptic and <span class="math inline">\(v_i,c \in L^\infty(U)\)</span>. Then, <span class="math inline">\(u \in H^2 _{\mathrm{loc}} (U)\)</span> and</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{u}_{H^2 _{\mathrm{loc}}(U)} \lesssim_{\bm{A},\bm{b},c} \norm{f}_{L^2(U)}+\norm{u}_{L^2(U)}.
+\end{aligned}
+\]</span></p>
+</div>
+<p>Note that we do not require <span class="math inline">\(u\)</span> to be in <span class="math inline">\(H^1_0(U)\)</span>.</p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(V \Subset U\)</span> be open and let <span class="math inline">\(\eta\)</span> be a bump function supported on <span class="math inline">\(W\)</span> and identically equal to <span class="math inline">\(1\)</span> on <span class="math inline">\(V\)</span>. For <span class="math inline">\(h\)</span> small we have that</p>
+<p><span id="eq-difference-bounded"><span class="math display">\[
+\begin{aligned}
+v = - D_j^h \eta^2 D_j^h u \in H^2(V),\quad  j=1,\ldots,d.
+\end{aligned}
+\tag{26}\]</span></span></p>
+<p>Proceeding as in the proof of <a href="#thm-improved-reg-rd" class="quarto-xref">Theorem&nbsp;5</a>, we obtain that</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_V\left|D_j^h \nabla u\right|^2 d x \leq \int_U \eta^2\left|D_j^h \nabla u\right|^2 d x \lesssim C \int_U f^2+u^2+|\nabla u|^2.
+\end{aligned}
+\]</span></p>
+<p>Applying the first point of <a href="#lem-difference-quotients-2" class="quarto-xref">Lemma&nbsp;2</a> we obtain that <span class="math inline">\(u \in H^2_{\mathrm{loc}}(U)\)</span> with</p>
+<p><span id="eq-h2loc"><span class="math display">\[
+\begin{aligned}
+\norm{u}_{H^2 _{\mathrm{loc}} (U)} \lesssim_{\bm{A},\bm{b},c} \norm{f}_{L^2(U)}+\norm{u}_{H^1(U)}.
+\end{aligned}
+\tag{27}\]</span></span></p>
+<p>Analogously, we also obtain by setting <span class="math inline">\(v= \eta ^2 u\)</span> that</p>
+<p><span id="eq-h1loc"><span class="math display">\[
+\begin{aligned}
+\int_V |\nabla u|^2 \leq\int_U \eta ^2 |\nabla u|^2 \lesssim \norm{f}_{L^2(U)}+\norm{u}_{H^1(U)}.
+\end{aligned}
+\tag{28}\]</span></span></p>
+<p>Combining (<a href="#eq-h2loc" class="quarto-xref">27</a>) and (<a href="#eq-h1loc" class="quarto-xref">28</a>), we obtain the desired result.</p>
+</div>
+<p>As we did in the case <span class="math inline">\(U=\R^d\)</span>, we can obtain higher-order regularity by induction. As before, we now write</p>
+<p><span class="math display">\[
+\begin{aligned}
+X^k(U):= H^k(U) \cap W^{k,\infty}(U).
+\end{aligned}
+\]</span></p>
+<p>In the case that <span class="math inline">\(U\)</span> is bounded then <span class="math inline">\(X^k(U)=W^{k,\infty}(U)\)</span>.</p>
+<div id="thm-higher-regularity-2" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 9 (Interior regularity)</strong></span> Suppose that <span class="math inline">\(\Ll\)</span> is elliptic and that its coefficients verify</p>
+<p><span class="math display">\[
+\begin{aligned}
+A_{ij} \in C^{1}(\overline{U} )\cap X^{k+1}(U), \quad b_i,c \in X^k(U), \quad f \in H^k(U).
+\end{aligned}
+\]</span></p>
+<p>Then, if <span class="math inline">\(u \in H^1(U)\)</span> solves <span class="math inline">\(\Ll u=f\)</span>, it holds that <span class="math inline">\(u \in H^{k+2}_{\mathrm{loc}} (U)\)</span> with</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{u}_{H ^{k+2}_{\mathrm{loc}} (U)} \lesssim_{\bm{A},\bm{b},c} \norm{f}_{H^k(U)}+\norm{u}_{L^2(U)}.
+\end{aligned}
+\]</span></p>
+</div>
+<div id="exr-8" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 9</strong></span> Prove <a href="#thm-higher-regularity-2" class="quarto-xref">Theorem&nbsp;9</a>.</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The theorem holds for <span class="math inline">\(k=0\)</span> by <a href="#thm-higher-regularity" class="quarto-xref">Theorem&nbsp;8</a>. Suppose by hypothesis of induction that the theorem holds up to order <span class="math inline">\(k\)</span>. Let</p>
+<p><span id="eq-coefficients-k12"><span class="math display">\[
+\begin{aligned}
+A_{ij} \in C^{1}(\overline{U} )\cap X^{k+2}(U), \quad b_i,c \in X^{k+1}(U), \quad f \in H^{k+1}(U).
+\end{aligned}
+\tag{29}\]</span></span></p>
+<p>Then, by the induction hypothesis <span class="math inline">\(u \in H^{k+2}_{\mathrm{loc}} (U)\)</span> with</p>
+<p><span id="eq-hi2"><span class="math display">\[
+\begin{aligned}
+\norm{u}_{H^{k+2}_{\mathrm{loc}}(U)} \lesssim_{\bm{A},\bm{b},c} \norm{f}_{H^k(U)}+\norm{u}_{L^2(U)}.
+\end{aligned}
+\tag{30}\]</span></span></p>
+<p>Let <span class="math inline">\(V\Subset U\)</span> be open, consider a multi-index <span class="math inline">\(\alpha\)</span> with <span class="math inline">\(|\alpha|=k+1\)</span> and <span class="math inline">\(\tl{v } \in C_c^\infty(V)\)</span>. Then, substituting <span class="math inline">\(v := (-1)^{\abs{\alpha} } D^\alpha \tl{v}\)</span> in the weak formulation (<a href="#eq-weak-def" class="quarto-xref">4</a>) we obtain by integrating by parts that</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_{V} D^\alpha(\bm{A} \nabla u) \cdot \nabla \tl{v} +\int_{V} D^\alpha(\bm{b} \nabla u) \cdot \nabla \tl{v} +\int_{V} (D^\alpha c u) \tl{v} =\int_{V} D^\alpha f \tl{v}.
+\end{aligned}
+\]</span></p>
+<p>Let us write <span class="math inline">\(\tl{u}:= D^\alpha u\)</span>. Applying the chain rule repeatedly and keeping only the derivatives of order <span class="math inline">\(k+2\)</span> of <span class="math inline">\(u\)</span> on the left-hand side to obtain</p>
+<p><span id="eq-weak-solk2"><span class="math display">\[
+\begin{aligned}
+B(\tl{u},\tl{v} ) = \int_{V} \bm{A} \nabla D^\alpha u \cdot \nabla \tl{v} +\int_{V} \bm{b} \nabla D^\alpha u \cdot \nabla \tl{v} +\int_{V} c D^\alpha u \tl{v} =\int_{V} \tl{f} \tl{v}= (\tl{f} ,\tl{v}),
+\end{aligned}
+\tag{31}\]</span></span></p>
+<p>where <span class="math inline">\(\tl{f}\)</span> involves only <span class="math inline">\(D^\alpha f\)</span> as well as sums and products of derivatives up to order <span class="math inline">\(k+2\)</span> of <span class="math inline">\(u,\bm{A}\)</span> and up to order <span class="math inline">\(k+1\)</span> of <span class="math inline">\(\bm{b}\)</span> and <span class="math inline">\(c\)</span>. As a result, by the conditions on the coefficients in (<a href="#eq-coefficients-k12" class="quarto-xref">29</a>) and the induction hypothesis (<a href="#eq-hi2" class="quarto-xref">30</a>), we have that <span class="math inline">\(\tl{f} \in L^2(V)\)</span> with</p>
+<p><span id="eq-hk"><span class="math display">\[
+\begin{aligned}
+\|{\tl{f}}\|_{L^2(V)} \lesssim_{\bm{A},\bm{b},c} \norm{f}_{H^{k+1}(U)}+\norm{u}_{L^2(U)}.
+\end{aligned}
+\tag{32}\]</span></span></p>
+<p>By equation (<a href="#eq-weak-solk2" class="quarto-xref">31</a>), <span class="math inline">\(\tl{u}\)</span> is a solution to <span class="math inline">\(\Ll \tl{u}=\tl{f}\)</span> on <span class="math inline">\(V\)</span> and applying (<a href="#eq-hi2" class="quarto-xref">30</a>) and (<a href="#eq-hk" class="quarto-xref">32</a>) shows that <span class="math inline">\(\tl{u} \in H^{2} _{\mathrm{loc}}(V)\)</span> with</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{\tl{u}}_{H^{2}_{\mathrm{loc}} (V)} \lesssim_{\bm{A},\bm{b},c} \|\tilde{f}\|_{L^2(V)}+\norm{\tl{u}}_{L^2(V)} \lesssim_{\bm{A},\bm{b},c} \norm{f}_{H^{k+1}(U)}+\norm{u}_{L^2(U)}.
+\end{aligned}
+\]</span></p>
+<p>Since <span class="math inline">\(\alpha\)</span> was any coefficient of order <span class="math inline">\(k+1\)</span>, we deduce that <span class="math inline">\(u \in H^{k+3}(V)\)</span> with</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{u}_{H^{k+3}_{\mathrm{loc}} (V)} \lesssim_{\bm{A},\bm{b},c} \norm{f}_{H^{k+1}(U)}+\norm{u}_{L^2(U)}.
+\end{aligned}
+\]</span></p>
+<p>Since <span class="math inline">\(V\Subset U\)</span> is any, we deduce that</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{u}_{H^{k+3}_{\mathrm{loc}} (U)} \lesssim_{\bm{A},\bm{b},c} \norm{f}_{H^{k+1}(U)}+\norm{u}_{L^2(U)}.
+\end{aligned}
+\]</span></p>
+<p>The above is the hypothesis of induction for <span class="math inline">\(k+1\)</span> and completes the proof.</p>
+</div>
+</div>
+</div>
+<p>Using Sobolev embeddings we obtain once more infinite regularity for smooth coefficients.</p>
+<div id="thm-infinite-interior-regularity2" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 10 (Infinite interior regularity)</strong></span> Let <span class="math inline">\(A_{ij}, b_i,c \in C^{\infty}(\overline{U} )\)</span> with <span class="math inline">\(\bm{A}\)</span> elliptic. Then, if <span class="math inline">\(u \in H^1(U)\)</span> solves <span class="math inline">\(\Ll u=f\)</span>, it holds that <span class="math inline">\(u \in C _{\mathrm{loc}}^\infty(U)\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>By <a href="#thm-higher-regularity-2" class="quarto-xref">Theorem&nbsp;9</a>, we have that <span class="math inline">\(u \in H^k(U)\)</span> for all <span class="math inline">\(k \in \N\)</span>. By Sobolev embeddings we have that <span class="math inline">\(u \in C^\infty_{\mathrm{loc}}(U)\)</span>.</p>
+</div>
+</section>
+<section id="regularity-at-the-boundary" class="level3" data-number="7.4">
+<h3 data-number="7.4" class="anchored" data-anchor-id="regularity-at-the-boundary"><span class="header-section-number">7.4</span> Regularity at the boundary</h3>
+<p>Regularity at the boundary can also be obtained; however, in this case, it is necessary to impose the boundary condition <span class="math inline">\(\restr{u}{\partial \Omega }=0\)</span>. We can then work on bounded smooth domains <span class="math inline">\(\Omega\)</span> by reasoning first on <span class="math inline">\(B(0,1) \cap \R^d_+\)</span> and then using a finite covering of <span class="math inline">\(\overline{\Omega }\)</span> and a change of coordinates to translate these results back to <span class="math inline">\(\Omega\)</span>.</p>
+<p>We summarize and sketch the proofs of the main results, which are analogous to the interior regularity results of Theorems <a href="#thm-higher-regularity" class="quarto-xref">Theorem&nbsp;8</a>, <a href="#thm-higher-regularity-2" class="quarto-xref">Theorem&nbsp;9</a> and <a href="#thm-infinite-interior-regularity2" class="quarto-xref">Theorem&nbsp;10</a>. The details For the partition to be finite, it is further necessary for <span class="math inline">\(\Omega\)</span> to be bounded. We sketch the proof which can be found in <span class="citation" data-cites="evans2022partial">(<a href="#ref-evans2022partial" role="doc-biblioref">Evans 2022</a>)</span> pages <span class="math inline">\(334-343\)</span> and <span class="citation" data-cites="gilbarg1977elliptic">(<a href="#ref-gilbarg1977elliptic" role="doc-biblioref">Gilbarg et al. 1977</a>)</span> pages 183-188.</p>
+<div id="thm-improved-regularity-boundary" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 11 (Improved regularity at the boundary)</strong></span> Let <span class="math inline">\(\Omega \subset \R^d\)</span> be bounded with <span class="math inline">\(\partial \Omega  \in   C^2\)</span>. Let <span class="math inline">\(A_{ij} \in C^{1}(\overline{\Omega})\)</span> be elliptic and <span class="math inline">\(b_i,c \in L^\infty(\Omega)\)</span>. Let <span class="math inline">\(u \in H^1_0(\Omega)\)</span> be a weak solution to (<a href="#eq-pde" class="quarto-xref">1</a>). Then, <span class="math inline">\(u \in H^2(\Omega)\)</span> with</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{u}_{H^2(\Omega)} \lesssim_{\bm{A},\bm{b},c, \Omega } \norm{f}_{L^2(\Omega)}+\norm{u}_{L^2(\Omega)}.
+\end{aligned}
+\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Since <span class="math inline">\(\partial \Omega\)</span> is of class <span class="math inline">\(C^2\)</span>, given <span class="math inline">\(x_0 \in \partial \Omega\)</span> there exists <span class="math inline">\(R&gt;0\)</span> and a twice differentiable diffeomorphism</p>
+<p><span class="math display">\[
+\begin{aligned}
+\varphi : B_R(x_0) \iso  \varphi (B_R(x_0)) \subset \R^d,
+\end{aligned}
+\]</span></p>
+<p>that maps the interior of <span class="math inline">\(B_R(x_0)\)</span> to the interior of <span class="math inline">\(\R^d_+\)</span> and the boundary to the boundary. That is,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\tl{\Omega}:= \varphi (B_R(x_0) \cap \Omega ) &amp; =\varphi (B_R(x_0)) \cap \set{x_d&gt;0} \\ \partial \tl{\Omega }_0:= \varphi (B_R(x_0) \cap \partial  \Omega ) &amp;=\varphi (B_R(x_0)) \cap \set{x_d=0}.
+\end{aligned}
+\]</span></p>
+<p>Let us define <span class="math inline">\(\tl{u}:= u \circ \varphi ^{-1}\)</span> on <span class="math inline">\(\tl{\Omega }\)</span>. Then, <span class="math inline">\(\tl{u}\)</span> verifies a PDE of the same form as our original PDE (<a href="#eq-pde" class="quarto-xref">1</a>). Where now the boundary condition holds only on the straight part <em>straight part</em> <span class="math inline">\(\partial \tl{\Omega }_0\)</span>.</p>
+<p><span class="math display">\[
+\begin{aligned}
+\begin{cases}
+\tl{\Ll }\tl{u} =\tl{f} &amp; \text{in } \tl{\Omega }             \\
+\tl{u}=0                &amp; \text{on } \partial \tl{\Omega }_0.
+\end{cases}
+\end{aligned}
+\]</span></p>
+<p>Since our boundary condition does not hold on the <em>curved part</em> of the boundary <span class="math inline">\(\partial \tl{\Omega }_1:=  \partial \tl{\Omega }\setminus \partial \tl{\Omega }_0\)</span>, to integrate by parts we need to introduce a bump function <span class="math inline">\(\eta\)</span> which is zero on <span class="math inline">\(\partial \tl{\Omega }_1\)</span>.</p>
+<p>Let <span class="math inline">\(0&lt;r&lt;R\)</span> and define <span class="math inline">\(\tl{V}:= \varphi(B_r(x_0) \cap \Omega )\)</span>. Now choose a bump function <span class="math inline">\(\eta \in C_c^\infty(\R^d)\)</span> with compact support in <span class="math inline">\(\varphi (B_R(x_0))\)</span> (in particular, <span class="math inline">\(\eta =0\)</span> on <span class="math inline">\(\partial \tl{\Omega }_1\)</span>) and identically equal to <span class="math inline">\(1\)</span> on <span class="math inline">\(\tl{V}\)</span>. Then, for small <span class="math inline">\(h\)</span>, we define as in (<a href="#eq-difference-bounded" class="quarto-xref">26</a>) the function</p>
+<p><span class="math display">\[
+\begin{aligned}
+\tl{v} := -D_j^h \eta^2 D_j^h \tl{u} \in H^2_0(\tl{\Omega }) \quad j=1,\ldots,d-1.
+\end{aligned}
+\]</span></p>
+<p>Here, the increments are only well defined for <span class="math inline">\(j \neq d\)</span>. Proceeding as in the proof of <a href="#thm-higher-regularity" class="quarto-xref">Theorem&nbsp;8</a>, we obtain that, for <span class="math inline">\(i,j=1,\ldots,d-1\)</span>,</p>
+<p><span id="eq-not-d-bound"><span class="math display">\[
+\begin{aligned}
+\norm{\partial_i \partial _j \tl{v}}_{L^2(\tl{V} )} \lesssim_{\bm{A}, \bm{b}, c} \|\tl{f}\|_{L^2(\tl{\Omega })}+\|\tl{u}\|_{L^2(\tl{\Omega })} \lesssim_{\bm{A}, \bm{b}, c, \varphi } \norm{f}_{L^2(\Omega)}+\norm{u}_{L^2(\Omega)}.
+\end{aligned}
+\tag{33}\]</span></span></p>
+<p>Since <span class="math inline">\(\tl{u} \in H^2_{\mathrm{loc}}(\tl{V} )\)</span> by <a href="#thm-higher-regularity" class="quarto-xref">Theorem&nbsp;8</a>, we have that the equality <span class="math inline">\(\tl{\Ll }\tl{u}=f\)</span> holds almost everywhere in <span class="math inline">\(\tl{V}\)</span>. As a result,</p>
+<p><span class="math display">\[
+\begin{aligned}
+A_{dd} \partial_d\partial_d \tl{u}= \tl{F},
+\end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(\tl{F}\)</span> only involves derivatives up to order <span class="math inline">\(1\)</span> in <span class="math inline">\(x_d\)</span> of <span class="math inline">\(u\)</span> and up to order <span class="math inline">\(2\)</span> in <span class="math inline">\(x_1,\dots, x_{d-1}\)</span> of <span class="math inline">\(u\)</span>. Using the ellipticity of <span class="math inline">\(\bm{A}\)</span> with <span class="math inline">\(\xi=(0,\dots,0,1)\)</span> in (<a href="#eq-elliptic" class="quarto-xref">3</a>) we obtain that, almost everywhere in <span class="math inline">\(\tl{V}\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\partial_d\partial_d \tl{u} \lesssim \tl{F}.
+\end{aligned}
+\]</span></p>
+<p>Taking norms and using (<a href="#eq-not-d-bound" class="quarto-xref">33</a>) gives</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{\tl{u} }_{H^2(\tl{V} )} \lesssim_{\bm{A},\bm{b},c, \varphi } \norm{f}_{L^2(\Omega)}+\norm{u }_{L^2(\Omega)}.
+\end{aligned}
+\]</span></p>
+<p>If we write <span class="math inline">\(V_{x_0}:= \varphi ^{-1} (\tl{V} )\)</span>, we have that <span class="math inline">\(u \in H^2(V_{x_0})\)</span> with</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{u}_{H^2(V_{x_0})} \lesssim_{\bm{A},\bm{b},c, \varphi } \norm{f}_{L^2(\Omega)}+\norm{u}_{L^2(\Omega)}.
+\end{aligned}
+\]</span></p>
+<p>Since <span class="math inline">\(\partial \Omega\)</span> is compact, we can cover <span class="math inline">\(\Omega\)</span> with a finite number of such sets <span class="math inline">\(V_{x_0}\)</span> plus some open <span class="math inline">\(W \Subset \Omega\)</span>. We conclude the proof by using the interior regularity result of <a href="#thm-higher-regularity" class="quarto-xref">Theorem&nbsp;8</a> to bound <span class="math inline">\(\norm{u}_{H^2(W)}\)</span>.</p>
+</div>
+<p>The following can now be proved by induction, just as in Theorems <a href="#thm-higher-regularity" class="quarto-xref">Theorem&nbsp;8</a> and <a href="#thm-higher-regularity-2" class="quarto-xref">Theorem&nbsp;9</a>.</p>
+<div id="thm-higher-regularity-boundary" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 12 (Higher regularity at the boundary)</strong></span> Let <span class="math inline">\(\Omega \subset \R^d\)</span> be bounded with <span class="math inline">\(\partial \Omega  \in   C^{k+2}\)</span>. Let <span class="math inline">\(A_{ij} \in C^1(\overline{\Omega})\cap W^{k, \infty}(\Omega)\)</span> be elliptic and <span class="math inline">\(b_i,c \in H^k(\Omega)\cap W^{k,\infty}(\Omega)\)</span> and <span class="math inline">\(f \in H^k(\Omega )\)</span> . Let <span class="math inline">\(u \in H^1_0(\Omega)\)</span> be a weak solution to (<a href="#eq-pde" class="quarto-xref">1</a>). Then, <span class="math inline">\(u \in H^{k+2}(\Omega)\)</span> with</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{u}_{H^{k+2}(\Omega)} \lesssim_{\bm{A},\bm{b},c, \Omega } \norm{f}_{H^k(\Omega)}+\norm{u}_{L^2(\Omega)}.
+\end{aligned}
+\]</span></p>
+</div>
+<p>Once more, by Sobolev embeddings we obtain infinite regularity at the boundary.</p>
+<div id="thm-1" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 13 (Infinite regularity at the boundary)</strong></span> Let <span class="math inline">\(\Omega \subset \R^d\)</span> be bounded of class <span class="math inline">\(C^{\infty}\)</span>. Let <span class="math inline">\(A_{ij}, b_i,c \in C^{\infty}(\overline{\Omega})\)</span> with <span class="math inline">\(\bm{A}\)</span> elliptic. Let <span class="math inline">\(u \in H^1_0(\Omega)\)</span> be a weak solution to (<a href="#eq-pde" class="quarto-xref">1</a>). Then, <span class="math inline">\(u \in C^\infty(\overline{\Omega})\)</span>.</p>
+</div>
+</section>
+</section>
+<section id="other-boundary-conditions" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="other-boundary-conditions"><span class="header-section-number">8</span> Other boundary conditions</h2>
+<p>So far, we have only worked with homogeneous Dirichlet boundary conditions. However, it often makes more sense to work with the non-homogeneous case. We also show how to extend the results to Neumann or Robin <a href="../../../posts/PDEs/4. Physical derivation/index.html">boundary conditions</a>. In this section, we will see how to adapt the results of the previous section to these cases.</p>
+<section id="non-homogeneous-dirichlet-boundary-conditions" class="level3" data-number="8.1">
+<h3 data-number="8.1" class="anchored" data-anchor-id="non-homogeneous-dirichlet-boundary-conditions"><span class="header-section-number">8.1</span> Non-homogeneous Dirichlet boundary conditions</h3>
+<p>Consider the problem with non-homogeneous Dirichlet boundary conditions on a domain <span class="math inline">\(\Omega\)</span> with with Lipschitz boundary, written <span class="math inline">\(\partial \Omega \in  C^{0,1}\)</span></p>
+<p><span id="eq-pde-dirichlet"><span class="math display">\[
+\begin{aligned}
+\begin{cases}
+\Ll u =f &amp; \text{in } \Omega ,          \\
+u=g      &amp; \text{on } \partial \Omega .
+\end{cases}
+\end{aligned}
+\tag{34}\]</span></span></p>
+<p>For (<a href="#eq-pde-dirichlet" class="quarto-xref">34</a>) to hold, it is necessary that <span class="math inline">\(g\)</span> is the restriction to <span class="math inline">\(\partial \Omega\)</span> of some function <span class="math inline">\(\tl{g}\)</span> called a <em>lifting</em> of <span class="math inline">\(\tl{g}\)</span> onto <span class="math inline">\(\Omega\)</span> (in particular it is the restriction of <span class="math inline">\(u\)</span> to <span class="math inline">\(\partial \Omega\)</span> ). That is, <span class="math inline">\(\tl{g}  \in \rm{Tr}(H^m(\Omega ))\)</span> where <span class="math inline">\(\rm{Tr}\)</span> is the trace operator and <span class="math inline">\(m\)</span> is the desired regularity of <span class="math inline">\(u\)</span>. By <a href="../../../posts/PDEs/5. Fractional and negative order Sobolev spaces/index.html">theory of the trace operator</a>, we know that this is equivalent to <span class="math inline">\(g \in H^{m-1/2}(\partial \Omega )\)</span>. Then, by forming <span class="math inline">\(w:= u-\tl{g}\)</span> we obtain that <span class="math inline">\(w\)</span> solves the homogeneous Dirichlet problem</p>
+<p><span class="math display">\[
+\begin{aligned}
+\begin{cases}
+\Ll w =\tl{f} &amp; \text{in } \Omega ,          \\
+w=0           &amp; \text{on } \partial \Omega ,
+\end{cases}
+\end{aligned}
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+\begin{aligned}
+\tl{f}:= f-\Ll \tl{g}= f -\nabla \cdot (\bm{A} \nabla \tl{g}) -\bm{b} \cdot \nabla \tl{g} -c \tl{g} \in H ^{-1} (\Omega ).
+\end{aligned}
+\]</span></p>
+<p>The transformation <span class="math inline">\(u \leftrightarrow w\)</span> maintains regularity up to order <span class="math inline">\(m\)</span> for <span class="math inline">\(g \in H^{m-1/2}(\Omega )\)</span> and as a result, we can apply all the previous results on well-posedness, the spectrum of <span class="math inline">\(\Ll\)</span> and regularity to the problem (<a href="#eq-pde-dirichlet" class="quarto-xref">34</a>). For example, the following holds.</p>
+<div id="thm-2" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 14</strong></span> Let <span class="math inline">\(\Omega\)</span> be a bounded domain with <span class="math inline">\(C^{0,1}\)</span> boundary then</p>
+<ol type="1">
+<li><p>The non-homogeneous Dirichlet problem (<a href="#eq-pde-dirichlet" class="quarto-xref">34</a>) is well-posed for <span class="math inline">\(g \in H^{1/2}(\partial \Omega )\)</span> if and only if the homogeneous problem (<a href="#eq-pde" class="quarto-xref">1</a>) is well posed.</p></li>
+<li><p>The Fredholm alternative (<a href="#thm-well-posedness-fredholm" class="quarto-xref">Theorem&nbsp;4</a>) holds where we replace <span class="math inline">\(H_0^1(\Omega )\)</span> by the subspace of <span class="math inline">\(H^1(\Omega )\)</span> whose trace is equal to <span class="math inline">\(g\)</span>.</p></li>
+<li><p>If <span class="math inline">\(g \in H^{k+3/2}(\partial \Omega )\)</span>, then <span class="math inline">\(u \in H^{k+2}(\Omega )\)</span> under the same conditions of <a href="#thm-higher-regularity-boundary" class="quarto-xref">Theorem&nbsp;12</a> on <span class="math inline">\(\Omega\)</span> and the coefficients of <span class="math inline">\(\Ll\)</span>.</p></li>
+</ol>
+</div>
+</section>
+<section id="neumann-and-robin-boundary-conditions" class="level3" data-number="8.2">
+<h3 data-number="8.2" class="anchored" data-anchor-id="neumann-and-robin-boundary-conditions"><span class="header-section-number">8.2</span> Neumann and Robin boundary conditions</h3>
+<p>Consider a bounded domain <span class="math inline">\(\Omega\)</span> with boundary of type <span class="math inline">\(C^{0,1}\)</span> (Lipschitz boundary). The elliptic Robin boundary condition problem is</p>
+<p><span id="eq-pde-neumann"><span class="math display">\[
+\begin{aligned}
+\begin{cases}
+\Ll u =f                                   &amp; \text{in } \Omega ,          \\
+\bm{A} \nabla u \cdot \bm{n} =g + \sigma u &amp; \text{on } \partial \Omega ,
+\end{cases}.
+\end{aligned}
+\tag{35}\]</span></span></p>
+<p>The Neumann boundary condition problem is the case where <span class="math inline">\(\sigma =0\)</span>. An integration by parts shows that the weak formulation of (<a href="#eq-pde-neumann" class="quarto-xref">35</a>) is</p>
+<p><span id="eq-weak-def-neumann"><span class="math display">\[
+\begin{aligned}
+B(u,v):= \int_{\Omega } \bm{A} \nabla u \cdot \nabla v +\int_{\Omega } \bm{b} \nabla u \cdot \nabla v +\int_{\Omega } c u v+ \int_{\partial \Omega } \sigma u v  =\int_{\Omega } f v +\int_{\partial \Omega } g v=: \ell (v).
+\end{aligned}
+\tag{36}\]</span></span></p>
+<p>For the weak form to be well defined we need for <span class="math inline">\(f\)</span> to be in the dual space <span class="math inline">\(H^1(\Omega )'\)</span> (this is <a href="../../../posts/PDEs/5. Fractional and negative order Sobolev spaces/index.html">different</a> from <span class="math inline">\(H^{-1}(\Omega ):= H^1(\Omega )'\)</span>)and <span class="math inline">\(g \in H^{-1/2}(\partial \Omega )\)</span> . A similar reasoning to previously shows the following.</p>
+<div id="thm-3" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 15</strong></span> Let <span class="math inline">\(\Omega\)</span> be a bounded domain, <span class="math inline">\(f \in H^{1}(\Omega )', g \in H^{-1/2}( \partial \Omega )\)</span> and <span class="math inline">\(\sigma \in L^\infty(\partial \Omega )\)</span>.</p>
+<ol type="1">
+<li><p>Let <span class="math inline">\(\bm{b}=0\)</span> and <span class="math inline">\(c, \sigma  \geq 0\)</span>. Suppose both <span class="math inline">\(c, \sigma\)</span> are not identically zero. Then the Robin boundary condition problem (<a href="#eq-weak-def-neumann" class="quarto-xref">36</a>) has a unique solution <span class="math inline">\(u \in H^1(\Omega )\)</span>.</p></li>
+<li><p>The well posedness of the modified problem <span class="math inline">\(\Ll u + \lambda u=f\)</span> and the Fredholm alternative of <a href="#thm-mod" class="quarto-xref">Theorem&nbsp;3</a> and <a href="#thm-well-posedness-fredholm" class="quarto-xref">Theorem&nbsp;4</a> hold swapping everywhere <span class="math inline">\(H_0^1(U)\)</span> with <span class="math inline">\(H^1(\Omega )\)</span> and <span class="math inline">\(H^{-1}(\Omega )\)</span> with <span class="math inline">\(H^{1}(\Omega )'\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(\partial \Omega \in C^{k+2}\)</span>. If <span class="math inline">\(u\)</span> solves (<a href="#eq-pde-neumann" class="quarto-xref">35</a>) and</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; A_{ij} \in C^{1}(\Omega )\cap W^{k+1, \infty}(\Omega ), \quad b_i,c \in W^{k, \infty}(\Omega ), \quad \sigma \in W^{k+1, \infty}(\partial \Omega ) \\
+&amp; f \in H^{k}(\Omega ), \quad g \in H^{k+1/2}(\partial \Omega ).
+\end{aligned}
+\]</span></p>
+<p>Then, <span class="math inline">\(u \in H^{k+2}(\Omega )\)</span> with</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{u}_{H^{k+2}(\Omega )} \lesssim_{\bm{A},\bm{b},c, \sigma,  \Omega } \norm{f}_{H^k(\Omega )}+\norm{g}_{H^{k+1/2}(\partial \Omega )}+\norm{u}_{L^2(\Omega )}.
+\end{aligned}
+\]</span></p></li>
+</ol>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Under the conditions of Point <span class="math inline">\(1\)</span>, the bilinear form <span class="math inline">\(B\)</span> is coercive (this can be show by a proof by contradiction see for example <span class="citation" data-cites="Mikhailov1978">(<a href="#ref-Mikhailov1978" role="doc-biblioref">Mikhailov 1978</a>)</span> page 146). As a result, the Lax-Milgram theorem implies the existence of a unique solution <span class="math inline">\(u \in H^1(\Omega )\)</span>.</p>
+<p>The second point is a repetition of what was already shown for the homogeneous Dirichlet problem, for large <span class="math inline">\(\lambda\)</span>, the modified bilinear form <span class="math inline">\(B_\lambda\)</span> si coercive and the Fredholm alternative holds.</p>
+<p>The third point can be seen by first repeating the proof of <a href="#thm-improved-regularity-boundary" class="quarto-xref">Theorem&nbsp;11</a> where with the notation of this theorem, now <span class="math inline">\(\tl{u}\)</span> solves</p>
+<p><span class="math display">\[
+\begin{aligned}
+\begin{cases}
+\Ll \tl{u} =\tl{f}                                             &amp; \text{in } \tl{\Omega },            \\
+\bm{A} \nabla \tl{u} \cdot \bm{n} =\tl{g} + \tl{\sigma} \tl{u} &amp; \text{on } \partial \tl{\Omega_0 }.
+\end{cases}
+\end{aligned}
+\]</span></p>
+<p>As a result, integrating by parts against <span class="math inline">\(\tl{v}:=D_j^{-h}\eta^2 D_j^h \tl{u}\)</span> is valid for small <span class="math inline">\(h\)</span> and <span class="math inline">\(j \neq d\)</span> and gives</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_{\tl{V}} \tl{\bm{A}} \nabla \tl{u} \cdot \nabla \tl{v} +\int_{\tl{V}} \tl{\bm{b}} \nabla \tl{u} \cdot \nabla \tl{v} +\int_{\tl{V}} \tl{c} \tl{u} \tl{v} +\int_{\partial \tl{\Omega_0 }} \tl{\sigma} \tl{u} \tl{v} =\int_{\tl{V}} \tl{f} \tl{v}+ \int_{\partial \tl{\Omega_0 }} \tl{g} \tl{v}.
+\end{aligned}
+\]</span></p>
+<p>Using a discrete integration by parts, Cauchy’s inequality and the regularity of the coefficients, we obtain the bound</p>
+<p><span class="math display">\[
+\begin{aligned}
+\norm{u}_{H^{2}(V_{x_0} )} \lesssim \norm{u}_{H^2(\tl{V} )} \lesssim \norm{f}_{L^2(\Omega )}+\norm{g}_{H^{-1/2}(\partial \Omega )}+\norm{u}_{L^2(\Omega )}.
+\end{aligned}
+\]</span></p>
+<p>Using a covering of <span class="math inline">\(\Omega\)</span> gives <span class="math inline">\(u \in H^2(\Omega )\)</span> and the result follows by induction as in <a href="#thm-higher-regularity-boundary" class="quarto-xref">Theorem&nbsp;12</a>.</p>
+</div>
+<section id="the-dirichlet-problem-with-neumann-boundary-conditions" class="level4" data-number="8.2.1">
+<h4 data-number="8.2.1" class="anchored" data-anchor-id="the-dirichlet-problem-with-neumann-boundary-conditions"><span class="header-section-number">8.2.1</span> The Dirichlet problem with Neumann boundary conditions</h4>
+<p>As an example of some interest, in the simple case where <span class="math inline">\(\bm{A}\)</span> is the identity and <span class="math inline">\(\bm{b},c, g\)</span>, are zero (the Poisson equation with Neumann boundary conditions), the weak formulation is</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_{\Omega } \nabla u \cdot \nabla v =\int_{\Omega } f v , \quad\forall v \in H^1(\Omega )
+\end{aligned}
+\]</span></p>
+<p>Note carefully that <span class="math inline">\(B\)</span> is <em>not</em> coercive on <span class="math inline">\(H^1(\Omega )\)</span> as <a href="../../../posts/PDEs/3. Sobolev spaces/index.html">Poincaré’s inequality</a> does not hold for Neumann boundary conditions.</p>
+<div id="exr-eigensapace" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 10</strong></span> Show that <span class="math inline">\(\Ll = \Delta\)</span> has the eigenvalue <span class="math inline">\(\lambda =0\)</span>. Show that, if <span class="math inline">\(\Omega\)</span> decomposes into <span class="math inline">\(n\)</span> connected components <span class="math inline">\(\Omega _1,...,\Omega _n\)</span>, then the eigenspace of <span class="math inline">\(\lambda =0\)</span> is <span class="math inline">\(n\)</span>-dimensional and spanned by the indicator functions <span class="math inline">\(1_{\Omega_1},..., 1_{\Omega _n}\)</span> . In particular, the eigenspace of <span class="math inline">\(\lambda =0\)</span> is one-dimensional if <span class="math inline">\(\Omega\)</span> is connected.</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Since <span class="math inline">\(\Omega\)</span> is bounded <span class="math inline">\(1_{\Omega _i} \in H^1(\Omega )\)</span> and <span class="math inline">\(\Delta 1_{\Omega_i} =0\)</span>. Let <span class="math inline">\(u \in H^1(\Omega )\)</span> be an eigenfunction of <span class="math inline">\(\Delta\)</span> with eigenvalue <span class="math inline">\(0\)</span>. Then, by the weak formulation of the Laplacian, we have that</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_{\Omega } |\nabla u|^2 = 0.
+\end{aligned}
+\]</span></p>
+<p>That is, <span class="math inline">\(\nabla u=0\)</span> almost everywhere. By one dimensional calculus we know that <span class="math inline">\(u\)</span> is constant on each connected component and the result follows.</p>
+</div>
+</div>
+</div>
+<div id="exr-9" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 11</strong></span> Let <span class="math inline">\(\Omega\)</span> decompose into <span class="math inline">\(n\)</span> connected components <span class="math inline">\(\Omega _1,...,\Omega _n\)</span>. Show that, for <span class="math inline">\(f \in L^2(\Omega )\)</span>, the Laplace equation <span class="math inline">\(\Delta u =f\)</span> has a weak solution <span class="math inline">\(u \in H^1(\Omega )\)</span> if and only if</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_{\Omega_i } f =0, \quad \forall i=1,...,n.
+\end{aligned}
+\]</span></p>
+<p>Furthermore, show that the solution is unique up to a constant on each connected component <span class="math inline">\(\Omega_i\)</span>.</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hint">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Apply the final point of the Fredholm alternative (<a href="#thm-well-posedness-fredholm" class="quarto-xref">Theorem&nbsp;4</a>) together with <a href="#exr-eigensapace" class="quarto-xref">Exercise&nbsp;10</a>.</p>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+
+</blockquote>
+</section>
+</section>
+</section>
+<section id="references" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="references"><span class="header-section-number">9</span> References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-evans2022partial" class="csl-entry" role="listitem">
+Evans, Lawrence C. 2022. <em>Partial Differential Equations</em>. Vol. 19. American Mathematical Society. <a href="https://math24.files.wordpress.com/2013/02/partial-differential-equations-by-evans.pdf">https://math24.files.wordpress.com/2013/02/partial-differential-equations-by-evans.pdf</a>.
+</div>
+<div id="ref-gilbarg1977elliptic" class="csl-entry" role="listitem">
+Gilbarg, David, Neil S Trudinger, David Gilbarg, and NS Trudinger. 1977. <em>Elliptic Partial Differential Equations of Second Order</em>. Vol. 224. Springer. <a href="https://link.springer.com/book/10.1007/978-3-642-61798-0">https://link.springer.com/book/10.1007/978-3-642-61798-0</a>.
+</div>
+<div id="ref-Mikhailov1978" class="csl-entry" role="listitem">
+Mikhailov, V. P. 1978. <em>Partial Differential Equations</em>. Mir Publishers. <a href="https://archive.org/details/MikhailovPartialDifferentialEquations">https://archive.org/details/MikhailovPartialDifferentialEquations</a>.
+</div>
+<div id="ref-savare1998regularity" class="csl-entry" role="listitem">
+Savaré, Giuseppe. 1998. <span>“Regularity Results for Elliptic Equations in Lipschitz Domains.”</span> <em>Journal of Functional Analysis</em> 152 (1): 176–201. <a href="https://www.sciencedirect.com/science/article/pii/S002212369793158X/pdf?md5=c646200fe7117dd7d25d27439f36b342&amp;pid=1-s2.0-S002212369793158X-main.pdf">https://www.sciencedirect.com/science/article/pii/S002212369793158X/pdf?md5=c646200fe7117dd7d25d27439f36b342&amp;pid=1-s2.0-S002212369793158X-main.pdf</a>.
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<hr style="margin-top: 1em; margin-bottom: 2em;">
+<h2 id="comments">Comments</h2>
+
+<div class="giscus-comments">
+  <div style="
+      background: #f9f9f9;
+      border-left: 4px solid #008aff;
+      padding: 10px;
+      margin-bottom: 20px;
+      font-size: 0.9em;
+      color: #555;
+      border-radius: 0 4px 4px 0;
+    ">
+    <strong>Tip:</strong> Supports LaTeX using $$.
+    <a href="https://nowheredifferentiable.com/math-formatting" target="_blank" style="text-decoration: underline; color: #008aff">See formatting examples</a>.
+    <br>
+    To edit or delete, click the <strong>timestamp</strong> (e.g., "5 minutes
+    ago").
+  </div>
+
+  <div class="giscus" id="giscus-container"></div>
+
+  <script src="https://giscus.app/client.js" data-repo="LiamLlamazares/math_blog" data-repo-id="R_kgDOHZYcTQ" data-category="Comments" data-category-id="DIC_kwDOHZYcTc4Cx-sY" data-mapping="pathname" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="bottom" data-theme="light" data-lang="en" crossorigin="anonymous" async=""></script>
+
+  <script>
+    (function () {
+      function handleDeepLink() {
+        const hash = window.location.hash;
+        if (!hash || !hash.includes("discussioncomment")) return;
+
+        const container = document.getElementById("giscus-container");
+        if (container) {
+          container.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+
+        const iframe = document.querySelector("iframe.giscus-frame");
+        if (iframe) {
+          try {
+            const url = new URL(iframe.src);
+            if (url.hash !== hash) {
+              url.hash = hash;
+              iframe.src = url.toString();
+            }
+          } catch (e) {
+            console.error(e);
+          }
+        }
+      }
+
+      window.addEventListener("load", handleDeepLink);
+      window.addEventListener("hashchange", handleDeepLink);
+      window.addEventListener("message", function (event) {
+        if (
+          event.origin === "https://giscus.app" &&
+          event.data &&
+          event.data.giscus &&
+          event.data.giscus.resizeHeight
+        ) {
+          setTimeout(handleDeepLink, 500);
+        }
+      });
+    })();
+  </script>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const meta = document.querySelector('.quarto-title-meta');
+  if (!meta) return;
+
+  // Find the hidden data div injected by latex2qmd.py
+  const pdfDataElement = document.getElementById('quarto-post-pdf-url');
+  if (!pdfDataElement) return;
+
+  const pdfUrl = pdfDataElement.getAttribute('data-url');
+
+  if (pdfUrl && meta) {
+    // Check if we already injected it
+    if (document.querySelector('.quarto-title-meta-pdf')) return;
+
+    const pdfDiv = window.document.createElement('div');
+    pdfDiv.className = 'quarto-title-meta-pdf';
+    pdfDiv.innerHTML = `
+      <div class="quarto-title-meta-heading">PDF Version</div>
+      <div class="quarto-title-meta-contents">
+        <p><a href="${pdfUrl}" target="_blank">
+          <i class="bi bi-file-earmark-pdf"></i> PDF version
+        </a></p>
+      </div>
+    `;
+    meta.appendChild(pdfDiv);
+  }
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("index\.qmd");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>L. Llamazares-Elias</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/LiamLlamazares">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=nW7-c62TwJ0C">
+<p>Google Scholar</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

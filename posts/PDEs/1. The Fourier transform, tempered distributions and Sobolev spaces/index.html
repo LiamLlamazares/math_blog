@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Liam Llamazares–Elias">
+<meta name="dcterms.date" content="2022-10-14">
+<meta name="description" content="The holy trinity">
+
+<title>PDEs 1: The Fourier transform, tempered distributions and Sobolev spaces – NoWhere Differentiable Math</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-2cab38f689c5f066e21a94e3c73297ae.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-428acbe8fe795edd664e6bfe67298593.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-2cab38f689c5f066e21a94e3c73297ae.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+<script type="text/javascript">
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-230263372-2', 'auto');
+
+ga('send', {
+  hitType: 'pageview',
+  'anonymizeIp': true,
+});
+</script>
+<script>
+window.MathJax = {
+  tex: {
+    tags: "ams",
+    macros: {
+      A: "\\mathbb{A}",
+      Aa: "\\mathcal{A}",
+      Bb: "\\mathcal{B}",
+      C: "\\mathbb{C}",
+      Cc: "\\mathcal{C}",
+      Dd: "\\mathcal{D}",
+      E: "\\mathbb{E}",
+      Ee: "\\mathcal{E}",
+      F: "\\mathbb{F}",
+      Ff: "\\mathcal{F}",
+      Gg: "\\mathcal{G}",
+      Hh: "\\mathcal{H}",
+      II: "\\mathbb{I}",
+      Id: "\\bm{I}",
+      Ii: "\\mathcal{I}",
+      Im: "\\bm{Im}",
+      Jj: "\\mathcal{J}",
+      K: "\\mathbb{K}",
+      KL: ["\\rm{KL}\\left(#1 \\| #2\\right)", 2],
+      Kk: "\\mathcal{K}",
+      LL: "\\mathbb{L}",
+      Ll: "\\mathcal{L}",
+      M: "\\mathbb{M}",
+      Mm: "\\mathcal{M}",
+      N: "\\mathbb{N}",
+      Nn: "\\mathcal{N}",
+      Oo: "\\mathcal{O}",
+      PP: "\\mathbb{P}",
+      Pp: "\\mathcal{P}",
+      Q: "\\mathbb{Q}",
+      Qq: "\\mathcal{Q}",
+      R: "\\mathbb{R}",
+      Rr: "\\mathcal{R}",
+      Ss: "\\mathcal{S}",
+      T: "\\mathbb{T}",
+      Th: "{\\bm{\\theta}}",
+      Thh: "{\\bm{\\Theta}}",
+      Tt: "\\mathcal{T}",
+      Uu: "\\mathcal{U}",
+      Vv: "\\mathcal{V}",
+      W: "\\mathbb{W}",
+      Ww: "\\mathcal{W}",
+      X: "\\mathbb{X}",
+      Xx: "\\mathcal{X}",
+      Yy: "\\mathcal{Y}",
+      Z: "\\mathbb{Z}",
+      Zz: "\\mathcal{Z}",
+      abs: ["{\\left| #1 \\right|}", 1],
+      alf: "{\\alpha}",
+      b: ["{\\bm{#1}}", 1],
+      bm: ["\\boldsymbol{#1}", 1],
+      br: ["\\left\\langle#1\\right\\rangle", 1],
+      bt: "\\beta",
+      co: ["\\overset{\\circ}{#1}", 1],
+      d: "\\mathrm{d}",
+      diag: ["\\operatorname{diag}\\left(#1\\right)", 1],
+      dx: "\\,\\mathrm{d}x",
+      dy: "\\,\\mathrm{d}y",
+      eps: "\\varepsilon",
+      et: "{\\bm{\\eta}}",
+      ex: ["\\mathrm{exp}\\left(#1\\right)", 1],
+      fk: ["\\mathfrak{#1}", 1],
+      fracc: ["{#1}/{#2}", 2],
+      frc: ["\\left(#2)^{-1}(#1\\right)", 2],
+      iso: "\\xrightarrow{\\sim}",
+      ker: "\\rm{ker}",
+      mat: ["\\begin{bmatrix}{#1}\\end{bmatrix}", 1],
+      mathbbm: ["\\mathbb{#1}", 1],
+      mathds: ["\\mathbb{#1}", 1],
+      norm: ["\\left\\lVert #1 \\right\\rVert", 1],
+      om: "\\omega",
+      postref: ["\\href{https://nowheredifferentiable.com/posts/#1/}{#3}", 3],
+      proj: "\\mathrm{proj}",
+      qb: ["\\left[#1\\right]", 1],
+      qp: ["\\left(#1\\right)", 1],
+      qt: ["\\left(#1\\right)", 1],
+      red: ["{\\color{red}#1}", 1],
+      restr: ["\\left.#1\\right|{#2}", 2],
+      rm: ["\\mathrm{#1}", 1],
+      set: ["\\left\\{#1\\right\\}", 1],
+      star: "*",
+      supp: "\\operatorname{supp}",
+      tl: ["\\widetilde{#1}", 1],
+      tll: ["\\widetilde{#1}", 1],
+      vol: "\\mathrm{vol}",
+      wh: ["\\widehat{#1}", 1],
+      x: "\\bm{x}",
+      xxi: "{\\bm{\\xi}}",
+      y: "\\bm{y}"
+    }
+  }
+};
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../custom_theorems.css">
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../assets/img/tree.jpg" alt="" class="navbar-logo light-content">
+    <img src="../../../assets/img/tree.jpg" alt="" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">NoWhere Differentiable Math</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html"> 
+<span class="menu-text">HOME PAGE</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../aboutme.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../tags.html"> 
+<span class="menu-text">Posts by Tag</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-resources">    
+        <li>
+    <a class="dropdown-item" href="https://terrytao.wordpress.com/">
+ <span class="dropdown-text">Terence Tao’s blog</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://lukasz.ls314.com/">
+ <span class="dropdown-text">Lukasz Sliwinski’s blog</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="http://eepurl.com/itcRso"> 
+<span class="menu-text">Subscribe</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/LiamLlamazares"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#three-line-summary" id="toc-three-line-summary" class="nav-link active" data-scroll-target="#three-line-summary">Three line summary</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#notation" id="toc-notation" class="nav-link" data-scroll-target="#notation">Notation</a></li>
+  <li><a href="#some-useful-results-on-integration" id="toc-some-useful-results-on-integration" class="nav-link" data-scroll-target="#some-useful-results-on-integration">Some useful results on integration</a></li>
+  </ul></li>
+  <li><a href="#the-fourier-transform-on-rd" id="toc-the-fourier-transform-on-rd" class="nav-link" data-scroll-target="#the-fourier-transform-on-rd"><span class="header-section-number">1</span> The Fourier transform on <span class="math inline">\(\R^d\)</span></a></li>
+  <li><a href="#sec-distrsec" id="toc-sec-distrsec" class="nav-link" data-scroll-target="#sec-distrsec"><span class="header-section-number">3</span> Distributions and Sobolev Spaces</a></li>
+  <li><a href="#sobolev-spaces" id="toc-sobolev-spaces" class="nav-link" data-scroll-target="#sobolev-spaces"><span class="header-section-number">4</span> Sobolev spaces</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">5</span> References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">PDEs 1: The Fourier transform, tempered distributions and Sobolev spaces</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Pdes</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    The holy trinity
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Liam Llamazares–Elias </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 14, 2022</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="three-line-summary" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="three-line-summary">Three line summary</h2>
+<ul>
+<li><p>The <em>Fourier transform</em> defines a linear isometry on the space of square-integrable complex-valued functions and has as inverse the <em>inverse Fourier transform</em>. This allows us to write these functions as a superposition of harmonic functions.</p></li>
+<li><p>Linear differential operators act as a simple polynomial multiplication on the frequency domain. Smooth functions have Fourier transforms that decay quickly and vice-versa. This correspondence also allows us to introduce fractional differential operators and pseudo differential operators such as <span class="math inline">\(\sqrt{-\Delta }\)</span>.</p></li>
+<li><p>The Sobolev spaces <span class="math inline">\(H^s\)</span> and tempered distributions <span class="math inline">\(\Ss'\)</span> are complete spaces of functions to which we can extend differential operators.</p></li>
+</ul>
+</section>
+<section id="introduction" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Hi everyone, welcome to the first post in a new series focusing on partial differential equations (PDEs). In this post, we’ll introduce some of the key analytical tools used to solve them. These tools will play a prominent role in the future posts of this series and in other series to come. We’ll begin by introducing some notation and necessary preliminaries on integration. Next, we will introduce the Fourier transform, which is the fundamental object of harmonic analysis and plays a fundamental role in partial differential equations (PDEs), probability theory, and number theory. In particular, we will show in future posts how many linear PDEs such as the heat equation can be solved using it.</p>
+<p>After this, we’ll discuss the generalization of what it means to solve a PDE. To do so we will need to introduce the space of (tempered) distributions <span class="math inline">\(\Ss'\)</span> and Sobolev spaces <span class="math inline">\(H^s\)</span>. These two spaces will be crucial in allowing us to extend the concept of solution to PDE to these spaces and use their completeness to prove the existence, uniqueness, and regularity of solutions.</p>
+<p>Much of the material here contained can be found in my &lt;https://gredos.usal.es/bitstream/handle/10366/145629/TFG</p>
+<section id="notation" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="notation">Notation</h3>
+<p>We write <span class="math inline">\(L^p(\R^d)\)</span> and <span class="math inline">\(L^p(\R^d\to\C^m)\)</span> to denote the space of equivalence classes of <span class="math inline">\(p\)</span> integrable functions from <span class="math inline">\(\R^d\)</span> to <span class="math inline">\(\R\)</span> and <span class="math inline">\(\C^m\)</span> respectively. Given a function defined on a factor space <span class="math inline">\(u:X\times Y\rightarrow Z\)</span> we shall use <span class="math inline">\(u(x)\)</span> to stand for the slightly more cumbersome <span class="math inline">\(u(x,\cdot ):Y\rightarrow Z\)</span>. Given <span class="math inline">\(\alpha=(\alpha_1,...,\alpha_d)\in\N^d\)</span> we shall write as is standard</p>
+<p><span class="math display">\[x^\alpha:=x^{\alpha_1}\cdots  x^{\alpha_d};\quad D^\alpha:=\partial_1^{\alpha_1}\cdots\partial_1^{\alpha_d}\]</span></p>
+<p>and whenever the expression <span class="math inline">\(D^\alpha\)</span> appears we will assume implicitly that <span class="math inline">\(\alpha\in\N^d\)</span>. Given <span class="math inline">\(x\in\R^d\)</span> we will write <span class="math inline">\(\abs{x}\)</span> to denote its norm and the <em>Japanese bracket</em> <span class="math inline">\(\br{x}\)</span> will signify</p>
+<p><span class="math display">\[\br{x}:=(1+\abs{x}^2)^{1/2}.\]</span></p>
+<p>Finally, we will employ the notation <span class="math inline">\(f\lesssim g\)</span> to mean that there exists some constant <span class="math inline">\(C\)</span> such that <span class="math inline">\(f\leq Cg\)</span>. If the value of <span class="math inline">\(C\)</span> depends on some other parameter such as the dimension <span class="math inline">\(d\)</span> we shall make this explicit by writing <span class="math inline">\(f\lesssim_d g\)</span>.</p>
+</section>
+<section id="some-useful-results-on-integration" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="some-useful-results-on-integration">Some useful results on integration</h3>
+<p>In PDEs, it is essential to be able to commute limits and differentials with both summation and integration. The main way of doing this is the dominated and monotone convergence theorem together with the following two propositions which we state in full generality for functions valued in a Banach space <span class="math inline">\(E\)</span>. Though for now, we will only need the case <span class="math inline">\(E=\R\)</span>. On first reading, this can be assumed for commodity.</p>
+<div id="prp-commuting-limits-with-integral" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 1 (Continuity of the integral)</strong></span> Let <span class="math inline">\((X,\mu )\)</span> be a measure space, <span class="math inline">\(T\)</span> a first countable metric space, <span class="math inline">\((E,\norm{})\)</span> a Banach space and</p>
+<p><span class="math display">\[f:T\times X\to E\]</span></p>
+<p>such that <span class="math inline">\(f(t)\)</span> is (<a href="../../../posts/Analysis on Banach spaces/Bochner_integral/index.html">Bochner</a>) integrable for all <span class="math inline">\({t}\in{T}\)</span> and such that</p>
+<p><span class="math display">\[\norm{f(t)}\leq g\in L^1(X)\quad \forall{t}\in {T}.\]</span></p>
+<p>Then given <span class="math inline">\(t_0\in T\)</span> we have that</p>
+<p><span class="math display">\[\lim_{t\to t_0}\int_X f(t,x)\mu(dx) =\int_X\lim_{t\to t_0}f(t,x)\mu(dx) .\]</span></p>
+<p>In consequence, if <span class="math inline">\(f(x)\)</span> is continuous so is <span class="math inline">\(\int_X f(t,x) \mu(dx)\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The proof is an application of the <a href="https://en.wikipedia.org/wiki/Dominated_convergence_theorem">dominated convergence theorem</a> to the sequence of functions <span class="math inline">\(f_n:=f(t_n)\)</span> where <span class="math inline">\(\{t_n\}_{n=1}^\infty\)</span> is some sequence converging to <span class="math inline">\(t\)</span> and the fact that, in first countable spaces, sequential continuity is <a href="https://en.wikipedia.org/wiki/Sequential_space#Sequential_continuity">equivalent</a> to continuity.</p>
+</div>
+<div id="prp-derivationundertheintsign" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 2 ({Differentiation under the integral sign})</strong></span> Let <span class="math inline">\(X\)</span> be a measure space, <span class="math inline">\(U\)</span> be a convex open interval of <span class="math inline">\(\R\)</span>, and <span class="math inline">\(E\)</span> a Banach space. Consider</p>
+<p><span class="math display">\[f:U\times X\to E\]</span></p>
+<p>such that:</p>
+<ol type="a">
+<li><p><span class="math inline">\(f(t)\)</span> is measurable for every <span class="math inline">\(t\in U\)</span> and integrable for some <span class="math inline">\(t_0\in U\)</span>.</p></li>
+<li><p>For each <span class="math inline">\(x\in X\)</span> we have that <span class="math inline">\(f(x)\)</span> is differentiable and there exists an integrable function <span class="math inline">\(g: X\to\R\)</span> such that</p>
+<p><span class="math display">\[\norm{\partial_{t}{f}(t,x)}\leq g(x)\quad \forall{(t,x)}\in {U\times E}.\]</span></p>
+<p>Then it holds that</p>
+<p><span class="math display">\[\partial_{t}{\int_X f(t)\mu(dx)}=\int_X \partial_{t}f(t) \mu(dx).\]</span></p></li>
+</ol>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>First, we show that the integral on the left-hand side of the equation above makes sense. Let <span class="math inline">\(t\in U\)</span> be any, then by the mean value inequality we have that</p>
+<p><span class="math display">\[
+\frac{f(t)-f(t_0)}{t-t_0}\leq \sup_{s \in U}\norm{\partial _t f(s)}\leq g \in L^1(X).
+\]</span></p>
+<p>Thus, we may apply the previous proposition to commute the limit with the integral</p>
+<p><span class="math display">\[
+\begin{aligned}
+\lim_{t \to t_0}\frac{\int_{X} f(t)\mu (dx)-\int_{X}f(t_0) \mu (dx)}{t-t_0}  &amp;=\lim_{t \to t_0}\int_{X}    \frac{f(t)-f(t_0)}{t-t_0} \mu (dx)
+\\&amp;=\int_{X}\lim_{t \to t_0} \frac{f(t)-f(t_0)}{t-t_0} \mu (dx) =\int_{X}\partial _t f(t) \mu(dx).
+\end{aligned}
+\]</span></p>
+<p>Where in the first equality we also used the <a href="../../../posts/Analysis on Banach spaces/Bochner_integral/index.html#sec-strong-measurability-sec">linearity of the Bochner integral</a> and in the last equality we used that by hypothesis <span class="math inline">\(f(x)\)</span> is everywhere differentiable. This concludes the proof.</p>
+</div>
+<p>In the literature the usual hypothesis is that <span class="math inline">\(\partial _t f\)</span> is integrable everywhere <span class="citation" data-cites="FF">(<a href="#ref-FF" role="doc-biblioref">Aguirre and Ibáñez 2002, 108</a>)</span>, however as we have seen it is sufficient to require the integrability at a point.</p>
+</section>
+</section>
+<section id="the-fourier-transform-on-rd" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="the-fourier-transform-on-rd"><span class="header-section-number">1</span> The Fourier transform on <span class="math inline">\(\R^d\)</span></h2>
+<p>These preliminaries out of the way, we now get to our first main section. We assume the reader has encountered the Fourier transform before, and limit ourselves to giving a rundown of the theory and main ideas, taking the reader through a basic definition to an extension of it. To make the Fourier transform an isometry we will use the following convention.</p>
+<div id="def-1" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1</strong></span> Given <span class="math inline">\(f\in L^1(\R^d\to\C^m)\)</span> the <em>Fourier transform</em> of <span class="math inline">\(f\)</span> and the <em>inverse Fourier transform of</em> <span class="math inline">\(f\)</span> are defined respectively by</p>
+<p><span class="math display">\[\hat{f}(\xi):=\int_{\R^d}f(x)e^{-2\pi i\xi\cdot  x} dx, \quad \check{f}(\xi):=\int_{\R^d}f(x)e^{2\pi i\xi\cdot  x} dx \]</span></p>
+</div>
+<p>Other exponents such as <span class="math inline">\(e^{-ix}, e^{-\pi i x}\)</span> can also be used with identical results modulo constants. Let us introduce the notation <span class="math display">\[\Ff_1 f:=\hat{f}, \Ff_1^*f\]</span> for the Fourier transform (on <span class="math inline">\(L^1\)</span>) and its inverse. The following proposition holds.</p>
+<div id="prp-regularitydecayft" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 3 (Properties of <span class="math inline">\(\Ff_1\)</span>)</strong></span> Given <span class="math inline">\(f\in L^1(\R^d\to\C^m)\)</span></p>
+<ol type="1">
+<li><p>The Fourier transform <span class="math inline">\(\Ff_1\)</span> is a continuous linear operators <span class="math display">\[\Ff_1:L^1(\R^d\to\C^m) \to L^\infty(\R^d\to\C^m)\]</span>.</p></li>
+<li><p>If <span class="math inline">\(x^\alpha f(x)\in L^1(\R^d\to\C^m)\)</span> then:</p>
+<p><span class="math display">\[D^\alpha \hat{f}(\xi)=(-2\pi i)^\abs{\alpha}\widehat{x^{\alpha} f}(\xi)\qquad\forall \xi\in\R^d.\]</span></p></li>
+<li><p>If <span class="math inline">\(f\)</span> is absolutely continuous in <span class="math inline">\(x_j\)</span> for almost every <span class="math inline">\(x_1,...x_{j-1},x_{j+1},...,x_d\)</span> then then</p>
+<p><span class="math display">\[\widehat{\partial x_j f}(\xi)=2\pi i\xi_j\widehat{ f}(\xi)\qquad\forall \xi\in\R^d.\]</span></p></li>
+</ol>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The proof of the first point is an application of the triangle inequality as</p>
+<p><span class="math display">\[
+\abs{\hat{f}(\xi )}=\abs{\int_{\R^d}f(x)e^{2\pi i x\cdot \xi } dx}\leq\int_{\R^d}\abs{f(x)}dx\quad\forall \xi \in \R^d.
+\]</span></p>
+<p>and similarly for the inverse. The second point follows by differentiation under the integral <a href="#prp-derivationundertheintsign" class="quarto-xref">Proposition&nbsp;2</a>. The third point can be proved by using integration by parts and the observation that every absolutely continuous function must go to zero at infinity.</p>
+</div>
+<p>We note that the analogous holds for the inverse Fourier transform where it is only necessary to remove the minus sign in <span class="math inline">\(2\)</span> and a change of the sign in <span class="math inline">\(3\)</span>. The proof can be completed in an identical fashion or by noting that <span class="math inline">\(\check{f}(\xi )=\hat{f}(-\xi )\)</span>.</p>
+<p>The importance of these last two properties is that they give us information on the Fourier transform of a function <span class="math inline">\(f\)</span> based on its regularity and decay. They can be stated informally as decay gives regularity and regularity gives decay (as the Fourier transform of any <span class="math inline">\(f\in L^1(\R^d\to\R^d)\)</span> decays to 0 at infinity by the &lt;https://en.wikipedia.org/wiki/Riemann In general, the Fourier transform of an integrable function is not itself integrable. That is, <span class="math inline">\(L^1(\R^d\to\C^m)\)</span> is not closed under the Fourier transform. We now introduce a space that is closed under the Fourier transform; the Schwartz space, which can be thought of as the space of infinitely regular functions with infinite decay:</p>
+<div id="def-schwartz-space-definition" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2</strong></span> The <em>Schwartz space</em> <span class="math inline">\(\mathcal{S}(\R^d\to\C^m)\)</span> is:</p>
+<p><span class="math display">\[\mathcal{S}(\R^d\to\C^m):=\lbrace f\in\C^\infty(\R^d\to\C^m):x^\alpha D^\beta f\in L^\infty(\R^d\to\C^m)\quad\forall\alpha,\beta\in \N^d\rbrace.\]</span></p>
+</div>
+<p>By applying <a href="#prp-regularitydecayft" class="quarto-xref">Proposition&nbsp;3</a> we deduce that, given <span class="math inline">\(f\in\mathcal{S}(\R^d\to\C^m)\)</span></p>
+<p><span id="eq-rdft"><span class="math display">\[
+\begin{aligned}
+\xi^\alpha D^\beta \hat{f}(\xi)   &amp; =(-2\pi i)^{\abs{\beta}}\xi^{\alpha}\widehat{x^{\beta}f}=\frac{(-2\pi i)^{\abs{\beta}}}{(2\pi i)^{\abs{\alpha}}}\widehat{D^{\alpha}x^{\beta}f}\in L^\infty(\R^d\to\C^m)\\
+\xi^\alpha D^\beta \check{f}(\xi) &amp; =\frac{(2\pi i)^{\abs{\beta}}}{(-2\pi i)^{\abs{\alpha}}}\widehat{D^{\alpha}x^{\beta}f}\in L^\infty(\R^d\to\C^m).
+\end{aligned}
+\tag{1}\]</span></span></p>
+<p>Hence, the Fourier transform and the inverse Fourier transform restrict to endomorphisms of the Schwartz space which we will denote respectively by</p>
+<p><span class="math display">\[\mathcal{F}_\mathcal{S},\mathcal{F}^*_\mathcal{S}:\mathcal{S}(\R^d\to\C^m)\to\mathcal{S}(\R^d\to\C^m).\]</span></p>
+<p>The next item on the agenda is Plancherel’s theorem which is proven via the following lemma, in which we shall use the notation</p>
+<p><span class="math display">\[\br{f,g}_{L^2(\R^d\to\C^m)}:=\int_{\R^d}f(x)\cdot  \overline{g(x)} dx\]</span></p>
+<p>for the inner product on <span class="math inline">\(L^2(\R^d\to\C^m)\)</span>.</p>
+<div id="lem-planncherellemma" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 1 (<strong>Plancherel for Schwartz functions</strong>)</strong></span> Given <span class="math inline">\(f,g\in \mathcal{S}(\R^d\to\C^m)\)</span></p>
+<ol type="i">
+<li><p><span class="math inline">\(\br{\mathcal{F}_\mathcal{S}f,g}_{L^2(\R^d\to\C^m)}=\br{f,\mathcal{F}_\mathcal{S}^*g}_{L^2(\R^d\to\C^m)};\quad\br{\mathcal{F}_\mathcal{S}^*f,g}_{L^2(\R^d\to\C^m)}=\br{f,\mathcal{F}_\mathcal{S}g}_{L^2(\R^d\to\C^m)}\)</span></p></li>
+<li><p><span class="math inline">\(\mathcal{F}_\mathcal{S}^*\mathcal{F}_\mathcal{S}f=\mathcal{F}_\mathcal{S}\mathcal{F}_\mathcal{S}^*f=f\)</span></p></li>
+</ol>
+</div>
+<p>The first point can be proved by a direct application of Fubini. The second point is trickier and is the crux of why we call <span class="math inline">\(\Ff^*\)</span> the <em>inverse</em> Fourier transform. The proof can be found in <span class="citation" data-cites="Tay">(<a href="#ref-Tay" role="doc-biblioref">Taylor 1996</a>)</span> pages 222-226. From <a href="#lem-planncherellemma" class="quarto-xref">Lemma&nbsp;1</a> and <a href="#lem-planncherellemma" class="quarto-xref">Lemma&nbsp;1</a> we deduce immediately that, given a Schwartz function <span class="math inline">\(f\)</span>,</p>
+<p><span id="eq-plancherel"><span class="math display">\[
+\norm{f}_{L^2(\R^d\to\C^m)}=\norm{\mathcal{F}_\mathcal{S}f}_{L^2(\R^d\to\C^m)}=\norm{\mathcal{F}_\mathcal{S}^*f}_{L^2(\R^d\to\C^m)}
+\tag{2}\]</span></span></p>
+<p>That is, the restrictions of <span class="math inline">\(\Ff_1\)</span> and <span class="math inline">\(\Ff^*_1\)</span></p>
+<p><span class="math display">\[\mathcal{F}_\mathcal{S},\mathcal{F}_\mathcal{S}^*:\mathcal{S}(\R^d\to\C^m)\to\mathcal{S}(\R^d\to\C^m)\]</span></p>
+<p>are linear unitary operators which are the inverse the one to the other. We obtain the following result.</p>
+<div id="prp-plancherel-s-theorem" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 4 (<strong>Plancherel’s theorem</strong>)</strong></span> <span class="math inline">\(\mathcal{F}_\mathcal{S}\)</span> and <span class="math inline">\(\mathcal{F}_\mathcal{S}^*\)</span> may be extended to unitary operators:</p>
+<p><span class="math display">\[\mathcal{F},\mathcal{F}^*:L^2(\R^d\to\C^m)\to L^2(\R^d\to\C^m)\]</span></p>
+<p>With <span class="math inline">\(\Ff\Ff^*=\Ff^*\Ff=Id\)</span>. \end {proposition}</p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>This is a immediate result of the density of <span class="math inline">\(\mathcal{S}(\R^d\to\C^m)\)</span> in the larger <span class="math inline">\(L^2(\R^d\to\C^m)\)</span> and the completeness of <span class="math inline">\(L^2(\R^d\to\C^m)\)</span> together with <a href="#lem-planncherellemma" class="quarto-xref">Lemma&nbsp;1</a> and Plancherel for <span class="math inline">\(\Ss\)</span> <a href="#lem-planncherellemma" class="quarto-xref">Lemma&nbsp;1</a>. As, by a simple limiting argument, it is easy to see that continuous extensions of continuous linear operators preserve the norm and the inverses of the operators in question.</p>
+</div>
+<p>It is reasonable to wonder if this extended Fourier transform <span class="math inline">\(\Ff\)</span> coincides with our initial definition when reasonable. That is, whether given a function <span class="math inline">\(f \in L^1(\R^d\to\C^m)\cap L^2(\R^d\to\C^m)\)</span> we have that</p>
+<p><span class="math display">\[\Ff f(\xi)=\Ff_1f(\xi)=\int_{\R^d}f(x)e^{-2\pi ix\cdot \xi} dx\qquad\forall \xi\in\R^d.\]</span></p>
+<p>This indeed holds as can be seen by taking a sequence of functions <span class="math inline">\(\lbrace f_n\rbrace_{n=1}^\infty\in\Ss(\R^d\to\C^m)\)</span> converging to <span class="math inline">\(f\)</span> in <span class="math inline">\(L^1(\R^d\to\C^m)\)</span> and in <span class="math inline">\(L^2(\R^d\to\C^m)\)</span>. As then <span class="math inline">\(\Ff_1 f_n\)</span> converges uniformly to <span class="math inline">\(\Ff_1f\)</span> by <a href="#prp-regularitydecayft" class="quarto-xref">Proposition&nbsp;3</a> (The) and in <span class="math inline">\(L^2(\R^d\to\C^m)\)</span> to <span class="math inline">\(\Ff f\)</span> by Plancherel <a href="#prp-plancherel-s-theorem" class="quarto-xref">Proposition&nbsp;4</a>, from where we deduce that as desired <span class="math inline">\(\Ff_1f=\Ff f\)</span>.</p>
+<section id="the-fourier-transform-of-periodic-functions" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="the-fourier-transform-of-periodic-functions"><span class="header-section-number">2</span> The Fourier transform of periodic functions</h2>
+<p>We now extend our previous results to <span class="math inline">\(\Z^d\)</span> periodic functions, though, for any period, analogous results may be achieved. By identifying <span class="math inline">\(\Z^d\)</span> periodic functions with functions on the torus <span class="math inline">\(\T^d:=\R^d/\Z^d\equiv [0,1]^d\)</span> we will work with functions <span class="math inline">\(f:\T^d\to\C^m.\)</span> As we will see strikingly similar results are achieved in this setting</p>
+<div id="def-2" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3</strong></span> Given <span class="math inline">\(f\in L^1(\T^d\to\C^m)\)</span> we define the <em><span class="math inline">\(k\)</span>-th Fourier coefficient</em> of <span class="math inline">\(f\)</span> as:</p>
+<p><span class="math display">\[\hat{f}(k):=\int_{\T^d}f(x)e^{-2\pi ik\cdot x}dx.\]</span></p>
+</div>
+<p>We thus obtain a function <span class="math inline">\(\hat{f}\)</span> on <span class="math inline">\(\Z^d\)</span> which we shall call the Fourier series of <span class="math inline">\(f\)</span> and a continuous linear function which we shall denote as in the euclidean case:</p>
+<p><span class="math display">\[\Ff_1:L^1(\T^d\to\C^m)\to l^\infty(\Z^d\to\C^m)\]</span></p>
+<p>where <span class="math inline">\(l^{\infty}(\Z^d\to\C^m)\)</span> is the set of bounded sequences from <span class="math inline">\(\Z^d\)</span> to <span class="math inline">\(\C^m\)</span>. As before we have the following result: \begin{proposition} Given <span class="math inline">\(f\in L^1(\T^d\to\C^m)\)</span> if <span class="math inline">\(f\)</span> is absolutely continuous in <span class="math inline">\(x_j\)</span> for almost every <span class="math inline">\(x_1,...x_{j-1},x_{j+1},...,x_d\)</span> then</p>
+<p><span class="math display">\[\widehat{\partial_{x_j}{f}}(k)=2\pi i k_j\widehat{f}(k)\qquad\forall k\in\Z^d.\]</span></p>
+</section>
+</div>
+<p>In particular if <span class="math inline">\(f\in C^\infty(\T^d\to\C^m)\)</span> we have that:</p>
+<p><span id="eq-rgivesdpft"><span class="math display">\[
+\widehat{D^\alpha f}(k)=(2\pi ik)^\alpha\hat{f}(k),
+\tag{3}\]</span></span></p>
+<p>and as a result we have that <span class="math inline">\(\hat{f}\)</span> is of rapid decrease (i.e.&nbsp;<span class="math inline">\(\hat{f}\)</span> decreases faster than the inverse of any polynomial). We thus have, as before, an induced map:</p>
+<p><span class="math display">\[\Ff_{C^\infty}:C^\infty(\T^d\to\C^m)\to s(\Z^d\to\C^m)\]</span></p>
+<p><span class="math display">\[f\mapsto \hat{f}.\]</span></p>
+<p>Where <span class="math inline">\(s(\Z^d\to\C^m)\)</span> are the sequences from <span class="math inline">\(\Z^d\)</span> to <span class="math inline">\(\C^m\)</span> that are of rapid decrease (this space now plays the role of the Schwartz space <span class="math inline">\(\Ss(\R^d\to\C^m)\)</span>).</p>
+<p>Similarly to the non-periodic case we now define</p>
+<p><span class="math display">\[\Ff^*_{C^\infty}:s(\Z^d\to\C^m)\to C^\infty(\T^d\to\C^m);\quad a\mapsto\check{a}\]</span></p>
+<p>with:</p>
+<p><span class="math display">\[\check{a}(x):=\sum_{k\in\Z^d}a(k)e^{2\pi ik\cdot x}.\]</span></p>
+<p>This is indeed smooth as, by the rapid decay of <span class="math inline">\(a\)</span>, we may differentiate under the integral sign <a href="#prp-derivationundertheintsign" class="quarto-xref">Proposition&nbsp;2</a> (we recall that sums are just integrals against discrete measures) to commute all derivatives with the above sum to obtain that</p>
+<p><span id="eq-dgivesrpft"><span class="math display">\[
+D^\alpha \check{a}(x)=\sum_{k\in\Z^d}(2\pi ik)^\alpha a(k)e^{2\pi ik\cdot x}\quad\forall{a}\in {s(\Z^d\to\C^m)}.
+\tag{4}\]</span></span></p>
+<p>It is now possible to prove as with the euclidean case that</p>
+<p><span class="math display">\[\Ff_{C^\infty}\Ff^*_{C^\infty}=\Ff^*_{C^\infty}\Ff_{C^\infty}=Id,\]</span></p>
+<p>and that analogously given <span class="math inline">\(f\)</span> smooth, and <span class="math inline">\(a\)</span> of rapid decrease</p>
+<p><span class="math display">\[\br{\Ff_{C^\infty} f,a}_{l^2(\Z^d\to\C^m)}=\br{f,\Ff_{C^\infty}^*a}_{L^2(\R^d\to\C^m)};\quad\br{\Ff_{C^\infty}^* a,f}_{L^2(\R^d\to\C^m)}=\br{a,\Ff f}_{l^2(\Z^d\to\C^m)}.\]</span></p>
+<p>See for example <span class="citation" data-cites="Tay">(<a href="#ref-Tay" role="doc-biblioref">Taylor 1996</a>)</span> pages 197-206. We conclude that <span class="math inline">\(\Ff_{C^\infty}\)</span> are unitary linear functions and that hence:</p>
+<div id="prp-1" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 5 (<strong>Plancherel’s (periodic) theorem</strong>)</strong></span> <span class="math inline">\(\mathcal{F}_{C^\infty}\)</span> and <span class="math inline">\(\mathcal{F}_{C^\infty}^*\)</span> may be extended to unitary operators:</p>
+<p><span class="math display">\[\mathcal{F}:L^2(\T^d\to\C^m)\to l^2(\T^d\to\C^m);\quad \mathcal{F}^*:l^2(\Z^d\to\C^m)\to L^2(\R^d\to\C^m)\]</span></p>
+<p>with <span class="math inline">\(\Ff\Ff^*=\Ff^*\Ff=Id.\)</span></p>
+</div>
+<p>We note that, as for the Euclidean case, given <span class="math inline">\(f\in L^2(\T^d\to\C^m)\cap L^1(\T^d\to\C^m)\)</span> by an identical argument it holds that</p>
+<p><span class="math display">\[\Ff f(k)=\Ff_1f(k)=\int_{\R^d}f(x)e^{-2\pi ik\cdot x}\]</span></p>
+<p>and where now Plancherel’s theorem gives that, for such <span class="math inline">\(f\)</span>:</p>
+<p><span id="eq-plancerelpft"><span class="math display">\[
+f(x)=\sum_{k\in\Z^d}\hat{f}(k)e^{2\pi ik\cdot x}.
+\tag{5}\]</span></span></p>
+</section>
+<section id="sec-distrsec" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="sec-distrsec"><span class="header-section-number">3</span> Distributions and Sobolev Spaces</h2>
+<p>Here we will quickly recall the concepts of tempered distributions and Sobolev spaces, which are concepts of utmost importance in the field of PDEs and Fourier analysis. The idea is as follows, given a topological vector space <span class="math inline">\(V\)</span> we denote the dual of <span class="math inline">\(V\)</span> by</p>
+<p><span class="math display">\[V':=\lbrace w:E\to\C: w \text{continuous}\rbrace.\]</span></p>
+<p>Furthermore, given <span class="math inline">\(w\in V'\)</span> and <span class="math inline">\(u\in V\)</span> we use the notation</p>
+<p><span class="math display">\[
+(u,w):=w(u)
+\]</span></p>
+<p>The reason for this is that <span class="math inline">\(w(u)\)</span> can often be interpreted as the inner product of <span class="math inline">\(w\)</span> against <span class="math inline">\(u\)</span> in a suitable Hilbert space. In our case, this Hilbert space will be <span class="math inline">\(L^2(\R^d\to\C)\)</span> and the above interpretation will allow us to extend differentiation and the Fourier transform by a technique called “duality”. We will apply this where <span class="math inline">\(V=\Ss(\R^d\to\C)\)</span>, first we need to introduce a topology on <span class="math inline">\(E\)</span>. In general, given a real vector space <span class="math inline">\(V\)</span> together with a countable family of semi-norms <span class="math inline">\(\lbrace p_j\rbrace_{j=0}^\infty\)</span> with the property that: given <span class="math inline">\(x\neq 0\)</span>, there exists <span class="math inline">\(j\)</span> such that <span class="math inline">\(p_j(x)\neq 0\)</span>. Then</p>
+<p><span id="eq-seminormsgivemetric"><span class="math display">\[
+d(x,y):=\sum_{j=0}^\infty 2^{-j}\frac{p_j(x-y)}{1+p_j(x-y)}\quad \forall{x,y}\in {E}
+\tag{6}\]</span></span></p>
+<p>is a translation invariant metric on <span class="math inline">\(E\)</span>. In the case of the Schwartz space <span class="math inline">\(\Ss(\R^d\to\C)\)</span> we give it the topology induced by</p>
+<p><span id="eq-seminornormsschwartz"><span class="math display">\[
+p_k(u):=\sum_{\abs{\alpha}\leq k} \sup_{x\in\R^d}\br{x}^k \abs{D^\alpha u(x)}.
+\tag{7}\]</span></span></p>
+<p>Though other families of semi-norms the reader may be familiar with such as</p>
+<p><span class="math display">\[p_{k,\alpha}:=\sup_{x\in\R^d}\abs{x}^k \abs{D^\alpha u(x)};\quad\text{or}\quad p'_{k,\alpha}:=\sup_{x\in\R^d}(1+\abs{x})^k \abs{D^\alpha u(x)}\]</span></p>
+<p>induce equivalent topologies. We note that with this metric <span class="math inline">\(\Ss(\R^d\to\C)\)</span> is complete.</p>
+<p>For a quick proof based on the fundamental theorem of calculus see for example <span class="citation" data-cites="Foll">(<a href="#ref-Foll" role="doc-biblioref">Folland 1999</a>)</span> page 237.</p>
+<div id="def-3" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 4</strong></span> The space of <em>tempered distributions</em> is the dual space to <span class="math inline">\(\Ss(\R^d\to\C)\)</span> with the topology generated by <span class="math inline">\(p_k)\)</span>. We write it <span class="math inline">\(\Ss'(\R^d\to\C)\)</span>.</p>
+</div>
+<p>One may verify that we have the inclusion</p>
+<p><span id="eq-lpisdistr"><span class="math display">\[
+\begin{aligned}
+L^p(\R^d\to\C)\hookrightarrow\Ss'(\R^d\to\C);\quad f\mapsto T_f
+\end{aligned}
+\tag{8}\]</span></span></p>
+<p>where given <span class="math inline">\(u\in \Ss(\R^d\to\C)\)</span> we define</p>
+<p><span class="math display">\[T_f(u):=\br{u,f}:=\int_{\R^d} u\overline{f}.\]</span></p>
+<p>Let us write <span class="math inline">\(T^t\)</span> for the transpose of a linear function <span class="math inline">\(T\)</span> and recall that the Fourier transform is an endomorphism of the Schwartz space. Then, given two Schwartz functions <span class="math inline">\(u,v\)</span> we have already seen that, by a simple application of Fubini,</p>
+<p><span class="math display">\[T_{\Ff v}(u)=\br{u,\Ff v}=\br{\Ff^{-1} u,v}=(\Ff^{-1}u,T_v)\]</span></p>
+<p>and integration by parts gives</p>
+<p><span class="math display">\[
+\begin{aligned}
+T_{D^\alpha v}(u)=\br{u,D^\alpha v}=(-1)^{\abs{\alpha}}\br{D^\alpha u,v}=((-1)^{\abs{\alpha}}D^\alpha u,T_v)\quad\forall{\alpha}\in \N^d.
+\end{aligned}
+\]</span></p>
+<p>This gives us a way of extending the Fourier transform and differentiation to the space of tempered distributions.</p>
+<div id="def-4" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 5</strong></span> Given <span class="math inline">\(w\in\mathcal{S}'(\R^d\to\C)\)</span> and <span class="math inline">\(\alpha\in\N^d\)</span> we define the <em>(distributional) Fourier transform</em> of <span class="math inline">\(w\)</span> by</p>
+<p><span class="math display">\[\Ff w:= w\circ \Ff^{-1}\]</span></p>
+<p>and the <em>(weak) <span class="math inline">\(\alpha\)</span>’th</em> derivative of <span class="math inline">\(w\)</span> by</p>
+<p><span class="math display">\[D^\alpha w:= w\circ((-1)^\abs{\alpha}D^\alpha).\]</span></p>
+</div>
+<p>The method we used above to extend <span class="math inline">\(\Ff, D^\alpha\)</span> is called the <em>duality method</em> and appears very frequently. Another way of writing the above definition is:</p>
+<p><span class="math display">\[
+(u, \Ff w):=(\Ff^{-1} u, w);\quad(u,D^\alpha w):=(-1)^\abs{\alpha}(D^\alpha u,w)
+\]</span></p>
+<p>Due to our previous discussion, we have that with this definition</p>
+<p><span id="eq-ftlpdistr"><span class="math display">\[
+\Ff T_u=T_{\Ff u};\quad D^\alpha T_{u}=T_{D^\alpha u}\quad\forall u\in \Ss(\R^d).
+\tag{9}\]</span></span></p>
+<p>Just as one would desire.</p>
+<p>Two other operations that are permitted on <span class="math inline">\(\Ss(\R^d\to\C)\)</span> are multiplication by functions of polynomial growth <span class="math inline">\(p\)</span> and the application of the inverse Fourier transform which we shall, as for <span class="math inline">\(L^2\)</span> functions, denote by <span class="math inline">\(\Ff^{-1}\)</span>. Both definitions are once again being given by duality.</p>
+<p><span class="math display">\[
+(u,pw):=(\overline{p}u,w);\quad (u,\Ff^{-1}w):=(\Ff u,w) .
+\]</span></p>
+<p>Before ending our discussion of (scalar) tempered distributions we comment on some generalizations. We first note that the previous discussion works equivalently for vector-valued distributions, i.e.&nbsp;elements of the dual to <span class="math inline">\(\mathcal{S}(\R^d\to\C^m)\)</span>, which we shall denote by</p>
+<p><span class="math display">\[\mathcal{S}'(\R^d\to\C^m)\]</span></p>
+<p>where the only change is that the inclusion of integrable functions is now given by</p>
+<p><span id="eq-lpisvectordistr"><span class="math display">\[
+\begin{aligned}
+L^p(\R^d\to\C^m)\hookrightarrow\Ss'(\R^d\to\C^m);\quad f\mapsto T_f
+\end{aligned}
+\tag{10}\]</span></span></p>
+<p>with <span class="math inline">\(T_f\)</span> defined by</p>
+<p><span id="eq-identificationfuncdist"><span class="math display">\[
+\begin{aligned}
+T_f(u):=\int_{\R^d} u\cdot \bar{f}\quad\forall{u}\in {\Ss(\R^d\to\C^m)}.
+\end{aligned}
+\tag{11}\]</span></span></p>
+<p>In both cases we have that, by duality, due to the (<a href="#eq-rgivesdpft" class="quarto-xref">3</a>), given a tempered distribution <span class="math inline">\(w\)</span> and <span class="math inline">\(\alpha\in \N^d\)</span></p>
+<p><span id="eq-derivativedistronperiodic"><span class="math display">\[
+\begin{aligned}
+D^\alpha\Ff w =(-2\pi i)^{\abs{\alpha}}\Ff x^\alpha w;\quad
+\Ff D^{\alpha} w= (2\pi i)^{\abs{\alpha}}x^\alpha\Ff w.
+\end{aligned}
+\tag{12}\]</span></span></p>
+<p>As we have observed before multiplication by functions of polynomial growth is a well-defined operation on <span class="math inline">\(\Ss(\R^d\to\C^m)\)</span> so the above expressions are also well defined. A quick verification also shows that, since Plancherel’s theorem holds for all Schwartz functions,</p>
+<p><span id="eq-planchereldistr"><span class="math display">\[
+\Ff^{-1}\Ff w=\Ff\Ff^{-1}w=w.
+\tag{13}\]</span></span></p>
+<p>Finally, in addition to “changing the image” of our distributions, we may also “change the domain” by considering, for example, periodic tempered distributions. Where now, as we saw in the section on the Fourier transform, <span class="math inline">\(C^\infty(\T^d\to\C^m)\)</span> takes the place of the Schwartz space and where we place on <span class="math inline">\(C^\infty(\T^d\to\C^m)\)</span> the topology defined by the countable family of semi-norms:</p>
+<p><span class="math display">\[q_k(u):=\sum_{\abs{\alpha}\leq k}\sup_{x\in\T^d}\abs{D^\alpha u}\]</span></p>
+<p>and denote its dual by <span class="math inline">\(\Ss'(\T^d\to\C^m).\)</span> Note that, as the domain is bounded, multiplication by polynomials to ensure rapid decrease is redundant. By defining as is natural the Fourier series of a periodic distribution <span class="math inline">\(w\)</span> by the sequence (which can be shown to be of polynomial growth)</p>
+<p><span id="eq-fouriercoeffperiodicdist"><span class="math display">\[
+\hat{w}(k):=(e^{-2\pi ikx},w)\quad k\in\Z^d
+\tag{14}\]</span></span></p>
+<p>and its <span class="math inline">\(\alpha\)</span>-th distributional derivative by</p>
+<p><span class="math display">\[(u,D^\alpha w):=(-1)^\abs{\alpha}(D^\alpha u,w)\]</span></p>
+<p>we derive formulas analogous to the ones seen in the section on the Fourier transform for “periodic” distributions as well. Namely:</p>
+<p><span id="eq-derivativedistr"><span class="math display">\[
+w=\sum_{k\in\Z^d}\hat{w}(k)e^{2\pi i k x};\quad\widehat{D^\alpha w}(k)=(2\pi ik)^\alpha\hat{w}(k).
+\tag{15}\]</span></span></p>
+<p>To prove it all we have to do is apply Plancherel on <span class="math inline">\(u\)</span> and move terms around via duality,</p>
+<p><span class="math display">\[
+\begin{aligned}
+(u,w)&amp;=(\sum_{k\in \Z^d}\hat{u}(k)e^{2\pi ik\cdot x},w )=\sum_{k\in \Z^d}  \hat{u}(k)\hat{w}(k)\\&amp;
+=\sum_{k\in \Z^d}  \left(\int_{\T^d} u(x)e^{-2\pi i\omega\cdot  x}dx\right)\hat{w}(k)=\int_{\T^d} u(x)\left(\sum_{k\in \Z^d} \hat{w}(k) e^{-2\pi i\omega\cdot  x}\right)dx.
+\end{aligned}
+\]</span></p>
+<p>This proves the first part and the second can be proved directly by considering the relevant definitions.</p>
+<p>To sum up what we have seen, due to the natural inclusion of integrable functions in the space of tempered distributions and the analogous inclusion in the periodic case, the notion of Fourier transform and differentiation extends to the larger space of tempered distributions. This allows us to manipulate rough functions (periodic or non-periodic) as if they had Fourier transforms and were smooth. As we shall see, this will prove of great use when obtaining “distributional solutions” to some PDEs. We now give the general method by which this achieved</p>
+<div id="def-5" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 6</strong></span> Consider a mapping</p>
+<p><span class="math display">\[P:A\subset\Ss(\R^d\to\C^m)\to \Ss(\R^d\to\C^m)\]</span></p>
+<p>that extends to</p>
+<p><span class="math display">\[P:S\subset \Ss'(\R^d\to\C^n)\to \Ss'(\R^d\to\C^n)\]</span></p>
+<p>where <span class="math inline">\(S\)</span> is some subset of <span class="math inline">\({\Ss'}(\R^d\to\C^m)\)</span> containing <span class="math inline">\(\Ss^\infty(\R^d\to\C^m)\)</span>. Then, given <span class="math inline">\(f \in \Ss'(\R^d\to \C^n)\)</span> we say that a <em>distributional solution</em> to <span class="math inline">\(Pw=f\)</span> is any tempered distribution <span class="math inline">\(w\in S\)</span> verifying <span class="math inline">\(Pw=f\)</span>.</p>
+</div>
+<p>In the above definition, <span class="math inline">\(P\)</span> typically defines a linear or non-linear differential equation. Note that the above definition may be extended without any difficulty to the case of (periodic) distributional solutions in the case where <span class="math inline">\(P: C^\infty(\T^d\to\C^m)\to C^\infty(\T^d\to\R^n)\)</span>.</p>
+<div id="exm-1" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1</strong></span> Set <span class="math inline">\(P=\Delta\)</span>, as we have seen previously <span class="math inline">\(\Delta\)</span> extends to <span class="math inline">\(S:=\Ss'(\R^d\to\C^m)\)</span> with</p>
+<p><span class="math display">\[
+\Ff(\Delta \omega)=-4\pi \abs{\xi }^2\Ff w .
+\]</span></p>
+<p>Solving <span class="math inline">\(Pw=f\)</span> formally yields <span class="math inline">\(w=\Ff^{-1}\left(\frac{-\Ff f}{4\pi^2 \abs{\xi }^2 }\right)\)</span>. However, division by <span class="math inline">\(\abs{\xi}^2\)</span> is ill-defined at the origin in <span class="math inline">\(\Ss'(\R^d)\)</span>. A unique solution only exists if we restrict our domain (e.g., requiring <span class="math inline">\(\Ff f(0) = 0\)</span> in suitable homogeneous spaces) to bypass the singularity.</p>
+</div>
+</section>
+<section id="sobolev-spaces" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="sobolev-spaces"><span class="header-section-number">4</span> Sobolev spaces</h2>
+<p>Sobolev spaces form a particular case of tempered distributions that we interpret as being smooth and integrable up to sufficient orders.</p>
+<div id="def-sobolevdef" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 7</strong></span> Given <span class="math inline">\(k\in\N^+\)</span> we define the <em>Sobolev space</em> <span class="math inline">\(H^k(\R^d\to\C^m)\)</span> as:</p>
+<p><span class="math display">\[
+\begin{aligned}
+H^k(\R^d\to\C^m):=
+\lbrace f\in &amp;L^2(\R^d\to\C^m)\\&amp;: D^\alpha f\in L^2(\R^d\to\C^m)\hookrightarrow\Ss '(\R^d\to\C^m)\quad\forall\abs{\alpha}\leq k\rbrace.
+\end{aligned}
+\]</span></p>
+<p>Where, we consider <span class="math inline">\(L^2(\R^d\to\C^m)\)</span> as a subspace of <span class="math inline">\(\Ss '(\R^d\to\C^m)\)</span> using (<a href="#eq-identificationfuncdist" class="quarto-xref">11</a>).</p>
+</div>
+<p>We may interpret the Sobolev space <span class="math inline">\(H^k(\R^d\to\C^m)\)</span> as the space of <span class="math inline">\(k\)</span> times differentiable functions in <span class="math inline">\(L^2(\R^d\to\C^m)\)</span> and we give it the norm:</p>
+<p><span id="eq-normdef1"><span class="math display">\[
+\begin{aligned}
+\norm{f}_{H^k(\R^d\to\C^m)}:=\sum_{\abs{\alpha}\leq k}\norm{D^\alpha f}_{L^2(\R^d\to\C^m)}\qquad f\in H^k(\R^d\to\C^m).
+\end{aligned}
+\tag{16}\]</span></span></p>
+<p>Note that it is not enough to require <span class="math inline">\(\abs{\alpha}=k\)</span> as, for example, the tempered distribution <span class="math inline">\(1 \in \Ss'(\R^d\to\C)\)</span> has a derivative equal to zero however is not itself in <span class="math inline">\(L^2(\R^d\to\C)\)</span>. Now, by Plancherel for <span class="math inline">\(\Ss\)</span> <a href="#lem-planncherellemma" class="quarto-xref">Lemma&nbsp;1</a>, the Fourier transform is an automorphism of <span class="math inline">\(\Ss'(\R^d\to\C^m)\)</span>, by using <a href="#prp-regularitydecayft" class="quarto-xref">Proposition&nbsp;3</a> we deduce that</p>
+<p><span class="math display">\[D^\alpha f\in L^2(\R^d\to\C^m)\iff \Ff (D^\alpha f)=\abs{(2\pi i\xi )^{\alpha}} \hat{f}(\xi)\in L^2(\R^d\to\C^m)\]</span></p>
+<p>from which we deduce that</p>
+<p><span id="eq-sobolevcondition"><span class="math display">\[
+f\in H^k(\R^d\to\C^m)\iff \sum_{\abs{\alpha}\leq k} \norm{(2\pi i\xi )^{\alpha}\hat{f}(\xi)}_{L^2(\R^d)} \sim_k \norm{\br{\xi}^k\hat{f}}_{L^2(\R^d)} &lt; \infty
+\tag{17}\]</span></span></p>
+<p>In fact, since the Fourier transform is a unitary transformation on <span class="math inline">\(L^2(\R^d\to\C^m)\)</span>, the same reasoning gives</p>
+<p><span id="eq-sobolevnorm"><span class="math display">\[
+\norm{f}_{H^k(\R^d\to\C^m)}\sim_k \norm{\br{\xi}^k\hat{f}(\xi)}_{L^2(\R^d\to\C^m)}
+\tag{18}\]</span></span></p>
+<p>From the two equations above we deduce that if we define for a given real number <span class="math inline">\(s\)</span> (including negative numbers!) the <span class="math inline">\(s\)</span>-th order Sobolev space as</p>
+<p><span id="eq-fracsobdef"><span class="math display">\[
+\begin{aligned}
+H^s(\R^d\to\C^m):=\lbrace f\in L^2(\R^d\to\C^m): \br{\xi}^s\hat{f}(\xi)\in L^2(\R^d\to\C^m)\rbrace
+\end{aligned}
+\tag{19}\]</span></span></p>
+<p>and give it the norm</p>
+<p><span class="math display">\[\norm{f}_{H^k(\R^d\to\C^m)}:= \norm{\br{\xi}^s\hat{f}(\xi)}_{L^2(\R^d\to\C^m)}\]</span></p>
+<p>then our new definition is equivalent to the previous one (<a href="#eq-normdef1" class="quarto-xref">16</a>) when <span class="math inline">\(s\)</span> is a positive integer. We have thus found how to generalize the concept of Sobolev space to all real orders and obtained a useful way of characterizing them and giving a neat expression for their norm. Nonetheless, it will always be useful to retain the first definition based on derivatives, as it carries with it the motivation behind the definition of Sobolev spaces. As was the case with tempered distributions we can extend the concept of Sobolev space to periodic domains by defining given an integer <span class="math inline">\(k\)</span> the Sobolev space <span class="math inline">\(H^k(\T^d\to\C^m)\)</span> as the space of square-integrable <span class="math inline">\(\Z^d\)</span> periodic functions with distributional derivatives themselves square integrable. Explicitly we define:</p>
+<p><span id="eq-sobolevdef2"><span class="math display">\[
+\begin{aligned}
+H^k(\T^d\to\C^m):=
+\lbrace f\in &amp;L^2(\T^d\to\C^m)\\&amp;: D^\alpha f\in L^2(\T^d\to\C^m)\hookrightarrow\Ss '(\T^d\to\C^m)\quad\forall\abs{\alpha}\leq k\rbrace
+\end{aligned}
+\tag{20}\]</span></span></p>
+<p>Using the same method as before, by the correspondence between regularity and decay for the Fourier transform of periodic functions <a href="#prp-plancherel-s-theorem" class="quarto-xref">Proposition&nbsp;4</a> and <a href="#prp-1" class="quarto-xref">Proposition&nbsp;5</a>, we deduce that</p>
+<p><span class="math display">\[D^\alpha f\in H^k(\T^d\to\C^m)\iff\widehat{D^\alpha f}(k)=\abs{k^\alpha}\hat{f}(k)\in l^2(\Z^d\to\C^m)\]</span></p>
+<p>which leads us as in the previous case to define for <span class="math inline">\(s\in\R\)</span> the more general Sobolev space</p>
+<p><span class="math display">\[H^s(\T^d\to\C^m):=\lbrace f\in L^2(\R^d\to\C^m): \br{k}^{s}\hat{f}(k)\in l^2(\Z^d\to\C^m)\rbrace\]</span></p>
+<p>and to give it the norm</p>
+<p><span id="eq-sobolevgeneraldef"><span class="math display">\[
+\norm{f}_{H^s(\T^d\to\C^m)}:=\left(\sum_{k\in\Z^d}\br{k}^{2s}\abs{\hat{f}(k)}^2\right)^{\frac{1}{2}}
+\tag{21}\]</span></span></p>
+<p>where of course the definitions in (<a href="#eq-sobolevdef2" class="quarto-xref">20</a>) and (<a href="#eq-sobolevgeneraldef" class="quarto-xref">21</a>) coincide for <span class="math inline">\(s\in\N\)</span>. Note that, by the previous discussion, we have that both in the euclidean and periodic case</p>
+<p><span id="eq-sobolev-derivatives-embedding"><span class="math display">\[
+\begin{aligned}
+f\in H^s(\R^d\to\C^m)  &amp; \iff  D^\alpha f\in H^{s-\abs{\alpha}}(\R^d\to\C^m)\qquad\forall\abs{\alpha}\leq s\\
+f\in H^s(\T^d\to\C^m) &amp; \iff  D^\alpha f\in H^{s-\abs{\alpha}}(\T^d\to\C^m)\qquad\forall\abs{\alpha}\leq s
+\end{aligned}
+\tag{22}\]</span></span></p>
+<p>One major advantage of working with the Sobolev spaces <span class="math inline">\(H^s\)</span> is that, differently to the classical space of smooth functions <span class="math inline">\(C^s\)</span>, they form a Hilbert space with the inner product given by</p>
+<p><span class="math display">\[
+\begin{aligned}
+\br{f,g}_{H^s(\R^d\to\C^m)}  &amp; :=\int_{\R^d}\br{\xi }^{2s}\hat{f}(\xi )\overline{\hat{g}(\xi )} d\xi\\
+\br{f,g}_{H^s(\T^d\to\C^m)} &amp; :=\sum_{k\in \Z^d} \br{k }^{2s}\hat{f}(k)\overline{\widehat{g}(k )}.
+\end{aligned}
+\]</span></p>
+<p>This gives one access to all the power of functional analysis and is invaluable in proofs. However, at the end of the day wishes to prove that solutions with smooth initial data are themselves smooth in a classical sense. This can be done by showing that the solution belongs to a Sobolev space of high enough order together with the following two results.</p>
+<div id="lem-sobolev-derivatives-embedding-periodic" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 2 (<strong>Sobolev Embedding into Continuous Functions</strong>)</strong></span> Given <span class="math inline">\(f\in H^{s}(\T^d\to\C^m)\)</span> with <span class="math inline">\(s&gt;d/2\)</span>. Then the Fourier series of <span class="math inline">\(f\)</span> is absolutely convergent and <span class="math inline">\(f\in C(\T^d\to\C^m)\)</span> with the bound</p>
+<p><span class="math display">\[\norm{f}_{L^\infty(\T^d\to\C^m)}\lesssim_{d,s}\norm{f}_{H^s(\T^d\to\C^m)}\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The proof is an application of the Cauchy-Schwartz inequality. We have that</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{k\in\Z^d}\abs{\hat{f}(k)}&amp;=\sum_{k\in\Z^d} \br{k}^{-s}\br{k}^{s}\abs{\hat{f}(k)}\leq\left(\sum_{k\in\Z^d} \frac{\br{k}^{-2s}}{2}\right)^{\frac{1}{2}}\left(\sum_{k\in\Z^d}\frac{\br{k}^{2s}}{2}\abs{\hat{f}(k)}^2\right)^{\frac{1}{2}}\\
+&amp;\lesssim_{d,s}\norm{f}_{H^s(\mathbb{T}^d\to\C^m)}&lt;\infty.
+\end{aligned}
+\]</span></p>
+<p>In consequence, the sum</p>
+<p><span id="eq-fourier-sum"><span class="math display">\[
+\sum_{k\in\Z^d}\hat{f}(k)e^{2\pi ik\cdot x}
+\tag{23}\]</span></span></p>
+<p>converges absolutely (and uniformly). Since by Plancherel’s Theorem, the above sum also converges in <span class="math inline">\(L^2(\T^d\to\C^m)\)</span> to <span class="math inline">\(f\)</span> we deduce that (<a href="#eq-fourier-sum" class="quarto-xref">23</a>) converges almost everywhere to <span class="math inline">\(f\)</span> (for example by taking a subsequence of the above sum that converges almost everywhere to <span class="math inline">\(f\)</span>). Therefore</p>
+<p><span class="math display">\[\norm{f}_{L^\infty(\T^d\to\C^m)}=\norm{\sum_{k\in\Z^d}\hat{f}(k)e^{2\pi ik\cdot x}}_{L^\infty(\T^d\to\C^m)}\]</span></p>
+<p>which is</p>
+<p><span class="math display">\[\leq\sum_{k\in\Z^d}\norm{\hat{f}(k)e^{2\pi ik\cdot x}}_{L^\infty(\T^d\to\C^m)}=\sum_{k\in\Z^d}\abs{\hat{f}(k)}\lesssim_{d,s}\norm{f}_{H^s(\T^d\to\C^m)}.\]</span></p>
+<p>The continuity of <span class="math inline">\(f\)</span> follows from the point-wise equality</p>
+<p><span id="eq-pointwise-convergence-fourier-sum"><span class="math display">\[
+f(x)=\sum_{k\in\Z^d}\hat{f}(k)e^{2\pi ik\cdot x}=\int_{\Z^d} \hat{f}(k)e^{2\pi ik\cdot x} dk
+\tag{24}\]</span></span></p>
+<p>together with the monotone convergence theorem applied to <span class="math inline">\(\Z^d\)</span> with the counting measure <span class="math inline">\(dk\)</span>.</p>
+</div>
+<p>As a corollary of this, we have the following two results</p>
+<div id="prp-characterization-smooth-functions-in-sobolev-space" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 6 (<strong>Sobolev embedding</strong>)</strong></span> Let <span class="math inline">\(f\in H^s(\T^d\to\C^m)\)</span> where <span class="math inline">\(s&gt;\frac{d}{2}+k\)</span>. Then <span class="math inline">\(f\in C^k(\T^d\to\C^m)\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>By (<a href="#lem-sobolev-derivatives-embedding-periodic" class="quarto-xref">Lemma&nbsp;2</a>), we may apply the previous proposition to deduce that <span class="math inline">\(D^\alpha f\)</span> is continuous for all <span class="math inline">\(\abs{\alpha}\leq k\)</span>. Therefore it suffices to show that for <span class="math inline">\(\abs{\alpha}\leq k\)</span> the distributional derivatives <span class="math inline">\(D^\alpha f\)</span> are also the classical derivatives of <span class="math inline">\(f\)</span> which we denote by <span class="math inline">\(f_\alpha\)</span>. By the hypothesis placed on <span class="math inline">\(f\)</span>, we have that the series</p>
+<p><span class="math display">\[\sum_{k\in\Z^d} (2\pi ik)^\alpha \hat{f}(k)e^{2\pi ik\cdot x} \]</span></p>
+<p>is absolutely convergent (by <a href="#lem-sobolev-derivatives-embedding-periodic" class="quarto-xref">Lemma&nbsp;2</a>), and hence, we may commute the derivatives of <span class="math inline">\(f\)</span> with the sum in its Fourier series to deduce the point-wise equality</p>
+<p><span class="math display">\[f_\alpha(x)=\sum_{k\in\Z^d} (2\pi ik)^\alpha \hat{f}(k)e^{2\pi ik\cdot x}.\]</span></p>
+<p>Now, note that by using (<a href="#eq-derivativedistr" class="quarto-xref">15</a>) for the Fourier coefficients of distributions we also have that the equality</p>
+<p><span class="math display">\[D^\alpha f(x)=\sum_{k\in\Z^d} (2\pi ik)^\alpha \hat{f}(k)e^{2\pi ik\cdot x}\]</span></p>
+<p>holds in <span class="math inline">\(L^2(\T^d\to\C^m)\)</span>. From these last two equalities, we deduce that <span class="math inline">\(f_\alpha=D^\alpha f\)</span> almost everywhere which concludes our proof.</p>
+</div>
+<p>As before the previous results also have a euclidean analog whose proof is identical in replacing all of the above sums over <span class="math inline">\(\Z^d\)</span> with integrals over <span class="math inline">\(\R^d\)</span>. Finally, we conclude this post with a neat little trick. Given smooth <span class="math inline">\(f\)</span> and some differential operator <span class="math inline">\(\Ll =\sum_{\alpha} D^\alpha=p(D)\)</span> we have that</p>
+<p><span class="math display">\[
+D^\alpha f =\Ff^{-1}(\Ff  \Ll f)=\Ff^{-1}(p_\Ll(2 \pi i\xi )\hat{f}(\xi ))
+\]</span></p>
+<p>The term <span class="math inline">\(p_\Ll\)</span> is called a Fourier multiplier and there is no need to limit ourselves to polynomials. In fact, we may make the general definition that for a function of two variables <span class="math inline">\(p\)</span></p>
+<p><span class="math display">\[
+p(x,D)f:=\Ff^{-1}\left(p(x,\cdot  )\hat{f}(\cdot  )\right).
+\]</span></p>
+<p>This leads to the definition of <em>pseudo-differential operators</em>. A particular case is that of fractional operators. We now show an example.</p>
+<div id="exm-2" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2</strong></span> Given smooth <span class="math inline">\(f\)</span> we have that</p>
+<p><span class="math display">\[
+-\Delta f=\Ff^{-1}(4 \pi^2 \abs{\xi}^2 \hat{f}(\xi )).
+\]</span></p>
+<p>As a result, we define the fractional Laplacian for all <span class="math inline">\(s\in \R\)</span> as</p>
+<p><span class="math display">\[
+{(-\Delta)}^sf:=\Ff^{-1} \left(\left(4\pi^2 \abs{\xi }^2\right)^s\hat{f}(\xi )\right).
+\]</span></p>
+<p>By contrast, the Bessel potential operator is defined using the Japanese bracket: <span class="math inline">\((I - \frac{\Delta}{4\pi^2})^{s/2}f := \Ff^{-1}(\br{\xi}^s \hat{f}(\xi))\)</span>.</p>
+</div>
+<p>This post is already getting a bit long (if you’ve stuck in till the end I salute you), so we leave it off here with a neat little exercise (our first of this blog)</p>
+<div id="exr-1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1</strong></span> How should we define <span class="math display">\[T:=\left(1-\frac{\Delta}{4\pi ^2}  \right)^\frac{s}{2}\text{?} \]</span> Once you do so show that for all <span class="math inline">\(s,k \in \R\)</span>, the operator <span class="math inline">\(T\)</span> defines a linear bijective isometry</p>
+<p><span class="math display">\[
+T: H^k(\R^d\to\C^m)\to H^{k-s}(\R^d\to\C^m).
+\]</span></p>
+</div>
+<p>In our future post we will discuss the well posedness of second order elliptic equations, and if we have time discuss the heat equation and how the Fourier transform affords provides us with an elegant solution.</p>
+<blockquote class="blockquote">
+<blockquote class="blockquote">
+
+</blockquote>
+</blockquote>
+</section>
+<section id="references" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="references"><span class="header-section-number">5</span> References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-FF" class="csl-entry" role="listitem">
+Aguirre, José A Facenda, and Francisco José Freniche Ibáñez. 2002. <em>Integraci<span>ó</span>n de Funciones de Varias Variables</em>. Ediciones Pir<span>á</span>mide. <a href="https://books.google.co.uk/books/about/Integraci%C3%B3n_de_funciones_de_varias_vari.html?id=uuHbOgAACAAJ&amp;redir_esc=y">https://books.google.co.uk/books/about/Integraci%C3%B3n_de_funciones_de_varias_vari.html?id=uuHbOgAACAAJ&amp;redir_esc=y</a>.
+</div>
+<div id="ref-Foll" class="csl-entry" role="listitem">
+Folland, Gerald B. 1999. <em>Real Analysis: Modern Techniques and Their Applications</em>. Vol. 40. John Wiley &amp; Sons.
+</div>
+<div id="ref-Tay" class="csl-entry" role="listitem">
+Taylor, Michael. 1996. <em>Partial Differential Equations i: Basic Theory</em>. <a href="https://link.springer.com/book/10.1007/978-1-4419-7055-8">https://link.springer.com/book/10.1007/978-1-4419-7055-8</a>.
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<hr style="margin-top: 1em; margin-bottom: 2em;">
+<h2 id="comments">Comments</h2>
+
+<div class="giscus-comments">
+  <div style="
+      background: #f9f9f9;
+      border-left: 4px solid #008aff;
+      padding: 10px;
+      margin-bottom: 20px;
+      font-size: 0.9em;
+      color: #555;
+      border-radius: 0 4px 4px 0;
+    ">
+    <strong>Tip:</strong> Supports LaTeX using $$.
+    <a href="https://nowheredifferentiable.com/math-formatting" target="_blank" style="text-decoration: underline; color: #008aff">See formatting examples</a>.
+    <br>
+    To edit or delete, click the <strong>timestamp</strong> (e.g., "5 minutes
+    ago").
+  </div>
+
+  <div class="giscus" id="giscus-container"></div>
+
+  <script src="https://giscus.app/client.js" data-repo="LiamLlamazares/math_blog" data-repo-id="R_kgDOHZYcTQ" data-category="Comments" data-category-id="DIC_kwDOHZYcTc4Cx-sY" data-mapping="pathname" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="bottom" data-theme="light" data-lang="en" crossorigin="anonymous" async=""></script>
+
+  <script>
+    (function () {
+      function handleDeepLink() {
+        const hash = window.location.hash;
+        if (!hash || !hash.includes("discussioncomment")) return;
+
+        const container = document.getElementById("giscus-container");
+        if (container) {
+          container.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+
+        const iframe = document.querySelector("iframe.giscus-frame");
+        if (iframe) {
+          try {
+            const url = new URL(iframe.src);
+            if (url.hash !== hash) {
+              url.hash = hash;
+              iframe.src = url.toString();
+            }
+          } catch (e) {
+            console.error(e);
+          }
+        }
+      }
+
+      window.addEventListener("load", handleDeepLink);
+      window.addEventListener("hashchange", handleDeepLink);
+      window.addEventListener("message", function (event) {
+        if (
+          event.origin === "https://giscus.app" &&
+          event.data &&
+          event.data.giscus &&
+          event.data.giscus.resizeHeight
+        ) {
+          setTimeout(handleDeepLink, 500);
+        }
+      });
+    })();
+  </script>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const meta = document.querySelector('.quarto-title-meta');
+  if (!meta) return;
+
+  // Find the hidden data div injected by latex2qmd.py
+  const pdfDataElement = document.getElementById('quarto-post-pdf-url');
+  if (!pdfDataElement) return;
+
+  const pdfUrl = pdfDataElement.getAttribute('data-url');
+
+  if (pdfUrl && meta) {
+    // Check if we already injected it
+    if (document.querySelector('.quarto-title-meta-pdf')) return;
+
+    const pdfDiv = window.document.createElement('div');
+    pdfDiv.className = 'quarto-title-meta-pdf';
+    pdfDiv.innerHTML = `
+      <div class="quarto-title-meta-heading">PDF Version</div>
+      <div class="quarto-title-meta-contents">
+        <p><a href="${pdfUrl}" target="_blank">
+          <i class="bi bi-file-earmark-pdf"></i> PDF version
+        </a></p>
+      </div>
+    `;
+    meta.appendChild(pdfDiv);
+  }
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("index\.qmd");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>L. Llamazares-Elias</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/LiamLlamazares">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=nW7-c62TwJ0C">
+<p>Google Scholar</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
