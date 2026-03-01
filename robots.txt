@@ -1,1 +1,1 @@
-Sitemap: index.qmd/sitemap.xml
+Sitemap: https://nowheredifferentiable.com/sitemap.xml

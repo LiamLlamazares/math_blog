@@ -6,15 +6,15 @@
       version="2.0">
 <channel>
 <title>NoWhere Differentiable Math</title>
-<link>index.qmd/</link>
-<atom:link href="index.qmd/index.xml" rel="self" type="application/rss+xml"/>
+<link>https://nowheredifferentiable.com/</link>
+<atom:link href="https://nowheredifferentiable.com/index.xml" rel="self" type="application/rss+xml"/>
 <description>A blog about Mathematics, Spatial statistics, stochastic analysis, and PDEs.</description>
 <generator>quarto-1.8.27</generator>
 <lastBuildDate>Sat, 19 Oct 2024 00:00:00 GMT</lastBuildDate>
 <item>
   <title>PDEs 7: Parabolic PDE, well-posedness and regularity</title>
   <dc:creator>Liam Llamazares-Elias</dc:creator>
-  <link>index.qmd/posts/PDEs/7. Existence Parabolic/</link>
+  <link>https://nowheredifferentiable.com/posts/PDEs/7. Existence Parabolic/</link>
   <description><![CDATA[ 
 
 
@@ -254,20 +254,20 @@
 <p>We show solutions for <img src="https://latex.codecogs.com/png.latex?n=3"> and <img src="https://latex.codecogs.com/png.latex?n=20">; as we can see, as the number of basis functions increases, the solution converges to <img src="https://latex.codecogs.com/png.latex?1"> when <img src="https://latex.codecogs.com/png.latex?t=0"> and becomes quite oscillatory at the boundary to try to adapt to the admittedly somewhat incompatible boundary conditions.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="index.qmd/posts/PDEs/7. Existence Parabolic/Galerkin_n_3.svg" class="img-fluid figure-img" style="width:80.0%"></p>
+<p><img src="https://nowheredifferentiable.com/posts/PDEs/7. Existence Parabolic/Galerkin_n_3.svg" class="img-fluid figure-img" style="width:80.0%"></p>
 <figcaption>Galerkin solution to the parabolic problem (31) with <img src="https://latex.codecogs.com/png.latex?n=3"> basis functions.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="index.qmd/posts/PDEs/7. Existence Parabolic/Galerkin_n_20.svg" class="img-fluid figure-img" style="width:80.0%"></p>
+<p><img src="https://nowheredifferentiable.com/posts/PDEs/7. Existence Parabolic/Galerkin_n_20.svg" class="img-fluid figure-img" style="width:80.0%"></p>
 <figcaption>Galerkin solution to the parabolic problem (31) with <img src="https://latex.codecogs.com/png.latex?n=20"> basis functions.</figcaption>
 </figure>
 </div>
 <p>We also include a figure to show how the boundary condition <img src="https://latex.codecogs.com/png.latex?g=1"> may be approximated in <img src="https://latex.codecogs.com/png.latex?H_0%5E1(U)"> using the basis functions <img src="https://latex.codecogs.com/png.latex?%5Cphi_j">. We note that the approximating sequence does not converge <img src="https://latex.codecogs.com/png.latex?H_0%5E1"> as the derivative explodes at the boundary.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="index.qmd/posts/PDEs/7. Existence Parabolic/approx_boundary_l2.svg" class="img-fluid figure-img" style="width:80.0%"></p>
+<p><img src="https://nowheredifferentiable.com/posts/PDEs/7. Existence Parabolic/approx_boundary_l2.svg" class="img-fluid figure-img" style="width:80.0%"></p>
 <figcaption>Approximation of <img src="https://latex.codecogs.com/png.latex?g=1"> in <img src="https://latex.codecogs.com/png.latex?L%5E2(U)"> using the basis functions <img src="https://latex.codecogs.com/png.latex?%5Cphi_j%20%5Cin%20H_0%5E1(U)">.</figcaption>
 </figure>
 </div>
@@ -278,13 +278,13 @@
 <p>as before for <img src="https://latex.codecogs.com/png.latex?n=20"> basis functions. As we can see, the Galerkin solution and the exact solution are quite close.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="index.qmd/posts/PDEs/7. Existence Parabolic/Galerkin_exact.svg" class="img-fluid figure-img" style="width:80.0%"></p>
+<p><img src="https://nowheredifferentiable.com/posts/PDEs/7. Existence Parabolic/Galerkin_exact.svg" class="img-fluid figure-img" style="width:80.0%"></p>
 <figcaption>Exact solution to the parabolic problem (32).</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="index.qmd/posts/PDEs/7. Existence Parabolic/Galerkin_n_20_2.svg" class="img-fluid figure-img" style="width:80.0%"></p>
+<p><img src="https://nowheredifferentiable.com/posts/PDEs/7. Existence Parabolic/Galerkin_n_20_2.svg" class="img-fluid figure-img" style="width:80.0%"></p>
 <figcaption>Galerkin solution to the parabolic problem (32) with <img src="https://latex.codecogs.com/png.latex?n=20"> basis functions.</figcaption>
 </figure>
 </div>
@@ -333,14 +333,14 @@ Friedman, Avner. 1983. <span>“Partial Differential Equations of Parabolic Type
 
  ]]></description>
   <category>Pdes</category>
-  <guid>index.qmd/posts/PDEs/7. Existence Parabolic/</guid>
+  <guid>https://nowheredifferentiable.com/posts/PDEs/7. Existence Parabolic/</guid>
   <pubDate>Sat, 19 Oct 2024 00:00:00 GMT</pubDate>
-  <media:content url="index.qmd/posts/PDEs/7. Existence Parabolic/Cover.png" medium="image" type="image/png" height="102" width="144"/>
+  <media:content url="https://nowheredifferentiable.com/posts/PDEs/7. Existence Parabolic/Cover.png" medium="image" type="image/png" height="102" width="144"/>
 </item>
 <item>
   <title>PDEs 6: Elliptic PDE</title>
   <dc:creator>Liam Llamazares--Elias</dc:creator>
-  <link>index.qmd/posts/PDEs/6. Existence elliptic/</link>
+  <link>https://nowheredifferentiable.com/posts/PDEs/6. Existence elliptic/</link>
   <description><![CDATA[ 
 
 
@@ -1012,13 +1012,13 @@ Savaré, Giuseppe. 1998. <span>“Regularity Results for Elliptic Equations in L
 
  ]]></description>
   <category>Pdes</category>
-  <guid>index.qmd/posts/PDEs/6. Existence elliptic/</guid>
+  <guid>https://nowheredifferentiable.com/posts/PDEs/6. Existence elliptic/</guid>
   <pubDate>Wed, 28 Feb 2024 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>PDEs 5: Fractional Sobolev spaces</title>
   <dc:creator>Liam Llamazares--Elias</dc:creator>
-  <link>index.qmd/posts/PDEs/5. Fractional and negative order Sobolev spaces/</link>
+  <link>https://nowheredifferentiable.com/posts/PDEs/5. Fractional and negative order Sobolev spaces/</link>
   <description><![CDATA[ 
 
 
@@ -1588,7 +1588,7 @@ There is a natural correspondence between negative regularity and the dual. Addi
 <div id="fig-fig:regularity-coefficient" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig:regularity-coefficient-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="index.qmd/posts/PDEs/5. Fractional and negative order Sobolev spaces/regularity_coefficient.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+<img src="https://nowheredifferentiable.com/posts/PDEs/5. Fractional and negative order Sobolev spaces/regularity_coefficient.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig:regularity-coefficient-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Sobolev critical exponent for <img src="https://latex.codecogs.com/png.latex?p=2"> and <img src="https://latex.codecogs.com/png.latex?d=1,2,3">
@@ -1675,13 +1675,13 @@ Triebel, Hans. 1992. <em>Theory of Function Spaces II</em>. Vol. 84. Birkh<span>
 
  ]]></description>
   <category>Pdes</category>
-  <guid>index.qmd/posts/PDEs/5. Fractional and negative order Sobolev spaces/</guid>
+  <guid>https://nowheredifferentiable.com/posts/PDEs/5. Fractional and negative order Sobolev spaces/</guid>
   <pubDate>Tue, 27 Feb 2024 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>PDES 4: A physical derivation of parabolic and elliptic PDE</title>
   <dc:creator>Liam Llamazares--Elias</dc:creator>
-  <link>index.qmd/posts/PDEs/4. Physical derivation/</link>
+  <link>https://nowheredifferentiable.com/posts/PDEs/4. Physical derivation/</link>
   <description><![CDATA[ 
 
 
@@ -1796,13 +1796,13 @@ Triebel, Hans. 1992. <em>Theory of Function Spaces II</em>. Vol. 84. Birkh<span>
 
  ]]></description>
   <category>Pdes</category>
-  <guid>index.qmd/posts/PDEs/4. Physical derivation/</guid>
+  <guid>https://nowheredifferentiable.com/posts/PDEs/4. Physical derivation/</guid>
   <pubDate>Sat, 23 Dec 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>PDEs 3: Sobolev spaces</title>
   <dc:creator>Liam Llamazares--Elias</dc:creator>
-  <link>index.qmd/posts/PDEs/3. Sobolev spaces/</link>
+  <link>https://nowheredifferentiable.com/posts/PDEs/3. Sobolev spaces/</link>
   <description><![CDATA[ 
 
 
@@ -3391,13 +3391,13 @@ Tu, Loring W. 2011. <span>“Manifolds.”</span> In <em>An Introduction to Mani
 
  ]]></description>
   <category>Pdes</category>
-  <guid>index.qmd/posts/PDEs/3. Sobolev spaces/</guid>
+  <guid>https://nowheredifferentiable.com/posts/PDEs/3. Sobolev spaces/</guid>
   <pubDate>Wed, 12 Jul 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>PDEs 2: What is a Hilbert space?</title>
   <dc:creator>Liam Llamazares--Elias</dc:creator>
-  <link>index.qmd/posts/PDEs/2. What is a Hilbert space/</link>
+  <link>https://nowheredifferentiable.com/posts/PDEs/2. What is a Hilbert space/</link>
   <description><![CDATA[ 
 
 
@@ -3780,13 +3780,13 @@ Taylor, Michael. 2013. <em>Partial Differential Equations II: Qualitative Studie
 
  ]]></description>
   <category>Pdes</category>
-  <guid>index.qmd/posts/PDEs/2. What is a Hilbert space/</guid>
+  <guid>https://nowheredifferentiable.com/posts/PDEs/2. What is a Hilbert space/</guid>
   <pubDate>Tue, 30 May 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Study of densities part 1</title>
   <dc:creator>Liam Llamazares--Elias</dc:creator>
-  <link>index.qmd/posts/Malliavin Calculus/5. Study of densities 1/</link>
+  <link>https://nowheredifferentiable.com/posts/Malliavin Calculus/5. Study of densities 1/</link>
   <description><![CDATA[ 
 
 
@@ -3900,13 +3900,13 @@ Nualart, David, and Eulalia Nualart. 2018. <em>Introduction to Malliavin Calculu
 
  ]]></description>
   <category>Malliavin Calculus</category>
-  <guid>index.qmd/posts/Malliavin Calculus/5. Study of densities 1/</guid>
+  <guid>https://nowheredifferentiable.com/posts/Malliavin Calculus/5. Study of densities 1/</guid>
   <pubDate>Mon, 24 Oct 2022 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>PDEs 1: The Fourier transform, tempered distributions and Sobolev spaces</title>
   <dc:creator>Liam Llamazares--Elias</dc:creator>
-  <link>index.qmd/posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/</link>
+  <link>https://nowheredifferentiable.com/posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/</link>
   <description><![CDATA[ 
 
 
@@ -4250,13 +4250,13 @@ Taylor, Michael. 1996. <em>Partial Differential Equations i: Basic Theory</em>. 
 
  ]]></description>
   <category>Pdes</category>
-  <guid>index.qmd/posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/</guid>
+  <guid>https://nowheredifferentiable.com/posts/PDEs/1. The Fourier transform, tempered distributions and Sobolev spaces/</guid>
   <pubDate>Fri, 14 Oct 2022 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>MC 4: The Malliavin derivative, part 2</title>
   <dc:creator>Billy Summers</dc:creator>
-  <link>index.qmd/posts/Malliavin Calculus/4.Malliavin_derivative_2/</link>
+  <link>https://nowheredifferentiable.com/posts/Malliavin Calculus/4.Malliavin_derivative_2/</link>
   <description><![CDATA[ 
 
 
@@ -4368,13 +4368,13 @@ Taylor, Michael. 1996. <em>Partial Differential Equations i: Basic Theory</em>. 
 
  ]]></description>
   <category>Malliavin Calculus</category>
-  <guid>index.qmd/posts/Malliavin Calculus/4.Malliavin_derivative_2/</guid>
+  <guid>https://nowheredifferentiable.com/posts/Malliavin Calculus/4.Malliavin_derivative_2/</guid>
   <pubDate>Sat, 02 Jul 2022 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>MC 3: The Malliavin Derivative 1</title>
   <dc:creator>Liam Llamazares--Elias</dc:creator>
-  <link>index.qmd/posts/Malliavin Calculus/3.Malliavin_derivative_1/</link>
+  <link>https://nowheredifferentiable.com/posts/Malliavin Calculus/3.Malliavin_derivative_1/</link>
   <description><![CDATA[ 
 
 
@@ -4525,13 +4525,13 @@ Nunno, Giulia Di, Bernt Øksendal, and Frank Proske. 2008. <em>Malliavin Calculu
 
  ]]></description>
   <category>Malliavin Calculus</category>
-  <guid>index.qmd/posts/Malliavin Calculus/3.Malliavin_derivative_1/</guid>
+  <guid>https://nowheredifferentiable.com/posts/Malliavin Calculus/3.Malliavin_derivative_1/</guid>
   <pubDate>Thu, 30 Jun 2022 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>MC 2: The Skorokhod Integral</title>
   <dc:creator>Liam Llamazares--Elias</dc:creator>
-  <link>index.qmd/posts/Malliavin Calculus/2.Skorohod/</link>
+  <link>https://nowheredifferentiable.com/posts/Malliavin Calculus/2.Skorohod/</link>
   <description><![CDATA[ 
 
 
@@ -4633,13 +4633,13 @@ Nunno, Giulia Di, Bernt Øksendal, and Frank Proske. 2008. <em>Malliavin Calculu
 
  ]]></description>
   <category>Malliavin calculus</category>
-  <guid>index.qmd/posts/Malliavin Calculus/2.Skorohod/</guid>
+  <guid>https://nowheredifferentiable.com/posts/Malliavin Calculus/2.Skorohod/</guid>
   <pubDate>Sat, 28 May 2022 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>The Bochner Integral</title>
   <dc:creator>Liam Llamazares--Elias</dc:creator>
-  <link>index.qmd/posts/Analysis on Banach spaces/Bochner_integral/</link>
+  <link>https://nowheredifferentiable.com/posts/Analysis on Banach spaces/Bochner_integral/</link>
   <description><![CDATA[ 
 
 
@@ -4951,13 +4951,13 @@ Vakhania, Nicholas, Vazha Tarieladze, and S Chobanyan. 2012. <em>Probability Dis
 
  ]]></description>
   <category>Analysis On Banach Spaces</category>
-  <guid>index.qmd/posts/Analysis on Banach spaces/Bochner_integral/</guid>
+  <guid>https://nowheredifferentiable.com/posts/Analysis on Banach spaces/Bochner_integral/</guid>
   <pubDate>Fri, 27 May 2022 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>MC 1: The chaos expansion</title>
   <dc:creator>Liam Llamazares--Elias</dc:creator>
-  <link>index.qmd/posts/Malliavin Calculus/1.Chaos_expansion/</link>
+  <link>https://nowheredifferentiable.com/posts/Malliavin Calculus/1.Chaos_expansion/</link>
   <description><![CDATA[ 
 
 
@@ -5052,13 +5052,13 @@ Nunno, Giulia Di, Bernt Øksendal, and Frank Proske. 2008. <em>Malliavin Calculu
 
  ]]></description>
   <category>Malliavin calculus</category>
-  <guid>index.qmd/posts/Malliavin Calculus/1.Chaos_expansion/</guid>
+  <guid>https://nowheredifferentiable.com/posts/Malliavin Calculus/1.Chaos_expansion/</guid>
   <pubDate>Mon, 23 May 2022 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>MC 6: Study of densities part 2</title>
   <dc:creator>Liam Llamazares--Elias</dc:creator>
-  <link>index.qmd/posts/Malliavin Calculus/6. Study of densities 2/</link>
+  <link>https://nowheredifferentiable.com/posts/Malliavin Calculus/6. Study of densities 2/</link>
   <description><![CDATA[ 
 
 
@@ -5181,13 +5181,13 @@ Nunno, Giulia Di, Bernt Øksendal, and Frank Proske. 2008. <em>Malliavin Calculu
 
  ]]></description>
   <category>Malliavin Calculus</category>
-  <guid>index.qmd/posts/Malliavin Calculus/6. Study of densities 2/</guid>
+  <guid>https://nowheredifferentiable.com/posts/Malliavin Calculus/6. Study of densities 2/</guid>
   <pubDate>Invalid Date</pubDate>
 </item>
 <item>
   <title>MC 7: The Ornstein-Uhlenbeck Semigroup</title>
   <dc:creator>Liam Llamazares--Elias</dc:creator>
-  <link>index.qmd/posts/Malliavin Calculus/7. The Ornstein-Uhlenbeck Semigroup/</link>
+  <link>https://nowheredifferentiable.com/posts/Malliavin Calculus/7. The Ornstein-Uhlenbeck Semigroup/</link>
   <description><![CDATA[ 
 
 
@@ -5281,13 +5281,13 @@ Nualart, David, and Eulalia Nualart. 2018. <em>Introduction to Malliavin Calculu
 
  ]]></description>
   <category>Malliavin Calculus</category>
-  <guid>index.qmd/posts/Malliavin Calculus/7. The Ornstein-Uhlenbeck Semigroup/</guid>
+  <guid>https://nowheredifferentiable.com/posts/Malliavin Calculus/7. The Ornstein-Uhlenbeck Semigroup/</guid>
   <pubDate>Invalid Date</pubDate>
 </item>
 <item>
   <title>Martingales in Banach spaces</title>
   <dc:creator>Liam Llamazares--Elias</dc:creator>
-  <link>index.qmd/posts/Stochastic Calculus/Martingales/</link>
+  <link>https://nowheredifferentiable.com/posts/Stochastic Calculus/Martingales/</link>
   <description><![CDATA[ 
 
 
@@ -5418,13 +5418,13 @@ Nualart, David, and Eulalia Nualart. 2018. <em>Introduction to Malliavin Calculu
 
  ]]></description>
   <category>Stochastic Calculus</category>
-  <guid>index.qmd/posts/Stochastic Calculus/Martingales/</guid>
+  <guid>https://nowheredifferentiable.com/posts/Stochastic Calculus/Martingales/</guid>
   <pubDate>Mon, 23 May 2022 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>The Itô integral</title>
   <dc:creator>Liam Llamazares--Elias</dc:creator>
-  <link>index.qmd/posts/Stochastic Calculus/Ito_integral/</link>
+  <link>https://nowheredifferentiable.com/posts/Stochastic Calculus/Ito_integral/</link>
   <description><![CDATA[ 
 
 
@@ -5534,7 +5534,7 @@ Karatzas, Ioannis. 1987. <span>“Brownian Motion and Stochastic Calculus.”</s
  ]]></description>
   <category>Stochastic Calculus</category>
   <category>Ito Integral</category>
-  <guid>index.qmd/posts/Stochastic Calculus/Ito_integral/</guid>
+  <guid>https://nowheredifferentiable.com/posts/Stochastic Calculus/Ito_integral/</guid>
   <pubDate>Sun, 22 May 2022 00:00:00 GMT</pubDate>
 </item>
 </channel>
