@@ -6,7 +6,7 @@ project:
     - assets/
     - custom_theorems.css
   post-render:
-    - py copy_feed.py
+    - python3 copy_feed.py
   render:
     - "!posts/Future/**"
     - "*.qmd"
