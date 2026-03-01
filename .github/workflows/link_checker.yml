@@ -27,13 +27,14 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install colorama
+          pip install colorama pymupdf
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
       - name: Compile LaTeX to Quarto Markdown
         run: |
+          python convert_images.py
           python latex2qmd.py posts --all
 
       - name: Render Quarto Site
