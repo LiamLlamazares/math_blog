@@ -97,7 +97,7 @@ The `fetch-comments.yml` workflow runs every hour to update the recent comments 
 The site uses a layered CSS/SCSS architecture to replicate a high-end mathematical typesetting aesthetic:
 
 ### 1. Global Styling (`styles.scss`)
-This is where the "Terence Tao" aesthetic is defined. It overrides Quarto's default Bootstrap variables and implements the LaTeX-style link coloring:
+This is where the aesthetic is defined. It overrides Quarto's default Bootstrap variables and implements the LaTeX-style link coloring:
 - **Primary Color:** Set to a deep navy (`#1E3A8A`).
 - **Typography:** Uses serif fonts (*Merriweather*, *Georgia*) for article content and sans-serif (*Inter*) for UI elements.
 - **Link Logic:** 

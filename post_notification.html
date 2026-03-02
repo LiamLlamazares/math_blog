@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>*|RSSITEM:TITLE|*</title>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+        }
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .content {
+            font-size: 16px;
+        }
+        .meta {
+            font-size: 12px;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+        }
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 12px;
+            color: #95a5a6;
+            text-align: center;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>*|RSSITEM:TITLE|*</h1>
+    <div class="meta">
+        Published on *|RSSITEM:DATE|* | <a href="*|RSSITEM:URL|*">View original post</a>
+    </div>
+    <div class="content">
+        *|RSSITEM:CONTENT_FULL|*
+    </div>
+    <div class="footer">
+        You are receiving this because you subscribed to <a href="https://nowheredifferentiable.com">NoWhere Differentiable Math</a>.<br>
+        <a href="*|UNSUB|*">Unsubscribe</a> | <a href="*|UPDATE_PROFILE|*">Update preferences</a>
+    </div>
+</body>
+</html>
