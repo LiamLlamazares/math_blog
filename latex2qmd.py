@@ -465,15 +465,16 @@ def build_label_registry(posts_root: Path, tex_name: str = 'main.tex') -> dict:
                 else:
                     inner = ''
 
-                if not label:
-                    inner_label_m = re.search(r'\\label\{([^}]*)\}', inner)
-                    if inner_label_m:
-                        label = inner_label_m.group(1)
-
-                if label:
-                    label_id = sanitize(label)
-                    qid = f"eq-{label_id}"
-                    registry[folder_str][label] = qid
+                # Scan for ALL labels inside the block
+                inner_labels = re.findall(r'\\label\{([^}]*)\}', inner)
+                if label and label not in inner_labels:
+                    inner_labels.insert(0, label)
+                
+                for l in inner_labels:
+                    # Registry IDs should match the sanitize logic used in convert()
+                    # We use f"eq-{sanitize(l)}" to be consistent with Pass 3
+                    qid = f"eq-{sanitize(l)}"
+                    registry[folder_str][l] = qid
                     registry[folder_str][qid] = qid
 
         # Scan sections for labels (including starred versions)
@@ -701,29 +702,25 @@ def convert_body(body: str, label_registry: dict | None = None,
                 # to this env's div ID. Labels inside math envs are handled by Pass 3.
                 qid = div_id.lstrip('#')
                 # Find labels NOT inside a math env by stripping math envs first
-                math_envs_pat = re.compile(r'\\begin\{(aligneq\*?|align\*?|equation\*?)\}.*?\\end\{\1\}', re.DOTALL)
-                stripped = math_envs_pat.sub('', inner)
+                # (Protect labels inside align, equation, aligneq, and aligned)
+                math_envs_pat = re.compile(r'\\begin\{(aligneq\*?|align\*?|equation\*?|aligned\*?|gather\*?)\}.*?\\end\{\1\}', re.DOTALL)
+                stripped = math_envs_pat.sub('---MATH---', inner)
+                
                 # For labels on \item lines, extract the item name (first word after \item)
                 for il_m in re.finditer(r'\\item\s+(\w+).*?\\label\{([^}]*)\}', stripped):
-
                     item_name = il_m.group(1)
                     il = il_m.group(2)
                     label_map[il] = qid
                     item_label_map[il] = (qid, item_name)
+                    
                 # Also map any remaining orphan labels (not on \item lines)
                 for il in re.findall(r'\\label\{([^}]*)\}', stripped):
                     if il not in label_map:
                         label_map[il] = qid
-                # Only strip orphan labels (captured by Pass 2) if they match this div's qid
-                # (Avoid stripping labels meant for math blocks or other environments)
-                text_label_pat = re.compile(r'\\label\{([^}]*)\}')
-                def strip_if_mapped_to_us(lm):
-                    l = lm.group(1)
-                    if l in label_map and label_map[l] == qid:
-                        return ''
-                    return lm.group(0)
-                
-                inner = text_label_pat.sub(strip_if_mapped_to_us, inner)
+                # Only strip the label if it's exactly the theorem's primary label
+                if label:
+                    target_label_pat = re.compile(r'\\label\{' + re.escape(label) + r'\}')
+                    inner = target_label_pat.sub('', inner)
                 
                 attrs = [div_id]
                 if opt_name:
@@ -837,9 +834,7 @@ def convert_body(body: str, label_registry: dict | None = None,
         for m in pattern.finditer(text):
             result.append(text[last_end:m.start()])
 
-            label = None
-            if not starred and m.group(1):
-                label = m.group(1)
+            label = m.group(1) if not starred else None
 
             # Find matching \end
             end_m = re.search(end_pat, text[m.end():])
@@ -850,53 +845,41 @@ def convert_body(body: str, label_registry: dict | None = None,
                 inner = text[m.end():]
                 end_pos = len(text)
 
-            # Check for \label inside the block if we haven't found one yet
-            if not label and not starred:
-                inner_label = re.search(r'\\label\{([^}]*)\}', inner)
-                if inner_label:
-                    label = inner_label.group(1)
-
-            # Move ALL labels to the global label map, associating them with the block ID
-            # This ensures @eq-secondary-label works (pointing to the same block)
-            # and removes them from the math text to avoid MathJax/Quarto conflicts
+            # Find all labels inside the block
             inner_labels = list(re.finditer(r'\\label\{([^}]*)\}', inner))
-            
-            # Remove ALL labels from internal text for display
-            clean_inner = re.sub(r'\\label\{([^}]*)\}', '', inner).strip()
-
-            # Build the output block
-            if wrap_aligned:
-                result.append('\n$$\n\\begin{aligned}\n')
-                result.append(clean_inner)
-                result.append('\n\\end{aligned}')
-            else:
-                result.append('\n$$\n')
-                result.append(clean_inner)
-
+            all_labels = []
             if label:
-                label_id = sanitize_label(label)
-                qid = f"eq-{label_id}"
-                label_map[label] = qid
-                label_map[label_id] = qid
-                # Also map any secondary labels in the same block to this qid
-                for il in inner_labels:
-                    l = il.group(1)
-                    if l != label:
-                        label_map[l] = qid
-                
-                result.append(f'\n$$ {{#{qid}}}\n')
-            else:
-                # Still register any secondary labels if they exist
-                for il in inner_labels:
-                    l = il.group(1)
-                    # We need a qid here. If no primary label, use the first secondary one.
-                    secondary_label_id = sanitize_label(il.group(1))
-                    qid = f"eq-{secondary_label_id}"
-                    label_map[l] = qid
-                    result.append(f'\n$$ {{#{qid}}}\n')
-                    break # Only one qid allowed per block
-                else:
-                    result.append('\n$$\n')
+                all_labels.append(label)
+            for il in inner_labels:
+                l = il.group(1)
+                if l not in all_labels:
+                    all_labels.append(l)
+
+            # Use native environments for MathJax rendering.
+            for l in all_labels:
+                s = sanitize_label(l)
+                label_map[l] = s if s.startswith('eq-') else f"eq-{s}"
+
+            content = inner
+            # Prefix all internal labels with eq- to prevent Pass 7 from stripping them
+            for il in inner_labels:
+                raw_l = il.group(1)
+                s = sanitize_label(raw_l)
+                qid = s if s.startswith('eq-') else f"eq-{s}"
+                content = content.replace(f"\\label{{{raw_l}}}", f"\\label{{{qid}}}")
+
+            out_env = 'align' if 'aligneq' in env_name else env_name
+            if starred and not out_env.endswith('*'):
+                out_env += '*'
+
+            header = f"\\begin{{{out_env}}}"
+            content = content.strip()
+            if label:
+                s = sanitize_label(label)
+                qid = s if s.startswith('eq-') else f"eq-{s}"
+                content = f"\\label{{{qid}}} {content}"
+
+            result.append(f"\n{header}\n{content}\n\\end{{{out_env}}}\n")
 
             last_end = end_pos
 
@@ -1006,23 +989,6 @@ def convert_body(body: str, label_registry: dict | None = None,
 
     text = re.sub(r'\\cite\{([^}]*)\}', convert_cite_no_opt, text)
 
-    # --- Pass 6: Cross-references ---
-    # \eqref{X} → @eq-X
-    def convert_eqref(m):
-        raw_label = m.group(2)
-        label = sanitize_label(raw_label)
-        
-        # Check label_map first (handles aliases in align blocks)
-        if raw_label in label_map:
-            return f'@{label_map[raw_label]}'
-        if label in label_map:
-            return f'@{label_map[label]}'
-            
-        # ensure eq- prefix
-        if label.startswith('eq-'):
-            return f'@{label}'
-        return f'@eq-{label}'
-
     # \Cref{X} and \cref{X} → @prefix-X  (best effort)
     def convert_cref(m):
         raw_label = m.group(2)
@@ -1035,9 +1001,15 @@ def convert_body(body: str, label_registry: dict | None = None,
             target = f'@{parent_qid} ({item_name})'
         # Then check if this label was mapped during theorem/equation conversion
         elif raw_label in label_map:
-            target = f'@{label_map[raw_label]}'
+            qid = label_map[raw_label]
+            if qid.startswith('eq-') or raw_label.startswith('eq'):
+                return f'$\\eqref{{{raw_label}}}$'
+            target = f'@{qid}'
         elif label in label_map:
-            target = f'@{label_map[label]}'
+            qid = label_map[label]
+            if qid.startswith('eq-') or label.startswith('eq'):
+                return f'$\\eqref{{{label}}}$'
+            target = f'@{qid}'
         # Try to guess the prefix from the label convention
         elif label.startswith('def'):
             target = f'@def-{label}'
@@ -1050,7 +1022,7 @@ def convert_body(body: str, label_registry: dict | None = None,
         elif label.startswith('cor'):
             target = f'@cor-{label}'
         elif label.startswith('eq'):
-            target = f'@eq-{label}'
+            target = f'$\\eqref{{{raw_label}}}$'
         else:
             # Fallback: assume it's a theorem if no prefix
             target = f'@thm-{label}'
@@ -1076,15 +1048,18 @@ def convert_body(body: str, label_registry: dict | None = None,
     text = convert_cref_wrapper(text, r'(\\[Cc]ref\{([^}]*)\})')
     text = convert_cref_wrapper(text, r'(\\ref\{([^}]*)\})')
     
-    # \eqref specific replacer: output ([-@eq-X]) to suppress "Equation" prefix
+    # \eqref specific replacer: output $\eqref{X}$ to let MathJax handle it natively
     def repl_eqref(m):
-        res = convert_eqref(m) # returns @eq-label or @label
-        # Strip the @ to create the suppressed format [-@label]
-        bare_ref = res[1:] if res.startswith('@') else res
+        raw_label = m.group(2)
         following = m.group(3) if m.group(3) else ""
+        
+        # Use the mapped eq- ID
+        s = sanitize_label(raw_label)
+        qid = label_map.get(raw_label, s if s.startswith('eq-') else f"eq-{s}")
+        res = f"$\\eqref{{{qid}}}$"
         if following == ".": 
-            return f"([-@{bare_ref}]). "
-        return f"([-@{bare_ref}]){following}"
+            return f"{res}. "
+        return f"{res}{following}"
     text = re.sub(r'(\\eqref\{([^}]*)\})(\.?)', repl_eqref, text)
 
     # Also fix plain @rawlabel references emitted by earlier passes
@@ -1092,7 +1067,10 @@ def convert_body(body: str, label_registry: dict | None = None,
     def fix_raw_at_ref(m):
         raw = m.group(1)
         if raw in label_map:
-            return f'@{label_map[raw]}'
+            qid = label_map[raw]
+            if qid.startswith('eq-') or raw.startswith('eq'):
+                return f'$\\eqref{{{raw}}}$'
+            return f'@{qid}'
         return m.group(0)  # leave as-is (likely a real Quarto ref or cite key)
 
     text = re.sub(r'@([A-Za-z][\w:-]*)', fix_raw_at_ref, text)
@@ -1145,16 +1123,16 @@ def convert_body(body: str, label_registry: dict | None = None,
         target = f"/posts/{dst_clean}/index.qmd"
         return f'[{display}](<{target}{anchor}>)'
 
-    # --- Pass 7c: Internal References (\ref, \eqref, \Cref) ---
+    # --- Pass 7c: Internal References (\ref, \Cref) ---
     def convert_refs(m):
         label = m.group(1)
         qid = label_map.get(label, sanitize_label(label))
-        # Ensure we point to the right prefix if it's a known environment
-        if qid.startswith('eq-'):
-            return f'(@{qid})'
+        # Use native MathJax eqref for any equation IDs
+        if qid.startswith('eq-') or label.startswith('eq'):
+            return f'$\\eqref{{{label}}}$'
         return f'@{qid}'
 
-    text = re.sub(r'\\(?:eqref|ref|Cref)\{([^}]*)\}', convert_refs, text)
+    text = re.sub(r'\\(?:ref|Cref)\{([^}]*)\}', convert_refs, text)
 
     text = re.sub(
         r'\\postref\{([^}]*)\}\{([^}]*)\}\{([^}]*)\}',
@@ -1167,7 +1145,8 @@ def convert_body(body: str, label_registry: dict | None = None,
     text = re.sub(r"''", r'”', text)
 
     # Remove stray \label{} that weren't consumed
-    text = re.sub(r'\\label\{[^}]*\}', '', text)
+    # Protect eq-, thm-, and other known prefixes from being stripped
+    text = re.sub(r'\\label\{(?!eq-|thm-|def-|lem-|ex-|prop-|cor-|rem-|ass-|obs-)[^}]*\}', '', text)
 
     # Strip whitespace inside inline $...$ delimiters
     # Pandoc requires no space adjacent to $ for inline math.

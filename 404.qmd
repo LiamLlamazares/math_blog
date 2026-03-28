@@ -1,7 +1,0 @@
----
-title: Page Not Found
----
-
-The page you are looking for doesn't exist (perhaps it was moved or renamed).
-
-[Back to Home Page](index.html)

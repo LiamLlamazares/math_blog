@@ -7,7 +7,7 @@ project:
     - custom_theorems.css
     - CNAME
   post-render:
-    - python3 copy_feed.py
+    - python copy_feed.py
   render:
     - "!posts/Future/**"
     - "*.qmd"
