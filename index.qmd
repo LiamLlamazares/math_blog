@@ -1,0 +1,20 @@
+---
+title: ""
+listing:
+  contents: posts
+  sort: "date desc"
+  type: custom
+  template: dashboard.ejs
+  feed: true
+css:
+  - assets/css/dashboard.css
+  - styles.scss
+include-after-body: _includes/comment-sidebar.html
+page-layout: full
+title-block-banner: false
+header-includes:
+  - |
+    <style>
+    #title-block-header, .quarto-title-header, .quarto-title-block, .title { display: none !important; }
+    </style>
+---
