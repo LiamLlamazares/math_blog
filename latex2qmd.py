@@ -927,8 +927,8 @@ def convert_body(body: str, label_registry: dict | None = None,
                 elif 'I' in opt_arg:
                     marker = f'{roman(idx).upper()}.'
             
-            # Strip trailing \label{...} from items
-            item = re.sub(r'\\label\{[^}]*\}', '', item).strip()
+            # Strip item-level \label{...} but preserve equation labels (eq- prefix)
+            item = re.sub(r'\\label\{(?!eq-)[^}]*\}', '', item).strip()
             item_lines = item.split('\n')
             indented = item_lines[0].lstrip()
             if len(item_lines) > 1:

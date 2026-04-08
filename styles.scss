@@ -82,6 +82,21 @@ body {
 .math.display {
     padding: 1.5rem 0;
     overflow-x: auto;
+    max-width: 100%;
+}
+
+// Responsive math: scale down wide equations on small screens
+@media (max-width: 768px) {
+    .math.display {
+        padding: 0.75rem 0;
+        font-size: 0.85em;
+    }
+
+    .MathJax, .MathJax_Display, mjx-container {
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        overflow-y: hidden;
+    }
 }
 
 // Callout redesign
