@@ -1,0 +1,101 @@
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{amsmath, amssymb}
+\usetikzlibrary{arrows.meta, shapes.geometric, patterns, calc, decorations.pathmorphing}
+
+\begin{document}
+
+% Define colors for the source (X, mu) and target (Y, nu) spaces
+\definecolor{sourceColor}{HTML}{0077BB} % Blue
+\definecolor{targetColor}{HTML}{EE7733} % Orange
+\definecolor{subsetColor}{HTML}{009988} % Teal for B and T^-1(B)
+
+\begin{tikzpicture}[
+    >=Latex, % Use nice arrowheads
+    font=\sffamily, % Use sans-serif font for labels
+    axis/.style={thick, ->, >=stealth},
+    label/.style={font=\Large\bfseries},
+    point/.style={circle, fill=black, inner sep=1.5pt}
+]
+
+% --- 1. Set up the environment ---
+% Draw the coordinate axes (background)
+\draw[axis] (0,0) -- (10,0);
+\draw[axis] (0,0) -- (0,7);
+
+
+% --- 2. Source  X and Initial Measure mu ---
+% Corresponds to: "initial configuration of sand... by a measure mu on X"
+\begin{scope}[shift={(1.5, 1.5)}]
+    % Draw the domain rectangle X
+    \draw[thick, draw=sourceColor!80!black, fill=sourceColor!10] (0,0) rectangle (3.5, 2.5);
+    % Label the measure mu and space X
+    \node[sourceColor!80!black, above] at (1.75, 2.5) {\Large $\mu$};
+    \node[sourceColor!80!black, below left] at (0,0) { $X$};
+
+    % --- Define a point x inside X ---
+    \coordinate (x_pos) at (1.5, 1.25);
+    \node[point, label={[label distance=2pt]below:$x$}] (x_node) at (x_pos) {};
+
+    % --- Define the pre-image subset T^-1(B) ---
+    % Corresponds to the small square in the sketch
+    \coordinate (TinvB_center) at (2.5, 1.0);
+    % Define the path for T^-1(B) - made smaller and moved up
+    \def\TinvBPath{(2.0, 0.8) rectangle (3.0, 1.3)}
+    % Fill with pattern to show mass
+    \fill[pattern=north east lines, pattern color=subsetColor] \TinvBPath;
+    \draw[thick, subsetColor] \TinvBPath;
+    % Label below
+    \node[subsetColor, below] at (2.5, 0.7) {\large $T^{-1}(B)$};
+\end{scope}
+
+
+% --- 3. Target  Y and Target Measure nu ---
+% Corresponds to: "target configuration by another measure nu on Y"
+\begin{scope}[shift={(6.5, 4)}]
+    % Draw the co-domain shape Y (an irregular blob, annular as in sketch)
+    \path[fill=targetColor!10, even odd rule]
+        plot [smooth cycle, tension=0.8] coordinates {(0,0) (3, -0.5) (4, 2) (2.5, 3.5) (-0.5, 2.5)} % Outer boundary
+        plot [smooth cycle, tension=0.8] coordinates {(1, 1) (2.5, 0.8) (3, 2) (1.5, 2.5)}; % Inner hole
+    \draw[thick, draw=targetColor!80!black] plot [smooth cycle, tension=0.8] coordinates {(0,0) (3, -0.5) (4, 2) (2.5, 3.5) (-0.5, 2.5)};
+    \draw[thick, draw=targetColor!80!black] plot [smooth cycle, tension=0.8] coordinates {(1, 1) (2.5, 0.8) (3, 2) (1.5, 2.5)};
+
+    % Label the measure nu and space Y
+    \node[targetColor!80!black, above right] at (2.5, 3.5) {\Large $\nu$};
+    \node[targetColor!80!black, below right] at (3, -0.5) {$Y$};
+
+    % --- Define the mapped point T(x) inside Y ---
+    \coordinate (Tx_pos) at (0.5, 1.5);
+\node[point, label={[label distance=4pt]above:$T(x)$}] (Tx_node) at (Tx_pos) {};
+
+    % --- Define the measurable subset B ---
+    % Corresponds to: "for all measurable B subset Y"
+    \coordinate (B_center) at (2, 0.2);
+    % Define the path for an irregular subset B - scaled to match area of T^-1(B)
+    \def\BPath{plot [smooth cycle, tension=1] coordinates {(1.76, -0.04) (2.48, -0.12) (2.8, 0.28) (2, 0.52) (1.52, 0.2)}}
+    % Clip to ensure B stays inside Y's outer boundary for visual cleanliness
+    \begin{scope}
+        \clip plot [smooth cycle, tension=0.8] coordinates {(0,0) (3, -0.5) (4, 2) (2.5, 3.5) (-0.5, 2.5)};
+        % Fill with same pattern as T^-1(B) to visually imply equal mass
+        \fill[pattern=north east lines, pattern color=subsetColor] \BPath;
+        \draw[thick, subsetColor] \BPath;
+    \end{scope}
+    % Label B
+    \node[subsetColor, below] at (2, -0.1) {\large $B$};
+\end{scope}
+
+
+% --- 4. The Transport Map T ---
+% Corresponds to: "A mapping T from X to Y transforms mu into... T#mu"
+% Draw arrow from x to T(x)
+\draw[->, ultra thick, bend left=30, shorten >=3pt, shorten <=3pt]
+    (x_node) to node[midway, above, sloped, font=\Large\bfseries] {$T$} (Tx_node);
+
+
+% % --- 5. Visualizing the Mass Conservation Condition ---
+% % Corresponds to: "T#mu(B) := mu(T^-1(B))"
+% % Draw a connecting line between the labels of the subsets to emphasize their relationship
+% \draw[<->, dashed, very thick, subsetColor!70!black, bend right=20]
+%     ($(3.2, 0.7) + (1.5, -0.5) + (1.5, 1.5)$) -- node[midway, below, font=\bfseries, fill=white, fill opacity=0.8, text opacity=1] {Mass Conservation: $\mu(T^{-1}(B)) = \nu(B)$} ($(2.5, -0.3) + (6.5, 4)$);
+
+\end{tikzpicture}
+\end{document}

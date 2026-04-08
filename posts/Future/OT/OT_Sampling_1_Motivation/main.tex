@@ -1,0 +1,258 @@
+\documentclass[
+    a4paper,
+    DIV=14,
+    abstract=true,
+    numbers=noenddot
+]
+{scrartcl}
+
+\usepackage{
+    amsmath,
+    amssymb,
+    amsthm,
+    array,
+    authblk,
+    bm,
+    dsfont, % for 1 vector or indicator function
+    float,
+    graphicx,
+    mathtools,
+    nicefrac,
+    physics,
+    tabularx,
+    tcolorbox,
+    todonotes,
+    tikz,
+    xcolor,
+    float,
+    subcaption,
+}
+\usepackage[shortlabels]{enumitem}
+
+\usepackage[T1]{fontenc}
+
+\usepackage[pdffitwindow=false,
+    plainpages=false,
+    pdfpagelabels=true,
+    pdfpagemode=UseOutlines,
+    pdfpagelayout=SinglePage,
+    bookmarks=false,
+    colorlinks=true,
+    hyperfootnotes=false,
+    linkcolor=blue,
+    urlcolor=blue!30!black,
+    citecolor=green!50!black]{hyperref}
+
+\usepackage{cleveref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{observation}{Observation}
+\newtheorem{assumption}{Assumption}
+
+\newtheorem{exercise}{Exercise}
+
+\newtheorem*{hint}{Hint}
+
+\newenvironment{exerciseandhint}[2]
+{\begin{exercise} #1
+
+    \emph{Hint: #2}}
+    {\end{exercise}}
+
+\newenvironment{aligneq}{\begin{equation}\begin{aligned}}{\end{aligned}\end{equation}}
+\newenvironment{aligneq*}{\begin{equation*}\begin{aligned}}{\end{aligned}\end{equation*}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\red}[1]{{\color{red}#1}}
+\renewcommand{\b}[1]{{\bm{#1}}}
+\newcommand{\Th}{{\bm{\theta}}}
+\newcommand{\Thh}{{\bm{\Theta}}}
+\newcommand{\xxi}{{\bm{\xi}}}
+\newcommand{\om}{{\bm{\om}}}
+\newcommand{\td}{\todo[inline,color=green!40]}
+\definecolor{darkgreen}{rgb}{0.0, 0.6, 0.}
+\newcommand{\liam}{\textcolor{darkgreen}}
+\newcommand{\liamtodo}[1]{\todo[inline,color=darkgreen!40]{Liam: #1}}
+
+\bibliographystyle{apalike}
+\newcommand{\diag}[1]{\operatorname{diag}\left(#1\right)}
+\newcommand{\fk}[1]{\mathfrak{#1}}
+\newcommand{\wh}[1]{\widehat{#1}}
+\newcommand{\tl}[1]{\widetilde{#1}}
+
+\newcommand{\br}[1]{\left\langle#1\right\rangle}
+\newcommand{\set}[1]{\left\{#1\right\{}
+\newcommand{\qp}[1]{\left(#1\right)}\newcommand{\qb}[1]{\left[#1\right]}
+\newcommand{\qt}[1]{\left(#1\right)}
+\newcommand{\Id}{\bm{I}}\renewcommand{\ker}{\bm{ker}}\newcommand{\supp}[1]{\bm{supp}(#1)}\renewcommand{\tr}[1]{\mathrm{tr}\left(#1\right)}
+\renewcommand{\norm}[1]{\left\lVert #1 \right\rVert}\renewcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\U}{}\renewcommand{\star}{*}
+\renewcommand{\Im}{\bm{Im}}
+\newcommand{\iso}{\xrightarrow{\sim}}
+\renewcommand{\d}{\,\mathrm{d}}\newcommand{\dx}{\,\mathrm{d}x}
+\newcommand{\dy}{\,\mathrm{d}y}
+\newcommand\restr[2]{\left.#1\right|{#2}}
+\newcommand{\rmm}[1]{\mathrm{#1}}
+\newcommand{\mat}[1]{\begin{bmatrix}{#1}\end{bmatrix}}
+\newcommand{\vol}{\mathrm{vol}}
+
+\newcommand{\x}{\bm{x}}
+\newcommand{\y}{\bm{y}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Aa}{\mathcal{A}}
+\newcommand{\Bb}{\mathcal{B}}
+\newcommand{\Cc}{\mathcal{C}}
+\newcommand{\Dd}{\mathcal{D}}
+\newcommand{\Ee}{\mathcal{E}}
+\newcommand{\Ff}{\mathcal{F}}
+\newcommand{\Gg}{\mathcal{G}}
+\newcommand{\Hh}{\mathcal{H}}
+\newcommand{\Kk}{\mathcal{K}}
+\newcommand{\Ll}{\mathcal{L}}
+\newcommand{\Mm}{\mathcal{M}}
+\newcommand{\Nn}{\mathcal{N}}
+\newcommand{\Oo}{\mathcal{O}}
+\newcommand{\Pp}{\mathcal{P}}
+\newcommand{\Qq}{\mathcal{Q}}
+\newcommand{\Rr}{\mathcal{R}}
+\newcommand{\Ss}{\mathcal{S}}
+\newcommand{\Tt}{\mathcal{T}}
+\newcommand{\Uu}{\mathcal{U}}
+\newcommand{\Vv}{\mathcal{V}}
+\newcommand{\Ww}{\mathcal{W}}
+\newcommand{\Xx}{\mathcal{X}}
+\newcommand{\Yy}{\mathcal{Y}}
+\newcommand{\Zz}{\mathcal{Z}}
+
+\begin{document}
+\title{Sampling optimization and SPDEs}
+\author{Liam Llamazares}
+\date{\today}
+\maketitle
+
+\section{Introduction}
+In this series of blogposts we introduce the theory of sampling as optimization 
+A common goal in statistics is to sample from some target distribution $\pi$. 
+
+As we discussed in our post on Bayesian inference, a typical example is when $\pi $ is a posterior distribution, which fully describes our state of knowledge as to some unknown quantity. By knowing this distribution we can learn 
+\begin{enumerate}
+    \item What to expect. Let $f$ be a quantity of interest, then its expected value is 
+    \begin{align}\label{target integral}
+         \E\qb{f}= \int_\Xx  f(x) \pi(x) dx. 
+    \end{align}
+     \item How to behave optimally. Let $f(d, x )$ be the expected benefit obtained by taking decision $d \in \Dd $ if $x$ is true. Then, the optimal decision is
+     \begin{align*}
+         d^* = \arg\max_{d \in \Dd} \E\qb{f(d, x)}.
+     \end{align*}
+\end{enumerate}
+If the dimension of our problem is small. Then the integrals can be approximated using quadrature methods such as the midpoint rule, with error of the order $O(N^{-2/d})$, where $N$ is the number of quadrature points and $d$ is the dimension of the problem. However, as the dimension increases, the number of quadrature points required to achieve a given accuracy grows exponentially. This is known as the curse of dimensionality. Methods that do better in higher dimensions are
+\begin{enumerate}
+    \item Quasi-Monte Carlo (QMC) methods, which achieve an error of the order $O(N^{-1}(\log N)^d)$. These work on any domain that can be mapped to the unit cube and require the integrand to be sufficiently smooth.
+    \item INLA methods. There is no error bound for these methods. They perform well when the posterior is approximately Gaussian.
+    \item Monte Carlo (MC) methods, which achieve an error of the order $O(N^{-1/2})$. These methods work on any domain. The integrand is not required to be smooth, but must have finite variance. Furthermore, though the error is not great, it does not depend on the dimension. However, they require the ability to sample from the target distribution $\pi$.
+\end{enumerate}
+We will be interested in cases where the dimension is large, and so we will focus on Monte Carlo methods. We now have the following problem. Given a function that integrates to one (or indeed any constant), how do we sample from it?
+
+\section{An overview of MCMC methods}
+Monte Carlo methods rely on the law of large numbers. Sampling repeatedly, and independently we can approximate the target integral.  A quick calculation shows the following.
+
+\begin{proposition}
+Let $\mu$ be a probability measure on $\Xx $ and $X_1, \ldots, X_N\sim \mu$ be i.i.d. Let $f$ be measurable and bounded with mean $m_f = \E\qb{f} $ and variance $\rmm{Var}(f):= \E\qb{f^2} - m_f^2$. Then, 
+\begin{align*}
+    \E\qb{\norm{m_f -\frac{1}{N}\sum_{i=1}^N f(X_i)}^2} \leq \frac{\rmm{Var}(f)}{N}.
+\end{align*}
+\end{proposition}
+\begin{proof}
+    Exercise, develop the square and use the independence of $X_i$ .
+\end{proof}
+In general, given a probability measure there is no exact way to sample from it. Rather, we can only draw approximate samples. Perhaps the most immediate method is to partition $\mathcal{X}$ into $N$ disjoint sets $A_1, \ldots, A_n$, fix points $x_j \in A_j$ and sample from the discrete distribution
+\begin{align*}
+    \sum_{j=0}^{n}  \pi(A_j) \delta_{x_j}.
+\end{align*}
+This is infeasible in high dimensions as the number of sets required to approximate $\pi$ well grows exponentially with the dimension. The most fruitful methods are those that construct a chain $X_n$ (or $X_t$) converging to the target distribution $\pi$ as $n \to \infty$. That is, in some sense
+\begin{align*}
+\lim_{n \to \infty} X_n \sim \pi.
+\end{align*}
+If the convergence is fast enough, then we can approximate the target integral \eqref{target integral} with
+ \begin{align*}
+     \int_{\Xx}f(x) \d \pi (x)= \lim_{N \to \infty} \frac{1}{N} \sum_{n=1}^N { f(X_n)}.
+ \end{align*}
+ By far the most common method is to construct a Markov chain with stationary distribution $\pi$. Two of the most common algorithms are
+\begin{enumerate}
+    \item Metropolis-Hastings (MH) algorithm. This method constructs a Markov chain whose stationary distribution is the target distribution $\pi$. The algorithm proceeds as follows 
+    \begin{enumerate}
+        \item Start with an initial state $x_0$.
+        \item For each iteration $t = 1, 2, \ldots, T$:
+        \begin{enumerate}
+            \item Propose a new state $x'$ from a proposal distribution $q(x'|x_{t-1})$.
+            \item Compute the acceptance ratio
+            \begin{align*}
+                \alpha = \min\left(1, \frac{\pi(x') q(x_{t-1}|x')}{\pi(x_{t-1}) q(x'|x_{t-1})}\right).
+            \end{align*}
+            \item Accept the new state with probability $\alpha$. If accepted, set $x_t = x'$, otherwise set $x_t = x_{t-1}$.
+        \end{enumerate}
+        The samples $\{x_t\}_{t=1}^T$ are then approximately distributed according to $\pi$. The choice of proposal distribution $q$ can significantly affect the efficiency of the algorithm. The error of the method is $O(T^{-1/2})$.
+\end{enumerate}
+\item Langevin Monte Carlo (LMC) algorithm. This method is based on the Langevin diffusion process
+\begin{align}\label{Langevin SDE}
+    dX_t = \nabla \log \pi(X_t) dt + \sqrt{2}  dW_t.
+\end{align}
+The diffusion process converges exponentially fast to the target distribution $\pi$ under certain conditions on $\pi$. That is, if $\mu _t$ is the law of $X_t$   $\log(d(\pi, \mu _t)) =\lesssim -t$.  The simplest algorithm based on  such as ULA proceed by discretizing this SDE 
+\begin{align*}
+    X_{n+1} = X_n + \delta_t \nabla \log \pi(X_n) + \sqrt{2\delta_t} Z_n, \quad Z_n \sim \Nn(0, I),
+\end{align*}
+Other methods such as MALA add a Metropolis-Hastings correction step to ensure that the stationary distribution of the Markov chain is exactly $\pi$. The error of the method is $O(T^{-1/2})$.
+\end{enumerate}
+The Langevin diffusion will be the main starting point of our blogposts. We will see the correspondence between this SDEs, PDEs and optimization on the space of probability measures.  This allows us to 
+\begin{enumerate}
+    \item Understand the geometry behind the convergence of $\mu_t$ to $\mu $. The curve $\mu_t$ follows the direction of steepest descent towards $\mu$.
+    \item Use theoretical tools from optimization to study the convergence of $\mu_t$ to $\mu$.
+    \item Design algorithms based on this optimization perspective that better capture the geometry of the problem.
+\end{enumerate}
+To begin with we will study the finite dimensional case. However, a very motivating problem is to be able to sample from distributions defined on function spaces. This transforms the Langevin diffusion \eqref{Langevin SDE} from a finite dimensional SDE into an infinite dimensional SDE. That is, an SPDE. This is the same correspondence that makes a PDE be an infinite dimensional PDE. We shall see how, just as the theory of PDEs is mathematically fundamental (and beautiful). To develop a full picture, the theory of sampling through SPDEs is also mathematically fundamental.
+
+
+stochastic partial differential equation (SPDE). We will see how the optimization perspective helps us understand the convergence of these SPDEs to their invariant measures.
+
+
+The target distribution is often known up to a normalizing constant, i.e. we have access to an unnormalized density $\tilde{\pi}$ such that
+\begin{align*}
+    \pi(x) = \frac{\tilde{\pi}(x)}{Z}, \quad Z = \int \tilde{\pi}(x) dx.
+\end{align*}
+In high dimensions, the normalizing constant is often intractable to compute.
+
+
+
+\section{Why use SPDEs for sampling?}
+In many applications, the target distribution $\pi$ is defined on a function space. For example, in Bayesian inverse problems, we may want to infer an unknown function (e.g., a coefficient field in a PDE) from noisy observations. In such cases, the posterior distribution is a measure on a function space, and we need to sample from this infinite-dimensional distribution. At some point we will need to discretize the function space to perform computations, however starting from an SPDE allow us to 
+\begin{enumerate}
+    \item Design problems that are robust to the discretization and explot the structure of the underlying function space. For example, operators such as the Laplacian are naturally defined on function spaces, but not on finite-dimensional spaces. As a result, one could think of minimizing new functionals using these operators such as
+    \begin{align*}
+        \Ww _2(\mu, \nu)^2 = \inf_{\gamma \in \Gamma(\mu, \nu)} \int_{H^s} \norm{x-y}_{H^{s}}^2 d\gamma(x,y) = \inf_{\gamma \in \Gamma(\mu, \nu)} \int_{H^s} \norm{(I-\Delta)^{s/2}(x-y)}_{L^2} d\gamma(x,y),
+    \end{align*}
+    where $\mu ,\nu$ are measures on $H^s$. Writing this in finite dimensions is possible with a projection of the Laplacian. But it depends on the discretisation, does not allow us to directly use functional analysis and is not intuitive.
+    \item Design new algorithms based on these problems and the functional analytical tools available in infinite dimensions. For example, preconditioning the Langevin diffusion with the Laplacian.
+
+    \item Understand the numerical properties of the sampling algorithms in the infinite-dimensional setting, which can provide insights into their performance in high-dimensional finite settings. 
+    
+    To give a deterministic example, the solution $u$  to a elliptic PDE with smooth coefficients on a smooth domain is smooth and thus has its spectrum decays faster than the inverse of any polynomial. By Céa's lemma this the Galerkin approximation of $u_n$ on the space $V_n$ is the best possible. By both these facts  we deduce that a spectral approximation (letting $V_n$ be spanned by harmonics up to order $n$) will converge quickly to $u$ as $n \to \infty$. 
+    
+    As another example, if the domain is not smooth, the solution will not be smooth either and have possible singularities at the corners. Because of this, adaptive FEM are particularly well suited as they are able to find these singularities and make finer discretizations near them. Without working in the infinite-dimensional setting, these insights would be unobtainable.
+\end{enumerate}
+
+
+\bibliography{biblio.bib}
+\end{document}

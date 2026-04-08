@@ -1,0 +1,1105 @@
+\documentclass[
+    a4paper,
+    DIV=14,
+    abstract=true,
+    numbers=noenddot
+]
+{scrartcl}
+
+\usepackage{
+    amsmath,
+    amssymb,
+    amsthm,
+    array,
+    authblk,
+    bm,
+    dsfont, % for 1 vector or indicator function
+    float,
+    graphicx,
+    mathtools,
+    nicefrac,
+    physics,
+    tabularx,
+    tcolorbox,
+    todonotes,
+    tikz,
+    xcolor,
+    float,
+    subcaption,
+}
+\usepackage[shortlabels]{enumitem}
+
+\usepackage[T1]{fontenc}
+
+\usepackage[pdffitwindow=false,
+    plainpages=false,
+    pdfpagelabels=true,
+    pdfpagemode=UseOutlines,
+    pdfpagelayout=SinglePage,
+    bookmarks=false,
+    colorlinks=true,
+    hyperfootnotes=false,
+    linkcolor=blue,
+    urlcolor=blue!30!black,
+    citecolor=green!50!black]{hyperref}
+
+\usepackage{aliascnt}
+\usepackage{cleveref}
+
+\newtheorem{theorem}{Theorem}[section]
+
+\newaliascnt{proposition}{theorem}
+\newtheorem{proposition}[proposition]{Proposition}
+\aliascntresetthe{proposition}
+
+\newaliascnt{lemma}{theorem}
+\newtheorem{lemma}[lemma]{Lemma}
+\aliascntresetthe{lemma}
+
+\newaliascnt{corollary}{theorem}
+\newtheorem{corollary}[corollary]{Corollary}
+\aliascntresetthe{corollary}
+
+\newaliascnt{definition}{theorem}
+\newtheorem{definition}[definition]{Definition}
+\aliascntresetthe{definition}
+
+\theoremstyle{definition}
+\newaliascnt{example}{theorem}
+\newtheorem{example}[example]{Example}
+\aliascntresetthe{example}
+\newtheorem{observation}{Observation}
+\newtheorem{assumption}{Assumption}
+\newtheorem{problem}{Problem}
+\newtheorem*{problem*}{Problem}
+\newtheorem{exercise}{Exercise}
+
+\newtheorem*{hint}{Hint}
+
+\newenvironment{exerciseandhint}[2]
+{\begin{exercise} #1
+
+    \emph{Hint: #2}}
+    {\end{exercise}}
+
+\newenvironment{aligneq}{\begin{equation}\begin{aligned}}{\end{aligned}\end{equation}}
+\newenvironment{aligneq*}{\begin{equation*}\begin{aligned}}{\end{aligned}\end{equation*}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\red}[1]{{\color{red}#1}}
+\renewcommand{\b}[1]{{\bm{#1}}}
+\newcommand{\Th}{{\bm{\theta}}}
+\newcommand{\Thh}{{\bm{\Theta}}}
+\newcommand{\xxi}{{\bm{\xi}}}
+\newcommand{\om}{{\bm{\om}}}
+\newcommand{\td}{\todo[inline,color=green!40]}
+\definecolor{darkgreen}{rgb}{0.0, 0.6, 0.}
+\newcommand{\liam}{\textcolor{darkgreen}}
+\newcommand{\liamtodo}[1]{\todo[inline,color=darkgreen!40]{Liam: #1}}
+
+\bibliographystyle{apalike}
+\newcommand{\diag}[1]{\operatorname{diag}\left(#1\right)}
+\newcommand{\fk}[1]{\mathfrak{#1}}
+\newcommand{\wh}[1]{\widehat{#1}}
+\newcommand{\tl}[1]{\widetilde{#1}}
+
+\newcommand{\br}[1]{\left\langle#1\right\rangle}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\qp}[1]{\left(#1\right)}\newcommand{\qb}[1]{\left[#1\right]}
+\newcommand{\qt}[1]{\left(#1\right)}
+\newcommand{\Id}{\bm{I}}\renewcommand{\ker}{\bm{ker}}\newcommand{\supp}[1]{\bm{supp}(#1)}\renewcommand{\tr}[1]{\mathrm{tr}\left(#1\right)}
+\renewcommand{\norm}[1]{\left\lVert #1 \right\rVert}\renewcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\U}{}\renewcommand{\star}{*}
+\renewcommand{\Im}{\bm{Im}}
+\newcommand{\iso}{\xrightarrow{\sim}}
+\renewcommand{\d}{\,\mathrm{d}}\newcommand{\dx}{\,\mathrm{d}x}
+\newcommand{\dy}{\,\mathrm{d}y}
+\newcommand\restr[2]{\left.#1\right|{#2}}
+\newcommand{\rmm}[1]{\mathrm{#1}}
+\newcommand{\mat}[1]{\begin{bmatrix}{#1}\end{bmatrix}}
+\newcommand{\vol}{\mathrm{vol}}
+
+\newcommand{\x}{\bm{x}}
+\newcommand{\y}{\bm{y}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Aa}{\mathcal{A}}
+\newcommand{\Bb}{\mathcal{B}}
+\newcommand{\Cc}{\mathcal{C}}
+\newcommand{\Dd}{\mathcal{D}}
+\newcommand{\Ee}{\mathcal{E}}
+\newcommand{\Ff}{\mathcal{F}}
+\newcommand{\Gg}{\mathcal{G}}
+\newcommand{\Hh}{\mathcal{H}}
+\newcommand{\Kk}{\mathcal{K}}
+\newcommand{\Ll}{\mathcal{L}}
+\newcommand{\Mm}{\mathcal{M}}
+\newcommand{\Nn}{\mathcal{N}}
+\newcommand{\Oo}{\mathcal{O}}
+\newcommand{\Pp}{\mathcal{P}}
+\newcommand{\Qq}{\mathcal{Q}}
+\newcommand{\Rr}{\mathcal{R}}
+\newcommand{\Ss}{\mathcal{S}}
+\newcommand{\Tt}{\mathcal{T}}
+\newcommand{\Uu}{\mathcal{U}}
+\newcommand{\Vv}{\mathcal{V}}
+\newcommand{\Ww}{\mathcal{W}}
+\newcommand{\Xx}{\mathcal{X}}
+\newcommand{\Yy}{\mathcal{Y}}
+\newcommand{\Zz}{\mathcal{Z}}
+\newcommand{\Ggm}{\Gamma (\mu ,\nu)}
+
+\begin{document}
+\title{Optimal transport 1: Introduction and overview}
+\author{Liam Llamazares-Elias}
+\date{\today}
+\maketitle
+\section{Introduction}
+In this post we introduce the basic theory for the Kantorovich problem.
+\section{Questions to answer}
+\textbf{Identify conditions used to prove existence and uniqueness of OT with views towards WoW and infinite dimensional spaces. If an assumption is required find counterexamples for when it does not holds. Dig in deep and write up for blog. Copy to obsidian for linked easily accessible notes.}
+\begin{enumerate}
+    \item In the Euclidean case is optimal transport well posed for any convex cost?
+    
+    Needs to bs lsc
+    \item How is lower semi-continuity used?
+    
+    To approximate below by continuous functions so cost functional is  lsc and can obtain solution.
+    \item How about in the case where $\Xx $ is a separable Banach space? How is separability and completeness used (e.g. tightness?)? Is it required? Does the lack of local compactness in infinite dim spaces break anything?
+    
+    By Prokhorov, as long as measures are tight solution will exist,
+
+    \item Is the Wasserstein cost for WoW lsc?
+    It is continuous as for separable spaces it metrizes weak topology.
+
+    \item For plan to be map $\mu $ must be a.c. on $\R^d$   Are there any conditions on $\Yy $?
+    
+    No just separbale Banach space.
+
+
+    \item What if $\Xx $ is a  manifold?
+    \item What if $\Xx $ is the WoW space?
+    \item In which of the above cases does a transport map exist?
+    \item What are numerical methods for solving OT problem, error and computational cost (Sinkhorn, etc)? DO algorithms such as sinkhorn extend to inf dimensional and WoW spaces.
+\end{enumerate}
+\section{The problems}
+We recall the Kantorovich and Monge problems
+\begin{problem}[Monge's Problem (MP)]
+Let $\mu$ and $\nu$ be two probability measures on $X$ and $Y$ respectively. Find a map $T:X \to Y$ that minimizes
+\begin{align}\tag{MP}\label{MP}
+    \inf_{T: T_\#\mu = \nu} \int_X c(x, T(x)) \d\mu(x).
+\end{align}
+\end{problem}
+\begin{problem}[Kantorovich's Problem (KP)]\label{kantorovich}
+Find the measure $\gamma $ on $X\times Y$ that minimizes
+\begin{align}\tag{KP}\label{KP}
+    \inf_{\gamma \in \Gamma (\mu ,\nu )}\set{\int_{X\times Y} c(x,y) \d \gamma (x,y)}.
+\end{align}
+\end{problem}
+
+
+\section{Preliminaries of measure theory}
+The main objects we will be working with are measures. We suppose basic concepts of measure theory to be known and discuss those most relevant to optimal transport.
+
+\subsection{The space of probability measures $\Pp (X)$}
+In what follows, we consider a (possibly non-separable) metric space $X$, denote by $\Bb (X)$ the Borel $\sigma $-algebra of $X$ and write $\Pp (X)$ for the set of Borel probability measures on $X$ and $C_b(X)$ for the space of continuous bounded functions from $X$ to $\R$ with the supremum norm $\norm{\cdot }_\infty$. By construction of $\Bb (X)$, every $f \in C_b(X)$ is measurable and we may define given $\mu \in \Pp (X)$
+\begin{align*}
+    (f,\mu):=\int_{X}f(x)\d \mu (x).
+\end{align*}
+The notation above is justified by the inclusion of $\Pp (X)$  in the dual of $C_b(X)$.
+\begin{exercise}
+    Show that $\Pp (X)$  is a convex subset of the unit ball in $C_b(X)'$.
+\end{exercise}
+\begin{hint}
+    For the inclusion in the unit ball apply the definition of the dual of a normed space. Convexity is immediate.
+\end{hint}
+We mention the following for completeness, though we shall not use it in what follows.
+\begin{observation}[Full dual of $C_b(X)$]
+    By the \href{https://en.wikipedia.org/wiki/Stone%E2%80%93%C4%8Cech_compactification#Universal_property_and_functoriality}{Stone--Čech compactification} and \href{https://en.wikipedia.org/wiki/Riesz%E2%80%93Markov%E2%80%93Kakutani_representation_theorem}{Riesz--Markov--Kakutani representation theorem}, $C_b(X)'$  can be identified with a space of signed Borel measures on the compactification $\wh{X}$  of $X$ (a compact Hausdorff space containing $X$ as a dense subspace). If $X$ is compact $X= \wh{X}$. 
+
+    If we restrict to positive functionals $C_b^+(X)'= \set{m \in C_b(X)' : (f, m) \geq 0 , \quad\forall f \in C_b(X)}$, then we can identify $C_b^+(X)$ with finitely (as opposed to countably) additive  regular Borel measures \cite[Theorem 5.7 p. 35]{parthasarathy1967probability}.
+\end{observation}
+
+
+
+By viewing $\Pp (X)$ as a subspace of $C_b(X)'$ we endow it naturally with the weak-$^*$ topology.
+\begin{definition}\label{weakdef}
+    We define the weak$^*$ topology on $\Pp (X)$ as the coursest topology that makes $C_b(X)$ continuous on $\Pp(X)$. That is, such that $(f, \cdot )$ is continuous for all $f \in C_b(X)$.
+\end{definition}
+\begin{exercise}
+    Show that $\set{\mu _n}_{n=1}^ \infty \subset \Pp (X)$ converges to $\mu $ in the weak-$^*$ topology and write $\mu_n \rightharpoonup \mu $ if and only if
+    \begin{align*}
+        \lim_{n \to \infty}(f, \mu _n)= (f,\mu ), \quad\forall f \in C_b(X).
+    \end{align*}
+\end{exercise}
+\begin{hint}
+    If a function (in this case $(f,\cdot )$) is continuous then it is sequentially continuous.
+\end{hint}
+To show exactly where each assumption is necessary we do not suppose for now that $X$ is separable. As we shall see, separability is not needed to solve \eqref{KP}, however it will be an important assumption to develop duality theory.
+\begin{exercise}
+    Show that if $X$ is separable then $\Pp (X)$ is separable.
+\end{exercise}
+\begin{hint}
+    By \href{https://en.wikipedia.org/wiki/Hahn%E2%80%93Banach_theorem#:~:text=Mazur%27s%20theorem-,clarifies%20that,-vector%20subspaces%20(even}{Hahn banach's theorem} the dual of $\Pp (\mu )$ separates points. That is, a vector subspace $V$  of $\Pp(X)$ is dense if and only if there is no non-zero $f$ such that 
+    \begin{align*}
+        (f, \mu )=0 , \quad\forall \mu \in \Pp (X).
+    \end{align*}
+    Let $\set{x_i}_{i=1}^n$ be dense in $X$ and set   $A = \set{q\delta _{x_i}: q \in \Q, i \in \N}$. Since only $f=0$ is zero on all of $A$ this shows that $ V=\rmm{span}(A)$ is dense in $\Pp(X)$. Since in turn $A$ is dense in $V$ this shows that $A$ is dense in $X$.
+\end{hint}
+In general if $X$ is not separable $\Pp (X)$ will not be separable and as a result sequential convergence is not enough to characterize the topology. This is why in \Cref{weakdef} we could not define the topology in terms of sequential convergence. However, as for any topology, convergence against \href{https://en.wikipedia.org/wiki/Net_(mathematics)}{nets} would have been sufficient.
+
+When $X$ is separable, much as in \Cref{lsc approx lemma} we can construct a countable set $\set{f_n}_{n=1}^ \infty$ such that every $f$ is an increasing pointwise limit of these functions \cite[p.107]{ambrosio2005gradient}. Using this shows the following.
+\begin{exercise}\label{ex:separability PX}
+    If $X$ is separable then the following defines a metric on $\Pp (X)$,
+    \begin{align*}
+        d_{\Pp}(\mu , \nu ):= \sum_{n=1} ^\infty 2^{-n} \frac{(f_n,\mu )}{1+(f_n, \mu )}.
+    \end{align*}
+    Furthermore, $\mu _n \rightharpoonup \mu $ if and only if $d_{\Pp}(\mu _n,\mu ) \to 0$. That is, the weak-$^*$ topology is metrizable.
+\end{exercise}
+\begin{hint}
+    Show that $\mu _n \rightharpoonup \mu $ iff $(f_m,\mu ) \to 0$ for all $m$ iff $d_{\Pp}(\mu _n,\mu ) \to 0$. For the first part one can use the monotone convergence theorem. Finally, since $\Pp (X)$ is separable sequential convergence determines the topology.
+\end{hint}
+
+
+Convergence against smooth test functions can also be considered when $X= \R^n$.
+\begin{exercise}
+    Show that if
+    \begin{align*}
+        \lim_{n \to \infty}(f, \mu _n)= (f,\mu ), \quad\forall f \in C_b^\infty(X).
+    \end{align*}
+    then also $\mu_n\rightharpoonup \mu $
+\end{exercise}
+\begin{hint}
+    Use the density of $C_b^\infty(X)$ in $C_b(X)$ (this can be shown by convolution with an approximation of the identity).
+\end{hint}
+A typical space of test functions in analysis is the compactly supported ones, $C_c(X)$ or $C_c^\infty(\R^n)$. However, these functions are too near-sighted for our aims as they let mass escape to infinity and the limit may not be a probability measure.
+\begin{exercise}
+    Construct $\mu_n \in \Pp(X)$ such that $\lim_{n \to \infty}(\mu_n ,f )=(\mu , f )$ for some non-probability measure $\mu $ and all $\varphi \in C_c(\R)$ but not for all $f \in C_b(\R)$.
+\end{exercise}
+\begin{hint}
+    Choose any sequence whose mass converges to infinity. For example $\mu_n = \delta _{n}$. Show that such a sequence converges to $0$ against continuous compactly supported functions but not against bounded ones.
+\end{hint}
+
+
+\subsection{Tightness and sequential compactness in $\Pp (X)$ }
+As detailed earlier, we are interested in when a sequence $\mu_n$ has a (weak-$^*$) convergent subsequence. The following concept are fundamental to this.
+\begin{definition}\label{tight def}
+    We say that a set of probability measures $\Gamma \subset \Pp (X)$ is tight if given $\eps >0$ there exists a compact set $K_\eps \subset X$ such that
+    \begin{align*}
+        \mu (K_\eps )>1- \eps , \quad\forall \mu \subset \Gamma.
+    \end{align*}
+    If $\Gamma = \set{\mu}$ is a single measure we simply say that $\mu $ is tight.
+\end{definition}
+Related to tightness are the following concepts
+\begin{definition}\label{regularity def}
+    We say that $\mu \in  \Pp (X)$ is a Radon measure it is \emph{inner regular}, that is
+    \begin{align*}
+        \mu (A)= \sup \set{ \mu (K): K \subset A, K \text{ compact } }.
+    \end{align*}
+    We say that $\mu $ is \emph{outer regular} if
+    \begin{align*}
+        \mu (A)= \inf \set{ \mu (U): U \supset A, U \text{ open } }.
+    \end{align*}
+\end{definition}
+Indeed, taking $A =X$, we see that if $\mu$ is a Radon measure (inner regular), it is also tight and taking complements shows that if $X$ is compact and $\mu $ is outer regular, it is also Radon.
+
+The approximation by compact sets is the strongest requirement in \Cref{regularity def}. A weaker condition of approximatino by closed sets always holds for Borel measures on metric spaces.
+\begin{definition}
+    We say that $\mu \in \Pp(X)$ if it is outer regular and
+    \begin{align*}
+        \mu (A)= \sup \set{ \mu (K): K \subset A, K \text{ compact } }.
+    \end{align*}
+\end{definition}
+All Borel measures on metric spaces are regular  \cite[Theorem 1.2, p.27]{parthasarathy1967probability}.
+\begin{proposition}
+    Every $ \mu \in \Pp(X)$ is regular.
+\end{proposition}
+\begin{proof}
+    Write $\Bb $ for the collection of sets which are regular (can be approximated by open and closed sets). A verification shows that $\Bb $ is a sigma-algebra. Furthermore it contains all closed sets as any closed set $C$  can be inner approximated by themselves and written as a countable intersection $C = \bigcap_{m=1}^ \infty B_n $ where $B_n = \bigcup_{x \in C} B(x,n ^{-1})$. So that $U_m= \bigcap_{n=1}^m B_n$ is an open outer approximation of $C$. As a result, we conclude that $\Bb (X) \subset \Bb $, concluding the proof.
+\end{proof}
+For the types of spaces we consider we can say more \cite[Theorem 3.1, p.29]{parthasarathy1967probability}.
+\begin{lemma}[Tight measures are Radon]\label{tight is Radon}
+    Every $ \mu \in \Pp(X)$ is inner regular if and only if it is tight.
+\end{lemma}
+\begin{proof}
+    The implication is immediate. The reverse implication follows by intersecting a closed set $C_\eps $ approximating $A$ by the $K_\eps $ in \eqref{tight def}.
+\end{proof}
+Due to \Cref{tight def} we may use the term tight and Radon interchangeably.
+\begin{definition}
+    We say that $X$ is a Radon space if every $\mu \in \Pp(X)$ is tight.
+\end{definition}
+Typically we work with the following spaces
+\begin{definition}
+    We say that $X$ is a \emph{Polish space} if it is a separable complete metric space.
+\end{definition}
+\begin{exercise}
+    Every Polish space is a Radon space.  \cite[Theorem 1.3, p.9]{billingsley2013convergence}.
+\end{exercise}
+\begin{hint}
+    The idea is to use that in complete metric spaces totally bounded and relatively compact are equivalent.
+    Use the separability to construct for each $m$ a countable covering of $X$ by balls $\set{B_{mn}}_{n=1}^\infty$ of radius $1/m$. Show by the continuity from below of measures that given $\eps >0$  there exists $n_m$ such that writing $B_m:= \bigcup _{n=1}^{n_k} B_{mn}$ verifies $\mu (A_{nm})<1- \eps /2^m$. Show that $B:=\bigcap_{m=1}^ \infty B_m$ is totally bounded with $\mu (B)> 1-\eps$. Conclude by setting $K_\eps = \overline{B}$.
+\end{hint}
+In particular $\R^d$ is Radon (though the proof of this is straightforward by writing $\R^d$ as a countable union of compact sets). Any Hilbert space, all the $L^p$ spaces, and $C^k_b(\Omega )$ for $\Omega \subset \R^d$  are Radon spaces.
+\begin{definition}
+    We say that $X$ is locally compact if every point has a compact neighbourhood.
+\end{definition}
+\begin{exercise}
+    If $X$ is locally compact and separable it is a Radon space.
+\end{exercise}
+\begin{hint}
+    Construct a countable covering of $X$ by compact sets $K_n$, given $\eps >0$ use the continuity form below to show that for some $n_\eps $ it holds that $\mu ( \bigcup_{j=1}^{n_\eps } K_j)= 1-\eps $. Conclude by \Cref{tight is Radon}.
+\end{hint}
+This shows for example, that the rational numbers with the euclidean metric form a Radon space.
+
+
+The following result is fundamental to extract a convergent minimizing sequence of \eqref{kantorovich 0}.
+\begin{theorem}[Prokhorov] If $\Gamma \subset \Pp (X)$ is tight then it is sequentially compact.\label{prokhorov}
+\end{theorem}
+\begin{proof}
+    The idea is to first reduce to a separable space. Consider compact sets $K_{1/n}$ verifying \ref{tight def}. Since compact sets are separable, so is $K:=\bigcup_{n=1}^\infty K_{1/n}$. Since $\mu (K)= 1$ for all $\mu \in \Gamma $ we don't care about what happens outside of $K$. Now, by separability one can choose a countable basis of open sets such as $ \Bb :=\set{B_m}_{m=1}^\infty=\set{B(x_n, \delta ): \delta \in \Q, n \in \N}$ and where $\set{x_n}_{n=1}^\infty$ is a dense subset of $K$. Let $\set{\mu_n}_{n=1}^\infty \subset \Gamma $. By taking finite unions and intersections, one can further enhance $\Bb $  to $\Aa $ so that it is a countable algebra which contains all the $K_n$. For each $A_m \subset \Aa  $ the sequence $\set{\mu _n(A_m)}_{n=1}^\infty \subset \R$ is bounded, so we may extract a convergent subsequence $\mu_{n_j^m}(A_m) \to \mu (A_m)$. Using a diagonal argument we obtain a subsequence such that
+    \begin{align*}
+        \mu_{n_k}(A_m) \to \mu (A_m), \quad\forall A_m \in \Aa.
+    \end{align*}
+    Once can then prove $\sigma $-additivity of  $\mu $ on $\Aa $ and by Caratheodry's theorem extend $\mu $ to all of $K$. The tightness makes it so no mass escapes, that is $\mu(X)=\mu(K)=1$, and one can conclude by weak convergence by Portmanteau's theorem. FOr the full details see \cite[Theorem 5.1, p.59]{billingsley2013convergence}.
+\end{proof}
+\begin{exercise}
+    Show that the condition that $\Gamma $ is tight is necessary.
+\end{exercise}
+\begin{hint}
+    Construct a sequence whose support escapes to infinity. For example $X=\R$ and $\mu_n = \delta_n$. What does $\mu_n$ converge to?
+\end{hint}
+
+
+
+
+One could ask whether the converse of \Cref{prokhorov} holds, this is the case if $X$ is Polish \cite[Theorem 5.2, p.60]{billingsley2013convergence}.
+\begin{theorem}
+    If $X$ is a Polish space, then $\Gamma $ is sequentially compact if and only if it is tight.
+\end{theorem}
+
+
+\section{Existence and uniqueness ot the Kantorovich problem}
+Using the tools from the previous section we are in a position to prove well-posedness of Kantorovich's problem.
+\begin{definition}
+    Let $(X_1, \Sigma_1),(X_2, \Sigma_2)$ be measurable spaces and $f: X_1 \to X_2$ be measurable. Given a measure $\mu $ on  $\Sigma_1$, the \emph{pushforward} of $\mu $ by $f$ is the measure $f_{\#} \mu $  on $\Sigma_2$ defined by
+    \begin{align*}
+        f_{\#} \mu(B):= \mu (f ^{-1}(B)).
+    \end{align*}
+    \begin{definition}
+        We say that $T: X \to Y$ is a \emph{transport map} if $T_{\#}\mu = \nu $.
+    \end{definition}
+
+\end{definition}
+In what follows $X,Y$ are metric space, we write $\pi_X(x,y)=x, \pi _Y(x,y)=y$ for the projections of $X\times Y$ onto $X$ and $Y$ respectively and we consider a measurable function $c: X \times Y \to \R$.
+\begin{definition}
+    Given $\mu \in \Pp (X)$ and $\nu \in \Pp (Y)$ we define the set of \emph{transport plans}
+    \begin{align*}
+        \Gamma (\mu ,\nu):= \set{\gamma \in \Pp (X \times Y): \pi_{X\#}\gamma = \mu \quad and \quad  \pi_{Y\#}\gamma = \nu }.
+    \end{align*}
+\end{definition}
+With this notation, Monge's problem is
+\begin{align}\label{Mobge}
+    \inf\set{\int_{X}c(x,T(x)) \d \mu (x): T_{\#} \mu = \nu  }.
+\end{align}
+Kantorovich's problem is
+\begin{align}\label{Kantorovich}
+    \min\set{\int_{X\times Y}c(x,y) \d \gamma  (x,y): \gamma \in  \Gamma (\mu ,\nu ) }.
+\end{align}
+Without additional constraints Monge's problems may be ill-posed, however, Kantorovich's problem is robust to these issues.
+\begin{exercise}
+    Construct $\mu ,\nu$ such that there does not exist $T$ with $T_{\#} \mu =\nu$.
+\end{exercise}
+\begin{hint}
+    Try transporting a discrete measure to a continuous one.
+\end{hint}
+\begin{exercise}
+    Show that $\Gamma(\mu ,\nu)$ is never empty.
+\end{exercise}
+\begin{hint}
+    Prove that $\mu \otimes \nu \in \Gamma (\mu ,\nu )$.
+\end{hint}
+
+The following proof is immediate
+\begin{exercise}\label{tightness equiv}
+    Prove that $\mu ,\nu$ are tight if and only if $\Gamma(\mu ,\nu )$ is tight.
+\end{exercise}
+It is immediate that $\Gamma (\mu , \nu ) \subset \Pp (X\times Y)$ is closed. Prokhorov's \Cref{prokhorov} thus reads
+\begin{corollary}\label{compactness}\label{prokorov corollary}
+    Let $ \mu , \nu $ be tight. Then $\Gamma (\mu , \nu )$ is \href{https://en.wikipedia.org/wiki/Sequentially_compact_space}{sequentially compact}.
+\end{corollary}
+
+If $X,Y$ are separable then $\Gamma (\mu ,\nu )$ is compact as in metric spaces compact and sequentially compact is equivalent, by \Cref{ex:separability PX} (the product of separable spaces is separable).
+
+
+\Cref{tightness equiv} allows us to apply Prokhorov's theorem directly to continuous cost functions. For
+\begin{theorem}\label{existence theorem}
+    Let $c$ be l.s.c and bounded below let $\mu , \nu $ be tight. Then, there exists a minimizer $\gamma $ to \eqref{KP}.
+\end{theorem}
+\begin{proof}
+    Let $\gamma _n \in \Gamma (\mu ,\nu)$ be a minimizing sequence of \eqref{Kantorovich}. That is, a sequence such that
+    \begin{align}\label{sequence}
+        \lim_{n \to \infty} (c,\gamma_n) = \inf\set{(c,\gamma) : \gamma \in  \Gamma (\mu ,\nu ) }.
+    \end{align}
+    By \Cref{tightness equiv} the collection of measures $\Gamma(\mu ,\nu )$ is tight and by Prokhorov's  \Cref{prokhorov} we may extract a convergent subsequence $\gamma_{n_k} \to \gamma \in \Gamma (X\times Y)$. Applying \Cref{limit respects order} to $c$ and using \eqref{sequence} shows that
+    \begin{align*}
+        (c, \gamma ) \leq \lim_{n \to \infty}(c,\gamma_n)=\inf\set{(c,\gamma) : \gamma \in  \Gamma (\mu ,\nu ) }.
+    \end{align*}
+    This shows that $\gamma $ is a minimizer, as desired.
+\end{proof}
+Still need to discuss uniqueness and give overview over more general conditions....
+
+\section{Structure of the transport map}
+We now turn to the problem of characterising the transport plans $\gamma $ with a particular view of showing that, under suitable restrictions, they are transport maps.  This can be done without too much effort for discrete measures.
+\begin{theorem}[Birkhoff]\label{Birkhoff theorem}
+    Let $\mathcal{T}= \set{T \in \R^{n\times n}_{\geq 0}:\frac{1}{n} \sum_{i=1}^n T_{ij}=\sum_{i=1}^n T_{ij}=\frac{1}{n}} $. Then $T$ is an extreme points of $\Tt$  if and only if $T_{ij}= \frac{1}{n} \delta_{j}(\sigma(i)) $ for some permutation $\sigma $ of $\set{1,...,n}$.
+\end{theorem}
+\begin{proposition}\label{discrete transport well posed}
+    Given any cost $c:X \times Y \to (-\infty,\infty]$ and discrete measures
+    \begin{align*}
+        \mu _n =\frac{1}{n}\sum_{n=1}^n \delta_{x_n}, \quad \nu _n = \frac{1}{n}\sum_{n=1}^n \delta _{y_n},
+    \end{align*}
+    there exists a transport map $T$ which attains the minimum of \eqref{KP}. That is, \eqref{MP}$=$\eqref{KP}.
+\end{proposition}
+\begin{proof}
+    We identify $\mathcal{T}$ with $\Gamma (\mu _n, \nu _n)$ by $\gamma(\set{(xi,y_j)}):= T_{ij}$. Since the transport cost
+    \begin{align*}
+        \sum_{i,j=1}^n c(x_i,y_j)T_{ij}
+    \end{align*}
+    is linear in $T$, it takes a maximum at the extremums of $\Tt$ (\Cref{max exercise}). This corresponds to a transport map by  \Cref{Birkhoff theorem}.
+\end{proof}
+
+
+
+
+An initial idea to do this could be to approximate $\mu , \nu $ by discrete measures $\mu_n , \nu _n$. By \Cref{Birkhoff theorem} the optimal mapping $\gamma _n$ does not split mass. Extracting by \Cref{prokhorov} a convergent subsequence $\gamma _{n_k}$ to some $\gamma $, the goal would be to show that $\gamma $ does not split mass and that it minimizes \eqref{KP}. However, this is not immediate. Further properties on the support of $\gamma _n$ are needed for this analysis to be fruitful.
+A key ingredient turns out to be the dual problem.
+
+In constrained optimization, duality is the method of transforming a minimization problem (the ``primal problem'') into a maximization problem (the ``dual problem'') which may be easier to solve or to analyze. For example \href{https://en.wikipedia.org/wiki/Duality_(optimization)#Applications:~:text=a%20global%20optimum.-,Lagrange%20duality,-%5Bedit%5D}{Lagrange duality} transforms a constrained minimization problem into an unconstrained maximization problem. We try to replicate it in our case through the following heuristic argument.  The constraint $\gamma  \in \Gamma (\mu ,\nu )$ can be enforced by posing the problem 
+\begin{align*}
+    \sup_{\psi \in C_b(X), \phi\in C_b(Y) }\set{(\varphi ,\mu - \pi_{\# X}\gamma )+ (\psi ,\nu - \pi_{\# Y}\gamma )}.
+\end{align*}
+Or equivalently, writing $(\varphi \oplus \psi)(x,y):= \varphi (x)+ \psi (y)$ through
+\begin{align*}
+    \sup_{\psi \in C_b(X), \phi\in C_b(Y) }\set{(\varphi \oplus \psi ,\mu \otimes \nu - \gamma )}.
+\end{align*}
+If the marginal constraints do not hold then we can make the quantity above arbitrarily large by taking $(\varphi \oplus \psi)$ very positive or negative on a set where there is a discrepancy. Whereas if the constraints are met the supremum is zero. The \eqref{KP} thus becomes
+\begin{align*}
+    (\rmm{KP})=\inf_{\gamma \in \Mm(X)}\set{(c,\gamma )+\set{\sup_{\psi \in C_b(X), \phi\in C_b(Y) }\set{(\varphi \oplus \psi ,\mu \otimes \nu - \gamma )}}}.
+\end{align*}
+If we can swap the inf with the sup we obtain
+\begin{align*}
+    (\rmm{KP})=\sup_{\psi \in C_b(X), \phi\in C_b(Y) }\set{(\varphi \oplus \psi ,\gamma )+\inf_{\gamma \in \Mm(X)}\set{(c-\varphi \oplus \psi , \gamma )}}.
+\end{align*}
+The infimum in the equation above is $- \infty$ if $c \leq \varphi \oplus \psi $ and $0$ otherwise. As a result, since we are maximizing
+\begin{align*}
+    (\rmm{KP})=
+    \sup \bigg\{ (\varphi \oplus \psi,\mu \otimes \nu): \varphi \in C_b(X), \psi \in C_b(Y), \varphi \oplus \psi \leq c \bigg\}
+\end{align*}
+This motivates the following definition
+
+
+\liamtodo{Check measurability if non separbale maybe here is used.}
+
+\begin{problem}[Dual Problem]\label{duality theorem}
+Find $\varphi , \psi $ maximizing
+\begin{align}\tag{DP}\label{DP}
+    \sup \bigg\{ (\varphi ,\mu )+(\psi ,\nu): \varphi \in C_b(X), \psi \in C_b(Y), \varphi \oplus \psi \leq c \bigg\}
+\end{align}
+\end{problem}
+The reasoning above to show that the primal problem \eqref{KP} was equal to the dual problem \eqref{DP} was heuristic and relied on being able to swap on the inf with the sup. In general we always have
+\begin{exercise}\label{ex: weak duality}
+    Show that \eqref{KP}$ \geq$ \eqref{DP}.
+\end{exercise}
+\begin{hint}
+    For all $\gamma , \varphi , \psi $ satisfying their respective constraints we have
+    \begin{align*}
+        (c,\gamma )-(\varphi ,\mu )+(\psi ,\nu)= (c- \varphi \otimes \psi, \gamma ) \geq 0.
+    \end{align*}
+\end{hint}
+The difference \eqref{KP}$-$\eqref{DP} is known as the \emph{duality gap}. If the gap is non-zero we say that we have \emph{weak duality}. We will prove that in most cases of interest the gap is in fact zero and  \eqref{KP}$ =$ \eqref{DP}. This situation is known as \emph{strong duality}.
+
+
+To do se first analyze the structure of the support of an optimal map. Using the notation $S_n$ for the set of permutations of $\set{1,\ldots,n}$ we define the following.
+\begin{definition}
+    We say that $\Gamma  \subset X \times Y$ is $c$-monotone if for every  $k \in \N$ and $\set{(x_i,y_i)}_{i=1}^k \subset \Gamma $ it holds that for every permutation $\sigma \in S_n$
+    \begin{align*}
+        \sum_{i=1}^k c(x_i,y_i) \leq \sum_{i=1}^{k} c(x_i,y_{\sigma(i)}).
+    \end{align*}
+\end{definition}
+\begin{exercise}\label{ex:discrete transport is c-monotone}
+    Show that given a solution to the \eqref{KP} (or equivalently to the \eqref{MP} by \Cref{discrete transport well posed}) between  discrete measures the support of $\gamma $ is $c$-monotone.
+\end{exercise}
+\begin{hint}
+    If it isn't use the $\sigma $ to construct a better map $x_i \to y_{\sigma(i)}$ for $i=1,...,k$.
+\end{hint}
+The $c$-monotonicity of the support extends to continuous measures. We recall that the \href{https://en.wikipedia.org/wiki/Support_(measure_theory)}{support} $\rmm{supp}(\mu )$ of a measure $\mu $  is the set of points $x$  such that every open set containing $x$ has non-zero measure.
+\begin{exercise}\label{ex:supp}
+    Show that the support of $\mu \in \Pp(X)$ is closed in $X$ and that for \href{https://en.wikipedia.org/wiki/Second-countable_space}{second-countable} $X$ we have $\mu(\rmm{supp}(\mu ))=1 $.
+\end{exercise}
+\begin{hint}
+    The complement of $\rmm{supp}(\mu )$ is the union of open sets of measure $0$ and thus open. If $X$ is second countable, then this union can be written as a countable union
+\end{hint}
+
+Using the same idea as in \Cref{ex:discrete transport is c-monotone} (and unrelated to \Cref{ex:supp}) we have that
+\begin{exercise}\label{ex:continuous transport is c-monotone}
+    Consider $c \in C_b(X\times Y)$. Show that if $\gamma $ is a solution to \eqref{KP} then $\rmm{supp}(\gamma)$ is $c$-monotone.
+\end{exercise}
+\begin{hint}
+    We reason by contradiction and construct a better plan. If $\sigma \in S_n$ and  $\set{(x_i,y_i)}_{i=1}^k \in \rmm{supp}(\gamma )$ contradicts $\gamma $ having $c$-monotone support, let $U_i=B(x_i,\delta ), V_i=B(y_i, \eps )$,  define $\gamma_i$ as the conditional measure on the bad coupling $\gamma_i(A):= \gamma\qty(A| U_i \times V_i)$, and write $\gamma_i^X = \pi _{\#}^X \gamma_i$, $ \gamma_{i}^Y= \pi _{\#}^Y \gamma_i$. It is better to transport points in $U_i$ to $V_{\sigma (i)}$  so we  define
+    \begin{align*}
+        \tl{\gamma }:= \gamma - \eps \sum_{i=1}^k (\gamma_i^X \otimes \gamma_{\sigma(i)}^Y - \gamma_i ).
+    \end{align*}
+    Show that for $\tl{\gamma } $ is a measure for small enough $\eps $ (so that $\tl{\gamma } $ is positive), that $\tl{\gamma } $ satisfies the marginal constraints, and by the continuity of $c$, that for small enough $U_i,V_{\sigma(i)}$ the (finite) cost of $\tl{\gamma } $ is lower.
+\end{hint}
+For discontinuous costs the support of an optimal plan may not be $c$-monotone. However, the plan will still concentrate on such a set.
+\begin{exercise}
+    Let $\gamma $ be an optimal plan for some $c: X\times Y \to \R$. Prove that
+\end{exercise}
+\begin{hint}
+
+\end{hint}
+
+
+
+
+Suppose that $\varphi, \psi  $ are potentials verifying the duality constraint $\varphi \oplus \psi \leq c$. Then,
+\begin{align*}
+    \psi (y) \leq c(x,y)- \varphi(x), \quad\forall x \in X, \quad y \in Y.
+\end{align*}
+As a result, for all $y \in Y$
+\begin{align}\label{c-transform 1}
+    \psi (y) \leq \varphi^c(y):= \inf_{x \in X} c(x,y) - \varphi (x).
+\end{align}
+In the same way, for all $x \in X$
+\begin{align}\label{c-transform 2}
+    \varphi (x) \leq \psi ^c(y):= \inf_{y \in Y} c(x,y) - \psi  (x).
+\end{align}
+\begin{definition}
+    The functions $\varphi^c, \psi ^c$ in \eqref{c-transform 1} and \eqref{c-transform 2}  are known as the \emph{$c$-transform} of $\varphi$ and $\psi $ respectively.
+\end{definition}
+
+Since we are looking to maximize $\varphi \oplus \psi $ we know that we can restrict to potentials verifying $\psi =\varphi ^c , \varphi = \varphi ^{cc}$ \liamtodo{Can we keep going?}. We slightly restrict our assumptions on the potentials by requiring that they only be measurable. This can lead to indeterminacies $\infty-\infty$ which we will define to be $\infty$. This is not import though as we shall restrict to real valued costs and will show that the potentials are finite almost everywhere
+
+
+The fact that the support of optimal measures is $c$-monotone is what allows us to prove duality.
+
+
+
+We assume from now on the following:
+\begin{assumption}
+    The spaces $X,Y$ are separable metric spaces and $\mu, \nu $ are complete.
+\end{assumption}
+The separability of $X$ guarantees that $\Bb (X\times Y) $ measurable functions are also $\Bb (X)\otimes \Bb (Y)$ measurable. As well as so that $\gamma \in \Pp (X\times Y)$ may be disintegrated into slices, this guarantees the measurability of the $c$-transform
+
+The completion of $\mu , \nu $ is formed by by first completing $ \Bb (X)$ and $ \Bb (Y)$ and then extending $\mu , \nu $ to these completions. This is done so that we only need to define functions on $X$ and on $Y$  almost everywhere (a.e.) without worrying about measurability properties.
+
+
+The following lemma, when applied to the support of the optimal plan will prove strong-duality
+\begin{lemma}[$c$-monotonicity equals duality 1]\label{c-monotone set duality}
+    Let $c:X \times Y \to \R$ be any function. Then a set $S\subset X\times Y$ is $c$-monotone if and only if there exists $\varphi : X \to \mathbb{R} $ such that
+    \begin{align*}
+        \varphi (x)+ \varphi ^c(y)= c(x,y), \quad\forall (x,y) \in S.
+    \end{align*}
+    Furthermore, if $S \in \Bb(X)$  and $c$ is measurable $\varphi$ is measurable.
+\end{lemma}
+\begin{proof}
+    The converse implication  is the easiest to prove. Suppose that the equality holds and consider $\set{(x_i,y_i)}_{i=1}^n \subset  S, \sigma \in S_n$, by the definition of the $c$-conjugate and since $\sigma $ is a permutation 
+    \begin{align*}
+        \sum_{i=1}^n c(x_i, y_{\sigma (i)}) \geq  \sum_{i=1}^n \varphi(x_i) + \varphi ^c(y_{\sigma (i)})= \sum_{i=1}^n \varphi(x_i) + \varphi ^c(y_{i})=  \sum_{i=1}^n c(x_i, y_{i}).
+    \end{align*}
+    This proves $c$-monotonicity.  We now show the direct implication. Suppose that $S$ is $c$-monotone and let $(x_0,y_0) \in S$. Given $n \in \N$, $x \in X$ and  $(x_i,y_i)_{i=1}^n \subset S$ we define the potential gain
+    \begin{align*}
+        \Phi^n_c\qty(x;(x_i,y_i)_{i=1}^n):= c(x,y_n)-c(x_n,y_n)+\sum_{i=1}^n c(x_i,y_{i-1}) -c(x_{i-1},y_{i-1})
+    \end{align*}
+    and set the minimum potential gain to be (the limit exists as the sequence is decreasing in $n$)
+    \begin{align}\label{potential construction}
+        \varphi_S(x) := \lim_{n \to \infty}\inf\set{ \Phi^n_c\left(x;(x_i,y_i)_{i=1}^n\right): \set{(x_i,y_i)}_{i=1}^n \subset S}.
+    \end{align}
+    Given  $\eps >0$  there exist $n \in \N$ and  $(x_i,y_i)_{i=1}^n \subset S$ such that
+    \begin{align*}
+        \Phi^n_c\left(x;(x_i,y_i)_{i=1}^n\right)<  \varphi_S(x) + \eps
+    \end{align*}
+    As a result, given $(x,y) \in S$ and $x' \in X$ and writing $(x_{n+1},y_{n+1})=(x,y)$ we deduce by the construction of $\varphi_S $  that
+    \begin{align*}
+        \varphi_S (x')\leq \Phi^{n+1}_c\left(x;(x_i,y_i)_{i=1}^{n+1}\right) & = c(x',y)-c(x,y)+\Phi^n_c\left(x;(x_i,y_i)_{i=1}^n\right) \\
+                                                                          & <  c(x',y)-c(x,y) + \varphi_S (x) + \eps.
+    \end{align*}
+    Since $\eps $ was any this proves that for all $x' \in X$
+    \begin{align}\label{contruction ineq}
+        \varphi_S (x') \leq c(x',y)-c(x,y) + \varphi_S (x) , \quad\forall (x,y) \in S.
+    \end{align}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{diagram_c_monotonicity.pdf}
+    \caption{ Since $\varphi(x')$ is the infimum over \emph{all} paths, the path through $(x,y)$ gives an upper bound:}
+    \label{Bound figure}
+\end{figure}
+Equivalently, rearranging and taking the infimum over $x' \in X$, $\varphi_S : S \to \R$ and    \liamtodo{$y  \in \partial c$ and}
+    \begin{align*}
+        c(x,y)\leq \varphi_S (x)+ \varphi_S ^c(y) , \quad\forall (x,y) \in S.
+    \end{align*}
+    By definition of the $c$-conjugate (see \Cref{ex: weak duality}) the reverse inequality holds, so $\varphi_S \oplus \varphi_S ^c =c $ on $S$  as desired. Additionally, by the $c$-monotonicity,   $\varphi_S (x_0)=0$ so by \eqref{contruction ineq}
+    \begin{align*}
+        \varphi_S(x') & \leq c(x',y_0)-c(x_0,y_0)+ 0 <\infty , \quad\forall x' \in X \\
+        \varphi_S(x)  & \geq c(x,y)-c(x_0,y)+ 0 > -\infty, \quad\forall (x,y) \in S.
+    \end{align*}
+
+    That is, $\varphi_S $ is real valued on $\pi _X(S)$.  We can define it to be zero outside of $S$ to conclude the first part of the lemma.
+
+    We now prove measurability if $c$ is measurable. By the tightness of $\mu $ and \href{https://en.wikipedia.org/wiki/Lusin%27s_theorem#:~:text=%5B1%5D-,General%20form,-%5Bedit%5D}{Lusin's theorem} and \href{https://en.wikipedia.org/wiki/Tietze_extension_theorem}{Tietze's extension theorem} there exist sets $S_m \uparrow S$ and continuous $c_m : X \times Y \to \R $ with $\restr{c_m}{S_m}=\restr{c}{S_m}$.   We write $S':= \bigcup_{m=1}^\infty S_m$ and now consider 
+    \begin{align}\label{potential construction}
+        \varphi_{S'}(x) := \lim_{n \to \infty}\inf\set{ \Phi^n_{c_m}\left(x;(x_i,y_i)_{i=1}^n\right): \set{(x_i,y_i)}_{i=1}^n \subset S'}.
+    \end{align}
+Copying the proof verbatim but with $S'$ in the place of $S$ shows that 
+\begin{aligneq}\label{Sm construction}
+    \varphi_{S'}\oplus \varphi_{S'}^c=c \text{ on }  S'.
+\end{aligneq}
+Now, given $x \in X$ and  $\eps >0$ we can find $n, (x_i,y_i)_{i=1}^n \in S'$ and $m$ large enough such that  
+    \begin{align}\label{close to inf}
+        \abs{\varphi_{S'}(x)-\Phi^n_{c}\left(x;(x_i,y_i)_{i=1}^n\right)}  & < \eps.
+    \end{align}
+    Since the $(x_i,y_i)_{i=1}^n $ are eventually in $S_m$ for $m$ large enough
+    \begin{align}\label{eventually in Sm}
+        \Phi^n_{c}\left(x;(x_i,y_i)_{i=1}^n\right)=\Phi^n_{c_m}\left(x;(x_i,y_i)_{i=1}^n\right).
+    \end{align} 
+It follows from \eqref{close to inf} and \eqref{eventually in Sm} that 
+    \begin{align*}
+        \varphi_{S'}(x) =\lim_{m \to \infty}\lim_{n \to \infty}\inf\set{ \Phi^n_{c_m}\left(x;(x_i,y_i)_{i=1}^n\right): \set{(x_i,y_i)}_{i=1}^n \subset S_m},
+    \end{align*}
+where we also used that the sequence is monotonically decreasing in $m$ so the limit exists.
+    Since the $c_m$ are continuous, and in particular upper semi-continuous (usc), the functions $\Phi^n_{c_m}\left(\cdot ;(x_i,y_i)_{i=1}^n\right)$ over which we take the infimum also continuous. As a result, their infimum is usc, and in particular measurable, and thus so is the limit. Since $\varphi_S=\varphi_S'$ almost everywhere on $S$, we conclude the proof by setting $\varphi= \varphi_S$ on $S$ and $0$ elsewhere.
+\end{proof}
+Combining the preceding results we obtain duality for continuous bounded costs. 
+
+
+\begin{lemma}[Duality 1]\label{prop: Duality continuous}
+    Let $c \in C_b (X \times Y)$, then \eqref{KP}= \eqref{DP}. Furthermore, given any optimal plan $\gamma$ there exists a maximizing pair $(\varphi, \varphi^c)$ with  
+        \begin{align}\label{eq supp}
+        \varphi (x)+ \varphi ^c(y)= c(x,y), \quad\forall (x,y) \in \mathrm{supp}(\gamma).
+    \end{align}
+\end{lemma}
+\begin{proof}
+    By \Cref{ex:continuous transport is c-monotone} the support of $\gamma $ is $c$-monotone. By \Cref{c-monotone set duality} there exists measurable $\varphi $ such that \eqref{eq supp} holds. 
+  Applying \Cref{ex:fibre measurabilty} to $g(x,y)=c(x,y)- \varphi (x)$ shows that $\varphi^c $ is measurable. The equality \eqref{eq supp} and the integrability of $c$ guarantees that $\varphi $ and $\varphi ^c$ are integrable and since, by \Cref{ex:supp}, $\gamma(\mathrm{supp}(\gamma))=1$  duality holds.
+\end{proof}
+By approximation from below we obtain strong duality for lsc costs
+\begin{lemma}[Continuity of transport in the cost]\label{lemma: continuity in cost}
+    Let $c : X \times Y \to \mathbb{R} \cup \set{\pm \infty}$ be lsc with optimal plan $\gamma$ and let $c_n \uparrow c$ be continuous with optimal plan $\gamma_n$. Then there is a subsequence $\gamma_{n_k}$ converging to an optimal transport plan for $c$. Furthermore, any convergent subsequence converges to an optimal plan for $c$.
+\end{lemma}
+\begin{proof}
+    Since $\Gamma(\mu , \nu )$ is compact  we may extract a subsequence $\gamma _{n_k}$ converging to some $\bar{\gamma} $ in $\Gamma (\mu , \nu )$. Since $\gamma_{n_k}$ is optimal for $c_{n_k}$ 
+    \begin{aligneq*}
+        (c_{n_k},\gamma_{n_k})\le (c_{n_k},\gamma)
+    \end{aligneq*}
+Taking limits and using the monotone convergence theorem gives
+\begin{aligneq}\label{ub} 
+    \limsup_{k \to \infty} (c_{n_k},\gamma_{n_k})\le (c,\gamma)
+\end{aligneq}
+Fix an arbitrary index $m \in \mathbb{N}$. Since the sequence of costs is increasing, for all $n_k \ge m$ 
+\begin{aligneq*}
+    (c_m,\gamma_{n_k})\le (c_{n_k},\gamma_{n_k})
+\end{aligneq*}
+Now, take the limit as $k \to \infty$. Since $c_m$ is continuous and $\gamma_{n_k} \to  \bar{\gamma}$ we deduce that for all $m \in \N$
+\begin{aligneq*}
+    (c_m,\bar{\gamma})\le \liminf_{k \to \infty}  (c_{n_k},\gamma_{n_k})
+\end{aligneq*}
+Finally, letting $m \to \infty$, by the Monotone Convergence Theorem
+\begin{aligneq}\label{lb}
+    (c,\bar{\gamma})\le \liminf_{k \to \infty}  (c_{n_k},\gamma_{n_k})
+\end{aligneq}
+Combining \eqref{ub} and \eqref{lb} shows that
+\begin{aligneq*}
+     (c,\bar{\gamma})\le \liminf_{k \to \infty}  (c_{n_k},\gamma_{n_k}) \le  \limsup_{k \to \infty} (c_{n_k},\gamma_{n_k})\le (c,\gamma)
+\end{aligneq*}
+Since $\gamma$ is optimal for $c$ we deduce that so is $\overline{\gamma}$ as desired.
+\end{proof}
+
+\begin{theorem}[Strong duality]\label{strong duality theorem}
+    Let $c : X \times Y \to \R$ be lsc, then \eqref{KP}= \eqref{DP}.
+\end{theorem}
+\begin{proof}
+    Consider continuous $c_n \uparrow c$ and let $\gamma_n$ be the optimal plan associated to $c_n$ and $(\varphi_n, \phi_n)$ the maximizing potentials. Then, by \Cref{lemma: continuity in cost} we have that for some subsequence
+    \begin{aligneq*}
+    (\varphi_{n_k}\oplus \phi_{n_k},\gamma_{n_k})=(c_{n_k}, \gamma_{n_k})\xrightarrow{k \to \infty } (c,\gamma) = (\mathrm{KP})
+    \end{aligneq*}
+Since $\varphi_{n_k}\oplus\phi_{n_k} \le c_{n_k} \le c$, these are valid potentials for $c$. From here we conclude the result.
+\end{proof}
+
+
+\begin{theorem}\label{prop: support}
+    Suppose that $c$ is lsc and in $ L^1(X\times Y, \gamma )$  where $\gamma $ is an optimal plan. Then $\gamma $ is concentrated on a $c$-monotone subset
+\end{theorem}
+\begin{proof}
+    By \Cref{strong duality theorem} there exists a maximizing sequence $\varphi _n, \psi _n $ to \eqref{DP} so that, writing $d_n:=c-\varphi_n\oplus \psi _n$ we have that $ \lim_{n \to \infty}(d_n, \gamma )=0$. Since $d_n \geq 0$  we deduce that $ d_n \to   0$ in $L^1(X\times Y, \gamma )$ and as a result we may extract a subsequence $d_{n_k}$ with $ d_{n_k} \to  0$ a.e. Then
+    \begin{align*}
+        \sum_{i=1}^m c(x_i, y_{\sigma_i}) & \geq   \sum_{i=1}^m \varphi_{n_k}(x_i)+ \sum_{i=1}^m \psi_{n_k} (y_{\sigma(i)})                \\
+                                          & =\sum_{i=1}^m \varphi_{n_k}(x_i)+ \sum_{i=1}^m \psi_{n_k} (y_{i}) \to \sum_{i=1}^m c(x_i, y_i)
+    \end{align*}
+    This conludes the proof.
+\end{proof}
+The integrability condition is framed in terms of the optimal plan $\gamma $, which may be unknown. However, if $c$ is integrable with respect to any other valid plan such as $\mu \otimes \nu$ it is also integrable with respect to $\gamma $.
+
+Conversely, if a measure $\gamma $ is concentrated on a $c$-monotone set $S$ and is somewhere marginally integrable.
+\begin{theorem}\label{tm: c-monotone implies optimal}
+    Let  $\gamma \in \Gamma(\mu ,\nu )$  is concentrated on a $c$-monotone set $S$. If $c$ is lsc, and
+    \begin{aligneq}\label{finite}
+        \mu\left(\left\{x \in X : (c(x,\cdot ),\nu) < \infty\right\}\right)&>0\\
+        \nu\left(\left\{y \in Y :(c(\cdot ,y),\mu) < \infty\right\}\right) &> 0.
+    \end{aligneq}
+    Then, $\gamma$ is an optimal plan $c$ is integrable and there exist integrable $\varphi, \varphi ^c$ such that
+    \begin{align*}
+        (c, \gamma )=(\varphi\oplus \varphi ^c, \gamma ).
+    \end{align*}
+\end{theorem}
+\begin{proof}
+    Let $\varphi$ be as in \Cref{prop: support}. By construction,
+    \begin{align*}
+        \varphi (x)= c(x,y)- \varphi ^c(y), \quad\forall (x,y) \in S.
+    \end{align*}
+    By the assumptions, we may choose $y \in Y$ such that $\int_{X} c(x,y) d\mu (x)<\infty$. So inntegrating over $X$ we obtain that $\varphi$ is integrable. The analogous argument shows that $\varphi ^c$ is integrable. As a result, $c$ is integrable. To prove the optimality of $\gamma $ consider any other plan $\gamma ' \in \Gamma (\mu ,\nu )$. Then, by the marginal constraints
+    \begin{align*}
+        (c,\gamma)=(\varphi,\gamma )+(\varphi ^c,\gamma )=(\varphi,\gamma ')+(\varphi ^c,\gamma ') \leq (c,\gamma ')
+    \end{align*}
+    This concludes the proof.
+\end{proof}
+
+We summarize the previous results as follows.
+\begin{theorem}[]
+    Let $c: X \times Y \to \R$ be lsc. Then,
+    \begin{enumerate}[a)]
+        \item There exists an optimal plan $\gamma^* \in \Gamma (\mu ,\nu )$,  we have that \eqref{KP} =\eqref{DP}.\label{a}
+                \item \label{b}There exists $\varphi: X \to \R $ with
+              \begin{align*}
+                  c(x,y)=\varphi (x)+ \varphi^c(y), \quad \gamma^*-a.e.
+              \end{align*}
+        \item If \eqref{DP} is finite then $\gamma^*$ is concentrated on a $c$-monotone set.  \label{aa}
+        \item \label{c} If \eqref{DP} is finite and \eqref{finite} holds, then $\gamma \in \Gamma(\mu ,\nu)$ is optimal iff there exists $\varphi \in L^1(\mu )$,  with
+              \begin{align}\label{equality}
+                  c(x,y)=\varphi (x)+ \varphi^c(y), \quad \gamma-a.e.
+              \end{align}
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Point \ref{a} is \Cref{existence theorem} and \Cref{strong duality theorem}. Point \ref{aa} is \Cref{prop: support}. Point \ref{b} is \Cref{c-monotone set duality}. We now show Point \ref{c}. Suppose first $\gamma = \gamma ^*$ is optimal, then the existence of $\varphi$ as in the statement follows from \ref{aa} and \Cref{tm: c-monotone implies optimal}.
+
+
+    Suppose now that \eqref{equality} holds. Then, by \eqref{equality} and since $\varphi \in L^1(\mu )$ we deduce that $\varphi ^c \in L^1(\nu )$. Thus, by the marginal constraints,
+    \begin{align}\label{integ}
+        (\varphi \oplus \varphi ^c , \gamma )= (\varphi \oplus \varphi ^c , \gamma^* )\leq \eqref{KP}< \infty.
+    \end{align}
+    As a result, by \eqref{equality} and \eqref{integ} we deduce that $c \in L^1(X\times Y,\gamma )$ and $(c, \gamma )=(\varphi \oplus \varphi ^c , \gamma ) = \eqref{KP}$. This concludes the proof.
+\end{proof}
+
+
+
+
+
+We may as well only restrict ourselves to potentials of the form $(\varphi , \varphi ^c)$ and such that $\varphi = \varphi ^{cc}$. We could keep going however there is no point
+
+Note that here it is crucial that the metric spaces be separable.
+\begin{exercise}
+    Let $c$ be l.s.c. If $X$ is separable $\varphi ^c$ is measurable and if $Y$ is separable $\psi ^c$ is measurable.
+\end{exercise}
+\begin{hint}
+    Let $\set{x_n}_{n=1}^\infty$ be a dense subset of $X$. Then, since $c$ is l.s.c
+    \begin{align*}
+        \varphi ^c(y)= \inf_{n \in \N} c(x_n,y) - \varphi (x_n).
+    \end{align*}
+    For each $x_n$ the function  $c(x_n,\cdot )$ is l.s.c. and thus measurable. The countable infimum of measurable functions is measurable. This concludes the proof for $\varphi^c $. The proof for $\psi^c$ is identical.
+\end{hint}
+Any maximizing potentials will sum to $c$ on the supp
+
+
+
+More generally we have the following
+\begin{theorem}
+    Let $c:X \to (- \infty, \infty)$ be l.s.c and suppose there exists a c-monotone set $G$  with $\gamma(G)=1$     and
+
+    Then $\gamma $ is optimal, $c \in L^1(X\times Y, \gamma )$ and there exists a maximizing pair $(\varphi ,\psi )$ with $\psi = \varphi ^c$.
+\end{theorem}
+
+\appendix
+\section{Approximation results}
+We recall Fatou's lemma for $f_n$ bounded below
+\begin{equation*}
+    \int_{X} \liminf_{n\to\infty} f_n d\mu \le \liminf_{n\to\infty} \int_{X} f_n d\mu.
+\end{equation*}
+The following lemma allows us to perform the analogous for sequences of measures
+\begin{lemma}\label{Fatou measures}
+    Let $\mu_n\rightharpoonup\mu \in \Pp (X) $ and suppose that $f$ is such that
+    \begin{align*}
+        (f,\mu )= \sup\set{(g,\mu): g \in C_b(X), g \leq f}.
+    \end{align*}
+    Then, $ (f,\mu )\leq\liminf_{n \to \infty} (f,\mu_n)  $.
+\end{lemma}
+\begin{proof}
+    This follows from the inequalities
+    \begin{align*}
+        \liminf_{n \to \infty} (f,\mu_n) \geq \sup_{g \in C_b(X), g \leq f} \liminf_{n \to \infty}(g,\mu _n)=\sup_{g \in C_b(X), g \leq f} (g,\mu)= (f,\mu ).
+    \end{align*}
+\end{proof}
+\begin{exercise}
+    Prove that if $  (f,\mu )= \inf\set{(g,\mu): g \in C_b(X), g \geq f}$ then  $ (f,\mu )\geq\limsup_{n \to \infty} (f,\mu_n)  $
+\end{exercise}
+\begin{hint}
+    Swap the lim-inf for the lim-sup in the preceding result.
+\end{hint}
+The type of functions which we can approximate this way for any $\mu $ are the following.
+\begin{definition}
+    We say that $f:X \to [-\infty,\infty]$ is lower semicontinuous (l.s.c) if for all $x_0 \in \R$
+    \begin{align*}
+        f(x_0)\leq\liminf_{x \to x_0}f(x).
+    \end{align*}
+\end{definition}
+We recall the notation $a\wedge b$ for the minimum of $a,b$.
+\begin{lemma}\label{lsc approx lemma}
+    Let $f:X \to (- \infty,\infty]$ be l.s.c. and bounded below. Then, the sequence
+    \begin{align*}
+        f_n(x):= n\wedge\inf_{ y \in X}f(y)+nd(x,y)
+    \end{align*}
+
+
+    is a sequence of $n$ Lipschitz-continuous functions such that $\inf f \leq f_k \leq f$ and such that  pointwise $f(x)= \lim_{n \to \infty}f_n(x)$. Furthermore, for any measure $\mu $ on $X$
+    \begin{align*}
+        (f,\mu)= \lim_{n \to \infty} (f_n,\mu).
+    \end{align*}
+\end{lemma}
+\begin{proof}
+    The fact that $f_k$ are Lipschitz and pointwise convergence can be proven using standard inequalities. To see convergence in $L^1(X,\mu )$, apply the \href{https://en.wikipedia.org/wiki/Monotone_convergence_theorem#Monotone_convergence_for_non-negative_measurable_functions_(Beppo_Levi)}{monotone convergence theorem} to the non-negative sequence $f_n -\inf f$.
+\end{proof}
+\begin{corollary}[Lower semi-contiuity of cost operator]\label{limit respects order}
+    Let $f:X \to (-\infty, \infty]$ be l.s.c and bounded below and $\mu _n \rightharpoonup \mu \in \Pp (X)$. Then,  $(f,\mu )\leq\liminf_{n \to \infty} (f,\mu_n)$.
+\end{corollary}
+\begin{proof}
+    This follows directly from \Cref{Fatou measures} and \Cref{lsc approx lemma}.
+\end{proof}
+
+For \Cref{limit respects order} it suffices to be able to approximate $f$ by an increasing sequence $g_n$ of continuous functions  bounded below. As we showed this is possible if $f$ is l.s.c. In fact, it is only possible if $f$ is l.s.c. This justifies why we restrict to the class of l.s.c functions.
+
+\begin{exercise}
+    Show that $f: X \to [- \infty,\infty]$ is l.s.c if and only if $f^{-1}((a, \infty])$ is open for all $a \in \R$.
+\end{exercise}
+\begin{hint}
+    The definition of l.s.c is equivalent to the statement that $f ^{-1}(\set{+\infty}) $ is open and given finite $f(x_0) \in \R$ and $\eps >0$ there exists $\delta  >0$ such that $f(x_0)-\eps  <f(x) $ for all $x \in B(x_0,\delta )$. Equivalently, given $x_0 \in f^{-1}((a, \infty])$ there exists an open set containing $x_0$ and contained in $f^{-1}((a, \infty])$ (write $\eps =f(x_0)-a$).
+\end{hint}
+
+
+\begin{corollary}\label{class condition}
+    The class of functions $f:X \to (-\infty,\infty]$ such that there exists an increasing continuous and bounded below sequence $\set{f_n}_{n=1}^\infty$ converging pointwise to $f$ is equal to the class of l.s.c functions that are bounded below.
+\end{corollary}
+\begin{proof}
+    We already saw that every l.s.c. can be written as such a limit. To see the reverse implication, let $f_n$ be an increasing sequence. Given $a \in \R$ ba the increasing convergence $f_n \nearrow f$
+    \begin{align*}
+        f ^{-1}((a,\infty))= \set{x: f_n(x)> a \text{ for some } n \in \N  }= \bigcup_{n=1}^ \infty f_n ^{-1}((a, \infty]).
+    \end{align*}
+    Since the $f_n$ are continuous the sets $f_n ^{-1}((a, \infty])$ are open and $ f ^{-1}((a,\infty])$ is the union of open sets. This concludes the proof.
+\end{proof}
+
+
+\section{Convex analysis}
+We recall the following definitions
+\begin{definition}
+    The convex hull $\rmm{conv}(S)$ of $S \subset X$ is defined as
+    \begin{align*}
+        \rmm{conv}(S) = \set{\sum_{i=1}^n \alpha_i x_i : n \in \N,  x_i \in S,\alpha_i \geq 0, \sum_{i=1}^n \alpha_i=1}.
+    \end{align*}
+\end{definition}
+\begin{definition}
+    We say a set $S \subset X$ is convex if $S = \rmm{conv}(S)$.
+\end{definition}
+\begin{definition}
+    The extremums of a convex set $S$ are the points of $S$ that do not lie between any two other points of $S$. That is,
+    \begin{align*}
+        \rmm{extrem}(S) = \set{ x \in S: x \neq \alpha a + (1-\alpha)b , \quad\forall a,b \in X, \alpha \in (0,1)}
+    \end{align*}
+
+\end{definition}
+\begin{lemma}[{Krein--Milman}] A compact convex set $S \subset X$  is the convex hull of its extremums.
+\end{lemma}
+\begin{exercise}\label{max exercise}
+    Use the Krein--Milman theorem to prove that a linear map $C: S \to \R$  on a compact convex set $S$ takes its maximum on the extremums of $S$.
+\end{exercise}
+\begin{hint}
+    What happens if the linear $T$ takes a maximum on a convex combination $x = \sum_{i=1}^n \alpha_i x_i$ of the extremums of $S$?
+\end{hint}
+
+\section{The requirement of separability}
+To work with the dual formulation, the separability of $X,Y$ is needed for projections and disintegrations to behave appropriately.
+\begin{exercise}\label{ex:separability gives equality}
+    Let $X,Y$ be topological spaces. Then $\Bb (X) \otimes \Bb (Y) \subset \Bb(X \otimes Y)$. If $X,Y$ are second countable then $\Bb (X) \otimes \Bb (Y) = \Bb(X \otimes Y)$.
+\end{exercise}
+\begin{hint}
+    By definition $\Bb (X) \otimes \Bb (Y) $ is the smallest $\sigma $-algebra containing $U \times Y$ and $X \times V$ for all open $U \subset X, V \subset Y$. Since these sets are open in $X \times Y$ they are in $\Bb(X \otimes Y)$. This proves the first part. For the second use that any open $ W $ in $X \times Y$ is a countable union of $\set{U_i \times V_j}_{i,j=1}^\infty$ with $U_i,V_j$ open in $X,Y$ respectively. Since the product of open sets is in $\Bb (X) \otimes \Bb (Y) $ and the union is countable $W \subset \Bb (X) \otimes \Bb (Y)$. This concludes the proof as $\Bb(X \otimes Y)$ is generated by the open $W$.
+\end{hint}
+Since in metric spaces separability implies (and indeed is equivalent) to being second countable we obtain the following.
+\begin{corollary}
+    Let $X,Y$ be separable metric spaces. Then $\Bb (X \otimes Y)=\Bb (X) \otimes \Bb (Y)$.
+\end{corollary}
+That is, for separable spaces any continuous cost $c$ is also $\Bb (X) \otimes \Bb (Y)$. This is crucial as it allows us to apply Fubini and guarantees the measurability $c(x, \cdot )$ and $c(\cdot ,y)$.
+
+Another important result is the existence of \href{https://en.wikipedia.org/wiki/Disintegration_theorem}{disintegrations} which we only need in the following form \cite[III-70]{DellacherieMeyer1978}
+
+\begin{theorem}\label{desintegration theorem}
+    Let $X,Y$ be separable metric spaces and $\gamma \in \Pp (X\times Y)$ tight with $Y$  marginal $\nu = \pi_{Y\#} \gamma $. Then, there exist \href{https://en.wikipedia.org/wiki/Transition_kernel}{transition probability kernels} $K(y,)$ from $Y$ into $X$ such that $K \nu = \gamma $. That is, such that for every measurable $ f : X\times Y \to [0,+\infty] $
+    \begin{align*}
+        (f,\gamma) = \int_{Y} \qty(\int_{X}f(x,y)  K(y,\d x) )\nu (\rmm{d} y).
+    \end{align*}
+\end{theorem}
+\Cref{desintegration theorem} allows us to work with functions through their fibres
+\begin{exercise}\label{ex:fibre measurabilty}
+    Let $g:X \times Y \to \R \cup \set{\pm \infty}$ be measurable and $\psi : Y \to \R\cup \set{\pm \infty}$  such that for $S \subset X\times Y$ with $\gamma(S)=1 $ it holds that
+    \begin{align*}
+        \psi (y)=g(x,y), \quad\forall (x,y) \in S.
+    \end{align*}
+    Then $\psi $ is $\nu$-measurable.
+\end{exercise}
+\begin{hint}
+    Disintegrate $\gamma = K\nu $ and given $y \in Y$ write $S_y:= \set{x \in X : (x,y) \in S}$. By Fubini,
+    \begin{align*}
+        \gamma (S) & = \int_{Y} \qty(\int_{X}1_S(x,y)  K(y,\d x) )\nu (\rmm{d} y) \\
+                   & =\int_Y\qty( \int_{S_y} K(y,\rmm{d} x))\nu(\rmm{d}y)         \\
+                   & = \int_Y K(y,S_y)\nu(\rmm{d}y)=1.
+    \end{align*}
+    Since $K$ is a transition probability kernel  $K(y,S_y) \leq 1$. Thus, necessarily, $\nu$ a.e.  $K(y,S_y)=1$. As a result, $\nu $ a.e.
+    \begin{align*}
+        \psi(y)= \int_{X}\psi(y) K(y,\rmm{d}x )= \int_{S_y}\psi(y) K(y,\rmm{d}x )= \int_{S_y}g(x,y) K(y,\rmm{d}x ).
+    \end{align*}
+    Since the rhs (integration against a transition kernel) is measurable we deduce that $\psi $ is $\nu$ a.e. equal to a measurable function and thus measurable.
+\end{hint}
+
+
+
+% \begin{exercise}
+% Show that if $X,Y$ are not separable one cannot work around this by putting the $\sigma$-algebra  $\Bb (X) \otimes \Bb (Y)$ on $X \times Y$ instead of $\Bb (X \otimes Y)$.
+% \end{exercise}
+% \begin{hint}
+% Continuous functions not necessarily be measurable (so we could not define their integrated cost). Furthermore, even if we restricted to functions measurable on $\Bb(X)\otimes \Bb(Y)$, \Cref{prokhorov} requires working with the Borel sigma algebra on the ambient space $X\times Y$. 
+% \end{hint}
+
+\section{Possible research directions}
+\begin{enumerate}
+    \item One of the main applications of gradient flows for sampling is as a tool to analyze algorithms such as SVGD, ULA, Wasserstein-Fisher-Rao,  Buress Wasserstein algorithm, overdamped langevin, preconditioned \cite{trillos2023optimization}. Extending this to Hilbert spaces with an additional discretization (e.g FEM, Fourier) due to the infinite dimensions of the space would provide methods that scale with the dimension \cite{pillai2014noisy} (OU + MH converges to gradient flow which is an SPDE, directly generalizing stochastic RWM from finite dimensional setting does not lead to convergence).
+    \item Wow space.Entropy regularisation and stochastic bridge problem.
+    \item Using infinite dimensional spaces also allows us to use continuous measures and as a result it could be interesting to see what algorithms these lead to. And how they link to existing finite dimensional methods. 
+    \item Stochastic Fokker Planck.
+    \item Reversible jumps.
+    \item 
+\end{enumerate}
+
+
+
+
+\section{Notation table}
+
+
+
+\section{Outline}
+    \item The well-posedness of \eqref{target} and \eqref{kantorovich 1}. Proving conditions under which solutions exist and are unique. 
+    \item The properties of the space of probability measures $\Ww$ with this distance.
+    \item The geometry of $\Ww$, viewing it as an infinite-dimensional manifold and introducing a dynamical version of \eqref{target}.
+    \item Using this geometry, we define gradient flows on $\Ww$.
+\end{enumerate}
+In a follow-up series, we will discuss numerical methods for working with all of these problems.
+
+
+\section{Overview of main ideas and results}
+Kantorovich's problem is linear and amenable to the aforementioned strategy, with $\gamma_n$ replacing $T_n$. To guarantee the sequential compactness of \Cref{step 2} we need for  $X, Y$ to be metric spaces (so that the topology is ``locally countable'' and Borel measures are \href{https://en.wikipedia.org/wiki/Regular_measure}{regular}) and for $\mu, \nu $ to be \href{https://en.wikipedia.org/wiki/Tightness_of_measures}{tight} (so that their support doesn't run away). The result can be most directly proved for continuous cost functions, but extends to lower semi-continuous ones, as these can be written as increasing limits of continuous functions.
+\begin{theorem}[Existence \eqref{kantorovich 1}]\label{existence theorem}
+Let $X,Y$ be metric spaces $\mu , \nu $ be tight and $c: X \times Y \to [0, \infty]$ be lower semi-continuous. Then, there exists a minimizer $\gamma $ to \eqref{kantorovich 1}.   
+\end{theorem}
+Uniqueness?
+
+Since \eqref{kantorovich 1} is linear, it is in particular convex, and solutions can be characterized using tools from convex analysis such as \href{https://en.wikipedia.org/wiki/Duality_(optimization)}{duality}.
+\begin{theorem}[Duality]\label{duality theorem}
+In the conditions of \Cref{existence theorem} the minimum of \eqref{kantorovich 1} is equal to 
+\begin{align}\label{max}
+\begin{split}
+    \sup \bigg\{ \int_{X}\varphi (x) \d\mu(x) + \int_{Y} \psi (y)\d\nu(y) : \varphi \in C_b(X), \psi \in C_b(Y), \\ \varphi (x)+ \psi (y) \leq c(x,y) \text{ for all } (x,y) \in X \times Y \bigg\}
+\end{split}
+\end{align}
+\liam{Separability needed?}
+\end{theorem}
+A version of this result is first found in Kantorovich's original paper \cite{kantorovich1942transfer} and for compact spaces in the \cite{kantorovich1957function}, \cite{zbMATH03134565} coauthored with Rubinstein. Versions where $c$ is not lower-semicontinuous but instead finite and integrable also hold \cite[Theorem 1.3.2]{bogachev2012monge}. 
+
+For the constraint to be satisfied, we may assume that 
+\begin{align*}
+    \psi(y)=\inf_x c(x,y)- \varphi(x)=: \varphi^c(y).
+\end{align*}
+One can show that, if $X,Y$ are separable (so that measures can be disintegrated) and if 
+\begin{align}\label{finite}
+    \mu\left(\left\{x \in X : \int_{Y} c(x,y)\,d\nu(y) < +\infty\right\}\right)\cdot 
+    \nu\left(\left\{y \in Y : \int_{X} c(x,y)\,d\mu(x) < +\infty\right\}\right) > 0
+\end{align}
+\liam{Perhaps don't need yet.}
+
+
+The following is \cite[Theorem 6.1.5]{ambrosio2005gradient}
+\begin{theorem}
+Let $X, Y,c$ be as in \Cref{existence theorem}, $X, Y$ separable and such that \eqref{finite} and such that \eqref{kantorovich 1} is finite. Then, there exists a maximizing pair $(\varphi, \varphi^c)$ to \eqref{max} and if $\gamma \in \Gamma(\mu, \nu)$ is optimal then
+\begin{equation}\label{equality potentials}
+\varphi(x) + \varphi^c(y) = c(x,y) \quad \gamma\text{-a.e. in } X \times Y.
+\end{equation}
+Furthermore, if for some $\gamma $  there exists  $\varphi \in L^1(X,\mu)$ verifying \eqref{equality potentials}, then $\gamma$ is optimal.
+\end{theorem}
+By \eqref{equality potentials} and the constraint on $\varphi$, we deduce that for each $y$, $\varphi-c(\cdot,y)$ achieves its maximum on the support of $\gamma$. So differentiating (we will later show that $\varphi$ is convex so this can be done) 
+\begin{equation*}
+    \nabla_x \varphi =\nabla_xc(\cdot,y) \quad \gamma\text{-a.e. in } X \times Y.
+\end{equation*}
+This allows us to deduce Brenier's theorem, which states the equality of \eqref{target} and \eqref{kantorovich 1} for strictly convex costs such as $\norm{x-y}^2$  \cite[Proposition 3.1]{brenier1987decomposition}.
+\begin{theorem}[ $\mathbb{R}^d$] \label{Map theorem}
+Let $X=Y=\R^d$ and $c(x,y) = h(x-y)$ with $h : \mathbb{R}^d \to [0,+\infty]$ strictly convex such that \eqref{finite} holds and \eqref{kantorovich 1} is finite. If $\mu$ is absolutely continuous, there exists a unique solution to \eqref{kantorovich 1} and there is a $\mu $-almost everywhere  unique $T$ such that for the optimal plan $\gamma $
+\begin{align*}
+    \gamma =(\rm{Id},T)_{\#} \mu.
+\end{align*}
+That is, \eqref{target} $=$ \eqref{kantorovich 1}. Furthermore, any maximal Kantorovich potential $(\varphi,\varphi^c)$ verifies $\mu $ almost everywhere    
+\begin{equation}
+T(x) = x - (\partial h)^{-1}\left(\nabla\varphi(x)\right).
+\end{equation}
+\end{theorem}
+\liam{Chewi also states ``improved Brenier'' on page 36, Theorem 1.16, that if a valid transport map is the gradient of a convex function, then it is the optimal mpa and is unique. Check if this is implied by the previous theorem.}
+
+The main idea is to prove this result for discrete measures, in which case $\gamma $ concentrates on a $c$-monotone set $\set{(x_i,y_i)_{i=1}^n}$. That is a set such that any other transportation $\sum c(x_i, y_{\sigma(i)}) $, where $\sigma $ is a permutation,  is more expensive. Taking discrete measures converging $\mu_n, \nu _n$  to $\mu , \nu $ and extracting a convergent subsequence we obtain optimal maps converging to $\gamma $ concentrated on a $c$-monotone set.  Every $c$-monotone set is contained in the graph of the sub-differential of some convex function, which leads to the result. Sketch from \cite[Corollary 2.15]{bogachev2012monge} though only for Euclidean distance....
+
+This result can be extended to Hilbert spaces for certain costs \cite[Theorem 6.2.10]{ambrosio2005gradient}. Further analysis in the finite-dimensional case also shows that under suitable restrictions, the transport map is almost everywhere (approximately) differentiable and $\nabla T$ is positive semi-definite \cite[Theorem 6.2.7]{ambrosio2005gradient}.
+However, a difficulty still remains as the cost $\norm{x-y}$  that Monge considered is not convex. It wasn't until... that this difficulty was resolved by ... 
+
+
+\section{Wasserstein overview perhaps}
+The \eqref{kantorovich 1} lends a natural way to define a distance between distributions dependent on the cost. A meaningful cost must be chosen to obtain a meaningful distance. The typical examples are the Wasserstein spaces
+\begin{align*}
+    W_p (\mu , \nu )=   \inf_{\gamma \in \Gamma (\mu ,\nu )}\qty(\int_{X\times Y} d(x,y)^p \d \gamma (x,y))^{\nicefrac{1}{p}}.
+\end{align*}
+Explicitly introduced for $p \geq 1$ in  \cite[Lemma 3]{zolotarev1976continuity} this metric is based on Kantorovich's work. 
+
+This distance is commonly known as the Wasserstein distance due to \cite{dobrushin1970prescribing}, who first learned of this distance (for $p=1$) in \cite{vaserstein1969markov}. The more historically accurate term Kantorovich distance is also used.
+
+The above is a metric, where the triangle inequality can be shown by gluing together optimal plans. This distance metrizes the weak-$^*$ topology (only for compact $X$ as Chewi says? ) on $\Pp (X)$. That is $\mu _n \rightharpoonup \mu \in \Pp (X)$ if and only if $W_p(\mu _n,\mu ) \to 0$ and the $p$-th moment converges (sounds like an extra bit, so it does not metrize?). Other distances such as the \href{https://en.wikipedia.org/wiki/L%C3%A9vy%E2%80%93Prokhorov_metric}{Levy--Prokhorov}  exist.    
+
+
+We denote $(\Pp_p(X), W_p(X))$ for the space of functions with $p$-integrable moments and the $W_p$ distance \cite[Theorem..]{bogachev2012monge}
+\begin{theorem}
+If $X$ is a polish space then $(\Pp_p(X), W_p(X))$ is a Polish space for $p \geq 1$. 
+\end{theorem}
+Approximating the Wasserstein distance with empirical measures gives a rate of $n^{-1/d}$ for large $d$/ If the measure is $H^s$, then the rate is improved to $n^{-s/(d+2s)}$. As a result, it is reasonable that when we smooth the measures by convolving with a Gaussian, we get an error (from the smooth empirical to the smooth measure) of $n^{-1/2}$. Though unsure how this carries through to the error between unsmoothed and smoothed. Perhaps it is not that important as smoothed Wasserstein is metric (for unsmoothed measures!) The sliced Wasserstein metric also produces an error of $n^{-1/2}$ and is also a metric.         
+
+  
+\section{Manifold overview}
+The results carry over to the exponential map, but curvature also appears.
+\cite{bogachev2012monge}.
+\section{Infinite dimensional spaces}
+Radon measures on $R^ \infty$ not concentrated on a finite-dimensional set are linear transformations of the Gaussian measure, so it suffices to consider this case.  
+
+\section{Numerical algorithms: e.g entropic optimal transport, Sinkhorn and approximation of transport map}
+Sinkhorn introduced by \cite[]{cuturi2014fast}.
+
+ 
+
+
+
+\bibliography{biblio.bib}
+\end{document}

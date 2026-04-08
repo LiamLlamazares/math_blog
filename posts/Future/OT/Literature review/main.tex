@@ -1,0 +1,397 @@
+\documentclass[
+    a4paper,
+    DIV=14,
+    abstract=true,
+    numbers=noenddot
+]
+{scrartcl}
+
+\usepackage{
+    amsmath,
+    amssymb,
+    amsthm,
+    array,
+    authblk,
+    bm,
+    dsfont, % for 1 vector or indicator function
+    float,
+    graphicx,
+    mathtools,
+    nicefrac,
+    physics,
+    tabularx,
+    tcolorbox,
+    todonotes,
+    tikz,
+    xcolor,
+    float,
+    subcaption,
+}
+\usepackage[shortlabels]{enumitem}
+
+\usepackage[T1]{fontenc}
+
+\usepackage[pdffitwindow=false,
+    plainpages=false,
+    pdfpagelabels=true,
+    pdfpagemode=UseOutlines,
+    pdfpagelayout=SinglePage,
+    bookmarks=false,
+    colorlinks=true,
+    hyperfootnotes=false,
+    linkcolor=blue,
+    urlcolor=blue!30!black,
+    citecolor=green!50!black]{hyperref}
+
+\usepackage{cleveref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{observation}{Observation}
+\newtheorem{assumption}{Assumption}
+
+\newtheorem{exercise}{Exercise}
+
+\newtheorem*{hint}{Hint}
+
+\newenvironment{exerciseandhint}[2]
+{\begin{exercise} #1
+
+    \emph{Hint: #2}}
+    {\end{exercise}}
+
+\newenvironment{aligneq}{\begin{equation}\begin{aligned}}{\end{aligned}\end{equation}}
+\newenvironment{aligneq*}{\begin{equation*}\begin{aligned}}{\end{aligned}\end{equation*}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\red}[1]{{\color{red}#1}}
+\renewcommand{\b}[1]{{\bm{#1}}}
+\newcommand{\Th}{{\bm{\theta}}}
+\newcommand{\Thh}{{\bm{\Theta}}}
+\newcommand{\xxi}{{\bm{\xi}}}
+\newcommand{\om}{{\bm{\om}}}
+\newcommand{\td}{\todo[inline,color=green!40]}
+\definecolor{darkgreen}{rgb}{0.0, 0.6, 0.}
+\newcommand{\liam}{\textcolor{darkgreen}}
+\newcommand{\liamtodo}[1]{\todo[inline,color=darkgreen!40]{Liam: #1}}
+
+\bibliographystyle{apalike}
+\newcommand{\diag}[1]{\operatorname{diag}\left(#1\right)}
+\newcommand{\fk}[1]{\mathfrak{#1}}
+\newcommand{\wh}[1]{\widehat{#1}}
+\newcommand{\tl}[1]{\widetilde{#1}}
+
+\newcommand{\br}[1]{\left\langle#1\right\rangle}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\qp}[1]{\left(#1\right)}\newcommand{\qb}[1]{\left[#1\right]}
+\newcommand{\qt}[1]{\left(#1\right)}
+\newcommand{\Id}{\bm{I}}\renewcommand{\ker}{\bm{ker}}\newcommand{\supp}[1]{\bm{supp}(#1)}\renewcommand{\tr}[1]{\mathrm{tr}\left(#1\right)}
+\renewcommand{\norm}[1]{\left\lVert #1 \right\rVert}\renewcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\U}{}\renewcommand{\star}{*}
+\renewcommand{\Im}{\bm{Im}}
+\newcommand{\iso}{\xrightarrow{\sim}}
+\renewcommand{\d}{\,\mathrm{d}}\newcommand{\dx}{\,\mathrm{d}x}
+\newcommand{\dy}{\,\mathrm{d}y}
+\newcommand\restr[2]{\left.#1\right|{#2}}
+\newcommand{\rmm}[1]{\mathrm{#1}}
+\newcommand{\mat}[1]{\begin{bmatrix}{#1}\end{bmatrix}}
+\newcommand{\vol}{\mathrm{vol}}
+
+\newcommand{\x}{\bm{x}}
+\newcommand{\y}{\bm{y}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Aa}{\mathcal{A}}
+\newcommand{\Bb}{\mathcal{B}}
+\newcommand{\Cc}{\mathcal{C}}
+\newcommand{\Dd}{\mathcal{D}}
+\newcommand{\Ee}{\mathcal{E}}
+\newcommand{\Ff}{\mathcal{F}}
+\newcommand{\Gg}{\mathcal{G}}
+\newcommand{\Hh}{\mathcal{H}}
+\newcommand{\Kk}{\mathcal{K}}
+\newcommand{\Ll}{\mathcal{L}}
+\newcommand{\Mm}{\mathcal{M}}
+\newcommand{\Nn}{\mathcal{N}}
+\newcommand{\Oo}{\mathcal{O}}
+\newcommand{\Pp}{\mathcal{P}}
+\newcommand{\Qq}{\mathcal{Q}}
+\newcommand{\Rr}{\mathcal{R}}
+\newcommand{\Ss}{\mathcal{S}}
+\newcommand{\Tt}{\mathcal{T}}
+\newcommand{\Uu}{\mathcal{U}}
+\newcommand{\Vv}{\mathcal{V}}
+\newcommand{\Ww}{\mathcal{W}}
+\newcommand{\Xx}{\mathcal{X}}
+\newcommand{\Yy}{\mathcal{Y}}
+\newcommand{\Zz}{\mathcal{Z}}
+
+\begin{document}
+\title{OT literature review and ideas}
+\author{Liam Llamazares}
+\date{\today}
+\maketitle
+\section{Ideas}
+\subsection{Gradient flows and sampling on function spaces}
+\begin{theorem}
+Let $X$ be the Hilbert space and let $\pi \in \Pp_2(X)$.  The evolution equation on $\Pp_2(X)$  
+\begin{align}\label{evolution equation HS}
+    \partial_t \mu_t = .....
+\end{align}
+is the (Wasserstein)-GF of the (KL)-divergence divergence. Furthermore, the SPDE 
+\begin{align}\label{SPDE}
+    \partial_t X_t = ...
+\end{align}
+has marginals $X_t \sim \mu_t$. An efficient algorithm for solving \eqref{SPDE} is 
+\begin{align}\label{scheme}
+    X_{n+1}=...
+\end{align}
+The scheme \eqref{scheme} computational complexity ..., weak error ... and strong error ...
+\end{theorem}
+\begin{example}
+The following can be applied for Bayesian inference on function spaces.
+\end{example}
+
+\begin{example}
+Consider the finite dimensional version $\pi_d \in \Pp_2(\R^d)$ of $\pi $. Then using ULA to sample from $\pi _d$ has error ... and does not converge to $\pi $  as $d \to \infty$. However, \eqref{scheme} is well-defined for all dimensions and converges.   
+\end{example}
+\textbf{Analogous results:} Some example from Stuart book on discretization. 
+
+\subsection{Sinkhorn and SBP on function spaces}
+\begin{theorem}
+Let $X$ be a Hilbert space, then the following is strongly convex
+\begin{align*}
+    \Ww_2(\mu , \nu ) + \eps KL (\mu , \nu ).
+\end{align*}
+The dynamic formulation of this is the Schrodinger Bridge problem
+\begin{align*}
+   \min\set{\norm{v_t}^2+...  \text{ such that }  \partial _t \mu _t = \nabla \cdot (v_t \mu _t)+...}
+\end{align*}
+In the dual space this gives 
+\begin{align*}
+\partial _t \phi _t = \Delta \phi , \quad \partial _t \wh{\phi }_t = \Delta \phi , \text{such that } \phi(x,1)= \mu_1,   ...
+\end{align*}
+
+
+An algorithm for solving this problem is 
+\begin{align*}
+    u_{n+1}= .... , \quad v_{n+1} = ....
+\end{align*}
+This has complexity ... and error ...
+\end{theorem}
+\subsection{Stochastic Fokker Plank}
+\begin{theorem}
+Let $X_t$ evolve according to $\d X_t = v(X_t)\d t+ \sigma (X_t) \d W_t$. Then the law of $\mu_t$ is a $\Pp(X)$ valued random variable  following the SPDE
+\begin{align}\label{stochastic evolution PDE}
+    \partial_t \mu_t = - \nabla \cdot (v_t\mu_t) + \nabla^2\colon(\Sigma \mu_t) - \nabla \cdot (\sigma\mu_t )\dot{W}_t.
+\end{align}
+Given $\mu _0, \mu _1$ there exists unique $v, \sigma $ minimizing the energy    
+\begin{align*}
+  \mathcal{E}(v_t, \sigma)=  \int_{0}^1 \int_{\Xx} \norm{v_t(x)}^2 \d \rho_t(x)\d t+\int_{0}^1 \int_{\Xx} \norm{\sigma(x)}^2_{\rmm{HS}} \d \rho_t(x)\d t.
+\end{align*}
+This connects with the SBP and diffusion problems through ... It also allows to model and sample from measure valued random variables by ... Interaction can be incorporated through... in which case the SPDE is...
+\end{theorem}
+
+\subsection{WoW space}
+\begin{theorem}
+Due to the properties of $\Pp_2(M)$ when $M$ is a manifold and the fact that $\Pp_2(\R^d)$ is manifold-like we can describe the WoW space $\Pp_2(\Pp_2(\R^d))$ as follows.... This is useful in the following settings...
+\end{theorem}
+Some results and applications may be found already in \cite{bonet2025flowing}.
+In this setting a double slicing may be necessary \cite{piening2025slicing}
+
+\section{Algorithms}
+\begin{theorem}
+The metric ... in the space .... gives an error of ... and a computational cost of ... Futhermore, the algorithm is very computable (e.g. works with unnormalized densities).
+\end{theorem}
+
+
+
+
+
+
+\section{Literature review}
+\begin{enumerate}
+    \item {Evolution PDEs in the space of measures as gradient flows}: Many PDEs can be viewed as gradient flows in a suitable metric. Analyzing the gradient flows help understand the PDE, providing existence and uniqueness results and vice-versa. Algorithms for solving the gradient flow can be used to solve the PDE
+    \item \textbf{Approximation by discrete measures}: For measure $\mu$ on $\R^d$  with the existence of sufficient moments any discrete approximation introduces a $W_2$ error of \cite{fournier2015rate}
+\begin{align*}
+\E\qb{W_p(\mu_N, \mu ) }  = \begin{cases}
+       N^{-1/2p}  & \text{if } d<2p \\
+        N^{-1/2p}\log(N) & \text{if } d=2p\\
+        N^{-1/d} & \text{if } d>2p\\
+    \end{cases}. 
+\end{align*}
+(Proof idea:  Consider $\mu \sim U([0,1]^d)$ and divide $[0,1]^d$ into $N$  cubes of volume $1/N$ and side length $N ^{-1/d}$. Then a set will not be charged by the empirical measure with probability $(1-1/N)^N \sim 1/e$. As a result $W_p(\mu _N,\mu )^p\gtrsim \frac{N}{e} \frac{1}{N} N ^{-p/d} \sim N ^{-p/d} $). This suggests a sub-polynomial rate of convergence in infinite dimensions. This seems to be confirmed by \cite{lei2020convergence}. \textbf{Non-empirical approximation methods are needed for non-discrete infinite dimensional measures}. 
+
+How to best approximate continuous measures by discrete measures is known as quantisation. However, there are no closed form solutions for $d>1$ and the computational cost is quite high with $n$.  
+\item \textbf{ Wasserstein barycentres:} Given $\nu _i \in \Pp _2(\R^d)$ minimization and $\lambda_i$ summing to $1$    
+\begin{align*}
+   \inf{\sum_{i=1} \lambda_i W_2(\nu _i,\nu ): \nu_i \in \Pp_2(\R^d)}.
+\end{align*}
+This has applications when looking to synthetize/combine features of various distributions such as in texture mixing \cite{rabin2011wasserstein}.
+An optimal solution exists and, if any of the $\mu_i$ vanishes on sets of Hausdorff dimension $ \leq d-1$ it is unique.
+( Difficulty, Wasserstein space is not non-positively curved. Proof method: Convex analysis to pass to the dual. Uniqueness by characterization of optimal transport plan) For $p=2$ the Barycenter with coordinates $(1-t,t)$ is the McCann's interpolant $((1-t)\rmm{id} +t \nabla \varphi)_{\#} \mu $. There arguments also extend to find \emph{optimal couplings} $\b{\mu }=(\mu_1, \ldots, \mu _d)$ to minimize the distance $\sum_{ij} \E\qb{\norm{X_i-X_j}^2}  $   
+
+\item \textbf{Law of Large numbers:} Given $\mathbb{P}_n \to  \mathbb{P} $ in $\Ww_2(\Ww _2(\R^d))$ then the barycenter, when unique, converges to $\mathbb{P}$. This holds in particular for empirical measures $\mu _n \to \mu $  on the Wasserstein space.\cite{le2017existence}. 
+
+There are also results for Gaussians over Hilbert spaces \cite[Theorem 4.4]{santoro2025large}.
+
+\item $(\Pp_2, W_2)$ is approximately Riemannian has unbounded curvature, and presents an abundance of singularities.
+\item \textbf{Tangent space:} For some reason defined as  
+\begin{align*}
+    \rmm{Tan}_\mu :=\overline{\rmm{span}\{t_\mu ^ \nu - \rmm{id}: \nu \in \Ww ^2(\R^d): t_\mu ^\nu \text{ exists}. \}}^{L^2(\mu )} .
+\end{align*}
+Can also be defined as gradients fo smooth functions \cite[8.4.1,8.5.2]{santambrogio2015optimal}. The alternative definition emphasizes that the elements of the tangent space do not depend on $\mu $, only the inner product depends on $\mu $.  
+
+The exponential map $\exp_\mu : \rmm{Tan}_\mu \to \Ww_2 $  is the restriction of the map 
+\begin{align*}
+    L^2(\mu ) \to \Ww_2, \quad  r \to (r+\rmm{id})_{\#}\mu.
+\end{align*}
+For $\mu $ a.c., the right inverse is the logarithmic map $\log_\mu (\nu)= t_\mu ^\nu - \rmm{id}$.  Thus, the exponential map $\exp_\mu$ is  surjective. Segments in the tangent space $t(t_\mu^\nu -\rmm{id})$ are retracted into McCann's interpolant $ (t t_\mu^\nu +(1-t)\rmm{id})_{\#} \mu $. These are the unique constant speed geodesics in $\Ww _2$ \cite[Proposition 5.32]{ambrosio2005gradient}.
+
+\item \textbf{Exponential map:} In general, the exponential map on a manifold $M$ is defined by 
+\begin{align*}
+    T_p M \to M, \quad v \to \gamma_v(t),
+\end{align*}
+where $\gamma_v$ is the unique geodesic starting at $p$ and with initial velocity $\gamma _v'(0)=v$. As a result, I'm guessing that using this alternative definition the tangent map would then be driven by $\nabla \varphi $. 
+
+
+Curvature: The Wasserstein space has non-negative sectional curvature. That is,
+\begin{align*}
+    \norm{\log_\mu (\nu_1)- \log_\mu (\nu _2)}_{L^2(\mu )}= \norm{t_\mu ^{\nu _1}-t_\mu ^{\nu _2}}\geq W_2^2(\nu _1,\nu _2).
+\end{align*}
+Equality only holds for $d=1$. We say that $\Ww _2(\R)$ is flat. 
+
+\item \textbf{Wasserstein on manifolds}:  The tangent structure can also be defined on $\Pp _2 (M)$ where $M$ is a manifold. In this case $\rmm{Tan}_\mu $ is a Hilbert space if and only if there always exists a unique transport map $t_\mu ^\nu$ for all $\nu \in \Pp _2(M)$ iff it is regular (it assigns zero mass to $c$-$c$   hyper-surfaces). \cite[Proposition 2.4, Corollary 2.6]{gigli2011inverse} (good reference to see how stuff works on manifolds). 
+
+\item \textbf{Wasserstein on $\R$ }: There is explicit formula for transport map in terms of inverse CDF. Furthermore, since the Wasserstein space is flat $\mu \to t_\mu - \rmm{id}$ is an isometry and once can view $\Ww _2(\R) \hookrightarrow L^2(\mu )$. In this case the Wasserstein maps are compatible in the sense that $t_\nu ^\rho t_\mu ^\nu = t_\mu ^\rho$. Because of this the Barycenter of $\mu _1, \cdots \mu _n$ is  
+\begin{align*}
+    \qty(\frac{1}{n}\sum_{i=1}^n t_\nu ^{\mu _i})_{\#} \nu, 
+\end{align*}
+where $\nu$ is any a.c. measure. This result extends to $\Ww_2(\R^d)$ as long as the structure of $\mu_1,..., \mu _n$ is $1$-dimensional. That is, as long as $(\mu_1,..., \mu _n,\nu)$ are compatible   \cite[Theorem 4.1]{boissard2015distribution}. 
+
+
+\item \textbf{Gaussian measures}: The Wasserstein distance can be restricted to subspaces such as the space of Gaussian measures. Since this space is finite dimensional one can explicitly write the Riemannian metric. Since the geometry of $\R^d$ is trivial we can fix the mean to zero and identify $\mu \sim \Nn (0, \Sigma _0) $ with its covariance matrix $\Sigma_0$  . In this case the Wasserstein tangent space is  the space of symmetric matrices of size $d$ 
+\begin{align*}
+    \rmm{Tan}(\mu )= \rmm{Sym}(d,\R)
+\end{align*}
+and the metric 
+\begin{align*}
+    T_2^\mu (A,B)= \rmm{Tr}(A\Sigma_0 B)
+\end{align*}
+induces the $\Ww_2$ distance. More results such as the expression of the tangent cone are also studied in \cite{takatsu2011wasserstein}. One can write explicitly the expression for the Wasserstein gradient flow in these spaces.
+
+\item \textbf{Computation}: For discrete measures the cost of solving the OT problem is of the order $n^3 \log(n)$ in the worst case scenarios \cite[Section 5]{panaretos2019statistical}.
+ 
+The equivalence between geodesics and transport maps was used in \cite{benamou2000computational} to try to infer the full geodesic. This turns the problem into a convex problem with linear constraints.
+
+To get something convex and much faster one ads a penalization term. One then solves in the dual space as here the problem is unconstrained and requires updating $f,g \in \R^n$ instead of $P \in \R^{n\times n}$ constrained by the row and column sums. 
+This makes the problem $\Oo (N^2)$.  Regularization using the KLD can be extended to dynamic formulations to get the SBP and to the dual to get the viscous HJB equation.  \cite{benamou2000computational}.
+
+There is some work on trying to maximise the dual problem too
+
+
+exhibits many favourable  
+\item \textbf{Functional data analysis:} \emph{next-generation functional data analysis} Wang 2016 S.6.
+\item \textbf{Machine learning:} \emph{Estimation of low-dimensional measures in high dimensional spaces} \cite{canas2012learning}. \emph{Regression on GPs indexed my measures} \cite{bachoc2017gaussian}.
+\emph{Training of shallow infinitely wide NNs } as the width increases to infinity and writing $x=(\theta_1, \theta_2)$  
+\begin{align*}
+    g_\mu(z):= \int_{\R^{d+d'}} \theta_2 \cdot \sigma(z \cdot \theta_1) \d \mu(x). 
+\end{align*}
+modeling training weights at time $t$  by a measure $\mu_t$, the weights follow a WGF (as the time step goes to zero). One recovers the discrete case through 
+\begin{align*}
+    \b{x}'(t) = -\nabla f(\b{x}(t)), \quad f(\b{x}):= \Ff \qty(\frac{1}{n} \sum_{i=1}^n \delta _{x_i}(t) ).
+\end{align*}
+This is different from moving as $x'_i(t)=v(x_i(t))$ as couplings may be taken into account. For example, if $\Ff(\mu ):= (k, \mu \otimes \mu )$ for symmetric $k$  then $\nabla _W \Ff (\alpha)= (\nabla_x k(\cdot ,y), \mu )$ 
+\begin{align*}
+    x'_i(t)= -\frac{2}{n}\sum_{j=1}^n \nabla_x k\qty(x_i(t) ,x_j(t))
+\end{align*}
+As a result, one can obtain global convergence guarantees for shallow networks.
+
+
+\emph{Infinitely wide NNs}. Let $t$ be the layer and use the model for the activation $z(t)$ at layer $t$   
+\begin{align*}
+    z'(t)=g_{\mu(t)}(z(t)).
+\end{align*}
+ The discrete dynamics minimize $ \sum_{k=1}^N \norm{g_\b{\mu}(z_k)-y_k}^2$. This converges to a GF with  respect to the generalized Wasserstein metric
+ \begin{align*}
+   \Ww_2( \b{\alpha}, \b{\alpha}') \int_{0}^1 \Ww _2(\alpha(t), \alpha'(t)) \d t .
+ \end{align*}
+ The loss is not coercive but one can still prove convergence near minima \cite{peyre2025optimal}.
+ 
+\emph{Trasnformers}: The output does not depend on permutation on tokens as a result, one can view collection of tokens as probability measure $\mu $.  Deep transformers can be modeled in the infinite depth limit as flows $\mu _t$, given parameters $\Th =(Q_t,K_t,V_t)$  
+\begin{align*}
+    x'_i(t)= \Gamma _{\Th }[\mu _t](x_i(t)), \quad \mu_t = \frac{1}{n} \sum_{i=1}^n \delta_{x_i(t)} 
+\end{align*}
+and thus 
+\begin{align*}
+    \partial_t \mu _t = -\nabla \cdot \qty(\mu_t \Gamma _{\Theta }[\mu _t])
+\end{align*}
+The resulting dynamics can be related to Vlasov equations but not WGs without a change in the metric \cite{peyre2025optimal}. There are universality results that say that given any function $\Tt$  on $(\alpha_0,x)$ I can find a transformer that evolves as above and approximates  A better understanding of the training dynamics (evolution of $\Th $) is also required.
+
+
+ 
+
+\item \textbf{Gradient flows:} Using the Riemannian structure of $\Pp _2(M)$ one can define gradient flows through $\partial _t \mu _t = - \nabla \Ff (\mu _t)$. When $M= \R^d$ and $\Ff = KL(\cdot , \pi )$ the measures follow the FP equation 
+\begin{align*}
+    \partial _t \mu _t = - \nabla\cdot(V  \mu_t) + \Delta \mu _t
+\end{align*}
+As a result, if $V$ is convex 
+\begin{align*}
+    \mathrm{KL}\left(\mu_t \| \pi\right) \leq e^{-2 \alpha t} \mathrm{KL}\left(\mu_0 \| \pi\right)
+\end{align*}
+ 
+
+This result has been extended to compact manifolds with non-negative sectional curvature \cite{ohta2009gradient} and to the relative entropy on manifolds with Ricci curvature bounded below (in which case the advection term is zero and one gets the heat equation)
+\end{enumerate}
+
+\begin{example}
+Let 
+\end{example}
+
+
+
+
+
+\section{Open questions}
+\begin{enumerate}
+    \item The central limit theorem holds for Hilbert spaces and thus for $d=1$ and the compatible case. Sample means converge to a Gaussian. However  it is unknown whether this holds in the general case of $\Ww ^2(\R^d)$. This is seen by some as the necessary first step for establishing statistical theory on these spaces \cite[Section 4.6]{panaretos2019statistical}. However, I don't believe much in classical statistics.  
+    \item Global convergence in infinite depth limit \cite[Section 6.1]{peyre2025optimal}. Quantitative bounds when discretizing continuous measures.
+    \item Better theoretical understanding of diffusion models including error propagaion by discretizing the dynamics \cite[Section 3.2]{peyre2025optimal}.
+\end{enumerate}
+
+
+\section{Questions?}
+\begin{enumerate}
+    \item What does dynamic problem look like in dual space?
+    \item Can one use the Sinkhorn regularisation on the dual?
+    \item Are there distances that give a different curvature and are thus better.
+    \item Dynamic formulation of OT is Benamou Brenier. How to show that SBP is dynamic formulation fo Sinkhorn?
+    \item In the dual problem is this the HJB and viscous HJB 
+    \begin{align*}
+        \partial_t \phi+\frac{1}{2}|\nabla \phi|^2=0, \quad \partial_t \phi+\frac{1}{2}|\nabla \phi|^2+\frac{\epsilon}{2} \Delta \phi=0
+    \end{align*}
+    
+    \item Extension of both of these facts to infinite dimensions? Connection wih WoW space?
+    \item Does it hold that $v= \nabla \phi $. That is, the potential drives the dynamics. 
+    \item Are there any other forms of regularization?
+    \item Can regularization be extended to other metrics? E.g. regularized SVGD
+    \item Could other metrics be better?
+    \item Can one see SVGD as a form of regularization? Perhaps of the velocity field instead of the transport map?
+    \item What is ``the best'' visual example for where function space setting works better?
+    \item Definition of SBP? Seems different in ML and stochastics
+\end{enumerate}
+
+
+\bibliography{biblio.bib}
+\end{document}

@@ -1,0 +1,66 @@
+\documentclass[
+	a4paper,
+	DIV=13,
+	abstract=true,
+	numbers=noenddot
+]{scrartcl}
+
+\usepackage{preamble}
+
+\begin{document}
+\title{Optimal Transport 1: The Intuition of Moving Mass}
+\author{Liam Llamazares--Elias}
+\date{\today}
+\maketitle
+
+\begin{Abstract}
+In the first installment of our series on Optimal Transport, we step away from formal measure theory to uncover the "beef" of the problem. We trace its roots from Napoleon’s fortifications to modern AI, exploring why moving a pile of sand is one of the most profound puzzles in mathematics.
+\end{Abstract}
+
+\section{Gaspard Monge and the Art of Moving Sand}
+Imagine you are an engineer in the years leading up to the French Revolution. You are standing on a construction site for one of Napoleon's new fortifications. To your left is a massive pile of excavated dirt (the \emph{deblai}); to your right is an empty trench (the \emph{remblai}) that needs to be filled.
+
+Your task is simple: move the dirt to the trench. But there is a catch. Moving dirt is backbreaking work, and every meter your laborers walk costs time and money. How do you pair each grain of sand's starting position with a final destination such that the total distance traveled is minimized?
+
+This was the question posed by Gaspard Monge in 1781. It sounds like a "dumb question"—simple enough for a child to ask—yet it remained one of the most difficult problems in analysis for over a century.
+
+\section{Why Should I Care? (The Modern Beef)}
+While Monge was worried about fortifications, his "sand-moving" math has become the secret engine behind some of the most impressive technology today. If you've ever wondered how an AI can smoothly morph one face into another, or how a self-driving car distinguishes between a pedestrian and a mailbox, you are likely looking at Optimal Transport in action.
+
+\begin{itemize}
+    \item \textbf{Computer Vision}: Think of an image as a pile of "light intensity" pixels. To compare two images, we ask: "How much sand (light) do I have to move to turn Image A into Image B?" This gives us a distance that is far more robust to small shifts or rotations than simple pixel-by-pixel comparisons.
+    \item \textbf{Generative AI}: Modern AI models like GANs or Diffusion models are essentially learning to transport a "pile of noise" into a "pile of coherent data" (like a realistic photograph).
+    \item \textbf{Logistics}: From fuel delivery to cloud computing, any problem that involves matching supply to demand under a cost constraint is, at its heart, an Optimal Transport problem.
+\end{itemize}
+
+\section{The Rigid Map vs. The Fluid Plan}
+To understand why this math is so beautiful, we have to look at the clash between two different ways of thinking: the \textbf{Rigid Map} (Monge) and the \textbf{Fluid Plan} (Kantorovich).
+
+\paragraph{Monge's Rigid Rule} Monge’s original idea was to find a \emph{map}. Each grain of sand at location $x$ is sent to exactly one location $y$. It is a "one-to-one" matching service. The problem is that Monge’s rule is too rigid. What if your initial pile of sand is concentrated in one spot, but your target trench is spread thin over a large area? Monge’s math breaks down because a single grain of sand cannot be in two places at once.
+
+\paragraph{Kantorovich’s Fluid Fix} In the 1940s, Leonid Kantorovich realized we could relax this rule. Instead of a rigid map, he proposed a \emph{transport plan}. He allowed the sand to be "split"—half a wheelbarrow could go to spot A, and half to spot B. By allowing this flexibility, Kantorovich turned a difficult, non-linear problem into a beautiful linear one. This leap not only won him a Nobel Prize in Economics but also opened the door to the modern algorithms we use today.
+
+\section{The Dynamic Flow: Sand in Flight}
+There is one more layer to the intuition. Most of our tools focus on the "before" and "after"—pairing the start with the end. But what if we ask: \emph{What does the sand look like while it’s flying through the air?}
+
+Instead of a teleportation service, we can view Optimal Transport as a \textbf{flow}. If you imagine the dirt morphing continuously from the pile to the trench, it traces out a "path of least resistance" through the space of all possible shapes. In later posts, we will see that this perspective isn't just poetic—it allows us to view evolution equations and PDEs as a form of "steepest descent" in a landscape defined by transportation.
+
+\section{A Roadmap for the Series}
+In future posts, we will follow a path that moves from foundational existence to the rich geometry and dynamics of probability spaces.
+
+\begin{enumerate}
+    \item \textbf{Existence and Well-Posedness}: We start by proving a solution to the Kantorovich problem exists. By relaxing the problem from maps to measures, we gain the flexibility needed to ensure a solution.
+    
+    \item \textbf{Duality and Maps}: Through \emph{Kantorovich Duality}, we shift our gaze from the primal problem of moving mass to a dual problem of "prices" or potentials. This is where we discover when a plan can finally be turned back into a unique map.
+    
+    \item \textbf{The Geometry of Wasserstein Spaces}: Beyond individual problems, we will view the space of all possible shapes as a manifold in its own right, discussing its metric properties and the natural geometry induced by flow.
+    
+    \item \textbf{Gradient Flows and Dynamics}: Finally, we will use this geometry to define gradient flows, viewing complex physical equations as the simplest movement through the space of distributions.
+\end{enumerate}
+
+\section{Closing Thoughts}
+Here we have outlined the "why" and a bit of the "what." In the next post, we start in earnest with a rigorous look at the existence of solutions. If you are following along, I encourage you to check out the more technical breakdown in Part 2, where we begin building the formal machinery.
+
+\bibliographystyle{apalike}
+\bibliography{biblio}
+\end{document}
