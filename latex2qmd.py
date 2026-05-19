@@ -571,6 +571,8 @@ def convert_body(body: str, label_registry: dict | None = None,
     r"""Apply all mechanical transformations to the LaTeX body.
     """
     # --- Pass 0a: Structural Normalization ---
+    # Escape percent signs followed by two hex digits to protect URL-encoded characters in \href
+    body = re.sub(r'%(?=[0-9a-fA-F]{2})', r'\\%', body)
     # Strip unescaped LaTeX comments %...
     body = re.sub(r'(?<!\\)%.*', '', body)
     
@@ -1198,6 +1200,8 @@ def convert_body(body: str, label_registry: dict | None = None,
     # Remove multiple blank lines (keep max 2)
     text = re.sub(r'\n{3,}', '\n\n', text)
 
+    # Clean up display math fences around \eqref
+    text = re.sub(r'\$\$\s*\\eqref\{([^}]+)\}\s*\$\$', r'$\\eqref{\1}$', text)
     return text.strip()
 
 
