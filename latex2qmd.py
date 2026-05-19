@@ -842,6 +842,8 @@ def convert_body(body: str, label_registry: dict | None = None,
                 inner = text[m.end():m.end() + end_m.start()]
                 end_pos = m.end() + end_m.end()
             else:
+                clean_env = env_name.replace('\\', '')
+                print(f"WARNING: Unmatched math environment \\begin{{{clean_env}}} (no matching \\end found).", file=sys.stderr)
                 inner = text[m.end():]
                 end_pos = len(text)
 
@@ -871,6 +873,7 @@ def convert_body(body: str, label_registry: dict | None = None,
             out_env = 'align' if 'aligneq' in env_name else env_name
             if starred and not out_env.endswith('*'):
                 out_env += '*'
+            out_env = out_env.replace('\\', '')
 
             header = f"\\begin{{{out_env}}}"
             content = content.strip()
