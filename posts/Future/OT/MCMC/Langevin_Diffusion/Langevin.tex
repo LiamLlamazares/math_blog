@@ -1,0 +1,80 @@
+\documentclass[
+    a4paper,
+    DIV=13,
+    abstract=true,
+    numbers=noenddot
+]{scrartcl}
+
+\usepackage{preamble}
+\addbibresource{library.bib} % duplicate of preamble, tells VimTeX where entries live
+
+\begin{document}
+\title{Langevin diffusion  
+}
+\author{Liam Llamazares-Elias}
+\date{\today}
+\maketitle
+\section{Introduction}
+\section{Langevin diffsion}
+The equation 
+\begin{aligneq}\label{LD}
+    \d X_t=- \nabla \log{\pi}(X_t)+\sqrt{2} \d W_t.
+\end{aligneq}
+
+\section{Convergence}
+\begin{theorem}
+   The Langevin diffusion \eqref{LD} converges to $\pi$. 
+\end{theorem}
+\begin{proof}
+    Direct substitution in the FP equation shows that $\pi$ is a statinoary point. Since \eqref{LD} defines an irredicuble (every point can be reached) Markov process it must converge to the finite invariant measure $\pi$.
+\end{proof}
+
+\begin{theorem}[Exponential convergence]
+    Let $\pi$ satisfy the LSI then exponential convergence.
+\end{theorem}
+\begin{proof}
+    By caclulation 
+    \begin{aligneq*}
+        \partial \KL{\rho_t}{\pi}= - \int_{\Xx} \rho_t \norm{\nabla \log{\frac{\rho_t}{\pi}}}^2 \d x = - I(\rho_t|| \pi). 
+    \end{aligneq*}
+    By BE $I(\cdot ||\pi)\le \lambda\KL{\cdot }{\pi}$ and we conclude by gronwall.
+\end{proof}
+\begin{lemma}
+   If  $V$ satisfies the Bakry--Emery condition $\nabla^2 V \ge \lambda \rm{Id}$ then $\pi$ verifies the log--Sobolev ineuqality.
+\end{lemma}
+\begin{proof}
+    Since $V$ is strongly convex...
+\end{proof}
+
+Convergence may not be exponential id tails decay weakly
+\begin{example}
+    Consider $V= \bt\log{1+\norm{x}^s}$ where $s>d$ then polynomial convergence. If $V= \log{(1+ \norm{x}^d)\log{\norm{x}}}$ then convergence is logarithmic.
+    \exampleSymbol
+\end{example}
+\section{Proof via WGF}
+We define 
+\begin{aligneq*}
+    \Ff(\rho):= \KL{\rho}{\pi}.
+\end{aligneq*}
+And we set up the WGF
+\begin{aligneq*}
+  \partial_t=- \nabla_{W_2} \Ff(\mu_t).
+\end{aligneq*}
+Since it is a gradient flow we have 
+\begin{aligneq*}
+  \partial_t \Ff(\mu_t) = - \norm{\nabla_{W_2} \Ff(\mu_t)}_{L^2(\mu_t}^2.
+\end{aligneq*}
+We have that $\nabla_{W_2} \Ff(\mu)= \nabla \delta \Ff/ \delta \mu= \log{\rho/\pi}$. Plugging this in gives as before that 
+\begin{aligneq*}
+    \partial_t \Ff(\mu_t)= -I(\mu_t|| \pi).
+\end{aligneq*}
+We then require for geodesic convexity of $\Ff$ this is equivalent to LSI (I beleive) and shows through gradient flow theory that
+\begin{aligneq*}
+    \Ff(\mu_t) \le \ex{-2 \lambda t}\Ff(\mu_0).
+\end{aligneq*}
+And suomehow also that 
+\begin{aligneq*}
+    W_2(\mu_t,\pi)\le \ex{-2 \lambda t}W_2(\mu_0,\pi)
+\end{aligneq*}
+\printbibliography
+\end{document}

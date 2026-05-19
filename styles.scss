@@ -36,9 +36,9 @@ body {
     }
 
     // External URLs / Ordinary links within the post
-    // We strictly target links that are NOT part of the dashboard UI or navbar
-    a:not(.quarto-xref):not(.citation):not(.nav-link):not(.navbar-brand):not(.featured-link) {
-        &:not(.dashboard-container a) {
+    // We strictly target links that are NOT part of the dashboard UI, navbar, or listing pages
+    a:not(.quarto-xref):not(.citation):not(.nav-link):not(.navbar-brand):not(.featured-link):not(.listing-title):not(.listing-description) {
+        &:not(.dashboard-container a):not(.quarto-listing a) {
             color: $navy-blue;
         }
     }
@@ -110,4 +110,43 @@ body {
 
 a:hover {
     text-decoration: underline;
+}
+
+// --- Listing page (Posts by Tag) ---
+.quarto-listing {
+    // Post titles: dark, bold
+    .listing-title {
+        color: $body-color !important;
+        font-family: $headings-font-family;
+        font-weight: 600;
+        font-size: 1.15rem;
+        &:hover {
+            color: $primary !important;
+        }
+    }
+
+    // Dates and reading time: muted gray, not links
+    .listing-date, .listing-reading-time {
+        color: #64748B !important;
+        font-size: 0.85rem;
+    }
+
+    // Descriptions: normal body color
+    .listing-description {
+        color: #555 !important;
+        font-size: 0.9rem;
+    }
+
+    // Category badges
+    .listing-category {
+        color: #64748B !important;
+        border-color: #CBD5E1 !important;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        &:hover {
+            color: $primary !important;
+            border-color: $primary !important;
+        }
+    }
 }

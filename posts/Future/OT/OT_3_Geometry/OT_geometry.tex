@@ -1,0 +1,147 @@
+\documentclass[
+    a4paper,
+    DIV=13,
+    abstract=true,
+    numbers=noenddot
+]{scrartcl}
+
+\usepackage{preamble}
+\addbibresource{library.bib} % duplicate of preamble, tells VimTeX where entries live
+
+\begin{document}
+\title{Gemoetry of Optimal transport}
+\author{Liam Llamazares-Elias}
+\date{\today}
+\maketitle
+\section{Introduction}
+
+\section{Classical manifolds}
+Clasically a manifold is defined as a space that is locally dipheomorphic to $\R^d$. Smooth functions are those that are locally smooth. 
+
+
+In $\R^n$ we can think of the tangent space as vectors in $\R^n$. However in manifolds $M$ these arrows do not live in the manifold. As a result we need a differnt definition
+\begin{definition}
+    The tangent space $T_pM$ is defined as the derivations of the equivalence class of smooth functions identified if they are lcoally equal (germs).
+\end{definition}
+The definition seems abstract however it has a couple advantages 
+\begin{enumerate}
+    \item It is defined independantly of coordinates, making it suitable to work with algebraically.
+    \item It is isomorphic to $\R^d$. One can still work in terms of coordiantes allowing us to do analysis. A basis is the derivatives with respect to the local coordinates.
+    \item It allows us to calculate rates of change (derivatives) of functions in $C^\infty(M)$ and is interpretable in terms of Euclidean space through 
+      \begin{aligneq*}
+          X_p f= \sum_{j=1}^n v_j \partial_i f = f(\gamma(t)), 
+      \end{aligneq*}
+      where $\gamma(0)=p$ and $\gamma'(0)=v$. That is we calculate the rate of change of moving $f$ with velocity given by our tangent vecotr $v$.
+\end{enumerate}
+Of course the greater usefulness is in actually being able to derive theorems and practical from this defintion
+
+Once we deinfe tangent fecotrs at a point (arrows) we can define fields of arrows
+\begin{definition}
+    A field is a mapping $ p \to X_p \in T_pM$ for all $p \in M$. The field is smooth if it is smooth in coordinate, or equaivalently if $Xf \in C^\infty(M)$ for all $f \in C^\infty(M)$. We write $X \in \Gamma(M)$
+\end{definition}
+The composition of derivations is not a derivation so we define 
+\begin{definition}
+  We define the Lie brakcet $[X,Y]= XY-YX \in \Gamma(M)$.
+\end{definition}
+We also wish to measure the size of our tangent vecotrs
+\begin{definition}
+    We say $M$ is a Riemannian manifold if there exists a smooth metric $g_p: T_pM \times T_pM \to \R$. That os $g_p$ is PSD for each $p$ and $g(X,Y)$ is smooth.
+\end{definition}
+Using the metric we can define the gradient. For $\R^n$ we have that
+\begin{aligneq*}
+  X_p f= \br{ \nabla f ,v}.
+\end{aligneq*}
+As a result we define 
+\begin{definition}
+    The gradient of $f$ is the unique element $\nabla f \in T_p M$ such that 
+    \begin{aligneq*}
+        X_pf = \br{ \nabla f(p), X_p},\quad \forall X \in T_p(M).
+    \end{aligneq*}
+\end{definition}
+The gradient exists by the Riez represeantion therom and it is not just the derivative in each coordinate.
+
+With tangent vectors we can differentiate functions, we extend this definition to differentiate other tangent vectors and $1$-forms.
+
+\begin{definition}
+    A connection is $\nabla: \Gamma(M) \times \Gamma(M) \to \Gamma(M)$, written $\nabla(X,Y):=$ such that  
+    \begin{enumerate}
+      \item $\nabla_{fX} Y= f \nabla_XY$
+      \item $\nabla_X (fY)= Xf \nabla_X Y+ f \nabla_XY$.
+    \end{enumerate}
+\end{definition}
+The properties above are reasonable constraints for $\nabla_X$ to actually differntiate $Y$ however there are many such $\nabla$. no a Riemmanina metric there is only one we care about. 
+
+\begin{definition}
+    We say that $\nabla$ preserves the metric if 
+    \begin{aligneq*}
+        X g(Y,Z)= g(\nabla_X Y,Z)+ g(Y, \nabla_XZ).
+    \end{aligneq*}
+\end{definition}
+Yhe trosion measures hte different=ce between moving with $X$ and then $Y$ and the other way around
+\begin{definition}
+    We say that $\nabla_X$ is torision free if 
+    \begin{aligneq*}
+      \nabla_XY- \nabla_YX= [X,Y]
+    \end{aligneq*}
+\end{definition}
+\begin{theorem}
+    There is a unique conenction that preserves $g$ and is torsion free. We call it the Levi--Civita connection.
+\end{theorem}
+\begin{definition}
+  Given a curve $\gamma$ with $\gamma(0)=p$ and $X(0) \in T_p(M)$  we say that $X(t) \in  T_{\gamma(t)} M$ is the parallel trasnport of $X_0$ along $\gamma$ if 
+  \begin{aligneq*}
+    \nabla_{\gamma'(t)} X(t)=0
+  \end{aligneq*}
+\end{definition}
+This is many abstract definitions, but how do we justify them?
+\begin{theorem}
+  Let $P_{t_0, t_1}: T_{\gamma(t_0)}M \to T_{\gamma(t_1)}M$ denote the parallel transport map that takes $V(t_0)$ to $V(t_1)$. Then $\nabla$ preserves the metric iff $P_{t_0,t_1}$ is an isometry.
+\end{theorem}
+\begin{theorem}
+    Symmetry of the HessianLet $f \in C^\infty(M)$. Define the Hessian as the $2$-tensor $\nabla^2 f(X, Y) = X(Yf) - (\nabla_X Y)f$.The connection $\nabla$ is torsion-free if and only if the Hessian is symmetric for all $f$:$$\nabla^2 f(X, Y) = \nabla^2 f(Y, X)$$
+\end{theorem}
+
+It is equivalent to definifing thorugh derivative of curves or just $\R^d$.
+
+
+A Riemannian metric is then a collection of positive definite biliniear form $g_p: T_pM \times T_pM \to \R_+$ such that $g$ is smooth in some sense.
+
+
+
+I think this gives some way to define the grad and divergence. Not sure how or why and what spaces they are a part of.Can
+
+\section{Wasserstein Manifold}
+We have tha, for quadratic distance, the optimal transport maps take the form 
+\begin{aligneq*}
+  \set{\nabla \varphi: \varphi \text{ convex }}.
+\end{aligneq*}
+This suggests that one take the tangent space to be the closure fo this in $L^2$. But why? My interpretation is that one can consider a curve of measure $\mu(t)$. Then, if $\mu(t)$ are geodesically convex one has that 
+\begin{aligneq*}
+  \mu_{t+\eps}= (I+ \eps T_{\mu_t \to \mu_{t+\eps}})_{\#}\mu_t + \Oo(\eps^2).
+\end{aligneq*}
+That is, heuristically $\mu_t$ has velocty $\mu'_t =T_{\mu_t \to \mu_{t+\eps}}$. So the velocity is always the grad of a convex function. However this is only for geodesically convex curves. Why consider only these? And this is all heuristic. What properties of normal tangent space for manifolds also hold here?
+
+
+One shows that AC curves are equal to the solutions of the continuity equation, 
+\begin{aligneq*}
+    \partial \mu_t =- \nabla \cdot (v_t \mu_t).
+\end{aligneq*}
+The velocity $v_t$ is not unique so we take the one with minimal $L_2$ norm (this one is unique?). One then defines $\mu'_t:= v_t$ and says that a WGF is a solution to (the CE)
+\begin{aligneq*}
+  \partial \mu_t = - \nabla_{W_2} \Ff(\mu_t)
+\end{aligneq*}
+where The WG is defined using the heursitic chain rules
+\begin{aligneq*}
+  \partial \Ff(\mu_{t})= \br{\nabla_{W_2}\Ff(\mu_t), \mu'_t }
+\end{aligneq*}
+\liam{It seems to me like there are deeper geometric defintion I am missing so far I don not see the connection to geometry etc. It is defined in terms of equations but I can't see what is happening and how it relates to the tangent of manifolds or the grad of convex functions...}
+
+\section{Generalization to spaces without the continuity equation}
+We are interestined in generalig the concep of WGF to spaces where to continuity equation is not well-defined. Concretely we have $X$ as space of grpahs $G=(V,E)$ (some structure on $X$?) and we consider measuers on $X$ and try to build the concept of WGF in this space.
+
+For measures on grpahs this concept exists using the conductivity, however I did not understand there definition of tangent space or see any theorem that showed categorically that this was the right thing to do. Furthermore I di not understand how from the def of tangent space the def of grad flow follwos
+
+
+
+\printbibliography
+\end{document}

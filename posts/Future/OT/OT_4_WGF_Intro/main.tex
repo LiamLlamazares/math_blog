@@ -1,0 +1,74 @@
+\documentclass[
+    a4paper,
+    DIV=13,
+    abstract=true,
+    numbers=noenddot
+]{scrartcl}
+
+\usepackage{preamble}
+\addbibresource{library.bib} % duplicate of preamble, tells VimTeX where entries live
+
+\begin{document}
+\title{WGF Intro}
+\author{Liam Llamazares-Elias}
+\date{\today}
+\maketitle
+\section{Introduction}
+
+\section{Euclidean gradient flows}
+
+\section{Convergence}
+Gronwall.
+PL theorem. CIte Pablo.
+Convergece to subspace theorem
+
+\begin{theorem}[PL]\label{thm:PL}
+Let $\Phi: \R^d \to \R$ be locally Lipschitz and verify the PL inequality 
+\begin{aligneq*}
+    \norm{\nabla \Phi(x)}^2 \ge \lambda \norm{\Phi(x)},\quad \forall x \in \R^d. 
+\end{aligneq*}
+Then, a solution $x_t$ to the gradient flow 
+\begin{aligneq*}
+   x_t'=-\nabla \Phi(x_t), \quad x_0=x_0
+\end{aligneq*}
+has a unique stationary point $x^*(x_0)$ and verifies the exponential convergence 
+\begin{aligneq*}
+    \norm{x_t-x^*(x_0)}^2 \le \exp(- \lambda t)\norm{x_t-x^*(x_0)}.
+\end{aligneq*}
+\end{theorem}
+\begin{proof}
+    By the assumption of the theorem a unique solution exists. Using the PL ineuqality 
+\begin{aligneq*}
+    \partial_t \Phi(x_t)= - \norm{\nabla \Phi(x_t)}^2 \le -\lambda \norm{\Phi(x_t)}.
+\end{aligneq*}
+As a result, by Gronwall's inequality, $\Phi$ decreases expoentially 
+\begin{aligneq*}
+  \Phi(x_t) \le e^{-\lambda t}\Phi(x_0).
+\end{aligneq*}
+Since $\Phi$ is the only thing moving $x$, the trajectory slows down and has finite length 
+\begin{aligneq*}
+  \int_{0}^\infty \norm{x'_t} \d t =\int_{0}^\infty \norm{\Phi(x_t)} \d t \le=\int_{0}^\infty e^{-\lambda t}\norm{\Phi(x_0)} \d t < \infty.      
+\end{aligneq*}
+A small argument confirms that any curve of finite length is Cauchy and thus converges to a unique point.
+\end{proof}
+A conventional example is that of strongly convex functions?
+\begin{exercise}
+ Show that if $\Phi$ has   
+    \exerciseSymbol
+\end{exercise}
+A typical example occurs when $Q$ is positive definite and $\Phi=\frac{1}{2} \br{ Qx,x }$ is a quadratic potential. In which case it is clear that the constant $\lambda$ governing the speed of convergence is the smallest eigenvalue of $Q$.
+
+\section{Preconditioning}
+When $\lambda \approx 0$ the speed of convergence is slow as  we require time $t= \lambda^{-1} \log{\eps}$ to be within a distance $\eps$ of $x^*$. This can be improved through preconditioning. That is, by sugin a second order method. Consider the previous case $\Phi= \br{ Qx,x }$ where $ \lambda \sim 0$. Weuse $\Sigma:= Q ^{-1}$ to straighten out the geometry, considering 
+\begin{aligneq*}
+    y'_t= -\Sigma \nabla \Phi(y_t),
+\end{aligneq*}
+Now, by \Cref{thm:PL}, 
+\begin{aligneq*}
+  \norm{x_t -x^*} \le \norm{Q}\norm{y_t-y_0} \le \lambda_{\rm{max}} e^{-t}.
+\end{aligneq*}
+So achieving an error of $\eps$ requires $t= \log{\lambda_{\rm{max}} \eps^{-1}}$ instead of \liam{Surepsed amx eigen comes up, what if it is very big. Then we are worse}
+
+
+\printbibliography
+\end{document}
