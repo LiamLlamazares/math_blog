@@ -608,6 +608,9 @@ def convert_body(body: str, label_registry: dict | None = None,
         s = re.sub(r'-+', '-', s)
         return s.strip('-').lower()
 
+    def is_equation_label(l):
+        return bool(re.match(r'^eq(?:[-:_ \d]|$)', l))
+
     # --- Pass 0: Strip TODO notes, end-of-theorem symbols, expand \qty,
     #             and strip blog metadata commands from body ---
     text = re.sub(r'\\liam\{[^}]*\}', '', text)
@@ -1005,12 +1008,12 @@ def convert_body(body: str, label_registry: dict | None = None,
         # Then check if this label was mapped during theorem/equation conversion
         elif raw_label in label_map:
             qid = label_map[raw_label]
-            if qid.startswith('eq-') or raw_label.startswith('eq'):
+            if qid.startswith('eq-') or is_equation_label(raw_label):
                 return f'$\\eqref{{{raw_label}}}$'
             target = f'@{qid}'
         elif label in label_map:
             qid = label_map[label]
-            if qid.startswith('eq-') or label.startswith('eq'):
+            if qid.startswith('eq-') or is_equation_label(label):
                 return f'$\\eqref{{{label}}}$'
             target = f'@{qid}'
         # Try to guess the prefix from the label convention
@@ -1024,7 +1027,7 @@ def convert_body(body: str, label_registry: dict | None = None,
             target = f'@prp-{label}'
         elif label.startswith('cor'):
             target = f'@cor-{label}'
-        elif label.startswith('eq'):
+        elif is_equation_label(label):
             target = f'$\\eqref{{{raw_label}}}$'
         else:
             # Fallback: assume it's a theorem if no prefix
@@ -1071,7 +1074,7 @@ def convert_body(body: str, label_registry: dict | None = None,
         raw = m.group(1)
         if raw in label_map:
             qid = label_map[raw]
-            if qid.startswith('eq-') or raw.startswith('eq'):
+            if qid.startswith('eq-') or is_equation_label(raw):
                 return f'$\\eqref{{{raw}}}$'
             return f'@{qid}'
         return m.group(0)  # leave as-is (likely a real Quarto ref or cite key)
@@ -1131,7 +1134,7 @@ def convert_body(body: str, label_registry: dict | None = None,
         label = m.group(1)
         qid = label_map.get(label, sanitize_label(label))
         # Use native MathJax eqref for any equation IDs
-        if qid.startswith('eq-') or label.startswith('eq'):
+        if qid.startswith('eq-') or is_equation_label(label):
             return f'$\\eqref{{{label}}}$'
         return f'@{qid}'
 
