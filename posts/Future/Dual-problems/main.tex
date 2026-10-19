@@ -1,0 +1,282 @@
+\documentclass[
+    a4paper,
+    DIV=13,
+    abstract=true,
+    numbers=noenddot
+]{scrartcl}
+
+\usepackage{preamble}
+
+\begin{document}
+\title{Dual problems and SDOT}
+\author{Liam Llamazares-Elias}
+\date{\today}
+\maketitle
+\section{Introduction}
+
+\section{Finite dimensional duality}
+Consider the constrained optimization problem 
+\begin{align*}
+  \mins{f(x): \b{h}(x) \le 0, \b{\ell }(x)=0}
+\end{align*}
+The constraints are annoying to deal with as they make many both theoretical and practical methods for studying the problem unusable. To get away with not imposing them lets think of it as Von-Neumann did through the lens of some game theory.
+
+Let $\b{x}$ be the move player one makes to minimize $f$. We will pay them more the lower they can get its value. Of course, if we do not force them to follow the rules then they will get away with a lot more than they should. So lets introduce a second player $\b{w}$ that punishes $\b{x}$ for not following the constraints. Let $\b{w}= (\b{\alpha}, \b{\bt})$ with $\b{\alpha} \ge 0$ a and $\b{m}=(\b{h}, \b{\ell })$. We define the outcome of the came (the Lagrangian) as
+\begin{align*}
+    \Ll(x,w)= f(x)+ \b{w} \cdot \b{m}(x).
+\end{align*}
+And let the two player game be 
+\begin{align*}
+      \inf_x\sup_w\Ll(x,w).
+\end{align*}
+That is, player $1$ plays $\b{x}$ first and then player $2$ follows with $\b{w}$. If player $1$ does not play carefully and violates any of the constraints, that is $\b{m}(x) \neq \b{0}$, then player $2$ will gleefully punish them by choosing an arbitrarily large $\b{w}$, making the outcome $\Ll$ as large as they wish. Something which player $1$ is very averse to. Thus player $1$ has no option but to follow the constrainsts, in which case $\Ll(x,w)= f(x)$. As a result,
+\begin{align*}
+  \mins{f(x): \b{h}(x)=0}= \inf_x\sup_w \Ll(x,w)
+\end{align*}
+Always we have that
+\begin{align*}
+    \sup_w \inf_x\Ll(x,w) \le \inf_x\sup_w \Ll(x,w)=C
+  \end{align*}
+\begin{exercise}
+    Show this.
+    \exerciseSymbol
+\end{exercise}
+The gap between the two is known as the duality gap. For well behaved problems we can swap the inf and sup and get, such as OT under some conditions.
+\begin{align*}
+  C= \sup_w \inf_x\Ll(x,w)=\inf_x\sup_w \Ll(x,w).
+\end{align*}
+See for example Slater's lemma. As it turns out this way of viewing things is very fruitful both from a theoretical perspective, and a practical perspective for developing minimization algorithms. 
+\begin{exercise}
+    Show that even if $f$ is not convex then $\inf_x \Ll(x,w)$ is convex.
+    \exerciseSymbol
+\end{exercise}
+We will see an example of this now
+
+
+\section{Duality for SDOT}
+Consider now the problem of transporting a continuous measure $\mu$ to a discrete one $\nu = \sum_{i}m_i- \delta_{z_i} $. This is SDOT, we minimize
+\begin{align*}
+    C(T)= \int_{\Omega}c(x,T(x)) \d \mu. 
+\end{align*}
+Over valid $T$, that is such that $T_{\#}\mu= \nu$. The image constraint is easy, we can only trasnport to $z_i$, this done we only need to match the masses $m_i$. The dual problem is thus given by the Lagrangian
+\begin{align*}
+    \Ll(x,w)= c(T)+\sum_{i=1}^N w_i \cdot (m_i- \mu(T^{-1}(\set{z_i})))
+\end{align*}
+Under suitable conditions 
+\begin{align*}
+  \inf_{T: T_{\#}\mu=\nu} c(T)= \sup_w\inf_T\mathcal L(T,w)=\sup_w D(w).
+\end{align*}
+The reason why this order is interesting is becasue the inner optimization is easy, for fixed $\b{w}$, and writing $w_T(x)$ to be $w_i$ such that $T(x)=z_i$ 
+\begin{align*}
+  D(\b{w})&:= \inf_T\mathcal L(T,\b{w})\\&= \b{w}\cdot \b{m}-  \inf_T \int_{\Omega}c(x,T(x))- w_{T}(x) \d \mu(x).
+\end{align*}
+Crucially there are no constraints of any sort on $T$. So we can easily minimize the integrand pointwise over $x$. We obtain 
+\begin{align*}
+  T_{\bm{w}} (x)\in\operatorname*{arg\,min}_{z_i}\bigl(c(x,z_i)-w_i\bigr).
+\end{align*}
+This defines the cells and their masses 
+\begin{align*}
+  L_i(\b{w})= T_\b{w}^{-1}(\set{z_i}), \qquad G_i (\b{w})= \mu(L_i(\b{w})).
+\end{align*}
+Of course in general $T_\b{w}$ may violate the mass constraint, this is not a problem as we cannot push $D(\b{w})$ to infinity as when we change $\b{w}$, also $T_\b{w}$ changes. For large $\b{w}$ necessarilly $T_\b{w}$ will put the mass difference on the largest weight with the opposite sign.
+\subsubsection{Relationship to general OT}
+The derivation above does not require $\nu$ to be discrete; it holds for arbitrary target measures $\nu \in \mathcal{P}(Y)$. For any measurable map $T: X \to Y$, the push-forward condition $T_\# \mu = \nu$ means that $\int_X \psi(T(x)) \, \mathrm{d}\mu = \int_Y \psi(y) \, \mathrm{d}\nu$ for all continuous test potentials $\psi \in C_b(Y)$. 
+
+The unconstrained Monge Lagrangian is:
+\begin{align*}
+    \mathcal{L}(T, \psi) &= \int_X c(x, T(x)) \, \mathrm{d}\mu(x) + \int_Y \psi(y) \, \mathrm{d}\nu(y) - \int_X \psi(T(x)) \, \mathrm{d}\mu(x) \\
+    &= \int_Y \psi(y) \, \mathrm{d}\nu(y) + \int_X \big( c(x, T(x)) - \psi(T(x)) \big) \, \mathrm{d}\mu(x).
+\end{align*}
+For any fixed $\psi$ (not necessarily optimal), minimizing over all unconstrained maps $T$ decouples pointwise over $x$:
+\begin{align*}
+    D(\psi) := \inf_T \mathcal{L}(T, \psi) &= \int_Y \psi(y) \, \mathrm{d}\nu(y) + \int_X \inf_{y \in Y} \big( c(x, y) - \psi(y) \big) \, \mathrm{d}\mu(x).
+\end{align*}
+For each candidate $\psi$, the inner pointwise infimum defines a candidate assignment map:
+\begin{align*}
+    T_\psi(x) \in \operatorname*{arg\,min}_{y \in Y} \big( c(x, y) - \psi(y) \big).
+\end{align*}
+By construction, $c(x, T_\psi(x)) - \psi(T_\psi(x)) = \inf_{y \in Y} (c(x, y) - \psi(y))$. Hence, for every $\psi$:
+\begin{align*}
+    D(\psi) = \int_Y \psi(y) \, \mathrm{d}\nu(y) + \int_X \big( c(x, T_\psi(x)) - \psi(T_\psi(x)) \big) \, \mathrm{d}\mu(x).
+\end{align*}
+When $\nu = \sum_{i=1}^N m_i \delta_{z_i}$, the potential $\psi$ is completely determined by its values on the support, $w_i := \psi(z_i)$. The map $T_\psi$ collapses to the cell assignment $T_{\mathbf{w}}(x) = \arg\min_{z_i} (c(x, z_i) - w_i)$, and $D(\psi)$ reduces exactly to the SDOT dual objective $D(\mathbf{w})$.
+\subsubsection{Relationship to general OT}
+In fact the problem we derived above can be deried even when $\nu$ is not discrete. We have introduced duality for this problem in a previous post but we do so here again with a simpler discussion. The mass constraint consitions take the form 
+\begin{align*}
+  \int_{X }\psi(T(x)) \d \mu&= \int_{Y}\psi(y)\d \nu,\quad \forall \psi \in C_b(Y) .
+\end{align*}
+Thus, the continuous Lagrangian takes the form 
+\begin{align*}
+  \Ll(T,\psi)&=\int_{X \times Y}c(x,T(x))\d \mu+ \int_{Y}\psi(y)\d \nu-\int_{X }\psi(T(x)) \d  \mu
+\end{align*}
+The dual problem is 
+\begin{align*}
+\sup_\psi\inf_T \Ll(T,\psi) &:=\sup_{\psi}D(\psi)\\&:=\sup_{\psi}\int_{ Y}\psi(y) \d \nu+\inf_T\int_{X}(c(x,T(x))- \psi(T(x)))\d \mu\end{align*}
+For each $\psi$ we thus obtain an optimal map 
+\begin{align*}
+    T_\psi(x)\in \operatorname*{arg\,min}_y c(x,y)- \psi(y).
+\end{align*}
+\begin{exercise}
+  Show from here that under the necessary assumptions and invertibility $T_\psi= [\nabla_y c(x,y)]^{-1} \nabla\phi(y)$. In particular, for $c(x,y) = \frac{1}{2}\norm{x-y}^2$ what is $T_\psi$?
+    \exerciseSymbol
+\end{exercise}
+
+and the dual problem reduces to just the supremum
+\begin{align*}
+    \sup_\psi\inf_T \Ll(T,\psi) =\sup_{\psi}\int_{ Y}\psi(y) \d \nu+\int_{X}(c(x,T_\psi(x))- \psi(T_\psi(x))\d \mu
+\end{align*}
+If  $\nu = \b{m} \cdot \b{\delta_z}$ and we set $\b{w}= \psi(\b{z})$ we recover the SDOT setting
+\begin{align*}
+  D(\b{w})=   \b{m}\cdot \b{w}+\sum_{i} \int_{L_i} (c(x,z_i)- \psi(z_i))\d \mu=\b{w}\cdot (\b{m}- \b{G}(\b{w}))+ \sum_{i} \int_{L_i(\b{w})} c(x,z_i).
+\end{align*}
+This is our initial SDOT porblem
+
+
+
+
+\section{The derivative of the mass matrix}
+To find the optimal map $T=T_{\b{w}^*}$ we search for the minimizer of $D(\b{w})$. ONe oway of doing so is thorugh gradient descent. The derivative $\nabla D(w)$ is zero on the faces $L_i \cap L_j$ for $i \neq j$
+\begin{align*}
+    L_i \cap L_j =\set{x:2x\cdot(z_j-z_i)=|z_j|^2-|z_i|^2+w_i-w_j}.
+\end{align*}
+However this is a hyperplane and of measure zero. As a result
+\begin{align*}
+     \nabla_{w}D(\b{w})= \b{m}- \b{G}(\b{w}).
+\end{align*}
+Thus, 
+\begin{align*}
+\nabla D(w^*)=0 \iff T_{w^*}\text{ satisfies the mass constraints}.
+\end{align*}
+Thus, if $D$ attains a maximum, solutions of the sup inf problem verify the mass constaint and are also equal to theoriginal inf sup problem
+\begin{align*}
+    \Ll(w^*,T_w^*)=C(T_w^*)
+\end{align*}
+
+Basically we turn our SDOT into an equivalent problem of finding the dual weights and then form $w \to T_w(x) = \rm{argmin}_{z_i} \set{\abs{x-z_i}^2- w_i}$
+
+
+But what if the target masses depend on some unknown parameter $m= m(\theta$. Then the optimal weights  are $w^*=w(\theta)$. What is the derivative of the cell masses? By the optimzality condition
+\begin{align*}
+    DG(w(\theta))w'(\theta)=m'(\theta).
+\end{align*}
+Now, the cell boundaries (calculated earlier) and thus the cell itself only depnd on changes of neighbouring cells.
+Using tehcincal formula for boudnary derivatives (Differentiation and regularity of semi-discrete
+optimal transport with respect to the parameters
+of the discrete measure). We obtain that, for $i \neq j$
+\begin{align*}
+\frac{\partial G_i}{\partial w_j}=-\frac{1}{2|z_j-z_i|}\int_{L_i\cap L_j}\rho\thinspace dS\le0.
+\end{align*}
+That is, increasing weights $w_j$ makes the nighbours lose mass. And by the conservation of mass 
+\begin{align*}
+    \sum_{i}G_i(w)= \mu(\Omega)=1. 
+\end{align*}
+We deduce that $L_i$ gains mass equal to the difference
+\begin{align*}
+\frac{\partial G_i}{\partial w_i}= -\sum_{i \neq j}\frac{\partial G_i}{\partial w_j}\end{align*}
+This makes $\nabla_wG(w)$ a graph laplacian! And its rank is equal to the number or nodes (cells) $N$ minues the number of connected compoenents. If the support of $\mu$ is connected, all cells must have neighbours and thus the rank will be $N-1$.
+
+\section{Convergence of the graph Laplacian}
+We have shown that $\b{L}_N=\nabla_wG$ is a grpah laplacian. This matrix is not only important for minimization but also crucial to understanding the stability of the OT problem (for reasons to discuss). A natrual question is qhat happens as $N \to \infty$. Does this graph laplacian converge to a continuous object $\Ll$? If so in what sense, as $L_N$ and $\Ll$ act on different sized spaces. One idea is that we would like at least for solutions to 
+\begin{align*}
+    \b{L}_N \b{u}_N= \b{b}_N
+\end{align*}
+to converge to solutions to the problem
+\begin{align*}
+    \Ll u=b
+\end{align*}
+in the sense that interpolating thorugh $I_N$ to form a continuous function $I_N u_N \to u$. We can study this is terms of $\Gamma$-onvergence. Indeed by Lax Milgram, removing the kernel (the functions of mass-measn zero) we have that the problem is ellipitic if the graph is connected and thus the unique solution of each problem is the unique minimizer of the energies
+\begin{align*}
+    \Ee_N(u_N)= \frac{1}{2}\br{Q_N u_N,u_N  }- \br{ b_N,u_N }, \quad \Ee(u)=\frac12 Q(v)-\langle b,v\rangle_X.
+\end{align*}
+We hope to use the theory of $\Gamma$-convergence to study these to do so we need to show 
+\begin{enumerate}
+  \item Compactness: There exists $K$ compact independent of $N$ such that the minimizers of $\Ee_N$ are in $K$.
+  \item For every $v_N \to v \in L^2(\mu)$ we have $\liminf_{n \to \infty} \Ee_N(u_N) \le \Ee(u)$.
+  \item For every $v \in D(Q)$ there exists  $I_N v_N \to v$ with $\Ee_N(v_N) \to \Ee(v)$.
+\end{enumerate}
+Under these conditions we achieve compactness the key idease to prove these points are as follows
+
+\section{Compactness: The poincare inequality}
+We wish to show that minimizers of the $Q_N$ cannot get too large for all $N$-uniformly. Let's start with one $N$ we first must show that for this particualt $N$ there exist minimizers and they don't blow up. If we think to one of the most common graph Laplacians, the discretization $\Delta_N$ of the Laplacian, this is Poincares inequality. Namely 
+\begin{align*}
+    \norm{u - \overline{u}}\le C \norm{\nabla_N u}^2= -C\br{\Delta_N u,u}.
+\end{align*}
+In our case we also obtain this the mai idea is to use the Legendre differential trasnform together with...
+
+\subsection{Interpolation the Legendre transform}
+Given a discrete function $\b{u}$ we would like to interpolate to a whole function on $\Omega$ so we can compare solutions. The most natural thing is to define 
+\begin{align*}
+    I_N \b{u}(\b{x}):=\b{u}_i \quad \text{if } x \in L_i.
+\end{align*}
+We would like to use it ro appriximate an arbitrary function $v$ for the recovery, how should we define $r_n(v)$? One could choose $[r_n(v)]_i=v(x_i)$ where $x_i \in L_i$ is arbitrary this interpolation woudl be good pointwise but not respect he energy (similar to how $sin (nx)/n \to 0$ but its derivatives do not!)
+As a result we are forced to define a better approximatino. The inverse trasnport map $T ^{-1}$ is defined only on $\Omega$ but say we could extend it to all of $\R^d$. Then we could define
+\begin{align*}
+  (r_Nv)_i= v(T^{-1}(z_i)) 
+\end{align*}
+Note we had to extend $T ^{-1}$ to the whole of $\R^d$ as the particles $\b{z}$ by be outised of $\Omega$ (can we not force them to be inside? WHy consider this. I can approximate $\mu$ from within $\Omega$, this shouldnt make finding $T_ \b{w}$ any more difficult).
+
+To do so we use the follwoing concept
+\begin{definition}
+    The Legendre differential trasnform of $P: \Omega \to R$ is the function 
+    \begin{align*}
+        P^*(p)= \maxs[x \in \Omega]{x \cdot p -P(x)}.
+    \end{align*}
+\end{definition}
+If this is the first time you've seen this construction it may make no sense. Why ever define such a function? The idea is that by some algebraic manipulations it holds that, for convex $P$, which we have defning $F=P$ on $\Omega$ and $F=+ \infty$ outside so
+    \begin{align*}
+        P^*(p)= \maxs[x \in \R^d]{x \cdot p -F(x)}= F^*(p).
+    \end{align*}
+    Then
+\begin{align*}
+    \nabla P^*(p)=x \iff x \in \partial F(x),
+\end{align*}
+In particular, since $P$ is strongly convex, (why?) we obtatin $\nabla P^*= \nabla P ^{-1}= T ^{-1}$ on $T(\Omega)$. Since $ P^*$ is defined on all of $\R^d$ this means we have extended the inverse as desired
+As a result we have achieved our extension, moreover some geometric arguments shows that,  writing $y_i:=\nablaP^*(z_i)$
+\begin{align*}
+ \abs{x- y_i}\le  \eps_N, ,\quad \forall x \in L_I
+\end{align*}
+\begin{proof}
+   As we say in the duality section $x \in L_i$ is defined by
+\[
+x\in\operatorname*{arg\,max}_{y\in\Omega}\{z_i\cdot y-\varphi_N(y)\},\]
+On the other hand 
+\begin{align*}
+    y_i=\operatorname*{arg\,max}_{y\in\Omega}\{z_i\cdot y-P(y)\}.
+\end{align*}
+Define the functions in the max by $H_N,H$ and write $\eps_N= \norm{\varphi_N-P}_ \infty$. Since $x$ maximizes $H_N$,
+\[
+H(y_i)\le H_N(y_i)+\varepsilon_N
+\le H_N(x)+\varepsilon_N
+\le H(x)+2\varepsilon_N.
+\]
+So $x$ is almost a maximizer of $H$ and since $H$ is $\lambda$-strongly concave moving away from maximizer loses a quadratic amount and we derive $\abs{x-y_i} \le  \sqrt{\eps_n /\lambda}$ 
+\end{proof}
+
+This is a fundamental step it indicates that, as long as $\eps_N$ becomes small then my the inverse of the discrete and continuous transport maps become closer and closer. I define
+\begin{align*}
+    \b{u}_i= u(y_i), \quad \text{so} \quad I_N \b{u}(x)=\b{u}(y_i) \quad \text{if } x \in L_i. 
+\end{align*}
+Then Ineed, if $u$ is Lipshictz (but it's not!) we get
+\begin{align*}
+    \abs{I_N r_N u(x) -u(x)}= \abs{u(y_i)-u(x)} \le L \eps_N.
+\end{align*}
+Which then somehow proves convergence of energies?
+
+
+The beef is hsowing small $\eps$ and why this implies Poincare
+
+... this appears in other fields of OT as... THse ideas can be used to solve other problems such as...
+
+\subsection{Poincare}
+We have that
+\begin{align*}
+\|U-\bar U\|_{L^2(\mu)}^2=\frac12\iint|U(x)-U(y)|^2\thinspace d\mu(x)\thinspace d\mu(y).
+\end{align*}
+SO distnace from the mean is the squared difference between pairs of values. We can ofrm segement from $x$ to $y$ and the difference in value is jump over cell faces which is controlled by the graph energy. As a reuslt
+\begin{align*}
+\|U-\bar U\|_{L^2(\mu)}^2\le C Q_N(\mathbf u).
+\end{align*}
+
+
+\printbibliography
+\end{document}

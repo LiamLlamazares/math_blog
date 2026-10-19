@@ -1,0 +1,92 @@
+\documentclass[
+    a4paper,
+    DIV=13,
+    abstract=true,
+    numbers=noenddot
+]{scrartcl}
+
+\usepackage{preamble}
+\addbibresource{library.bib} % duplicate of preamble, tells VimTeX where entries live
+
+\begin{document}
+\title{What lands should I play?}
+\author{Liam Llamazares-Elias}
+\date{\today}
+\maketitle
+\section{Introduction}
+It's been two years since I've posted anything on this blog. Finsihing my PhD and starting my Postdoc has kept me busier than expected. However I feel like it is time to fire back up the printing presses, after all there is a pleasure to writing ones thoughts freely, and what else is one to do on a rainy Lancasterian night.
+
+Our topic today is different to those we have touched on before. We will temporarily abandon the topics of more pure mathematics (don't worry we'll be back) to touch on a much more practical application. Namely, we (yes we, you signed up for this when you opened the page so don't abandon me now) will temporarily assume we are reknown wizards (as I said it's practical), dueling for magical supremacy against rival spell-casters. Now as everyone knows, wizards are very particulat about their duels, which have well defined rules. If you are familiar with how this works please feel free to skipto section..
+\begin{enumerate}
+  \item Each wizard may prepare in advance a spellbook, consisting of at least 60 spells (the wizarding commitee is very strict about this). Spells may damage their opponent, draw them more spells, summon magical creatures or do a whole host of things to help the wizard gain an advantage over their rival. 
+  \item Each wizard begins the duel with 7 spells from their spellbook that they may cast, selected randomly by the onlookers.
+  \item A coin is flipped to decide the wizard that plays first (yes even wizards haven't found a better way to do this).
+  \item The first wizard begins play by casting the spells they wish, after which they may cast and then must pass their turn to their opponent who will draw a spell from their book (thus now having 8 spells at their disposition) and play their own spells all in an attempt to thwart their opponent.
+  \item Wizards continue in this fashion, drawing and casting spells each turn until one wizard is defeated. The other being declared the victor.
+\end{enumerate}
+Now, as anyone who has attended wizarding school knows, casting spells is a tricky business. To cast a spell a wizard must have enough raw magical power, called \emph{mana}, at their disposition. Furthermore there are 5 types of mana representing each school of magic, dark (pip symbols for each one), water, fire, earth and light. Let's look at some examples
+
+(easy to read cards e.g lightningbolt that fit wizard theme and UR spell so that user can see two turn sequence with island plus red)
+For example, a wizard casting lightning bolt will need $1$ fire mana at their disposal whereas....
+
+Now, a wizard starts the duel with no mana. How do they obtain it? Well in their deck they must include spells of a special type which the wizards call \emph{lands}. Each turn they may play a land. Each turn when tapped the spells produces mana of its type for them. The lands below are quite simple. Each one produces one mana for the wizard when they tap it. Let us see how a couple rounds of a wizarding duel may play out. To simplify we show just a practice bout with no opponent and follow the moves of Archibaldus the Grey, believed by many to eb the msot powerful wizard in the land.  Archibaldus starts with three spells in hand, an island their trusty lighting bolt and UR spell. Plese press through arrows to move thtough the bout
+
+Game replay with text on top as follows: Archibaldus beigns by playing their mountain which they can promptly tap for 1 flame mana and cast lightningbolt. On their next turn Archubaldus drwas their card for the turn, a mountain, they play UR spell, drawing two more cards (UR spell that draws too cards maybe?), they draw a swamp and (URB card), next trun they may play balh balh blah.
+
+
+As we can see Archibaldus has had played quite well. He has managed to increase his mana each turn and play stronger and stronger spells, in a real duel he would undoubtedl overpower his opponent. However to the critical eye, perhaps he was bit lucky, consider instead the following sequence:
+Squence wheer now Archibaluds draws Swamp swamp swamp for consecutive turns and can cat notihing eiwht expalnatory text in same style
+
+The above case is commonly known in the wizarding community as getting mana-locked (there is another term too). It is an unfortunate and very frustrating experience that happens even to the most powerful and esteemed wizards. Imagine the disgrace and shame Archibaldus would face if he entered a duel and lost to a novice wizard due to only drawing the wrong lands and being unable to play any of his spells. This is a problem. A very important one. And Arhibaldus has entrusted us with solving, ot at least mitigating it, to the bst of our abilities.
+
+\section{Mana optimization}
+Before we begin by solving it we must look at the solutions the most poweful wizrds use to their advantage
+\subsection{Better lands}
+In addition to the \emph{basic lands} of the prvious sectino one may play more versatile lands known as \emph{non-basic} 
+
+[IMAGES OF VARIETY OF NONBASIC LANDS]
+
+These come with some drawback such as loss of life (a wizard begins with $20$ life and loses if it is depleted) or entering tapped, in which case the wizard must wait one trun to be able to harness their mana. But are quite effective in reducing the likelihood of being mana-locked, indeed if atchibaldus had drawn UB land instean of B land he would have had no problem casting his remaning spells. However this alone is no guarantee to avoid mana-lock, indeed arhibaldus could have drawn a BR land instead in which case he would have still been mana locked. Additionally, since each non-basic land comes with a downside it is not a good idea to play too many of these.
+
+\subsection{Going mono-color}
+Some wizards decide to specialize into a single color of mana. FOr example playing only spells that cost earth mana G pip in their deck. Unfortunately, this leaves them unable to play some of the most powerful spells, which often involve combining mana of different colors. Additionally, it is still. These wizards must still know how many lands they should play. If they play too many they may not draw enough lands to play their spells as the example below shows. 
+
+example game where not enoughllands are drawn.
+
+\subsection{Mathematically estimating the amount of lands they play}
+Hypergeometric Karsten Muller
+
+Problem, fecth lands drawing spells,....
+
+
+\section{Our solution}
+The options above, and their various disadvantages are all known to Archibaldus. We must do better. Analogy for Monte Carlo simulation. Explanation that rules are needed to determine when to play lands, when to draw for the turn, etc. Explain that thse rules are not perfect and would require in game context, explain dimesions we value, provide link and invite people to try it out 
+
+
+Archibaldus was willing to pay ungodly amounts of money, but for the good of the wizarding dommunity as a whole we put it online. The code is open source and we welcome contributions and suggestions from other wizards who are looking to perform their own duels
+
+
+
+
+
+Reporduction where it shows wizard with two cards in hand lightning bolt, mountain, UR card. Explains in this example the wizard we are following has one land and two spells. They may play their islan
+
+
+
+and must assemble all the mana they need in the correct combinatinos they need to cast their spells. Let;
+
+Only if one has As a result some of the spells o
+
+attempting to find the optimal manabase for an MTG deck.
+
+What is a MTG deck and why should I want to optimize it you may ask. Excellent question. MTG (magic the gathering) is a card game played between (typically) two players. The players represent dueling wizards and they each bring their own deck of cards, representing their spells and used to try to obtain to their advantage in the duel.
+
+As every good duel there are rules
+
+
+Each player in advance assembles a deck of cards which they bring to play their opponent. A game consists of multiple turns, each player starts with 7 cards in their hand. Each turn a player draws a card from their deck and then may play their  One then plays their cards in a sequence of turns
+
+A deck , consisting of a combinaiton of lands and spells, and
+
+\printbibliography
+\end{document}        
