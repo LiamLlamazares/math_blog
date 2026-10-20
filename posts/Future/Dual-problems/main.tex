@@ -12,7 +12,53 @@
 \author{Liam Llamazares-Elias}
 \date{\today}
 \maketitle
+
+
 \section{Introduction}
+
+Duality transforms a minimization problem into a convex maximization problem that lower bounds it. The advantage of this transformatino is that the resulting problem often has nice properties not enjoyed by the original problem such as convexity and smoothness that make it more tractable to work with theoretically and practically. Furthermore, if a property called strong duality holds, the inequalities become equalities that give strong information about the solutions to the original primal problem.
+\subsection{Optimal transport}
+\begin{enumerate}
+    \item Primal and dual problem:
+    \begin{align*}
+        \infs[\pi \in \Pi(\mu,\nu)]{\int_{X \times Y}c(x,y)\d \pi }, \quad \sups[\varphi \oplus\psi \le c]{\mu(\varphi)+ \nu(\psi)}.
+    \end{align*}
+    \item Main results:
+      \begin{theorem}
+        Consider Polish spaces $X,Y$.
+      \begin{enumerate}
+          \item Strong duality holds \cite[Theorem 3.1]{thorpe2018introduction}. If some instegrability conditions on cost then maximizer is achieved.
+          \item On support of $\pi$ we have $c= \varphi\oplus \varphi^c$.
+          \item Transport map is gradient of maximizing potential if twist condition.
+        \end{enumerate}    
+      \end{theorem}
+      Likely missing many results around sensitivity and geometry
+      \begin{theorem}
+          Optimal transport map exists
+      \end{theorem}
+    \item WHat duality buys?  
+      \begin{enumerate}
+          \item We know we can represent transport map as gradient of potential, but why is this useful?
+          \item Approximating with SDOT gives simpler optimization problem. We just need to optimize $C^2$ convex function whose derivatives we know and are computed thorugh calculating some power diagrams!
+            \begin{align*}
+                \maxs{\b{w}\cdot \b{m}+ \int_{L_i}(c(x,z_i)-w_i)\d \mu  }
+            \end{align*}
+            However still unclear what cost of solving problem is (calculating $L_i$ (in dimension 2 and 3 $\Oo(P \log{Q}$ unsure what these are \cite{aurenhammer1987power}), doing integral of cost, doing Newton....) and whehter any interesting theoretical properties come form this. ALso in lecture notes it says 
+More formally: if your algorithm runs in time 
+T
+ to find primal optimal solution given an optimal dual solution, it can be adapted to run in time 
+O
+(
+T
+)
+ and find the primal optimal solution without having to know the optimal dual solution!
+
+      \end{enumerate}
+    \item How it buys it: The dual problem $D(\psi)$ is apparently concave which is good for proving existence of solutions and lagorithms \cite[Section 7]{levy2017notionsoptimaltransporttheory} though I dont see why this is and would need example/counterexample. Some trick to show strong duality, unsure as to main idea. Then $c= \varphi\oplus \varphi^c$ gives info.
+    \item Limitations: Dual problem not solvable in pratice and SDOT problem though simpler still needs apporimxation
+    \item References
+\end{enumerate}
+
 
 \section{Finite dimensional duality}
 Consider the constrained optimization problem 
@@ -80,27 +126,6 @@ This defines the cells and their masses
 \end{align*}
 Of course in general $T_\b{w}$ may violate the mass constraint, this is not a problem as we cannot push $D(\b{w})$ to infinity as when we change $\b{w}$, also $T_\b{w}$ changes. For large $\b{w}$ necessarilly $T_\b{w}$ will put the mass difference on the largest weight with the opposite sign.
 \subsubsection{Relationship to general OT}
-The derivation above does not require $\nu$ to be discrete; it holds for arbitrary target measures $\nu \in \mathcal{P}(Y)$. For any measurable map $T: X \to Y$, the push-forward condition $T_\# \mu = \nu$ means that $\int_X \psi(T(x)) \, \mathrm{d}\mu = \int_Y \psi(y) \, \mathrm{d}\nu$ for all continuous test potentials $\psi \in C_b(Y)$. 
-
-The unconstrained Monge Lagrangian is:
-\begin{align*}
-    \mathcal{L}(T, \psi) &= \int_X c(x, T(x)) \, \mathrm{d}\mu(x) + \int_Y \psi(y) \, \mathrm{d}\nu(y) - \int_X \psi(T(x)) \, \mathrm{d}\mu(x) \\
-    &= \int_Y \psi(y) \, \mathrm{d}\nu(y) + \int_X \big( c(x, T(x)) - \psi(T(x)) \big) \, \mathrm{d}\mu(x).
-\end{align*}
-For any fixed $\psi$ (not necessarily optimal), minimizing over all unconstrained maps $T$ decouples pointwise over $x$:
-\begin{align*}
-    D(\psi) := \inf_T \mathcal{L}(T, \psi) &= \int_Y \psi(y) \, \mathrm{d}\nu(y) + \int_X \inf_{y \in Y} \big( c(x, y) - \psi(y) \big) \, \mathrm{d}\mu(x).
-\end{align*}
-For each candidate $\psi$, the inner pointwise infimum defines a candidate assignment map:
-\begin{align*}
-    T_\psi(x) \in \operatorname*{arg\,min}_{y \in Y} \big( c(x, y) - \psi(y) \big).
-\end{align*}
-By construction, $c(x, T_\psi(x)) - \psi(T_\psi(x)) = \inf_{y \in Y} (c(x, y) - \psi(y))$. Hence, for every $\psi$:
-\begin{align*}
-    D(\psi) = \int_Y \psi(y) \, \mathrm{d}\nu(y) + \int_X \big( c(x, T_\psi(x)) - \psi(T_\psi(x)) \big) \, \mathrm{d}\mu(x).
-\end{align*}
-When $\nu = \sum_{i=1}^N m_i \delta_{z_i}$, the potential $\psi$ is completely determined by its values on the support, $w_i := \psi(z_i)$. The map $T_\psi$ collapses to the cell assignment $T_{\mathbf{w}}(x) = \arg\min_{z_i} (c(x, z_i) - w_i)$, and $D(\psi)$ reduces exactly to the SDOT dual objective $D(\mathbf{w})$.
-\subsubsection{Relationship to general OT}
 In fact the problem we derived above can be deried even when $\nu$ is not discrete. We have introduced duality for this problem in a previous post but we do so here again with a simpler discussion. The mass constraint consitions take the form 
 \begin{align*}
   \int_{X }\psi(T(x)) \d \mu&= \int_{Y}\psi(y)\d \nu,\quad \forall \psi \in C_b(Y) .
@@ -130,6 +155,17 @@ If  $\nu = \b{m} \cdot \b{\delta_z}$ and we set $\b{w}= \psi(\b{z})$ we recover 
   D(\b{w})=   \b{m}\cdot \b{w}+\sum_{i} \int_{L_i} (c(x,z_i)- \psi(z_i))\d \mu=\b{w}\cdot (\b{m}- \b{G}(\b{w}))+ \sum_{i} \int_{L_i(\b{w})} c(x,z_i).
 \end{align*}
 This is our initial SDOT porblem
+
+\begin{exercise}
+    Derive the SDOT dual problem but starting from the Kantorovich dual: $A_c= \set{(\varphi, \psi) \in C_b(X)\times C_b(Y):\varphi \oplus \psi \le c}$
+    \begin{align*}
+        \sups[(\varphi,\psi)\in A_c]{\int_{X}\varphi \d \mu+ \int_{Y}\psi \d \nu  }
+    \end{align*}
+    \exerciseSymbol
+\end{exercise}
+\begin{hint}
+Use that you can assume $\varphi = \psi^c$ and that on the support of $\pi$ we have $\varphi \oplus \psi=c$.
+\end{hint}
 
 
 
@@ -231,7 +267,7 @@ If this is the first time you've seen this construction it may make no sense. Wh
     \nabla P^*(p)=x \iff x \in \partial F(x),
 \end{align*}
 In particular, since $P$ is strongly convex, (why?) we obtatin $\nabla P^*= \nabla P ^{-1}= T ^{-1}$ on $T(\Omega)$. Since $ P^*$ is defined on all of $\R^d$ this means we have extended the inverse as desired
-As a result we have achieved our extension, moreover some geometric arguments shows that,  writing $y_i:=\nablaP^*(z_i)$
+As a result we have achieved our extension, moreover some geometric arguments shows that,  writing $y_i:=\nabla P^*(z_i)$
 \begin{align*}
  \abs{x- y_i}\le  \eps_N, ,\quad \forall x \in L_I
 \end{align*}
@@ -277,6 +313,18 @@ SO distnace from the mean is the squared difference between pairs of values. We 
 \|U-\bar U\|_{L^2(\mu)}^2\le C Q_N(\mathbf u).
 \end{align*}
 
+\section{Lower bound}
+Prehypothesize then solve
+\quest{What is lower bound on energy?}
+\quest{WHat does it mean intuitively?}
+\quest{How is it proved?}
+\quest{What assumptions are used?}
+\quest{WHat is an example?}
+\quest{What is a counterexample}
+\quest{What techniques are used in the literature outside of this paper?}
+\quest{What is an anlog for this?}
+\quest{WHat is it similar to?}
+\quest{What is the mostimportant part of the result?}
 
 \printbibliography
 \end{document}
