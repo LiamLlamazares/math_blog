@@ -314,7 +314,40 @@ SO distnace from the mean is the squared difference between pairs of values. We 
 \end{align*}
 
 \section{Lower bound}
+Our discrete energy has the form 
+\begin{align*}
+  \Ee(u_N)&= Q_N(u)N- \br{ u_N,v_N } 
+\end{align*}
+Let's analyze first the bilinear term,
+\begin{align*}
+  Q_N(u_N)= \sum_{i \neq j} \tau_{ij}(u_N^i-u_N^j), \quad \tau_{ij}= \frac{\Hh^{d-1}(L_i \cap L_J)}{\norm{z_i-z_j}}. 
+\end{align*}
+The question is what does this converge to. As the number of particles goes to infinity the separation between the particles will go to zero and so too will the measure of the faces. A related quantity is the Hessian of the potential: $\nabla^2 \varphi$. Since the transport map is piecewise constant $T= \nabla \varphi(x)= z_i$ on $L_i$, the Hessian is zero on the interior. Let $\phi \in  C_c^\infty(\Omega \to \R^d)$ and write $A:B:= \sum_{k l}A_{k l} B_{k l} $. Then, writhing the neighbours of $i$ as $N(i)= \set{j: L_i \cap L_j \neq  \emptyset}$, by the diverggence theorem
+\begin{align*}
+  \int_{L_i} \nabla^2 \varphi :\phi \d x&:= -\int_{L_i} (\nabla \varphi) \cdot (\nabla \cdot \phi) \d x \\
+                                        &=-z_i \sum_{j \in N(i)} \int_{F_{ij}} \phi  n_{ij} \d \Hh^{d-1}.
+\end{align*}
+Summing up over cells and using that $F_{ij}=F_{ji}$ but $n_{ij}=- n_{ij}$,
+\begin{align*}
+  \int_{L_i} \nabla^2 \varphi :\phi \d x= \sum_{\set{i,j}\in E}(z_j-z_i) \int_{F_{ij}} \phi  n_{ij} \d \Hh^{d-1}= \int_{\Omega}\phi(\sum_{\set{i,j}\in E}(z_j-z_i))n_{ij}\restr{\hh^{d-1}}{F_{ij}}. 
+\end{align*}
+From where, wrting the distribution 
+\begin{align*}
+  \qty(\phi,\restr{\Hh^{d-1}}{F_{ij}}):=\int_{F_ij} \phi \d \Hh^{d-1}. 
+\end{align*}
+That is, the distribution defined by the measure restricted to the faces, $\restr{\Hh^{d-1}}{F_{ij}}(S)=\hh^{d-1}(F_{ij}\cap S)$, we obtain
+\begin{align*}
+    \nabla^2 \varphi =\sum_{\set{i,j}\in E}(z_j-z_i)n_{ij}\restr{\Hh^{d-1}}{F_{ij}}. 
+\end{align*}
+As we can see this is somehwat related to the bilinear form defining the energy. Now, completing the square we have $(q- \sqrt{\tau}u) \ge 0$ for all $q$ and $\tau$, with
+\begin{align*}
+  \tau u = \sups[q \in \R]{2qu - \frac{q^2}{\tau}}.
+\end{align*}
+
+
+
 Prehypothesize then solve
+\liam{WHat is continuous energy?}
 \quest{What is lower bound on energy?}
 \quest{WHat does it mean intuitively?}
 \quest{How is it proved?}
