@@ -240,7 +240,7 @@ It is worth asking how much is at stake. Happily, wizards keep records. The site
 The comparison is made within each deck, so that a strong deck does not distort it. Two points are important. The stakes are large: a couple of lands is the difference between a favourite and an underdog. And the curve is lopsided: in these duels, too many lands is worse than too few. One land fewer than expected costs nothing. One land more costs $10$ points of win rate. We will meet this lopsidedness again in Part 2 (yes a follow up is planned), where it turns out to matter a great deal.
 
 
-As we have seen there are two main problems: choosing the type of lands (basic, non-basic and which within each group) and how many of them to play. We begin by stydying the problem with the most idealized approach.
+As we have seen there are two main problems: choosing the type of lands (basic, non-basic and which within each group) and how many of them to play. We begin by stydying the problem with the most idealized approach. We jot down the mathematical details for the specialist, but keep the discussion understandable even without following the equations
 
 ## Exact probabilistic calculation
 
@@ -326,15 +326,12 @@ There are $2^5-1=31$ such inequalities, and each coloured land in the book belon
 The sum runs over all ways of splitting the cards seen among the land types, and it still ignores which land was played on which turn, lands that enter exhausted, lands that replace themselves with other lands, and every spell that draws a card. This is the point at which scholar-wizards reach for a computer.
 
 
-#### Probabilistic calculation
+## Approximate probabilistic calculation
 
-A more refined solution is for the wizard to attempt to estimate the probability of drawing lands in the right amount and type to be able to cast their spells. This is the path of the scholar-wizards, perhaps the greatest of whom is Frank Karsten, a member of the wizarding Hall of Fame who also holds a PhD in probability and game theory. His two articles [@karsten2018sources; @karsten2022lands] are what most serious wizards consult. We discuss these in what follows. We jot down the mathematical details for the specialist, but keep the discussion understandable even without following the equations
-
-
+A more refined solution is for the wizard to attempt to estimate the probability of drawing lands in the right amount and type to be able to cast their spells. This is the path of the scholar-wizards, perhaps the greatest of whom is Frank Karsten, a member of the wizarding Hall of Fame who also holds a PhD in probability and game theory. His two articles [@karsten2018sources; @karsten2022lands] are what most serious wizards consult.
 
 ### How many lands of each type?
-
-Karsten's first idea [@karsten2018sources] is to separate two ways of failing. If Archibaldus cannot cast a three-mana spell on turn three because he only has two lands, that is the fault of the *number* of lands. If he has three lands of the wrong colours, that is the fault of the *type* of lands. To judge the type alone, Karsten conditions on having enough lands. For a spell that costs $M$ mana in total, of which $k$ symbols are of one colour, he asks for
+Karsten first [@karsten2018sources] is to separate two ways of failing. If Archibaldus cannot cast a three-mana spell on turn three because he only has two lands, that is the fault of the *number* of lands. If he has three lands of the wrong colours, that is the fault of the *type* of lands. To judge the type alone, Karsten conditions on having enough lands. For a spell that costs $M$ mana in total, of which $k$ symbols are of one colour, he asks for
 $$
 \mathbb{P}\bigl(\text{at least } k \text{ sources of the colour by turn } M \;\big|\; \text{at least } M \text{ lands by turn } M\bigr),
 $$ {#eq-karsten}
@@ -348,7 +345,7 @@ $$
 
 Karsten then lets the wizard take a *mulligan*, that is, return an unplayable hand and draw a new one with one card fewer. His rule is to return any seven-card hand with $0$, $1$, $6$ or $7$ lands, which are the bad hands of @exm-opening. Mulligans and conditioning cannot be folded into (@eq-hypergeometric) by hand,
 <!--<!-- COuld be by summing many condiitonals thogh veyr annoying-->
-so he estimates (@eq-karsten) by simulating a great many opening hands and draws for a $60$-card book with $24$ lands. Finally, he fixes a level of confidence: $90\%$ for one-mana spells, rising by one point per mana to $95\%$ for six-mana spells, since failing to cast an expensive spell may hurt more. The smallest number of sources that reaches the level is his recommendation. Here is a slice of the result, where $C$ is a symbol of the colour in question and a number is generic mana.
+so he estimates (@eq-karsten) by simulating a great many opening hands and draws for a $60$-card book with $24$ lands. Finally, he fixes a target percentage for being able to cast ones spells: $90\%$ for one-mana spells, rising by one point per mana to $95\%$ for six-mana spells. The smallest number of sources that reaches the level is his recommendation. Here is a slice of the result, where $C$ is a symbol of the colour in question and a number is generic mana.
 
 | Cost | Cast on turn | Sources needed (of 24 lands) |
 |:--|:--|:-:|
@@ -359,23 +356,13 @@ so he estimates (@eq-karsten) by simulating a great many opening hands and draws
 | $1CC$ | 3 | 18 |
 | $CCC$ | 3 | 23 |
 
-So Lightning Bolt wants $14$ fire sources, and a spell costing two water mana wants $20$ water sources. A wizard playing both needs lands that make both colours, since $14+20>24$. The table is simple, fast and has rightly become the standard.
+So Lightning Bolt requires $14$ fire sources, and a spell costing two water mana requires $20$ water sources. A wizard playing both needs lands that make both colours, since $14+20>24$. The table is simple, fast and has rightly become the standard.
 
-It is also, by design, a table about one spell and one colour at a time, in a book where lands are the only source of mana. For everything else Karsten gives rules of thumb, and he is candid that they are rules of thumb:
-
-- A spell of two colours needs each colour's number plus one, and enough lands producing either colour. This is @prp-hall in disguise: for a cost {{< mana GW >}} he asks for $14$ earth sources, $14$ light sources and $21$ sources of earth or light.
-
-- A land that enters exhausted does not count on turn one and counts fully afterwards, as long as there are not too many of them.
-
-- A creature that produces mana counts as half a source, because the opponent may destroy it.
-
-- A cheap spell that draws a card counts as a fraction of a source, equal to the share of the book that produces the colour.
-
-- Eight lands that cost life are to be thought of as about two lands that enter exhausted.
+It is also, by design, a table about **one spell** and **one colour** at a time, in a book where **lands are the only source of mana**. Everything else needs a rule of thumb. This includes adapting the table for spells with multiple colours, lands that enters exhausted, cost life, or fetch other lands, creatures that produce mana, spells that draw cards and allow you to manipulate youur deck, and tthe list continues. Furthermore how should one choose the optimal percentage for casting a spell? Too high imposes excessive constraints and too low spells that often cannot be played. The $90\%$ rule is again only a rule of thumb.
 
 ## How many lands?
 
-The table assumes $24$ lands. For the number itself Karsten turns to data [@karsten2022lands]. He collected $95{,}143$ tournament decks of $60$ cards that had won more matches than they lost, and fitted a linear regression of the number of lands on three features of the deck:
+The table assumes $24$ lands. But is that how many we should play? To answer this question Karsten turns to data [@karsten2022lands]. He collected $95{,}143$ tournament decks of $60$ cards that had won more matches than they lost, and fitted a linear regression of the number of lands on three features of the deck:
 
 $$
 \text{lands}\;\approx\;19.59\;+\;1.90\,\bar m\;-\;0.28\,d\;+\;0.27\,c ,
@@ -385,15 +372,15 @@ where $\bar m$ is the average mana cost of the spells, $d$ is the number of chea
 
 ![Karsten's fit for the number of lands, with two decks from his article.](fig_regression.svg){#fig-regression fig-align="center" width="75%"}
 
-This is a description of what successful wizards do, and a very useful starting point. Its author reports the fit plainly: the model explains about $40\%$ of the variation ($R^2=0.395$), with a typical error of $2.75$ lands. Recall from @sec-does-it-matter what two lands can cost.
+This is a description of what successful wizards do, and a very useful starting point. Its author reports the fit plainly: the model explains about $40\%$ of the variation ($R^2=0.395$), with a typical error of $2.75$ lands. However, recall from @sec-does-it-matter what two or even three lands can cost.
 
-## Where counting runs out
+## Is this enough?
 
-Let us collect what the scholar-wizards have given Archibaldus. He knows how many lands to play, to within two or three. He knows how many sources each of his spells would like. What he does not have is the thing he asked for, namely *a list of lands*. Between the targets and the list there are several gaps, and no amount of counting closes them.
+Let us collect what the scholar-wizards have given Archibaldus. He knows how many lands to play, to within two or three. He knows how many sources each of his spells would like (though the rules of thumb make it unclear). What he does not have is the thing he asked for, namely *a list of lands*. There are seveal gaps:
 
 - **Lands are not interchangeable sources.** Two sets of lands can have exactly the same number of sources of every colour and play very differently, because one enters exhausted, another costs life, and a third only works if a particular land is already in play.
 
-- **Choices.** A land that makes water *or* dark mana must choose each turn. A land that fetches another must choose once and for all. The count treats it as both at once.
+- **Choices.** A land that makes water *or* dark mana must choose each turn. A land that fetches another must choose once and for all.  The count treats it as both at once.
 
 - **The spells talk back.** A spell that draws two cards finds lands. A creature that makes mana is a land that can die. Whether these are worth half a source or a third depends on when they are cast, which depends on the lands.
 
@@ -410,7 +397,4 @@ We can try the first of these at once. Take Archibaldus's book, nine spells of w
 Each set played the same $1{,}024$ practice bouts (how is the subject of Part 2). With Set A, Archibaldus could pay for Lightning Bolt on the first turn in $90\%$ of them. With Set B, in $44\%$. A table of sources cannot tell these two sets apart.
 
 None of this is a criticism of the tables, which were built to be read in a minute and remembered at the deck-building table. But Archibaldus is not most wizards, and he has a duel to win. What we would really like is to hand each candidate set of lands to a tireless apprentice, have them play ten thousand practice bouts with it, and write down what happened. In Part 2 we build the apprentice.
-
-## A note on the cards {.unnumbered}
-
-Card artwork is shown through Scryfall and belongs to Wizards of the Coast and its artists, who are credited under each figure. This post is unofficial Fan Content permitted under the Fan Content Policy. Not approved or endorsed by Wizards. Portions of the materials used are property of Wizards of the Coast. © Wizards of the Coast LLC.
+<!--<!-- I feel like this is somewhat repetitive i.e. we are repeating the smae poitns many times also the exxxample you give is treaed by Karstens rule of thumb that taplands dont coutn on turn one, I would looks for another example, that is a bit trickier and just swapping taplands by filter lands or slow lands wont do as they could be fixed by same rule, the c=percentages can bel closer a 20% gap is still noticeable. emoved norte onc ards as this is excessive no other magic sites do this. -->
