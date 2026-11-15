@@ -118,7 +118,7 @@ format:
 
 ## Three line summary
 
-- We adress the problem of deciding on the best manabase for a given deck. Instead of limiting ourselves to counting mana sources, we simulate tens of thousands of practice duels and choose. This is Monte Carlo simulation.
+- We address the problem of deciding on the best manabase for a given deck. Instead of limiting ourselves to counting mana sources, we simulate tens of thousands of practice duels and choose. This is Monte Carlo simulation.
 
 - This requires rules of thumb that encode how a good wizard duels as well as a score learned from over $1{,}000{,}000$ real games.
 
@@ -132,7 +132,7 @@ This post teaches Monte Carlo, a common solution to problems where exact calcula
 
 In [Part 1](../1-counting/index.qmd) Archibaldus the Grey lost a practice bout with a hand full of spells and the wrong lands. We saw how scholar-wizards attack the problem by counting: the hypergeometric distribution, Frank Karsten's table of how many sources each spell wants [@karsten2018sources], and a regression for how many lands to play [@karsten2022lands]. We also saw where counting stops. Lands enter exhausted, cost life, and depend on each other. Spells draw cards and make mana. Every spell in the book wants something different, and there are only so many slots.
 
-Archibaldus knows all of this. He did not ask for targets. He asked which lands to play.
+Archibaldus knows all of this. He did not ask for targets. He asked which lands to play. We left him with a question the tables could not settle: should he swap four basic lands for four lands that make all his colours but arrive exhausted?
 
 ## The apprentice
 
@@ -150,9 +150,17 @@ and by the central limit theorem $\hat p_n$ lies within $1.96\sqrt{p(1-p)/n}$ of
 
 ![Three apprentices playing on and on. The guess settles on the truth, and the band narrows like $1/\sqrt{n}$.](fig_estimate.svg){#fig-estimate fig-align="center" width="92%"}
 
-Nothing in (@eq-mc) cares how complicated the game is. Lands that enter exhausted, lands that cost life, spells that draw cards: the apprentice simply plays them. Other people have had this idea, of course. Karsten's own table, as we saw in Part 1, comes from simulation and not from a formula: his computer deals the cards and counts the lands, though nobody plays them. The site 17Lands offers a simulator for $40$-card decks [@conroy2023evaluator] and Salubrious Snail has another [@snailmanabase]. Both grade the lands you give them, and neither models spells that draw cards. We want two things more: an apprentice who plays the turns as a wizard would, and a search that returns a list of lands.
+Nothing in (@eq-mc) cares how complicated the game is. Lands that enter exhausted, lands that cost life, spells that draw cards: the apprentice simply plays them. Other people have had this idea, of course. Karsten's own table, as we saw in Part 1, comes from simulation and not from a formula: his computer deals the cards and counts the lands, though nobody plays them. The site 17Lands offers a simulator for $40$-card decks [@conroy2023evaluator]. It deals the cards and records how many draws it takes before each spell could be cast, and it counts creatures and other cards that make mana as well as lands. It does not play the turns: there are no mulligans, no limit of one land a turn, no wait before a creature can make mana, and no spells that draw cards. Salubrious Snail's tool [@snailmanabase] does play the opening turns, with mulligans, lands that enter exhausted and cards that make mana, but without spells that draw cards. Both grade the lands you give them, and neither goes looking for better ones.
 
-<!--<!-- I was looking at conroys post do they ont already do this unclear ont he differences exactly perhaps they shoudl be amde a bit cleaere somewhere, i.e. in theory they modeled ramp not cad darw? that is an advantage then yet they alos dont search through manabases right?-->
+| | Karsten's table | 17Lands | Salubrious Snail | The apprentice |
+|:--|:-:|:-:|:-:|:-:|
+| Plays the turns | no | no | opening turns | yes |
+| Mulligans | yes | no | yes | yes |
+| Cards that make mana | rule of thumb | yes | yes | yes |
+| Spells that draw cards | rule of thumb | no | no | yes |
+| Looks for better lands | no | no | tries one more land | yes |
+
+We want the last column: an apprentice who plays the turns as a wizard would, and a search that returns a list of lands.
 
 ## Teaching the apprentice to duel
 
@@ -164,7 +172,7 @@ Here is the catch. In [Part 1](../1-counting/index.qmd) we only had to count car
 
 - **Which spells.** Spend as much mana as possible. Among equal plans, prefer spells that draw cards, then spells that make mana, then the most expensive spell.
 
-- **Creatures that make mana.** These cannot be used on the turn they arrive. Worse, the opponent may destroy them. We have no opponent, so at the start of each later turn every such creature is removed with probability $0.3$. A creature summoned on turn one is therefore alive on turn two in $70\%$ of games, on turn three in $0.7^2=49\%$ and on turn four in $0.7^3\approx34\%$. Compare this with Karsten's rule of counting such a creature as half a source at all times: ours is worth more early and less late, which is what any wizard who has had their Elf struck by lightning will tell you.
+- **Creatures that make mana.** These cannot be used on the turn they arrive. Worse, the opponent may destroy them. We have no opponent, so at the start of each later turn every such creature is removed with probability $0.3$. A creature summoned on turn one is therefore alive on turn two in $70\%$ of games, on turn three in $0.7^2=49\%$ and on turn four in $0.7^3\approx34\%$. (Karsten counts such a creature as half a source at all times.) This is the crudest rule on the list. A real opponent is most likely to destroy the creature in the first turn or two, when it matters most and there is little else to aim at, so a chance that falls from turn to turn would be closer to the truth. Ours is the same on every turn.
 
 - **Who goes first.** Every shuffle is played twice, once going first and once going second.
 
@@ -172,13 +180,11 @@ Here is the catch. In [Part 1](../1-counting/index.qmd) we only had to count car
 
 ![One game played by the apprentice (an illustration; the tool replays real ones). The Elves earn a mana on turn two and fall to the $30\%$ roll on turn three.](fig_one_game.svg){#fig-one-game fig-align="center" width="92%"}
 
-<!--<!-- I would say this isnt super accurate for example elf is much more likely to die turn 1 and 2 than 3 and 4 as it is a sink for removal, more accurate would be a percent per card though there is some removal that can only be played turn two or three so perhaps a middle ground-->
+These are the main rules. There are others for rarer situations: when to trade in a land that fetches another and which land to fetch, which cards to keep when a spell lets us look at the top of the book, when to play a card that is both a spell and a land as a land, and how to use Treasures and other mana that can be spent only once. @fig-rules shows how often the main ones come into play. The rule for lands does the most work: in about three turns out of four Archibaldus has more than one way to play a land.
 
-<!--<!-- Are there more rules perhaps an incompelte list should be briedfly mentioned oeon could idea would be a grpahic of how often rule came up in simualted games should be doable from code by seeing how often each part trggers and those woudl be the most releveant-->
+![How often each rule comes into play in the first four turns, for Archibaldus's deck and for a green and white deck with creatures that make mana. The last row is mostly our own assumption: $1-0.7^3\approx 66\%$.](fig_rules.svg){#fig-rules fig-align="center" width="80%"}
 
-Are these rules how a champion plays? No. A champion looks several turns ahead, holds mana back to answer the opponent, and knows which spell matters in which duel. The apprentice has no opponent at all. The rules are, I think, how a sensible wizard plays their first four turns when nothing unusual is happening, and those are the turns in which lands decide games. Every rule can be read, and several can be changed: the $30\%$, for instance, can be set for each creature separately.
-
-<!--<!-- I think this partially misses the poitn we ae lookign to have a manabase that elts us play our spells right whether a certain game requires us to hold up amna is inmmatterail as this would ahppend for every mana base, and isnt a factor insspearating them-->
+Are these rules how a champion plays? No. A champion looks several turns ahead, holds mana back to answer the opponent, and knows which spell matters in which duel. But we are not trying to win the duel. We are trying to decide which of two sets of lands is better, and most of what the apprentice ignores would happen in the same way with either set, so it does not change which one comes out ahead. What we need is for the apprentice to use their lands as a sensible wizard would in the first four turns, since those are the turns in which lands decide games. Every rule can be read, and several can be changed: the $30\%$, for instance, can be set for each creature separately.
 
 ## Keeping score
 
@@ -196,7 +202,7 @@ $$
 $$ {#eq-cast}
 where $w_c$ is the number of copies of $c$ (times a value that is $0$ for a spell whose only effect is to replace itself with another card, and $1$ for almost everything else).
 
-Two remarks. First, the question is whether the lands *could* pay for the spell, whether or not the spell is in hand that game. Drawing the spell is luck that has nothing to do with the lands, and leaving it out removes a great deal of noise. Second, compare with Karsten's formula from [Part 1](../1-counting/index.qmd). He conditions on having drawn enough lands, so as to judge the colours alone. We do not, so a game with too few lands counts against the lands, as it should when the number of lands is part of what we are choosing. The price is that our numbers and his are not directly comparable, and ours will look lower.
+Two remarks. First, the question is whether the lands *could* pay for the spell, whether or not the spell is in hand that game. Drawing the spell is luck that has nothing to do with the lands, and leaving it out removes a great deal of noise. Second, compare with Karsten's formula from [Part 1](../1-counting/index.qmd). He conditions on having drawn enough lands, so as to judge the colours alone. We do not, so a game with too few lands counts against the lands, as it should when the number of lands is part of what we are choosing. As a result our numbers and his are not directly comparable, and ours will look lower.
 
 ### Mana put to use
 
@@ -238,7 +244,7 @@ So we went back to the real games of [Part 1](../1-counting/index.qmd). Recall t
 
 ![Decks whose spells cost $2.6$ to $3$ on average. Left: the real win rate against lands seen. Middle: the first score, which keeps rewarding more lands. Right: the fitted score, which falls on both sides as the real win rate does. Each panel has its own scale.](fig_fit.svg){#fig-fit fig-align="center" width="92%"}
 
-Two weights could not be fitted. The data record how many lands a player saw, and not whether they were of the right colour or what they cost in life, so they say nothing about the price of either. For those we chose small values by hand, $1$ and $0.5$, which are enough to stop the search from giving a colour away or paying life for nothing. A small weight does not mean colours hardly matter: a missing colour also shows up, heavily, as mana that could not be spent.
+Two weights could not be fitted. The data record how many lands a player saw, and not whether they were of the right colour or what they cost in life, so they say nothing about how much either one costs. For those we chose small values by hand, $1$ and $0.5$, which are enough to stop the search from giving a colour away or paying life for nothing. A small weight does not mean colours hardly matter: a missing colour also shows up, heavily, as mana that could not be spent.
 
 The fit can be checked on a fact it was not given. In those drafts, decks with $16$ lands won about a point more often than decks with $17$. The old score said $17$ was better. The new one says $16$.
 
@@ -256,19 +262,39 @@ For two colours with $b=2$ and $q=6$ this is $203{,}125$. For three colours with
 
 So we search. We begin with the wizard's own lands and around a hundred candidates built from a quick estimate of which colours the book needs. After that we move by small steps: take the best set so far and swap one, two or four copies of one land for another. A small statistical model watches which kinds of swap have helped and proposes the next ones by sampling from its own uncertainty about what works, so that it neither ignores its experience nor trusts it too much.
 
-<!--<!-- I would say a worked example should be put somewhere i.e. in the appendix for the curious reader. The explanation sounds nice but what is meant by a statistical model and how does it propose, why is the model what it is? Did we test difernt options and was this the best? -->
+The details, with an example, are in the box.
+
+::: {.callout-note collapse="true" title="How the search proposes swaps, with an example"}
+
+**What the model is.** Each set of lands is described by a few numbers: how many sources it has of each colour, how many of its lands can be used at once in the early turns, the squares of these, and how many lands it plays of each family (basic lands, two-colour lands that cost life, and so on). Write $x_c$ for these numbers for a set $c$, measured from a reference set (the one that has played the most games). Write $d_c$ for the average difference in score between $c$ and the reference on the shuffles both have played. The model is a straight-line fit with noise,
+$$
+  d_c=x_c^{\top}\beta+u_c+\varepsilon_c,\qquad \beta\sim N(0,I),\quad u_c\sim N(0,\tau^2),\quad \varepsilon_c\sim N(0,\sigma^2/n_c),
+$$
+where $n_c$ is the number of shuffles played, $\varepsilon_c$ is the luck of those shuffles and $u_c$ is whatever a straight line cannot explain about $c$. Everything is Gaussian, so after seeing the scores our belief about $\beta$ is again Gaussian, with
+$$
+  A=I+\sum_c w_c\,x_cx_c^{\top},\qquad \bar\beta=A^{-1}\sum_c w_c\,x_c\,d_c,\qquad w_c=\Bigl(\frac{\sigma^2}{n_c}+\tau^2\Bigr)^{-1},
+$$
+that is, $\beta\sim N(\bar\beta,A^{-1})$. A set that has played many games counts for more.
+
+**How it proposes.** Take the best set so far and list its neighbours: every set obtained by swapping one, two or four copies of one kind of land for another. To choose the next set to try, draw one value $\tilde\beta$ from $N(\bar\beta,A^{-1})$ and take the untried neighbour that $\tilde\beta$ predicts to be best. Then draw a new $\tilde\beta$ and choose again, until the round is full. This is called *Thompson sampling*.
+
+**Why not simply trust the best guess?** Suppose the sets tried so far suggest that each extra water source is worth $0.3$ points, but the model has seen only a dozen sets, so the truth could as well be $0.1$ or $0.5$. A search that trusted $0.3$ would try only swaps that add water, and would never learn whether it was wrong about fire. Drawing $\tilde\beta$ afresh each time means that a swap the model is sure about is chosen nearly every time, and a swap it is unsure about is chosen now and then, which is how it finds out.
+
+**An example.** For Archibaldus's lands (after the swap of the next section) the search ran as follows. The first field had $96$ candidates. After $24$ games each, $37$ were kept. After $96$ games, $15$. After $384$ games, $7$, and those played $1{,}000$. The best of them had $48$ neighbours, of which $15$ had already been tried. From the other $33$ the model chose $23$, which entered a second knockout together with the leader: $24$ candidates, then $11$, then $4$, then $2$. None beat the leader by more than a quarter of a point, so the search stopped.
+
+**Was this the best choice?** I can only report what was measured. Before this, the search tried every swap of a single land. On eight test decks the version described here played about $16\%$ fewer games and found lands that scored the same. When there are games to spare the tool also plays a batch of random sets of lands after the first knockout, so that the model sees examples far from where it started.
+
+:::
 
 ### The same shuffles for everyone
 
-Suppose two sets of lands score $X$ and $Y$ in a game. We want $\mathbb{E}[X-Y]$. If each plays its own random games then the variance of the difference of the averages is $(\sigma_X^2+\sigma_Y^2)/n$, and a difference of half a point drowns in the luck of the draw. If instead both play the *same* shuffles, with the spells in the same positions in the book, then
+Suppose two sets of lands score $X$ and $Y$ in a game. We want $\mathbb{E}[X-Y]$. If each plays its own random games then the variance of the difference of the averages is $(\sigma_X^2+\sigma_Y^2)/n$, and with a difference of half a point it is unclear which set is better. If instead both play the *same* shuffles, with the spells in the same positions in the book, then
 $$
   \operatorname{Var}\bigl(\bar X_n-\bar Y_n\bigr)=\frac{\sigma_X^2+\sigma_Y^2-2\rho\,\sigma_X\sigma_Y}{n},
 $$ {#eq-crn}
-where $\rho$ is the correlation between the two scores on the same shuffle. Two similar sets of lands do well and badly on the same shuffles, so $\rho$ is close to one and most of the noise cancels. It costs nothing, and it is the difference between seeing a small improvement and not.
+where $\rho$ is the correlation between the two scores on the same shuffle. Two similar sets of lands do well and badly on the same shuffles, so $\rho$ is close to one and most of the noise cancels. It costs nothing, and it lets us see small improvements that we would otherwise miss.
 
-![Why everyone plays the same shuffles (illustrative numbers). Left alone, each set's luck drowns the gap. On the same shuffles the luck cancels and the gap shows.](fig_same_shuffles.svg){#fig-same-shuffles fig-align="center" width="80%"}
-
-<!--<!-- You often use expressions like the... liek the gap, the price, this is not how real people speak. I would say somehting like it is unclear which is best isntead of the gap egets lost in the noise, and then in the other we can see clearly which is better -->
+![Why everyone plays the same shuffles (illustrative numbers). On different shuffles it is unclear which set is better. On the same shuffles we can see it clearly.](fig_same_shuffles.svg){#fig-same-shuffles fig-align="center" width="80%"}
 
 ### A knockout tournament
 
@@ -280,40 +306,41 @@ By the error estimate of the previous section, a thousand games are needed to te
 
 There is a trap here that every statistician knows. If we pick the best of a hundred noisy scores, the winner is partly the best and partly the luckiest, and its score flatters it. So the winner and the wizard's original lands are played once more on fresh shuffles that took no part in the search. Writing $D_j$ for the difference of their scores on shuffle $j$, with mean $\bar D$ and sample standard deviation $s_D$ over $n$ shuffles, we report the range
 $$
-  \bar D\;\pm\;t_{0.975,\,n-1}\,\frac{s_D}{\sqrt n},
+  \bar D\;\pm\;t\,\frac{s_D}{\sqrt n},
 $$
-<!--<!-- t is undefined lloks ot me liek t statistic which is frequenist as oposed to abyes and IM not a fan og-->
-
-and only call the new lands better if the whole range lies above zero. If it does not, the answer is: *your lands are as good as anything we found*. And when several sets are within a quarter of a point of the best, we recommend the one with the fewest changes. Telling a wizard to keep their lands is a perfectly good result, and as we are about to see, a common one.
+where $t$ is the $97.5\%$ point of Student's distribution with $n-1$ degrees of freedom. For the hundreds of shuffles we play, $t=1.96$ to two decimals, the same number as in the first section. Those who prefer to think as Bayesians can read the range in their own way: starting from no prior opinion about the size of the difference, and treating the $D_j$ as roughly normal, it is the range in which the true difference lies with probability $95\%$. The numbers are the same. We only call the new lands better if the whole range lies above zero. If it does not, the answer is: *your lands are as good as anything we found*. And when several sets are within a quarter of a point of the best, we recommend the one with the fewest changes. Telling a wizard to keep their lands is a perfectly good result, and as we are about to see, a common one.
 
 ## What happens when we try it
 
 ### Archibaldus's book
-<!--<!-- Arhbaldus' or archibaldus's?-->
-At the end of [Part 1](../1-counting/index.qmd) we gave Archibaldus two sets of $24$ lands with twelve sources of each colour. In one the two-colour lands cost $2$ life to use at once, and in the other they arrive exhausted. Here is what the apprentice made of them, over $1{,}024$ bouts each on the same shuffles.
 
-![Two sets of lands for the same book, with the same twelve sources of every colour, scored on the five parts. The taller the row, the more the part counts.](fig_score_parts.svg){#fig-score-parts fig-align="center" width="92%"}
-<!--<!-- Once we settle on other example we shoudl reform this-->
-The lands that cost life score $79.7$ and the lands that arrive exhausted $75.4$. On the paired shuffles the difference is $4.4$ points, with a range from $3.6$ to $5.1$. Archibaldus pays two life a game for it, and the score says it is worth it: his spells are castable on time far more often and much more of his mana is spent.
+At the end of [Part 1](../1-counting/index.qmd) a merchant offered Archibaldus four copies of a land that makes all three of his colours but arrives exhausted, in place of four of his basic lands. The table liked the extra sources, the rule about exhausted lands did not, and we were left without an answer. Here is what the apprentice made of the two sets of lands, over $1{,}024$ bouts each on the same shuffles.
 
-We then let the search loose, starting from the better set. It came back proposing to turn one Swamp into a Mountain, for a difference of $-0.01$ points with a range from $-0.37$ to $+0.36$. In other words, nothing. The report says to keep the lands.
+![Archibaldus's lands before and after the swap, scored on the five parts. The taller the row, the more the part counts.](fig_score_parts.svg){#fig-score-parts fig-align="center" width="92%"}
+
+Before the swap his lands score $79.7$, and after it $80.7$. On the paired shuffles the difference is $1.1$ points, with a range from $0.3$ to $1.8$. So he should make the swap. His first-turn spells are castable a little less often and he pays about half a life more each game, but more of his mana gets spent, because he is short of a colour less often.
+
+The same kind of swap is not always right. The green and white deck of the next section wants to cast a creature on the first turn. If we replace four of its basic lands with four two-colour lands that arrive exhausted, it has two more sources of each colour and its score is *lower* by $0.5$ points (range $0.1$ to $0.9$). None of its spells is castable on time more often than before.
+
+We then let the search loose on Archibaldus's new lands, choosing among the seven kinds of land already in his book. It came back proposing to turn one Swamp into a Mountain, for a difference of $-0.2$ points with a range from $-0.5$ to $+0.1$. In other words, nothing. The report says to keep the lands.
 
 ### Do we agree with Karsten?
 
-Karsten's article [@karsten2018sources] ends with worked examples, and it would be embarrassing to disagree with them. His lists are lands without spells, so we filled in nine spells for each from the cards he mentions.
+Karsten's article [@karsten2018sources] ends with worked examples. They are a good test: where his assumptions hold (one spell of one colour, to be cast on a given turn, in a deck that has drawn enough lands) the apprentice ought to give the same answer. Where they do not hold, we should expect to differ. His lists are lands without spells, so we filled in nine spells for each from the cards he mentions.
 
 | His example | His verdict | The apprentice |
 |:-------------------|:----------------|:----------------------|
 | Green and white, with one-mana green creatures. $8$ two-colour lands and $16$ basics. | Play $10$ Forest and $6$ Plains, not $8$ and $8$. | $10$ and $6$ is better by $0.37$ points (range $0.07$ to $0.68$). $6$ and $10$ is worse by $0.93$. |
 | Water and dark, with a one-mana water spell and a three-mana spell needing two dark. | $9$ Island and $7$ Swamp, and it is a stretch. | $9$ and $7$, $8$ and $8$, and $7$ and $9$ cannot be told apart. $10$ and $6$ is worse by $0.40$ (range $0.14$ to $0.67$). |
 
-<!--<!-- No it would be fine to differ as otr emthod is better it would only be wrong if it is under the precise asssumptions he tests i.e. monocolored spell, only care about that spell, and castability on a certatin turn conditional on having 24 lands in deck-->
-So we agree, which is a relief. The first row hides a nicer agreement still. With $8$ Forests the green-white deck has $12$ lands that give earth mana on the first turn, and with $10$ Forests it has $14$. Karsten's table says $12$ such lands cast a one-mana spell on turn one $86\%$ of the time, and that $14$ are needed to reach $90\%$. The apprentice, who has never seen the table, could pay for Llanowar Elves on turn one in $88\%$ of games with $12$ and $93\%$ with $14$. (Ours are a little higher because half of our games are played going second, with one more card.) Two methods that share nothing but the rules of the game land within a few points of each other.
+So we agree where we should. The first row hides a nicer agreement still. With $8$ Forests the green-white deck has $12$ lands that give earth mana on the first turn, and with $10$ Forests it has $14$. Karsten's table says $12$ such lands cast a one-mana spell on turn one $86\%$ of the time, and that $14$ are needed to reach $90\%$. The apprentice, who has never seen the table, could pay for Llanowar Elves on turn one in $88\%$ of games with $12$ and $93\%$ with $14$. (Ours are a little higher because half of our games are played going second, with one more card.) Two methods that share nothing but the rules of the game land within a few points of each other.
 
-The apprentice also sees the price of the skew, which the table leaves to judgement: the five-mana Lyra Dawnbringer, who needs two light mana, is castable on time in $58\%$ of games, down from $60\%$.
+The apprentice also shows what the extra Forests cost, which the table leaves to judgement: the five-mana Lyra Dawnbringer, who needs two light mana, is castable on time in $58\%$ of games, down from $60\%$.
 
 ::: {.callout-note collapse="true" title="The decks behind these numbers"}
 Spells used. Green-white: Llanowar Elves, Pelt Collector, Emmara, Thrashing Brontodon, Knight of Autumn, Nullhide Ferox, Vivien Reid, Lyra Dawnbringer, Shalai. Blue-black: Thoughtbound Phantasm, Thought Erasure, Lazav, Blood Operative, Sinister Sabotage, Vraska's Contempt, Doom Whisperer, Nightveil Predator, Dream Eater. Only the Elves have an effect modelled; the rest count for their cost. Archibaldus's nine: Lightning Bolt, Thoughtseize, Goblin Electromancer, Counterspell, Terminate, Crosis's Charm, Kolaghan's Command, Electrolyze, Nicol Bolas the Ravager. 512 shuffles, each played first and second.
+
+Lands. Archibaldus before the swap: four each of Watery Grave, Blood Crypt, Steam Vents, Island, Swamp and Mountain. After it, four Crumbling Necropolis replace one Island, two Swamps and one Mountain. The green and white swap starts from Karsten's list with $10$ Forests and $6$ Plains and puts four Selesnya Guildgates in place of two Forests and two Plains.
 :::
 
 ### The top decks
@@ -328,24 +355,17 @@ I take this as good news twice over. Tournament wizards, as a community, are ver
 
 It would be a poor show to spend a post on the limits of other methods and stay quiet about our own.
 
-- **There is no opponent.** Nobody attacks, nobody counters a spell, and the $30\%$ for fragile creatures is a single number standing in for all of it.
-
-- **The apprentice is greedy.** They spend what they can each turn and look one turn ahead. A wizard who holds mana back to respond to the opponent looks, to the score, like a wizard wasting mana.
+- **Costs that depend on the game.** A card is read for the cost printed on it, or for a cost you give it. If the real cost depends on what has happened in the duel, as with a spell that costs less for each card in the graveyard, the apprentice does not know.
 
 - **Mana spent later is invisible.** Abilities that soak up spare mana in the late game are not credited, so the score can undersell lands in a deck built around them.
 
-- **Cards are read for their cost.** A card whose effect on mana the model does not know counts as its cost and nothing else. You can tell it what the card does (draw a card, look at two and keep one, a cheaper cost), but graveyard tricks and the like are out of reach.
+- **Every spell matters equally.** You can tell the apprentice on which turn you want a spell and what it really costs. You cannot yet tell it that one spell matters more than another: two copies count twice as much as one, and that is all.
 
-- **Every spell matters equally.** Two copies of a spell count twice as much as one, and that is all the model knows about which spells win duels.
+- **The opponent, where it changes the answer.** Most of what an opponent does is the same whatever our lands are, and so does not affect which lands are better. Three things do. A point of life is worth more against a fast deck than a slow one, and we use one fixed weight. A creature that makes mana is destroyed with the same $30\%$ chance on every turn. And cards that punish non-basic lands are not there at all.
 
-- **The weights were fitted to $40$-card games.** They carry over to $60$ cards on the strength of a partial check and some hope.
+- **The weights were fitted to $40$-card games.** We checked them on eight tournament decks of $60$ cards. The old score wanted two more lands than these decks play, on average. The fitted score is within one land for four of the eight, and for three it prefers two lands fewer.
 
-- **The search is a search.** It finds good lands. It does not prove that none are better.
-
-- **The score is not a win rate.** A point of score is a point of score.
-<!--<!-- I disagree with some of these. The fact that nobody attacks us, nobody counters us, is not a bad thing for what we're doing. We're literally just trying to figure out what the best mana base is. Can you explain a single situation where the mana base changes based on where they're countering your spell? Because I can't see one. It could change based on how important your cards are, but that the user can set manually. By default they're all set to be weighed equally, if I understand correctly, or well, not exactly, because mana use per turn is a factor, but more or less. Same comment about holding back mana. I agree about mana sinks, though, cards are great for the cost isn't the downside if you tell it what it should actually cost there. What really is a downside is when its cost is context dependent. That's the actual problem, and context dependent, specifically in a way that we are not modeling the portal check you mentioned. Was that mentioned elsewhere in the article? When the, the searches of searches should be rephrased, as the search is not comprehensive, but of course no search can be, and at least it tells you of the candidates that it reasonably is able to find which one is the best.
-
-And yes, of course, the score is not a win rate. That would go...  -->
+- **The search does not try everything.** No search can. It reports the best of the sets it tried, and it only tries the kinds of land it was given to choose from.
 
 
 Karsten's tables have a virtue we should not lose sight of: you can hold them in your head. The apprentice asks you to trust rules you have not read. That is why every rule is written down, in a document that the code is obliged to follow, and why the tool will replay any single game for you, card by card, so that you can catch it playing badly.

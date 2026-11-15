@@ -175,6 +175,43 @@
    "text": "Two schools of magic.",
    "art": "watchwolf.jpg",
    "artist": "Dave Kendall"
+  },
+  {
+   "id": "brainstorm",
+   "name": "Brainstorm",
+   "cost": "U",
+   "type": "Spell",
+   "pt": null,
+   "frame": "u",
+   "ident": "U",
+   "text": "Draw three cards, then put two back on top of your book.",
+   "art": "brainstorm.jpg",
+   "artist": "DiTerlizzi"
+  },
+  {
+   "id": "llanowar-elves",
+   "name": "Llanowar Elves",
+   "cost": "G",
+   "type": "Creature",
+   "pt": "1/1",
+   "frame": "g",
+   "ident": "G",
+   "text": "Makes {G} each turn, like a land.",
+   "art": "llanowar_elves.jpg",
+   "artist": "Kev Walker"
+  },
+  {
+   "id": "crumbling-necropolis",
+   "name": "Crumbling Necropolis",
+   "cost": "",
+   "type": "Land",
+   "pt": null,
+   "frame": "land",
+   "ident": "UBR",
+   "text": "Arrives exhausted: usable from next turn.",
+   "art": "crumbling_necropolis.jpg",
+   "artist": "Dave Kendall",
+   "big": "UBR"
   }
  ]
 }

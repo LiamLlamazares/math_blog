@@ -7,7 +7,8 @@
   background:#fff;padding:.9rem 1rem;border-radius:.7rem;
   border:1px solid rgba(128,128,128,.28);box-shadow:0 .1rem .5rem rgba(0,0,0,.08);
 }
-.mana-post figure.quarto-float figcaption{margin-top:.6rem}
+/* Captions in the text colour, so they are not mistaken for the small art credits above them */
+.mana-post figure.quarto-float figcaption{margin-top:.7rem;color:var(--mk-ink);font-size:.95rem}
 
 /* Tables: centred, compact, with a light rule */
 .mana-post table{width:auto;margin:1rem auto;font-variant-numeric:tabular-nums}

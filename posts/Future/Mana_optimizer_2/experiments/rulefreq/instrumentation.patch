@@ -1,0 +1,430 @@
+diff -ru main/src/castability.ts main-instr/src/castability.ts
+--- main/src/castability.ts	2026-11-09 01:35:35.000000000 +0000
++++ main-instr/src/castability.ts	2026-11-15 13:29:27.363311008 +0000
+@@ -599,6 +599,199 @@
+   unplayedLands: LandCard[];
+ }
+ 
++// ---------------------------------------------------------------------------------------------------------------
++// RULE-FREQUENCY INSTRUMENTATION (measurement copy only). Everything below only reads state and increments counters
++// on globalThis.__ruleStats when that object exists; it never changes a simulation decision.
++// ---------------------------------------------------------------------------------------------------------------
++type RuleStatsBag = Record<string, number>;
++const rsGet = (): RuleStatsBag | undefined => (globalThis as { __ruleStats?: RuleStatsBag }).__ruleStats;
++function rsInc(key: string, by = 1): void {
++  const stats = rsGet();
++  if (stats !== undefined) {
++    stats[key] = (stats[key] ?? 0) + by;
++  }
++}
++/** Only turns 1..RS_HORIZON are counted (the scored play horizon); the simulation itself runs further. */
++const RS_HORIZON = 4;
++interface RsLandOutcome {
++  key: string;
++  entry: LandEntryOption;
++  score: LandPlayScore;
++}
++let rsLandTrace: RsLandOutcome[] | null = null;
++/** 0 = off; j in 2..6 = planTurn compares levels 1..j-1 normally and level j reversed (finds a worse alternative). */
++let rsShadowLevel = 0;
++let rsGameFlags = { lifeAny: false, lifeEntry: false, dorkCast: false, dorkRemoved: false, drawCast: false, rampCast: false };
++let rsTurnFlags = { castDecision: false, bite: false, firstBite: 0, landMulti: false, landFirstRemoval: "" };
++function rsResetGame(): void {
++  rsGameFlags = { lifeAny: false, lifeEntry: false, dorkCast: false, dorkRemoved: false, drawCast: false, rampCast: false };
++}
++function rsResetTurn(): void {
++  rsTurnFlags = { castDecision: false, bite: false, firstBite: 0, landMulti: false, landFirstRemoval: "" };
++}
++function rsFlushTurn(): void {
++  rsInc("turns");
++  if (rsTurnFlags.castDecision) rsInc("spell.turnsWithCast");
++  if (rsTurnFlags.bite) {
++    rsInc("spell.turnsWithTieBreak");
++    rsInc(`spell.turnFirstBite.L${rsTurnFlags.firstBite}`);
++  }
++  if (rsTurnFlags.landMulti) rsInc("land.turnsWithChoice");
++}
++
++const RS_LAND_LEVELS: readonly [string, (score: LandPlayScore) => number][] = [
++  ["L1_currentSupport", (s) => s.currentSupport],
++  ["L2_actualManaSpent", (s) => s.actualManaSpent],
++  ["L3_actualHighestManaValue", (s) => s.actualHighestManaValue],
++  ["L4_nextSupport", (s) => s.nextSupport],
++  ["L5_lifePaid", (s) => -s.lifePaid],
++  ["L6_actualLifePaid", (s) => -s.actualLifePaid],
++  ["L7_deckSupport", (s) => s.deckSupport],
++  ["L8_entersTapped", (s) => (s.entersTapped ? 1 : 0)]
++];
++
++function rsRecordLandDecision(trace: RsLandOutcome[] | null, chosen: LandPlayChoice | null, turn: number): void {
++  if (trace === null || chosen === null || turn > RS_HORIZON || rsGet() === undefined) {
++    return;
++  }
++  rsInc("land.decisions");
++  if (trace.some((outcome) => outcome.entry.entryLifePaid > 0)) {
++    rsInc("life.offered");
++    if (chosen.entry.entryLifePaid > 0) rsInc("life.offeredAndPaid");
++  }
++  if (trace.length <= 1) {
++    return;
++  }
++  rsTurnFlags.landMulti = true;
++  rsInc("land.multi");
++  const distinctLands = new Set(trace.map((outcome) => outcome.key)).size;
++  rsInc(distinctLands > 1 ? "land.multi.differentLands" : "land.multi.sameLandEntryOnly");
++  let remaining = trace;
++  let firstRemoval = "";
++  for (const [name, value] of RS_LAND_LEVELS) {
++    const best = Math.max(...remaining.map((outcome) => value(outcome.score)));
++    const next = remaining.filter((outcome) => value(outcome.score) === best);
++    if (next.length < remaining.length) {
++      rsInc(`land.bite.${name}`);
++      if (firstRemoval === "") firstRemoval = name;
++      if (next.length === 1) rsInc(`land.resolvedAt.${name}`);
++    }
++    remaining = next;
++  }
++  rsInc(`land.firstRemoval.${firstRemoval === "" ? "none_all_tied" : firstRemoval}`);
++  if (remaining.length > 1) rsInc("land.unresolvedAfterAllLevels");
++  if (!remaining.some((outcome) => outcome.score === chosen.score)) rsInc("land.anomalyChosenNotInFinalSet");
++}
++
++function rsBaseId(id: string): string {
++  return id.replace(/#\d+$/, "");
++}
++function rsPlanValue(plan: TurnPlan, level: number): number {
++  switch (level) {
++    case 1: return plan.manaSpent;
++    case 2: return plan.drawFilterCasts;
++    case 3: return plan.rampCasts;
++    case 4: return plan.highestManaValue;
++    case 5: return plan.lifePaid;
++    default: return 0;
++  }
++}
++/** Direction-normalised comparison of one level: positive when `left` is better under the real rule. */
++function rsCompareLevel(left: TurnPlan, right: TurnPlan, level: number): number {
++  if (level === 6) {
++    for (let index = 0; index < left.outcomes.length; index += 1) {
++      if (left.outcomes[index] !== right.outcomes[index]) {
++        return left.outcomes[index] === true ? 1 : -1;
++      }
++    }
++    return 0;
++  }
++  const diff = rsPlanValue(left, level) - rsPlanValue(right, level);
++  return level === 5 ? -diff : diff;
++}
++function rsShadowBetterPlan(left: TurnPlan, right: TurnPlan, reversedLevel: number): boolean {
++  for (let level = 1; level <= reversedLevel; level += 1) {
++    const cmp = rsCompareLevel(left, right, level) * (level === reversedLevel ? -1 : 1);
++    if (cmp !== 0) {
++      return cmp > 0;
++    }
++  }
++  return false;
++}
++function rsShadowPlan(
++  level: number,
++  spells: readonly SpellCard[],
++  available: readonly PaymentSource[],
++  attachment: readonly PaymentSource[]
++): TurnPlan {
++  const previous = rsShadowLevel;
++  rsShadowLevel = level;
++  try {
++    return planTurn(spells, available, attachment);
++  } finally {
++    rsShadowLevel = previous;
++  }
++}
++function rsCastMultiset(plan: TurnPlan): string {
++  return plan.casts.map((cast) => rsBaseId(cast.spell.id)).sort().join("|");
++}
++
++/**
++ * For one real planTurn decision that casts something: at which levels of the ordered rule does an alternative plan,
++ * tied with the real plan on every earlier level, do strictly worse? Level 1 (mana spent) is not probed: the empty plan
++ * is always worse. Level 6 (hand order) is probed on a copy-grouped spell order and counts only a different multiset of
++ * cards (casting a different copy of the same card is not a choice).
++ */
++function rsRecordSpellDecision(
++  spells: readonly SpellCard[],
++  available: readonly PaymentSource[],
++  attachment: readonly PaymentSource[],
++  real: TurnPlan,
++  turn: number
++): void {
++  if (rsGet() === undefined || turn > RS_HORIZON || real.casts.length === 0) {
++    return;
++  }
++  rsInc("spell.decisions");
++  rsTurnFlags.castDecision = true;
++  const bites: number[] = [];
++  for (let level = 2; level <= 5; level += 1) {
++    const worse = rsShadowPlan(level, spells, available, attachment);
++    let prefixEqual = true;
++    for (let earlier = 1; earlier < level; earlier += 1) {
++      if (rsPlanValue(worse, earlier) !== rsPlanValue(real, earlier)) prefixEqual = false;
++    }
++    if (!prefixEqual) {
++      rsInc("spell.anomalyPrefixMismatch");
++    } else if (rsPlanValue(worse, level) !== rsPlanValue(real, level)) {
++      bites.push(level);
++      rsInc(`spell.bite.L${level}`);
++    }
++  }
++  // Level 6 on a copy-grouped order: earliest-first plan against latest-first plan, same earlier levels.
++  const grouped = [...spells].sort((a, b) => (rsBaseId(a.id) < rsBaseId(b.id) ? -1 : rsBaseId(a.id) > rsBaseId(b.id) ? 1 : 0));
++  const earliest = rsShadowPlan(7, grouped, available, attachment); // level 7: levels 1..6 normal, nothing reversed
++  const latest = rsShadowPlan(6, grouped, available, attachment);
++  let sameTuple = true;
++  for (let earlier = 1; earlier <= 5; earlier += 1) {
++    if (rsPlanValue(earliest, earlier) !== rsPlanValue(latest, earlier)) sameTuple = false;
++  }
++  if (!sameTuple) {
++    rsInc("spell.anomalyPrefixMismatch");
++  } else if (rsCastMultiset(earliest) !== rsCastMultiset(latest)) {
++    bites.push(6);
++    rsInc("spell.bite.L6");
++  }
++  if (bites.length > 0) {
++    rsInc("spell.decisionsWithTieBreak");
++    rsInc(`spell.firstBite.L${bites[0]}`);
++    if (!rsTurnFlags.bite) {
++      rsTurnFlags.bite = true;
++      rsTurnFlags.firstBite = bites[0]!;
++    }
++  }
++}
++
+ export function analyzeCastability(input: AnalyzeCastabilityInput): CastabilityResult {
+   return analyzeCastabilityInternal(input);
+ }
+@@ -748,6 +941,7 @@
+ 
+ function analyzeCastabilityGame(input: AnalyzeCastabilityInput): CastabilityResult {
+   validateInput(input);
++  rsResetGame();
+ 
+   const landsInHand = input.hand.filter((card): card is LandCard => card.kind === "land");
+   const libraryCards = [...(input.library ?? [])];
+@@ -792,6 +986,7 @@
+   const supportMetrics = buildEmptySupportMetrics(trackedSpells, input.turns);
+ 
+   for (let turn = 1; turn <= input.turns; turn += 1) {
++    rsResetTurn();
+     const temporarySpellIds: string[] = [];
+     const temporaryLandIds: string[] = [];
+     const temporaryManaSources: PaymentSource[] = [];
+@@ -866,6 +1061,7 @@
+       turn
+     });
+ 
++    rsLandTrace = rsGet() !== undefined ? [] : null;
+     const landChoice = chooseLandToPlay(
+       unplayedLands,
+       fetchTargets,
+@@ -876,6 +1072,8 @@
+       turn,
+       landsEnterUntapped
+     );
++    rsRecordLandDecision(rsLandTrace, landChoice, turn);
++    rsLandTrace = null;
+     if (landChoice !== null) {
+       const [landToPlay] = unplayedLands.splice(landChoice.index, 1);
+       if (landToPlay !== undefined) {
+@@ -918,16 +1116,19 @@
+     const remainingSpells = spells.filter((spell) => !castSpellIds.has(spell.id));
+ 
+     while (true) {
+-      const turnPlan = planTurn(
+-        spells.filter((spell) => spell.simulationRole !== "inert" && !castSpellIds.has(spell.id)),
+-        availableLands,
+-        battlefield
+-      );
++      const rsPlanSpells = spells.filter((spell) => spell.simulationRole !== "inert" && !castSpellIds.has(spell.id));
++      const turnPlan = planTurn(rsPlanSpells, availableLands, battlefield);
++      rsRecordSpellDecision(rsPlanSpells, availableLands, battlefield, turnPlan, turn);
+       const nextCast = turnPlan.casts[0];
+       if (nextCast === undefined) {
+         break;
+       }
+       const { spell, payment } = nextCast;
++      if (turn <= RS_HORIZON) {
++        rsInc("cast.total");
++        if (isImmediateDrawFilterSpell(spell)) rsGameFlags.drawCast = true;
++        if (isRampSpell(spell)) rsGameFlags.rampCast = true;
++      }
+       castSpellIds.add(spell.id);
+       satisfiedByTurn[spell.id] = turn;
+       manaSpentByTurn[turn - 1] += payment.manaSpent;
+@@ -998,6 +1199,12 @@
+             availableLands = availableLands.filter((source) => !replacedLegendaryIds.has(source.id));
+           }
+           rampPermanents.push(permanent);
++          if (rampDefinition.kind === "simpleManaDork" && turn <= RS_HORIZON) {
++            rsInc("dork.cast");
++            rsInc(`dork.cast.${rsBaseId(spell.id)}`);
++            if (permanent.removalChance !== undefined) rsInc("dork.castWithRemovalChance");
++            rsGameFlags.dorkCast = true;
++          }
+           rampEvents.push(buildRampEvent(permanent, turn, isConsumableToken ? "create" : "cast"));
+           if (isRampReadyOnTurn(permanent, turn)) {
+             if (isConsumableToken) {
+@@ -1071,6 +1278,7 @@
+           landsEnterUntapped,
+           playedAsLandIds
+         });
++        rsLandTrace = rsGet() !== undefined ? [] : null;
+         const postSpellLandChoice = chooseLandToPlay(
+           unplayedLands,
+           fetchTargets,
+@@ -1081,6 +1289,8 @@
+           turn,
+           landsEnterUntapped
+         );
++        rsRecordLandDecision(rsLandTrace, postSpellLandChoice, turn);
++        rsLandTrace = null;
+         if (postSpellLandChoice !== null) {
+           const [landToPlay] = unplayedLands.splice(postSpellLandChoice.index, 1);
+           if (landToPlay !== undefined) {
+@@ -1114,6 +1324,9 @@
+       }
+     }
+ 
++    if (turn <= RS_HORIZON) {
++      rsFlushTurn();
++    }
+     expireTemporaryExileCards(spells, unplayedLands, temporarySpellIds, temporaryLandIds);
+ 
+     crackPendingFetchesForNextTurn({
+@@ -1134,6 +1347,20 @@
+   }
+ 
+   finalizeDelayedSupport(trackedSpells, supportMetrics, input.turns);
++  if (rsGet() !== undefined) {
++    rsInc("games");
++    rsInc(input.playDrawPosition === "draw" ? "games.draw" : "games.play");
++    const lifeTotal = lifePaidByTurn.slice(0, RS_HORIZON).reduce((sum, paid) => sum + paid, 0);
++    if (lifeTotal > 0) {
++      rsInc("life.gamesAnyLife");
++      rsInc("life.totalSum", lifeTotal);
++    }
++    if (rsGameFlags.lifeEntry) rsInc("life.gamesEntryLife");
++    if (rsGameFlags.dorkCast) rsInc("dork.gamesCast");
++    if (rsGameFlags.dorkRemoved) rsInc("dork.gamesRemoved");
++    if (rsGameFlags.drawCast) rsInc("cast.gamesDrawFilter");
++    if (rsGameFlags.rampCast) rsInc("cast.gamesRamp");
++  }
+   return {
+     landDrops,
+     fetchEvents,
+@@ -1851,6 +2078,10 @@
+       turn > permanent.enteredTurn &&
+       keyedUniform(gameSeed, permanent.cardId, turn) < permanent.removalChance
+     ) {
++      if (turn <= RS_HORIZON) {
++        rsInc("dork.removed");
++        rsGameFlags.dorkRemoved = true;
++      }
+       permanent.consumed = true;
+       continue;
+     }
+@@ -4904,6 +5135,11 @@
+     unplayedLands.push(toHandLand(returnedLand));
+   }
+ 
++  if (entry.entryLifePaid > 0 && turn <= RS_HORIZON) {
++    rsInc("life.entryEvents");
++    rsInc("life.entrySum", entry.entryLifePaid);
++    rsGameFlags.lifeEntry = true;
++  }
+   battlefield.push(battlefieldLandFor(entry.land, turn, entry.enteredTapped));
+   lifePaidByTurn[turn - 1] += entry.lifePaid;
+   landDrops.push({
+@@ -6933,6 +7169,9 @@
+         actualLifePaid: actualPlan.lifePaid
+       }
+     };
++    if (rsLandTrace !== null) {
++      rsLandTrace.push({ key: landChoiceEquivalenceKey(land), entry, score: choice.score });
++    }
+     if (bestChoice === null || isBetterLandPlayScore(choice.score, bestChoice.score)) {
+       bestChoice = choice;
+     }
+@@ -7690,6 +7929,9 @@
+ }
+ 
+ function isBetterPlan(left: TurnPlan, right: TurnPlan): boolean {
++  if (rsShadowLevel > 0) {
++    return rsShadowBetterPlan(left, right, rsShadowLevel);
++  }
+   if (left.manaSpent !== right.manaSpent) {
+     return left.manaSpent > right.manaSpent;
+   }
+diff -ru main/src/mulligan.ts main-instr/src/mulligan.ts
+--- main/src/mulligan.ts	2026-11-09 01:35:35.000000000 +0000
++++ main-instr/src/mulligan.ts	2026-11-15 13:29:39.035057590 +0000
+@@ -174,11 +174,12 @@
+       "Curve-aware London mulligan heuristic with editable land window, subset-scored bottoming, and inactive cantrip handling.",
+     decide: (input) => {
+       const best = chooseBestLondonKeptHand(input.hand, input.bottomCount ?? input.mulliganCount, config);
++      const rsRulesOk = passesLondonOrderedRules(best.keptHand, config);
++      const rsScoreOk = best.score >= keepThresholdForMulligan(input.mulliganCount, config);
++      rsRecordMulliganAttempt(input.mulliganCount, best.keptHand, config, rsRulesOk, rsScoreOk);
+       return {
+         ...best,
+-        shouldKeep:
+-          passesLondonOrderedRules(best.keptHand, config) &&
+-          best.score >= keepThresholdForMulligan(input.mulliganCount, config)
++        shouldKeep: rsRulesOk && rsScoreOk
+       };
+     }
+   };
+@@ -625,6 +626,45 @@
+   return !(landCount >= maxKeepLands && landCount > curveJustifiedLandCount + 1);
+ }
+ 
++/** Measurement only: first failing clause of the ordered rule, in the order passesLondonOrderedRules tests them. */
++function rsOrderedRuleFailure(rawHand: readonly CastabilityCard[], config: LondonCurvePolicyConfig): string | null {
++  const hand = flexibleKeepView(rawHand, config.idealLandCount);
++  const lands = hand.filter((card): card is LandCard => card.kind === "land");
++  const spells = hand.filter((card): card is SpellCard => card.kind === "spell");
++  const modeledSpells = spells.filter((spell) => spell.simulationRole !== "inert");
++  const landCount = lands.length;
++  const [, maxKeepLands] = config.suggestedLandWindow;
++  const floors = effectiveLondonFloors(hand.length, config);
++  const maxHandManaValue = Math.max(0, ...modeledSpells.map(manaValue));
++  if (landCount === 0) return "noLands";
++  if (landCount < floors.minLandFloor || landCount < floors.minKeepLands) return "belowLandFloor";
++  if (spells.length < floors.minNonlandFloor) return "belowNonlandFloor";
++  if (landCount > maxKeepLands) return "aboveLandWindow";
++  const curveJustifiedLandCount = Math.max(floors.minLandFloor, maxHandManaValue + 1);
++  if (landCount >= maxKeepLands && landCount > curveJustifiedLandCount + 1) return "softFlood";
++  return null;
++}
++
++function rsRecordMulliganAttempt(
++  attempt: number,
++  keptHand: readonly CastabilityCard[],
++  config: LondonCurvePolicyConfig,
++  rulesOk: boolean,
++  scoreOk: boolean
++): void {
++  const stats = (globalThis as { __ruleStats?: Record<string, number> }).__ruleStats;
++  if (stats === undefined) return;
++  const inc = (key: string): void => {
++    stats[key] = (stats[key] ?? 0) + 1;
++  };
++  const failure = rsOrderedRuleFailure(keptHand, config);
++  if ((failure === null) !== rulesOk) inc("mull.anomalyReasonMismatch");
++  inc(`mull.attempt${attempt}.hands`);
++  if (rulesOk && scoreOk) inc(`mull.attempt${attempt}.keep`);
++  else if (!rulesOk) inc(`mull.attempt${attempt}.mulliganRule.${failure}`);
++  else inc(`mull.attempt${attempt}.mulliganScoreBelowThreshold`);
++}
++
+ function effectiveLondonFloors(
+   keptHandSize: number,
+   config: LondonCurvePolicyConfig

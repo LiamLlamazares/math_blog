@@ -1,0 +1,47 @@
+\documentclass[border=4pt]{standalone}
+\usepackage{manafig}
+\usepackage{manacards}
+\usepackage{manasym}
+\begin{document}
+% big pip: \bpip{x}{y}{colour}
+\newcommand{\bpip}[3]{\symnode{#1}{#2}{0.66cm}{#3}}
+\newcommand{\spip}[3]{\symnode{#1}{#2}{0.5cm}{#3}}
+% chip: x y name(two lines) colour1 colour2 (second may be empty -> same pip count 1)
+\newcommand{\landchip}[5]{%
+  \draw[fill=white,draw=ink!50,line width=0.5pt,rounded corners=4pt] (#1-1.05,#2-0.72) rectangle (#1+1.05,#2+0.72);
+  \node[font=\sffamily\bfseries\small,text=ink,align=center,inner sep=0pt] at (#1,#2+0.28) {#3};
+  \ifx\relax#5\relax\spip{#1}{#2-0.38}{#4}\else\spip{#1-0.3}{#2-0.38}{#4}\spip{#1+0.3}{#2-0.38}{#5}\fi}
+\newcommand{\okmark}[2]{\draw[goodc!85!ink,line width=2pt,line cap=round,line join=round] (#1-0.2,#2) -- (#1-0.05,#2-0.17) -- (#1+0.22,#2+0.2);}
+\newcommand{\nomark}[2]{\draw[screwc!85!ink,line width=2pt,line cap=round] (#1-0.17,#2-0.17) -- (#1+0.17,#2+0.17) (#1-0.17,#2+0.17) -- (#1+0.17,#2-0.17);}
+\def\ux{3.25}\def\uy{1.0}\def\ry{-1.0}
+\newcommand{\mpanel}[3]{\begin{scope}[shift={(#1,0)}]
+  \fill[panel] (0,-2.45) rectangle (4.0,3.2);
+  \node[font=\sffamily\bfseries\small,text=ink,align=center,text width=3.7cm,inner sep=0pt] at (2.0,2.45) {#2};
+  #3\end{scope}}
+\begin{tikzpicture}
+\node[font=\sffamily\bfseries\normalsize,text=ink,anchor=east,inner sep=0pt] at (6.1,4.0) {Goblin Electromancer costs};
+\bpip{6.55}{4.0}{U}\bpip{7.25}{4.0}{R}
+% (a)
+\mpanel{0}{Island and Mountain}{%
+  \draw[ink!35,line width=0.5pt] (1.15,0.95) -- (\ux-0.3,\uy) (1.15,-0.95) -- (\ux-0.3,\ry);
+  \draw[ink,line width=2.6pt] (1.15,0.95) -- (\ux-0.3,\uy) (1.15,-0.95) -- (\ux-0.3,\ry);
+  \landchip{1.15}{0.95}{Island}{U}{\relax}\landchip{1.15}{-0.95}{Mountain}{R}{\relax}
+  \bpip{\ux}{\uy}{U}\bpip{\ux}{\ry}{R}
+  \okmark{1.0}{-2.05}\node[font=\sffamily\bfseries\normalsize,text=goodc!70!ink,anchor=west,inner sep=0pt] at (1.4,-2.05) {Paid};}
+% (b)
+\mpanel{4.3}{One\\Steam Vents}{%
+  \draw[ink!35,line width=0.5pt] (1.15,0) -- (\ux-0.3,\uy) (1.15,0) -- (\ux-0.3,\ry);
+  \draw[ink,line width=2.6pt] (1.15,0) -- (\ux-0.3,\uy);
+  \landchip{1.15}{0}{Steam\\Vents}{U}{R}
+  \bpip{\ux}{\uy}{U}\bpip{\ux}{\ry}{R}
+  \draw[screwc!85!ink,line width=1.2pt,dash pattern=on 3pt off 2pt] (\ux,\ry) circle (0.46);
+  \nomark{0.65}{-2.05}\node[font=\sffamily\bfseries\normalsize,text=screwc!70!ink,anchor=west,inner sep=0pt] at (0.95,-2.05) {Not paid};}
+% (c)
+\mpanel{8.6}{Watery Grave and Sulfurous Springs}{%
+  \draw[ink!35,line width=0.5pt] (1.15,0.95) -- (\ux-0.3,\uy) (1.15,-0.95) -- (\ux-0.3,\ry);
+  \draw[ink,line width=2.6pt] (1.15,0.95) -- (\ux-0.3,\uy) (1.15,-0.95) -- (\ux-0.3,\ry);
+  \landchip{1.15}{0.95}{Watery\\Grave}{U}{B}\landchip{1.15}{-0.95}{Sulfurous\\Springs}{B}{R}
+  \bpip{\ux}{\uy}{U}\bpip{\ux}{\ry}{R}
+  \okmark{1.0}{-2.05}\node[font=\sffamily\bfseries\normalsize,text=goodc!70!ink,anchor=west,inner sep=0pt] at (1.4,-2.05) {Paid};}
+\end{tikzpicture}
+\end{document}

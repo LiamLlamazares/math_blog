@@ -1,0 +1,6 @@
+% manasym.sty: real mana symbols. sym/U.pdf, sym/B.pdf ... sit next to this file; they were made from the Scryfall SVGs in Magic/_kit/symbols by svg2pdf.py.
+\ProvidesPackage{manasym}
+\RequirePackage{graphicx}
+\newcommand{\sy}[1]{\raisebox{-0.22em}{\includegraphics[height=1.15em]{sym/#1}}}   % inline symbol, scales with the font
+\newcommand{\symnode}[4]{\node[inner sep=0pt] at (#1,#2) {\includegraphics[width=#3]{sym/#4}};} % tikz: x y width colour-letter
+\endinput

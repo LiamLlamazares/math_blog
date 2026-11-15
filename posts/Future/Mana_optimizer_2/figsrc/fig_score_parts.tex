@@ -16,33 +16,33 @@
 % one row: #1 top y, #2 weight, #3 name, #4 value A, #5 value B
 \newcommand{\scorerow}[5]{%
   \pgfmathsetmacro{\h}{0.7+0.3*#2}
-  \pgfmathsetmacro{\t}{0.2+0.06*#2}
+  \pgfmathsetmacro{\t}{max(0.3,0.2+0.06*#2)}
   \pgfmathsetmacro{\yc}{#1-\h/2}
   \draw[gridc,line width=0.4pt] (0,#1) -- (\xo+6.6,#1);
-  \node[anchor=west,font=\sffamily\bfseries\small,text=ink] at (0,\yc+0.14) {#3};
-  \node[anchor=west,font=\sffamily\footnotesize,text=inksoft] at (0,\yc-0.17) {counts #2 of 16};
+  \node[anchor=west,font=\sffamily\bfseries\normalsize,text=ink] at (0,\yc+0.14) {#3};
+  \node[anchor=west,font=\sffamily\normalsize,text=inksoft] at (0,\yc-0.17) {counts #2 of 16};
   \wstrip{#2}{\yc}
   \pgfmathsetmacro{\ya}{\yc+\t/2+0.02}
   \pgfmathsetmacro{\yb}{\yc-\t/2-0.02}
   \fill[manaN,rounded corners=2.5pt] (\xo,\ya-\t/2) rectangle (\xo+#4*\us,\ya+\t/2);
   \fill[oursc,rounded corners=2.5pt] (\xo,\yb-\t/2) rectangle (\xo+#5*\us,\yb+\t/2);
-  \node[anchor=west,font=\sffamily\bfseries\small,text=inksoft] at (\xo+#4*\us+0.1,\ya) {#4};
-  \node[anchor=west,font=\sffamily\bfseries\small,text=oursc] at (\xo+#5*\us+0.1,\yb) {#5};
+  \node[anchor=west,font=\sffamily\bfseries\normalsize,text=inksoft] at (\xo+#4*\us+0.1,\ya) {#4};
+  \node[anchor=west,font=\sffamily\bfseries\normalsize,text=oursc] at (\xo+#5*\us+0.1,\yb) {#5};
 }
 \begin{document}
 \begin{tikzpicture}[x=1cm,y=1cm]
 % light value grid
 \foreach \v in {0,50,100}{
   \draw[gridc,line width=0.4pt] (\xo+\v*\us,-0.95) -- (\xo+\v*\us,-11.15);
-  \node[font=\sffamily\small,text=inksoft,anchor=north] at (\xo+\v*\us,-11.2) {\v};
+  \node[font=\sffamily\normalsize,text=inksoft,anchor=north] at (\xo+\v*\us,-11.2) {\v};
 }
 % headers
-\node[anchor=south west,font=\sffamily\footnotesize,text=inksoft] at (3.55,-0.95) {weight, out of 16 squares};
+\node[anchor=south west,font=\sffamily\normalsize,text=inksoft] at (3.55,-0.95) {weight out of 16};
 \fill[manaN,rounded corners=2pt] (\xo,-0.18) rectangle (\xo+0.5,-0.4);
-\node[anchor=west,font=\sffamily\bfseries\small,text=inksoft] at (\xo+0.6,-0.29) {\scoreAname};
+\node[anchor=west,font=\sffamily\bfseries\normalsize,text=inksoft] at (\xo+0.6,-0.29) {\scoreAname};
 \fill[oursc,rounded corners=2pt] (\xo,-0.58) rectangle (\xo+0.5,-0.8);
-\node[anchor=west,font=\sffamily\bfseries\small,text=oursc] at (\xo+0.6,-0.69) {\scoreBname};
-\node[anchor=south west,font=\sffamily\bfseries\small,text=ink] at (0,-0.95) {the five parts};
+\node[anchor=west,font=\sffamily\bfseries\normalsize,text=oursc] at (\xo+0.6,-0.69) {\scoreBname};
+\node[anchor=south west,font=\sffamily\bfseries\normalsize,text=ink] at (0,-0.95) {The five parts};
 % rows
 \scorerow{-1.1}{1}{Cast on time}{\scoreAcast}{\scoreBcast}
 \scorerow{-2.1}{6}{Mana put to use}{\scoreAmana}{\scoreBmana}
@@ -51,19 +51,18 @@
 \scorerow{-8.55}{0.5}{Life}{\scoreAlife}{\scoreBlife}
 % total
 \draw[ink,line width=1pt] (0,-10.1) -- (\xo+6.6,-10.1);
-\node[anchor=west,font=\sffamily\bfseries\normalsize,text=ink] at (0,-10.4) {Total};
-\node[anchor=west,font=\sffamily\footnotesize,text=inksoft] at (0,-10.78) {the weighted average};
+\node[anchor=west,font=\sffamily\bfseries\large,text=ink] at (0,-10.4) {Total};
+\node[anchor=west,font=\sffamily\normalsize,text=inksoft] at (0,-10.78) {weighted average};
 \foreach \i in {0,...,15}{\fill[ink!75] (3.55+\i*0.205,-10.49) rectangle (3.55+\i*0.205+0.18,-10.67);}
 \fill[manaN,rounded corners=2.5pt] (\xo,-10.3) rectangle (\xo+\scoreAtotal*\us,-10.62);
 \fill[oursc,rounded corners=2.5pt] (\xo,-10.72) rectangle (\xo+\scoreBtotal*\us,-11.04);
-\node[anchor=west,font=\sffamily\bfseries\normalsize,text=inksoft] at (\xo+\scoreAtotal*\us+0.1,-10.46) {\scoreAtotal};
-\node[anchor=west,font=\sffamily\bfseries\normalsize,text=oursc] at (\xo+\scoreBtotal*\us+0.1,-10.88) {\scoreBtotal};
+\node[anchor=west,font=\sffamily\bfseries\large,text=inksoft] at (\xo+\scoreAtotal*\us+0.1,-10.46) {\scoreAtotal};
+\node[anchor=west,font=\sffamily\bfseries\large,text=oursc] at (\xo+\scoreBtotal*\us+0.1,-10.88) {\scoreBtotal};
 % notes
 \node[note] (n1) at (5.6,-4.15) {\annot{tall rows}\\\annot{count for more}};
 \draw[note arrow] (n1.north west) to[bend left=30] (4.7,-3.5);
-\node[note,anchor=west] (n2) at (4.4,-9.75) {\annot{pays 2 life a game, and it is worth it}};
-\draw[note arrow] (n2.east) to[bend right=35] (10.9,-9.32);
+\path (\xo+7.3,0);
 % source
-\node[anchor=north west,font=\sffamily\footnotesize,text=inksoft] at (0,-11.75) {\scoreSource};
+\node[anchor=north west,font=\sffamily\normalsize,text=inksoft] at (0,-11.75) {\scoreSource};
 \end{tikzpicture}
 \end{document}

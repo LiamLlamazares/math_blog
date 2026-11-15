@@ -1,0 +1,250 @@
+{
+ "deck1": {
+  "sanity": {
+   "instrumentedTotal": 79.67560796930664,
+   "exportTotal": 79.67560796930664,
+   "equalTo2dp": true,
+   "identicalToAllDigits": true,
+   "mullEqual": true,
+   "games": 1024,
+   "turnsCounted": 4096,
+   "lifeScoreInputAvgLifePaid": 1.96875
+  },
+  "a_mulligan": {
+   "seeds": 512,
+   "gamesWithMulliganPct": 20.9,
+   "averageMulligans": 0.244,
+   "deepMulliganPct(>=2)": 2.5,
+   "openingHandRejectedPct": 20.9,
+   "firstHandRejectionReasons_countOfSeeds": {
+    "belowLandFloor": 50,
+    "belowNonlandFloor": 8,
+    "softFlood": 10,
+    "noLands": 9,
+    "scoreBelowThreshold(rules passed)": 30
+   }
+  },
+  "b_land": {
+   "turnsTotal": 4096,
+   "turnsWithLandToPlay(decisions)": 3780,
+   "decisionsWithMoreThanOneOutcome": 3157,
+   "pctOfAllTurns": 77.1,
+   "pctOfLandPlayTurns": 83.5,
+   "multi_differentLands": 2783,
+   "multi_sameLandEntryOnly(tapped/untapped)": 374,
+   "firstLevelThatRemovesAnOption": {
+    "L1_currentSupport": 1903,
+    "L2_actualManaSpent": 0,
+    "L3_actualHighestManaValue": 0,
+    "L4_nextSupport": 132,
+    "L5_lifePaid": 848,
+    "L6_actualLifePaid": 0,
+    "L7_deckSupport": 144,
+    "L8_entersTapped": 0,
+    "none_all_outcomes_tied": 130
+   },
+   "firstLevel_pctOfMulti": {
+    "L1_currentSupport": 60.3,
+    "L2_actualManaSpent": 0.0,
+    "L3_actualHighestManaValue": 0.0,
+    "L4_nextSupport": 4.2,
+    "L5_lifePaid": 26.9,
+    "L6_actualLifePaid": 0.0,
+    "L7_deckSupport": 4.6,
+    "L8_entersTapped": 0.0,
+    "none_all_outcomes_tied": 4.1
+   },
+   "levelRemovesAtLeastOneOption_given_earlier_levels(count)": {
+    "L1_currentSupport": 1903,
+    "L2_actualManaSpent": 0,
+    "L3_actualHighestManaValue": 0,
+    "L4_nextSupport": 198,
+    "L5_lifePaid": 1510,
+    "L6_actualLifePaid": 0,
+    "L7_deckSupport": 736,
+    "L8_entersTapped": 248
+   },
+   "setBecomesSingleAtLevel": {
+    "L1_currentSupport": 940,
+    "L2_actualManaSpent": 0,
+    "L3_actualHighestManaValue": 0,
+    "L4_nextSupport": 58,
+    "L5_lifePaid": 819,
+    "L6_actualLifePaid": 0,
+    "L7_deckSupport": 646,
+    "L8_entersTapped": 218
+   },
+   "stillTiedAfterAllEightLevels": 476
+  },
+  "c_life": {
+   "gamesWithLifePaidForUntappedLand": 662,
+   "pctOfGames": 64.6,
+   "gamesWithAnyLifePaid(turns1-4)": 662,
+   "avgLifePaidPerGame": 1.969,
+   "avgLifePaidPerGameThatPaid": 3.05,
+   "entryLifeEvents": 1008,
+   "landDecisionsWhereAnUntappedPayLifeOptionExisted": 2655,
+   "...and the chosen option paid life": 1008,
+   "chosenWhenOffered_pct": 38.0
+  },
+  "d_spell": {
+   "decisions(each planTurn that casts)": 3284,
+   "decisionsWithTieBreak": 886,
+   "pctOfDecisions": 27.0,
+   "turnsWithACast": 3184,
+   "turnsWithTieBreak": 883,
+   "pctOfTurnsWithCast": 27.7,
+   "pctOfAllTurns": 21.6,
+   "turnFirstLevelThatBites": {
+    "L2_drawFilterCasts": 0,
+    "L3_rampCasts": 0,
+    "L4_highestManaValue": 203,
+    "L5_lifePaid": 0,
+    "L6_handOrder_differentCards": 680
+   },
+   "anyBiteDecisions": {
+    "L2": 0,
+    "L3": 0,
+    "L4": 204,
+    "L5": 0,
+    "L6": 724
+   }
+  },
+  "f_other": {
+   "castsTurns1to4": 3284,
+   "gamesWithDrawFilterCast": 0,
+   "gamesWithRampCast": 0,
+   "note": "no fetch lands, no scry/surveil/cantrips modelled in either deck (Electrolyze has no draw tag in this classification)"
+  },
+  "anomalies": {}
+ },
+ "deck2": {
+  "sanity": {
+   "instrumentedTotal": 85.2011316440296,
+   "exportTotal": 85.2011316440296,
+   "equalTo2dp": true,
+   "identicalToAllDigits": true,
+   "mullEqual": true,
+   "games": 1024,
+   "turnsCounted": 4096,
+   "lifeScoreInputAvgLifePaid": 0.404296875
+  },
+  "a_mulligan": {
+   "seeds": 512,
+   "gamesWithMulliganPct": 21.3,
+   "averageMulligans": 0.248,
+   "deepMulliganPct(>=2)": 2.5,
+   "openingHandRejectedPct": 21.3,
+   "firstHandRejectionReasons_countOfSeeds": {
+    "belowLandFloor": 50,
+    "belowNonlandFloor": 8,
+    "noLands": 9,
+    "softFlood": 5,
+    "scoreBelowThreshold(rules passed)": 37
+   }
+  },
+  "b_land": {
+   "turnsTotal": 4096,
+   "turnsWithLandToPlay(decisions)": 3775,
+   "decisionsWithMoreThanOneOutcome": 2620,
+   "pctOfAllTurns": 64.0,
+   "pctOfLandPlayTurns": 69.4,
+   "multi_differentLands": 2471,
+   "multi_sameLandEntryOnly(tapped/untapped)": 149,
+   "firstLevelThatRemovesAnOption": {
+    "L1_currentSupport": 1100,
+    "L2_actualManaSpent": 0,
+    "L3_actualHighestManaValue": 0,
+    "L4_nextSupport": 0,
+    "L5_lifePaid": 494,
+    "L6_actualLifePaid": 0,
+    "L7_deckSupport": 324,
+    "L8_entersTapped": 47,
+    "none_all_outcomes_tied": 655
+   },
+   "firstLevel_pctOfMulti": {
+    "L1_currentSupport": 42.0,
+    "L2_actualManaSpent": 0.0,
+    "L3_actualHighestManaValue": 0.0,
+    "L4_nextSupport": 0.0,
+    "L5_lifePaid": 18.9,
+    "L6_actualLifePaid": 0.0,
+    "L7_deckSupport": 12.4,
+    "L8_entersTapped": 1.8,
+    "none_all_outcomes_tied": 25.0
+   },
+   "levelRemovesAtLeastOneOption_given_earlier_levels(count)": {
+    "L1_currentSupport": 1100,
+    "L2_actualManaSpent": 0,
+    "L3_actualHighestManaValue": 0,
+    "L4_nextSupport": 0,
+    "L5_lifePaid": 889,
+    "L6_actualLifePaid": 0,
+    "L7_deckSupport": 475,
+    "L8_entersTapped": 384
+   },
+   "setBecomesSingleAtLevel": {
+    "L1_currentSupport": 556,
+    "L2_actualManaSpent": 0,
+    "L3_actualHighestManaValue": 0,
+    "L4_nextSupport": 0,
+    "L5_lifePaid": 503,
+    "L6_actualLifePaid": 0,
+    "L7_deckSupport": 262,
+    "L8_entersTapped": 326
+   },
+   "stillTiedAfterAllEightLevels": 973
+  },
+  "c_life": {
+   "gamesWithLifePaidForUntappedLand": 191,
+   "pctOfGames": 18.7,
+   "gamesWithAnyLifePaid(turns1-4)": 191,
+   "avgLifePaidPerGame": 0.404,
+   "avgLifePaidPerGameThatPaid": 2.17,
+   "entryLifeEvents": 207,
+   "landDecisionsWhereAnUntappedPayLifeOptionExisted": 1174,
+   "...and the chosen option paid life": 207,
+   "chosenWhenOffered_pct": 17.6
+  },
+  "d_spell": {
+   "decisions(each planTurn that casts)": 3222,
+   "decisionsWithTieBreak": 660,
+   "pctOfDecisions": 20.5,
+   "turnsWithACast": 3050,
+   "turnsWithTieBreak": 649,
+   "pctOfTurnsWithCast": 21.3,
+   "pctOfAllTurns": 15.8,
+   "turnFirstLevelThatBites": {
+    "L2_drawFilterCasts": 0,
+    "L3_rampCasts": 192,
+    "L4_highestManaValue": 79,
+    "L5_lifePaid": 0,
+    "L6_handOrder_differentCards": 378
+   },
+   "anyBiteDecisions": {
+    "L2": 0,
+    "L3": 202,
+    "L4": 83,
+    "L5": 0,
+    "L6": 388
+   }
+  },
+  "e_dork": {
+   "creatureCastByT4_games": 466,
+   "pctOfGames": 45.5,
+   "removedByT4_games": 303,
+   "pctOfThoseGames": 65.0,
+   "creaturesCast": 572,
+   "creaturesRemoved": 331,
+   "pctOfCreatures": 57.9,
+   "whichCreature": "Llanowar Elves only (only simpleRamp card; removal chance 30%/turn default)"
+  },
+  "f_other": {
+   "castsTurns1to4": 3222,
+   "gamesWithDrawFilterCast": 0,
+   "gamesWithRampCast": 466,
+   "note": "no fetch lands, no scry/surveil/cantrips modelled in either deck (Electrolyze has no draw tag in this classification)"
+  },
+  "anomalies": {}
+ }
+}

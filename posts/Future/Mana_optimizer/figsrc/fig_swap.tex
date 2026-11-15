@@ -1,0 +1,57 @@
+\documentclass[border=4pt]{standalone}
+\usepackage{manafig}
+\usepackage{manacards}
+\usepackage{manasym}
+\begin{document}
+% \lt{x}{y}{count}{name}{c1}{c2}{c3}: land token, split into two or three colours (c3 = - for two); gold outline marks the new land
+\newcommand{\lt}[6]{%
+  \edef\tca{\mfill{#5}}\edef\tcb{\mfill{#6}}%
+  \node[landtok,anchor=north west,minimum width=4.5cm,minimum height=0.6cm,align=left,fill=white,font=\sffamily\bfseries\small,
+    path picture={\fill[\tca] (path picture bounding box.south west) rectangle (path picture bounding box.north);
+                  \fill[\tcb] (path picture bounding box.south) rectangle (path picture bounding box.north east);}]
+    at (#1,#2) {\hspace{0.15cm}#3\,$\times$\,#4};}
+\newcommand{\ltt}[4]{% three colours: x y count name  (water, dark, fire)
+  \node[landtok,anchor=north west,minimum width=4.5cm,minimum height=0.6cm,align=left,fill=white,font=\sffamily\bfseries\small,draw=newc,line width=1.8pt,
+    path picture={\fill[manaUp] (path picture bounding box.south west) rectangle ($(path picture bounding box.south west)!0.3333!(path picture bounding box.south east)+(0,0.6)$);
+                  \fill[manaBp] ($(path picture bounding box.south west)!0.3333!(path picture bounding box.south east)$) rectangle ($(path picture bounding box.south west)!0.6667!(path picture bounding box.south east)+(0,0.6)$);
+                  \fill[manaRp] ($(path picture bounding box.south west)!0.6667!(path picture bounding box.south east)$) rectangle (path picture bounding box.north east);}]
+    at (#1,#2) {\hspace{0.15cm}#3\,$\times$\,#4};}
+\newcommand{\setpanel}[3]{% x0, title, tokens
+  \begin{scope}[shift={(#1,0)}]
+    \fill[panel] (0,0) rectangle (5.5,-7.3);
+    \node[anchor=north west,inner sep=0pt,font=\sffamily\bfseries\Large,text=ink] at (0.25,-0.18) {#2};
+    #3
+  \end{scope}}
+\newcommand{\srcs}[3]{\node[fill=white,rounded corners=3pt,draw=ink!25,line width=0.4pt,inner xsep=5pt,inner ysep=3pt,font=\sffamily\small\bfseries,text=ink] at (2.75,-6.7)
+   {\sy{U}\,#1\hspace{7pt}\sy{B}\,#2\hspace{7pt}\sy{R}\,#3};}
+% result row: centre y, spell, symbols, turn, before, after, direction (up/down)
+\newcommand{\res}[7]{%
+  \draw[ink!15,line width=0.4pt] (0.25,#1+0.55) -- (11.25,#1+0.55);
+  \node[anchor=west,inner sep=0pt,font=\sffamily\bfseries\small,text=ink] at (0.25,#1+0.2) {#2};
+  \node[anchor=west,inner sep=0pt,font=\sffamily\small,text=ink] at (0.25,#1-0.27) {#3\hspace{5pt}#4};
+  \node[font=\sffamily\bfseries\Large,text=ink,inner sep=0pt] at (7.1,#1) {#5};
+  \node[font=\sffamily\bfseries\Large,text=ink,inner sep=0pt] at (9.1,#1) {#6};
+  \ifx#7u\fill[goodc] (10.2,#1+0.2) -- (10.55,#1-0.17) -- (9.85,#1-0.17) -- cycle;
+  \else\fill[screwc] (10.2,#1-0.2) -- (10.55,#1+0.17) -- (9.85,#1+0.17) -- cycle;\fi}
+\begin{tikzpicture}
+  \node[anchor=west,font=\sffamily\bfseries\normalsize,text=ink,inner sep=0pt] at (0,0.5) {Should Archibaldus make this swap?};
+  \setpanel{0}{Before}{%
+    \lt{0.5}{-1.0}{4}{Watery Grave}{U}{B}\lt{0.5}{-1.72}{4}{Blood Crypt}{B}{R}\lt{0.5}{-2.44}{4}{Steam Vents}{U}{R}
+    \lt{0.5}{-3.16}{4}{Island}{U}{U}\lt{0.5}{-3.88}{4}{Swamp}{B}{B}\lt{0.5}{-4.6}{4}{Mountain}{R}{R}
+    \srcs{12}{12}{12}}
+  \setpanel{6}{After}{%
+    \lt{0.5}{-1.0}{4}{Watery Grave}{U}{B}\lt{0.5}{-1.72}{4}{Blood Crypt}{B}{R}\lt{0.5}{-2.44}{4}{Steam Vents}{U}{R}
+    \lt{0.5}{-3.16}{3}{Island}{U}{U}\lt{0.5}{-3.88}{2}{Swamp}{B}{B}\lt{0.5}{-4.6}{3}{Mountain}{R}{R}
+    \ltt{0.5}{-5.32}{4}{Crumbling Necropolis}
+    \node[anchor=north west,inner sep=0pt,font=\sffamily\small\itshape,text=ink] at (0.55,-5.98) {arrives exhausted};
+    \srcs{15}{14}{15}}
+  \fill[panel] (0,-7.75) rectangle (11.5,-13.9);
+  \node[anchor=north west,inner sep=0pt,text width=11cm,font=\sffamily\bfseries\small,text=ink] at (0.25,-7.95) {Lands could pay for the spell on time (share of 1,024 games)};
+  \node[font=\sffamily\bfseries\normalsize,text=ink] at (7.1,-8.65) {Before};
+  \node[font=\sffamily\bfseries\normalsize,text=ink] at (9.1,-8.65) {After};
+  \res{-9.75}{Lightning Bolt}{\sy{R}}{turn one}{89\%}{84\%}{d}
+  \res{-10.9}{Counterspell}{\sy{U}\sy{U}}{turn two}{31\%}{43\%}{u}
+  \res{-12.05}{Goblin Electromancer}{\sy{U}\sy{R}}{turn two}{75\%}{78\%}{u}
+  \res{-13.2}{Crosis's Charm}{\sy{U}\sy{B}\sy{R}}{turn three}{74\%}{75\%}{u}
+\end{tikzpicture}
+\end{document}

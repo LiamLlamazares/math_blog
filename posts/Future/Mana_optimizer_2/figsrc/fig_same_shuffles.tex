@@ -19,14 +19,14 @@
   \plotpair{xi}{yi}
   \node[anchor=east,font=\sffamily\bfseries\small,text=xc,inner sep=3pt] at (axis cs:0.9,62) {set X};
   \node[anchor=east,font=\sffamily\bfseries\small,text=oursc,inner sep=3pt] at (axis cs:0.9,54) {set Y};
-  \node[note,anchor=west] (n1) at (rel axis cs:1.12,0.5) {\annot{the lines keep crossing:}\\\annot{the gap is lost}\\\annot{in the noise}};
+  \node[note,anchor=west] (n1) at (rel axis cs:1.12,0.5) {\annot{the lines keep crossing:}\\\annot{unclear which}\\\annot{is better}};
   \coordinate (t1) at (axis cs:5.05,69.5);
 \end{axis}
 \begin{axis}[sameax, name=B, at={(0,0)}, anchor=south west, ylabel={score}]
   \plotpair{xs}{ys}
   \node[anchor=east,font=\sffamily\bfseries\small,text=xc,inner sep=3pt] at (axis cs:0.9,60) {set X};
   \node[anchor=east,font=\sffamily\bfseries\small,text=oursc,inner sep=3pt] at (axis cs:0.9,70) {set Y};
-  \node[note,anchor=west] (n2) at (rel axis cs:1.12,0.5) {\annot{same ups and downs:}\\\annot{the gap stays}\\\annot{steady}};
+  \node[note,anchor=west] (n2) at (rel axis cs:1.12,0.5) {\annot{same ups and downs:}\\\annot{Y is clearly}\\\annot{better}};
   \coordinate (t2) at (axis cs:5.05,70.5);
 \end{axis}
 \node[anchor=south west,font=\sffamily\bfseries\small,text=ink] at ($(T.north west)+(-0.9,0.35)$) {Each set of lands plays its own games};

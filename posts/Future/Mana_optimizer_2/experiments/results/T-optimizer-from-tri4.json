@@ -1,0 +1,210 @@
+{
+ "settings": {
+  "poolLandCount": 7,
+  "rounds": [
+   {
+    "round": 1,
+    "method": "global-guided",
+    "candidateCount": 96,
+    "legalNeighborCount": null,
+    "alreadyTestedNeighborCount": null,
+    "newlyTestedNeighborCount": null,
+    "evaluatedNeighborCount": null,
+    "neighborSelectionPolicy": null,
+    "winnerChanged": null,
+    "scoreChange": null,
+    "stopReason": null
+   },
+   {
+    "round": 2,
+    "method": "block-thompson",
+    "candidateCount": 24,
+    "legalNeighborCount": 48,
+    "alreadyTestedNeighborCount": 15,
+    "newlyTestedNeighborCount": 33,
+    "evaluatedNeighborCount": 23,
+    "neighborSelectionPolicy": "thompson",
+    "winnerChanged": false,
+    "scoreChange": 0,
+    "stopReason": "no-detected-improvement"
+   }
+  ],
+  "workedExample": {
+   "removeLandId": "blood-crypt",
+   "removeLandName": "Blood Crypt",
+   "addLandId": "island",
+   "addLandName": "Island",
+   "beforeRemoveCopies": 4,
+   "beforeAddCopies": 3,
+   "legalReason": "It removes one available land, adds one land below its copy limit, and keeps the total land count unchanged.",
+   "generated": true,
+   "stages": [
+    {
+     "stage": 1,
+     "gamesPerCandidate": 24,
+     "reached": false
+    },
+    {
+     "stage": 2,
+     "gamesPerCandidate": 96,
+     "reached": false
+    },
+    {
+     "stage": 3,
+     "gamesPerCandidate": 384,
+     "reached": false
+    },
+    {
+     "stage": 4,
+     "gamesPerCandidate": 1000,
+     "reached": false
+    }
+   ]
+  },
+  "stages": [
+   {
+    "round": 1,
+    "stage": 1,
+    "gamesPerCandidate": 24,
+    "candidatesEntered": 96,
+    "candidatesPromoted": 37,
+    "finalistLimit": 48
+   },
+   {
+    "round": 1,
+    "stage": 2,
+    "gamesPerCandidate": 96,
+    "candidatesEntered": 37,
+    "candidatesPromoted": 15,
+    "finalistLimit": 24
+   },
+   {
+    "round": 1,
+    "stage": 3,
+    "gamesPerCandidate": 384,
+    "candidatesEntered": 15,
+    "candidatesPromoted": 7,
+    "finalistLimit": 10
+   },
+   {
+    "round": 1,
+    "stage": 4,
+    "gamesPerCandidate": 1000,
+    "candidatesEntered": 7,
+    "candidatesPromoted": 7,
+    "finalistLimit": 10
+   },
+   {
+    "round": 2,
+    "stage": 1,
+    "gamesPerCandidate": 24,
+    "candidatesEntered": 24,
+    "candidatesPromoted": 11,
+    "finalistLimit": 12
+   },
+   {
+    "round": 2,
+    "stage": 2,
+    "gamesPerCandidate": 96,
+    "candidatesEntered": 11,
+    "candidatesPromoted": 4,
+    "finalistLimit": 10
+   },
+   {
+    "round": 2,
+    "stage": 3,
+    "gamesPerCandidate": 384,
+    "candidatesEntered": 4,
+    "candidatesPromoted": 2,
+    "finalistLimit": 10
+   },
+   {
+    "round": 2,
+    "stage": 4,
+    "gamesPerCandidate": 1000,
+    "candidatesEntered": 2,
+    "candidatesPromoted": 2,
+    "finalistLimit": 10
+   }
+  ],
+  "precision": "balanced",
+  "searchDepth": "standard (default)",
+  "refinementRounds": 2,
+  "candidateMode": "guided",
+  "gameFormat": "modern",
+  "candidateLegalityPolicy": "custom-unrestricted",
+  "start": [
+   [
+    4,
+    "Watery Grave"
+   ],
+   [
+    4,
+    "Blood Crypt"
+   ],
+   [
+    4,
+    "Steam Vents"
+   ],
+   [
+    4,
+    "Crumbling Necropolis"
+   ],
+   [
+    3,
+    "Island"
+   ],
+   [
+    2,
+    "Swamp"
+   ],
+   [
+    3,
+    "Mountain"
+   ]
+  ],
+  "searchSeedCount": 500,
+  "heldOutSeeds": "512, 1000001+13*i",
+  "seedOverlapWithSearch": 0,
+  "playHorizon": 4,
+  "searchSeconds": 12.971511555
+ },
+ "optimizerLands": [
+  "4 Blood Crypt",
+  "4 Crumbling Necropolis",
+  "3 Island",
+  "4 Mountain",
+  "4 Steam Vents",
+  "1 Swamp",
+  "4 Watery Grave"
+ ],
+ "searchScoreWinner": 80.81939009142901,
+ "heldOut": {
+  "A-start": {
+   "total": 80.7354142474331,
+   "cast": 78.89740869341557,
+   "manaUse": 75.654296875,
+   "usefulLands": 75.09267431597529,
+   "keepable": 96.51227678571429,
+   "life": 59.24479166666667,
+   "averageLifePaid": 2.4453125,
+   "averageMulligans": 0.244140625
+  },
+  "optimizer": {
+   "total": 80.58977312731615,
+   "cast": 78.06672775205756,
+   "manaUse": 75.1953125,
+   "usefulLands": 75.44634965529433,
+   "keepable": 96.484375,
+   "life": 58.984375,
+   "averageLifePaid": 2.4609375,
+   "averageMulligans": 0.24609375
+  }
+ },
+ "optimizerMinusA": {
+  "mean": -0.15791251517925925,
+  "lower95": -0.45561348836323506,
+  "upper95": 0.13978845800471656,
+  "half": 0.2977009731839758
+ }
+}

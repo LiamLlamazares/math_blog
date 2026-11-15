@@ -209,10 +209,18 @@ local function band(ident)
   return "linear-gradient(90deg," .. table.concat(cs, ",") .. ")"
 end
 
+-- Each artist is credited the first time their card appears in a post, and not again.
+local credited = {}
 local function credit_html(list)
   local parts = {}
-  for _, c in ipairs(list) do parts[#parts + 1] = esc(c.name) .. ": " .. esc(c.artist) end
-  return "<p class='mk-credit'><b>Art:</b> " .. table.concat(parts, "; ") .. ".</p>"
+  for _, c in ipairs(list) do
+    if not credited[c.id] then
+      credited[c.id] = true
+      parts[#parts + 1] = esc(c.name) .. ": " .. esc(c.artist)
+    end
+  end
+  if #parts == 0 then return "" end
+  return "<p class='mk-credit'>Art. " .. table.concat(parts, "; ") .. ".</p>"
 end
 
 -- ---------------------------------------------------------------- shortcodes

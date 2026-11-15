@@ -1,0 +1,36 @@
+\documentclass[border=4pt]{standalone}
+\usepackage{manafig}
+\renewcommand{\sfdefault}{qhv}
+\def\xo{5.6}      % left end of the bars (cm)
+\def\us{0.056}    % cm per percentage point
+% one row: #1 top y, #2 rule, #3 unit, #4 value deck 1 (or none), #5 value deck 2
+\newcommand{\rulerow}[5]{%
+  \draw[gridc,line width=0.4pt] (0,#1) -- (\xo+5.6+0.9,#1);
+  \node[anchor=west,font=\sffamily\normalsize,text=inksoft,align=left,text width=5.1cm,inner sep=0pt] at (0,#1-0.9) {{\bfseries\color{ink}#2}\\#3};
+  \def\va{#4}\def\vn{none}
+  \ifx\va\vn
+    \node[anchor=west,font=\sffamily\normalsize\itshape,text=inksoft,inner sep=0pt] at (\xo+0.1,#1-0.58) {none in the deck};
+  \else
+    \fill[manaN,rounded corners=2.5pt] (\xo,#1-0.28) rectangle (\xo+#4*\us,#1-0.85);
+    \node[anchor=west,font=\sffamily\bfseries\normalsize,text=inksoft,inner sep=0pt] at (\xo+#4*\us+0.1,#1-0.565) {#4};
+  \fi
+  \fill[oursc,rounded corners=2.5pt] (\xo,#1-0.95) rectangle (\xo+#5*\us,#1-1.52);
+  \node[anchor=west,font=\sffamily\bfseries\normalsize,text=oursc,inner sep=0pt] at (\xo+#5*\us+0.1,#1-1.235) {#5};}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\foreach \v in {0,50,100}{
+  \draw[gridc,line width=0.4pt] (\xo+\v*\us,-1.6) -- (\xo+\v*\us,-12.8);
+  \node[font=\sffamily\normalsize,text=inksoft,anchor=north] at (\xo+\v*\us,-12.85) {\v};}
+\fill[manaN,rounded corners=2pt] (0,-0.18) rectangle (0.5,-0.42);
+\node[anchor=west,font=\sffamily\bfseries\normalsize,text=inksoft] at (0.6,-0.3) {Archibaldus's three-colour deck};
+\fill[oursc,rounded corners=2pt] (0,-0.78) rectangle (0.5,-1.02);
+\node[anchor=west,font=\sffamily\bfseries\normalsize,text=oursc] at (0.6,-0.9) {A green-white deck with mana creatures};
+\rulerow{-1.6}{A hand is sent back}{share of games}{21}{21}
+\rulerow{-3.4}{More than one way to play a land}{share of turns}{77}{64}
+\rulerow{-5.2}{Life is paid for a land}{share of games}{65}{19}
+\rulerow{-7.0}{Two spell plans tie and a rule picks}{share of turns}{22}{16}
+\rulerow{-8.8}{A mana creature is cast by turn four}{share of games}{none}{46}
+\rulerow{-10.6}{\textellipsis{}and it is removed by turn four}{share of those games}{none}{65}
+\node[anchor=north west,font=\sffamily\normalsize,text=inksoft] at (0,-13.55) {1,024 simulated games per deck, turns one to four};
+\end{tikzpicture}
+\end{document}

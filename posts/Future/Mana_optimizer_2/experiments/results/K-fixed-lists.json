@@ -1,0 +1,799 @@
+{
+ "experiment": "K",
+ "settings": {
+  "gameFormat": "modern",
+  "candidateLegalityPolicy": "custom-unrestricted",
+  "heldOutSeeds": "512 seeds, 1000001 + 13*i",
+  "playDrawPositions": [
+   "play",
+   "draw"
+  ],
+  "playHorizon": 4,
+  "supportHorizon": 7,
+  "mulliganPolicy": "LONDON_CURVE_POLICY",
+  "scoreWeights": {
+   "castability": 1,
+   "manaUsage": 6,
+   "usefulLands": 4.25,
+   "lifeScore": 0.5,
+   "mulliganScore": 4.25
+  },
+  "scoreContract": "slice-6-3-score-vector-v5",
+  "manaUsageBasis": "natural-curve-ceiling-v0",
+  "spells": [
+   "4 Llanowar Elves",
+   "4 Pelt Collector",
+   "4 Emmara, Soul of the Accord",
+   "4 Thrashing Brontodon",
+   "4 Knight of Autumn",
+   "4 Nullhide Ferox",
+   "4 Vivien Reid",
+   "4 Lyra Dawnbringer",
+   "4 Shalai, Voice of Plenty"
+  ]
+ },
+ "wallSeconds": 5.095312251,
+ "lists": {
+  "10F6P": {
+   "lands": [
+    "4 Temple Garden",
+    "4 Sunpetal Grove",
+    "10 Forest",
+    "6 Plains"
+   ],
+   "counts": {
+    "temple-garden": 4,
+    "sunpetal-grove": 4,
+    "forest": 10,
+    "plains": 6
+   },
+   "total": 85.2011316440296,
+   "cast": 83.71471514917691,
+   "manaUse": 74.98046875,
+   "usefulLands": 87.77640191049001,
+   "keepable": 96.45647321428571,
+   "life": 93.26171875,
+   "averageLifePaid": 0.404296875,
+   "averageMulligans": 0.248046875,
+   "zeroMulliganRate": 0.787109375,
+   "sampleCount": 1024,
+   "vsReference": {
+    "reference": "10F6P",
+    "mean": 0,
+    "lower95": 0,
+    "upper95": 0,
+    "half": 0,
+    "pairedSeeds": 512,
+    "excludesZero": false,
+    "partsDiff": {
+     "total": 0,
+     "cast": 0,
+     "manaUse": 0,
+     "usefulLands": 0,
+     "keepable": 0,
+     "life": 0
+    }
+   },
+   "perCard": {
+    "Emmara, Soul of the Accord": {
+     "targetTurn": 2,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3792,
+     "late1": 84,
+     "late2": 72,
+     "late3": 52,
+     "notBy": 96,
+     "delayedCreditRate": 0.9350405092592594,
+     "exactOnTimeShare": 0.92578125
+    },
+    "Knight of Autumn": {
+     "targetTurn": 3,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3632,
+     "late1": 180,
+     "late2": 108,
+     "late3": 64,
+     "notBy": 112,
+     "delayedCreditRate": 0.9048755787037038,
+     "exactOnTimeShare": 0.88671875
+    },
+    "Llanowar Elves": {
+     "targetTurn": 1,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3812,
+     "late1": 212,
+     "late2": 24,
+     "late3": 28,
+     "notBy": 20,
+     "delayedCreditRate": 0.9488208912037044,
+     "exactOnTimeShare": 0.9306640625
+    },
+    "Lyra Dawnbringer": {
+     "targetTurn": 5,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 2376,
+     "late1": 444,
+     "late2": 400,
+     "late3": 0,
+     "notBy": 876,
+     "delayedCreditRate": 0.6270616319444426,
+     "exactOnTimeShare": 0.580078125
+    },
+    "Nullhide Ferox": {
+     "targetTurn": 4,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3184,
+     "late1": 312,
+     "late2": 248,
+     "late3": 176,
+     "notBy": 176,
+     "delayedCreditRate": 0.8110532407407401,
+     "exactOnTimeShare": 0.77734375
+    },
+    "Pelt Collector": {
+     "targetTurn": 1,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3812,
+     "late1": 212,
+     "late2": 24,
+     "late3": 28,
+     "notBy": 20,
+     "delayedCreditRate": 0.9488208912037044,
+     "exactOnTimeShare": 0.9306640625
+    },
+    "Shalai, Voice of Plenty": {
+     "targetTurn": 4,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3200,
+     "late1": 308,
+     "late2": 236,
+     "late3": 152,
+     "notBy": 200,
+     "delayedCreditRate": 0.8140914351851848,
+     "exactOnTimeShare": 0.78125
+    },
+    "Thrashing Brontodon": {
+     "targetTurn": 3,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3548,
+     "late1": 204,
+     "late2": 112,
+     "late3": 92,
+     "notBy": 140,
+     "delayedCreditRate": 0.8866825810185189,
+     "exactOnTimeShare": 0.8662109375
+    },
+    "Vivien Reid": {
+     "targetTurn": 5,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 2500,
+     "late1": 452,
+     "late2": 396,
+     "late3": 0,
+     "notBy": 748,
+     "delayedCreditRate": 0.6578776041666652,
+     "exactOnTimeShare": 0.6103515625
+    }
+   }
+  },
+  "gate4_8F4P": {
+   "lands": [
+    "4 Temple Garden",
+    "4 Sunpetal Grove",
+    "4 Selesnya Guildgate",
+    "8 Forest",
+    "4 Plains"
+   ],
+   "counts": {
+    "temple-garden": 4,
+    "sunpetal-grove": 4,
+    "selesnya-guildgate": 4,
+    "forest": 8,
+    "plains": 4
+   },
+   "total": 84.53863225105778,
+   "cast": 81.34725437242798,
+   "manaUse": 74.12109375,
+   "usefulLands": 87.3961463673325,
+   "keepable": 96.484375,
+   "life": 90.10416666666666,
+   "averageLifePaid": 0.59375,
+   "averageMulligans": 0.24609375,
+   "zeroMulliganRate": 0.7890625,
+   "sampleCount": 1024,
+   "vsReference": {
+    "reference": "10F6P",
+    "mean": -0.5159699278114249,
+    "lower95": -0.8953055946101343,
+    "upper95": -0.13663426101271553,
+    "half": 0.37933566679870934,
+    "pairedSeeds": 512,
+    "excludesZero": true,
+    "partsDiff": {
+     "total": -0.6624993929718244,
+     "cast": -2.3674607767489277,
+     "manaUse": -0.859375,
+     "usefulLands": -0.380255543157503,
+     "keepable": 0.027901785714291805,
+     "life": -3.157552083333343
+    }
+   },
+   "perCard": {
+    "Emmara, Soul of the Accord": {
+     "targetTurn": 2,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3656,
+     "late1": 348,
+     "late2": 24,
+     "late3": 28,
+     "notBy": 40,
+     "delayedCreditRate": 0.9218026620370379,
+     "exactOnTimeShare": 0.892578125
+    },
+    "Knight of Autumn": {
+     "targetTurn": 3,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3564,
+     "late1": 308,
+     "late2": 68,
+     "late3": 64,
+     "notBy": 92,
+     "delayedCreditRate": 0.8976056134259266,
+     "exactOnTimeShare": 0.8701171875
+    },
+    "Llanowar Elves": {
+     "targetTurn": 1,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3596,
+     "late1": 484,
+     "late2": 8,
+     "late3": 0,
+     "notBy": 8,
+     "delayedCreditRate": 0.9175347222222235,
+     "exactOnTimeShare": 0.8779296875
+    },
+    "Lyra Dawnbringer": {
+     "targetTurn": 5,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 2152,
+     "late1": 688,
+     "late2": 428,
+     "late3": 0,
+     "notBy": 828,
+     "delayedCreditRate": 0.5929904513888868,
+     "exactOnTimeShare": 0.525390625
+    },
+    "Nullhide Ferox": {
+     "targetTurn": 4,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3052,
+     "late1": 452,
+     "late2": 216,
+     "late3": 168,
+     "notBy": 208,
+     "delayedCreditRate": 0.7892795138888884,
+     "exactOnTimeShare": 0.7451171875
+    },
+    "Pelt Collector": {
+     "targetTurn": 1,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3596,
+     "late1": 484,
+     "late2": 8,
+     "late3": 0,
+     "notBy": 8,
+     "delayedCreditRate": 0.9175347222222235,
+     "exactOnTimeShare": 0.8779296875
+    },
+    "Shalai, Voice of Plenty": {
+     "targetTurn": 4,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3056,
+     "late1": 444,
+     "late2": 216,
+     "late3": 164,
+     "notBy": 216,
+     "delayedCreditRate": 0.7895688657407401,
+     "exactOnTimeShare": 0.74609375
+    },
+    "Thrashing Brontodon": {
+     "targetTurn": 3,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3544,
+     "late1": 328,
+     "late2": 64,
+     "late3": 64,
+     "notBy": 96,
+     "delayedCreditRate": 0.8942418981481491,
+     "exactOnTimeShare": 0.865234375
+    },
+    "Vivien Reid": {
+     "targetTurn": 5,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 2184,
+     "late1": 688,
+     "late2": 424,
+     "late3": 0,
+     "notBy": 800,
+     "delayedCreditRate": 0.6006944444444425,
+     "exactOnTimeShare": 0.533203125
+    }
+   }
+  },
+  "gate2_9F5P": {
+   "lands": [
+    "4 Temple Garden",
+    "4 Sunpetal Grove",
+    "2 Selesnya Guildgate",
+    "9 Forest",
+    "5 Plains"
+   ],
+   "counts": {
+    "temple-garden": 4,
+    "sunpetal-grove": 4,
+    "selesnya-guildgate": 2,
+    "forest": 9,
+    "plains": 5
+   },
+   "total": 85.03249458383125,
+   "cast": 82.87680041152265,
+   "manaUse": 74.970703125,
+   "usefulLands": 87.51988686582995,
+   "keepable": 96.484375,
+   "life": 91.6015625,
+   "averageLifePaid": 0.50390625,
+   "averageMulligans": 0.24609375,
+   "zeroMulliganRate": 0.7890625,
+   "sampleCount": 1024,
+   "vsReference": {
+    "reference": "10F6P",
+    "mean": -0.10853802057618774,
+    "lower95": -0.4408574300082039,
+    "upper95": 0.22378138885582843,
+    "half": 0.33231940943201616,
+    "pairedSeeds": 512,
+    "excludesZero": false,
+    "partsDiff": {
+     "total": -0.1686370601983498,
+     "cast": -0.8379147376542591,
+     "manaUse": -0.009765625,
+     "usefulLands": -0.2565150446600626,
+     "keepable": 0.027901785714291805,
+     "life": -1.66015625
+    }
+   },
+   "perCard": {
+    "Emmara, Soul of the Accord": {
+     "targetTurn": 2,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3788,
+     "late1": 184,
+     "late2": 40,
+     "late3": 32,
+     "notBy": 52,
+     "delayedCreditRate": 0.94115306712963,
+     "exactOnTimeShare": 0.9248046875
+    },
+    "Knight of Autumn": {
+     "targetTurn": 3,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3672,
+     "late1": 208,
+     "late2": 80,
+     "late3": 56,
+     "notBy": 80,
+     "delayedCreditRate": 0.9160879629629634,
+     "exactOnTimeShare": 0.896484375
+    },
+    "Llanowar Elves": {
+     "targetTurn": 1,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3692,
+     "late1": 360,
+     "late2": 12,
+     "late3": 8,
+     "notBy": 24,
+     "delayedCreditRate": 0.9310619212962974,
+     "exactOnTimeShare": 0.9013671875
+    },
+    "Lyra Dawnbringer": {
+     "targetTurn": 5,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 2276,
+     "late1": 584,
+     "late2": 416,
+     "late3": 0,
+     "notBy": 820,
+     "delayedCreditRate": 0.614474826388887,
+     "exactOnTimeShare": 0.5556640625
+    },
+    "Nullhide Ferox": {
+     "targetTurn": 4,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3096,
+     "late1": 396,
+     "late2": 240,
+     "late3": 168,
+     "notBy": 196,
+     "delayedCreditRate": 0.7961154513888884,
+     "exactOnTimeShare": 0.755859375
+    },
+    "Pelt Collector": {
+     "targetTurn": 1,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3692,
+     "late1": 360,
+     "late2": 12,
+     "late3": 8,
+     "notBy": 24,
+     "delayedCreditRate": 0.9310619212962974,
+     "exactOnTimeShare": 0.9013671875
+    },
+    "Shalai, Voice of Plenty": {
+     "targetTurn": 4,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3116,
+     "late1": 396,
+     "late2": 220,
+     "late3": 160,
+     "notBy": 204,
+     "delayedCreditRate": 0.8003833912037034,
+     "exactOnTimeShare": 0.7607421875
+    },
+    "Thrashing Brontodon": {
+     "targetTurn": 3,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3596,
+     "late1": 204,
+     "late2": 100,
+     "late3": 88,
+     "notBy": 108,
+     "delayedCreditRate": 0.8980396412037043,
+     "exactOnTimeShare": 0.8779296875
+    },
+    "Vivien Reid": {
+     "targetTurn": 5,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 2344,
+     "late1": 580,
+     "late2": 408,
+     "late3": 0,
+     "notBy": 764,
+     "delayedCreditRate": 0.6305338541666649,
+     "exactOnTimeShare": 0.572265625
+    }
+   }
+  },
+  "gate4_9F3P": {
+   "lands": [
+    "4 Temple Garden",
+    "4 Sunpetal Grove",
+    "4 Selesnya Guildgate",
+    "9 Forest",
+    "3 Plains"
+   ],
+   "counts": {
+    "temple-garden": 4,
+    "sunpetal-grove": 4,
+    "selesnya-guildgate": 4,
+    "forest": 9,
+    "plains": 3
+   },
+   "total": 84.59380107235584,
+   "cast": 81.58516589506172,
+   "manaUse": 74.169921875,
+   "usefulLands": 87.41382358140358,
+   "keepable": 96.484375,
+   "life": 90.65755208333334,
+   "averageLifePaid": 0.560546875,
+   "averageMulligans": 0.24609375,
+   "zeroMulliganRate": 0.7890625,
+   "sampleCount": 1024,
+   "vsReference": {
+    "reference": "10F6P",
+    "mean": -0.4827529197680286,
+    "lower95": -0.8525533026327123,
+    "upper95": -0.11295253690334484,
+    "half": 0.36980038286468375,
+    "pairedSeeds": 512,
+    "excludesZero": true,
+    "partsDiff": {
+     "total": -0.6073305716737565,
+     "cast": -2.12954925411519,
+     "manaUse": -0.810546875,
+     "usefulLands": -0.36257832908643195,
+     "keepable": 0.027901785714291805,
+     "life": -2.604166666666657
+    }
+   },
+   "perCard": {
+    "Emmara, Soul of the Accord": {
+     "targetTurn": 2,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3612,
+     "late1": 384,
+     "late2": 32,
+     "late3": 36,
+     "notBy": 32,
+     "delayedCreditRate": 0.9142795138888898,
+     "exactOnTimeShare": 0.8818359375
+    },
+    "Knight of Autumn": {
+     "targetTurn": 3,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3548,
+     "late1": 324,
+     "late2": 76,
+     "late3": 64,
+     "notBy": 84,
+     "delayedCreditRate": 0.895218460648149,
+     "exactOnTimeShare": 0.8662109375
+    },
+    "Llanowar Elves": {
+     "targetTurn": 1,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3692,
+     "late1": 400,
+     "late2": 4,
+     "late3": 0,
+     "notBy": 0,
+     "delayedCreditRate": 0.934027777777779,
+     "exactOnTimeShare": 0.9013671875
+    },
+    "Lyra Dawnbringer": {
+     "targetTurn": 5,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 2120,
+     "late1": 684,
+     "late2": 436,
+     "late3": 0,
+     "notBy": 856,
+     "delayedCreditRate": 0.5850694444444423,
+     "exactOnTimeShare": 0.517578125
+    },
+    "Nullhide Ferox": {
+     "targetTurn": 4,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3052,
+     "late1": 452,
+     "late2": 216,
+     "late3": 168,
+     "notBy": 208,
+     "delayedCreditRate": 0.7892795138888883,
+     "exactOnTimeShare": 0.7451171875
+    },
+    "Pelt Collector": {
+     "targetTurn": 1,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3692,
+     "late1": 400,
+     "late2": 4,
+     "late3": 0,
+     "notBy": 0,
+     "delayedCreditRate": 0.934027777777779,
+     "exactOnTimeShare": 0.9013671875
+    },
+    "Shalai, Voice of Plenty": {
+     "targetTurn": 4,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3044,
+     "late1": 456,
+     "late2": 216,
+     "late3": 164,
+     "notBy": 216,
+     "delayedCreditRate": 0.7876157407407403,
+     "exactOnTimeShare": 0.7431640625
+    },
+    "Thrashing Brontodon": {
+     "targetTurn": 3,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3576,
+     "late1": 320,
+     "late2": 56,
+     "late3": 60,
+     "notBy": 84,
+     "delayedCreditRate": 0.9011501736111122,
+     "exactOnTimeShare": 0.873046875
+    },
+    "Vivien Reid": {
+     "targetTurn": 5,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 2192,
+     "late1": 680,
+     "late2": 424,
+     "late3": 0,
+     "notBy": 800,
+     "delayedCreditRate": 0.6019965277777758,
+     "exactOnTimeShare": 0.53515625
+    }
+   }
+  },
+  "8F8P": {
+   "lands": [
+    "4 Temple Garden",
+    "4 Sunpetal Grove",
+    "8 Forest",
+    "8 Plains"
+   ],
+   "counts": {
+    "temple-garden": 4,
+    "sunpetal-grove": 4,
+    "forest": 8,
+    "plains": 8
+   },
+   "total": 84.81191941948825,
+   "cast": 82.764274691358,
+   "manaUse": 74.287109375,
+   "usefulLands": 87.60827293618526,
+   "keepable": 96.484375,
+   "life": 92.22005208333334,
+   "averageLifePaid": 0.466796875,
+   "averageMulligans": 0.24609375,
+   "zeroMulliganRate": 0.7890625,
+   "sampleCount": 1024,
+   "vsReference": {
+    "reference": "10F6P",
+    "mean": -0.3747828981627538,
+    "lower95": -0.6794978327728672,
+    "upper95": -0.07006796355264033,
+    "half": 0.30471493461011345,
+    "pairedSeeds": 512,
+    "excludesZero": true,
+    "partsDiff": {
+     "total": -0.3892122245413532,
+     "cast": -0.9504404578189138,
+     "manaUse": -0.693359375,
+     "usefulLands": -0.16812897430475005,
+     "keepable": 0.027901785714291805,
+     "life": -1.0416666666666572
+    }
+   },
+   "perCard": {
+    "Emmara, Soul of the Accord": {
+     "targetTurn": 2,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3840,
+     "late1": 72,
+     "late2": 60,
+     "late3": 48,
+     "notBy": 76,
+     "delayedCreditRate": 0.9454210069444445,
+     "exactOnTimeShare": 0.9375
+    },
+    "Knight of Autumn": {
+     "targetTurn": 3,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3688,
+     "late1": 168,
+     "late2": 96,
+     "late3": 60,
+     "notBy": 84,
+     "delayedCreditRate": 0.917209201388889,
+     "exactOnTimeShare": 0.900390625
+    },
+    "Llanowar Elves": {
+     "targetTurn": 1,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3596,
+     "late1": 356,
+     "late2": 36,
+     "late3": 36,
+     "notBy": 72,
+     "delayedCreditRate": 0.9082031250000009,
+     "exactOnTimeShare": 0.8779296875
+    },
+    "Lyra Dawnbringer": {
+     "targetTurn": 5,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 2476,
+     "late1": 452,
+     "late2": 384,
+     "late3": 0,
+     "notBy": 784,
+     "delayedCreditRate": 0.651692708333332,
+     "exactOnTimeShare": 0.6044921875
+    },
+    "Nullhide Ferox": {
+     "targetTurn": 4,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3104,
+     "late1": 300,
+     "late2": 252,
+     "late3": 184,
+     "notBy": 256,
+     "delayedCreditRate": 0.7907262731481475,
+     "exactOnTimeShare": 0.7578125
+    },
+    "Pelt Collector": {
+     "targetTurn": 1,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3596,
+     "late1": 356,
+     "late2": 36,
+     "late3": 36,
+     "notBy": 72,
+     "delayedCreditRate": 0.9082031250000009,
+     "exactOnTimeShare": 0.8779296875
+    },
+    "Shalai, Voice of Plenty": {
+     "targetTurn": 4,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3244,
+     "late1": 292,
+     "late2": 224,
+     "late3": 148,
+     "notBy": 188,
+     "delayedCreditRate": 0.8231698495370365,
+     "exactOnTimeShare": 0.7919921875
+    },
+    "Thrashing Brontodon": {
+     "targetTurn": 3,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3408,
+     "late1": 220,
+     "late2": 108,
+     "late3": 100,
+     "notBy": 260,
+     "delayedCreditRate": 0.8537688078703709,
+     "exactOnTimeShare": 0.83203125
+    },
+    "Vivien Reid": {
+     "targetTurn": 5,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 2472,
+     "late1": 444,
+     "late2": 396,
+     "late3": 0,
+     "notBy": 784,
+     "delayedCreditRate": 0.6503906249999987,
+     "exactOnTimeShare": 0.603515625
+    }
+   }
+  }
+ }
+}
