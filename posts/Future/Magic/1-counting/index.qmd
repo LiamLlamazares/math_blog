@@ -245,7 +245,7 @@ As we have seen there are two main problems: choosing the type of lands (basic, 
 ## Exact probabilistic calculation
 
 Suppose a spellbook has $N$ cards of which $K$ are “good” (for instance, lands that produce fire mana). We look at $n$ cards from a well shuffled book. How many good ones do we see? This is determined by the hypergeometric distribution
-<!-- Maybe make this a dropdown? Articles should be such that people with math up to high schoollevel can follow with mathematical details providing further depth with those withmore background. Here it is enough to state what this achieves. Namely I cal -->
+<!-- Maybe make this a dropdown? Articles should be such that people with math up to high schoollevel can follow with mathematical details providing further depth with those withmore background. Here it is enough to state what this achieves. Namely, in a deck with basics, I can calculate probability of being able to play my spells on a given turn but does not easily account for non-basics, card draw, mana ramp, exampel iamges of such cards, e.g. brainstorm and llanowar elves, etc. Should be such that if I hide all ettttails I still get the message -->
 
 ::: {#def-hypergeometric}
 
@@ -326,13 +326,13 @@ There are $2^5-1=31$ such inequalities, and each coloured land in the book belon
 The sum runs over all ways of splitting the cards seen among the land types, and it still ignores which land was played on which turn, lands that enter exhausted, lands that replace themselves with other lands, and every spell that draws a card. This is the point at which scholar-wizards reach for a computer.
 
 
-### Probabilistic calculation
+#### Probabilistic calculation
 
 A more refined solution is for the wizard to attempt to estimate the probability of drawing lands in the right amount and type to be able to cast their spells. This is the path of the scholar-wizards, perhaps the greatest of whom is Frank Karsten, a member of the wizarding Hall of Fame who also holds a PhD in probability and game theory. His two articles [@karsten2018sources; @karsten2022lands] are what most serious wizards consult. We discuss these in what follows. We jot down the mathematical details for the specialist, but keep the discussion understandable even without following the equations
 
 
 
-## How many mana sources?
+### How many lands of each type?
 
 Karsten's first idea [@karsten2018sources] is to separate two ways of failing. If Archibaldus cannot cast a three-mana spell on turn three because he only has two lands, that is the fault of the *number* of lands. If he has three lands of the wrong colours, that is the fault of the *type* of lands. To judge the type alone, Karsten conditions on having enough lands. For a spell that costs $M$ mana in total, of which $k$ symbols are of one colour, he asks for
 $$
