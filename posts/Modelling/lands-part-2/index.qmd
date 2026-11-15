@@ -3,7 +3,7 @@ title: "What lands should I play? Part 2: playing the games"
 description: "We hire a tireless apprentice, teach them to duel, and argue about the score"
 author: "Liam Llamazares--Elias"
 date: "2026-11-20"
-categories: [Probability, Monte Carlo, Magic the Gathering]
+categories: [Mathematical Modelling, Probability, Monte Carlo, Magic the Gathering]
 bibliography: biblio.bib
 draft: true
 crossref:
@@ -13,7 +13,7 @@ format:
     toc: true
     number-sections: true
     html-math-method: mathjax
-    css: [../_kit/post.css]
+    css: [../_mtg_kit/post.css]
     body-classes: mana-post
     include-in-header:
       text: |
@@ -130,7 +130,7 @@ This post teaches Monte Carlo, a common solution to problems where exact calcula
 
 ## Where we left off
 
-In [Part 1](../1-counting/index.qmd) Archibaldus the Grey lost a practice bout with a hand full of spells and the wrong lands. We saw how scholar-wizards attack the problem by counting: the hypergeometric distribution, Frank Karsten's table of how many sources each spell wants [@karsten2018sources], and a regression for how many lands to play [@karsten2022lands]. We also saw where counting stops. Lands enter exhausted, cost life, and depend on each other. Spells draw cards and make mana. Every spell in the book wants something different, and there are only so many slots.
+In [Part 1](../lands-part-1/index.qmd) Archibaldus the Grey lost a practice bout with a hand full of spells and the wrong lands. We saw how scholar-wizards attack the problem by counting: the hypergeometric distribution, Frank Karsten's table of how many sources each spell wants [@karsten2018sources], and a regression for how many lands to play [@karsten2022lands]. We also saw where counting stops. Lands enter exhausted, cost life, and depend on each other. Spells draw cards and make mana. Every spell in the book wants something different, and there are only so many slots.
 
 Archibaldus knows all of this. He did not ask for targets. He asked which lands to play. We left him with a question the tables could not settle: should he swap four basic lands for four lands that make all his colours but arrive exhausted?
 
@@ -164,7 +164,7 @@ We want the last column: an apprentice who plays the turns as a wizard would, an
 
 ## Teaching the apprentice to duel
 
-Here is the catch. In [Part 1](../1-counting/index.qmd) we only had to count cards. Now somebody has to *play* them, and at every step there are choices. Which land this turn? Pay life to use it at once? Which spell first? We must write the answers down, for every situation, in advance. A complete set of such answers is called a *policy*. Ours is a list of rules of thumb, and it is the least glamorous and most important part of the whole enterprise.
+Here is the catch. In [Part 1](../lands-part-1/index.qmd) we only had to count cards. Now somebody has to *play* them, and at every step there are choices. Which land this turn? Pay life to use it at once? Which spell first? We must write the answers down, for every situation, in advance. A complete set of such answers is called a *policy*. Ours is a list of rules of thumb, and it is the least glamorous and most important part of the whole enterprise.
 
 - **The opening hand.** The apprentice may mulligan (return) a bad hand and draw seven new cards, putting one card on the bottom of the book for each time they have done so. Roughly, they keep a seven-card hand with two to five lands and at least two spells, become less picky after each mulligan, and choose the cards to keep so that as many of them as possible can be cast.
 
@@ -202,7 +202,7 @@ $$
 $$ {#eq-cast}
 where $w_c$ is the number of copies of $c$ (times a value that is $0$ for a spell whose only effect is to replace itself with another card, and $1$ for almost everything else).
 
-Two remarks. First, the question is whether the lands *could* pay for the spell, whether or not the spell is in hand that game. Drawing the spell is luck that has nothing to do with the lands, and leaving it out removes a great deal of noise. Second, compare with Karsten's formula from [Part 1](../1-counting/index.qmd). He conditions on having drawn enough lands, so as to judge the colours alone. We do not, so a game with too few lands counts against the lands, as it should when the number of lands is part of what we are choosing. As a result our numbers and his are not directly comparable, and ours will look lower.
+Two remarks. First, the question is whether the lands *could* pay for the spell, whether or not the spell is in hand that game. Drawing the spell is luck that has nothing to do with the lands, and leaving it out removes a great deal of noise. Second, compare with Karsten's formula from [Part 1](../lands-part-1/index.qmd). He conditions on having drawn enough lands, so as to judge the colours alone. We do not, so a game with too few lands counts against the lands, as it should when the number of lands is part of what we are choosing. As a result our numbers and his are not directly comparable, and ours will look lower.
 
 ### Mana put to use
 
@@ -240,7 +240,7 @@ The first version of the score had four parts: cast on time, mana put to use, li
 
 We took eleven decks, nine of them from that week's tournament results, added and removed lands one at a time, let the search find the best lands for each count, and scored everything on $512$ fresh shuffles. For ten of the eleven decks the score preferred more lands than the deck played. On average it wanted one and a half more, and when we let it go further, for seven of the decks the best count was three or four more. No tournament wizard plays like that. The score had a blind spot, and it is easy to see where once you look. Extra lands make every spell easier to cast and every hand easier to keep. The only part that could object was mana put to use, measured over four turns, and the misery of drawing nothing but lands arrives on turn five.
 
-So we went back to the real games of [Part 1](../1-counting/index.qmd). Recall the chart of win rate against lands seen: one land too many cost $10$ points, two cost $28$, while one too few cost nothing. That is a measurement of how real wizards are punished. We added the useful-lands part (@eq-use) so that the score could see a flood at all, and then chose the weights so that, when the apprentice plays the same kind of decks, the score falls off on either side in the same way the real win rate does. The weights on mana put to use and on useful lands come out of that fit. The weight on keepable hands is pinned down by a direct measurement: in the real games the first mulligan costs $15.5$ points of win rate. Together they come to $5.95$, $4.26$ and $4.28$ sixteenths, which we rounded to $6$, $4.25$ and $4.25$.
+So we went back to the real games of [Part 1](../lands-part-1/index.qmd). Recall the chart of win rate against lands seen: one land too many cost $10$ points, two cost $28$, while one too few cost nothing. That is a measurement of how real wizards are punished. We added the useful-lands part (@eq-use) so that the score could see a flood at all, and then chose the weights so that, when the apprentice plays the same kind of decks, the score falls off on either side in the same way the real win rate does. The weights on mana put to use and on useful lands come out of that fit. The weight on keepable hands is pinned down by a direct measurement: in the real games the first mulligan costs $15.5$ points of win rate. Together they come to $5.95$, $4.26$ and $4.28$ sixteenths, which we rounded to $6$, $4.25$ and $4.25$.
 
 ![Decks whose spells cost $2.6$ to $3$ on average. Left: the real win rate against lands seen. Middle: the first score, which keeps rewarding more lands. Right: the fitted score, which falls on both sides as the real win rate does. Each panel has its own scale.](fig_fit.svg){#fig-fit fig-align="center" width="92%"}
 
@@ -314,7 +314,7 @@ where $t$ is the $97.5\%$ point of Student's distribution with $n-1$ degrees of 
 
 ### Archibaldus's book
 
-At the end of [Part 1](../1-counting/index.qmd) a merchant offered Archibaldus four copies of a land that makes all three of his colours but arrives exhausted, in place of four of his basic lands. The table liked the extra sources, the rule about exhausted lands did not, and we were left without an answer. Here is what the apprentice made of the two sets of lands, over $1{,}024$ bouts each on the same shuffles.
+At the end of [Part 1](../lands-part-1/index.qmd) a merchant offered Archibaldus four copies of a land that makes all three of his colours but arrives exhausted, in place of four of his basic lands. The table liked the extra sources, the rule about exhausted lands did not, and we were left without an answer. Here is what the apprentice made of the two sets of lands, over $1{,}024$ bouts each on the same shuffles.
 
 ![Archibaldus's lands before and after the swap, scored on the five parts. The taller the row, the more the part counts.](fig_score_parts.svg){#fig-score-parts fig-align="center" width="92%"}
 

@@ -1,15 +1,17 @@
 ---
-title: "What lands should I play? Part 1: counting"
+title: "What lands should I play? Part 1"
 author: "Liam Llamazares--Elias"
 date: "2026-11-15"
-categories: [Probability, Magic the Gathering]
+categories: [Mathematical Modelling, Probability, Magic the Gathering]
 description: "A wizard's guide to not losing with a hand full of spells"
 bibliography: biblio.bib
 image: "cover.jpg"
+aliases:
+  - /posts/Magic/1-counting/
 resources:
   - "cover.jpg"
 shortcodes:
-  - ../_kit/mana.lua
+  - ../_mtg_kit/mana.lua
 crossref:
   eq-prefix: ""
 format:
@@ -17,8 +19,8 @@ format:
     toc: true
     body-classes: mana-post
     css:
-      - ../_kit/mana.css
-      - ../_kit/post.css
+      - ../_mtg_kit/mana.css
+      - ../_mtg_kit/post.css
     number-sections: true
     html-math-method: mathjax
     include-in-header:

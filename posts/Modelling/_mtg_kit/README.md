@@ -1,12 +1,12 @@
 # Magic kit
 
-Shared by the Magic posts (`1-counting`, `2-playing`). A post opts in with, in its front matter:
+Shared by the Magic posts (`lands-part-1`, `lands-part-2`). A post opts in with, in its front matter:
 
-    shortcodes: [../_kit/mana.lua]
+    shortcodes: [../_mtg_kit/mana.lua]
     format:
       html:
         body-classes: mana-post
-        css: [../_kit/mana.css, ../_kit/post.css]
+        css: [../_mtg_kit/mana.css, ../_mtg_kit/post.css]
 
 Shortcodes:
 
@@ -17,4 +17,4 @@ Shortcodes:
 
 Files: `mana.lua` (shortcodes), `cards.json` / `duel.json` (data), `mana.css` (pips, cards, duel),
 `post.css` (figure paper, tables), `duel.js` (stepper), `cardname.js` (hover cards), `symbols/` (Scryfall SVGs), `art/` (card art, 480 px).
-Add a card: one entry in `cards.json` plus `art/<id>.jpg`. Preview: `../preview.sh [1-counting|2-playing]`.
+Add a card: one entry in `cards.json` plus `art/<id>.jpg`. Preview: `../preview.sh [lands-part-1|lands-part-2]`.

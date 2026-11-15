@@ -85,4 +85,4 @@ def conv(path):
     out+=b'trailer<</Size %d/Root 1 0 R>>\nstartxref\n%d\n%%%%EOF'%(len(objs)+1,x)
     return out
 for n in sys.argv[2:]:
-    open(f'{sys.argv[1]}/{n}.pdf','wb').write(conv(f'/home/llamazar/github/math_blog/posts/Magic/_kit/symbols/{n}.svg'))
+    open(f'{sys.argv[1]}/{n}.pdf','wb').write(conv(f'/home/llamazar/github/math_blog/posts/Modelling/_mtg_kit/symbols/{n}.svg'))
