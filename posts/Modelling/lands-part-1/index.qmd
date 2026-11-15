@@ -3,7 +3,7 @@ title: "What lands should I play? Part 1"
 author: "Liam Llamazares--Elias"
 date: "2026-11-15"
 categories: [Mathematical Modelling, Probability, Magic the Gathering]
-description: "A wizard's guide to not losing with a hand full of spells"
+description: "We can't let Archibaldus down"
 bibliography: biblio.bib
 image: "cover.jpg"
 aliases:
@@ -221,7 +221,7 @@ The five lands above are called *basic lands*. There are also more versatile lan
 Four non-basic lands and what each one costs you.
 :::
 
-Had Archibaldus drawn a land that produces water or dark mana in place of his first Swamp, he would have cast the rest of his hand without trouble. So why not play only these? Because each comes with a price. Some enter play exhausted, so the wizard waits a turn before using them. Some cost life (a wizard begins with $20$ and loses at zero). And they are no guarantee: had he drawn a land that produces dark or fire mana, he would have been as stuck as before with no water mana to cast his spells. Non-basic lands help but they are not a panacea.
+Had Archibaldus drawn a land that produces water or dark mana in place of his first Swamp, he would have cast the rest of his hand without trouble. So why not play only these? Because each one has drawbacks. Some enter play exhausted, so the wizard waits a turn before using them. Some cost life (a wizard begins with $20$ and loses at zero). And they are no guarantee: had he drawn a land that produces dark or fire mana, he would have been as stuck as before with no water mana to cast his spells. Non-basic lands help but they are not a panacea.
 
 ### Non-land mana sources & card draw
 
@@ -411,7 +411,7 @@ How to adapt for these cards?
 :::
 
 ## How many lands?
-@tbl-karsten assumes $24$ lands and the next step of Karsten's research was to address the problem of how many lands a wizard should play. To do so Karsten turned to the data [@karsten2022lands]. He collected $95{,}143$ tournament decks of $60$ cards that had won more matches than they lost, and fitted a [linear regression](https://en.wikipedia.org/wiki/Linear_regression) of the number of lands on three features of the deck:
+@tbl-karsten assumes the wizard uses $24$ lands and the next step of Karsten's investigation was to address the problem of how many lands a wizard should play. To do so Karsten turned to the data [@karsten2022lands]. He collected $95{,}143$ tournament decks of $60$ cards that had won more matches than they lost, and fitted a [linear regression](https://en.wikipedia.org/wiki/Linear_regression) of the number of lands on three features of the deck:
 $$
 \text{lands}\;\approx\;19.59\;+\;1.90\,\bar m\;-\;0.28\,d\;+\;0.27\,c ,
 $$ {#eq-regression}
@@ -433,4 +433,4 @@ A merchant now offers him four copies of {{< cn crumbling-necropolis >}}, a land
 
 We analysed both sets of lands (how exactly is the subject of Part 2). After the swap he can pay for Lightning Bolt on the first turn in $84\%$ of duels, down from $89\%$, and for Counterspell on the second turn in $43\%$, up from $31\%$. The other spells hardly shift. Is that a good trade? It depends on how much a first-turn Bolt is worth compared with a second-turn Counterspell, and no count of sources can tell us that.
 
-None of this is a criticism of @tbl-karsten, which has proved useful for many a wizard. But Archibaldus is not most wizards, and he has a duel to win. In Part 2 we will see if we can help Archibaldus and weigh in on whether he should make the swap.
+None of this is a criticism of @tbl-karsten, which has proved useful for many a wizard. But Archibaldus is not most wizards, and he has a duel to win. In Part 2 we will discuss our methods and see if we can help Archibaldus and weigh in on whether he should make the swap.
