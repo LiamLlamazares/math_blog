@@ -188,7 +188,7 @@ Let us watch a few turns of Archibaldus' practive bout this morning. To keep thi
 
 {{< duel lucky >}}
 
-<!-- I would remove the repeated artist names we have already mentioned them before -->
+<!-- I would remove the repeated artist names we have already mentioned them before. ALso I feel like caption right now is easy to confuse with art details and perhaps a tad too light -->
 
 Archibaldus wins a practice bout. Press Next to step through his first three turns.
 :::
@@ -204,16 +204,6 @@ The same opening hand with different draws.
 
 This is known in the wizarding community as being *mana-locked* (the more common term is not fit for print). Related problems are drawing too few lands of any kind, and drawing exclusively lands, leaving the wizard with nothing to cost. All three are frustrating, and all three happen to the most powerful and esteemed wizards. Imagine the disgrace if Archibaldus lost to a novice because he drew the wrong lands and stood there unable to cast a thing. This is a problem, and a very important one. Archibaldus has entrusted us with solving it, or at least with making it as rare as we can.
 
-## Does it matter? {#sec-does-it-matter}
-
-Before doing any mathematics it is worth asking how much is at stake. Happily, wizards keep records. The site 17Lands publishes the full history of millions of real games, including how many lands each player saw [@seventeenlandsdata]. We took $1{,}057{,}242$ of them (duels of the $40$-spell format called “Limited”) and asked a simple question: among the first $13$ cards a player saw, how many were lands, compared with what their deck would give on average? And how often did they win?
-
-![What the wrong number of lands costs, measured in real games.](fig_land_price.svg){#fig-land-price fig-align="center" width="80%"}
-
-The comparison is made within each deck, so that a strong deck does not distort it. Two points are worth remembering: the stakes are large: a couple of lands is the difference between a favourite and an underdog. And the curve is lopsided: in these duels, too many lands is worse than too few. One land fewer than expected costs nothing. One land more costs $10$ points of win rate. We will meet this lopsidedness again in Part 2, where it turns out to matter a great deal.
-
-## What wizards already do
-
 To address the problem we must first look at the solutions the most powerful wizards already use.
 
 ### Better lands
@@ -227,11 +217,10 @@ The five lands above are called *basic lands*. There are also more versatile lan
 Four non-basic lands and what each one costs you.
 :::
 
-Had Archibaldus drawn a land that produces water or dark mana in place of his first Swamp, he would have cast the rest of his hand without trouble. So why not play only these? Because each comes with a price. Some cost life (a wizard begins with $20$ and loses at zero). Some enter play exhausted, so the wizard waits a turn before using them, which is exactly the delay we were trying to avoid. And they are no guarantee: had he drawn a land that produces dark or fire mana, he would have been as stuck as before. Choosing which non-basic lands to play, and how many, is the problem this post is named after.
+Had Archibaldus drawn a land that produces water or dark mana in place of his first Swamp, he would have cast the rest of his hand without trouble. So why not play only these? Because each comes with a price. Some enter play exhausted, so the wizard waits a turn before using them. Some cost life (a wizard begins with $20$ and loses at zero). And they are no guarantee: had he drawn a land that produces dark or fire mana, he would have been as stuck as before with no blue mana to cast his spells. Non-basic lands help but they are not a panacea.
 
 ### Going mono-colour
-
-Some wizards specialise in a single school of magic and play, say, only earth spells and Forests. They are never short of the right colour. Unfortunately, they also give up some of the most powerful spells, which tend to be the ones that combine schools.
+Some wizards specialise in a single school of magic and play, say, only earth spells. They are never short of the right colour. Unfortunately, they also give up some of the most powerful spells, which tend to be the ones that combine schools.
 
 ::: {#fig-one-vs-two}
 
@@ -240,15 +229,23 @@ Some wizards specialise in a single school of magic and play, say, only earth sp
 Two creatures with the same total cost.
 :::
 
-And even a mono-colour wizard must decide *how many* lands to play. Too few, and the spells stay in hand. Too many, and there are no spells left to cast.
+Moreover, even a mono-colour wizard must decide *how many* lands to play. Too few, and they cannot cast their spells. Too many, and there are no spells left to cast.
 
-### Counting
+<!-- At some point there is a transition form wizar terms to mtg terms (spell -> card, book-> deck, etc this should be cleared up, makes sense thouhg to avoid confusing MTG players as a land does not count as speel perhaps this changes how land should be introduced?)-->
+It is worth asking how much is at stake. Happily, wizards keep records. The site 17Lands publishes the full history of millions of real games, including how many lands each player saw [@seventeenlandsdata]. We took $1{,}057{,}242$ of them (duels of the $40$-spell format called “Limited”) and asked a simple question: among the first $13$ cards a player saw, how many were lands, compared with what their deck would give on average? And how often did they win?
 
-A more refined solution is to compute. This is the path of the scholar-wizards, the greatest of whom is Frank Karsten, a member of the game's Hall of Fame who also holds a PhD in probability and game theory. His two articles [@karsten2018sources; @karsten2022lands] are what most serious wizards consult, and the next three sections follow them, starting from the formula underneath.
+![What the wrong number of lands costs, measured in real games.](fig_land_price.svg){#fig-land-price fig-align="center" width="80%"}
+<!-- Text is small and hard to see I would imporve the UI on this to not use as much text for example y axis could just be chage in winrate in % change what that decks epxects to the average of the deck -->
 
-## The hypergeometric distribution
+The comparison is made within each deck, so that a strong deck does not distort it. Two points are important. The stakes are large: a couple of lands is the difference between a favourite and an underdog. And the curve is lopsided: in these duels, too many lands is worse than too few. One land fewer than expected costs nothing. One land more costs $10$ points of win rate. We will meet this lopsidedness again in Part 2 (yes a follow up is planned), where it turns out to matter a great deal.
 
-Suppose a spellbook has $N$ cards of which $K$ are “good” (for instance, lands that produce fire mana). We look at $n$ cards from a well shuffled book. How many good ones do we see?
+
+As we have seen there are two main problems: choosing the type of lands (basic, non-basic and which within each group) and how many of them to play. We begin by stydying the problem with the most idealized approach.
+
+## Exact probabilistic calculation
+
+Suppose a spellbook has $N$ cards of which $K$ are “good” (for instance, lands that produce fire mana). We look at $n$ cards from a well shuffled book. How many good ones do we see? This is determined by the hypergeometric distribution
+<!-- Maybe make this a dropdown? Articles should be such that people with math up to high schoollevel can follow with mathematical details providing further depth with those withmore background. Here it is enough to state what this achieves. Namely I cal -->
 
 ::: {#def-hypergeometric}
 
@@ -278,17 +275,17 @@ A hand with $0$, $1$, $6$ or $7$ lands is close to unplayable, and that happens 
 
 :::
 
-![The table of @exm-opening as a picture.](fig_opening_hand.svg){#fig-opening-hand fig-align="center" width="75%"}
+![The table of @exm-opening drawn visually](fig_opening_hand.svg){#fig-opening-hand fig-align="center" width="75%"}
 
 ::: {#exm-bolt name="Lightning Bolt on turn one"}
 
-Archibaldus goes first and wants to cast Lightning Bolt at once. He needs a fire land among his $7$ cards. By (@eq-at-least-one), with $K$ fire lands,
+Archibaldus goes first and wants to cast Lightning Bolt at once. He needs a fire land among his $7$ cards. By (@eq-at-least-one), if his 60 card deck contains $K$ fire lands,
 
 | Fire lands $K$ | 8 | 10 | 12 | 14 | 16 | 18 | 20 |
 |:--|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| $\mathbb{P}(X\ge1)$ (%) | 65.4 | 74.1 | 80.9 | 86.1 | 90.1 | 93.0 | 95.2 |
+| % success | 65.4 | 74.1 | 80.9 | 86.1 | 90.1 | 93.0 | 95.2 |
 
-To be $90\%$ sure he needs $16$ of his $24$ lands to produce fire. That leaves $8$ for water and dark, with which the Electromancer and the Charm are in serious danger. Something has to give, and we have not yet asked a single hard question.
+To be $90\%$ sure he needs $16$ of his $24$ lands to produce fire. If we play only basics, that leaves $8$ for water and dark, with which the Electromancer and the Charm are in serious danger. Thus, we must resort to non-basic lands but this complicates matters a great deal.
 
 :::
 
@@ -296,12 +293,14 @@ To be $90\%$ sure he needs $16$ of his $24$ lands to produce fire. That leaves $
 
 The hard questions begin when a spell needs two colours, or when a land can produce two. To state them properly we need to say what it means to be *able to pay*.
 
-A wizard has lands $\ell_1,\dots,\ell_m$ in play, and land $\ell_j$ can produce any one colour in a set $A_j\subseteq\{W,U,B,R,G\}$. A spell has coloured symbols and a number $g$ of “any type” mana. Write $p_c$ for the number of symbols of colour $c$ and $p=\sum_c p_c$. Paying the cost means assigning a different land to each symbol, such that the land assigned to a symbol of colour $c$ has $c\in A_j$. This is a matching in a bipartite graph, and the classical theorem on matchings gives a clean answer.
+A wizard has $m$ lands $\ell_1,\dots,\ell_m$ in play, and land $\ell_j$ can produce any one colour in a set $A_j\subseteq\{W,U,B,R,G\}$. A spell costs $p_c$ mana of type colour $c$ and $g$ mana of “any type”. Write $\abs{p}:=\sum_c p_c$. Paying the cost means assigning a different land to each symbol, such that the land assigned to a symbol of colour $c$ has $c\in A_j$. This is a matching problem for a [bipartite graph](https://en.wikipedia.org/wiki/Bipartite_graph).
+
+<!--<!-- A figure here would be quite useful, could show lands with mana they can produced matched to spell colors. NOt usre this covers things like filter lands though where you haev to pay mana for the land itself, could be worth a note. This disuccsion should also be put in a detail dropdown the relveant part bein summarized at a higher level with brief and claear language-->
 
 ::: {#prp-hall name="When can a wizard pay?"}
 
-The cost can be paid if and only if $m\ge p+g$ and, for every set of colours $C\subseteq\{W,U,B,R,G\}$,
-
+The cost can be paid if and only if $m\ge \abs{p}+g$ and, for every set of colours $C\subseteq\{W,U,B,R,G\}$,
+<!--<!-- I feel like this can be simplified so C={W,U,B,R,G} this would read cost can be paid if and only if I have enough lands of the colors-->
 $$
 \#\{j : A_j\cap C\neq\emptyset\}\;\ge\;\sum_{c\in C}p_c .
 $$ {#eq-hall}
@@ -312,29 +311,44 @@ In words: for every group of colours, the lands that produce at least one colour
 
 ::: {.proof}
 
-Both conditions are clearly necessary. For sufficiency, Hall's marriage theorem says that the coloured symbols can all be matched to distinct lands if and only if every set $S$ of symbols has at least $|S|$ lands that can pay for one of its members. The lands that can pay for a member of $S$ depend only on the set $C$ of colours appearing in $S$, and the largest $S$ with colours in $C$ consists of all the symbols of those colours. So Hall's condition for all $S$ is equivalent to (@eq-hall) for all $C$. Once the coloured symbols are matched, the generic mana can be paid by any $g$ of the remaining $m-p$ lands, which is possible exactly when $m\ge p+g$.
+Both conditions are clearly necessary. For sufficiency, [Hall's marriage theorem](https://en.wikipedia.org/wiki/Hall's_marriage_theorem)
+
+<!--Don't see the equivalence statemnt of H tehreom is for selecting disting elements of the sets of a familiy (why do we want to sleect distinct elements, coooors may be repeated, maybe sets is sets of lands? And I want to sleect such that no repertiont yes. But i can always choose lands with repertinios where does condition of matching mana come in-->
+
+says that the coloured symbols can all be matched to distinct lands if and only if every set $S$ of symbols has at least $|S|$ lands that can pay for one of its members. The lands that can pay for a member of $S$ depend only on the set $C$ of colours appearing in $S$, and the largest $S$ with colours in $C$ consists of all the symbols of those colours. So Hall's condition for all $S$ is equivalent to (@eq-hall) for all $C$. Once the coloured symbols are matched, the generic mana can be paid by any $g$ of the remaining $m-p$ lands, which is possible exactly when $m\ge p+g$.
 
 :::
 
 For the Goblin Electromancer, with cost {{< mana UR >}}, condition (@eq-hall) reads: at least one land that makes water, at least one that makes fire, and at least *two* lands that make water or fire. The third condition is the one people forget. A single land that makes both colours satisfies the first two and still cannot pay for the Electromancer on its own.
 
-There are $2^5-1=31$ such inequalities, and each coloured land in the book belongs to one of the $31$ possible types $A_j$. The number of lands of each type among the cards seen follows a multivariate version of (@eq-hypergeometric), so in principle the probability of being able to pay is a finite sum. In practice nobody writes it down. The sum runs over all ways of splitting the cards seen among the land types, and it still ignores which land was played on which turn, lands that enter exhausted, and every spell that draws a card. This is the point at which scholar-wizards reach for a computer.
+There are $2^5-1=31$ such inequalities, and each coloured land in the book belongs to one of the $31$ possible types $A_j$. The number of lands of each type among the cards seen follows a multivariate version of (@eq-hypergeometric), so in principle the probability of being able to pay is a finite sum. In practice nobody writes it down.
+<!--<!-- Can you estimate the number of terms in the sum?-->
+The sum runs over all ways of splitting the cards seen among the land types, and it still ignores which land was played on which turn, lands that enter exhausted, lands that replace themselves with other lands, and every spell that draws a card. This is the point at which scholar-wizards reach for a computer.
 
-## Karsten's table
 
-Karsten's first idea [@karsten2018sources] is to separate two ways of failing. If Archibaldus cannot cast a three-mana spell on turn three because he only has two lands, that is the fault of the *number* of lands. If he has three lands of the wrong colours, that is the fault of the *mix*. To judge the mix alone, Karsten conditions on having enough lands. For a spell that costs $M$ mana in total, of which $k$ symbols are of one colour, he asks for
+### Probabilistic calculation
 
+A more refined solution is for the wizard to attempt to estimate the probability of drawing lands in the right amount and type to be able to cast their spells. This is the path of the scholar-wizards, perhaps the greatest of whom is Frank Karsten, a member of the wizarding Hall of Fame who also holds a PhD in probability and game theory. His two articles [@karsten2018sources; @karsten2022lands] are what most serious wizards consult. We discuss these in what follows. We jot down the mathematical details for the specialist, but keep the discussion understandable even without following the equations
+
+
+
+## How many mana sources?
+
+Karsten's first idea [@karsten2018sources] is to separate two ways of failing. If Archibaldus cannot cast a three-mana spell on turn three because he only has two lands, that is the fault of the *number* of lands. If he has three lands of the wrong colours, that is the fault of the *type* of lands. To judge the type alone, Karsten conditions on having enough lands. For a spell that costs $M$ mana in total, of which $k$ symbols are of one colour, he asks for
 $$
 \mathbb{P}\bigl(\text{at least } k \text{ sources of the colour by turn } M \;\big|\; \text{at least } M \text{ lands by turn } M\bigr),
 $$ {#eq-karsten}
+<!--<!-- Hmm maybe some math is useful even in main text but condiitonaly notation should be made clear how to read. Also blank lines between block equations and text makes largeee gap so remove-->
 
-for the wizard who goes first. To see what the conditioning does, return to @exm-bolt with $K=14$. The event “a fire land in hand” is contained in the event “a land in hand”, so
+for the wizard who goes first. To see what the conditioning does, return to @exm-bolt with $K=14$ fire lands and 24 lands of all types in the deck and $M=1$. The event “a fire land in hand” is contained in the event “a land in hand”, so
 
 $$
 \mathbb{P}(\text{fire land}\mid\text{land})=\frac{\mathbb{P}(\text{fire land})}{\mathbb{P}(\text{land})}=\frac{0.861}{0.978}=0.880 .
 $$
 
-Karsten then lets the wizard take a *mulligan*, that is, return an unplayable hand and draw a new one with one card fewer. His rule is to return any seven-card hand with $0$, $1$, $6$ or $7$ lands, which are precisely the hands of @exm-opening. Mulligans and conditioning cannot be folded into (@eq-hypergeometric) by hand, so he estimates (@eq-karsten) by simulating a great many opening hands and draws for a $60$-card book with $24$ lands. So the table is not the hypergeometric formula after all. It is a simulation, but of a particular kind: the computer deals the cards and counts the lands. Nobody plays them. Finally he fixes a level of confidence: $90\%$ for one-mana spells, rising by one point per mana to $95\%$ for six-mana spells, since failing to cast an expensive spell hurts more. The smallest number of sources that reaches the level is his recommendation. Here is a slice of the result, where $C$ is a symbol of the colour in question and a number is generic mana.
+Karsten then lets the wizard take a *mulligan*, that is, return an unplayable hand and draw a new one with one card fewer. His rule is to return any seven-card hand with $0$, $1$, $6$ or $7$ lands, which are the bad hands of @exm-opening. Mulligans and conditioning cannot be folded into (@eq-hypergeometric) by hand,
+<!--<!-- COuld be by summing many condiitonals thogh veyr annoying-->
+so he estimates (@eq-karsten) by simulating a great many opening hands and draws for a $60$-card book with $24$ lands. Finally, he fixes a level of confidence: $90\%$ for one-mana spells, rising by one point per mana to $95\%$ for six-mana spells, since failing to cast an expensive spell may hurt more. The smallest number of sources that reaches the level is his recommendation. Here is a slice of the result, where $C$ is a symbol of the colour in question and a number is generic mana.
 
 | Cost | Cast on turn | Sources needed (of 24 lands) |
 |:--|:--|:-:|
@@ -385,7 +399,7 @@ Let us collect what the scholar-wizards have given Archibaldus. He knows how man
 
 - **One spell at a time.** The table says what each spell wants. It does not say what to do when the Bolt wants $14$ fire sources, the Charm wants three colours on turn three, and there are $24$ slots.
 
-- **The number and the mix are tangled.** Conditioning on having enough lands separates the two questions neatly, and a real duel puts them back together.
+- **The number and the types are tangled.** Conditioning on having enough lands separates the two questions neatly, and a real duel puts them back together.
 
 - **Life.** Paying $2$ life for mana on turn two is a good trade in some books and a terrible one in others, and it has no place in a count of sources.
 
