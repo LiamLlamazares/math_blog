@@ -1,0 +1,153 @@
+% manacards.sty: simplified cards (plain / art switch), mini chips, 8pt mana pips.
+% Art mode is switched on from the command line:
+%   pdflatex -jobname=fig_x_art '\def\CARDART{1}\input{fig_x}'
+\ProvidesPackage{manacards}
+\RequirePackage{graphicx}
+\RequirePackage{textcomp}
+\RequirePackage{manafig}
+\usetikzlibrary{decorations.pathreplacing}
+\newif\ifcardart
+\ifdefined\CARDART\cardarttrue\fi
+% plain sans for chart and card text; the hand-lettered \annot keeps Comic Neue. Define \COMICSANS before the class to keep Comic Neue everywhere.
+\ifdefined\COMICSANS\else\renewcommand{\sfdefault}{qhv}\fi
+\lefthyphenmin=100 \righthyphenmin=100 % no hyphenation in figure text
+\definecolor{newc}{HTML}{E3A008}   % outline for "new this turn"
+
+% --- artists (from the Scryfall card data) --------------------------------------
+\def\defartist#1#2{\expandafter\def\csname artist@#1\endcsname{#2}}
+\defartist{lightning_bolt}{Christopher Moeller}
+\defartist{goblin_electromancer}{Edgar Sánchez Hidalgo}
+\defartist{crosiss_charm}{Marco Nelor}
+\defartist{mountain}{VEN}
+\defartist{island}{Eren Arik}
+\defartist{swamp}{Maojin Lee}
+\defartist{dimir_guildgate}{Cliff Childs}
+\defartist{watery_grave}{Raymond Bonilla}
+\defartist{sulfurous_springs}{Bruce Brenneise}
+\defartist{evolving_wilds}{Hector Ortiz}
+\defartist{grizzly_bears}{D. J. Cleland-Hura}
+\defartist{watchwolf}{Dave Kendall}
+
+% credit line under the figure (art mode only): \mcredit{id1,id2,...}
+\newif\iffirstcredit
+\newcommand{\mcreditlist}[1]{\firstcredittrue\@for\cid:=#1\do{\iffirstcredit\firstcreditfalse\else, \fi\csname artist@\cid\endcsname}}
+\newcommand{\mcredit}[1]{\ifcardart
+  \node[anchor=north,font=\sffamily\footnotesize,text=inksoft,inner sep=2pt,align=center,text width=14.5cm]
+   at ([yshift=-4pt]current bounding box.south) {Art: \mcreditlist{#1}, \textcopyright{} Wizards of the Coast};\fi}
+
+% --- mana pips at 8 pt ----------------------------------------------------------
+% \mpip{R} coloured pip for W U B R G, anything else (1, 2, N) is a grey generic pip
+\def\pipsz{3.3mm}\def\pipraise{0.6ex}\def\pipht{\height}\def\pipdp{\depth}
+\newcommand{\mpip}[1]{\begingroup
+  \ifcsname\string\color@mana#1\endcsname\colorlet{pipfill}{mana#1!78!ink}\else\colorlet{pipfill}{manaN!55!ink}\fi
+  \def\pipt{white}\if#1W\colorlet{pipfill}{manaW}\def\pipt{ink}\fi
+  \raisebox{\pipraise}[\pipht][\pipdp]{\tikz[baseline=(pipn.center)]\node(pipn)[circle,draw=white,line width=0.4pt,fill=pipfill,inner sep=0pt,minimum size=\pipsz,font=\sffamily\bfseries\footnotesize,text=\pipt]{#1};}\endgroup}
+\newcommand{\mcost}[1]{\@tfor\p:=#1\do{\mpip{\p}\hspace{0.4pt}}}   % token string, e.g. 1G or UBR
+\newcommand{\mfill}[1]{\ifcsname\string\color@mana#1p\endcsname mana#1p\else manaNp\fi}
+\newcommand{\msat}[1]{\ifcsname\string\color@mana#1\endcsname mana#1\else manaN\fi}
+\newcount\mntok
+\newcommand{\mcount}[1]{\mntok=0 \@tfor\c:=#1\do{\advance\mntok by 1 }}
+
+% colour segments of a rectangle: \msegments{colours}{x0}{y0}{x1}{y1} (horizontal split)
+\newcommand{\msegments}[6]{% colours, x0,y0,x1,y1, pale(1)/saturated underline(0)
+  \mcount{#1}\pgfmathsetmacro{\segw}{(#4-#2)/\mntok}\def\segi{0}%
+  \@tfor\c:=#1\do{%
+    \pgfmathsetmacro{\sxa}{#2+\segi*\segw}\pgfmathsetmacro{\sxb}{#2+(\segi+1)*\segw}%
+    \edef\cfa{\mfill\c}\edef\cfb{\msat\c}%
+    \fill[\cfa] (\sxa,#3) rectangle (\sxb,#5);%
+    \fill[\cfb] (\sxa,#3) rectangle (\sxb,#3+0.06);%
+    \pgfmathtruncatemacro{\segi}{\segi+1}}}
+
+% --- large card -----------------------------------------------------------------
+% \setcardgeom{width}{text height}{art height}   (cm; art height used in art mode only)
+\def\cardtextfont{\small}
+\newcommand{\setcardgeom}[3]{\def\cardw{#1}\def\cardtexth{#2}\def\cardarth{#3}%
+  \ifcardart\pgfmathsetmacro{\cardh}{0.85+#3+0.5+#2+0.12}\else\pgfmathsetmacro{\cardh}{0.85+0.5+#2+0.12}\fi}
+% \mcard[right-of-type-line]{x}{y}{id}{name}{colours}{cost}{type}{text}   (x,y = south west corner)
+\newcommand{\mcard}[9][]{%
+ \begin{scope}[shift={(#2,#3)}]
+  \pgfmathsetmacro{\cardtw}{\cardw-0.34}
+  \fill[ink!14,rounded corners=4pt] (0.05,-0.06) rectangle (\cardw+0.05,\cardh-0.06);
+  \fill[paper,rounded corners=4pt] (0,0) rectangle (\cardw,\cardh);
+  \begin{scope}\clip[rounded corners=4pt] (0,0) rectangle (\cardw,\cardh);
+    \pgfmathsetmacro{\bandy}{\cardh-0.85}
+    \msegments{#6}{0}{\bandy}{\cardw}{\cardh}{1}
+  \end{scope}
+  \draw[ink!70,line width=0.5pt,rounded corners=4pt] (0,0) rectangle (\cardw,\cardh);
+  \mcount{#7}\pgfmathsetmacro{\namew}{\cardw-0.35-0.37*\mntok}%
+  \node[anchor=west,inner sep=0pt,text width=\namew cm,font=\sffamily\bfseries\small,text=ink] at (0.17,\cardh-0.43) {#5};
+  \node[anchor=east,inner sep=0pt] at (\cardw-0.13,\cardh-0.43) {\mcost{#7}};
+  \ifcardart
+    \pgfmathsetmacro{\artt}{\cardh-0.85-0.06}\pgfmathsetmacro{\artb}{\artt-\cardarth}
+    \pgfmathsetmacro{\artw}{\cardw-0.24}\pgfmathsetmacro{\typey}{\artb-0.27}
+    \begin{scope}\clip (0.12,\artb) rectangle (\cardw-0.12,\artt);
+      \node[inner sep=0pt] at (\cardw/2,{(\artt+\artb)/2}) {\includegraphics[width=\artw cm]{art/#4.jpg}};
+    \end{scope}
+    \draw[ink!70,line width=0.4pt] (0.12,\artb) rectangle (\cardw-0.12,\artt);
+  \else
+    \pgfmathsetmacro{\typey}{\cardh-0.85-0.27}
+  \fi
+  \node[anchor=west,inner sep=0pt,font=\sffamily\footnotesize\itshape,text=inksoft] at (0.17,\typey) {#8};
+  \node[anchor=east,inner sep=0pt,font=\sffamily\footnotesize] at (\cardw-0.15,\typey) {#1};
+  \draw[ink!25,line width=0.4pt] (0.15,\typey-0.22) -- (\cardw-0.15,\typey-0.22);
+  \node[anchor=north west,inner sep=0pt,text width=\cardtw cm,font=\sffamily\cardtextfont,text=ink,align=left,execute at begin node={\lefthyphenmin=100 \righthyphenmin=100 }] at (0.17,\typey-0.3) {#9};
+ \end{scope}}
+
+% --- mini card ("chip") for the duel strips ---------------------------------------
+% \mchip{x}{y}{w}{id}{name}{colours}{mark}  mark: n = new (gold outline), s = stuck (dashed fire outline), - = none
+\def\chiph{0.66}
+\newcommand{\mchip}[7]{%
+ \begin{scope}[shift={(#1,#2)}]
+  \ifcardart\def\lw{0.52}\else\def\lw{0.26}\fi
+  \fill[paper,rounded corners=3pt] (0,0) rectangle (#3,\chiph);
+  \begin{scope}\clip[rounded corners=3pt] (0,0) rectangle (#3,\chiph);
+   \ifcardart
+     \begin{scope}\clip (0,0) rectangle (\lw,\chiph);
+       \node[inner sep=0pt] at (\lw/2,\chiph/2) {\includegraphics[width=0.97cm]{art/#4.jpg}};
+     \end{scope}
+     \draw[ink!55,line width=0.4pt] (\lw,0) -- (\lw,\chiph);
+   \else
+     \mcount{#6}\pgfmathsetmacro{\segh}{\chiph/\mntok}\def\segi{0}%
+     \@tfor\c:=#6\do{%
+       \pgfmathsetmacro{\sya}{\segi*\segh}\pgfmathsetmacro{\syb}{(\segi+1)*\segh}%
+       \edef\cfb{\msat\c!70!white}\fill[\cfb] (0,\sya) rectangle (\lw,\syb);%
+       \pgfmathtruncatemacro{\segi}{\segi+1}}
+   \fi
+  \end{scope}
+  \draw[ink!55,line width=0.4pt,rounded corners=3pt] (0,0) rectangle (#3,\chiph);
+  \pgfmathsetmacro{\chipw}{#3-\lw-0.14}
+  \node[anchor=west,inner sep=0pt,text width=\chipw cm,align=left,font=\sffamily\footnotesize\linespread{0.9}\selectfont,text=ink] at (\lw+0.07,\chiph/2) {#5};
+  \if#7n\draw[newc,line width=1.8pt,rounded corners=3pt] (-0.02,-0.02) rectangle (#3+0.02,\chiph+0.02);\fi
+  \if#7s\draw[screwc,line width=1.3pt,dash pattern=on 3pt off 2pt,rounded corners=3pt] (-0.03,-0.03) rectangle (#3+0.03,\chiph+0.03);\fi
+ \end{scope}}
+
+% --- duel strips ----------------------------------------------------------------
+% \duelgeom{max lands}{max spells}{max hand}; panels PW wide
+\def\PW{2.93}\def\PG{0.1}\def\pitch{0.74}
+\newcommand{\duelgeom}[3]{%
+  \pgfmathsetmacro{\yL}{-0.64}%
+  \pgfmathsetmacro{\yS}{\yL-0.38-#1*\pitch-0.1}%
+  \pgfmathsetmacro{\yH}{\yS-0.38-#2*\pitch-0.1}%
+  \pgfmathsetmacro{\PH}{0.05-(\yH-0.38-#3*\pitch)}}
+\def\splitchip#1/#2/#3/#4\relax{\mchip{\zx}{\zyc}{\pwi}{#1}{#2}{#3}{#4}}
+% \duelzone{panel x}{y top}{label}{items "id/name/colours/mark", or -}
+\newcommand{\duelzone}[4]{%
+  \node[anchor=north west,inner sep=0pt,font=\sffamily\bfseries\footnotesize,text=inksoft] at (#1+0.15,#2) {#3};
+  \pgfmathsetmacro{\zx}{#1+0.15}\pgfmathsetmacro{\pwi}{\PW-0.3}%
+  \def\zitems{#4}\def\zdash{-}%
+  \ifx\zitems\zdash
+    \node[anchor=north west,inner sep=0pt,font=\sffamily\footnotesize\itshape,text=inksoft!80] at (#1+0.2,#2-0.5) {nothing yet};
+  \else
+    \foreach \it [count=\kk from 0] in {#4}{%
+      \pgfmathsetmacro{\zyc}{#2-0.38-\kk*\pitch-\chiph}%
+      \expandafter\splitchip\it\relax}%
+  \fi}
+% \duelpanel{index}{title}{lands}{spells}{hand}{caption}
+\newcommand{\duelpanel}[6]{%
+  \pgfmathsetmacro{\px}{#1*(\PW+\PG)}%
+  \fill[panel] (\px,0) rectangle (\px+\PW,-\PH);
+  \node[font=\sffamily\bfseries\small,text=ink,inner sep=0pt] at (\px+\PW/2,-0.3) {#2};
+  \duelzone{\px}{\yL}{Lands in play}{#3}
+  \duelzone{\px}{\yS}{Spells cast}{#4}
+  \duelzone{\px}{\yH}{Hand}{#5}
+  \node[anchor=north west,inner sep=0pt,text width={\PW cm-0.1cm},align=left,font=\sffamily\footnotesize,text=ink,execute at begin node={\lefthyphenmin=100 \righthyphenmin=100 \hyphenpenalty=10000 \def\pipsz{2.7mm}\def\pipraise{0.28em}\def\pipht{2.3mm}\def\pipdp{0.3mm}}] at (\px+0.05,-\PH-0.12) {#6};}

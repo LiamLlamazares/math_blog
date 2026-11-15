@@ -1,0 +1,10 @@
+import { readFileSync, writeFileSync } from "node:fs";
+import { fetchScryfallCollectionCache, mergeScryfallCardFactsCacheInput } from "/tmp/claude-249092/-home-llamazar-github-Personal-manabase-calculator/4a575847-4f72-4452-88c9-1183ae9d8b65/scratchpad/main/src/cardFacts";
+const S = "/tmp/claude-249092/-home-llamazar-github-Personal-manabase-calculator/4a575847-4f72-4452-88c9-1183ae9d8b65/scratchpad";
+const names = ["Crosis's Charm","Kolaghan's Command","Electrolyze","Nicol Bolas, the Ravager","Emmara, Soul of the Accord","Nullhide Ferox","Vivien Reid","Thoughtbound Phantasm","Thought Erasure","Lazav, the Multifarious","Blood Operative","Sinister Sabotage","Vraska's Contempt","Doom Whisperer","Nightveil Predator","Dream Eater"];
+const r = await fetchScryfallCollectionCache({ cardNames: names, sourcePolicy: "study scratch fetch via product fetchScryfallCollectionCache" });
+console.log("fetched", r.cacheInput.cards.map((c: any) => c.name), "missing", r.missingIdentifiers);
+const existing = JSON.parse(readFileSync(`${S}/main/data/card-facts/default-card-facts.json`, "utf8"));
+const merged = mergeScryfallCardFactsCacheInput({ existingCacheInput: existing, refreshCacheInput: r.cacheInput });
+writeFileSync(`${S}/exp/merged-card-facts.json`, JSON.stringify(merged));
+writeFileSync(`${S}/exp/results/fetched-card-names.json`, JSON.stringify({ requested: names, fetched: r.cacheInput.cards.map((c: any) => c.name), missing: r.missingIdentifiers, retrievedAt: r.cacheInput.retrievedAt }, null, 1));

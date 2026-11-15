@@ -1,0 +1,61 @@
+% manafig.sty: shared look for every figure of the two mana posts.
+% Compile each figure as its own file with pdflatex:  \documentclass[border=4pt]{standalone} \usepackage{manafig}
+\ProvidesPackage{manafig}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[dvipsnames]{xcolor}
+\RequirePackage{tikz}
+\RequirePackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{arrows.meta,calc,positioning,shapes.geometric,shapes.misc,fit,backgrounds,decorations.pathmorphing,patterns}
+\RequirePackage{comicneue}
+
+% --- colours: the five schools of magic carry the palette ---------------------
+\definecolor{ink}{HTML}{1B1F33}        % text, axes
+\definecolor{inksoft}{HTML}{5B6078}    % secondary text
+\definecolor{gridc}{HTML}{DDE0EA}      % grid lines
+\definecolor{paper}{HTML}{F5F3EE}      % card paper
+\definecolor{manaW}{HTML}{E9D27A}      % light  (fills)
+\definecolor{manaU}{HTML}{4F8FD6}      % water
+\definecolor{manaB}{HTML}{6B5F86}      % dark
+\definecolor{manaR}{HTML}{D9553F}      % fire
+\definecolor{manaG}{HTML}{4FA35A}      % earth
+\definecolor{manaN}{HTML}{B9BDCB}      % generic
+\colorlet{manaWp}{manaW!55!white}\colorlet{manaUp}{manaU!45!white}\colorlet{manaBp}{manaB!40!white}
+\colorlet{manaRp}{manaR!45!white}\colorlet{manaGp}{manaG!45!white}\colorlet{manaNp}{manaN!60!white}
+% meaning colours used across charts (keep them consistent between figures):
+\colorlet{screwc}{manaR}   % too few lands
+\colorlet{floodc}{manaU}   % too many lands
+\colorlet{goodc}{manaG}    % playable / fine
+\colorlet{oursc}{manaB}    % the apprentice / our score
+
+% --- type ----------------------------------------------------------------------
+\renewcommand{\familydefault}{\sfdefault}
+\newcommand{\figtitle}[1]{{\bfseries\large\color{ink}#1}}
+\newcommand{\annot}[1]{{\fontfamily{ComicNeue-TLF}\selectfont\itshape\color{ink}#1}} % the wizard's margin note
+\newcommand{\num}[1]{{\bfseries\color{ink}#1}}
+
+% --- mana symbols --------------------------------------------------------------
+\newcommand{\manapip}[1]{\tikz[baseline=-0.62ex]\node[circle,draw=ink!60,line width=0.3pt,fill=mana#1p,inner sep=0.9pt,minimum size=2.1ex,font=\sffamily\bfseries\fontsize{6.5}{6.5}\selectfont,text=ink]{#1};}
+\newcommand{\managen}[1]{\tikz[baseline=-0.62ex]\node[circle,draw=ink!60,line width=0.3pt,fill=manaNp,inner sep=0.9pt,minimum size=2.1ex,font=\sffamily\bfseries\fontsize{6.5}{6.5}\selectfont,text=ink]{#1};}
+
+% --- tikz / pgfplots styles ----------------------------------------------------
+\tikzset{
+  note arrow/.style={-{Stealth[length=5pt,width=4pt]},line width=0.7pt,draw=ink,shorten >=2pt,shorten <=2pt},
+  note/.style={align=left,inner sep=2pt,text=ink},
+  landtok/.style={rounded corners=2pt,draw=ink!45,line width=0.3pt,inner xsep=4pt,inner ysep=2.5pt,font=\sffamily\bfseries\footnotesize,text=ink},
+  panel/.style={rounded corners=4pt,fill=ink!4,draw=none},
+}
+\pgfplotsset{
+  mana axis/.style={
+    axis lines=left, axis line style={draw=ink!55,line width=0.4pt,-},
+    tick style={draw=ink!55}, tick align=outside,
+    tick label style={font=\sffamily\small,text=inksoft},
+    label style={font=\sffamily\small,text=inksoft},
+    ymajorgrids, grid style={draw=gridc,line width=0.4pt},
+    every axis plot/.append style={line width=1.1pt},
+    legend style={draw=none,fill=none,font=\sffamily\small,text=inksoft,legend cell align=left},
+    clip=false,
+  },
+  mana bar/.style={ybar,bar width=#1,draw=none,rounded corners=1.5pt},
+}
+\endinput

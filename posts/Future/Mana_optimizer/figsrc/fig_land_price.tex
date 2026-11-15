@@ -1,0 +1,42 @@
+\documentclass[border=4pt]{standalone}
+\usepackage{manafig}
+\usepackage{manacards}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[mana axis, width=13.6cm, height=7.6cm, xmin=-0.55, xmax=6.55, ymin=-58, ymax=7,
+  ytick={0,-10,-20,-30,-40,-50}, yticklabels={0,\textminus10,\textminus20,\textminus30,\textminus40,\textminus50},
+  xtick={0,1,2,3,4,5,6}, xticklabels={3 fewer,2 fewer,1 fewer,as expected,1 more,2 more,3 more},
+  xtick style={draw=none}, x axis line style={draw=none},
+  tick label style={font=\sffamily\small,text=ink},
+  xticklabel style={font=\sffamily\small\bfseries,text=ink,yshift=-1pt},
+  ylabel={change in win rate (percentage points)}, ylabel style={font=\sffamily\small,text=inksoft},
+  xlabel={lands among the first 13 cards, compared with what the deck expects}, xlabel style={font=\sffamily\small,text=inksoft,yshift=-2pt},
+  ymajorgrids=true, major grid style={draw=ink!14,line width=0.5pt}]
+  \draw[ink!22,line width=0.6pt] (axis cs:-0.55,-10) -- (axis cs:6.55,-10);
+  \draw[ink!22,line width=0.6pt] (axis cs:-0.55,-20) -- (axis cs:6.55,-20);
+  \draw[ink!22,line width=0.6pt] (axis cs:-0.55,-30) -- (axis cs:6.55,-30);
+  \draw[ink!22,line width=0.6pt] (axis cs:-0.55,-40) -- (axis cs:6.55,-40);
+  \draw[ink!22,line width=0.6pt] (axis cs:-0.55,-50) -- (axis cs:6.55,-50);
+  \addplot[mana bar=27pt, fill=screwc, bar shift=0pt] coordinates {(0,-46.9)(1,-14.6)(2,0.4)};
+  \addplot[mana bar=27pt, fill=floodc, bar shift=0pt] coordinates {(4,-10.0)(5,-28.1)(6,-48.8)};
+  % zero baseline
+  \draw[ink,line width=1.4pt] (axis cs:-0.55,0) -- (axis cs:6.55,0);
+  \fill[ink] (axis cs:3,0) circle (2.2pt);
+  % value labels
+  \node[anchor=north,font=\sffamily\bfseries\small,text=ink,inner sep=1.5pt] at (axis cs:0,-46.9) {\textminus46.9};
+  \node[anchor=north,font=\sffamily\bfseries\small,text=ink,inner sep=1.5pt] at (axis cs:1,-14.6) {\textminus14.6};
+  \node[anchor=north,font=\sffamily\bfseries\small,text=ink,inner sep=1.5pt] at (axis cs:4,-10.0) {\textminus10.0};
+  \node[anchor=north,font=\sffamily\bfseries\small,text=ink,inner sep=1.5pt] at (axis cs:5,-28.1) {\textminus28.1};
+  \node[anchor=north,font=\sffamily\bfseries\small,text=ink,inner sep=1.5pt] at (axis cs:6,-48.8) {\textminus48.8};
+  \node[anchor=south,font=\sffamily\bfseries\small,text=ink,inner sep=2pt] at (axis cs:2,0.4) {+0.4};
+  \node[anchor=south,font=\sffamily\bfseries\small,text=ink,inner sep=3pt] at (axis cs:3,0) {0};
+  % notes
+  \node[note,align=center,font=\normalsize] (n1) at (axis cs:2,-31) {\annot{one land short:}\\\annot{no harm done}};
+  \draw[note arrow] (n1.north) to[bend left=20] (axis cs:2.05,-3.3);
+  \node[note,align=center,font=\normalsize] (n2) at (axis cs:3.6,-40) {\annot{one land too many:}\\\annot{already 10 points}};
+  \draw[note arrow] (n2.north) to[bend right=30] (axis cs:3.95,-16.5);
+\end{axis}
+\node[anchor=north,font=\sffamily\footnotesize,text=inksoft,inner sep=2pt] at ([yshift=-3pt]current bounding box.south)
+  {1,057,242 games of 17Lands Premier Draft, compared within each deck};
+\end{tikzpicture}
+\end{document}

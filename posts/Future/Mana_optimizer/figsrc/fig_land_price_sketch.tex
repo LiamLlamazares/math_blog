@@ -1,0 +1,40 @@
+\documentclass[border=4pt]{standalone}
+\usepackage{manafig}
+\usepackage{manacards}
+\begin{document}
+\newcommand{\tx}[1]{{\fontfamily{ComicNeue-TLF}\selectfont\color{ink}#1}}
+\newcommand{\txb}[1]{{\fontfamily{ComicNeue-TLF}\selectfont\bfseries\color{ink}#1}}
+\tikzset{wob/.style={decorate,decoration={random steps,segment length=3pt,amplitude=0.5pt}}}
+\begin{tikzpicture}[x=1.78cm,y=0.118cm]
+  % loose grid
+  \foreach \v in {-10,-20,-30,-40,-50}{
+    \draw[wob,ink!22,dash pattern=on 4pt off 3pt,line width=0.6pt] (-0.7,\v) -- (6.6,\v);
+    \node[anchor=east,font=\normalsize] at (-0.78,\v) {\tx{\textminus\the\numexpr-\v\relax}};}
+  % bars
+  \foreach \x/\v/\c in {0/-46.9/screwc,1/-14.6/screwc,2/0.4/screwc,4/-10.0/floodc,5/-28.1/floodc,6/-48.8/floodc}{
+    \pgfmathsetmacro{\lo}{min(0,\v)}\pgfmathsetmacro{\hi}{max(0,\v)}
+    \fill[\c!22] (\x-0.3,\lo) rectangle (\x+0.3,\hi);
+    \path[pattern=north east lines,pattern color=\c!85] (\x-0.27,\lo+0.8) rectangle (\x+0.27,\hi-0.8);
+    \draw[wob,\c!90!ink,line width=1.2pt] (\x-0.3,0) -- (\x-0.3,\v) -- (\x+0.3,\v) -- (\x+0.3,0);
+    \draw[wob,\c!90!ink,line width=0.7pt] (\x-0.31,0) -- (\x-0.29,\v) -- (\x+0.29,\v+0.5) -- (\x+0.31,0);}
+  % axes
+  \draw[wob,ink,line width=1.6pt] (-0.7,0) -- (6.6,0);
+  \draw[wob,ink,line width=1.1pt] (-0.7,6) -- (-0.7,-56);
+  \node[anchor=east,font=\normalsize] at (-0.78,0) {\tx{0}};
+  \node[font=\normalsize,rotate=90,anchor=south] at (-1.35,-25) {\tx{change in win rate (percentage points)}};
+  % labels
+  \foreach \x/\t in {0/3 fewer,1/2 fewer,2/1 fewer,3/as expected,4/1 more,5/2 more,6/3 more}
+    \node[font=\normalsize] at (\x,-60) {\txb{\t}};
+  \node[font=\normalsize] at (3,-67) {\tx{lands among the first 13 cards, compared with what the deck expects}};
+  \foreach \x/\v/\t in {0/-46.9/{46.9},1/-14.6/{14.6},4/-10.0/{10.0},5/-28.1/{28.1},6/-48.8/{48.8}}
+    \node[anchor=north,font=\large,inner sep=2pt] at (\x,\v) {\txb{\textminus\t}};
+  \node[anchor=south,font=\large,inner sep=2pt] at (2,0.4) {\txb{+0.4}};
+  \node[anchor=south,font=\large,inner sep=2pt] at (3,0) {\txb{0}};
+  % notes
+  \node[align=center,font=\large] (n1) at (2,-33) {\annot{one land short:}\\\annot{no harm done}};
+  \draw[note arrow,wob] (n1.north) to[bend left=20] (2.05,-6.5);
+  \node[align=center,font=\large] (n2) at (3.6,-43) {\annot{one land too many:}\\\annot{already 10 points}};
+  \draw[note arrow,wob] (n2.north) to[bend right=30] (3.95,-19);
+  \node[anchor=north,font=\footnotesize] at (3,-72) {\tx{1,057,242 games of 17Lands Premier Draft, compared within each deck}};
+\end{tikzpicture}
+\end{document}

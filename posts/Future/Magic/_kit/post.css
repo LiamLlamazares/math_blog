@@ -1,0 +1,24 @@
+/* Shared figure and table styling for the two-part mana-lands posts.
+   Applies inside pages whose body has the class mana-post (body-classes: mana-post). */
+
+/* Charts are SVGs drawn with dark ink on white: give them a white "paper" so they read in dark mode. */
+.mana-post figure img.figure-img,
+.mana-post figure img.img-fluid{
+  background:#fff;padding:.9rem 1rem;border-radius:.7rem;
+  border:1px solid rgba(128,128,128,.28);box-shadow:0 .1rem .5rem rgba(0,0,0,.08);
+}
+.mana-post figure.quarto-float figcaption{margin-top:.6rem}
+
+/* Tables: centred, compact, with a light rule */
+.mana-post table{width:auto;margin:1rem auto;font-variant-numeric:tabular-nums}
+.mana-post table th,.mana-post table td{padding:.35rem .7rem}
+.mana-post .table-responsive,.mana-post div.table-wrapper{overflow-x:auto}
+@media (max-width:576px){.mana-post table{display:block;overflow-x:auto;max-width:100%;width:max-content;font-size:.88rem}.mana-post table th,.mana-post table td{padding:.3rem .45rem}}
+
+/* Draft notes show up loudly in preview */
+.mana-post .callout-warning{margin:1rem 0}
+
+/* Narrow screens: keep the page column from being stretched by wide equations, and let those scroll */
+.mana-post main.content{max-width:100% !important}
+.mana-post span.math.display{display:block;max-width:100%;overflow-x:auto;overflow-y:hidden}
+.mana-post mjx-container[display="true"]{max-width:100% !important;min-width:0 !important;overflow-x:auto;overflow-y:hidden}

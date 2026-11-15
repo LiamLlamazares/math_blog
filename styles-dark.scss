@@ -1,0 +1,141 @@
+/*-- scss:defaults --*/
+// Dark palette: soft near-black page, off-white text. Contrast on the page
+// background (#16181d): body 13.3, links 9.7, muted 7.1 (all above WCAG AA).
+$primary: #8fb4ff;
+$body-bg: #16181d;
+$body-color: #dcdfe6;
+
+$link-color: #7cc8f5;
+$link-hover-color: #b2e0fb;
+$link-decoration: none;
+
+$royal-blue: #9db8ff;      // internal references
+$forest-green: #86d494;    // citations
+$navy-blue: #7cc8f5;       // ordinary links in posts
+
+$blog-navbar-bg: #20232b;
+$blog-navbar-fg: #e8eaf0;
+$blog-rule-color: #2e333d;
+$blog-muted-color: #9ba4b5;
+$blog-toc-active-color: #b8ceff;
+$blog-callout-bg: #1d2027;
+$blog-callout-accent: #8fb4ff;
+$blog-listing-desc-color: #b4bbc8;
+$blog-badge-border-color: #424957;
+
+/*-- scss:rules --*/
+// Dark-only rules (this sheet is only used by the dark theme).
+
+body { background-color: $body-bg; }
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { color: #f1f3f8; }
+
+hr { border-color: $blog-rule-color; opacity: 1; }
+
+// Footer
+.nav-footer {
+    background-color: $blog-navbar-bg;
+    border-top: 1px solid $blog-rule-color;
+    color: $blog-muted-color;
+    a, .nav-link { color: #c3c9d6; }
+    a:hover { color: #ffffff; }
+}
+
+// Navbar: thin edge so it separates from the page
+.navbar { border-bottom: 1px solid $blog-rule-color; }
+
+// Search box (Quarto/autocomplete colours the field with the inverted body colours)
+.aa-Autocomplete .aa-Form, .aa-DetachedFormContainer .aa-Form {
+    background-color: #12141a;
+    border-color: #424957;
+    color: $body-color;
+}
+.navbar .aa-Autocomplete .aa-Form { background-color: transparent; border: none; }
+.aa-Form .aa-InputWrapper .aa-Input,
+.aa-Form .aa-InputWrapperSuffix .aa-ClearButton,
+.aa-Form .aa-InputWrapperSuffix .aa-CopyButton { color: $body-color; }
+.aa-DetachedContainer { background-color: $body-bg; }
+.aa-DetachedOverlay .aa-SourceHeader .search-result-header,
+#quarto-search-results .aa-SourceHeader .search-result-header { background-color: #20232b; color: $body-color; }
+.aa-Panel .aa-Item[aria-selected="true"], .aa-Panel .aa-Item:hover { background-color: #2a2f3a; }
+
+// Tables
+.table, table {
+    --bs-table-color: #{$body-color};
+    --bs-table-bg: transparent;
+    --bs-table-border-color: #3a404c;
+    --bs-table-striped-bg: rgba(255, 255, 255, 0.04);
+    --bs-table-hover-bg: rgba(255, 255, 255, 0.06);
+    color: $body-color;
+    border-color: #3a404c;
+}
+table > :not(caption) > * > * { background-color: transparent; color: inherit; border-bottom-color: #3a404c; }
+thead th { color: #f1f3f8; border-bottom-color: #5a6272; }
+
+// Blockquotes
+blockquote, .blockquote {
+    color: #b4bbc8;
+    border-left: 4px solid #424957;
+    background-color: rgba(255, 255, 255, 0.025);
+}
+
+// Code
+pre, pre.sourceCode, div.sourceCode {
+    background-color: #1d2027;
+    border: 1px solid $blog-rule-color;
+    color: $body-color;
+}
+code { color: #f0a6c4; background-color: rgba(255, 255, 255, 0.06); }
+pre code { color: inherit; background-color: transparent; }
+
+// Callouts: Quarto colours the header per type; keep that, on a dark body
+.callout .callout-body-container, .callout .callout-body { color: $body-color; }
+.callout.callout-style-default .callout-header { background-color: rgba(255, 255, 255, 0.05) !important; }
+
+// Table of contents: current section
+.sidebar-toc a.active, #TOC a.active, .toc-active { color: $blog-toc-active-color !important; }
+#quarto-margin-sidebar .active { border-left-color: $primary !important; }
+
+// Figures drawn with dark ink on a transparent background: white paper.
+// (Post figures only: not the navbar logo, listing thumbnails or card art.)
+#quarto-document-content figure img.figure-img,
+#quarto-document-content figure img.img-fluid,
+#quarto-document-content p > img.img-fluid {
+    background: #fff;
+    padding: .9rem 1rem;
+    border-radius: .7rem;
+    border: 1px solid rgba(128, 128, 128, .28);
+}
+#quarto-document-content .quarto-listing img,
+#quarto-document-content img.mk-pip {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    border: 0;
+}
+
+// Listing page (Posts by Tag)
+.quarto-listing .quarto-post { border-bottom-color: $blog-rule-color; }
+.quarto-listing .listing-title { color: $body-color !important; }
+.quarto-listing .listing-title:hover { color: $primary !important; }
+.quarto-listing .listing-category { background-color: transparent; }
+.quarto-listing-category .category { color: $link-color; }
+
+// Home page: "Recent comments" side panel (colours are hard-coded light in the include)
+.comment-sidebar .sidebar-content { background: #1d2027; border-color: $blog-rule-color; }
+.comment-sidebar .sidebar-header { background: #20232b; border-bottom-color: $blog-rule-color; }
+.comment-sidebar .sidebar-header h4, .comment-sidebar .comment-author { color: #e8eaf0; }
+.comment-sidebar .close-btn, .comment-sidebar .comment-action, .comment-sidebar .comment-action strong { color: $blog-muted-color; }
+.comment-sidebar .comment-snippet { color: #c3c9d6; }
+.comment-sidebar .comment-item { border-bottom-color: $blog-rule-color; }
+.comment-sidebar .comment-item:hover { background: #20232b; }
+.comment-sidebar .comment-link { color: $link-color; }
+.comment-sidebar .comment-avatar { border-color: $blog-rule-color; }
+
+// Home page dashboard (assets/css/dashboard.css has its own, slightly different dark greys)
+html body.quarto-dark,
+html body.quarto-dark .dashboard-container { background-color: $body-bg; }
+html body.quarto-dark .pane { background-color: #1d2027; }
+html body.quarto-dark .recent-pdf-link { color: $link-color; }
+html body.quarto-dark .pdf-download-link { background: #2a2f3a; color: #c3c9d6; }
+html body.quarto-dark .pdf-download-link:hover { background: #343a47; color: $link-hover-color; }

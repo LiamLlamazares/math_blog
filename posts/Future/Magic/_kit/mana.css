@@ -1,0 +1,123 @@
+/* Mana kit: cards (layout A, classic frame), inline mana symbols, the click-through duel.
+   Every class and variable is prefixed mk-.  Cards keep their own colours in both
+   page themes; only the page chrome (duel stage, tabs, captions) follows the theme. */
+
+:root{--mk-ink:#212529;--mk-ink2:#495057;--mk-muted:#6c757d;--mk-rule:#d9dde5;--mk-sunk:#eef0f5;--mk-surface:#fff;
+ --mk-accent:#2a4b8d;--mk-new:#0a8f83;--mk-stuck:#d12f27;--mk-pipink:#151a2e;--mk-pipring:rgba(0,0,0,.4)}
+body.quarto-dark{--mk-ink:#eceef6;--mk-ink2:#bbc0d4;--mk-muted:#9aa0b8;--mk-rule:#3a3f55;--mk-sunk:#242838;--mk-surface:#1b1e2a;
+ --mk-accent:#9db8ff;--mk-new:#2fd0c0;--mk-stuck:#ff6b61;--mk-pipring:rgba(255,255,255,.45)}
+
+/* ---------- mana symbols ---------- */
+.mk-pip{width:1.25em;height:1.25em;flex:none;display:inline-block;vertical-align:-.17em}
+.mk-mana{white-space:nowrap}
+.mk-mana .mk-pip{width:1em;height:1em;vertical-align:-.16em;margin:0 .04em;filter:drop-shadow(-.05em .08em 0 var(--mk-pipring))}
+
+/* ---------- cards: layout A ---------- */
+.mk-f-r{--fl:#efb9a3;--fm:#c95a3c;--fd:#7e2c1b}.mk-f-u{--fl:#b5cfe8;--fm:#4f86bc;--fd:#274c75}.mk-f-b{--fl:#a79e9a;--fm:#4c4643;--fd:#1f1b1a}
+.mk-f-g{--fl:#b3d3a9;--fm:#4d8d58;--fd:#244b2d}.mk-f-w{--fl:#f3ecd2;--fm:#d9cfa3;--fd:#8d8358}
+.mk-f-ub{--fl:#a9bfd8;--fm:#4a6f9a;--fd:#232a45}.mk-f-br{--fl:#c9a79c;--fm:#8a4a3c;--fd:#2a1a18}
+.mk-f-gold{--fl:#f1dd98;--fm:#cba63e;--fd:#7b5f17}.mk-f-land{--fl:#d3c3a7;--fm:#a08b6e;--fd:#5f4e39}
+
+.mk-card{color:#1b1612;flex:none;box-sizing:border-box;font-size:12.6px;line-height:normal;width:17.5em;aspect-ratio:63/88;background:#14110f;border-radius:1.15em;padding:.6em;position:relative;box-shadow:0 .25em .7em rgba(0,0,0,.38);text-align:left}
+.mk-card *{box-sizing:border-box}
+.mk-split .mk-in{background:linear-gradient(90deg,var(--sa) 0 50%,var(--sb) 50% 100%)}
+.mk-f-ub{--sa:#5d92c6;--sb:#4c4643}.mk-f-br{--sa:#4c4643;--sb:#c95a3c}
+.mk-split .mk-nb,.mk-split .mk-tb{background:linear-gradient(90deg,color-mix(in srgb,var(--sa) 40%,#fff) 35%,color-mix(in srgb,var(--sb) 40%,#fff) 65%)}
+.mk-card p{margin:0}
+.mk-in{height:100%;border-radius:.5em;background:linear-gradient(155deg,var(--fl),var(--fm) 40%,var(--fd));padding:.5em .55em .6em;display:flex;flex-direction:column;gap:.3em;position:relative;box-shadow:inset 0 0 0 .08em rgba(0,0,0,.5)}
+.mk-nb,.mk-tb{display:flex;align-items:center;justify-content:space-between;gap:.4em;padding:0 .6em;border-radius:.9em / 1.1em;border:.1em solid rgba(0,0,0,.8);background:linear-gradient(180deg,color-mix(in srgb,var(--fl) 55%,#fff),color-mix(in srgb,var(--fl) 85%,#fff 0%) 55%,color-mix(in srgb,var(--fm) 35%,var(--fl)));box-shadow:inset 0 0 0 .07em rgba(255,255,255,.45),.08em .14em .25em rgba(0,0,0,.4);flex:none}
+.mk-nb{height:2.3em}.mk-tb{height:1.75em}
+.mk-nm{font:700 1.3em/1 "Alegreya SC",Georgia,serif;white-space:nowrap;letter-spacing:.01em}
+.mk-tb span{font:700 .9em/1 "Cinzel",Georgia,serif;letter-spacing:.03em}
+.mk-cost{display:inline-flex;gap:.1em;align-items:center;flex:none}
+.mk-art{flex:0 0 auto;height:10.2em;border:.12em solid #0c0a08;box-shadow:0 0 0 .1em rgba(255,255,255,.18);background-size:cover;background-position:center;background-color:#333}
+.mk-tx{flex:1;min-height:0;background:linear-gradient(180deg,#f6efdd,#eadfc4);background-color:#f1e7cf;border:.1em solid rgba(0,0,0,.75);border-radius:.15em;padding:.45em .7em;display:flex;align-items:center;font:500 1.22em/1.18 "EB Garamond",Georgia,serif;box-shadow:inset 0 0 .5em rgba(120,90,40,.25)}
+.mk-tx.mk-ctr{padding:.3em .7em 4.3em;align-items:flex-start}
+.mk-tx.mk-land{flex-direction:column;justify-content:center;gap:.25em;text-align:center}
+.mk-tx.mk-land2{padding:.3em .6em;gap:.1em}
+.mk-tx.mk-land2 p{font-size:.86em;line-height:1.08;text-wrap:balance}
+.mk-tx.mk-land2 .mk-makes{font-size:.9em}
+.mk-tx.mk-land2 .mk-big .mk-pip{width:1.7em;height:1.7em}
+.mk-tx.mk-land p{font-size:.95em;line-height:1.15}
+.mk-makes{font:700 1.05em/1 "Alegreya SC",Georgia,serif;letter-spacing:.04em;color:#1b1612}
+.mk-big{display:flex;align-items:center;justify-content:center;gap:.4em}
+.mk-tx .mk-big .mk-pip{width:2.5em;height:2.5em;margin:0}
+.mk-or{font:700 .72em/1 "EB Garamond",Georgia,serif;font-style:italic;color:#5b4b33}
+.mk-tx .mk-pip{width:1em;height:1em;margin:0 .03em;vertical-align:-.17em}
+.mk-pt{position:absolute;right:.95em;bottom:.85em;padding:.35em .7em;display:flex;flex-direction:column;align-items:flex-start;gap:.15em;white-space:nowrap;border:.1em solid rgba(0,0,0,.85);border-radius:.55em / .7em;background:linear-gradient(180deg,color-mix(in srgb,var(--fl) 60%,#fff),var(--fl));font:700 1em/1.1 "Alegreya SC",Georgia,serif;box-shadow:.06em .12em .25em rgba(0,0,0,.45)}
+.mk-pt>div{display:flex;justify-content:space-between;align-items:baseline;gap:.5em;width:100%}
+.mk-pl{font-size:.92em;letter-spacing:.03em}.mk-pt b{font:700 1.15em/1 "Cinzel",Georgia,serif}
+.mk-gives{display:none}
+.mk-card .mk-pip{filter:drop-shadow(-.06em .09em 0 rgba(0,0,0,.45))}
+.mk-card .mk-tx .mk-pip{filter:drop-shadow(-.05em .07em 0 rgba(0,0,0,.35))}
+
+/* small form, used inside the duel */
+.mk-card.mk-sm{font-size:6.3px}
+.mk-sm .mk-nb{height:auto;min-height:2.6em;padding:.4em .6em;border-radius:1.2em / 1.5em;flex-direction:column;align-items:flex-start;gap:.35em}
+.mk-sm .mk-nm{font-size:1.8em!important;white-space:normal;line-height:1.05;min-width:0}
+.mk-sm .mk-pip{width:2em;height:2em}
+.mk-sm .mk-tb,.mk-sm .mk-tx,.mk-sm .mk-pt{display:none}
+.mk-sm .mk-gives{display:flex;position:absolute;right:.5em;bottom:.5em;align-items:center;gap:.15em;padding:.2em .45em .2em .3em;border-radius:2em;background:rgba(255,255,255,.88);border:.1em solid rgba(0,0,0,.7)}
+.mk-sm .mk-gives i{font:700 2.2em/1 "Cinzel",Georgia,serif;font-style:normal;color:#1b1612;margin-right:.05em}
+.mk-sm .mk-gives .mk-pip{width:2.6em;height:2.6em}
+.mk-sm .mk-art{position:relative}
+.mk-sm .mk-art{flex:1;height:auto}
+.mk-sm .mk-in{padding:.6em .7em .8em;gap:.5em}
+
+/* rows and credit line */
+.mk-cards,.mk-single{margin:.5em 0}
+.mk-single{display:flex;flex-direction:column;align-items:center}
+.mk-row{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;align-items:flex-start}
+.mk-credit{margin:.7em 0 0;font-size:.78rem;line-height:1.35;color:var(--mk-muted);text-align:center}
+@media (max-width:520px){.mk-card{font-size:13.1px}.mk-card.mk-sm{font-size:6.3px}}
+
+/* art (paths are relative to this file) */
+.mk-img-lightning-bolt{background-image:url("art/lightning_bolt.jpg")}
+.mk-img-goblin-electromancer{background-image:url("art/goblin_electromancer.jpg")}
+.mk-img-crosiss-charm{background-image:url("art/crosiss_charm.jpg")}
+.mk-img-mountain{background-image:url("art/mountain.jpg")}
+.mk-img-island{background-image:url("art/island.jpg")}
+.mk-img-swamp{background-image:url("art/swamp.jpg")}
+.mk-img-forest{background-image:url("art/forest.jpg")}
+.mk-img-plains{background-image:url("art/plains.jpg")}
+.mk-img-dimir-guildgate{background-image:url("art/dimir_guildgate.jpg")}
+.mk-img-watery-grave{background-image:url("art/watery_grave.jpg")}
+.mk-img-sulfurous-springs{background-image:url("art/sulfurous_springs.jpg")}
+.mk-img-evolving-wilds{background-image:url("art/evolving_wilds.jpg")}
+.mk-img-grizzly-bears{background-image:url("art/grizzly_bears.jpg")}
+.mk-img-watchwolf{background-image:url("art/watchwolf.jpg")}
+
+/* ---------- the duel ---------- */
+.mk-duel{color:var(--mk-ink);font-size:15px;line-height:1.5;margin:1em 0;text-align:left}
+.mk-duel p{margin:0}
+.mk-btn{font:600 13px/1.2 system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--mk-ink);background:var(--mk-sunk);border:1px solid var(--mk-rule);border-radius:7px;padding:6px 12px;cursor:pointer}
+.mk-duel button:focus-visible{outline:2px solid var(--mk-accent);outline-offset:2px}
+.mk-btn:disabled{opacity:.4;cursor:default}
+.mk-stage{background:var(--mk-sunk);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:12px}
+.mk-zone{display:flex;flex-direction:column;gap:6px}
+.mk-zl{font:600 11.5px/1.2 system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--mk-muted)}
+.mk-row-sm{justify-content:flex-start;gap:12px;padding:5px}
+.mk-mk{margin:0;display:flex;flex-direction:column;align-items:center;gap:7px}
+.mk-mk figcaption{font:600 11px/1 system-ui,-apple-system,"Segoe UI",sans-serif;min-height:11px;color:var(--mk-muted);margin:0}
+.mk-mk.mk-new figcaption{color:var(--mk-new)}.mk-mk.mk-stuck figcaption{color:var(--mk-stuck)}
+.mk-mk.mk-new .mk-card{outline:3px solid var(--mk-new);outline-offset:3px}
+.mk-mk.mk-stuck .mk-card{outline:3px dashed var(--mk-stuck);outline-offset:3px}
+.mk-mk.mk-used .mk-card{opacity:.55}
+.mk-say{font-size:15.5px;margin:12px 0 0}
+.mk-probe{position:absolute;left:0;top:0;visibility:hidden;pointer-events:none}
+.mk-probe .mk-say{margin:12px 0 0}
+.mk-final{display:none}
+.mk-ctrl{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:6px}
+.mk-dots{display:flex;gap:5px}
+.mk-dots i{width:8px;height:8px;border-radius:50%;background:var(--mk-rule)}
+.mk-dots i.mk-on{background:var(--mk-accent)}
+.mk-count{font-size:13px;color:var(--mk-muted)}
+@media (max-width:520px){.mk-stage{padding:10px}.mk-row-sm{gap:8px}.mk-mk figcaption{font-size:10px}}
+
+/* ---------- print: each duel shows its final step ---------- */
+@media print{
+ .mk-play,.mk-duel noscript{display:none!important}
+ .mk-final{display:block!important}
+ .mk-card{-webkit-print-color-adjust:exact;print-color-adjust:exact;box-shadow:none}
+ .mk-cards,.mk-single,.mk-duel{break-inside:avoid}
+}

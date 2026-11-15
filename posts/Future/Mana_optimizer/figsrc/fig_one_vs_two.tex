@@ -1,0 +1,13 @@
+\documentclass[border=4pt]{standalone}
+\usepackage{manafig}
+\usepackage{manacards}
+\begin{document}
+\setcardgeom{4.8}{0.7}{2.55}
+\begin{tikzpicture}
+  \mcard[\textbf{2/2}]{0}{0}{grizzly_bears}{Grizzly Bears}{G}{1G}{Creature}{One school of magic.}
+  \mcard[\textbf{3/3}]{5.5}{0}{watchwolf}{Watchwolf}{GW}{GW}{Creature}{Two schools of magic.}
+  \node[note,anchor=west,align=left] (n1) at (11.1,\cardh*0.62) {\annot{same cost,}\\\annot{bigger wolf}};
+  \draw[note arrow] (n1.south west) to[bend left=30] (5.5+4.8-0.05,{\cardh-0.85-0.27-0.05});
+  \mcredit{grizzly_bears,watchwolf}
+\end{tikzpicture}
+\end{document}

@@ -1,13 +1,6 @@
 /*-- scss:defaults --*/
-$primary: #1E3A8A; 
-$body-bg: #FCFCFC; 
-$body-color: #333333; 
-
-// LaTeX-style colors
-// $royal-blue: #4169E1;
-$royal-blue: #0000f9;
-$forest-green: #228B22;
-$navy-blue: #00baee;
+// Shared by the light and dark themes. The mode-specific palette (the colour
+// variables used below) lives in styles-light.scss and styles-dark.scss.
 
 // Typography
 $font-family-base: "Merriweather", "Georgia", "Times New Roman", serif !default;
@@ -47,7 +40,7 @@ body {
 // Ensure navbar links are white
 .navbar .nav-link, 
 .navbar .navbar-brand {
-    color: #ffffff !important;
+    color: $blog-navbar-fg !important;
 }
 
 // Spacious layout
@@ -59,22 +52,22 @@ body {
 
 // Navbar styling: Refined Navy blue (slightly lighter)
 .navbar {
-    background-color: #757679 !important; 
+    background-color: $blog-navbar-bg !important; 
 }
 
 // Sidebar styling
 #quarto-margin-sidebar {
-    border-left: 1px solid #E2E8F0;
+    border-left: 1px solid $blog-rule-color;
     padding-left: 1.5rem;
 }
 
 .sidebar-toc a {
-    color: #64748B;
+    color: $blog-muted-color;
     transition: color 0.2s ease;
 }
 
 .sidebar-toc a:hover, .sidebar-toc a.active {
-    color: #1E3A8A;
+    color: $blog-toc-active-color;
     font-weight: 600;
 }
 
@@ -101,10 +94,10 @@ body {
 
 // Callout redesign
 .callout {
-    border: 1px solid #E2E8F0 !important;
-    background-color: #FFFFFF !important;
+    border: 1px solid $blog-rule-color !important;
+    background-color: $blog-callout-bg !important;
     border-left-width: 4px !important;
-    border-left-color: #1E3A8A !important;
+    border-left-color: $blog-callout-accent !important;
     border-radius: 4px;
 }
 
@@ -127,20 +120,20 @@ a:hover {
 
     // Dates and reading time: muted gray, not links
     .listing-date, .listing-reading-time {
-        color: #64748B !important;
+        color: $blog-muted-color !important;
         font-size: 0.85rem;
     }
 
     // Descriptions: normal body color
     .listing-description {
-        color: #555 !important;
+        color: $blog-listing-desc-color !important;
         font-size: 0.9rem;
     }
 
     // Category badges
     .listing-category {
-        color: #64748B !important;
-        border-color: #CBD5E1 !important;
+        color: $blog-muted-color !important;
+        border-color: $blog-badge-border-color !important;
         font-size: 0.75rem;
         text-transform: uppercase;
         letter-spacing: 0.03em;

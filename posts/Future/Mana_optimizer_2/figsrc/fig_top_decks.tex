@@ -1,0 +1,82 @@
+\documentclass[border=4pt]{standalone}
+\usepackage{manafig}
+\renewcommand{\sfdefault}{qhv}
+\colorlet{g1}{oursc!38!white}\colorlet{g2}{oursc!55!white}\colorlet{g3}{oursc!78!white}\colorlet{g4}{oursc!100!black}
+\def\ss{0.55}\def\sp{0.62}\def\xs{3.1}
+% one deck square: #1 column, #2 y centre, #3 fill colour
+\newcommand{\deck}[3]{\fill[#3,rounded corners=2pt] (\xs+#1*\sp,#2-\ss/2) rectangle (\xs+#1*\sp+\ss,#2+\ss/2);}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\node[anchor=north west,font=\sffamily\bfseries\large,text=ink] at (0,0.3) {47 decks, week of 9 November 2026: 24 kept as they were};
+\node[anchor=west,font=\sffamily\bfseries\normalsize,text=ink] at (0,-1.22) {Standard};
+\node[anchor=west,font=\sffamily\footnotesize,text=inksoft] at (0,-1.55) {3 of 8 changed};
+\deck{0}{-1.35}{g3}
+\deck{1}{-1.35}{g2}
+\deck{2}{-1.35}{g1}
+\deck{3}{-1.35}{manaN!40!white}
+\deck{4}{-1.35}{manaN!40!white}
+\deck{5}{-1.35}{manaN!40!white}
+\deck{6}{-1.35}{manaN!40!white}
+\deck{7}{-1.35}{manaN!40!white}
+\node[anchor=west,font=\sffamily\bfseries\normalsize,text=ink] at (0,-2.62) {Pioneer};
+\node[anchor=west,font=\sffamily\footnotesize,text=inksoft] at (0,-2.95) {4 of 8 changed};
+\deck{0}{-2.75}{g2}
+\deck{1}{-2.75}{g2}
+\deck{2}{-2.75}{g1}
+\deck{3}{-2.75}{g1}
+\deck{4}{-2.75}{manaN!40!white}
+\deck{5}{-2.75}{manaN!40!white}
+\deck{6}{-2.75}{manaN!40!white}
+\deck{7}{-2.75}{manaN!40!white}
+\node[anchor=west,font=\sffamily\bfseries\normalsize,text=ink] at (0,-4.02) {Modern};
+\node[anchor=west,font=\sffamily\footnotesize,text=inksoft] at (0,-4.35) {5 of 7 changed};
+\deck{0}{-4.15}{g4}
+\deck{1}{-4.15}{g3}
+\deck{2}{-4.15}{g3}
+\deck{3}{-4.15}{g3}
+\deck{4}{-4.15}{g2}
+\deck{5}{-4.15}{manaN!40!white}
+\deck{6}{-4.15}{manaN!40!white}
+\node[anchor=west,font=\sffamily\bfseries\normalsize,text=ink] at (0,-5.42) {Historic};
+\node[anchor=west,font=\sffamily\footnotesize,text=inksoft] at (0,-5.75) {4 of 8 changed};
+\deck{0}{-5.55}{g3}
+\deck{1}{-5.55}{g2}
+\deck{2}{-5.55}{g2}
+\deck{3}{-5.55}{g1}
+\deck{4}{-5.55}{manaN!40!white}
+\deck{5}{-5.55}{manaN!40!white}
+\deck{6}{-5.55}{manaN!40!white}
+\deck{7}{-5.55}{manaN!40!white}
+\node[anchor=west,font=\sffamily\bfseries\normalsize,text=ink] at (0,-6.82) {Commander};
+\node[anchor=west,font=\sffamily\footnotesize,text=inksoft] at (0,-7.15) {7 of 16 changed};
+\deck{0}{-6.95}{g4}
+\deck{1}{-6.95}{g3}
+\deck{2}{-6.95}{g3}
+\deck{3}{-6.95}{g3}
+\deck{4}{-6.95}{g2}
+\deck{5}{-6.95}{g1}
+\deck{6}{-6.95}{g1}
+\deck{7}{-6.95}{manaN!40!white}
+\deck{8}{-6.95}{manaN!40!white}
+\deck{9}{-6.95}{manaN!40!white}
+\deck{10}{-6.95}{manaN!40!white}
+\deck{11}{-6.95}{manaN!40!white}
+\deck{12}{-6.95}{manaN!40!white}
+\deck{13}{-6.95}{manaN!40!white}
+\deck{14}{-6.95}{manaN!40!white}
+\deck{15}{-6.95}{manaN!40!white}
+\node[anchor=south west,font=\sffamily\bfseries\footnotesize,text=ink,inner sep=1pt] at (\xs-0.0,-3.85) {Amulet Titan\,\,+2.71};
+\node[anchor=south west,font=\sffamily\bfseries\footnotesize,text=ink,inner sep=1pt] at (\xs-0.0,-6.65) {Edgar Markov\,\,+2.27};
+\node[anchor=north west,font=\sffamily\bfseries\footnotesize,text=ink,inner sep=1pt] at (\xs+\sp,-7.25) {Kaalia of the Vast\,\,+1.97};
+\node[note] (n) at (11.2,-1.45) {\annot{one square, one deck;}\\\annot{the darker, the bigger the gain}};
+\draw[note arrow] (n.west) to[bend left=25] (4.7,-1.12);
+% key
+\def\ky{-8.35}
+\node[anchor=west,font=\sffamily\footnotesize,text=inksoft] at (0,\ky) {gain in score points};
+\fill[manaN!40!white,rounded corners=2pt] (3.1,\ky-0.14) rectangle (3.38,\ky+0.14);\node[anchor=west,font=\sffamily\footnotesize,text=ink] at (3.45,\ky) {kept};
+\fill[g1,rounded corners=2pt] (4.6,\ky-0.14) rectangle (4.88,\ky+0.14);\node[anchor=west,font=\sffamily\footnotesize,text=ink] at (4.95,\ky) {under 0.5};
+\fill[g2,rounded corners=2pt] (6.9,\ky-0.14) rectangle (7.18,\ky+0.14);\node[anchor=west,font=\sffamily\footnotesize,text=ink] at (7.25,\ky) {0.5 to 1};
+\fill[g3,rounded corners=2pt] (8.9,\ky-0.14) rectangle (9.18,\ky+0.14);\node[anchor=west,font=\sffamily\footnotesize,text=ink] at (9.25,\ky) {1 to 2};
+\fill[g4,rounded corners=2pt] (10.5,\ky-0.14) rectangle (10.78,\ky+0.14);\node[anchor=west,font=\sffamily\footnotesize,text=ink] at (10.85,\ky) {over 2};
+\end{tikzpicture}
+\end{document}

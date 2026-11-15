@@ -1,0 +1,21 @@
+\documentclass[border=4pt]{standalone}
+\usepackage{manafig}
+\usepackage{manacards}
+\begin{document}
+\duelgeom{3}{3}{4}
+\begin{tikzpicture}
+  \duelpanel{0}{Opening hand}{-}{-}{mountain/Mountain/R/-,lightning_bolt/Lightning Bolt/R/-,goblin_electromancer/Goblin\\Electromancer/UR/-,crosiss_charm/Crosis's Charm/UBR/-}
+   {We show only the cards that matter.}
+  \duelpanel{1}{Turn 1}{mountain/Mountain/R/n}{lightning_bolt/Lightning Bolt/R/n}{goblin_electromancer/Goblin\\Electromancer/UR/-,crosiss_charm/Crosis's Charm/UBR/-}
+   {Plays the Mountain, spends \mpip{R} and casts Lightning Bolt.}
+  \duelpanel{2}{Turn 2}{mountain/Mountain/R/-,island/Island/U/n}{lightning_bolt/Lightning Bolt/R/-,goblin_electromancer/Goblin\\Electromancer/UR/n}{crosiss_charm/Crosis's Charm/UBR/-}
+   {Draws an Island, plays it, and spends \mpip{U}\mpip{R} on the Electromancer.}
+  \duelpanel{3}{Turn 3}{mountain/Mountain/R/-,island/Island/U/-,swamp/Swamp/B/n}{lightning_bolt/Lightning Bolt/R/-,goblin_electromancer/Goblin\\Electromancer/UR/-,crosiss_charm/Crosis's Charm/UBR/n}{-}
+   {Draws a Swamp, plays it, and spends \mpip{U}\mpip{B}\mpip{R} on Crosis's Charm.}
+  \node[note,anchor=west] (n1) at (4*\PW+4*\PG-0.05,-4.1) {\annot{Three turns,}\\\annot{three spells.}};
+  \draw[note arrow] (n1.south west) to[bend left=35] (4*\PW+3*\PG+0.08,-5.5);
+  \node[anchor=north west,inner sep=2pt,font=\sffamily\footnotesize,text=inksoft,align=left] at (4*\PW+4*\PG,-6.9)
+     {\tikz[baseline=-0.5ex]\draw[newc,line width=1.8pt,rounded corners=2pt] (0,0) rectangle (0.5,0.3);\ new this turn};
+  \mcredit{mountain,island,swamp,lightning_bolt,goblin_electromancer,crosiss_charm}
+\end{tikzpicture}
+\end{document}

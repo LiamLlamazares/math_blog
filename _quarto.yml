@@ -58,9 +58,11 @@ format:
       light: 
         - flatly
         - styles.scss
+        - styles-light.scss
       dark: 
         - darkly
         - styles.scss
+        - styles-dark.scss
     toc: true
     css: custom_theorems.css
     html-math-method: mathjax

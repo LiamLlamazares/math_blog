@@ -1,23 +1,36 @@
 <hr style="margin-top: 1em; margin-bottom: 2em;" />
 <h2 id="comments">Comments</h2>
 
+<style>
+  .giscus-tip {
+    background: #f9f9f9;
+    border-left: 4px solid #008aff;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 0.9em;
+    color: #555;
+    border-radius: 0 4px 4px 0;
+  }
+  .giscus-tip a {
+    text-decoration: underline;
+    color: #008aff;
+  }
+  body.quarto-dark .giscus-tip {
+    background: #1d2027;
+    border-left-color: #7cc8f5;
+    color: #b4bbc8;
+  }
+  body.quarto-dark .giscus-tip a {
+    color: #7cc8f5;
+  }
+</style>
+
 <div class="giscus-comments">
-  <div
-    style="
-      background: #f9f9f9;
-      border-left: 4px solid #008aff;
-      padding: 10px;
-      margin-bottom: 20px;
-      font-size: 0.9em;
-      color: #555;
-      border-radius: 0 4px 4px 0;
-    "
-  >
+  <div class="giscus-tip">
     <strong>Tip:</strong> Supports LaTeX using $$.
     <a
       href="https://nowheredifferentiable.com/math-formatting"
       target="_blank"
-      style="text-decoration: underline; color: #008aff"
       >See formatting examples</a
     >.
     <br />
@@ -27,58 +40,44 @@
 
   <div class="giscus" id="giscus-container"></div>
 
-  <script
-    src="https://giscus.app/client.js"
-    data-repo="LiamLlamazares/math_blog"
-    data-repo-id="R_kgDOHZYcTQ"
-    data-category="Comments"
-    data-category-id="DIC_kwDOHZYcTc4Cx-sY"
-    data-mapping="pathname"
-    data-reactions-enabled="0"
-    data-emit-metadata="0"
-    data-input-position="bottom"
-    data-theme="light"
-    data-lang="en"
-    crossorigin="anonymous"
-    async
-  ></script>
-
   <script>
     (function () {
-      function handleDeepLink() {
-        const hash = window.location.hash;
-        if (!hash || !hash.includes("discussioncomment")) return;
-
-        const container = document.getElementById("giscus-container");
-        if (container) {
-          container.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-
-        const iframe = document.querySelector("iframe.giscus-frame");
-        if (iframe) {
-          try {
-            const url = new URL(iframe.src);
-            if (url.hash !== hash) {
-              url.hash = hash;
-              iframe.src = url.toString();
-            }
-          } catch (e) {
-            console.error(e);
-          }
-        }
+      function giscusTheme() {
+        return document.body.classList.contains("quarto-dark") ? "dark" : "light";
       }
 
-      window.addEventListener("load", handleDeepLink);
-      window.addEventListener("hashchange", handleDeepLink);
-      window.addEventListener("message", function (event) {
-        if (
-          event.origin === "https://giscus.app" &&
-          event.data &&
-          event.data.giscus &&
-          event.data.giscus.resizeHeight
-        ) {
-          setTimeout(handleDeepLink, 500);
-        }
+      // Load giscus with the theme that matches the current mode.
+      var s = document.createElement("script");
+      s.src = "https://giscus.app/client.js";
+      s.async = true;
+      s.crossOrigin = "anonymous";
+      var attrs = {
+        "data-repo": "LiamLlamazares/math_blog",
+        "data-repo-id": "R_kgDOHZYcTQ",
+        "data-category": "Comments",
+        "data-category-id": "DIC_kwDOHZYcTc4Cx-sY",
+        "data-mapping": "pathname",
+        "data-reactions-enabled": "0",
+        "data-emit-metadata": "0",
+        "data-input-position": "bottom",
+        "data-theme": giscusTheme(),
+        "data-lang": "en",
+      };
+      for (var k in attrs) s.setAttribute(k, attrs[k]);
+      document.getElementById("giscus-container").appendChild(s);
+
+      // Follow the light/dark toggle (Quarto flips the body class).
+      function sendTheme() {
+        var iframe = document.querySelector("iframe.giscus-frame");
+        if (!iframe || !iframe.contentWindow) return;
+        iframe.contentWindow.postMessage(
+          { giscus: { setConfig: { theme: giscusTheme() } } },
+          "https://giscus.app"
+        );
+      }
+      new MutationObserver(sendTheme).observe(document.body, {
+        attributes: true,
+        attributeFilter: ["class"],
       });
     })();
   </script>

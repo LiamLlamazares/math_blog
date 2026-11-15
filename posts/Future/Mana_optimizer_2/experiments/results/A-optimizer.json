@@ -1,0 +1,78 @@
+{
+ "settings": {
+  "precision": "balanced",
+  "searchDepth": "standard (default)",
+  "refinementRounds": 2,
+  "candidateMode": "guided",
+  "gameFormat": "modern",
+  "candidateLegalityPolicy": "custom-unrestricted",
+  "start": [
+   [
+    4,
+    "Watery Grave"
+   ],
+   [
+    4,
+    "Blood Crypt"
+   ],
+   [
+    4,
+    "Steam Vents"
+   ],
+   [
+    4,
+    "Island"
+   ],
+   [
+    4,
+    "Swamp"
+   ],
+   [
+    4,
+    "Mountain"
+   ]
+  ],
+  "searchSeedCount": 500,
+  "heldOutSeeds": "512, 1000001+13*i",
+  "seedOverlapWithSearch": 0,
+  "playHorizon": 4,
+  "searchSeconds": 32.111952370000004
+ },
+ "optimizerLands": [
+  "4 Blood Crypt",
+  "4 Island",
+  "5 Mountain",
+  "4 Steam Vents",
+  "3 Swamp",
+  "4 Watery Grave"
+ ],
+ "searchScoreWinner": 79.8174630402005,
+ "heldOut": {
+  "A-start": {
+   "total": 79.67560796930664,
+   "cast": 77.44582690329209,
+   "manaUse": 72.470703125,
+   "usefulLands": 75.00441306266549,
+   "keepable": 96.51227678571429,
+   "life": 67.1875,
+   "averageLifePaid": 1.96875,
+   "averageMulligans": 0.244140625
+  },
+  "optimizer": {
+   "total": 79.66074591685141,
+   "cast": 77.516155478395,
+   "manaUse": 72.529296875,
+   "usefulLands": 74.75728155339806,
+   "keepable": 96.51227678571429,
+   "life": 67.96875,
+   "averageLifePaid": 1.921875,
+   "averageMulligans": 0.244140625
+  }
+ },
+ "optimizerMinusA": {
+  "mean": -0.006848289539397354,
+  "lower95": -0.3702290672996869,
+  "upper95": 0.3565324882208922,
+  "half": 0.36338077776028954
+ }
+}

@@ -1,0 +1,36 @@
+\documentclass[border=4pt]{standalone}
+\usepackage{manafig}
+\renewcommand{\sfdefault}{qhv}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[mana axis, width=13.6cm, height=7.2cm,
+  clip=true, xmode=log, xmin=10, xmax=10000, ymin=0.70, ymax=1.0,
+  ytick={0.7,0.8,0.9,1.0}, yticklabels={70\%,80\%,90\%,100\%},
+  xtick={10,100,1000,10000}, xticklabels={10,100,1{,}000,10{,}000},
+  minor x tick num=8, xminorticks=false,
+  xlabel={number of games played, $n$}, ylabel={share of games where it worked},
+  ylabel style={yshift=-2pt}, xlabel style={yshift=-1pt},
+  ]
+% 95% band
+\addplot[draw=none, fill=oursc, fill opacity=0.13] table[x=n,y=y] {estimate_band.dat} \closedcycle;
+% truth
+\draw[dashed, ink, line width=0.8pt] (axis cs:10,0.9) -- (axis cs:10000,0.9);
+% faint runs
+\addplot[oursc, opacity=0.38, line width=0.8pt, mark=none] table[x=n,y=r2] {estimate_runs.dat};
+\addplot[oursc, opacity=0.38, line width=0.8pt, mark=none] table[x=n,y=r3] {estimate_runs.dat};
+\addplot[oursc, line width=1.6pt, mark=none] table[x=n,y=r1] {estimate_runs.dat};
+% truth label
+\node[anchor=south east, font=\sffamily\bfseries\small, text=ink, inner sep=1.5pt, yshift=2pt, fill=white, fill opacity=0.85, text opacity=1, rounded corners=2pt] at (axis cs:10000,0.9) {the truth: 90\%};
+% markers on the band edge
+\fill[ink] (axis cs:24,0.78) circle (2pt);
+\draw[ink, line width=0.5pt, densely dotted] (axis cs:24,0.78) -- (axis cs:24,0.9);
+\fill[ink] (axis cs:1000,0.8814) circle (2pt);
+\draw[ink, line width=0.5pt, densely dotted] (axis cs:1000,0.8814) -- (axis cs:1000,0.9);
+\node[note, anchor=north west, font=\sffamily\bfseries\small] (n24) at (axis cs:30,0.775) {after 24 games:\\ within 12 points};
+\node[note, anchor=north east, font=\sffamily\bfseries\small] (n1000) at (axis cs:1100,0.835) {after 1,000:\\ within 2};
+\node[note, anchor=north east] (w) at (axis cs:10000,0.76) {\annot{each line is one}\\\annot{apprentice playing on}};
+\coordinate (A1) at (axis cs:4300,0.77);\coordinate (A2) at (axis cs:2600,0.893);
+\end{axis}
+\draw[note arrow] (A1) to[bend left=25] (A2);
+\end{tikzpicture}
+\end{document}

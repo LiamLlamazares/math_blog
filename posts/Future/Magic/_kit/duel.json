@@ -1,0 +1,21 @@
+{
+  "note": "Frames of the two practice games. hand/lands/cast are card ids (repeats allowed). used = lands tapped this step, new = card that just appeared, stuck = cards that cannot be cast. Both games open with the same hand.",
+  "games": [
+    {"id": "lucky", "label": "The lucky game", "frames": [
+      {"title": "Opening hand", "say": "Archibaldus goes first. We show only the cards that matter.", "hand": ["mountain", "lightning-bolt", "goblin-electromancer", "crosiss-charm"], "lands": [], "cast": []},
+      {"title": "Turn 1", "say": "He plays his <b>Mountain</b>.", "hand": ["lightning-bolt", "goblin-electromancer", "crosiss-charm"], "lands": ["mountain"], "cast": [], "new": ["mountain"]},
+      {"title": "Turn 1", "say": "He uses it for one fire mana and casts <b>Lightning Bolt</b>.", "hand": ["goblin-electromancer", "crosiss-charm"], "lands": ["mountain"], "used": ["mountain"], "cast": ["lightning-bolt"], "new": ["lightning-bolt"]},
+      {"title": "Turn 2", "say": "He draws an <b>Island</b> and plays it.", "hand": ["goblin-electromancer", "crosiss-charm"], "lands": ["mountain", "island"], "cast": ["lightning-bolt"], "new": ["island"]},
+      {"title": "Turn 2", "say": "Water and fire: he summons the <b>Goblin Electromancer</b>.", "hand": ["crosiss-charm"], "lands": ["mountain", "island"], "used": ["mountain", "island"], "cast": ["lightning-bolt", "goblin-electromancer"], "new": ["goblin-electromancer"]},
+      {"title": "Turn 3", "say": "He draws a <b>Swamp</b> and plays it.", "hand": ["crosiss-charm"], "lands": ["mountain", "island", "swamp"], "cast": ["lightning-bolt", "goblin-electromancer"], "new": ["swamp"]},
+      {"title": "Turn 3", "say": "Water, dark and fire: <b>Crosis’s Charm</b>. Three turns, three spells.", "hand": [], "lands": ["mountain", "island", "swamp"], "used": ["mountain", "island", "swamp"], "cast": ["lightning-bolt", "goblin-electromancer", "crosiss-charm"], "new": ["crosiss-charm"]}
+    ]},
+    {"id": "unlucky", "label": "The unlucky game", "frames": [
+      {"title": "Opening hand", "say": "The same hand as before.", "hand": ["mountain", "lightning-bolt", "goblin-electromancer", "crosiss-charm"], "lands": [], "cast": []},
+      {"title": "Turn 1", "say": "<b>Mountain</b>, then <b>Lightning Bolt</b>. So far, so good.", "hand": ["goblin-electromancer", "crosiss-charm"], "lands": ["mountain"], "used": ["mountain"], "cast": ["lightning-bolt"], "new": ["lightning-bolt"]},
+      {"title": "Turn 2", "say": "He draws a <b>Swamp</b>. The Electromancer needs water mana, and he has fire and dark.", "hand": ["goblin-electromancer", "crosiss-charm"], "lands": ["mountain", "swamp"], "cast": ["lightning-bolt"], "new": ["swamp"], "stuck": ["goblin-electromancer", "crosiss-charm"]},
+      {"title": "Turn 3", "say": "Another <b>Swamp</b>. Nothing to cast.", "hand": ["goblin-electromancer", "crosiss-charm"], "lands": ["mountain", "swamp", "swamp"], "cast": ["lightning-bolt"], "new": ["swamp"], "stuck": ["goblin-electromancer", "crosiss-charm"]},
+      {"title": "Turn 4", "say": "A third <b>Swamp</b>. Four lands in play, and nothing cast since the first turn.", "hand": ["goblin-electromancer", "crosiss-charm"], "lands": ["mountain", "swamp", "swamp", "swamp"], "cast": ["lightning-bolt"], "new": ["swamp"], "stuck": ["goblin-electromancer", "crosiss-charm"]}
+    ]}
+  ]
+}

@@ -1,0 +1,25 @@
+\documentclass[border=4pt]{standalone}
+\usepackage{manafig}
+\usepackage{manacards}
+\begin{document}
+\duelgeom{4}{1}{4}
+\begin{tikzpicture}
+  \duelpanel{0}{Opening hand}{-}{-}{mountain/Mountain/R/-,lightning_bolt/Lightning Bolt/R/-,goblin_electromancer/Goblin\\Electromancer/UR/-,crosiss_charm/Crosis's Charm/UBR/-}
+   {We show only the cards that matter.}
+  \duelpanel{1}{Turn 1}{mountain/Mountain/R/n}{lightning_bolt/Lightning Bolt/R/n}{goblin_electromancer/Goblin\\Electromancer/UR/-,crosiss_charm/Crosis's Charm/UBR/-}
+   {Plays the Mountain, spends \mpip{R} and casts Lightning Bolt.}
+  \duelpanel{2}{Turn 2}{mountain/Mountain/R/-,swamp/Swamp/B/n}{lightning_bolt/Lightning Bolt/R/-}{goblin_electromancer/Goblin\\Electromancer/UR/s,crosiss_charm/Crosis's Charm/UBR/s}
+   {Draws a Swamp and plays it. The Electromancer needs \mpip{U} first.}
+  \duelpanel{3}{Turn 3}{mountain/Mountain/R/-,swamp/Swamp/B/-,swamp/Swamp/B/n}{lightning_bolt/Lightning Bolt/R/-}{goblin_electromancer/Goblin\\Electromancer/UR/s,crosiss_charm/Crosis's Charm/UBR/s}
+   {Draws another Swamp. Still no water mana.}
+  \duelpanel{4}{Turn 4}{mountain/Mountain/R/-,swamp/Swamp/B/-,swamp/Swamp/B/-,swamp/Swamp/B/n}{lightning_bolt/Lightning Bolt/R/-}{goblin_electromancer/Goblin\\Electromancer/UR/s,crosiss_charm/Crosis's Charm/UBR/s}
+   {A third Swamp: four lands, nothing cast since turn one.}
+  % note in the free space of the hand zone, turn 3
+  \node[note,anchor=north] (n1) at (3*\PW+3*\PG+\PW/2,{\yH-0.38-2*\pitch-0.75}) {\annot{needs water}};
+  \draw[note arrow] (n1.north west) to[bend left=40] (3*\PW+3*\PG+0.9,{\yH-0.38-2*\pitch+0.0});
+  \node[anchor=north,inner sep=2pt,font=\sffamily\footnotesize,text=inksoft,align=left] at ([yshift=-4pt]current bounding box.south)
+     {\tikz[baseline=-0.5ex]\draw[newc,line width=1.8pt,rounded corners=2pt] (0,0) rectangle (0.5,0.3);\ new this turn\qquad
+      \tikz[baseline=-0.5ex]\draw[screwc,line width=1.3pt,dash pattern=on 3pt off 2pt,rounded corners=2pt] (0,0) rectangle (0.5,0.3);\ stuck in hand};
+  \mcredit{mountain,swamp,lightning_bolt,goblin_electromancer,crosiss_charm}
+\end{tikzpicture}
+\end{document}

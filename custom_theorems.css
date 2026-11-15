@@ -45,3 +45,7 @@ body.quarto-dark .navbar-brand img {
     box-shadow: 0 4px 6px rgba(0,0,0,0.5);
 }
 
+/* Dark mode: the logo keeps its white disc; give its ring a visible, quiet tone on the dark navbar. */
+body.quarto-dark .navbar-brand img {
+    border-color: #4a5160;
+}

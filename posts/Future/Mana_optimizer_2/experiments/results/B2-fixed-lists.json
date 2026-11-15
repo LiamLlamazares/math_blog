@@ -1,0 +1,642 @@
+{
+ "experiment": "B2",
+ "settings": {
+  "gameFormat": "modern",
+  "candidateLegalityPolicy": "custom-unrestricted",
+  "heldOutSeeds": "512 seeds, 1000001 + 13*i",
+  "playDrawPositions": [
+   "play",
+   "draw"
+  ],
+  "playHorizon": 4,
+  "supportHorizon": 7,
+  "mulliganPolicy": "LONDON_CURVE_POLICY",
+  "scoreWeights": {
+   "castability": 1,
+   "manaUsage": 6,
+   "usefulLands": 4.25,
+   "lifeScore": 0.5,
+   "mulliganScore": 4.25
+  },
+  "scoreContract": "slice-6-3-score-vector-v5",
+  "manaUsageBasis": "natural-curve-ceiling-v0",
+  "spells": [
+   "4 Thoughtbound Phantasm",
+   "4 Thought Erasure",
+   "4 Lazav, the Multifarious",
+   "4 Blood Operative",
+   "4 Sinister Sabotage",
+   "4 Vraska's Contempt",
+   "4 Doom Whisperer",
+   "4 Nightveil Predator",
+   "4 Dream Eater"
+  ]
+ },
+ "wallSeconds": 3.9501331530000003,
+ "lists": {
+  "9I/7S": {
+   "lands": [
+    "4 Watery Grave",
+    "4 Drowned Catacomb",
+    "9 Island",
+    "7 Swamp"
+   ],
+   "counts": {
+    "watery-grave": 4,
+    "drowned-catacomb": 4,
+    "island": 9,
+    "swamp": 7
+   },
+   "total": 85.0078007356123,
+   "cast": 77.30637538580247,
+   "manaUse": 70.8984375,
+   "usefulLands": 94.52006363797065,
+   "keepable": 96.31696428571429,
+   "life": 92.74088541666666,
+   "averageLifePaid": 0.435546875,
+   "averageMulligans": 0.2578125,
+   "zeroMulliganRate": 0.779296875,
+   "sampleCount": 1024,
+   "vsReference": {
+    "reference": "9I/7S",
+    "mean": 0,
+    "lower95": 0,
+    "upper95": 0,
+    "half": 0,
+    "pairedSeeds": 512,
+    "excludesZero": false,
+    "partsDiff": {
+     "total": 0,
+     "cast": 0,
+     "manaUse": 0,
+     "usefulLands": 0,
+     "keepable": 0,
+     "life": 0
+    }
+   },
+   "perCard": {
+    "Blood Operative": {
+     "targetTurn": 3,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3088,
+     "late1": 288,
+     "late2": 200,
+     "late3": 128,
+     "notBy": 392,
+     "delayedCreditRate": 0.7839265046296295,
+     "exactOnTimeShare": 0.75390625
+    },
+    "Doom Whisperer": {
+     "targetTurn": 5,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 2244,
+     "late1": 448,
+     "late2": 420,
+     "late3": 0,
+     "notBy": 984,
+     "delayedCreditRate": 0.5957031249999983,
+     "exactOnTimeShare": 0.5478515625
+    },
+    "Dream Eater": {
+     "targetTurn": 6,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 1536,
+     "late1": 532,
+     "late2": 0,
+     "late3": 0,
+     "notBy": 2028,
+     "delayedCreditRate": 0.4182942708333328,
+     "exactOnTimeShare": 0.375
+    },
+    "Lazav, the Multifarious": {
+     "targetTurn": 2,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3868,
+     "late1": 96,
+     "late2": 40,
+     "late3": 20,
+     "notBy": 72,
+     "delayedCreditRate": 0.9534143518518523,
+     "exactOnTimeShare": 0.9443359375
+    },
+    "Nightveil Predator": {
+     "targetTurn": 4,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 2772,
+     "late1": 372,
+     "late2": 280,
+     "late3": 228,
+     "notBy": 444,
+     "delayedCreditRate": 0.7166883680555547,
+     "exactOnTimeShare": 0.6767578125
+    },
+    "Sinister Sabotage": {
+     "targetTurn": 3,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3476,
+     "late1": 232,
+     "late2": 124,
+     "late3": 76,
+     "notBy": 188,
+     "delayedCreditRate": 0.8715639467592595,
+     "exactOnTimeShare": 0.8486328125
+    },
+    "Thought Erasure": {
+     "targetTurn": 2,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3868,
+     "late1": 96,
+     "late2": 40,
+     "late3": 20,
+     "notBy": 72,
+     "delayedCreditRate": 0.9534143518518523,
+     "exactOnTimeShare": 0.9443359375
+    },
+    "Thoughtbound Phantasm": {
+     "targetTurn": 1,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3732,
+     "late1": 300,
+     "late2": 28,
+     "late3": 16,
+     "notBy": 20,
+     "delayedCreditRate": 0.9364510995370381,
+     "exactOnTimeShare": 0.9111328125
+    },
+    "Vraska's Contempt": {
+     "targetTurn": 4,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 2820,
+     "late1": 368,
+     "late2": 284,
+     "late3": 220,
+     "notBy": 404,
+     "delayedCreditRate": 0.728117766203703,
+     "exactOnTimeShare": 0.6884765625
+    }
+   }
+  },
+  "8I/8S": {
+   "lands": [
+    "4 Watery Grave",
+    "4 Drowned Catacomb",
+    "8 Island",
+    "8 Swamp"
+   ],
+   "counts": {
+    "watery-grave": 4,
+    "drowned-catacomb": 4,
+    "island": 8,
+    "swamp": 8
+   },
+   "total": 85.1277788036456,
+   "cast": 77.37951710390945,
+   "manaUse": 71.171875,
+   "usefulLands": 94.53677510608203,
+   "keepable": 96.34486607142857,
+   "life": 92.7734375,
+   "averageLifePaid": 0.43359375,
+   "averageMulligans": 0.255859375,
+   "zeroMulliganRate": 0.779296875,
+   "sampleCount": 1024,
+   "vsReference": {
+    "reference": "9I/7S",
+    "mean": 0.1189597359302221,
+    "lower95": -0.13653947071036474,
+    "upper95": 0.3744589425708089,
+    "half": 0.25549920664058684,
+    "pairedSeeds": 512,
+    "excludesZero": false,
+    "partsDiff": {
+     "total": 0.1199780680332907,
+     "cast": 0.07314171810698156,
+     "manaUse": 0.2734375,
+     "usefulLands": 0.016711468111381578,
+     "keepable": 0.027901785714277594,
+     "life": 0.03255208333334281
+    }
+   },
+   "perCard": {
+    "Blood Operative": {
+     "targetTurn": 3,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3232,
+     "late1": 268,
+     "late2": 180,
+     "late3": 112,
+     "notBy": 304,
+     "delayedCreditRate": 0.8167679398148148,
+     "exactOnTimeShare": 0.7890625
+    },
+    "Doom Whisperer": {
+     "targetTurn": 5,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 2252,
+     "late1": 452,
+     "late2": 424,
+     "late3": 0,
+     "notBy": 968,
+     "delayedCreditRate": 0.5980902777777761,
+     "exactOnTimeShare": 0.5498046875
+    },
+    "Dream Eater": {
+     "targetTurn": 6,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 1532,
+     "late1": 536,
+     "late2": 0,
+     "late3": 0,
+     "notBy": 2028,
+     "delayedCreditRate": 0.41764322916666613,
+     "exactOnTimeShare": 0.3740234375
+    },
+    "Lazav, the Multifarious": {
+     "targetTurn": 2,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3860,
+     "late1": 104,
+     "late2": 60,
+     "late3": 16,
+     "notBy": 56,
+     "delayedCreditRate": 0.9526186342592595,
+     "exactOnTimeShare": 0.9423828125
+    },
+    "Nightveil Predator": {
+     "targetTurn": 4,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 2796,
+     "late1": 388,
+     "late2": 288,
+     "late3": 212,
+     "notBy": 412,
+     "delayedCreditRate": 0.7239221643518511,
+     "exactOnTimeShare": 0.6826171875
+    },
+    "Sinister Sabotage": {
+     "targetTurn": 3,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3364,
+     "late1": 248,
+     "late2": 156,
+     "late3": 100,
+     "notBy": 228,
+     "delayedCreditRate": 0.8466073495370372,
+     "exactOnTimeShare": 0.8212890625
+    },
+    "Thought Erasure": {
+     "targetTurn": 2,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3860,
+     "late1": 104,
+     "late2": 60,
+     "late3": 16,
+     "notBy": 56,
+     "delayedCreditRate": 0.9526186342592595,
+     "exactOnTimeShare": 0.9423828125
+    },
+    "Thoughtbound Phantasm": {
+     "targetTurn": 1,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3592,
+     "late1": 384,
+     "late2": 40,
+     "late3": 36,
+     "notBy": 44,
+     "delayedCreditRate": 0.9096137152777791,
+     "exactOnTimeShare": 0.876953125
+    },
+    "Vraska's Contempt": {
+     "targetTurn": 4,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 2896,
+     "late1": 368,
+     "late2": 276,
+     "late3": 200,
+     "notBy": 356,
+     "delayedCreditRate": 0.7462745949074069,
+     "exactOnTimeShare": 0.70703125
+    }
+   }
+  },
+  "10I/6S": {
+   "lands": [
+    "4 Watery Grave",
+    "4 Drowned Catacomb",
+    "10 Island",
+    "6 Swamp"
+   ],
+   "counts": {
+    "watery-grave": 4,
+    "drowned-catacomb": 4,
+    "island": 10,
+    "swamp": 6
+   },
+   "total": 84.60279087732191,
+   "cast": 76.51266718106992,
+   "manaUse": 69.98046875,
+   "usefulLands": 94.53000531067445,
+   "keepable": 96.26116071428571,
+   "life": 92.7734375,
+   "averageLifePaid": 0.43359375,
+   "averageMulligans": 0.26171875,
+   "zeroMulliganRate": 0.77734375,
+   "sampleCount": 1024,
+   "vsReference": {
+    "reference": "9I/7S",
+    "mean": -0.40394490918715087,
+    "lower95": -0.6679562754374783,
+    "upper95": -0.13993354293682347,
+    "half": 0.2640113662503274,
+    "pairedSeeds": 512,
+    "excludesZero": true,
+    "partsDiff": {
+     "total": -0.4050098582903985,
+     "cast": -0.7937082047325532,
+     "manaUse": -0.91796875,
+     "usefulLands": 0.009941672703803306,
+     "keepable": -0.05580357142858361,
+     "life": 0.03255208333334281
+    }
+   },
+   "perCard": {
+    "Blood Operative": {
+     "targetTurn": 3,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 2944,
+     "late1": 320,
+     "late2": 204,
+     "late3": 144,
+     "notBy": 484,
+     "delayedCreditRate": 0.7516276041666666,
+     "exactOnTimeShare": 0.71875
+    },
+    "Doom Whisperer": {
+     "targetTurn": 5,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 2216,
+     "late1": 452,
+     "late2": 416,
+     "late3": 0,
+     "notBy": 1012,
+     "delayedCreditRate": 0.5890842013888872,
+     "exactOnTimeShare": 0.541015625
+    },
+    "Dream Eater": {
+     "targetTurn": 6,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 1528,
+     "late1": 532,
+     "late2": 0,
+     "late3": 0,
+     "notBy": 2036,
+     "delayedCreditRate": 0.4163411458333328,
+     "exactOnTimeShare": 0.373046875
+    },
+    "Lazav, the Multifarious": {
+     "targetTurn": 2,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3832,
+     "late1": 88,
+     "late2": 36,
+     "late3": 36,
+     "notBy": 104,
+     "delayedCreditRate": 0.944010416666667,
+     "exactOnTimeShare": 0.935546875
+    },
+    "Nightveil Predator": {
+     "targetTurn": 4,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 2704,
+     "late1": 372,
+     "late2": 288,
+     "late3": 216,
+     "notBy": 516,
+     "delayedCreditRate": 0.7001953124999992,
+     "exactOnTimeShare": 0.66015625
+    },
+    "Sinister Sabotage": {
+     "targetTurn": 3,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3524,
+     "late1": 208,
+     "late2": 124,
+     "late3": 76,
+     "notBy": 164,
+     "delayedCreditRate": 0.8813295717592596,
+     "exactOnTimeShare": 0.8603515625
+    },
+    "Thought Erasure": {
+     "targetTurn": 2,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3832,
+     "late1": 88,
+     "late2": 36,
+     "late3": 36,
+     "notBy": 104,
+     "delayedCreditRate": 0.944010416666667,
+     "exactOnTimeShare": 0.935546875
+    },
+    "Thoughtbound Phantasm": {
+     "targetTurn": 1,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3808,
+     "late1": 244,
+     "late2": 20,
+     "late3": 12,
+     "notBy": 12,
+     "delayedCreditRate": 0.9501953125000008,
+     "exactOnTimeShare": 0.9296875
+    },
+    "Vraska's Contempt": {
+     "targetTurn": 4,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 2740,
+     "late1": 376,
+     "late2": 292,
+     "late3": 208,
+     "notBy": 480,
+     "delayedCreditRate": 0.7093460648148141,
+     "exactOnTimeShare": 0.6689453125
+    }
+   }
+  },
+  "7I/9S": {
+   "lands": [
+    "4 Watery Grave",
+    "4 Drowned Catacomb",
+    "7 Island",
+    "9 Swamp"
+   ],
+   "counts": {
+    "watery-grave": 4,
+    "drowned-catacomb": 4,
+    "island": 7,
+    "swamp": 9
+   },
+   "total": 84.98598383756406,
+   "cast": 76.7481674382716,
+   "manaUse": 70.91796875,
+   "usefulLands": 94.53677510608203,
+   "keepable": 96.34486607142857,
+   "life": 92.54557291666666,
+   "averageLifePaid": 0.447265625,
+   "averageMulligans": 0.255859375,
+   "zeroMulliganRate": 0.779296875,
+   "sampleCount": 1024,
+   "vsReference": {
+    "reference": "9I/7S",
+    "mean": -0.02283523015131088,
+    "lower95": -0.4440096661455421,
+    "upper95": 0.3983392058429203,
+    "half": 0.4211744359942312,
+    "pairedSeeds": 512,
+    "excludesZero": false,
+    "partsDiff": {
+     "total": -0.02181689804824316,
+     "cast": -0.5582079475308745,
+     "manaUse": 0.01953125,
+     "usefulLands": 0.016711468111381578,
+     "keepable": 0.027901785714277594,
+     "life": -0.1953125
+    }
+   },
+   "perCard": {
+    "Blood Operative": {
+     "targetTurn": 3,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3364,
+     "late1": 236,
+     "late2": 152,
+     "late3": 100,
+     "notBy": 244,
+     "delayedCreditRate": 0.8455222800925927,
+     "exactOnTimeShare": 0.8212890625
+    },
+    "Doom Whisperer": {
+     "targetTurn": 5,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 2272,
+     "late1": 456,
+     "late2": 432,
+     "late3": 0,
+     "notBy": 936,
+     "delayedCreditRate": 0.6035156249999982,
+     "exactOnTimeShare": 0.5546875
+    },
+    "Dream Eater": {
+     "targetTurn": 6,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 1516,
+     "late1": 532,
+     "late2": 0,
+     "late3": 0,
+     "notBy": 2048,
+     "delayedCreditRate": 0.4134114583333328,
+     "exactOnTimeShare": 0.3701171875
+    },
+    "Lazav, the Multifarious": {
+     "targetTurn": 2,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3856,
+     "late1": 104,
+     "late2": 68,
+     "late3": 24,
+     "notBy": 44,
+     "delayedCreditRate": 0.9519314236111113,
+     "exactOnTimeShare": 0.94140625
+    },
+    "Nightveil Predator": {
+     "targetTurn": 4,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 2720,
+     "late1": 376,
+     "late2": 300,
+     "late3": 244,
+     "notBy": 456,
+     "delayedCreditRate": 0.705005787037036,
+     "exactOnTimeShare": 0.6640625
+    },
+    "Sinister Sabotage": {
+     "targetTurn": 3,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3140,
+     "late1": 280,
+     "late2": 188,
+     "late3": 128,
+     "notBy": 360,
+     "delayedCreditRate": 0.7956452546296294,
+     "exactOnTimeShare": 0.7666015625
+    },
+    "Thought Erasure": {
+     "targetTurn": 2,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3856,
+     "late1": 104,
+     "late2": 68,
+     "late3": 24,
+     "notBy": 44,
+     "delayedCreditRate": 0.9519314236111113,
+     "exactOnTimeShare": 0.94140625
+    },
+    "Thoughtbound Phantasm": {
+     "targetTurn": 1,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3424,
+     "late1": 504,
+     "late2": 52,
+     "late3": 56,
+     "notBy": 60,
+     "delayedCreditRate": 0.8788700810185202,
+     "exactOnTimeShare": 0.8359375
+    },
+    "Vraska's Contempt": {
+     "targetTurn": 4,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 2964,
+     "late1": 352,
+     "late2": 272,
+     "late3": 204,
+     "notBy": 304,
+     "delayedCreditRate": 0.7615017361111104,
+     "exactOnTimeShare": 0.7236328125
+    }
+   }
+  }
+ }
+}

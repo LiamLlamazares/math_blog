@@ -1,0 +1,37 @@
+\documentclass[border=4pt]{standalone}
+\usepackage{manafig}
+\renewcommand{\sfdefault}{qhv}
+\usepgfplotslibrary{fillbetween}
+% ILLUSTRATIVE scores: edit samegames_values.dat (columns: game, X alone, Y alone, X shared, Y shared)
+\colorlet{xc}{manaN!65!ink}
+\pgfplotsset{sameax/.style={mana axis, scale only axis, width=7.4cm, height=3.0cm,
+  xmin=0.1, xmax=5.4, ymin=40, ymax=85, xtick={1,2,3,4,5}, xticklabels={game 1,game 2,game 3,game 4,game 5},
+  ytick={50,70}, xmajorgrids=false, ymajorgrids=true, scaled ticks=false, clip=false,
+  tick label style={font=\sffamily\small,text=inksoft}}}
+\newcommand{\plotpair}[2]{%
+  \addplot[name path=PX,xc,line width=1.4pt,mark=*,mark size=2.6pt,mark options={fill=xc,draw=white,line width=0.5pt}] table[col sep=comma,x=game,y=#1] {samegames_values.dat};
+  \addplot[name path=PY,oursc,line width=1.4pt,mark=*,mark size=2.6pt,mark options={fill=oursc,draw=white,line width=0.5pt}] table[col sep=comma,x=game,y=#2] {samegames_values.dat};
+  \addplot[ink!8,forget plot] fill between[of=PX and PY];
+}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[sameax, name=T, at={(0,3.9cm)}, anchor=south west, xticklabels={,,,,}, ylabel={score}]
+  \plotpair{xi}{yi}
+  \node[anchor=east,font=\sffamily\bfseries\small,text=xc,inner sep=3pt] at (axis cs:0.9,62) {set X};
+  \node[anchor=east,font=\sffamily\bfseries\small,text=oursc,inner sep=3pt] at (axis cs:0.9,54) {set Y};
+  \node[note,anchor=west] (n1) at (rel axis cs:1.12,0.5) {\annot{the lines keep crossing:}\\\annot{the gap is lost}\\\annot{in the noise}};
+  \coordinate (t1) at (axis cs:5.05,69.5);
+\end{axis}
+\begin{axis}[sameax, name=B, at={(0,0)}, anchor=south west, ylabel={score}]
+  \plotpair{xs}{ys}
+  \node[anchor=east,font=\sffamily\bfseries\small,text=xc,inner sep=3pt] at (axis cs:0.9,60) {set X};
+  \node[anchor=east,font=\sffamily\bfseries\small,text=oursc,inner sep=3pt] at (axis cs:0.9,70) {set Y};
+  \node[note,anchor=west] (n2) at (rel axis cs:1.12,0.5) {\annot{same ups and downs:}\\\annot{the gap stays}\\\annot{steady}};
+  \coordinate (t2) at (axis cs:5.05,70.5);
+\end{axis}
+\node[anchor=south west,font=\sffamily\bfseries\small,text=ink] at ($(T.north west)+(-0.9,0.35)$) {Each set of lands plays its own games};
+\node[anchor=south west,font=\sffamily\bfseries\small,text=ink] at ($(B.north west)+(-0.9,0.35)$) {Both play the same shuffles};
+\draw[note arrow] (n1.west) to[bend right=20] (t1);\draw[note arrow] (n2.west) to[bend right=20] (t2);
+\node[anchor=east,font=\sffamily\footnotesize,text=inksoft] at ($(B.south east)+(4.6,-0.9)$) {illustrative numbers};
+\end{tikzpicture}
+\end{document}

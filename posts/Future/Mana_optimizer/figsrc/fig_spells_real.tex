@@ -1,0 +1,14 @@
+\documentclass[border=4pt]{standalone}
+\usepackage{manafig}
+\usepackage{manacards}
+\begin{document}
+\begin{tikzpicture}
+  \foreach \id [count=\i from 0] in {lightning_bolt,goblin_electromancer,crosiss_charm}{
+    \begin{scope}[shift={({\i*4.95},0)}]
+      \fill[ink!14,rounded corners=6pt] (0.05,-0.07) rectangle (4.65,6.51);
+      \clip[rounded corners=0.2cm] (0,0) rectangle (4.6,6.41);
+      \node[anchor=south west,inner sep=0pt] at (0,0) {\includegraphics[width=4.6cm]{art/\id_full.jpg}};
+    \end{scope}}
+  \node[anchor=north,font=\sffamily\footnotesize,text=inksoft,inner sep=2pt] at ([yshift=-4pt]current bounding box.south) {Card images: Scryfall. Cards \textcopyright{} Wizards of the Coast.};
+\end{tikzpicture}
+\end{document}

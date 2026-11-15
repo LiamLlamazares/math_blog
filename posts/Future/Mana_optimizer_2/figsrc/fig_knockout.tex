@@ -1,0 +1,41 @@
+\documentclass[border=4pt]{standalone}
+\usepackage{manafig}
+\renewcommand{\sfdefault}{qhv}
+\def\sq{0.27}   % square pitch
+\def\sqs{0.22}  % square size
+% a stage: #1 = row index, #2 = candidates, #3 = survivors, #4 = games each, #5 = bar length (cm)
+\newcommand{\stage}[5]{%
+  \pgfmathsetmacro{\yy}{-(#1-1)*1.75}
+  \foreach \i in {0,...,\numexpr#2-1\relax}{
+    \pgfmathtruncatemacro{\col}{int(\i/4)}
+    \pgfmathtruncatemacro{\row}{mod(\i,4)}
+    \ifnum\i<#3
+      \fill[oursc,rounded corners=1pt] (3.0+\col*\sq,\yy-\row*\sq) rectangle (3.0+\col*\sq+\sqs,\yy-\row*\sq-\sqs);
+    \else
+      \fill[manaN!70!white,rounded corners=1pt] (3.0+\col*\sq,\yy-\row*\sq) rectangle (3.0+\col*\sq+\sqs,\yy-\row*\sq-\sqs);
+    \fi
+  }
+  \node[anchor=west,font=\sffamily\bfseries\Large,text=ink] at (0,\yy-0.4) {#2};
+  \node[anchor=west,font=\sffamily\small,text=inksoft] at (0,\yy-0.88) {candidates};
+  % games per candidate bar
+  \fill[oursc!85,rounded corners=1.5pt] (9.7,\yy-0.25) rectangle (9.7+#5,\yy-0.65);
+  \node[anchor=west,font=\sffamily\bfseries\normalsize,text=ink] at (9.7+#5+0.12,\yy-0.45) {#4};
+  \node[anchor=west,font=\sffamily\small,text=inksoft] at (9.7,\yy-1.0) {games each};
+}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\node[anchor=south west,font=\sffamily\bfseries\small,text=ink] at (3.0,0.45) {who is still in};
+\node[anchor=south west,font=\sffamily\bfseries\small,text=ink] at (9.7,0.45) {how long they play};
+\draw[gridc,line width=0.4pt] (0,0.35) -- (15.0,0.35);
+\stage{1}{96}{48}{24}{0.1}
+\stage{2}{48}{24}{96}{0.4}
+\stage{3}{24}{10}{384}{1.6}
+\stage{4}{10}{10}{1{,}000}{4.17}
+% total note
+\draw[ink,line width=0.9pt] (0,-6.8) -- (15.0,-6.8);
+\node[anchor=north west,font=\sffamily\bfseries\large,text=ink] at (0,-6.95) {18,832 games in all, not 96,000};
+\node[anchor=north west,font=\sffamily\small,text=inksoft] at (0,-7.55) {the survivors keep playing: each round adds to the games they have already played};
+\node[note] (k) at (7.9,-2.5) {\annot{the pale ones}\\\annot{go home}};
+\draw[note arrow] (k.west) to[bend right=20] (5.35,-2.6);
+\end{tikzpicture}
+\end{document}

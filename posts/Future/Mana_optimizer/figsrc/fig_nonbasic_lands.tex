@@ -1,0 +1,14 @@
+\documentclass[border=4pt]{standalone}
+\usepackage{manafig}
+\usepackage{manacards}
+\begin{document}
+\setcardgeom{3.55}{1.55}{1.9}
+\def\cardtextfont{\footnotesize}
+\begin{tikzpicture}
+  \mcard[\mcost{UB}]{0}{0}{dimir_guildgate}{Dimir Guildgate}{UB}{}{Land}{Makes water or dark. Arrives exhausted: usable from next turn.}
+  \mcard[\mcost{UB}]{3.75}{0}{watery_grave}{Watery Grave}{UB}{}{Land}{Makes water or dark. Usable at once if you pay 2 life.}
+  \mcard[\mcost{BR}]{7.5}{0}{sulfurous_springs}{Sulfurous Springs}{BR}{}{Land}{Makes dark or fire, and costs 1 life each time.}
+  \mcard{11.25}{0}{evolving_wilds}{Evolving Wilds}{N}{}{Land}{Trade it for any basic land from your book. That land arrives exhausted.}
+  \mcredit{dimir_guildgate,watery_grave,sulfurous_springs,evolving_wilds}
+\end{tikzpicture}
+\end{document}

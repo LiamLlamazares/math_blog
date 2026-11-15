@@ -1,0 +1,497 @@
+{
+ "experiment": "A",
+ "settings": {
+  "gameFormat": "modern",
+  "candidateLegalityPolicy": "custom-unrestricted",
+  "heldOutSeeds": "512 seeds, 1000001 + 13*i",
+  "playDrawPositions": [
+   "play",
+   "draw"
+  ],
+  "playHorizon": 4,
+  "supportHorizon": 7,
+  "mulliganPolicy": "LONDON_CURVE_POLICY",
+  "scoreWeights": {
+   "castability": 1,
+   "manaUsage": 6,
+   "usefulLands": 4.25,
+   "lifeScore": 0.5,
+   "mulliganScore": 4.25
+  },
+  "scoreContract": "slice-6-3-score-vector-v5",
+  "manaUsageBasis": "natural-curve-ceiling-v0",
+  "spells": [
+   "4 Lightning Bolt",
+   "4 Goblin Electromancer",
+   "4 Counterspell",
+   "4 Terminate",
+   "4 Crosis's Charm",
+   "4 Kolaghan's Command",
+   "4 Electrolyze",
+   "4 Nicol Bolas, the Ravager",
+   "4 Thoughtseize"
+  ]
+ },
+ "wallSeconds": 3.9280493030000003,
+ "lists": {
+  "A-shock": {
+   "lands": [
+    "4 Watery Grave",
+    "4 Blood Crypt",
+    "4 Steam Vents",
+    "4 Island",
+    "4 Swamp",
+    "4 Mountain"
+   ],
+   "counts": {
+    "watery-grave": 4,
+    "blood-crypt": 4,
+    "steam-vents": 4,
+    "island": 4,
+    "swamp": 4,
+    "mountain": 4
+   },
+   "total": 79.67560796930664,
+   "cast": 77.44582690329209,
+   "manaUse": 72.470703125,
+   "usefulLands": 75.00441306266549,
+   "keepable": 96.51227678571429,
+   "life": 67.1875,
+   "averageLifePaid": 1.96875,
+   "averageMulligans": 0.244140625,
+   "zeroMulliganRate": 0.791015625,
+   "sampleCount": 1024,
+   "vsReference": {
+    "reference": "A-shock",
+    "mean": 0,
+    "lower95": 0,
+    "upper95": 0,
+    "half": 0,
+    "pairedSeeds": 512,
+    "excludesZero": false,
+    "partsDiff": {
+     "total": 0,
+     "cast": 0,
+     "manaUse": 0,
+     "usefulLands": 0,
+     "keepable": 0,
+     "life": 0
+    }
+   },
+   "perCard": {
+    "Counterspell": {
+     "targetTurn": 2,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 1280,
+     "late1": 1196,
+     "late2": 484,
+     "late3": 248,
+     "notBy": 888,
+     "delayedCreditRate": 0.42520254629629295,
+     "exactOnTimeShare": 0.3125
+    },
+    "Crosis's Charm": {
+     "targetTurn": 3,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3044,
+     "late1": 284,
+     "late2": 212,
+     "late3": 160,
+     "notBy": 396,
+     "delayedCreditRate": 0.7734736689814814,
+     "exactOnTimeShare": 0.7431640625
+    },
+    "Electrolyze": {
+     "targetTurn": 3,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3296,
+     "late1": 232,
+     "late2": 180,
+     "late3": 128,
+     "notBy": 260,
+     "delayedCreditRate": 0.8296079282407409,
+     "exactOnTimeShare": 0.8046875
+    },
+    "Goblin Electromancer": {
+     "targetTurn": 2,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3068,
+     "late1": 432,
+     "late2": 156,
+     "late3": 124,
+     "notBy": 316,
+     "delayedCreditRate": 0.7895326967592594,
+     "exactOnTimeShare": 0.7490234375
+    },
+    "Kolaghan's Command": {
+     "targetTurn": 3,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3260,
+     "late1": 244,
+     "late2": 176,
+     "late3": 128,
+     "notBy": 288,
+     "delayedCreditRate": 0.8216869212962963,
+     "exactOnTimeShare": 0.7958984375
+    },
+    "Lightning Bolt": {
+     "targetTurn": 1,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3664,
+     "late1": 92,
+     "late2": 76,
+     "late3": 68,
+     "notBy": 196,
+     "delayedCreditRate": 0.9046947337962964,
+     "exactOnTimeShare": 0.89453125
+    },
+    "Nicol Bolas, the Ravager": {
+     "targetTurn": 4,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 2772,
+     "late1": 376,
+     "late2": 300,
+     "late3": 200,
+     "notBy": 448,
+     "delayedCreditRate": 0.7173032407407398,
+     "exactOnTimeShare": 0.6767578125
+    },
+    "Terminate": {
+     "targetTurn": 2,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3284,
+     "late1": 164,
+     "late2": 164,
+     "late3": 128,
+     "notBy": 356,
+     "delayedCreditRate": 0.8207103587962963,
+     "exactOnTimeShare": 0.8017578125
+    },
+    "Thoughtseize": {
+     "targetTurn": 1,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3596,
+     "late1": 84,
+     "late2": 92,
+     "late3": 72,
+     "notBy": 252,
+     "delayedCreditRate": 0.8879123263888887,
+     "exactOnTimeShare": 0.8779296875
+    }
+   }
+  },
+  "B-tapped(guildgate-substitute)": {
+   "lands": [
+    "4 Dimir Guildgate",
+    "4 Rakdos Guildgate",
+    "4 Izzet Guildgate",
+    "4 Island",
+    "4 Swamp",
+    "4 Mountain"
+   ],
+   "counts": {
+    "dimir-guildgate": 4,
+    "rakdos-guildgate": 4,
+    "izzet-guildgate": 4,
+    "island": 4,
+    "swamp": 4,
+    "mountain": 4
+   },
+   "total": 75.35378420586153,
+   "cast": 54.32540830761298,
+   "manaUse": 61.083984375,
+   "usefulLands": 76.50079688330086,
+   "keepable": 96.40066964285714,
+   "life": 100,
+   "averageLifePaid": 0,
+   "averageMulligans": 0.251953125,
+   "zeroMulliganRate": 0.783203125,
+   "sampleCount": 1024,
+   "vsReference": {
+    "reference": "A-shock",
+    "mean": -4.355190834288834,
+    "lower95": -5.093380795168137,
+    "upper95": -3.61700087340953,
+    "half": 0.7381899608793037,
+    "pairedSeeds": 512,
+    "excludesZero": true,
+    "partsDiff": {
+     "total": -4.32182376344511,
+     "cast": -23.120418595679105,
+     "manaUse": -11.38671875,
+     "usefulLands": 1.4963838206353728,
+     "keepable": -0.11160714285715301,
+     "life": 32.8125
+    }
+   },
+   "perCard": {
+    "Counterspell": {
+     "targetTurn": 2,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 816,
+     "late1": 780,
+     "late2": 652,
+     "late3": 652,
+     "notBy": 1196,
+     "delayedCreditRate": 0.28627748842592576,
+     "exactOnTimeShare": 0.19921875
+    },
+    "Crosis's Charm": {
+     "targetTurn": 3,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 1940,
+     "late1": 1116,
+     "late2": 360,
+     "late3": 192,
+     "notBy": 488,
+     "delayedCreditRate": 0.5759548611111094,
+     "exactOnTimeShare": 0.4736328125
+    },
+    "Electrolyze": {
+     "targetTurn": 3,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 2280,
+     "late1": 1044,
+     "late2": 292,
+     "late3": 156,
+     "notBy": 324,
+     "delayedCreditRate": 0.6509331597222219,
+     "exactOnTimeShare": 0.556640625
+    },
+    "Goblin Electromancer": {
+     "targetTurn": 2,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 1808,
+     "late1": 1224,
+     "late2": 464,
+     "late3": 204,
+     "notBy": 396,
+     "delayedCreditRate": 0.5554470486111093,
+     "exactOnTimeShare": 0.44140625
+    },
+    "Kolaghan's Command": {
+     "targetTurn": 3,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 2268,
+     "late1": 1064,
+     "late2": 256,
+     "late3": 156,
+     "notBy": 352,
+     "delayedCreditRate": 0.6486545138888888,
+     "exactOnTimeShare": 0.5537109375
+    },
+    "Lightning Bolt": {
+     "targetTurn": 1,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 1788,
+     "late1": 1448,
+     "late2": 420,
+     "late3": 148,
+     "notBy": 292,
+     "delayedCreditRate": 0.5670934606481453,
+     "exactOnTimeShare": 0.4365234375
+    },
+    "Nicol Bolas, the Ravager": {
+     "targetTurn": 4,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 1592,
+     "late1": 1388,
+     "late2": 356,
+     "late3": 240,
+     "notBy": 520,
+     "delayedCreditRate": 0.5134548611111069,
+     "exactOnTimeShare": 0.388671875
+    },
+    "Terminate": {
+     "targetTurn": 2,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 1780,
+     "late1": 1212,
+     "late2": 464,
+     "late3": 188,
+     "notBy": 452,
+     "delayedCreditRate": 0.5474898726851816,
+     "exactOnTimeShare": 0.4345703125
+    },
+    "Thoughtseize": {
+     "targetTurn": 1,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 1708,
+     "late1": 1392,
+     "late2": 424,
+     "late3": 244,
+     "notBy": 328,
+     "delayedCreditRate": 0.5439814814814771,
+     "exactOnTimeShare": 0.4169921875
+    }
+   }
+  },
+  "C-basics": {
+   "lands": [
+    "8 Island",
+    "8 Swamp",
+    "8 Mountain"
+   ],
+   "counts": {
+    "island": 8,
+    "swamp": 8,
+    "mountain": 8
+   },
+   "total": 73.56758214494648,
+   "cast": 56.151539994855845,
+   "manaUse": 57.8125,
+   "usefulLands": 74.35578460991647,
+   "keepable": 96.01004464285714,
+   "life": 100,
+   "averageLifePaid": 0,
+   "averageMulligans": 0.279296875,
+   "zeroMulliganRate": 0.759765625,
+   "sampleCount": 1024,
+   "vsReference": {
+    "reference": "A-shock",
+    "mean": -6.12388698945027,
+    "lower95": -7.036427370165764,
+    "upper95": -5.211346608734776,
+    "half": 0.9125403807154937,
+    "pairedSeeds": 512,
+    "excludesZero": true,
+    "partsDiff": {
+     "total": -6.108025824360155,
+     "cast": -21.29428690843624,
+     "manaUse": -14.658203125,
+     "usefulLands": -0.6486284527490227,
+     "keepable": -0.502232142857153,
+     "life": 32.8125
+    }
+   },
+   "perCard": {
+    "Counterspell": {
+     "targetTurn": 2,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 284,
+     "late1": 764,
+     "late2": 716,
+     "late3": 224,
+     "notBy": 2108,
+     "delayedCreditRate": 0.15295862268518562,
+     "exactOnTimeShare": 0.0693359375
+    },
+    "Crosis's Charm": {
+     "targetTurn": 3,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 1904,
+     "late1": 396,
+     "late2": 276,
+     "late3": 232,
+     "notBy": 1288,
+     "delayedCreditRate": 0.5066550925925902,
+     "exactOnTimeShare": 0.46484375
+    },
+    "Electrolyze": {
+     "targetTurn": 3,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 2528,
+     "late1": 288,
+     "late2": 240,
+     "late3": 184,
+     "notBy": 856,
+     "delayedCreditRate": 0.6487991898148137,
+     "exactOnTimeShare": 0.6171875
+    },
+    "Goblin Electromancer": {
+     "targetTurn": 2,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 1724,
+     "late1": 928,
+     "late2": 248,
+     "late3": 204,
+     "notBy": 992,
+     "delayedCreditRate": 0.5049913194444416,
+     "exactOnTimeShare": 0.4208984375
+    },
+    "Kolaghan's Command": {
+     "targetTurn": 3,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 2412,
+     "late1": 352,
+     "late2": 240,
+     "late3": 196,
+     "notBy": 896,
+     "delayedCreditRate": 0.6257957175925914,
+     "exactOnTimeShare": 0.5888671875
+    },
+    "Lightning Bolt": {
+     "targetTurn": 1,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 3068,
+     "late1": 148,
+     "late2": 132,
+     "late3": 124,
+     "notBy": 624,
+     "delayedCreditRate": 0.7657696759259259,
+     "exactOnTimeShare": 0.7490234375
+    },
+    "Nicol Bolas, the Ravager": {
+     "targetTurn": 4,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 2072,
+     "late1": 360,
+     "late2": 292,
+     "late3": 256,
+     "notBy": 1116,
+     "delayedCreditRate": 0.5453920717592577,
+     "exactOnTimeShare": 0.505859375
+    },
+    "Terminate": {
+     "targetTurn": 2,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 2248,
+     "late1": 244,
+     "late2": 308,
+     "late3": 216,
+     "notBy": 1080,
+     "delayedCreditRate": 0.5789930555555542,
+     "exactOnTimeShare": 0.548828125
+    },
+    "Thoughtseize": {
+     "targetTurn": 1,
+     "copies": 4,
+     "games": 4096,
+     "onTime": 2884,
+     "late1": 180,
+     "late2": 152,
+     "late3": 156,
+     "notBy": 724,
+     "delayedCreditRate": 0.7242838541666662,
+     "exactOnTimeShare": 0.7041015625
+    }
+   }
+  }
+ }
+}

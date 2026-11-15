@@ -1,0 +1,40 @@
+{
+ "requested": [
+  "Crosis's Charm",
+  "Kolaghan's Command",
+  "Electrolyze",
+  "Nicol Bolas, the Ravager",
+  "Emmara, Soul of the Accord",
+  "Nullhide Ferox",
+  "Vivien Reid",
+  "Thoughtbound Phantasm",
+  "Thought Erasure",
+  "Lazav, the Multifarious",
+  "Blood Operative",
+  "Sinister Sabotage",
+  "Vraska's Contempt",
+  "Doom Whisperer",
+  "Nightveil Predator",
+  "Dream Eater"
+ ],
+ "fetched": [
+  "Crosis's Charm",
+  "Kolaghan's Command",
+  "Electrolyze",
+  "Nicol Bolas, the Ravager // Nicol Bolas, the Arisen",
+  "Emmara, Soul of the Accord",
+  "Nullhide Ferox",
+  "Vivien Reid",
+  "Thoughtbound Phantasm",
+  "Thought Erasure",
+  "Lazav, the Multifarious",
+  "Blood Operative",
+  "Sinister Sabotage",
+  "Vraska's Contempt",
+  "Doom Whisperer",
+  "Nightveil Predator",
+  "Dream Eater"
+ ],
+ "missing": [],
+ "retrievedAt": "2026-11-13T12:25:33.277Z"
+}

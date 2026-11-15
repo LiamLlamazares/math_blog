@@ -1,0 +1,338 @@
+---
+title: "What lands should I play? Part 2: playing the games"
+description: "We hire a tireless apprentice, teach them to duel, and argue about the score"
+author: "Liam Llamazares--Elias"
+date: "2026-11-20"
+categories: [Probability, Monte Carlo, Magic the Gathering]
+bibliography: biblio.bib
+draft: true
+crossref:
+  eq-prefix: ""
+format:
+  html:
+    toc: true
+    number-sections: true
+    html-math-method: mathjax
+    css: [../_kit/post.css]
+    body-classes: mana-post
+    include-in-header:
+      text: |
+        <script>
+        window.MathJax = {
+          tex: {
+            tags: "ams",
+            macros: {
+              A: "\\mathbb{A}",
+              Aa: "\\mathcal{A}",
+              Bb: "\\mathcal{B}",
+              C: "\\mathbb{C}",
+              Cc: "\\mathcal{C}",
+              Dd: "\\mathcal{D}",
+              E: "\\mathbb{E}",
+              Ee: "\\mathcal{E}",
+              F: "\\mathbb{F}",
+              Ff: "\\mathcal{F}",
+              Gg: "\\mathcal{G}",
+              Hh: "\\mathcal{H}",
+              II: "\\mathbb{I}",
+              Id: "\\bm{I}",
+              Ii: "\\mathcal{I}",
+              Im: "\\bm{Im}",
+              Jj: "\\mathcal{J}",
+              K: "\\mathbb{K}",
+              KL: ["\\rm{KL}\\left(#1 \\| #2\\right)", 2],
+              Kk: "\\mathcal{K}",
+              LL: "\\mathbb{L}",
+              Ll: "\\mathcal{L}",
+              M: "\\mathbb{M}",
+              Mm: "\\mathcal{M}",
+              N: "\\mathbb{N}",
+              Nn: "\\mathcal{N}",
+              Oo: "\\mathcal{O}",
+              PP: "\\mathbb{P}",
+              Pp: "\\mathcal{P}",
+              Q: "\\mathbb{Q}",
+              Qq: "\\mathcal{Q}",
+              R: "\\mathbb{R}",
+              Rr: "\\mathcal{R}",
+              Ss: "\\mathcal{S}",
+              T: "\\mathbb{T}",
+              Th: "{\\bm{\\theta}}",
+              Thh: "{\\bm{\\Theta}}",
+              Tt: "\\mathcal{T}",
+              Uu: "\\mathcal{U}",
+              Vv: "\\mathcal{V}",
+              W: "\\mathbb{W}",
+              Ww: "\\mathcal{W}",
+              X: "\\mathbb{X}",
+              Xx: "\\mathcal{X}",
+              Yy: "\\mathcal{Y}",
+              Z: "\\mathbb{Z}",
+              Zz: "\\mathcal{Z}",
+              abs: ["{\\left| #1 \\right|}", 1],
+              alf: "{\\alpha}",
+              b: ["{\\bm{#1}}", 1],
+              bm: ["\\boldsymbol{#1}", 1],
+              br: ["\\left\\langle#1\\right\\rangle", 1],
+              bt: "\\beta",
+              co: ["\\overset{\\circ}{#1}", 1],
+              d: "\\mathrm{d}",
+              diag: ["\\operatorname{diag}\\left(#1\\right)", 1],
+              dx: "\\,\\mathrm{d}x",
+              dy: "\\,\\mathrm{d}y",
+              eps: "\\varepsilon",
+              et: "{\\bm{\\eta}}",
+              ex: ["\\mathrm{exp}\\left(#1\\right)", 1],
+              fk: ["\\mathfrak{#1}", 1],
+              fracc: ["{#1}/{#2}", 2],
+              frc: ["\\left(#2)^{-1}(#1\\right)", 2],
+              iso: "\\xrightarrow{\\sim}",
+              ker: "\\rm{ker}",
+              mat: ["\\begin{bmatrix}{#1}\\end{bmatrix}", 1],
+              mathbbm: ["\\mathbb{#1}", 1],
+              mathds: ["\\mathbb{#1}", 1],
+              norm: ["\\left\\lVert #1 \\right\\rVert", 1],
+              om: "\\omega",
+              proj: "\\mathrm{proj}",
+              qb: ["\\left[#1\\right]", 1],
+              qp: ["\\left(#1\\right)", 1],
+              qt: ["\\left(#1\\right)", 1],
+              red: ["{\\color{red}#1}", 1],
+              restr: ["\\left.#1\\right|{#2}", 2],
+              rm: ["\\mathrm{#1}", 1],
+              set: ["\\left\\{#1\\right\\}", 1],
+              star: "*",
+              supp: "\\operatorname{supp}",
+              tl: ["\\widetilde{#1}", 1],
+              tll: ["\\widetilde{#1}", 1],
+              vol: "\\mathrm{vol}",
+              wh: ["\\widehat{#1}", 1],
+              x: "\\bm{x}",
+              xxi: "{\\bm{\\xi}}",
+              y: "\\bm{y}"
+            }
+          }
+        };
+        </script>
+---
+
+## Three line summary
+
+- Instead of counting sources, we let a computer play thousands of practice duels with each candidate set of lands and write down what happened. This is Monte Carlo simulation, and it handles everything that counting could not.
+
+- The price is that we must say exactly how a wizard plays and what a good game is. The first is a set of rules of thumb. The second is a score with five parts whose weights were fitted to $1{,}057{,}242$ real games.
+
+- There are far too many sets of lands to try them all, so we search, comparing candidates on the same shuffles and keeping a wizard's own lands unless something is clearly better. The result is free to use at [manaoptimizer.com](https://manaoptimizer.com).
+
+## Why should I care?
+
+Because this is how a great many real problems are solved once the formulas give out: you stop computing the answer and start sampling it. Along the way we will need the law of large numbers, a trick for comparing two noisy things fairly, and a healthy suspicion of our own results. And if you play Magic, because at the end there is a tool you can paste your deck into.
+
+## Where we left off
+
+In [Part 1](../1-counting/index.qmd) the wizard Archibaldus the Grey lost a practice bout with a hand full of spells and the wrong lands. We saw how scholar-wizards attack the problem by counting: the hypergeometric distribution, Frank Karsten's table of how many sources each spell wants [@karsten2018sources], and a regression for how many lands to play [@karsten2022lands]. We also saw where counting stops. Lands enter exhausted, cost life, and depend on each other. Spells draw cards and make mana. Every spell in the book wants something different, and there are only so many slots.
+
+Archibaldus knows all of this. He did not ask for targets. He asked which lands to play.
+
+## The apprentice
+
+How often does a cauldron boil over? One could solve the equations of the fluid, the fire and the newt. Or one could boil a thousand cauldrons and count the ones that ruin the carpet. Apprentices are cheap.
+
+This is the whole idea of *Monte Carlo simulation*. Let $A$ be an event whose probability $p=\mathbb{P}(A)$ we cannot compute, for instance “Archibaldus can pay for Crosis's Charm on turn three”. We play $n$ independent practice bouts and record the fraction in which $A$ happened,
+$$
+  \hat p_n=\frac1n\sum_{i=1}^n \mathbf{1}_A(\omega_i).
+$$ {#eq-mc}
+The law of large numbers says that $\hat p_n\to p$ as $n\to\infty$. How fast? Each term is a coin with bias $p$, so
+$$
+  \mathbb{E}[\hat p_n]=p,\qquad \operatorname{Var}(\hat p_n)=\frac{p(1-p)}{n},
+$$
+and by the central limit theorem $\hat p_n$ lies within $1.96\sqrt{p(1-p)/n}$ of $p$ about $95\%$ of the time. For $p=0.9$ this margin is $12$ percentage points after $24$ games, $1.9$ after $1{,}000$ and $0.19$ after $100{,}000$. To halve the error we must play four times as many games. Keep this in mind. It will decide most of what follows.
+
+![Three apprentices playing on and on. The guess settles on the truth, and the band narrows like $1/\sqrt{n}$.](fig_estimate.svg){#fig-estimate fig-align="center" width="92%"}
+
+Nothing in (@eq-mc) cares how complicated the game is. Lands that enter exhausted, lands that cost life, spells that draw cards: the apprentice simply plays them. Other people have had this idea, of course. Karsten's own table, as we saw in Part 1, comes from simulation and not from a formula: his computer deals the cards and counts the lands, though nobody plays them. The site 17Lands offers a simulator for $40$-card decks [@conroy2023evaluator] and Salubrious Snail has another [@snailmanabase]. Both grade the lands you give them, and neither models spells that draw cards. We want two things more: an apprentice who plays the turns as a wizard would, and a search that returns a list of lands.
+
+## Teaching the apprentice to duel
+
+Here is the catch. In [Part 1](../1-counting/index.qmd) we only had to count cards. Now somebody has to *play* them, and at every step there are choices. Which land this turn? Pay life to use it at once? Which spell first? We must write the answers down, for every situation, in advance. A complete set of such answers is called a *policy*. Ours is a list of rules of thumb, and it is the least glamorous and most important part of the whole enterprise.
+
+- **The opening hand.** The apprentice may return a bad hand and draw seven new cards, putting one card on the bottom of the book for each time they have done so. Roughly, they keep a seven-card hand with two to five lands and at least two spells, become less picky after each return, and choose the cards to keep so that as many of them as possible can be cast.
+
+- **Which land.** Each turn the apprentice tries every land in hand, in every way it can be played. They choose the one after which the most spells can be paid for this turn; among those, the one that lets them spend the most mana; then the one that sets up the next turn best; and only then the one that costs the least life. So life is paid when it buys something, and not otherwise.
+
+- **Which spells.** Spend as much mana as possible. Among equal plans, prefer spells that draw cards, then spells that make mana, then the most expensive spell.
+
+- **Creatures that make mana.** These cannot be used on the turn they arrive. Worse, the opponent may destroy them. We have no opponent, so at the start of each later turn every such creature is removed with probability $0.3$. A creature summoned on turn one is therefore alive on turn two in $70\%$ of games, on turn three in $0.7^2=49\%$ and on turn four in $0.7^3\approx34\%$. Compare this with Karsten's rule of counting such a creature as half a source at all times: ours is worth more early and less late, which is what any wizard who has had their Elf struck by lightning will tell you.
+
+- **Who goes first.** Every shuffle is played twice, once going first and once going second.
+
+![The life expectancy of an Elf summoned on turn one. By turn four it is more likely gone than not.](fig_elf.svg){#fig-elf fig-align="center" width="60%"}
+
+![One game played by the apprentice (an illustration; the tool replays real ones). The Elves earn a mana on turn two and fall to the $30\%$ roll on turn three.](fig_one_game.svg){#fig-one-game fig-align="center" width="92%"}
+
+Are these rules how a champion plays? No. A champion looks several turns ahead, holds mana back to answer the opponent, and knows which spell matters in which duel. The apprentice has no opponent at all. The rules are, I think, how a sensible wizard plays their first four turns when nothing unusual is happening, and those are the turns in which lands decide games. Every rule can be read, and several can be changed: the $30\%$, for instance, can be set for each creature separately.
+
+## Keeping score
+
+The apprentice has played a thousand bouts with one set of lands. Now what? To compare two sets of lands we need a single number, and so we must decide what a good game is. This is the second thing counting never asked of us. The score has five parts, each between $0$ and $100$.
+
+### Cast on time
+
+Every spell is given a target turn, by default its total mana cost: a three-mana spell should be castable on turn three. For a spell $c$ with target turn $\tau_c$, let $D_c$ be the number of turns after $\tau_c$ at which the lands in play could first pay for it. The game earns credit
+$$
+  R_c=3^{-D_c}\ \text{ if } D_c\le 3,\qquad R_c=0\ \text{ otherwise,}
+$$
+that is $1$ if on time, $\tfrac13$ if one turn late, $\tfrac19$ if two, $\tfrac1{27}$ if three. The part is the average credit over games and over the spells of the book,
+$$
+  S_{\mathrm{cast}}=100\cdot\frac{\sum_c w_c\,\mathbb{E}[R_c]}{\sum_c w_c},
+$$ {#eq-cast}
+where $w_c$ is the number of copies of $c$ (times a value that is $0$ for a spell whose only effect is to replace itself with another card, and $1$ for almost everything else).
+
+Two remarks. First, the question is whether the lands *could* pay for the spell, whether or not the spell is in hand that game. Drawing the spell is luck that has nothing to do with the lands, and leaving it out removes a great deal of noise. Second, compare with Karsten's formula from [Part 1](../1-counting/index.qmd). He conditions on having drawn enough lands, so as to judge the colours alone. We do not, so a game with too few lands counts against the lands, as it should when the number of lands is part of what we are choosing. The price is that our numbers and his are not directly comparable, and ours will look lower.
+
+### Mana put to use
+
+A wizard who plays a land every turn has $1+2+\dots+T=T(T+1)/2$ mana over the first $T$ turns. The second part is the share of it that was spent on spells, with $T=4$ by default:
+$$
+  S_{\mathrm{mana}}=100\cdot\min\Bigl\{1,\ \frac{\text{mana spent on turns } 1,\dots,T}{T(T+1)/2}\Bigr\},
+$$ {#eq-mana}
+averaged over games (mana spent on a spell of value $0$ is left out). Lands that enter exhausted lower it directly. So does a missing colour.
+
+### Useful lands
+
+The third part looks at the lands the wizard saw in the first seven turns and asks what share of them were of any use. Let $\kappa$ be the cost of the dearest spells in the book (precisely, the $90$th percentile of the costs, and at least $2$). The $j$-th land seen is *useful* if $j\le\kappa$, or if at least $j$ mana was spent on the turn it was played or the turn after. So the first few lands are always useful, and a fifth land in a book of two-mana spells is useful only if those five mana actually went somewhere. Then
+$$
+  S_{\mathrm{use}}=100\cdot\frac{\text{useful lands seen, over all games}}{\text{lands seen, over all games}} .
+$$ {#eq-use}
+This is the part that punishes drawing nothing but lands. Its origin is the subject of the next section.
+
+### Keepable hands and life
+
+The fourth part is the average size of the hand the apprentice kept, as a share of seven: $S_{\mathrm{mull}}=100\cdot\mathbb{E}[\text{cards kept}]/7$. The fifth is $S_{\mathrm{life}}=100\cdot\max\{0,\,1-\ell/6\}$, where $\ell$ is the average life paid to the lands.
+
+### The total
+
+$$
+  S=\frac{1\cdot S_{\mathrm{cast}}+6\cdot S_{\mathrm{mana}}+4.25\cdot S_{\mathrm{use}}+4.25\cdot S_{\mathrm{mull}}+0.5\cdot S_{\mathrm{life}}}{16}.
+$$ {#eq-total}
+
+We will see the five parts side by side, for two real sets of lands, in @fig-score-parts.
+
+You should be suspicious of (@eq-total). Why $6$ and $4.25$? Why is casting spells on time, the very thing Part 1 was about, worth one sixteenth? I was suspicious too. The weights have a history, and it does not flatter the author.
+
+## Where the weights come from
+
+The first version of the score had four parts: cast on time, mana put to use, life and keepable hands, with weights $6$, $6$, $1$ and $3$. They were chosen by thinking hard. It ranked sets of lands sensibly. Then we asked it a different question: how *many* lands should a deck play?
+
+We took eleven decks, nine of them from that week's tournament results, added and removed lands one at a time, let the search find the best lands for each count, and scored everything on $512$ fresh shuffles. For ten of the eleven decks the score preferred more lands than the deck played. On average it wanted one and a half more, and when we let it go further, for seven of the decks the best count was three or four more. No tournament wizard plays like that. The score had a blind spot, and it is easy to see where once you look. Extra lands make every spell easier to cast and every hand easier to keep. The only part that could object was mana put to use, measured over four turns, and the misery of drawing nothing but lands arrives on turn five.
+
+So we went back to the real games of [Part 1](../1-counting/index.qmd). Recall the chart of win rate against lands seen: one land too many cost $10$ points, two cost $28$, while one too few cost nothing. That is a measurement of how real wizards are punished. We added the useful-lands part (@eq-use) so that the score could see a flood at all, and then chose the weights so that, when the apprentice plays the same kind of decks, the score falls off on either side in the same way the real win rate does. The weights on mana put to use and on useful lands come out of that fit. The weight on keepable hands is pinned down by a direct measurement: in the real games the first mulligan costs $15.5$ points of win rate. Together they come to $5.95$, $4.26$ and $4.28$ sixteenths, which we rounded to $6$, $4.25$ and $4.25$.
+
+![Decks whose spells cost $2.6$ to $3$ on average. Left: the real win rate against lands seen. Middle: the first score, which keeps rewarding more lands. Right: the fitted score, which falls on both sides as the real win rate does. Each panel has its own scale.](fig_fit.svg){#fig-fit fig-align="center" width="92%"}
+
+Two weights could not be fitted. The data record how many lands a player saw, and not whether they were of the right colour or what they cost in life, so they say nothing about the price of either. For those we chose small values by hand, $1$ and $0.5$, which are enough to stop the search from giving a colour away or paying life for nothing. A small weight does not mean colours hardly matter: a missing colour also shows up, heavily, as mana that could not be spent.
+
+The fit can be checked on a fact it was not given. In those drafts, decks with $16$ lands won about a point more often than decks with $17$. The old score said $17$ was better. The new one says $16$.
+
+I find this the most satisfying part of the project and also the part to be most careful about. The data are $40$-card decks, and the score is not a probability of winning.
+
+## So many lands
+
+We can now score a set of lands. Which sets should we score? For a book with $24$ lands, suppose there are $b$ basic lands, of which any number may be played, and $q$ non-basic lands, of which at most four copies each. The number of possible sets is the number of solutions of
+$$
+  x_1+\dots+x_b+y_1+\dots+y_q=24,\qquad x_i\ge0,\quad 0\le y_j\le4 .
+$$
+For two colours with $b=2$ and $q=6$ this is $203{,}125$. For three colours with $b=3$ and $q=15$ it is $49{,}052{,}695{,}850$. At a thousand games each and a few thousandths of a second per game, trying them all would take thousands of years. Archibaldus's duel is on Thursday.
+
+### Search
+
+So we search. We begin with the wizard's own lands and around a hundred candidates built from a quick estimate of which colours the book needs. After that we move by small steps: take the best set so far and swap one, two or four copies of one land for another. A small statistical model watches which kinds of swap have helped and proposes the next ones by sampling from its own uncertainty about what works, so that it neither ignores its experience nor trusts it too much.
+
+### The same shuffles for everyone
+
+Suppose two sets of lands score $X$ and $Y$ in a game. We want $\mathbb{E}[X-Y]$. If each plays its own random games then the variance of the difference of the averages is $(\sigma_X^2+\sigma_Y^2)/n$, and a difference of half a point drowns in the luck of the draw. If instead both play the *same* shuffles, with the spells in the same positions in the book, then
+$$
+  \operatorname{Var}\bigl(\bar X_n-\bar Y_n\bigr)=\frac{\sigma_X^2+\sigma_Y^2-2\rho\,\sigma_X\sigma_Y}{n},
+$$ {#eq-crn}
+where $\rho$ is the correlation between the two scores on the same shuffle. Two similar sets of lands do well and badly on the same shuffles, so $\rho$ is close to one and most of the noise cancels. It costs nothing, and it is the difference between seeing a small improvement and not.
+
+![Why everyone plays the same shuffles (illustrative numbers). Left alone, each set's luck drowns the gap. On the same shuffles the luck cancels and the gap shows.](fig_same_shuffles.svg){#fig-same-shuffles fig-align="center" width="80%"}
+
+### A knockout tournament
+
+By the error estimate of the previous section, a thousand games are needed to tell good sets of lands apart, and we cannot afford a thousand games for every candidate. Most candidates, however, are plainly bad after two dozen. So the candidates play in rounds: everyone plays $24$ games, the better ones continue to $96$, then $384$, and at most ten reach $1{,}000$.
+
+![The knockout for a field of $96$ candidates. Half go home each round, and $18{,}832$ games do the work of $96{,}000$.](fig_knockout.svg){#fig-knockout fig-align="center" width="85%"}
+
+### An honest ending
+
+There is a trap here that every statistician knows. If we pick the best of a hundred noisy scores, the winner is partly the best and partly the luckiest, and its score flatters it. So the winner and the wizard's original lands are played once more on fresh shuffles that took no part in the search. Writing $D_j$ for the difference of their scores on shuffle $j$, with mean $\bar D$ and sample standard deviation $s_D$ over $n$ shuffles, we report the range
+$$
+  \bar D\;\pm\;t_{0.975,\,n-1}\,\frac{s_D}{\sqrt n},
+$$
+and only call the new lands better if the whole range lies above zero. If it does not, the answer is: *your lands are as good as anything we found*. And when several sets are within a quarter of a point of the best, we recommend the one with the fewest changes. Telling a wizard to keep their lands is a perfectly good result, and as we are about to see, a common one.
+
+## What happens when we try it
+
+### Archibaldus's book
+
+At the end of [Part 1](../1-counting/index.qmd) we gave Archibaldus two sets of $24$ lands with twelve sources of each colour. In one the two-colour lands cost $2$ life to use at once, and in the other they arrive exhausted. Here is what the apprentice made of them, over $1{,}024$ bouts each on the same shuffles.
+
+![Two sets of lands for the same book, with the same twelve sources of every colour, scored on the five parts. The taller the row, the more the part counts.](fig_score_parts.svg){#fig-score-parts fig-align="center" width="92%"}
+
+The lands that cost life score $79.7$ and the lands that arrive exhausted $75.4$. On the paired shuffles the difference is $4.4$ points, with a range from $3.6$ to $5.1$. Archibaldus pays two life a game for it, and the score says it is worth it: his spells are castable on time far more often and much more of his mana is spent.
+
+We then let the search loose, starting from the better set. It came back proposing to turn one Swamp into a Mountain, for a difference of $-0.01$ points with a range from $-0.37$ to $+0.36$. In other words, nothing. The report says to keep the lands.
+
+### Do we agree with Karsten?
+
+Karsten's article [@karsten2018sources] ends with worked examples, and it would be embarrassing to disagree with them. His lists are lands without spells, so we filled in nine spells for each from the cards he mentions.
+
+| His example | His verdict | The apprentice |
+|:-------------------|:----------------|:----------------------|
+| Green and white, with one-mana green creatures. $8$ two-colour lands and $16$ basics. | Play $10$ Forest and $6$ Plains, not $8$ and $8$. | $10$ and $6$ is better by $0.37$ points (range $0.07$ to $0.68$). $6$ and $10$ is worse by $0.93$. |
+| Water and dark, with a one-mana water spell and a three-mana spell needing two dark. | $9$ Island and $7$ Swamp, and it is a stretch. | $9$ and $7$, $8$ and $8$, and $7$ and $9$ cannot be told apart. $10$ and $6$ is worse by $0.40$ (range $0.14$ to $0.67$). |
+
+So we agree, which is a relief. The first row hides a nicer agreement still. With $8$ Forests the green-white deck has $12$ lands that give earth mana on the first turn, and with $10$ Forests it has $14$. Karsten's table says $12$ such lands cast a one-mana spell on turn one $86\%$ of the time, and that $14$ are needed to reach $90\%$. The apprentice, who has never seen the table, could pay for Llanowar Elves on turn one in $88\%$ of games with $12$ and $93\%$ with $14$. (Ours are a little higher because half of our games are played going second, with one more card.) Two methods that share nothing but the rules of the game land within a few points of each other.
+
+The apprentice also sees the price of the skew, which the table leaves to judgement: the five-mana Lyra Dawnbringer, who needs two light mana, is castable on time in $58\%$ of games, down from $60\%$.
+
+::: {.callout-note collapse="true" title="The decks behind these numbers"}
+Spells used. Green-white: Llanowar Elves, Pelt Collector, Emmara, Thrashing Brontodon, Knight of Autumn, Nullhide Ferox, Vivien Reid, Lyra Dawnbringer, Shalai. Blue-black: Thoughtbound Phantasm, Thought Erasure, Lazav, Blood Operative, Sinister Sabotage, Vraska's Contempt, Doom Whisperer, Nightveil Predator, Dream Eater. Only the Elves have an effect modelled; the rest count for their cost. Archibaldus's nine: Lightning Bolt, Thoughtseize, Goblin Electromancer, Counterspell, Terminate, Crosis's Charm, Kolaghan's Command, Electrolyze, Nicol Bolas the Ravager. 512 shuffles, each played first and second.
+:::
+
+### The top decks
+
+Every week the apprentice is given the most played decks of each format. In the week of $9$ November $2026$ that was $47$ decks. For $24$ of them the recommendation was to change nothing. For the other $23$ the search found something it scored higher, by $0.7$ points in the median and $2.7$ at most. These gains are measured on the search's own games, so they flatter it a little, for the reason given in the previous section.
+
+![One square per deck. The darker the square, the more the search gained over the lands the deck was registered with.](fig_top_decks.svg){#fig-top-decks fig-align="center" width="85%"}
+
+I take this as good news twice over. Tournament wizards, as a community, are very good at lands, which is reassuring about them. And the apprentice mostly agrees with them, which is reassuring about the apprentice.
+
+## What the apprentice gets wrong
+
+It would be a poor show to spend a post on the limits of other methods and stay quiet about our own.
+
+- **There is no opponent.** Nobody attacks, nobody counters a spell, and the $30\%$ for fragile creatures is a single number standing in for all of it.
+
+- **The apprentice is greedy.** They spend what they can each turn and look one turn ahead. A wizard who holds mana back to respond to the opponent looks, to the score, like a wizard wasting mana.
+
+- **Mana spent later is invisible.** Abilities that soak up spare mana in the late game are not credited, so the score can undersell lands in a deck built around them.
+
+- **Cards are read for their cost.** A card whose effect on mana the model does not know counts as its cost and nothing else. You can tell it what the card does (draw a card, look at two and keep one, a cheaper cost), but graveyard tricks and the like are out of reach.
+
+- **Every spell matters equally.** Two copies of a spell count twice as much as one, and that is all the model knows about which spells win duels.
+
+- **The weights were fitted to $40$-card games.** They carry over to $60$ cards on the strength of a partial check and some hope.
+
+- **The search is a search.** It finds good lands. It does not prove that none are better.
+
+- **The score is not a win rate.** A point of score is a point of score.
+
+Karsten's tables have a virtue we should not lose sight of: you can hold them in your head. The apprentice asks you to trust rules you have not read. That is why every rule is written down, in a document that the code is obliged to follow, and why the tool will replay any single game for you, card by card, so that you can catch it playing badly.
+
+## Try it
+
+Archibaldus was willing to pay ungodly sums for this. For the good of the wizarding community we have instead put it online, free and with no account needed, at [manaoptimizer.com](https://manaoptimizer.com). Paste a decklist and it returns the lands, the five scores, and the swaps it would make with the reason for each. The code is open source [@manaoptimizer], and contributions and complaints from other wizards are very welcome, particularly complaints of the form “no sane wizard would play that land there”.
+
+As for Archibaldus, he won on Thursday. He had drawn three Swamps by turn four. They were, this time, the right ones.

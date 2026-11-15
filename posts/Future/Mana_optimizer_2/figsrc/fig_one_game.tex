@@ -1,0 +1,72 @@
+\documentclass[border=4pt]{standalone}
+\usepackage{manafig}
+\renewcommand{\sfdefault}{qhv}
+\input{onegame_values.tex}
+\pgfdeclarehorizontalshading{gw}{1cm}{color(0cm)=(manaG!55!white); color(0.49cm)=(manaG!55!white); color(0.51cm)=(manaW!75!white); color(1cm)=(manaW!75!white)}
+\newcommand{\LF}[2]{\node[landtok,fill=manaG!55!white,minimum width=0.72cm,minimum height=0.55cm] at (#1,#2) {F};}
+\newcommand{\LP}[2]{\node[landtok,fill=manaW!75!white,minimum width=0.72cm,minimum height=0.55cm] at (#1,#2) {P};}
+\newcommand{\LT}[2]{\begin{scope}\clip[rounded corners=2pt] (#1-0.36,#2-0.275) rectangle (#1+0.36,#2+0.275);\fill[manaG!55!white] (#1-0.36,#2-0.3) rectangle (#1,#2+0.3);\fill[manaW!75!white] (#1,#2-0.3) rectangle (#1+0.36,#2+0.3);\end{scope}\draw[ink!45,line width=0.3pt,rounded corners=2pt] (#1-0.36,#2-0.275) rectangle (#1+0.36,#2+0.275);\node[font=\sffamily\bfseries\footnotesize,text=ink] at (#1,#2) {TG};}
+\newcommand{\pipL}[3]{\fill[#3,draw=ink!50,line width=0.3pt] (#1,#2) circle (0.15);}
+\newcommand{\pipT}[2]{\begin{scope}\clip (#1,#2) circle (0.15);\fill[manaG] (#1-0.15,#2-0.15) rectangle (#1,#2+0.15);\fill[manaW] (#1,#2-0.15) rectangle (#1+0.15,#2+0.15);\end{scope}\draw[ink!50,line width=0.3pt] (#1,#2) circle (0.15);}
+\newcommand{\pipE}[2]{\node[diamond,fill=manaG,draw=ink!60,line width=0.3pt,inner sep=0pt,minimum width=0.4cm,minimum height=0.4cm] at (#1,#2) {};}
+\newcommand{\pipU}[2]{\draw[ink!50,dash pattern=on 1.5pt off 1.5pt,line width=0.5pt] (#1,#2) circle (0.15);}
+\newcommand{\dia}{\tikz[baseline=-0.5ex]\node[diamond,fill=manaG,draw=ink!60,line width=0.3pt,inner sep=0pt,minimum width=0.3cm,minimum height=0.3cm]{};}
+\newcommand{\elftok}[3]{\fill[#3] (#1,#2) circle (0.12) (#1-0.1,#2+0.02) -- (#1-0.22,#2+0.11) -- (#1-0.08,#2-0.05) -- cycle (#1+0.1,#2+0.02) -- (#1+0.22,#2+0.11) -- (#1+0.08,#2-0.05) -- cycle;}
+% turn panel: #1 index, #2 title
+\newcommand{\turnpanel}[2]{%
+  \pgfmathsetmacro{\px}{2.65+(#1-1)*3.05}
+  \fill[panel] (\px,0) rectangle (\px+2.9,-6.6);
+  \node[anchor=north west,font=\sffamily\bfseries\normalsize,text=ink] at (\px+0.1,-0.1) {#2};
+  \node[anchor=north west,font=\sffamily\footnotesize,text=inksoft] at (\px+0.12,-1.5) {lands in play};
+  \node[anchor=north west,font=\sffamily\footnotesize,text=inksoft] at (\px+0.12,-2.8) {mana available};
+}
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+% hand panel
+\fill[panel] (0,0) rectangle (2.5,-6.6);
+\node[anchor=north west,font=\sffamily\bfseries\normalsize,text=ink] at (0.1,-0.1) {Kept hand};
+\node[anchor=north west,font=\sffamily\footnotesize,text=inksoft] at (0.12,-0.62) {\ogHandLands{} lands, \ogHandSpells{} spells};
+\LF{0.5}{-1.55}\LT{1.28}{-1.55}\LP{2.06}{-1.55}
+\foreach \i in {0,1,2,3}{
+  \draw[fill=white,draw=ink!45,line width=0.3pt,rounded corners=1.5pt] (0.2+\i*0.55,-2.3) rectangle (0.6+\i*0.55,-3.2);
+}
+\elftok{0.4}{-2.75}{manaG}
+\foreach \i in {1,2,3}{ \fill[ink!15] (0.31+\i*0.55,-2.6) rectangle (0.49+\i*0.55,-2.7) (0.31+\i*0.55,-2.78) rectangle (0.49+\i*0.55,-2.88);}
+\node[anchor=north west,font=\sffamily\footnotesize,text=inksoft,align=left] at (0.12,-3.6) {F\,= Forest\\TG\,= Temple\\\phantom{TG\,= }Garden\\P\,= Plains\\[2pt]\dia\,= mana\\\phantom{\dia\,= }from Elves};
+% panels
+\turnpanel{1}{Turn 1}\turnpanel{2}{Turn 2}\turnpanel{3}{Turn 3}\turnpanel{4}{Turn 4}
+% creature rows
+\elftok{2.65+0.25}{-1.0}{manaG}\node[anchor=west,font=\sffamily\footnotesize,text=ink] at (2.65+0.5,-1.0) {Llanowar Elves};
+\elftok{5.7+0.25}{-1.0}{manaG}\node[anchor=west,font=\sffamily\footnotesize,text=ink] at (5.7+0.5,-1.0) {Llanowar Elves};
+\elftok{8.75+0.25}{-1.0}{manaN}\draw[screwc,line width=1.2pt] (8.75+0.05,-1.2) -- (8.75+0.45,-0.8) (8.75+0.05,-0.8) -- (8.75+0.45,-1.2);
+\node[anchor=west,font=\sffamily\bfseries\footnotesize,text=screwc] at (8.75+0.55,-1.0) {destroyed};
+% turn 1: Forest
+\LF{2.65+0.5}{-2.3}
+\pipL{2.65+0.3}{-3.5}{manaG}
+\node[anchor=west,font=\sffamily\bfseries\large,text=ink] at (2.65+0.6,-3.5) {\ogManaA};
+% turn 2
+\LF{5.7+0.5}{-2.3}\LT{5.7+1.28}{-2.3}
+\pipL{5.7+0.3}{-3.5}{manaG}\pipT{5.7+0.7}{-3.5}\pipE{5.7+1.1}{-3.5}
+\node[anchor=west,font=\sffamily\bfseries\large,text=ink] at (5.7+1.45,-3.5) {= \ogManaB};
+% turn 3
+\LF{8.75+0.5}{-2.3}\LT{8.75+1.28}{-2.3}\LP{8.75+2.06}{-2.3}
+\pipL{8.75+0.3}{-3.5}{manaG}\pipT{8.75+0.7}{-3.5}\pipL{8.75+1.1}{-3.5}{manaW}
+\node[anchor=west,font=\sffamily\bfseries\large,text=ink] at (8.75+1.45,-3.5) {= \ogManaC};
+% turn 4
+\LF{11.8+0.5}{-2.3}\LT{11.8+1.28}{-2.3}\LP{11.8+2.06}{-2.3}
+\pipL{11.8+0.3}{-3.5}{manaG}\pipT{11.8+0.7}{-3.5}
+\node[anchor=west,font=\sffamily\bfseries\large,text=ink] at (11.8+1.45,-3.5) {= \ogManaD};
+% unspent pip: the third pip drawn hollow on turn 4
+\pipU{11.8+1.1}{-3.5}
+% texts
+\foreach \i/\t in {1/\ogTextA,2/\ogTextB,3/\ogTextC,4/\ogTextD}{
+  \pgfmathsetmacro{\px}{2.65+(\i-1)*3.05}
+  \node[anchor=north west,inner sep=0pt,text width=2.65cm,font=\sffamily\footnotesize,text=ink,align=left] at (\px+0.12,-4.0) {\t};
+}
+% notes
+\node[note,align=center] (n2) at (3.8,0.75) {\annot{three mana on turn two!}};
+\draw[note arrow] (5.55,0.4) to[out=-90,in=180] (5.78,-3.5);
+\node[note,align=center] (n3) at (7.7,0.75) {\annot{poof! the 30\% roll}};
+\draw[note arrow] (8.5,0.4) to[out=-90,in=180] (8.78,-1.0);
+\end{tikzpicture}
+\end{document}

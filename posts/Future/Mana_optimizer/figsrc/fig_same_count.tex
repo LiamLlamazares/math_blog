@@ -1,0 +1,48 @@
+\documentclass[border=4pt]{standalone}
+\usepackage{manafig}
+\usepackage{manacards}
+\input{expA_values}   % the six numbers come from here (edit that file, then recompile)
+\begin{document}
+% \lt{x}{y}{count}{name}{colours}: one land token, split in two when the land has two colours
+\newcommand{\lt}[6]{%
+  \edef\tca{\mfill{#5}}\edef\tcb{\mfill{#6}}%
+  \node[landtok,anchor=north west,minimum width=4.3cm,minimum height=0.55cm,align=left,fill=white,
+    path picture={\fill[\tca] (path picture bounding box.south west) rectangle (path picture bounding box.north);
+                  \fill[\tcb] (path picture bounding box.south) rectangle (path picture bounding box.north east);}]
+    at (#1,#2) {\hspace{0.15cm}#3\,$\times$\,#4};}
+% one panel with its list of lands; (x0,0) = top left
+\newcommand{\setpanel}[4]{% x0, name, sublabel, token list macro
+  \begin{scope}[shift={(#1,0)}]
+    \fill[panel] (0,0) rectangle (6.2,-6.45);
+    \node[anchor=north west,inner sep=0pt,font=\sffamily\bfseries\Large,text=ink] at (0.3,-0.2) {#2};
+    \node[anchor=north west,inner sep=0pt,text width=5.6cm,align=left,font=\sffamily\footnotesize\itshape,text=inksoft] at (0.3,-0.85) {#3};
+    #4
+    \node[anchor=center,fill=white,rounded corners=3pt,draw=ink!25,line width=0.4pt,inner xsep=6pt,inner ysep=3pt,font=\sffamily\small,text=ink] at (3.1,-5.75)
+      {sources\hspace{4pt}\mpip{U}\,\textbf{12}\hspace{5pt}\mpip{B}\,\textbf{12}\hspace{5pt}\mpip{R}\,\textbf{12}};
+  \end{scope}}
+% statistics under a panel
+\newcommand{\stats}[5]{% x0, headline, score part, life, total
+  \begin{scope}[shift={(#1,-6.7)}]
+    \fill[panel] (0,0) rectangle (6.2,-4.5);
+    \node[inner sep=0pt,font=\fontsize{30}{32}\selectfont\sffamily\bfseries,text=ink] at (3.1,-0.85) {#2};
+    \node[inner sep=0pt,font=\sffamily\small,text=ink] at (3.1,-1.7) {Lightning Bolt castable on turn one};
+    \draw[ink!25,line width=0.4pt] (0.4,-2.15) -- (5.8,-2.15);
+    \foreach \cx/\val/\lab in {1.05/{#3}/{all spells\\on time\\(score part)},3.1/{#4}/{life paid\\per game},5.15/{#5}/{total\\score}}{
+      \node[inner sep=0pt,font=\sffamily\bfseries\large,text=ink] at (\cx,-2.65) {\val};
+      \node[inner sep=0pt,anchor=north,align=center,font=\sffamily\footnotesize,text=inksoft] at (\cx,-3.0) {\lab};}
+  \end{scope}}
+\begin{tikzpicture}
+  \setpanel{0}{Set A}{two-colour lands usable at once, for 2 life}{%
+    \lt{0.95}{-1.55}{4}{Watery Grave}{U}{B}\lt{0.95}{-2.17}{4}{Blood Crypt}{B}{R}\lt{0.95}{-2.79}{4}{Steam Vents}{U}{R}
+    \lt{0.95}{-3.41}{4}{Island}{U}{U}\lt{0.95}{-4.03}{4}{Swamp}{B}{B}\lt{0.95}{-4.65}{4}{Mountain}{R}{R}}
+  \setpanel{8.6}{Set B}{two-colour lands arrive exhausted}{%
+    \lt{0.95}{-1.55}{4}{Dimir Guildgate}{U}{B}\lt{0.95}{-2.17}{4}{Rakdos Guildgate}{B}{R}\lt{0.95}{-2.79}{4}{Izzet Guildgate}{U}{R}
+    \lt{0.95}{-3.41}{4}{Island}{U}{U}\lt{0.95}{-4.03}{4}{Swamp}{B}{B}\lt{0.95}{-4.65}{4}{Mountain}{R}{R}}
+  \stats{0}{\expAboltA}{\expAcastA}{\expAlifeA}{\expAscoreA}
+  \stats{8.6}{\expAboltB}{\expAcastB}{\expAlifeB}{\expAscoreB}
+  \node[note,align=center,font=\normalsize,inner sep=1pt] (n1) at (7.4,-5.75) {\annot{same twelve}\\\annot{sources of}\\\annot{every colour}};
+  \draw[note arrow] (n1.west) to[bend right=15] (5.4,-5.75);
+  \draw[note arrow] (n1.east) to[bend left=15] (9.4,-5.75);
+  \node[anchor=north,font=\sffamily\footnotesize,text=inksoft,inner sep=2pt] at ([yshift=-3pt]current bounding box.south) {1,024 simulated games each, same shuffles};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,22 @@
+/*-- scss:defaults --*/
+// Light palette (the original look). Shared rules are in styles.scss.
+$primary: #1E3A8A;
+$body-bg: #FCFCFC;
+$body-color: #333333;
+
+// LaTeX-style colors
+// $royal-blue: #4169E1;
+$royal-blue: #0000f9;      // internal references
+$forest-green: #228B22;    // citations
+$navy-blue: #00baee;       // ordinary links in posts
+
+// Colours used by the shared rules
+$blog-navbar-bg: #757679;
+$blog-navbar-fg: #ffffff;
+$blog-rule-color: #E2E8F0;
+$blog-muted-color: #64748B;
+$blog-toc-active-color: #1E3A8A;
+$blog-callout-bg: #FFFFFF;
+$blog-callout-accent: #1E3A8A;
+$blog-listing-desc-color: #555;
+$blog-badge-border-color: #CBD5E1;
