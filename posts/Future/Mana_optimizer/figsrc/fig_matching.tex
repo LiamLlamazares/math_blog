@@ -29,10 +29,10 @@
   \bpip{\ux}{\uy}{U}\bpip{\ux}{\ry}{R}
   \okmark{1.0}{-2.05}\node[font=\sffamily\bfseries\normalsize,text=goodc!70!ink,anchor=west,inner sep=0pt] at (1.4,-2.05) {Paid};}
 % (b)
-\mpanel{4.3}{One\\Steam Vents}{%
-  \draw[ink!35,line width=0.5pt] (1.15,0) -- (\ux-0.3,\uy) (1.15,0) -- (\ux-0.3,\ry);
-  \draw[ink,line width=2.6pt] (1.15,0) -- (\ux-0.3,\uy);
-  \landchip{1.15}{0}{Steam\\Vents}{U}{R}
+\mpanel{4.3}{Steam Vents and Swamp}{%
+  \draw[ink!35,line width=0.5pt] (2.2,0.75) -- (\ux-0.22,\ry+0.33);
+  \draw[ink,line width=2.6pt] (1.15,0.95) -- (\ux-0.3,\uy);
+  \landchip{1.15}{0.95}{Steam\\Vents}{U}{R}\landchip{1.15}{-0.95}{Swamp}{B}{\relax}
   \bpip{\ux}{\uy}{U}\bpip{\ux}{\ry}{R}
   \draw[screwc!85!ink,line width=1.2pt,dash pattern=on 3pt off 2pt] (\ux,\ry) circle (0.46);
   \nomark{0.65}{-2.05}\node[font=\sffamily\bfseries\normalsize,text=screwc!70!ink,anchor=west,inner sep=0pt] at (0.95,-2.05) {Not paid};}

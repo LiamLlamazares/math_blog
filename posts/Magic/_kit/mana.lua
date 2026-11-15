@@ -1,6 +1,6 @@
 -- Mana kit shortcodes for Quarto.  Declare in a post's front matter:
 --   shortcodes: [../_kit/mana.lua]
---   {{< mana UR >}}   {{< card lightning-bolt >}}   {{< cards a b c >}}   {{< duel lucky >}}
+--   {{< mana UR >}}   {{< card lightning-bolt >}}   {{< cards a b c >}}   {{< duel lucky >}}   {{< cn lightning-bolt >}}
 -- HTML output uses classes prefixed mk-.  Other formats get plain text.
 
 -- ---------------------------------------------------------------- helpers
@@ -268,6 +268,26 @@ M["cards"] = function(args, kwargs, meta, raw_args, ctx)
   for _, c in ipairs(list) do out[#out + 1] = card_html(c, false) end
   return raw(ctx, "<div class='mk-cards'><div class='mk-row'>" .. table.concat(out) .. "</div>"
     .. credit_html(list) .. "</div>")
+end
+
+-- {{< cn lightning-bolt >}}  or  {{< cn lightning-bolt "the Bolt" >}}
+-- A card's name in running text. Hovering, focusing or tapping it shows the card (cardname.js).
+local hover_done = {}
+M["cn"] = function(args, kwargs, meta, raw_args, ctx)
+  local ws = {}
+  for _, a in ipairs(args) do ws[#ws + 1] = pandoc.utils.stringify(a) end
+  local c = get_card(ws[1])
+  local label = #ws > 1 and table.concat(ws, " ", 2) or c.name
+  if not is_html() then return pandoc.Str(label) end
+  once("cardname.js", function()
+    quarto.doc.include_text("after-body", "<script>" .. read_file("cardname.js") .. "</script>")
+  end)
+  if not hover_done[c.id] then
+    hover_done[c.id] = true
+    quarto.doc.include_text("after-body", "<template class='mk-cn-tpl' data-id='" .. c.id .. "'>"
+      .. card_html(c, false) .. "<p class='mk-pop-credit'>Art: " .. esc(c.artist) .. "</p></template>")
+  end
+  return pandoc.RawInline("html", "<span class='mk-cn' tabindex='0' data-mk-card='" .. c.id .. "'>" .. esc(label) .. "</span>")
 end
 
 -- {{< duel lucky >}}   one game, by id, from duel.json

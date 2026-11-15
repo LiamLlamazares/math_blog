@@ -14,6 +14,9 @@
 .mana-post table{width:auto;margin:1rem auto;font-variant-numeric:tabular-nums}
 .mana-post table th,.mana-post table td{padding:.35rem .7rem}
 .mana-post .table-responsive,.mana-post div.table-wrapper{overflow-x:auto}
+/* A table whose cells hold mana symbols gets paragraph cells and equal column shares from pandoc: undo both */
+.mana-post table td>p,.mana-post table th>p{margin:0}
+.mana-post #tbl-karsten col{width:auto!important}
 @media (max-width:576px){.mana-post table{display:block;overflow-x:auto;max-width:100%;width:max-content;font-size:.88rem}.mana-post table th,.mana-post table td{padding:.3rem .45rem}}
 
 /* Draft notes show up loudly in preview */

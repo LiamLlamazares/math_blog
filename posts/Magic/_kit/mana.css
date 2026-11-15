@@ -17,6 +17,7 @@ body.quarto-dark{--mk-ink:#eceef6;--mk-ink2:#bbc0d4;--mk-muted:#9aa0b8;--mk-rule
 .mk-f-g{--fl:#b3d3a9;--fm:#4d8d58;--fd:#244b2d}.mk-f-w{--fl:#f3ecd2;--fm:#d9cfa3;--fd:#8d8358}
 .mk-f-ub{--fl:#a9bfd8;--fm:#4a6f9a;--fd:#232a45}.mk-f-br{--fl:#c9a79c;--fm:#8a4a3c;--fd:#2a1a18}
 .mk-f-gold{--fl:#f1dd98;--fm:#cba63e;--fd:#7b5f17}.mk-f-land{--fl:#d3c3a7;--fm:#a08b6e;--fd:#5f4e39}
+.mk-f-art{--fl:#d9dde2;--fm:#8b96a3;--fd:#3f4853}
 
 .mk-card{color:#1b1612;flex:none;box-sizing:border-box;font-size:12.6px;line-height:normal;width:17.5em;aspect-ratio:63/88;background:#14110f;border-radius:1.15em;padding:.6em;position:relative;box-shadow:0 .25em .7em rgba(0,0,0,.38);text-align:left}
 .mk-card *{box-sizing:border-box}
@@ -89,6 +90,22 @@ body.quarto-dark{--mk-ink:#eceef6;--mk-ink2:#bbc0d4;--mk-muted:#9aa0b8;--mk-rule
 .mk-img-brainstorm{background-image:url("art/brainstorm.jpg")}
 .mk-img-llanowar-elves{background-image:url("art/llanowar_elves.jpg")}
 .mk-img-crumbling-necropolis{background-image:url("art/crumbling_necropolis.jpg")}
+.mk-img-black-lotus{background-image:url("art/black_lotus.jpg")}
+.mk-img-pyretic-ritual{background-image:url("art/pyretic_ritual.jpg")}
+.mk-img-growth-spiral{background-image:url("art/growth_spiral.jpg")}
+.mk-img-divination{background-image:url("art/divination.jpg")}
+.mk-img-scalding-tarn{background-image:url("art/scalding_tarn.jpg")}
+.mk-img-counterspell{background-image:url("art/counterspell.jpg")}
+
+/* ---------- card names in the text: hover, focus or tap to see the card ---------- */
+.mk-cn{text-decoration:underline dotted;text-decoration-thickness:.08em;text-underline-offset:.18em;cursor:help;border-radius:.2em}
+.mk-cn:focus-visible{outline:2px solid var(--mk-accent);outline-offset:2px}
+.mk-pop{position:fixed;z-index:1000;left:0;top:0;pointer-events:none;opacity:0;transform:translateY(4px);transition:opacity .12s ease,transform .12s ease}
+.mk-pop.mk-on{opacity:1;transform:none}
+.mk-pop .mk-card{font-size:11.5px;box-shadow:0 .5em 1.6em rgba(0,0,0,.5)}
+.mk-pop-credit{margin:.35em 0 0;padding:.15em .5em;border-radius:.4em;background:rgba(20,17,15,.85);color:#f1e7cf;font:italic .68rem/1.3 system-ui,-apple-system,"Segoe UI",sans-serif;text-align:center}
+@media (prefers-reduced-motion:reduce){.mk-pop{transition:none}}
+@media print{.mk-pop{display:none}.mk-cn{text-decoration:none}}
 
 /* ---------- the duel ---------- */
 .mk-duel{color:var(--mk-ink);font-size:15px;line-height:1.5;margin:1em 0;text-align:left}

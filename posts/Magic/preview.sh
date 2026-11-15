@@ -1,19 +1,21 @@
 #!/usr/bin/env bash
 # Live preview of the two Magic posts in the blog's real theme.
 #
-#   posts/Future/Magic/preview.sh            # Part 1 (1-counting)
-#   posts/Future/Magic/preview.sh 2-playing  # Part 2
-#   posts/Future/Magic/preview.sh 1-counting --no-browser --port 4300
+#   posts/Magic/preview.sh            # Part 1 (1-counting)
+#   posts/Magic/preview.sh 2-playing  # Part 2
+#   posts/Magic/preview.sh 1-counting --no-browser --port 4300
 #
-# Why this script exists: _quarto.yml lists "!posts/Future/**" in its render list, and
-# `quarto preview posts/Future/Magic/1-counting/index.qmd` then fails with
-# "No output created". So the script copies the blog's chrome (theme, navbar, css) into a
-# scratch folder, mirrors this Magic folder into it as posts/Magic/, shows drafts, and
-# previews there. Edits you save here are mirrored every second. The repo is only read.
+# Why this script exists: a plain `quarto preview` re-renders a page only when its .qmd
+# changes, hides drafts (Part 2 while it is unpublished) and writes into the repo's _site.
+# So the script copies the blog's chrome (theme, navbar, css) into a scratch folder, mirrors
+# this Magic folder into it as posts/Magic/, shows drafts, and previews there. Edits you
+# save here are mirrored every second, and a change to a _kit/ file re-renders the page.
+# The repo is only read. It works from wherever this folder sits inside the blog.
 set -euo pipefail
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-BLOG="$(cd "$HERE/../../.." && pwd)"
+BLOG="$(cd "$HERE" && while [ ! -f _quarto.yml ] && [ "$PWD" != / ]; do cd ..; done; pwd)"
+[ -f "$BLOG/_quarto.yml" ] || { echo "No _quarto.yml above $HERE" >&2; exit 1; }
 SCRATCH="${MAGIC_PREVIEW_DIR:-${TMPDIR:-/tmp}/math_blog_magic_preview}"
 PART="${1:-1-counting}"
 [ $# -gt 0 ] && shift

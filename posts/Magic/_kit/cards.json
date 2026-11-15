@@ -212,6 +212,78 @@
    "art": "crumbling_necropolis.jpg",
    "artist": "Dave Kendall",
    "big": "UBR"
+  },
+  {
+   "id": "black-lotus",
+   "name": "Black Lotus",
+   "cost": "0",
+   "type": "Artifact",
+   "pt": null,
+   "frame": "art",
+   "ident": "WUBRG",
+   "text": "Discard it to make three mana of one colour, once.",
+   "art": "black_lotus.jpg",
+   "artist": "Christopher Rush"
+  },
+  {
+   "id": "pyretic-ritual",
+   "name": "Pyretic Ritual",
+   "cost": "1R",
+   "type": "Spell",
+   "pt": null,
+   "frame": "r",
+   "ident": "R",
+   "text": "Makes {R}{R}{R}, this turn only.",
+   "art": "pyretic_ritual.jpg",
+   "artist": "James Paick"
+  },
+  {
+   "id": "growth-spiral",
+   "name": "Growth Spiral",
+   "cost": "GU",
+   "type": "Spell",
+   "pt": null,
+   "frame": "gold",
+   "ident": "GU",
+   "text": "Draw a card. You may play one more land this turn.",
+   "art": "growth_spiral.jpg",
+   "artist": "Seb McKinnon"
+  },
+  {
+   "id": "divination",
+   "name": "Divination",
+   "cost": "2U",
+   "type": "Spell",
+   "pt": null,
+   "frame": "u",
+   "ident": "U",
+   "text": "Draw two cards.",
+   "art": "divination.jpg",
+   "artist": "Willian Murai"
+  },
+  {
+   "id": "scalding-tarn",
+   "name": "Scalding Tarn",
+   "cost": "",
+   "type": "Land",
+   "pt": null,
+   "frame": "land",
+   "ident": "UR",
+   "text": "Pay 1 life and trade it for an Island or a Mountain from your book.",
+   "art": "scalding_tarn.jpg",
+   "artist": "Philip Straub"
+  },
+  {
+   "id": "counterspell",
+   "name": "Counterspell",
+   "cost": "UU",
+   "type": "Spell",
+   "pt": null,
+   "frame": "u",
+   "ident": "U",
+   "text": "Cancel a spell your opponent is casting.",
+   "art": "counterspell.jpg",
+   "artist": "Mark Romanoski"
   }
  ]
 }
